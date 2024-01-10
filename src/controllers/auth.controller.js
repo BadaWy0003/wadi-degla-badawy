@@ -23,4 +23,8 @@ AuthController.customerRegister = async (req, res) => {
   }
 };
 
+AuthController.deleteCookie = async (req, res) => {
+  res.status(200).clearCookie("auth").send("user logged out");
+};
+
 module.exports = AuthController;
