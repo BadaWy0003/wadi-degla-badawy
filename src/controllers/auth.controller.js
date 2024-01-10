@@ -19,7 +19,31 @@ AuthController.customerRegister = async (req, res) => {
     });
   } catch (err) {
     console.log(err.message);
-    throw new Error("Failed to create customer");
+    throw new Error("Failed to Register customer");
+  }
+};
+
+AuthController.customerLogin = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const data = await AuthService.loginUserAndSignToken({
+      email,
+      password,
+    });
+
+    if (!data) {
+      res.status(401).send({ message: "Authentication failed" });
+    }
+
+    res.status(200).cookie("auth", data.token, { httpOnly: true }).json({
+      id: data.customer.id,
+      email: data.customer.email,
+      token: data.token,
+    });
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to Login customer");
   }
 };
 
