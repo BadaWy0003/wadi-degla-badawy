@@ -37,26 +37,21 @@ AuthService.loginUserAndSignToken = async (customerData) => {
   const { email, password } = customerData;
   let customer;
 
-  try {
-    customer = await prisma.customer.findUniqueOrThrow({
+    customer = await prisma.customer.findUnique({
       where: { email },
       select: { id: true, email: true, password: true },
     });
-  } catch (err) {
-    if (err instanceof Prisma.PrismaClientKnownRequestError) {
-      if (err.code === "P2025") {
-        console.log("authentication failed");
-      }
+
+    if (!customer) {
+      throw new Error("User not found");
     }
-    throw err;
-  }
 
-  const isPasswordValid = await comparePassword(password, customer.password);
+    const isPasswordValid = await comparePassword(password, customer.password);
 
-  if (!isPasswordValid) {
-    console.log("Invalid Password");
-    return isPasswordValid;
-  }
+    if (!isPasswordValid) {
+      throw new Error("Invalid password");
+    }
+
   const token = await generateSignedUserToken(customer.id);
 
   return { customer, token };

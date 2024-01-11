@@ -32,18 +32,13 @@ AuthController.customerLogin = async (req, res) => {
       password,
     });
 
-    if (!data) {
-      res.status(401).send({ message: "Authentication failed" });
-    }
-
     res.status(200).cookie("auth", data.token, { httpOnly: true }).json({
       id: data.customer.id,
       email: data.customer.email,
       token: data.token,
     });
   } catch (err) {
-    console.log(err);
-    throw new Error("Failed to Login customer");
+    res.status(401).send({ message: err.message });
   }
 };
 
