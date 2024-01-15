@@ -1,5 +1,4 @@
 const AuthService = {};
-const { Prisma } = require("@prisma/client");
 const prisma = require("../database");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -37,20 +36,20 @@ AuthService.loginUserAndSignToken = async (customerData) => {
   const { email, password } = customerData;
   let customer;
 
-    customer = await prisma.customer.findUnique({
-      where: { email },
-      select: { id: true, email: true, password: true },
-    });
+  customer = await prisma.customer.findUnique({
+    where: { email },
+    select: { id: true, email: true, password: true },
+  });
 
-    if (!customer) {
-      throw new Error("User not found");
-    }
+  if (!customer) {
+    throw new Error("User not found");
+  }
 
-    const isPasswordValid = await comparePassword(password, customer.password);
+  const isPasswordValid = await comparePassword(password, customer.password);
 
-    if (!isPasswordValid) {
-      throw new Error("Invalid password");
-    }
+  if (!isPasswordValid) {
+    throw new Error("Invalid password");
+  }
 
   const token = await generateSignedUserToken(customer.id);
 

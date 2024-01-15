@@ -4,6 +4,7 @@ const IndexController = {};
 IndexController.index = async (req, res) => {
   try {
     const respond = await IndexService.apiTest();
+
     res.status(200).send(respond);
   } catch (error) {
     console.log(error);

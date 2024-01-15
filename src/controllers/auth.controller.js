@@ -12,14 +12,14 @@ AuthController.customerRegister = async (req, res) => {
     });
 
     res.status(201).cookie("auth", data.token, { httpOnly: true }).json({
-      id: data.newUser.id,
-      username: data.newUser.username,
-      email: data.newUser.email,
+      id: data.newCustomer.id,
+      username: data.newCustomer.username,
+      email: data.newCustomer.email,
       token: data.token,
     });
   } catch (err) {
-    console.log(err.message);
-    throw new Error("Failed to Register customer");
+    
+    res.status(401).send({ message: err.message });
   }
 };
 
