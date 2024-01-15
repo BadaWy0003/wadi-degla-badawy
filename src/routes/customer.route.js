@@ -9,4 +9,6 @@ router.get(
   CustomerController.getCurrentCustomerProfile
 );
 
+router.get("/all", CustomerController.getAllCustomer);
+
 module.exports = router;
