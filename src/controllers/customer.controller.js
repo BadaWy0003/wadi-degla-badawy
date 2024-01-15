@@ -7,8 +7,17 @@ CustomerController.getCurrentCustomerProfile = async (req, res) => {
 
     res.status(200).send(data);
   } catch (err) {
-    console.log(err);
-    res.status(401).send({ message: err.message });
+    res.status(400).send({ message: err.message });
+  }
+};
+
+CustomerController.getAllCustomer = async (req, res) => {
+  try {
+    const data = await CustomerService.fetchAllCustomer();
+
+    res.status(200).send(data);
+  } catch (err) {
+    res.status(400).send({ message: err.message });
   }
 };
 
