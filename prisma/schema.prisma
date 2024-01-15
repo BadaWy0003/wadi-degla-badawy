@@ -54,4 +54,5 @@ model Employee {
   id   Int    @id @unique @default(autoincrement())
   name String
   role String
+  isAdmin Boolean
 }
