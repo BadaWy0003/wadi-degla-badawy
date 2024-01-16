@@ -1,5 +1,5 @@
 const joi = require("joi");
-import { joiPasswordExtendCore } from "joi-password";
+const joiPasswordExtendCore = require("joi-password");
 
 const joiPassword = joi.extend(joiPasswordExtendCore);
 const passwordSchema = joiPassword
