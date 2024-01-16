@@ -1,4 +1,4 @@
-import joi from "joi";
+const joi = require("joi");
 import { joiPasswordExtendCore } from "joi-password";
 
 const joiPassword = joi.extend(joiPasswordExtendCore);
@@ -30,4 +30,9 @@ export const loginCustomerReqSchema = {
       password: passwordSchema,
     })
     .required(),
+};
+
+module.exports = {
+  registerCustomerReqSchema,
+  loginCustomerReqSchema,
 };
