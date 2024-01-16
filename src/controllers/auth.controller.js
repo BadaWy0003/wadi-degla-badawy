@@ -27,7 +27,7 @@ AuthController.customerLogin = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const data = await AuthService.loginUserAndSignToken({
+    const data = await AuthService.loginCustomerAndSignToken({
       email,
       password,
     });

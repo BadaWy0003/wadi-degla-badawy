@@ -32,7 +32,7 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
   return transaction;
 };
 
-AuthService.loginUserAndSignToken = async (customerData) => {
+AuthService.loginCustomerAndSignToken = async (customerData) => {
   const { email, password } = customerData;
   let customer;
 
