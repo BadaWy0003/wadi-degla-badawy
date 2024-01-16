@@ -8,8 +8,29 @@ CustomerService.getCustomerById = async (customerId) => {
 };
 
 CustomerService.fetchAllCustomer = async () => {
+
   return prisma.customer.findMany();
 };
 
+CustomerService.currentCustomerUpdate = async (customerId, newCustomer) => {
+  const customerExist = await prisma.customer.findUnique({
+    where: { id: customerId },
+  });
+
+  if (!customerExist) {
+    return { error: "Customer Doesn't Exist" };
+  }
+
+  const updatedCustomer = await prisma.customer.update({
+    where: {
+      id: customerId,
+    },
+    data: {
+      username: newCustomer.username,
+    },
+  });
+
+  return updatedCustomer;
+};
 
 module.exports = CustomerService;

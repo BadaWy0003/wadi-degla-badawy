@@ -31,4 +31,17 @@ CustomerController.getCustomerById = async (req, res) => {
   }
 };
 
+CustomerController.putCurrentCustomer = async (req, res) => {
+  try {
+    const response = await CustomerService.currentCustomerUpdate(
+      req.user.id,
+      req.body
+    );
+
+    res.status(200).send(response);
+  } catch (error) {
+    res.status(400).send({ message: err.message });
+  }
+};
+
 module.exports = CustomerController;
