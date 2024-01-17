@@ -7,6 +7,17 @@ const AUTH_TOKEN_EXPIRY = "7d";
 
 AuthService.createCustomerAndGenerateToken = async (customerData) => {
   const { username, email, password } = customerData;
+
+  const customerExist = await prisma.customer.findFirst({
+    where: {
+      email: email,
+    },
+  });
+
+  if (customerExist) {
+    throw new Error("Email already exists");
+  }
+
   const hashedPassword = await hashPassword(password);
 
   let token, newCustomer;
