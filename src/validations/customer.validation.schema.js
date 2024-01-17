@@ -1,32 +1,31 @@
-const joi = require("joi");
-const joiPasswordExtendCore = require("joi-password");
+const Joi = require("joi");
+const passwordComplexity = require("joi-password-complexity");
 
-const joiPassword = joi.extend(joiPasswordExtendCore);
-const passwordSchema = joiPassword
-  .string()
-  .min(8)
-  .max(16)
-  .minOfSpecialCharacters(1)
-  .minOfLowercase(1)
-  .minOfUppercase(1)
-  .required();
+const complexityOptions = {
+  min: 8,
+  max: 16,
+  lowerCase: 1,
+  upperCase: 1,
+  numeric: 1,
+  symbol: 1,
+  requirementCount: 4,
+};
+const passwordSchema = passwordComplexity(complexityOptions);
 
-export const registerCustomerReqSchema = {
-  body: joi
-    .object()
+const registerCustomerReqSchema = {
+  body: Joi.object()
     .keys({
-      username: joi.string().min(4).max(20).required(),
-      email: joi.string().email().required(),
+      username: Joi.string().min(4).max(20).required(),
+      email: Joi.string().email().required(),
       password: passwordSchema,
     })
     .required(),
 };
 
-export const loginCustomerReqSchema = {
-  body: joi
-    .object()
+const loginCustomerReqSchema = {
+  body: Joi.object()
     .keys({
-      email: joi.string().email(),
+      email: Joi.string().email().required(),
       password: passwordSchema,
     })
     .required(),
