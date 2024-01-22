@@ -11,18 +11,26 @@ datasource db {
 }
 
 // schema.prisma
-model Customer {
+model User {
   id     Int     @id @unique @default(autoincrement())
   username   String
   email String @unique
   password String
-  orders Order[] 
+  orders Order[]
+  userTypes UserType
+}
+
+enum UserType {
+  SUPER_ADMIN
+  ADMIN
+  MODERATOR
+  CUSTOMER
 }
 
 model Order {
   id          Int          @id @unique @default(autoincrement())
-  customerId  Int 
-  customer    Customer     @relation(fields: [customerId], references: [id])
+  userId  Int 
+  user    User     @relation(fields: [userId], references: [id])
   orderDetail OrderDetail? 
   products    Product[] 
   export      Export?      @relation(fields: [exportId], references: [id])
@@ -50,9 +58,3 @@ model Export {
   order   Order? 
 }
 
-model Employee {
-  id   Int    @id @unique @default(autoincrement())
-  name String
-  role String
-  isAdmin Boolean
-}
