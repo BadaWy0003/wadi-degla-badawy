@@ -12,17 +12,20 @@ const complexityOptions = {
 };
 const passwordSchema = passwordComplexity(complexityOptions);
 
-const registerCustomerReqSchema = {
+const registerUserReqSchema = {
   body: Joi.object()
     .keys({
       username: Joi.string().min(4).max(20).required(),
       email: Joi.string().email().required(),
+      userType: Joi.string()
+        .valid("SUPER_ADMIN", "ADMIN", "MODERATOR", "CUSTOMER")
+        .required(),
       password: passwordSchema,
     })
     .required(),
 };
 
-const loginCustomerReqSchema = {
+const loginUserReqSchema = {
   body: Joi.object()
     .keys({
       email: Joi.string().email().required(),
@@ -32,6 +35,6 @@ const loginCustomerReqSchema = {
 };
 
 module.exports = {
-  registerCustomerReqSchema,
-  loginCustomerReqSchema,
+  registerUserReqSchema,
+  loginUserReqSchema,
 };

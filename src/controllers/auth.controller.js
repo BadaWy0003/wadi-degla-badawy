@@ -1,40 +1,43 @@
 const AuthService = require("../services/auth.service");
 const AuthController = {};
 
-AuthController.customerRegister = async (req, res) => {
-  const { username, email, password } = req.body;
+AuthController.userRegister = async (req, res) => {
+  const { username, email, password, userType } = req.body;
 
   try {
-    const data = await AuthService.createCustomerAndGenerateToken({
+    const data = await AuthService.createUserAndGenerateToken({
       username: username,
       email: email,
       password: password,
+      userType: userType,
     });
 
     res.status(201).cookie("auth", data.token, { httpOnly: true }).json({
-      id: data.newCustomer.id,
-      username: data.newCustomer.username,
-      email: data.newCustomer.email,
+      id: data.newUser.id,
+      username: data.newUser.username,
+      email: data.newUser.email,
+      userType: data.newUser.userType,
       token: data.token,
     });
   } catch (err) {
-    
     res.status(401).send({ message: err.message });
   }
 };
 
-AuthController.customerLogin = async (req, res) => {
+AuthController.userLogin = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const data = await AuthService.loginCustomerAndSignToken({
+    const data = await AuthService.loginUserAndSignToken({
       email,
       password,
     });
 
     res.status(200).cookie("auth", data.token, { httpOnly: true }).json({
-      id: data.customer.id,
-      email: data.customer.email,
+      id: data.user.id,
+      username: data.user.username,
+      email: data.user.email,
+      userType: data.user.userType,
       token: data.token,
     });
   } catch (err) {

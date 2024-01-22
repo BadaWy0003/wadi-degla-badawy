@@ -5,66 +5,67 @@ const jwt = require("jsonwebtoken");
 
 const AUTH_TOKEN_EXPIRY = "7d";
 
-AuthService.createCustomerAndGenerateToken = async (customerData) => {
-  const { username, email, password } = customerData;
+AuthService.createUserAndGenerateToken = async (userData) => {
+  const { username, email, password, userType } = userData;
 
-  const customerExist = await prisma.customer.findFirst({
+  const userExist = await prisma.user.findFirst({
     where: {
       email: email,
     },
   });
 
-  if (customerExist) {
+  if (userExist) {
     throw new Error("Email already exists");
   }
 
   const hashedPassword = await hashPassword(password);
 
-  let token, newCustomer;
+  let token, newUser;
 
   const transaction = await prisma.$transaction(async (tx) => {
-    newCustomer = await prisma.customer.create({
+    newUser = await prisma.user.create({
       data: {
         username,
         email,
         password: hashedPassword,
+        userType,
       },
     });
 
     try {
-      token = await generateSignedUserToken(newCustomer.id);
+      token = await generateSignedUserToken(newUser.id);
     } catch (error) {
       throw new Error("Token generation failed");
     }
 
-    return { newCustomer, token };
+    return { newUser, token };
   });
 
   return transaction;
 };
 
-AuthService.loginCustomerAndSignToken = async (customerData) => {
-  const { email, password } = customerData;
-  let customer;
+AuthService.loginUserAndSignToken = async (userData) => {
+  const { email, password } = userData;
+  let user;
 
-  customer = await prisma.customer.findUnique({
+  user = await prisma.user.findUnique({
     where: { email },
     select: { id: true, email: true, password: true },
   });
 
-  if (!customer) {
+  if (!user) {
     throw new Error("User not found");
   }
 
-  const isPasswordValid = await comparePassword(password, customer.password);
+  const isPasswordValid = await comparePassword(password, user.password);
 
   if (!isPasswordValid) {
     throw new Error("Invalid password");
   }
 
-  const token = await generateSignedUserToken(customer.id);
+  const token = await generateSignedUserToken(user.id);
 
-  return { customer, token };
+  return { user, token };
 };
 
 const hashPassword = async (password) => {

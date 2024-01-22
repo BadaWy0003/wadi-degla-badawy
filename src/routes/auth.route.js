@@ -3,20 +3,16 @@ const router = express.Router();
 const AuthController = require("../controllers/auth.controller");
 const validate = require("../middlewares/request-validator.middleware");
 const {
-  registerCustomerReqSchema,
-  loginCustomerReqSchema,
-} = require("../validations/customer.validation.schema");
+  registerUserReqSchema,
+  loginUserReqSchema,
+} = require("../validations/user.validation.schema");
 
 router.post(
-  "/customer/register",
-  validate(registerCustomerReqSchema),
-  AuthController.customerRegister
+  "/register",
+  validate(registerUserReqSchema),
+  AuthController.userRegister
 );
-router.post(
-  "/customer/login",
-  validate(loginCustomerReqSchema),
-  AuthController.customerLogin
-);
+router.post("/login", validate(loginUserReqSchema), AuthController.userLogin);
 router.post("/logout", AuthController.deleteCookie);
 
 module.exports = router;

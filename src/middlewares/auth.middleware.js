@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const prisma = require("../database");
 
-const customerAuth = async (req, res, next) => {
+const userAuth = async (req, res, next) => {
   try {
     const token =
       req.cookies["auth"] || req.headers["authorization"]?.split(" ")[1];
@@ -11,7 +11,7 @@ const customerAuth = async (req, res, next) => {
     }
 
     const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
-    const user = await prisma.customer.findUniqueOrThrow({
+    const user = await prisma.user.findUniqueOrThrow({
       where: { id: decodedToken.id },
       select: {
         id: true,
@@ -27,4 +27,4 @@ const customerAuth = async (req, res, next) => {
   }
 };
 
-module.exports = customerAuth;
+module.exports = userAuth;

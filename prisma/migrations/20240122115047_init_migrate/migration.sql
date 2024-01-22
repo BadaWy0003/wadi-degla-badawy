@@ -1,17 +1,21 @@
+-- CreateEnum
+CREATE TYPE "UserType" AS ENUM ('SUPER_ADMIN', 'ADMIN', 'MODERATOR', 'CUSTOMER');
+
 -- CreateTable
-CREATE TABLE "Customer" (
+CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "username" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "userType" "UserType" NOT NULL,
 
-    CONSTRAINT "Customer_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Order" (
     "id" SERIAL NOT NULL,
-    "customerId" INTEGER NOT NULL,
+    "userId" INTEGER NOT NULL,
     "exportId" INTEGER,
 
     CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
@@ -44,20 +48,11 @@ CREATE TABLE "Export" (
     CONSTRAINT "Export_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
-CREATE TABLE "Employee" (
-    "id" SERIAL NOT NULL,
-    "name" TEXT NOT NULL,
-    "role" TEXT NOT NULL,
-
-    CONSTRAINT "Employee_pkey" PRIMARY KEY ("id")
-);
+-- CreateIndex
+CREATE UNIQUE INDEX "User_id_key" ON "User"("id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Customer_id_key" ON "Customer"("id");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Customer_email_key" ON "Customer"("email");
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Order_id_key" ON "Order"("id");
@@ -74,11 +69,8 @@ CREATE UNIQUE INDEX "OrderDetail_orderId_key" ON "OrderDetail"("orderId");
 -- CreateIndex
 CREATE UNIQUE INDEX "Export_id_key" ON "Export"("id");
 
--- CreateIndex
-CREATE UNIQUE INDEX "Employee_id_key" ON "Employee"("id");
-
 -- AddForeignKey
-ALTER TABLE "Order" ADD CONSTRAINT "Order_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "Customer"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Order" ADD CONSTRAINT "Order_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Order" ADD CONSTRAINT "Order_exportId_fkey" FOREIGN KEY ("exportId") REFERENCES "Export"("id") ON DELETE SET NULL ON UPDATE CASCADE;
