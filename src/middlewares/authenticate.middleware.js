@@ -15,8 +15,7 @@ const userAuth = async (req, res, next) => {
       where: { id: decodedToken.id },
       select: {
         id: true,
-        email: true,
-        password: true,
+        userType: true,
       },
     });
 

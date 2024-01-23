@@ -33,7 +33,7 @@ AuthService.createUserAndGenerateToken = async (userData) => {
     });
 
     try {
-      token = await generateSignedUserToken(newUser.id);
+      token = await generateSignedUserToken(newUser.id, newUser.userType);
     } catch (error) {
       throw new Error("Token generation failed");
     }
@@ -77,8 +77,8 @@ const comparePassword = async (password, passwordDB) => {
   return bcrypt.compare(password, passwordDB);
 };
 
-const generateSignedUserToken = async (id) => {
-  return jwt.sign({ id }, process.env.SECRET_KEY, {
+const generateSignedUserToken = async (id, userType) => {
+  return jwt.sign({ id, userType }, process.env.SECRET_KEY, {
     expiresIn: AUTH_TOKEN_EXPIRY,
   });
 };
