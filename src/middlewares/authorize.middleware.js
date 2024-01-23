@@ -8,7 +8,7 @@ const roleHierarchy = {
 const authorize = (requiredRole) => {
   return (req, res, next) => {
     const userRole = req.user.userType;
-    console.log(requiredRole, "---", userRole);
+
     if (roleHierarchy[userRole] >= roleHierarchy[requiredRole]) {
       next();
     } else {
