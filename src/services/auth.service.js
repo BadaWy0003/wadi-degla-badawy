@@ -1,10 +1,8 @@
 const AuthService = {};
 const prisma = require("../database");
-const jwt = require("jsonwebtoken");
 const hashPassword = require("../utils/password-hasher");
 const comparePassword = require("../utils/compare-password");
-
-const AUTH_TOKEN_EXPIRY = "7d";
+const generateSignedUserToken = require("../utils/generate-token");
 
 AuthService.createUserAndGenerateToken = async (userData) => {
   const { username, email, password, userType } = userData;
@@ -67,12 +65,6 @@ AuthService.loginUserAndSignToken = async (userData) => {
   const token = await generateSignedUserToken(user.id);
 
   return { user, token };
-};
-
-const generateSignedUserToken = async (id, userType) => {
-  return jwt.sign({ id, userType }, process.env.SECRET_KEY, {
-    expiresIn: AUTH_TOKEN_EXPIRY,
-  });
 };
 
 module.exports = AuthService;
