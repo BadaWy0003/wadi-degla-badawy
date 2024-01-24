@@ -5,7 +5,7 @@ const comparePassword = require("../utils/compare-password");
 const generateSignedUserToken = require("../utils/generate-token");
 
 AuthService.createUserAndGenerateToken = async (userData) => {
-  const { username, email, password, userType } = userData;
+  const { username, email, password } = userData;
 
   const userExist = await prisma.user.findFirst({
     where: {
@@ -27,7 +27,7 @@ AuthService.createUserAndGenerateToken = async (userData) => {
         username,
         email,
         password: hashedPassword,
-        userType,
+        userType: "CUSTOMER",
       },
     });
 
