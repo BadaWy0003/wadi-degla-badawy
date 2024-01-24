@@ -32,7 +32,25 @@ UserService.createUser = async (userData) => {
   return { newUser };
 };
 
+UserService.deleteUser = async (userId) => {
+  userId = parseInt(userId);
 
+  const userExist = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+
+  if (!userExist) {
+    return { error: "User Doesn't Exist" };
+  }
+
+  const deletedUser = await prisma.user.delete({
+    where: {
+      id: userId,
+    },
+  });
+
+  return deletedUser;
+};
 
 UserService.getUserByIdAndExcludePassword = async (userId) => {
   userId = parseInt(userId);

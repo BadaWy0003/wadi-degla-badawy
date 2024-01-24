@@ -4,11 +4,28 @@ const UserController = require("../controllers/user.controller");
 const userAuth = require("../middlewares/authenticate.middleware");
 const authorize = require("../middlewares/authorize.middleware");
 
-router.post("/create", userAuth, authorize("ADMIN"), UserController.createUser);
+router.post(
+  "/create",
+  userAuth,
+  authorize("SUPER_ADMIN"),
+  UserController.createUser
+);
+
+router.delete(
+  "/delete/:userId",
+  userAuth,
+  authorize("SUPER_ADMIN"),
+  UserController.deleteUser
+);
 
 router.get("/me", userAuth, UserController.getCurrentUser);
 
-router.get("/all", userAuth, authorize("ADMIN"), UserController.getAllUser);
+router.get(
+  "/all",
+  userAuth,
+  authorize("SUPER_ADMIN"),
+  UserController.getAllUser
+);
 
 router.put("/me/edit", userAuth, UserController.putCurrentUser);
 

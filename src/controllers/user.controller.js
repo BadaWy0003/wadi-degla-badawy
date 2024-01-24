@@ -11,6 +11,18 @@ UserController.createUser = async (req, res) => {
   }
 };
 
+UserController.deleteUser = async (req, res) => {
+  try {
+    const data = await UserService.deleteUser(req.params.userId);
+
+    res
+      .status(200)
+      .send(`User deleted. \nId: ${data.id}\nEmail: ${data.email}`);
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+};
+
 UserController.getCurrentUser = async (req, res) => {
   try {
     const data = await UserService.getUserByIdAndExcludePassword(req.user.id);
