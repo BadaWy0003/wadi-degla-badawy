@@ -1,7 +1,8 @@
 const AuthService = {};
 const prisma = require("../database");
-const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const hashPassword = require("../utils/password-hasher");
+const comparePassword = require("../utils/compare-password");
 
 const AUTH_TOKEN_EXPIRY = "7d";
 
@@ -66,15 +67,6 @@ AuthService.loginUserAndSignToken = async (userData) => {
   const token = await generateSignedUserToken(user.id);
 
   return { user, token };
-};
-
-const hashPassword = async (password) => {
-  const salt = await bcrypt.genSalt(10);
-  return bcrypt.hash(password, salt);
-};
-
-const comparePassword = async (password, passwordDB) => {
-  return bcrypt.compare(password, passwordDB);
 };
 
 const generateSignedUserToken = async (id, userType) => {
