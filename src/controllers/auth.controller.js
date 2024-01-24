@@ -2,14 +2,13 @@ const AuthService = require("../services/auth.service");
 const AuthController = {};
 
 AuthController.userRegister = async (req, res) => {
-  const { username, email, password, userType } = req.body;
+  const { username, email, password } = req.body;
 
   try {
     const data = await AuthService.createUserAndGenerateToken({
       username: username,
       email: email,
       password: password,
-      userType: userType,
     });
 
     res.status(201).cookie("auth", data.token, { httpOnly: true }).json({

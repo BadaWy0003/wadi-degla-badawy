@@ -1,5 +1,56 @@
 const prisma = require("../database");
 const UserService = {};
+const hashPassword = require("../utils/password-hasher");
+
+UserService.createUser = async (userData) => {
+  const { username, email, password, userType } = userData;
+
+  const userExist = await prisma.user.findFirst({
+    where: {
+      email: email,
+    },
+  });
+
+  if (userExist) {
+    throw new Error("Email already exists");
+  }
+
+  const hashedPassword = await hashPassword(password);
+
+  let newUser;
+
+  newUser = await prisma.user.create({
+    data: {
+      username,
+      email,
+      password: hashedPassword,
+      userType,
+    },
+  });
+  delete newUser.password;
+
+  return { newUser };
+};
+
+UserService.deleteUser = async (userId) => {
+  userId = parseInt(userId);
+
+  const userExist = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+
+  if (!userExist) {
+    return { error: "User Doesn't Exist" };
+  }
+
+  const deletedUser = await prisma.user.delete({
+    where: {
+      id: userId,
+    },
+  });
+
+  return deletedUser;
+};
 
 UserService.getUserByIdAndExcludePassword = async (userId) => {
   userId = parseInt(userId);

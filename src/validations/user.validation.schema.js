@@ -17,9 +17,6 @@ const registerUserReqSchema = {
     .keys({
       username: Joi.string().min(4).max(20).required(),
       email: Joi.string().email().required(),
-      userType: Joi.string()
-        .valid("SUPER_ADMIN", "ADMIN", "MODERATOR", "CUSTOMER")
-        .required(),
       password: passwordSchema,
     })
     .required(),

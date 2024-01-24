@@ -1,6 +1,28 @@
 const UserService = require("../services/user.service");
 const UserController = {};
 
+UserController.createUser = async (req, res) => {
+  try {
+    const data = await UserService.createUser(req.body);
+
+    res.status(201).send(data);
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+};
+
+UserController.deleteUser = async (req, res) => {
+  try {
+    const data = await UserService.deleteUser(req.params.userId);
+
+    res
+      .status(200)
+      .send(`User deleted. \nId: ${data.id}\nEmail: ${data.email}`);
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+};
+
 UserController.getCurrentUser = async (req, res) => {
   try {
     const data = await UserService.getUserByIdAndExcludePassword(req.user.id);
