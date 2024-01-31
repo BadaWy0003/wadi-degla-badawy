@@ -30,13 +30,44 @@ model Invoice {
   id          Int          @id @unique @default(autoincrement())
   userId  Int 
   user    User     @relation(fields: [userId], references: [id])
-  tiles Tile[]
+  status      String
+  invoiceDate   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  invoiceNumber String
+  customerId String
+  customerName String
+  customerAddress String
+  customerPhone String
+  customerEmail String
+  customerTaxId String
+  shippingType String
+  shippingPort String
+  PaymentTerms String
+  items InvoiceItem[]
+  comments String
+  shipmentTotalContainers Int
+  totalBoxes Int
+  netWeight Float
+  grossWeight Float
+  discount Float
+  total Float
+  totalMeters Float
+  totalCbm Float
+  totalCtns Float
+  totalKgs Float
+  totalLbs Float
+  
 }
 
-model Tile {
-  id      Int    @id @default(autoincrement())
-  name    String
-  price   Float
-  invoiceId Int? 
-  invoice   Invoice? @relation(fields: [invoiceId], references: [id])
+model InvoiceItem {
+  id        Int     @id @default(autoincrement())
+  invoiceId Int
+  invoice   Invoice @relation(fields: [invoiceId], references: [id])
+  drscription String
+  weight     Float
+  height     Float
+  quantity     Float
+  meters     Float
+  price     Float
+  total     Float
 }
