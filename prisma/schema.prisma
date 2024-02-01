@@ -52,11 +52,7 @@ model Invoice {
   discount Float
   total Float
   totalMeters Float
-  totalCbm Float
-  totalCtns Float
-  totalKgs Float
-  totalLbs Float
-  
+
 }
 
 model InvoiceItem {
