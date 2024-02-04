@@ -20,4 +20,18 @@ invoiceService.createInvoice = async (invoiceData) => {
   return newInvoice;
 };
 
+invoiceService.getAllInvoices = async () => {
+  return prisma.invoice.findMany({
+    include: {
+      user: {
+        select: {
+          username: true,
+          email: true,
+          userType: true,
+        },
+      },
+    },
+  });
+};
+
 module.exports = invoiceService;

@@ -11,4 +11,11 @@ router.post(
   InvoiceController.createInvoice
 );
 
+router.get(
+  "/get",
+  userAuth,
+  authorize("SUPER_ADMIN", "ADMIN"),
+  InvoiceController.getAllInvoices
+);
+
 module.exports = router;
