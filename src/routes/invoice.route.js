@@ -5,6 +5,13 @@ const userAuth = require("../middlewares/authenticate.middleware");
 const authorize = require("../middlewares/authorize.middleware");
 
 router.post(
+  "/request",
+  userAuth,
+  authorize("CUSTOMER"),
+  InvoiceController.requestInvoice
+);
+
+router.post(
   "/create",
   userAuth,
   authorize("SUPER_ADMIN"),

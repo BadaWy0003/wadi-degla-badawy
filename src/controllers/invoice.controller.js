@@ -1,6 +1,18 @@
 const invoiceController = {};
 const invoiceService = require("../services/invoice.service");
 
+invoiceController.requestInvoice = async (req, res) => {
+  try {
+    const data = await invoiceService.requestInvoice(req.user.id, req.body);
+
+    res.status(201).send(data);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+};
+
 invoiceController.createInvoice = async (req, res) => {
   try {
     const data = await invoiceService.createInvoice(req.body);
