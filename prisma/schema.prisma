@@ -30,15 +30,15 @@ model Invoice {
   id          Int          @id @unique @default(autoincrement())
   userId  Int 
   user    User     @relation(fields: [userId], references: [id])
-  status      Int?
+  status      Int
   invoiceDate   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
-  invoiceNumber String?
-  customerId String?
-  customerName String?
-  customerAddress String?
-  customerPhone String?
-  customerEmail String?
+  invoiceNumber String
+  customerId String
+  customerName String
+  customerAddress String
+  customerPhone String
+  customerEmail String
   customerTaxId String?
   shippingType String?
   shippingPort String?
@@ -59,7 +59,7 @@ model InvoiceItem {
   id        Int     @id @default(autoincrement())
   invoiceId Int
   invoice   Invoice @relation(fields: [invoiceId], references: [id])
-  description String?
+  description String
   weight     Float?
   height     Float?
   quantity     Float?
