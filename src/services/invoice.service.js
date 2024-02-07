@@ -10,9 +10,11 @@ invoiceService.requestInvoice = async (userId, requestData) => {
     },
   });
 
+
   invoiceData = {
     invoiceNumber: generateInvoiceId(),
     status: 0,
+    customerId: userData.id.toString(),
     customerName: userData.username,
     customerEmail: userData.email,
     ...customerData,
