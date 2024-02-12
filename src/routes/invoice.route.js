@@ -26,7 +26,7 @@ router.post(
 );
 
 router.get(
-  "/get",
+  "/all",
   userAuth,
   authorize("SUPER_ADMIN"),
   InvoiceController.getAllInvoices
