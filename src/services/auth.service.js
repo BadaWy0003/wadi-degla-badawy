@@ -9,7 +9,7 @@ AuthService.createUserAndGenerateToken = async (userData) => {
 
   const userExist = await prisma.user.findFirst({
     where: {
-      email: email,
+      email,
     },
   });
 
@@ -19,9 +19,11 @@ AuthService.createUserAndGenerateToken = async (userData) => {
 
   const hashedPassword = await hashPassword(password);
 
-  let token, newUser;
+  let token;
+  let newUser;
 
   const transaction = await prisma.$transaction(async (tx) => {
+    console.log(tx);
     newUser = await prisma.user.create({
       data: {
         username,
@@ -45,9 +47,8 @@ AuthService.createUserAndGenerateToken = async (userData) => {
 
 AuthService.loginUserAndSignToken = async (userData) => {
   const { email, password } = userData;
-  let user;
 
-  user = await prisma.user.findUnique({
+  const user = await prisma.user.findUnique({
     where: { email },
     select: { id: true, email: true, password: true },
   });
