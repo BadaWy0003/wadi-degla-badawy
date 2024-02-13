@@ -40,6 +40,22 @@ invoiceService.requestInvoice = async (userId, requestData) => {
   return newInvoice;
 };
 
+invoiceService.offerPrice = async (offerData) => {
+  const { invoiceId, priceOffered } = offerData;
+
+  const updatedInvoice = await prisma.invoice.update({
+    where: {
+      id: invoiceId,
+    },
+    data: {
+      status: 1,
+      priceOffered,
+    },
+  });
+
+  return updatedInvoice;
+};
+
 invoiceService.createInvoice = async (invoiceData) => {
   const { invoiceNumber, invoiceDate, invoiceAmount, userId } = invoiceData;
 
