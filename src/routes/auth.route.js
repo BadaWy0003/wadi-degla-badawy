@@ -1,5 +1,4 @@
 const express = require("express");
-const router = express.Router();
 const AuthController = require("../controllers/auth.controller");
 const validate = require("../middlewares/request-validator.middleware");
 const {
@@ -7,10 +6,12 @@ const {
   loginUserReqSchema,
 } = require("../validations/user.validation.schema");
 
+const router = express.Router();
+
 router.post(
   "/register",
   validate(registerUserReqSchema),
-  AuthController.userRegister
+  AuthController.userRegister,
 );
 router.post("/login", validate(loginUserReqSchema), AuthController.userLogin);
 router.post("/logout", AuthController.deleteCookie);
