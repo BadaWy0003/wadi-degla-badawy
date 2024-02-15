@@ -16,6 +16,8 @@ model User {
   email String @unique
   password String
   invoices Invoice[]
+  salespersonId Int
+  salesperson   SalesPerson @relation(fields: [salespersonId], references: [id])
   userType UserType
 }
 
@@ -30,6 +32,8 @@ model Invoice {
   id          Int          @id @unique @default(autoincrement())
   userId  Int 
   user    User     @relation(fields: [userId], references: [id])
+  salespersonId Int
+  salesperson   SalesPerson @relation(fields: [salespersonId], references: [id])
   status      Int
   invoiceDate   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
@@ -66,4 +70,13 @@ model InvoiceItem {
   meters     Float?
   price     Float?
   total     Float?
+}
+
+model SalesPerson {
+  id        Int     @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  users      User[]
+  invoices Invoice[]
 }
