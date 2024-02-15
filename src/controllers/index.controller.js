@@ -12,5 +12,4 @@ IndexController.index = async (req, res) => {
   }
 };
 
-
 module.exports = IndexController;
