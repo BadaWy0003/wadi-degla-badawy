@@ -5,6 +5,7 @@ const quotationReqSchema = {
     body: Joi.object()
         .keys({
 
+            //Dont know the actual keys, These are only suggestions.
             customerName: Joi.String().required(),
             customerAddress: Joi.String().required(),
             customerPhone: Joi.String().required(),
@@ -14,10 +15,14 @@ const quotationReqSchema = {
         .required(),
 };
 
+let Offer = () => { return { items: [], prices: [] } };
+
 const priceOfferReqSchema = {
     body: Joi.object()
         .keys({
 
+            //Dont know the actual keys, These are only suggestions.
+            Offer: Joi.Offer().required()
 
         })
         .required(),
