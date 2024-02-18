@@ -13,9 +13,9 @@ invoiceController.requestInvoice = async (req, res) => {
   }
 };
 
-invoiceController.offerPrice = async (req, res) => {
+invoiceController.offer = async (req, res) => {
   try {
-    const data = await invoiceService.offerPrice(req.body);
+    const data = await invoiceService.offer(req.body);
 
     res.status(200).send(data);
   } catch (err) {

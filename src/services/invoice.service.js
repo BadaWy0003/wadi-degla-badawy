@@ -40,7 +40,7 @@ invoiceService.requestInvoice = async (userId, requestData) => {
   return newInvoice;
 };
 
-invoiceService.offerPrice = async (offerData) => {
+invoiceService.offer = async (offerData) => {
   const { invoiceId, itemUpdates } = offerData;
 
   for (const update of itemUpdates) {

@@ -11,12 +11,7 @@ router.post(
   InvoiceController.requestInvoice
 );
 
-router.put(
-  "/offer-price",
-  userAuth,
-  authorize("ADMIN"),
-  InvoiceController.offerPrice
-);
+router.put("/offer", userAuth, authorize("ADMIN"), InvoiceController.offer);
 
 router.post(
   "/create",
