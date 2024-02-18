@@ -20,6 +20,13 @@ router.put(
   InvoiceController.acceptOffer
 );
 
+router.get(
+  "/my-invoices",
+  userAuth,
+  authorize("CUSTOMER"),
+  InvoiceController.getMyInvoices
+);
+
 router.post(
   "/create",
   userAuth,

@@ -81,6 +81,17 @@ invoiceService.acceptOffer = async (offerData) => {
   return updatedInvoice;
 };
 
+invoiceService.getMyInvoices = async (userId) => {
+  return prisma.invoice.findMany({
+    where: {
+      userId,
+    },
+    include: {
+      items: true,
+    },
+  });
+};
+
 invoiceService.createInvoice = async (invoiceData) => {
   const { invoiceNumber, invoiceDate, invoiceAmount, userId } = invoiceData;
 
