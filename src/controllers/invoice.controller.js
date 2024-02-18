@@ -25,6 +25,18 @@ invoiceController.offer = async (req, res) => {
   }
 };
 
+invoiceController.acceptOffer = async (req, res) => {
+  try {
+    const data = await invoiceService.acceptOffer(req.body);
+
+    res.status(200).send(data);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+};
+
 invoiceController.createInvoice = async (req, res) => {
   try {
     const data = await invoiceService.createInvoice(req.body);

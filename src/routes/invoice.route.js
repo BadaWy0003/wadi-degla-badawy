@@ -13,6 +13,13 @@ router.post(
 
 router.put("/offer", userAuth, authorize("ADMIN"), InvoiceController.offer);
 
+router.put(
+  "/accept",
+  userAuth,
+  authorize("CUSTOMER"),
+  InvoiceController.acceptOffer
+);
+
 router.post(
   "/create",
   userAuth,
