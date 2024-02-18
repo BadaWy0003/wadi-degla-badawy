@@ -74,12 +74,28 @@ invoiceService.acceptOffer = async (offerData) => {
       id: invoiceId,
     },
     data: {
+      status: 2,
+    },
+  });
+
+  return updatedInvoice;
+};
+
+invoiceService.approveOffer = async (offerData) => {
+  const { invoiceId } = offerData;
+
+  const updatedInvoice = await prisma.invoice.update({
+    where: {
+      id: invoiceId,
+    },
+    data: {
       status: 3,
     },
   });
 
   return updatedInvoice;
 };
+
 
 invoiceService.getMyInvoices = async (userId) => {
   return prisma.invoice.findMany({

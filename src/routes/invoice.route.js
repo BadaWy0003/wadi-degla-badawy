@@ -14,10 +14,17 @@ router.post(
 router.put("/offer", userAuth, authorize("ADMIN"), InvoiceController.offer);
 
 router.put(
-  "/accept",
+  "/accept-offer",
   userAuth,
   authorize("CUSTOMER"),
   InvoiceController.acceptOffer
+);
+
+router.put(
+  "/approve-offer",
+  userAuth,
+  authorize("ADMIN"),
+  InvoiceController.approve
 );
 
 router.get(
