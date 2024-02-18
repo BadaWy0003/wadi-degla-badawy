@@ -41,19 +41,19 @@ invoiceService.requestInvoice = async (userId, requestData) => {
 };
 
 invoiceService.offerPrice = async (offerData) => {
-  const { invoiceId, priceOffered } = offerData;
+  const { invoiceId, itemUpdates } = offerData;
 
-  const updatedInvoice = await prisma.invoice.update({
-    where: {
-      id: invoiceId,
-    },
-    data: {
-      status: 1,
-      priceOffered,
-    },
-  });
-
-  return updatedInvoice;
+  for (const update of itemUpdates) {
+    await prisma.invoiceItem.update({
+      where: {
+        id: update.itemId,
+      },
+      data: {
+        price: update.newPrice,
+      },
+    });
+  }
+  return invoiceId;
 };
 
 invoiceService.createInvoice = async (invoiceData) => {
