@@ -5,11 +5,9 @@ const quotationReqSchema = {
     body: Joi.object()
         .keys({
 
-            //Dont know the actual keys, These are only suggestions.
-            customerName: Joi.String().required(),
-            customerAddress: Joi.String().required(),
-            customerPhone: Joi.String().required(),
-            customerEmail: Joi.String().required(),
+            customerAddress: Joi.string().required(),
+            customerPhone: Joi.string().pattern(/^[0-9]{10}$/).required(),
+            customerEmail: Joi.string().email().required(),
 
         })
         .required(),
