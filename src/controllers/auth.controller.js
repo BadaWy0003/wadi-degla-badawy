@@ -1,17 +1,17 @@
-const AuthService = require("../services/auth.service");
 const AuthController = {};
+const AuthService = require('../services/auth.service');
 
 AuthController.userRegister = async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
     const data = await AuthService.createUserAndGenerateToken({
-      username: username,
-      email: email,
-      password: password,
+      username,
+      email,
+      password,
     });
 
-    res.status(201).cookie("auth", data.token, { httpOnly: true }).json({
+    res.status(201).cookie('auth', data.token, { httpOnly: true }).json({
       id: data.newUser.id,
       username: data.newUser.username,
       email: data.newUser.email,
@@ -32,7 +32,7 @@ AuthController.userLogin = async (req, res) => {
       password,
     });
 
-    res.status(200).cookie("auth", data.token, { httpOnly: true }).json({
+    res.status(200).cookie('auth', data.token, { httpOnly: true }).json({
       id: data.user.id,
       username: data.user.username,
       email: data.user.email,
@@ -45,7 +45,7 @@ AuthController.userLogin = async (req, res) => {
 };
 
 AuthController.deleteCookie = async (req, res) => {
-  res.status(200).clearCookie("auth").send("user logged out");
+  res.status(200).clearCookie('auth').send('user logged out');
 };
 
 module.exports = AuthController;

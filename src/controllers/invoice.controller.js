@@ -1,5 +1,5 @@
 const invoiceController = {};
-const invoiceService = require("../services/invoice.service");
+const invoiceService = require('../services/invoice.service');
 
 invoiceController.requestInvoice = async (req, res) => {
   try {

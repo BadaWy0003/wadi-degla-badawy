@@ -1,8 +1,8 @@
 const AuthService = {};
-const prisma = require("../database");
-const hashPassword = require("../utils/password-hasher");
-const comparePassword = require("../utils/compare-password");
-const generateSignedUserToken = require("../utils/generate-token");
+const prisma = require('../database');
+const hashPassword = require('../utils/password-hasher');
+const comparePassword = require('../utils/compare-password');
+const generateSignedUserToken = require('../utils/generate-token');
 
 AuthService.createUserAndGenerateToken = async (userData) => {
   const { username, email, password } = userData;
@@ -14,7 +14,7 @@ AuthService.createUserAndGenerateToken = async (userData) => {
   });
 
   if (userExist) {
-    throw new Error("Email already exists");
+    throw new Error('Email already exists');
   }
 
   const hashedPassword = await hashPassword(password);
@@ -22,21 +22,20 @@ AuthService.createUserAndGenerateToken = async (userData) => {
   let token;
   let newUser;
 
-  const transaction = await prisma.$transaction(async (tx) => {
-    console.log(tx);
+  const transaction = await prisma.$transaction(async () => {
     newUser = await prisma.user.create({
       data: {
         username,
         email,
         password: hashedPassword,
-        userType: "CUSTOMER",
+        userType: 'CUSTOMER',
       },
     });
 
     try {
       token = await generateSignedUserToken(newUser.id, newUser.userType);
     } catch (error) {
-      throw new Error("Token generation failed");
+      throw new Error('Token generation failed');
     }
 
     return { newUser, token };
@@ -54,13 +53,13 @@ AuthService.loginUserAndSignToken = async (userData) => {
   });
 
   if (!user) {
-    throw new Error("User not found");
+    throw new Error('User not found');
   }
 
   const isPasswordValid = await comparePassword(password, user.password);
 
   if (!isPasswordValid) {
-    throw new Error("Invalid password");
+    throw new Error('Invalid password');
   }
 
   const token = await generateSignedUserToken(user.id);

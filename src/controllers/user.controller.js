@@ -1,5 +1,5 @@
-const UserService = require("../services/user.service");
 const UserController = {};
+const UserService = require('../services/user.service');
 
 UserController.createUser = async (req, res) => {
   try {
@@ -15,9 +15,7 @@ UserController.deleteUser = async (req, res) => {
   try {
     const data = await UserService.deleteUser(req.params.userId);
 
-    res
-      .status(200)
-      .send(`User deleted. \nId: ${data.id}\nEmail: ${data.email}`);
+    res.status(200).send(`User deleted. \nId: ${data.id}\nEmail: ${data.email}`);
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
@@ -58,7 +56,7 @@ UserController.putCurrentUser = async (req, res) => {
     const response = await UserService.currentUserUpdate(req.user.id, req.body);
 
     res.status(200).send(response);
-  } catch (error) {
+  } catch (err) {
     res.status(400).send({ message: err.message });
   }
 };
