@@ -1,7 +1,8 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 
 const comparePassword = async (password, passwordDB) => {
-  return bcrypt.compare(password, passwordDB);
+  const isValidPassword = await bcrypt.compare(password, passwordDB);
+  return isValidPassword;
 };
 
 module.exports = comparePassword;
