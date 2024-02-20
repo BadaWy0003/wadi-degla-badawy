@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Our Cool PDF Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        body {
+
+            margin-top: 4%;
+            margin-left: 8%;
+            width: 50%;
+            height: auto;
+        }
+
+        .headerLeft {
+
+            font-size: smaller;
+            position: relative;
+            top: -0.5vw;
+            width: fit-content;
+            line-height: 28%;
+        }
+
+        .headerRight {
+
+            position: relative;
+            top: -170px;
+            left: 110%;
+        }
+
+        .invoice {
+            color: rgb(112, 65, 7);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+        }
+
+        .vl {
+            border-left: 2px solid rgba(107, 105, 105, 0.884);
+            height: 80px;
+            position: relative;
+            left: 70%;
+            top: -12vw;
+        }
+
+        .notify {
+
+            position: relative;
+            left: 76%;
+            top: -21vw;
+            width: 300px;
+            height: 10px;
+
+        }
+
+        .Table {
+
+            position: relative;
+            top: -5vh;
+            margin-top: 4%;
+        }
+
+        th {
+            padding: 2px;
+            background-color: rgba(70, 51, 25, 0.904);
+            color: white;
+            font-family: fantasy;
+            font-weight: 100;
+
+        }
+
+        tr {
+            text-align: center;
+            font-size: small;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <img src="https://i.ibb.co/9ns1GGx/logo-upper.png" alt="logo" width="50%">
+        <p style="margin-top: -0.05%; font-size: smaller; width: 350px;  background-color: rgb(243, 222, 130);">Shipper:
+            <span style="font-weight: bold;">Wadi Degla for Marble and Granite</span>
+        </p>
+        <div class="headerLeft">
+            <p>Phone: <span style="font-weight: bold;"> +20 - 106 - 726 - 0314</span></p>
+            <p>Website: <span style="font-weight: bold;">https://wadidegla-eg.com</span></p>
+            <p>Email: <span style="font-weight: bold;">info@wadidegla-eg.com</span></p>
+            <p>Street Address: <span>
+                    <p style="font-weight: bold;">36, 241D Shaq Althoaban Industrial Area for Marble &
+                        Granite, Tourrah</p>
+                </span></p>
+        </div>
+
+        <div class="headerRight">
+            <h1 class="invoice">INVOICE</h1>
+            <div style="font-size: smaller; line-height: 20px;">
+
+                <p>DATE <span
+                        style="padding: 5px; margin-left: 70px; width: 100px !important; height: 10px; border: 1px solid rgba(0, 0, 0, 0.61);">{{invoiceDate}}</span>
+                </p>
+
+                <p>INVOICE # <span
+                        style="padding: 5px; margin-left: 40px; width: 100px !important; height: 10px; border: 1px solid rgba(0, 0, 0, 0.61);">{{invoiceNumber}}</span>
+                </p>
+
+                <p>CUSTOMER ID <span
+                        style="padding: 5px; margin-left: 15px; width: 100px !important; height: 10px; border: 1px solid rgba(0, 0, 0, 0.61);">{{customerId}}</span>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div style="position: relative; top: -150px;">
+            <p
+                style="width: 73vw; padding: 2px; background-color: rgba(70, 51, 25, 0.904); color: white; font-family: fantasy; font-weight: 100;">
+                CONSIGNIE</p>
+
+            <div style="font-size: small; font-weight: bold; line-height: 30px;">
+                <p>Name: {{customerName}}</p>
+                <p>Location: {{customerAddress}}</p>
+                <p>Telephone RNC: {{customerPhone}} </p>
+            </div>
+            <div class="vl"></div>
+
+            <div class="notify">
+                <table border="1" style="border-collapse: collapse;">
+                    <tr>
+                        <th style="width: 30vw;">NOTIFY</th>
+                    </tr>
+                    <tr>
+                        <td style="height: 60px;"></td>
+                    </tr>
+                </table>
+
+                <div class="notifyBox">
+
+                </div>
+
+            </div>
+
+            <div class="Table">
+                <table border="1" style="border-collapse: collapse; width: 75vw;">
+                    <tr>
+                        <th colspan="3">SHIPPING TERMS</th>
+                        <th>PAYMENT TERMS</th>
+                    </tr>
+
+                    <tr>
+                        <td style=" padding: 15px;">Sea</td>
+                        <td style=" padding: 15px;">CIF</td>
+                        <td style=" padding: 35px;"></td>
+                        <td>{{PaymentTerms}}</td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="Table">
+                <table border="1" style="border-collapse: collapse; width: 75vw;">
+                    <tr>
+                        <th>#</th>
+                        <th>DESCRIPTION (Tiles)</th>
+                        <th colspan="2">SIZE</th>
+                        <th>QUANTITY (Units)</th>
+                        <th>METERS</th>
+                        <th>PRICE</th>
+                        <th>TOTAL</th>
+
+                    </tr>
+                    {{#each items}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{description}}</td>
+                        <td>{{weight}}</td>
+                        <td>{{height}}</td>
+                        <td>{{quantity}}</td>
+                        <td>{{meters}}</td>
+                        <td>{{price}}</td>
+                        <td>{{total}}</td>
+                    </tr>
+
+                    {{/each}}
+
+
+                </table>
+
+                <div>
+                    <table border="1" style="border-collapse: collapse; width: 75vw;">
+                        <tr>
+                            <th style="width: 24%; background-color: rgba(109, 179, 92, 0.76); color: black;">
+                                Other Comments or Special Instructions
+                            </th>
+                            <td style="width: 11%; border-color: rgba(127, 255, 212, 0);"></td>
+                            <td style="font-weight: bold; width: 9%; border-color: rgba(127, 255, 212, 0);">Discount</td>
+                            <td style="width: 5%; border-color: rgba(127, 255, 212, 0);"></td>
+                            <td style="width: 15%; border-color: rgba(127, 255, 212, 0);"></td>
+                            <td style="background-color: rgba(109, 179, 92, 0.76); width: 7%; border-color: rgb(0, 0, 0);">{{discount}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Shipment Total X Containers
+                            </td>
+
+                            <td style=" border-color: rgba(127, 255, 212, 0);"></td>
+                            <td style="font-weight: bold;  border-color: rgba(127, 255, 212, 0);">TOTAL</td>
+                            <td style="border-color: rgba(127, 255, 212, 0);"></td>
+                            <td style=" border-color: rgba(127, 255, 212, 0);"></td>
+                            <td style="background-color: rgba(109, 179, 92, 0.76);; border-color: rgb(0, 0, 0);">{{total}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                Total {{totalBoxes}} Boxes
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                NET WEIGHT {{netWeight}}
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GROSS WEIGHT {{grossWeight}}
+                            </td>
+                            <td style="border-color: rgba(127, 255, 212, 0);"></td>
+                            <td colspan=2 style="font-weight: bold;  border-color: rgba(27, 27, 27, 0);">TOTAL METERS m2</td>
+            
+                            <td style="border-color: rgba(127, 255, 212, 0);"></td>
+                            <td style="background-color: rgba(180, 180, 180, 0.705); border-color: rgb(0, 0, 0);">{{totalMeters}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <p style="text-align: center; width: 150%; font-size: small; text-decoration-line: underline; margin-top: 10%;">Packing:
+                    Tiles in Wooden Boxes
+                    10% less or more
+                </p>
+                <div style="line-height: 4px; margin-top: 10%;">
+                    <p style="font-weight: bold; width: 100%; font-size: small;">Make all checks Payable to WADI DEGLA
+                        FOR MARBLE AND GRANITE</p>
+                    <p style="font-weight: bold; width: 100%; font-size: small;">AC No: 1702254949110012</p>
+                    <p style="font-weight: bold; width: 100%; font-size: small;">Bank: AL WATANY BANK OF EGYPT NATIONAL
+                        BANK OF KUWAIT</p>
+                    <p style="font-weight: bold; width: 100%; font-size: small;">Branch: Maadi Branch</p>
+                    <p style="font-weight: bold; width: 100%; font-size: small;">Swift: WABAEGCXXXX</p>
+                </div>
+
+                <img src="https://i.ibb.co/rF9vDBw/Logo2.jpg" alt="logo" width="60%"
+                    style="position: relative; left: 110%; top: -10vw;">
+
+                <div style="width: 150%; text-align: center; font-size: smaller; margin-bottom: 30%;">
+                    <p>For questions about this shipment, please contact</p>
+                    <p>Wadi Degla Phone &nbsp;&nbsp; +20 - 106 - 726 - 0314 &nbsp;&nbsp; E-mail: info@wadidegla-eg.com
+                    </p>
+                    <p>Scan QR Code for other contacts</p>
+                    <p style="font-size: small; font-weight: bold;">Thank You!
+                    </p>
+
+                    <img src="https://i.ibb.co/mNNLC42/QR-code.jpg" alt="qr-code" width="15%"
+                        style="position: relative; left: 50%; top: -15vw;">
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+</body>
