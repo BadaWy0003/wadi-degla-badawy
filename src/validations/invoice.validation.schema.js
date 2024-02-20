@@ -13,11 +13,17 @@ const quotationReqSchema = {
 };
 
 const priceOfferReqSchema = {
-  body: Joi.object()
-    .keys({
-      Offer: Joi.Offer().required(),
-    })
-    .required(),
+  body: Joi.object({
+    invoiceId: Joi.number().integer().required(),
+    itemUpdates: Joi.array()
+      .items(
+        Joi.object({
+          itemId: Joi.number().integer().required(),
+          newPrice: Joi.number().precision(2).required(),
+        }),
+      )
+      .required(),
+  }).required(),
 };
 
 module.exports = {
