@@ -7,6 +7,7 @@ CREATE TABLE "User" (
     "username" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "salespersonId" INTEGER NOT NULL,
     "userType" "UserType" NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
@@ -16,6 +17,7 @@ CREATE TABLE "User" (
 CREATE TABLE "Invoice" (
     "id" SERIAL NOT NULL,
     "userId" INTEGER NOT NULL,
+    "salespersonId" INTEGER NOT NULL,
     "status" INTEGER NOT NULL,
     "invoiceDate" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -56,6 +58,16 @@ CREATE TABLE "InvoiceItem" (
     CONSTRAINT "InvoiceItem_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "SalesPerson" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "phone" TEXT NOT NULL,
+
+    CONSTRAINT "SalesPerson_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_id_key" ON "User"("id");
 
@@ -66,7 +78,13 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 CREATE UNIQUE INDEX "Invoice_id_key" ON "Invoice"("id");
 
 -- AddForeignKey
+ALTER TABLE "User" ADD CONSTRAINT "User_salespersonId_fkey" FOREIGN KEY ("salespersonId") REFERENCES "SalesPerson"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE "Invoice" ADD CONSTRAINT "Invoice_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Invoice" ADD CONSTRAINT "Invoice_salespersonId_fkey" FOREIGN KEY ("salespersonId") REFERENCES "SalesPerson"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "InvoiceItem" ADD CONSTRAINT "InvoiceItem_invoiceId_fkey" FOREIGN KEY ("invoiceId") REFERENCES "Invoice"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
