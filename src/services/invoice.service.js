@@ -1,5 +1,6 @@
 const invoiceService = {};
-const prisma = require("../database");
+const prisma = require('../database');
+const generateInvoiceId = require('../utils/generate-invoice');
 
 invoiceService.requestInvoice = async (userId, requestData) => {
   const { customerData, itemsData } = requestData;
@@ -10,9 +11,8 @@ invoiceService.requestInvoice = async (userId, requestData) => {
     },
   });
 
-
-  invoiceData = {
-    invoiceNumber: generateInvoiceId(),
+  const invoiceData = {
+    invoiceNumber: await generateInvoiceId(),
     status: 0,
     customerId: userData.id.toString(),
     customerName: userData.username,
@@ -76,7 +76,7 @@ invoiceService.createInvoice = async (invoiceData) => {
 };
 
 invoiceService.getAllInvoices = async () => {
-  return prisma.invoice.findMany({
+  const respond = prisma.invoice.findMany({
     include: {
       user: {
         select: {
@@ -87,17 +87,7 @@ invoiceService.getAllInvoices = async () => {
       },
     },
   });
+  return respond;
 };
-
-function generateInvoiceId() {
-  const date = new Date();
-  const prefix = "INV";
-  const timestamp = date
-    .toISOString()
-    .replace(/[^0-9]/g, "")
-    .substring(0, 14);
-  const randomPart = Math.random().toString(36).substring(2, 8).toUpperCase();
-  return `${prefix}_${timestamp}_${randomPart}`;
-}
 
 module.exports = invoiceService;

@@ -6,15 +6,16 @@ const roleHierarchy = {
 };
 
 const authorize = (requiredRole) => {
-  return (req, res, next) => {
+  const isAuthorized = (req, res, next) => {
     const userRole = req.user.userType;
 
     if (roleHierarchy[userRole] >= roleHierarchy[requiredRole]) {
       next();
     } else {
-      res.status(403).send("Access Denied");
+      res.status(403).send('Access Denied');
     }
   };
+  return isAuthorized;
 };
 
 module.exports = authorize;
