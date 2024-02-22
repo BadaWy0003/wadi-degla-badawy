@@ -20,7 +20,7 @@ hbs.registerHelper('dateFormat', function (value, format) {
 async function generatePDF(templateName, data, outputPath) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    htmlContent = await compile('invoice', data);
+    htmlContent = await compile(templateName, data);
     await page.setContent(htmlContent);
     await page.pdf({ path: outputPath, format: 'A4', printBackground: true });
     await browser.close();
@@ -28,6 +28,14 @@ async function generatePDF(templateName, data, outputPath) {
 
 
 
-generatePDF('invoice', data, 'custom.pdf')
+// generatePDF('invoice', data, 'invoice.pdf')
+//     .then(() => console.log('PDF generated successfully'))
+//     .catch(err => console.error('Error generating PDF:', err));
+
+//     generatePDF('packing-list', data, 'packing-list.pdf')
+//     .then(() => console.log('PDF generated successfully'))
+//     .catch(err => console.error('Error generating PDF:', err));
+    
+    generatePDF('pricing-list', data, 'pricing-list.pdf')
     .then(() => console.log('PDF generated successfully'))
-    .catch(err => console.error('Error generating PDF:', err));
+    .catch(err => console.error('Error generating PDF:', err));       

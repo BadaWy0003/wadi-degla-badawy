@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Our Cool PDF Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        body {
+
+            margin-top: 8%;
+            margin-left: 12%;
+            width: 50%;
+            height: auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            border-color: black;
+        }
+
+        .headerLeft {
+
+            font-size: smaller;
+            position: relative;
+            top: -0.5vw;
+            width: fit-content;
+            line-height: 10px;
+            margin-top: 20px;
+        }
+
+        .headerRight {
+
+            position: relative;
+            top: -240px;
+            left: 130%;
+        }
+
+        .title {
+            color: rgb(112, 65, 7);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            position: relative;
+            right: 7vw;
+        }
+
+        .vl {
+            border-left: 2px solid rgba(107, 105, 105, 0.884);
+            height: 80px;
+            position: relative;
+            left: 70%;
+            top: -12vw;
+        }
+
+        .notify {
+
+            position: relative;
+            left: 76%;
+            top: -21vw;
+            width: 400px;
+            height: 15px;
+
+        }
+
+        .Table {
+
+            position: relative;
+            top: -6vh;
+        }
+
+        th {
+            padding: 3px;
+            background-color: #99876d;
+            color: #000000;
+            font-weight: bold;
+
+        }
+
+        :nth-child(odd of .name){
+            background-color: #bdbec0;
+        }
+
+        :nth-child(2n-1 of .details){
+            background-color: #bdbec0;
+        }
+
+
+        td {
+            padding: 3px;
+        }
+
+        tr {
+            text-align: center;
+            font-size: small;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <img src="https://i.ibb.co/CMCwjy1/Default-Logo-Cropped.png" alt="logo" width="33%" style="">
+        <div class="headerLeft">
+
+            <p>Phone: <span style="font-weight: bold;"> +20 - 106 - 726 - 0314</span></p>
+            <p>Website: <span style="font-weight: bold;">https://wadidegla-eg.com</span></p>
+            <p>Email: <span style="font-weight: bold;">info@wadidegla-eg.com</span></p>
+            <p>Street Address: <span style="line-height: 20px; font-weight: bold;">
+                    36, 241D Shaq Althoaban Industrial Area for Marble & Granite, Tourrah, Cairo, Egypt
+                    <span></p>
+        </div>
+
+        <div class="headerRight">
+            <h1 class="title">PRICE LIST</h1>
+            <div style="position: relative; right: 5.5vw; font-size: smaller; line-height: 15px;">
+
+                <h2 style="color: rgb(206, 0, 0);">Flamed Granite</h2>
+                <h3 style="text-decoration: underline;">FOB price per meter</h3>
+            </div>
+
+        </div>
+
+        <div style="position: relative; top: -170px;">
+
+
+
+
+            <div class="Table" style="margin-top: 30.5%;">
+                <table border="1" style="padding: 5%; border-collapse: collapse; width: 75vw;">
+                    
+                    
+                    <tr>
+
+                        <th style=" width: 40%;">Product Name</th>
+                        <th style="">Packing</th>
+                        <th style="">2.5 cm</th>
+                        <th style="">3.0 cm</th>
+                        <th style="">4.0 cm</th>
+
+                    </tr>
+                    {{#each boxes}}
+
+                    <tr class="name">
+                        <td rowspan="2" style="font-weight: bold;">Name of Product</td>
+                        <td>Boxes</td>
+                        <td>0.1</td>
+                        <td>0.2</td>
+                        <td>0.3</td>
+
+                    </tr>
+                    <tr class="details">
+
+                        <td>Pallets</td>
+                        <td>0.15</td>
+                        <td>0.2</td>
+                        <td>0.3</td>
+
+                    </tr>
+                    {{/each}}
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+</body>
