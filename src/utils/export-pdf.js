@@ -2,8 +2,6 @@ const puppeteer = require('puppeteer');
 const hbs = require('handlebars');
 const fs = require('fs-extra');
 const path = require('path');
-const moment = require('moment');
-const data = require('./data.json');
 
 const compile = async (templateName, data) => {
 
@@ -12,10 +10,6 @@ const compile = async (templateName, data) => {
     return hbs.compile(html)(data);
 }
 
-hbs.registerHelper('dateFormat', function (value, format) {
-
-    return moment(value).format(format);
-})
 
 async function generatePDF(templateName, data, outputPath) {
     const browser = await puppeteer.launch();
@@ -26,16 +20,4 @@ async function generatePDF(templateName, data, outputPath) {
     await browser.close();
 }
 
-
-
-generatePDF('invoice', data, 'pdf-documents/invoice.pdf')
-    .then(() => console.log('PDF generated successfully'))
-    .catch(err => console.error('Error generating PDF:', err));
-
-    generatePDF('packing-list', data, 'pdf-documents/packing-list.pdf')
-    .then(() => console.log('PDF generated successfully'))
-    .catch(err => console.error('Error generating PDF:', err));
-    
-    generatePDF('pricing-list', data, 'pdf-documents/price-list.pdf')
-    .then(() => console.log('PDF generated successfully'))
-    .catch(err => console.error('Error generating PDF:', err));       
+module.exports = {generatePDF};
