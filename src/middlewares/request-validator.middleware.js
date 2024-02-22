@@ -1,7 +1,7 @@
-const _ = require("lodash");
+const _ = require('lodash');
 
 const validate = (schema) => {
-  return async (req, res, next) => {
+  const isValid = async (req, res, next) => {
     try {
       const options = {
         abortEarly: true,
@@ -10,28 +10,26 @@ const validate = (schema) => {
       };
 
       if (schema && !_.isEmpty(schema)) {
-        const keys = ["headers", "params", "query", "files", "body"];
+        const keys = ['headers', 'params', 'query', 'files', 'body'];
         const validationPromises = keys.map((key) => {
           const schemaObject = schema[key];
           const value = req[key];
 
-          return schemaObject
-            ? schemaObject.validateAsync(value, options)
-            : Promise.resolve();
+          return schemaObject ? schemaObject.validateAsync(value, options) : Promise.resolve();
         });
 
         await Promise.all(validationPromises);
         return next();
-      } else {
-        return next();
       }
+      return next();
     } catch (err) {
-      const message = err.details[0].message.replace(/['"]/g, "");
+      const message = err.details[0].message.replace(/['"]/g, '');
       return res.status(400).json({
         error: message,
       });
     }
   };
+  return isValid;
 };
 
 module.exports = validate;

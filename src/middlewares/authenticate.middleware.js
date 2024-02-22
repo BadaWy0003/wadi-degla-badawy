@@ -1,13 +1,12 @@
-const jwt = require("jsonwebtoken");
-const prisma = require("../database");
+const jwt = require('jsonwebtoken');
+const prisma = require('../database');
 
 const userAuth = async (req, res, next) => {
   try {
-    const token =
-      req.cookies["auth"] || req.headers["authorization"]?.split(" ")[1];
+    const token = req.cookies.auth || req.headers.authorization?.split(' ')[1];
 
     if (!token) {
-      throw new Error("Invalid Auth Token");
+      throw new Error('Invalid Auth Token');
     }
 
     const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
@@ -22,7 +21,7 @@ const userAuth = async (req, res, next) => {
     req.user = user;
     next();
   } catch (err) {
-    res.status(401).send("Unauthorized. Invalid Credentials");
+    res.status(401).send('Unauthorized. Invalid Credentials');
   }
 };
 
