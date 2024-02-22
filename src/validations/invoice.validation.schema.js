@@ -6,6 +6,7 @@ const quotationReqSchema = {
       customerAddress: Joi.string().required(),
       customerPhone: Joi.string()
         .pattern(/^[0-9]{10}$/)
+
         .required(),
       customerEmail: Joi.string().email().required(),
     })

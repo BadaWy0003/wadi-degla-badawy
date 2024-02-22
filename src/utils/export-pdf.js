@@ -1,16 +1,23 @@
 const puppeteer = require('puppeteer');
+const hbs = require('handlebars');
+const fs = require('fs-extra');
+const path = require('path');
+
+const compile = async (templateName, data) => {
+
+    const filePath = path.join(process.cwd(), 'templates', `${templateName}.hbs`)
+    const html = await fs.readFile(filePath, 'utf-8');
+    return hbs.compile(html)(data);
+}
 
 
-async function generatePDFfromHTML(htmlContent, outputPath) {
+async function generatePDF(templateName, data, outputPath) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
+    htmlContent = await compile(templateName, data);
     await page.setContent(htmlContent);
-    await page.pdf({ path: outputPath, format: 'A4' });
+    await page.pdf({ path: outputPath, format: 'A4', printBackground: true });
     await browser.close();
-  }
-  
-  
-  const htmlContent = '<h1>Hello World</h1><p style=\"color:red\">This is custom HTML content.</p>';
-generatePDFfromHTML(htmlContent, 'custom.pdf')
-  .then(() => console.log('PDF generated successfully'))
-  .catch(err => console.error('Error generating PDF:', err));
+}
+
+module.exports = {generatePDF};

@@ -23,11 +23,14 @@
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
+    "handlebars": "^4.7.8",
     "joi": "^17.11.1",
     "joi-password-complexity": "^5.2.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
-    "pg": "^8.11.3"
+    "moment": "^2.30.1",
+    "pg": "^8.11.3",
+    "puppeteer": "^22.1.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
