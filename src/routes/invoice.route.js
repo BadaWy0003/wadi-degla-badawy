@@ -7,7 +7,29 @@ const router = express.Router();
 
 router.post('/request', userAuth, authorize('CUSTOMER'), InvoiceController.requestInvoice);
 
-router.put('/offer-price', userAuth, authorize('ADMIN'), InvoiceController.offerPrice);
+
+router.put("/offer", userAuth, authorize("ADMIN"), InvoiceController.offer);
+
+router.put(
+  "/accept-offer",
+  userAuth,
+  authorize("CUSTOMER"),
+  InvoiceController.acceptOffer
+);
+
+router.put(
+  "/approve-offer",
+  userAuth,
+  authorize("ADMIN"),
+  InvoiceController.approve
+);
+
+router.get(
+  "/my-invoices",
+  userAuth,
+  authorize("CUSTOMER"),
+  InvoiceController.getMyInvoices
+);
 
 router.post('/create', userAuth, authorize('SUPER_ADMIN'), InvoiceController.createInvoice);
 

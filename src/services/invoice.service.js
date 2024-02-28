@@ -40,8 +40,19 @@ invoiceService.requestInvoice = async (userId, requestData) => {
   return newInvoice;
 };
 
-invoiceService.offerPrice = async (offerData) => {
-  const { invoiceId, priceOffered } = offerData;
+invoiceService.offer = async (offerData) => {
+  const { invoiceId, itemUpdates } = offerData;
+
+  for (const update of itemUpdates) {
+    await prisma.invoiceItem.update({
+      where: {
+        id: update.itemId,
+      },
+      data: {
+        price: update.newPrice,
+      },
+    });
+  }
 
   const updatedInvoice = await prisma.invoice.update({
     where: {
@@ -49,11 +60,52 @@ invoiceService.offerPrice = async (offerData) => {
     },
     data: {
       status: 1,
-      priceOffered,
     },
   });
 
   return updatedInvoice;
+};
+
+invoiceService.acceptOffer = async (offerData) => {
+  const { invoiceId } = offerData;
+
+  const updatedInvoice = await prisma.invoice.update({
+    where: {
+      id: invoiceId,
+    },
+    data: {
+      status: 2,
+    },
+  });
+
+  return updatedInvoice;
+};
+
+invoiceService.approveOffer = async (offerData) => {
+  const { invoiceId } = offerData;
+
+  const updatedInvoice = await prisma.invoice.update({
+    where: {
+      id: invoiceId,
+    },
+    data: {
+      status: 3,
+    },
+  });
+
+  return updatedInvoice;
+};
+
+
+invoiceService.getMyInvoices = async (userId) => {
+  return prisma.invoice.findMany({
+    where: {
+      userId,
+    },
+    include: {
+      items: true,
+    },
+  });
 };
 
 invoiceService.createInvoice = async (invoiceData) => {
