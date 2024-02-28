@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -12,10 +9,13 @@ datasource db {
 
 model User {
   id     Int     @id @unique @default(autoincrement())
-  username   String
+  name   String
+  address String?
+  phone String?
   email String @unique
+  taxId String?
   password String
-  invoices Invoice[]
+  orders Order[]
   salespersonId Int
   salesperson   SalesPerson @relation(fields: [salespersonId], references: [id])
   userType UserType
@@ -28,26 +28,20 @@ enum UserType {
   CUSTOMER
 }
 
-model Invoice {
+model Order {
   id          Int          @id @unique @default(autoincrement())
   userId  Int 
   user    User     @relation(fields: [userId], references: [id])
   salespersonId Int
   salesperson   SalesPerson @relation(fields: [salespersonId], references: [id])
   status      Int
-  invoiceDate   DateTime     @default(now())
+  orderDate   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
-  invoiceNumber String
-  customerId String
-  customerName String
-  customerAddress String
-  customerPhone String
-  customerEmail String
-  customerTaxId String?
+  orderNumber String
   shippingType String?
   shippingPort String?
   PaymentTerms String?
-  items InvoiceItem[]
+  items OrderItem[]
   comments String?
   shipmentTotalContainers Int?
   totalBoxes Int?
@@ -59,10 +53,10 @@ model Invoice {
 
 }
 
-model InvoiceItem {
+model OrderItem {
   id        Int     @id @default(autoincrement())
-  invoiceId Int
-  invoice   Invoice @relation(fields: [invoiceId], references: [id])
+  orderId Int
+  order   Order @relation(fields: [orderId], references: [id])
   description String
   weight     Float?
   height     Float?
@@ -78,5 +72,5 @@ model SalesPerson {
   email     String
   phone     String
   users      User[]
-  invoices Invoice[]
+  orders Order[]
 }
