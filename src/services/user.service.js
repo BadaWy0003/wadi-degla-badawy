@@ -1,25 +1,23 @@
-const prisma = require("../database");
 const UserService = {};
-const hashPassword = require("../utils/password-hasher");
+const prisma = require('../database');
+const hashPassword = require('../utils/password-hasher');
 
 UserService.createUser = async (userData) => {
   const { username, email, password, userType } = userData;
 
   const userExist = await prisma.user.findFirst({
     where: {
-      email: email,
+      email,
     },
   });
 
   if (userExist) {
-    throw new Error("Email already exists");
+    throw new Error('Email already exists');
   }
 
   const hashedPassword = await hashPassword(password);
 
-  let newUser;
-
-  newUser = await prisma.user.create({
+  const newUser = await prisma.user.create({
     data: {
       username,
       email,
@@ -33,10 +31,10 @@ UserService.createUser = async (userData) => {
 };
 
 UserService.deleteUser = async (userId) => {
-  userId = parseInt(userId);
+  const parsedUserId = parseInt(userId, 10);
 
   const userExist = await prisma.user.findUnique({
-    where: { id: userId },
+    where: { id: parsedUserId },
   });
 
   if (!userExist) {
@@ -53,10 +51,10 @@ UserService.deleteUser = async (userId) => {
 };
 
 UserService.getUserByIdAndExcludePassword = async (userId) => {
-  userId = parseInt(userId);
+  const parsedUserId = parseInt(userId, 10);
 
   return prisma.user.findUnique({
-    where: { id: userId },
+    where: { id: parsedUserId },
     select: {
       id: true,
       username: true,
@@ -68,15 +66,16 @@ UserService.getUserByIdAndExcludePassword = async (userId) => {
 };
 
 UserService.getUserById = async (userId) => {
-  userId = parseInt(userId);
+  const parsedUserId = parseInt(userId, 10);
 
   return prisma.user.findUnique({
-    where: { id: userId },
+    where: { id: parsedUserId },
   });
 };
 
 UserService.fetchAllUser = async () => {
-  return prisma.user.findMany();
+  const respond = await prisma.user.findMany();
+  return respond;
 };
 
 UserService.currentUserUpdate = async (userId, newUser) => {

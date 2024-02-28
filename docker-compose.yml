@@ -1,12 +1,12 @@
-version: "3.7"
+version: '3.7'
 services:
   postgres15:
     image: postgres:15-alpine
-    command: ["postgres", "-c", "wal_level=logical"]
+    command: ['postgres', '-c', 'wal_level=logical']
     volumes:
       - ../../../.postgres/db:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       POSTGRES_DB: wadi-degla
       POSTGRES_USER: postgres

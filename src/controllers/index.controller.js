@@ -1,5 +1,5 @@
-const IndexService = require("../services/index.service");
 const IndexController = {};
+const IndexService = require('../services/index.service');
 
 IndexController.index = async (req, res) => {
   try {
@@ -7,8 +7,7 @@ IndexController.index = async (req, res) => {
 
     res.status(200).send(respond);
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
 

@@ -1,5 +1,5 @@
-const express = require("express");
-const cookieParser = require("cookie-parser");
+const express = require('express');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -7,11 +7,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-require("./start/routes")(app);
+require('./start/routes')(app);
 
 const port = process.env.PORT || 5000;
 const server = app.listen(port, async () => {
-  console.log(`Server started on port localhost:${port}`);
+  // eslint-disable-next-line no-console
+  console.log(`Server running on port ${port}`);
 });
 
 module.exports = server;
