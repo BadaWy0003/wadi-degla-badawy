@@ -4,8 +4,11 @@ CREATE TYPE "UserType" AS ENUM ('SUPER_ADMIN', 'ADMIN', 'MODERATOR', 'CUSTOMER')
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
-    "username" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "address" TEXT,
+    "phone" TEXT,
     "email" TEXT NOT NULL,
+    "taxId" TEXT,
     "password" TEXT NOT NULL,
     "salespersonId" INTEGER NOT NULL,
     "userType" "UserType" NOT NULL,
@@ -14,20 +17,14 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "Invoice" (
+CREATE TABLE "Order" (
     "id" SERIAL NOT NULL,
     "userId" INTEGER NOT NULL,
     "salespersonId" INTEGER NOT NULL,
     "status" INTEGER NOT NULL,
-    "invoiceDate" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "orderDate" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
-    "invoiceNumber" TEXT NOT NULL,
-    "customerId" TEXT NOT NULL,
-    "customerName" TEXT NOT NULL,
-    "customerAddress" TEXT NOT NULL,
-    "customerPhone" TEXT NOT NULL,
-    "customerEmail" TEXT NOT NULL,
-    "customerTaxId" TEXT,
+    "orderNumber" TEXT NOT NULL,
     "shippingType" TEXT,
     "shippingPort" TEXT,
     "PaymentTerms" TEXT,
@@ -40,13 +37,13 @@ CREATE TABLE "Invoice" (
     "total" DOUBLE PRECISION,
     "totalMeters" DOUBLE PRECISION,
 
-    CONSTRAINT "Invoice_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "InvoiceItem" (
+CREATE TABLE "OrderItem" (
     "id" SERIAL NOT NULL,
-    "invoiceId" INTEGER NOT NULL,
+    "orderId" INTEGER NOT NULL,
     "description" TEXT NOT NULL,
     "weight" DOUBLE PRECISION,
     "height" DOUBLE PRECISION,
@@ -55,7 +52,7 @@ CREATE TABLE "InvoiceItem" (
     "price" DOUBLE PRECISION,
     "total" DOUBLE PRECISION,
 
-    CONSTRAINT "InvoiceItem_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "OrderItem_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -75,16 +72,16 @@ CREATE UNIQUE INDEX "User_id_key" ON "User"("id");
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Invoice_id_key" ON "Invoice"("id");
+CREATE UNIQUE INDEX "Order_id_key" ON "Order"("id");
 
 -- AddForeignKey
 ALTER TABLE "User" ADD CONSTRAINT "User_salespersonId_fkey" FOREIGN KEY ("salespersonId") REFERENCES "SalesPerson"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Invoice" ADD CONSTRAINT "Invoice_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Order" ADD CONSTRAINT "Order_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Invoice" ADD CONSTRAINT "Invoice_salespersonId_fkey" FOREIGN KEY ("salespersonId") REFERENCES "SalesPerson"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Order" ADD CONSTRAINT "Order_salespersonId_fkey" FOREIGN KEY ("salespersonId") REFERENCES "SalesPerson"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "InvoiceItem" ADD CONSTRAINT "InvoiceItem_invoiceId_fkey" FOREIGN KEY ("invoiceId") REFERENCES "Invoice"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "OrderItem" ADD CONSTRAINT "OrderItem_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

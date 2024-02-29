@@ -1,9 +1,9 @@
-const invoiceController = {};
-const invoiceService = require('../services/order.service');
+const OrderController = {};
+const OrderService = require('../services/order.service');
 
-invoiceController.requestInvoice = async (req, res) => {
+OrderController.requestInvoice = async (req, res) => {
   try {
-    const data = await invoiceService.requestInvoice(req.user.id, req.body);
+    const data = await OrderService.requestInvoice(req.user.id, req.body);
 
     res.status(201).send(data);
   } catch (err) {
@@ -13,9 +13,9 @@ invoiceController.requestInvoice = async (req, res) => {
   }
 };
 
-invoiceController.offer = async (req, res) => {
+OrderController.offerPrice = async (req, res) => {
   try {
-    const data = await invoiceService.offer(req.body);
+    const data = await OrderService.offerPrice(req.body);
 
     res.status(200).send(data);
   } catch (err) {
@@ -25,9 +25,9 @@ invoiceController.offer = async (req, res) => {
   }
 };
 
-invoiceController.acceptOffer = async (req, res) => {
+OrderController.acceptOffer = async (req, res) => {
   try {
-    const data = await invoiceService.acceptOffer(req.body);
+    const data = await OrderService.acceptOffer(req.body);
 
     res.status(200).send(data);
   } catch (err) {
@@ -37,9 +37,9 @@ invoiceController.acceptOffer = async (req, res) => {
   }
 };
 
-invoiceController.approveOffer = async (req, res) => {
+OrderController.approveOrder = async (req, res) => {
   try {
-    const data = await invoiceService.approveOffer(req.body);
+    const data = await OrderService.approveOrder(req.body);
 
     res.status(200).send(data);
   } catch (err) {
@@ -49,9 +49,9 @@ invoiceController.approveOffer = async (req, res) => {
   }
 };
 
-invoiceController.getMyInvoices = async (req, res) => {
+OrderController.getMyInvoices = async (req, res) => {
   try {
-    const data = await invoiceService.getMyInvoices(req.user.id);
+    const data = await OrderService.getMyInvoices(req.user.id);
 
     res.status(200).send(data);
   } catch (err) {
@@ -61,9 +61,9 @@ invoiceController.getMyInvoices = async (req, res) => {
   }
 };
 
-invoiceController.createInvoice = async (req, res) => {
+OrderController.createInvoice = async (req, res) => {
   try {
-    const data = await invoiceService.createInvoice(req.body);
+    const data = await OrderService.createInvoice(req.body);
 
     res.status(201).send(data);
   } catch (err) {
@@ -73,9 +73,9 @@ invoiceController.createInvoice = async (req, res) => {
   }
 };
 
-invoiceController.getAllInvoices = async (req, res) => {
+OrderController.getAllInvoices = async (req, res) => {
   try {
-    const data = await invoiceService.getAllInvoices();
+    const data = await OrderService.getAllInvoices();
 
     res.status(200).send(data);
   } catch (err) {
@@ -85,4 +85,4 @@ invoiceController.getAllInvoices = async (req, res) => {
   }
 };
 
-module.exports = invoiceController;
+module.exports = OrderController;

@@ -1,8 +1,8 @@
-const invoiceService = {};
+const OrderService = {};
 const prisma = require('../database');
 const generateInvoiceId = require('../utils/generate-invoice');
 
-invoiceService.requestInvoice = async (userId, requestData) => {
+OrderService.requestInvoice = async (userId, requestData) => {
   const { customerData, itemsData } = requestData;
 
   const userData = await prisma.user.findUnique({
@@ -40,19 +40,21 @@ invoiceService.requestInvoice = async (userId, requestData) => {
   return newInvoice;
 };
 
-invoiceService.offer = async (offerData) => {
+OrderService.offerPrice = async (offerData) => {
   const { invoiceId, itemUpdates } = offerData;
 
-  for (const update of itemUpdates) {
-    await prisma.invoiceItem.update({
-      where: {
-        id: update.itemId,
-      },
-      data: {
-        price: update.newPrice,
-      },
-    });
-  }
+  await Promise.all(
+    itemUpdates.map((update) =>
+      prisma.invoiceItem.update({
+        where: {
+          id: update.itemId,
+        },
+        data: {
+          price: update.newPrice,
+        },
+      }),
+    ),
+  );
 
   const updatedInvoice = await prisma.invoice.update({
     where: {
@@ -66,7 +68,7 @@ invoiceService.offer = async (offerData) => {
   return updatedInvoice;
 };
 
-invoiceService.acceptOffer = async (offerData) => {
+OrderService.acceptOffer = async (offerData) => {
   const { invoiceId } = offerData;
 
   const updatedInvoice = await prisma.invoice.update({
@@ -81,7 +83,7 @@ invoiceService.acceptOffer = async (offerData) => {
   return updatedInvoice;
 };
 
-invoiceService.approveOffer = async (offerData) => {
+OrderService.approveOrder = async (offerData) => {
   const { invoiceId } = offerData;
 
   const updatedInvoice = await prisma.invoice.update({
@@ -96,9 +98,8 @@ invoiceService.approveOffer = async (offerData) => {
   return updatedInvoice;
 };
 
-
-invoiceService.getMyInvoices = async (userId) => {
-  return prisma.invoice.findMany({
+OrderService.getMyInvoices = async (userId) =>
+  prisma.invoice.findMany({
     where: {
       userId,
     },
@@ -106,9 +107,8 @@ invoiceService.getMyInvoices = async (userId) => {
       items: true,
     },
   });
-};
 
-invoiceService.createInvoice = async (invoiceData) => {
+OrderService.createInvoice = async (invoiceData) => {
   const { invoiceNumber, invoiceDate, invoiceAmount, userId } = invoiceData;
 
   const newInvoice = await prisma.invoice.create({
@@ -127,7 +127,7 @@ invoiceService.createInvoice = async (invoiceData) => {
   return newInvoice;
 };
 
-invoiceService.getAllInvoices = async () => {
+OrderService.getAllInvoices = async () => {
   const respond = prisma.invoice.findMany({
     include: {
       user: {
@@ -142,4 +142,4 @@ invoiceService.getAllInvoices = async () => {
   return respond;
 };
 
-module.exports = invoiceService;
+module.exports = OrderService;
