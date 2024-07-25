@@ -1,0 +1,75 @@
+import './Footer.css'
+import { Link } from "react-router-dom";
+//import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg'
+import wadi_degla_logo_color from '../Assets/Media/Logo-Identity/Logo-Color.svg'
+import facebook_circle_white_icon from '../Assets/Icons/Social/facebook-circle-white-icon.svg'
+import instagram_circle_white_icon from '../Assets/Icons/Social/instagram-circle-white-icon.svg'
+import x_circle_white_icon from '../Assets/Icons/Social/x-circle-white-icon.svg'
+import linkedin_circle_white_icon from '../Assets/Icons/Social/linkedin-circle-white-icon.svg'
+import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-white-icon.svg'
+
+//import facebook_white_icon from '../Assets/Icons/Social/facebook-white-icon.svg'
+//import instagram_white_icon from '../Assets/Icons/Social/instagram-white-icon.svg'
+//import x_white_icon from '../Assets/Icons/Social/x-white-icon.svg'
+//import linkedin_white_icon from '../Assets/Icons/Social/linkedin-white-icon.svg'
+//import whatsapp_white_icon from '../Assets/Icons/Social/whatsapp-white-icon.svg'
+
+import React, { useState, useEffect, useRef } from 'react';
+//import {FaBars, FaTimes} from "react-icons/fa";
+
+
+
+function Footer() {
+    
+    return (
+      <footer className='footer-main'>
+        <div className='footer-left'>
+          <div className='footer-left-bg'>
+            <h1>GET IN TOUCH</h1>
+            <p>At Wadi Degla for Marble & Granite, we value our customers' inquiries and feedback. Our dedicated team is here to assist you and provide the information you need.</p>
+            <button className='btn1'>CONTACT US</button>
+          </div>
+        </div>
+        <div className='footer-right'>
+          <div className='footer-right-content'>
+            <div className='footer-about'>
+              <img src={wadi_degla_logo_color} className='logo-color'/>
+              <p>Welcome to <span>Wadi Degla</span> for Marble & Granite, your trusted partner in the marble business since 1980.</p>
+            </div>
+            <div className='footer-nav'>
+              <div className="col">
+                <h4>Company</h4>
+                <ui className="list-unstyled">
+                <Link to='/'><a>Home</a></Link>
+                  <Link to='/'><a>About</a></Link>
+                  <Link to='/'><a>Order</a></Link>
+                  <Link to='/'><a>Products</a></Link>
+                  <Link to='/'><a>Projects</a></Link>
+                  <Link to='/'><a>Contact</a></Link>
+                </ui>
+                </div>
+                <div className="col">
+                <h4>Social</h4>
+                <div className='social'>
+                  <a href='https://www.facebook.com/wadideglaco' target="_blank"><img src={facebook_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://instagram.com/wadideglaco' target="_blank"><img src={instagram_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://twitter.com/wadideglaaco' target="_blank"><img src={x_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank"><img src={linkedin_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank"><img src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
+
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div className='copy-rights'>
+            <p> &copy;{new Date().getFullYear()} Wadi Degla All Rights Reserved</p>
+            <p>Powered by <a href='https://icreate.vip/' target="_blank" className='icreate'>iCreate</a></p>
+          </div>
+        </div>
+      </footer>
+    )
+  }
+  
+  export default Footer;
+
+  
