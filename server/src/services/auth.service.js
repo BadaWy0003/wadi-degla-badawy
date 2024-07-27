@@ -1,5 +1,4 @@
 const AuthService = {};
-const prisma = require('../database');
 const hashPassword = require('../utils/password-hasher');
 const comparePassword = require('../utils/compare-password');
 const generateSignedUserToken = require('../utils/generate-token');

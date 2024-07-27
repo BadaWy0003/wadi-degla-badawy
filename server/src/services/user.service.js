@@ -1,5 +1,5 @@
 const UserService = {};
-const prisma = require('../database');
+
 const hashPassword = require('../utils/password-hasher');
 
 UserService.createUser = async (userData) => {
