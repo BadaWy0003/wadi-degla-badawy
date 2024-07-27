@@ -11,6 +11,9 @@
 # production
 /build
 
+# asstes
+/src/Components/Assets
+
 # misc
 .DS_Store
 .env.local
