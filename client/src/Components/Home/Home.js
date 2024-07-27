@@ -46,7 +46,7 @@ import image29 from '../Assets/Media/Gallery/29.jpg'
 import image30 from '../Assets/Media/Gallery/30.jpg'
 import image31 from '../Assets/Media/Gallery/31.jpg'
 import image32 from '../Assets/Media/Gallery/32.jpg'
-
+//slamo 3leko
 
 
 
