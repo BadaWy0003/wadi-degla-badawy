@@ -2,21 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const invoiceSchema = new Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  status: { type: Number, required: true },
+  orderId: { type: Schema.Types.ObjectId, ref: 'Order', required: true },
   invoiceDate: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   invoiceNumber: { type: String, required: true },
-  customerId: { type: String, required: true },
-  customerName: { type: String, required: true },
-  customerAddress: { type: String, required: true },
-  customerPhone: { type: String, required: true },
-  customerEmail: { type: String, required: true },
-  customerTaxId: { type: String },
   shippingType: { type: String },
   shippingPort: { type: String },
   PaymentTerms: { type: String },
-  items: [{ type: mongoose.Schema.Types.ObjectId, ref: 'InvoiceItem' }],
+  items: {
+    type: [itemSchema],
+    required: true,
+    validate: {
+      validator: function (v) {
+        return v && v.length > 0;
+      },
+      message: 'Invoice must have at least one item.',
+    },
+  },
   comments: { type: String },
   shipmentTotalContainers: { type: Number },
   totalBoxes: { type: Number },
