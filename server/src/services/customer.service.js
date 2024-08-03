@@ -9,6 +9,7 @@ CustomerService.createCustomer = async (customerData) => {
 
   const emailExistAsCustomer = await Customer.findOne({ email });
   const emailExistAsAdmin = await Admin.findOne({ email });
+
   if (emailExistAsCustomer || emailExistAsAdmin) {
     throw new Error('Email already exists');
   }

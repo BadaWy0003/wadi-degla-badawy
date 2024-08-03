@@ -13,9 +13,13 @@ AdminController.createAdmin = async (req, res) => {
 
 AdminController.deleteAdmin = async (req, res) => {
   try {
-    const data = await AdminService.deleteAdmin(req.params.adminId);
+    const data = await AdminService.deleteAdmin(req.params.adminId, req.user.id);
 
-    res.status(200).send(`User deleted. \nId: ${data.id}\nEmail: ${data.email}`);
+    res.status(200).json({
+      message: 'User deleted successfully',
+      id: data.id,
+      email: data.email,
+    });
   } catch (err) {
     res.status(400).send({ message: err.message });
   }

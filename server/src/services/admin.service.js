@@ -2,13 +2,15 @@ const AdminService = {};
 
 const hashPassword = require('../utils/password-hasher');
 const Admin = require('../models/Admin');
+const Customer = require('../models/Customer');
 
 AdminService.createAdmin = async (adminData) => {
-  const { username, email, password } = adminData;
+  const { username, email, password, role } = adminData;
 
-  const adminExist = await Admin.findOne({ email });
+  const emailExistAsAdmin = await Admin.findOne({ email });
+  const emailExistAsCustomer = await Customer.findOne({ email });
 
-  if (adminExist) {
+  if (emailExistAsCustomer || emailExistAsAdmin) {
     throw new Error('Email already exists');
   }
 
@@ -18,6 +20,7 @@ AdminService.createAdmin = async (adminData) => {
     username,
     email,
     password: hashedPassword,
+    role,
   });
 
   await newAdmin.save();
@@ -26,14 +29,20 @@ AdminService.createAdmin = async (adminData) => {
   return { newAdmin };
 };
 
-AdminService.deleteAdmin = async (adminId) => {
+AdminService.deleteAdmin = async (adminId, userId) => {
   const adminExist = await Admin.findById(adminId);
-
   if (!adminExist) {
-    return { error: "User Doesn't Exist" };
+    throw new Error("User doesn't exist");
+  }
+
+  if (adminExist.id === userId) {
+    throw new Error("You can't delete yourself");
   }
 
   const deletedAdmin = await Admin.findByIdAndDelete(adminId);
+  if (!deletedAdmin) {
+    throw new Error('Error deleting user');
+  }
 
   return deletedAdmin;
 };
