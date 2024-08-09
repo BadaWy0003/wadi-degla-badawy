@@ -3,6 +3,15 @@ import './About.css';
 import bullseye_gold from '../Assets/Icons/bullseye-gold.svg'
 import paper_plane_gold from '../Assets/Icons/paper-plane-gold.svg'
 import company_logo from '../Assets/Icons/partners/company-logo.png'
+import company_logo_2 from '../Assets/Icons/partners/company-logo-2.svg'
+import company_logo_3 from '../Assets/Icons/partners/company-logo-3.svg'
+import company_logo_4 from '../Assets/Icons/partners/company-logo-4.svg'
+import company_logo_5 from '../Assets/Icons/partners/company-logo-5.svg'
+import company_logo_6 from '../Assets/Icons/partners/company-logo-6.svg'
+import company_logo_7 from '../Assets/Icons/partners/company-logo-7.svg'
+import company_logo_8 from '../Assets/Icons/partners/company-logo-8.svg'
+import company_logo_9 from '../Assets/Icons/partners/company-logo-9.svg'
+import company_logo_10 from '../Assets/Icons/partners/company-logo-10.svg'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -94,12 +103,15 @@ export default function About(){
                 <h1>Our Partners</h1>
                 <div className="partners-about">
                     <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
+                    <img src={company_logo_2} />
+                    <img src={company_logo_3} />
+                    <img src={company_logo_4} />
+                    <img src={company_logo_5} />
+                    <img src={company_logo_6} />
+                    <img src={company_logo_7} />
+                    <img src={company_logo_8} />
+                    <img src={company_logo_9} />
+                    <img src={company_logo_10} />
 
                     </div>
             </div>  

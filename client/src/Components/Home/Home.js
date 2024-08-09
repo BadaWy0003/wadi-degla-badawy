@@ -2,6 +2,7 @@ import React from "react";
 import './Home.css';
 import { Link } from "react-router-dom";
 import hero_bg from '../Assets/Media/hero-bg.jpg';
+import home_bg from '../Assets/Media/home-bg2.jpg'
 import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg'
 import Galala from '../Assets/Media/Products/Galala.png'
 import Sunny_Menia from '../Assets/Media/Products/Sunny-Menia.png'
@@ -11,6 +12,16 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Product from './Product'
 import company_logo from '../Assets/Icons/partners/company-logo.png'
+import company_logo_2 from '../Assets/Icons/partners/company-logo-2.svg'
+import company_logo_3 from '../Assets/Icons/partners/company-logo-3.svg'
+import company_logo_4 from '../Assets/Icons/partners/company-logo-4.svg'
+import company_logo_5 from '../Assets/Icons/partners/company-logo-5.svg'
+import company_logo_6 from '../Assets/Icons/partners/company-logo-6.svg'
+import company_logo_7 from '../Assets/Icons/partners/company-logo-7.svg'
+import company_logo_8 from '../Assets/Icons/partners/company-logo-8.svg'
+import company_logo_9 from '../Assets/Icons/partners/company-logo-9.svg'
+import company_logo_10 from '../Assets/Icons/partners/company-logo-10.svg'
+
 import bullseye_gold from '../Assets/Icons/bullseye-gold.svg'
 import paper_plane_gold from '../Assets/Icons/paper-plane-gold.svg'
 import Gallery from './Gallery-Home'
@@ -149,7 +160,7 @@ export default function Home(){
     return(
         <div className="homepage">
             <div className="hero">
-                <div className="hero-background" style={{backgroundImage: `url(${hero_bg})`}}></div>
+                <div className="hero-background"></div>
                 <div className="banner">
                     <h1>Wadi Degla for marble & Granite</h1>
                     <p>Welcome to Wadi Degla for Marble & Granite, your trusted partner in the marble business since 1980.</p>
@@ -160,6 +171,7 @@ export default function Home(){
                 </div>
             </div>
             <div className="about-home">
+            <h1>About Wadi Degla</h1>
                 <div className="mission-vision">
                     <div className="mission">
                         <img src={bullseye_gold} alt=""/>
@@ -218,12 +230,16 @@ export default function Home(){
                             itemClass="carousel-item-padding-40-px" 
                 >
                     <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
-                    <img src={company_logo} />
+                    <img src={company_logo_2} />
+                    <img src={company_logo_3} />
+                    <img src={company_logo_4} />
+                    <img src={company_logo_5} />
+                    <img src={company_logo_6} />
+                    <img src={company_logo_7} />
+                    <img src={company_logo_8} />
+                    <img src={company_logo_9} />
+                    <img src={company_logo_10} />
+
 
 
                 </Carousel>
@@ -233,7 +249,7 @@ export default function Home(){
                 <h1>Gallery</h1>
                 <Gallery galleryUrl={galleryUrl} columnCount="3" gap="5"/>
                 
-                <Link to='/gallery'><button className="btn2">VIEW ALL</button></Link>
+                <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}><button className="btn2">VIEW ALL</button></Link>
             </div>
         </div>
     )

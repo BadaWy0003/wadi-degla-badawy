@@ -138,7 +138,7 @@
 .copy-rights{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: end;
   flex-wrap: wrap;
   margin-bottom: 0.3rem;
   padding-left: 5rem;

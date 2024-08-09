@@ -40,12 +40,12 @@ function Footer() {
               <div className="col">
                 <h4>Company</h4>
                 <ui className="list-unstyled">
-                <Link to='/'><a>Home</a></Link>
-                  <Link to='/'><a>About</a></Link>
-                  <Link to='/'><a>Order</a></Link>
-                  <Link to='/'><a>Products</a></Link>
-                  <Link to='/'><a>Projects</a></Link>
-                  <Link to='/'><a>Contact</a></Link>
+                <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Home</a></Link>
+                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>About</a></Link>
+                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Order</a></Link>
+                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
+                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Projects</a></Link>
+                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Contact</a></Link>
                 </ui>
                 </div>
                 <div className="col">
@@ -63,7 +63,7 @@ function Footer() {
           </div>
           <div className='copy-rights'>
             <p> &copy;{new Date().getFullYear()} Wadi Degla All Rights Reserved</p>
-            <p>Powered by <a href='https://icreate.vip/' target="_blank" className='icreate'>iCreate</a></p>
+            
           </div>
         </div>
       </footer>
