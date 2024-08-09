@@ -15,6 +15,8 @@ import {
   MenuOutlined,
 } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
+import wd_logo from '../components/Assets/wadi-degla-logo-color.svg'
+
 
 const SideBar = () => {
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ const SideBar = () => {
       
       <Route path='/' element={<Analytics/>}></Route>
       <Route path='/users' element={<Users/>}></Route>
-      <Route path='/products' element={<Products/>}></Route>
+      {/*<Route path='/products' element={<Products/>}></Route>*/}
       <Route path='/orders' element={<Orders/>}></Route>
 
     </Routes>
@@ -57,7 +59,7 @@ const SideBar = () => {
   const menuItems = [
     { label: 'Dashboard', key: '/', icon: <DashboardOutlined /> },
     { label: 'Users', key: '/users', icon: <UserOutlined /> },
-    { label: 'Products', key: '/products', icon: <ProductOutlined /> },
+    // { label: 'Products', key: '/products', icon: <ProductOutlined /> },
     { label: 'Orders', key: '/orders', icon: <OrderedListOutlined /> },
     { label: 'Signout', key: 'signout', icon: <PoweroffOutlined />, danger: true },
   ];
@@ -121,11 +123,16 @@ const Dashboard = () => {
 
   function Header (){
 
-    return <div style={{height:100 , backgroundColor:"lightgoldenrodyellow" , fontWeight:"bold" , display:"flex" , flexDirection:"column", justifyContent:"center",
-                alignItems:"center" , color:"rgb(80, 48, 4)" , fontFamily:"sans-serif"
+    return <div style={{height:100 , backgroundColor:"white" , fontWeight:"bold" , display:"flex" , flexDirection:"column", justifyContent:"center",
+                alignItems:"start" , color:"rgb(80, 48, 4)" , fontFamily:"sans-serif" , marginLeft: "2rem", marginRight: "2rem"
     }}>
 
-      <h1>Wadi Degla</h1>
+      <img src={wd_logo}/>
+      <hr style={{
+      width: "100%", 
+      border: "1px solid rgb(80, 48, 4, 0.1)", 
+      marginTop: "1rem"
+    }} />
     </div>
   }
 
