@@ -6,7 +6,6 @@ PdfExportController.exportPdf = async (req, res) => {
   try {
     const data = req.body;
     const respond = await PdfExportService.exportPdf(data);
-    console.log('respond', respond);
 
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', 'attachment; filename=invoice.pdf');

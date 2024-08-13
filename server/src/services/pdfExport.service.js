@@ -7,7 +7,7 @@ PdfExportService.exportPdf = async (data) => {
     const fileName = 'invoice';
     const templateName = 'invoice';
     const pdf = await generatePdf(templateName, data, fileName);
-    console.log('pdf', pdf);
+
     return pdf;
   } catch (error) {
     throw new Error(error);
