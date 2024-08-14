@@ -1,10 +1,14 @@
 const PdfExportService = {};
 
+const { nanoid } = require('nanoid');
 const generatePdf = require('../utils/export-pdf');
 
 PdfExportService.exportPdf = async (data) => {
   try {
-    const fileName = 'invoice';
+    const fileType = data.documentType.toLowerCase();
+    const fileId = nanoid(6);
+
+    const fileName = `${fileType}-${fileId}`;
     const templateName = 'invoice';
     const pdf = await generatePdf(templateName, data, fileName);
 
