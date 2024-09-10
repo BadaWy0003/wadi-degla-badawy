@@ -61,7 +61,7 @@ header img:hover{
 .header a:hover{
 	
 	transition: all 0.1s;
-	color: var(--blackColor);
+	color: var(--lightGrayColor);
 }
 
 .scrolled a:hover{

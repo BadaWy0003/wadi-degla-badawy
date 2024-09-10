@@ -3,6 +3,7 @@
 }
 
 :root {
+    --darkerBlackColor: #0A0A0A;
 	--blackColor: #1F1F1F;
 	--goldColor: #ad9571;
 	--brownColor: #050505;
@@ -130,12 +131,15 @@
     row-gap: 3rem;
     padding-bottom: 3rem;
     z-index: 1;
-    border-bottom: solid 2px var(--goldColor);
 
 }
 
 .about-home h1{
     color: var(--goldColor);
+}
+
+.about-home p{
+    color: var(--whiteColor);
 }
 
 .mission-vision{
@@ -291,7 +295,6 @@
     display: flex;
     flex-direction: column;
     background-color: var(--whiteColor);
-    border-bottom: solid 2px var(--goldColor);
     padding: 5rem;
     z-index: 1;
     overflow: hidden;

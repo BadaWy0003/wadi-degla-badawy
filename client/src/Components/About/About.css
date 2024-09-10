@@ -53,7 +53,7 @@
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    background-color: var(--blackColor);
+    background-color: var(--darkerBlackColor);
 }
 
 .about-container .our-partners h1{

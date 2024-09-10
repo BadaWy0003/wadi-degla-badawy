@@ -1,10 +1,15 @@
 .footer-main{
+  background-color: var(--darkerBlackColor);
   display: flex;
   justify-content: center;
   align-items: flex-end;
   background-color: transparent;
   flex-wrap: wrap;
   column-gap: 0;
+}
+
+.footer-main p{
+  color: var(--whiteColor);
 }
 
 .footer-left{
@@ -42,7 +47,7 @@
   color: var(--whiteColor);
 }
 
-.footer-left-bg h1,p{
+.footer-left-bg h1{
   
   color: var(--whiteColor);
   margin-bottom: 0;
