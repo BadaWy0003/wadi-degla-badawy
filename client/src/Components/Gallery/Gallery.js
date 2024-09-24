@@ -58,7 +58,7 @@ export default function Gallery (){
         image22, image23, image24, image25, image26, image27, image28, image29,
         image30, image31, image32
     ]
-
+  
 
     return (
        <div className='gallery-container'>

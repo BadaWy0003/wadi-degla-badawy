@@ -1,9 +1,8 @@
 .footer-main{
-  background-color: var(--darkerBlackColor);
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-color: transparent;
   flex-wrap: wrap;
   column-gap: 0;
 }

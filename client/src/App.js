@@ -7,6 +7,7 @@ import About from './Components/About/About.js';
 import Home from './Components/Home/Home.js';
 import Navbar from './Components/Navbar/Navbar.js';
 import Footer from './Components/Footer/Footer.js';
+import Products from './Components/Products/Products.js';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/login" element={<Login/>}/>
           <Route exact path="/about" element={<About/>}/>
           <Route exact path="/gallery" element={<Gallery/>}/>
+          <Route exact path="/products" element={<Products/>}/>
         </Routes>
         <Footer/>
       </div>
