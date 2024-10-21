@@ -47,8 +47,15 @@ export default function Navbar(){
 				<Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Home</a></Link>
                 <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}><a>About</a></Link>
                 <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Order</a></Link>
-                <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
-                <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}><a>Gallery</a></Link>
+                <div className="nav-item-with-submenu">
+                    <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
+                    
+                    {/* Submenu */}
+                    <div className="submenu">
+                    <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}><a>Visualizer</a></Link>
+                    </div>
+                </div>
+                  <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}><a>Gallery</a></Link>
                 <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Contact</a></Link>
 				<button
 					className="nav-btn nav-close-btn"

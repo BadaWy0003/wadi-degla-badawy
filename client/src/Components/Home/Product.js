@@ -9,6 +9,8 @@ import Felitto from '../Assets/Media/Products/Felitto.png'
 
 export default function Product({ item, openModal }) {
     const [isHovered, setIsHovered] = useState(false);
+    // Find the "Polished" finish to display by default
+  const polishedFinish = item.finish.find(finish => finish.finishName === 'Polished');
   
     return (
       <div 
@@ -21,11 +23,11 @@ export default function Product({ item, openModal }) {
           <div className="hover-content">
             <h3>{item.name}</h3>
             <p>Category: {item.category}</p>
-            <p>Finish: {item.finish.finishName}</p>
+            <p>Finish: {polishedFinish.finishName}</p>
           </div>
         ) : (
-          <img src={item.finish.imageUrl} alt={item.name} />
-        )}
+          <img src={polishedFinish.imageUrl} alt={item.name} />
+                  )}
       </div>
     );
   }

@@ -48,20 +48,39 @@ export default function Products () {
           setSelectedProduct(null);
           setIsModalOpen(false);
         };
-function Modal({ product, onClose }) {
-  return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <span className="modal-close" onClick={onClose}>&times;</span>
-        <img src={product.finish.imageUrl} alt={product.name} />
-        <h2>{product.name}</h2>
-        <p>Category: {product.category}</p>
-        <p>Finish: {product.finish.finishName}</p>
-        <p>Description: {product.description}</p>
-      </div>
-    </div>
-  );
-}
+        function Modal({ product, onClose }) {
+          // Set "Polished" as the default finish to display
+          const [selectedFinish, setSelectedFinish] = useState(
+            product.finish.find(finish => finish.finishName === 'Polished')
+          );
+        
+          return (
+            <div className="modal-overlay" onClick={onClose}>
+              <div className="modal-content" onClick={e => e.stopPropagation()}>
+                <span className="modal-close" onClick={onClose}>&times;</span>
+                
+                {/* Display the image and details of the selected finish */}
+                <img src={selectedFinish.imageUrl} alt={product.name} />
+                <h2>{product.name}</h2>
+                <p>Category: {product.category}</p>
+                <p>Finish: {selectedFinish.finishName}</p>
+        
+                {/* Allow the user to switch between available finishes */}
+                <div className="finish-selector">
+                  {product.finish.map(finish => (
+                    <button 
+                      key={finish.finishName} 
+                      className={finish.finishName === selectedFinish.finishName ? 'active' : ''}
+                      onClick={() => setSelectedFinish(finish)}
+                    >
+                      {finish.finishName}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        }
 
 
     return(

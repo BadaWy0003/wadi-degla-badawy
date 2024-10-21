@@ -78,6 +78,41 @@ nav a:hover {
 	scale: 98%;
 }
 
+/* Container for nav item with submenu */
+.nav-item-with-submenu {
+	position: relative;
+	display: inline-block;
+  }
+  
+  /* Hide the submenu by default */
+  .submenu {
+	display: none;
+	position: absolute;
+	background-color: #fff; /* Adjust to match your theme */
+	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Submenu shadow */
+	padding: 10px;
+	z-index: 1;
+	min-width: 160px;
+  }
+  
+  /* Display the submenu when the parent is hovered */
+  .nav-item-with-submenu:hover .submenu {
+	display: block;
+  }
+  
+  /* Style for submenu links */
+  .submenu a {
+	display: block;
+	padding: 8px 16px;
+	text-decoration: none;
+	color: #333;
+  }
+  
+  .submenu a:hover {
+	background-color: #f1f1f1;
+  }
+
+  
 header .nav-btn {
 	padding: 5px;
 	cursor: pointer;
