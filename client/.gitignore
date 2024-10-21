@@ -13,7 +13,6 @@
 
 # assets
 /src/Components/Assets
-/public/Components/Assets
 
 # misc
 .DS_Store
