@@ -2,12 +2,13 @@ const AuthController = {};
 const AuthService = require('../services/auth.service');
 
 AuthController.customerRegister = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, phone, password } = req.body;
 
   try {
     const data = await AuthService.createCustomerAndGenerateToken({
       username,
       email,
+      phone,
       password,
     });
 
@@ -15,6 +16,7 @@ AuthController.customerRegister = async (req, res) => {
       id: data.newCustomer.id,
       username: data.newCustomer.username,
       email: data.newCustomer.email,
+      phone: data.newCustomer.phone,
       token: data.token,
     });
   } catch (err) {

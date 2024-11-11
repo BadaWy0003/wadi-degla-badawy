@@ -7,7 +7,7 @@ const comparePassword = require('../utils/compare-password');
 const { generateSignedCustomerToken, generateSignedAdminToken } = require('../utils/generate-token');
 
 AuthService.createCustomerAndGenerateToken = async (customerData) => {
-  const { username, email, password } = customerData;
+  const { username, email, phone, password } = customerData;
 
   const emailExistAsCustomer = await Customer.findOne({ email });
   const emailExistAsAdmin = await Admin.findOne({ email });
@@ -27,6 +27,7 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
         {
           username,
           email,
+          phone,
           password: hashedPassword,
         },
       ],
@@ -40,6 +41,8 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
 
     return { newCustomer: newCustomer[0], token };
   } catch (error) {
+    console.log(error);
+
     await session.abortTransaction();
     session.endSession();
     throw new Error('Transaction failed: ' + error.message);
