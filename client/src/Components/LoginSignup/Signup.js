@@ -16,10 +16,50 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [agreeToTerms, setAgreeToTerms] = useState(false); // New state for terms checkbox
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    const phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phone);
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex =
+      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
   const handleSignup = async () => {
+    if (!username) {
+      setError("Username is required.");
+      return;
+    }
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email.");
+      return;
+    }
+    if (!validatePhone(phone)) {
+      setError("Phone number must be 10 digits.");
+      return;
+    }
+    if (!validatePassword(password)) {
+      setError(
+        "Password must be at least 8 characters, including a letter, a number, and a special character."
+      );
+      return;
+    }
+    if (!agreeToTerms) {
+      setError("You must agree to the terms and conditions.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:5000/api/auth/customer/register",
@@ -30,7 +70,6 @@ export default function Signup() {
           password,
         }
       );
-      console.log("response:", response);
       setMessage(response.data.message);
       setError(null);
     } catch (err) {
@@ -99,7 +138,12 @@ export default function Signup() {
           </div>
 
           <div className="check-terms">
-            <input type="checkbox" className="cbox" />
+            <input
+              type="checkbox"
+              className="cbox"
+              checked={agreeToTerms}
+              onChange={() => setAgreeToTerms(!agreeToTerms)} // Toggle checkbox state
+            />
             <div className="termsserv">
               By creating an account, I agree to our <span>Terms of use </span>
               and <span>Privacy Policy</span>
@@ -107,7 +151,11 @@ export default function Signup() {
           </div>
         </div>
 
-        {error && <p className="error">{error}</p>}
+        {error && (
+          <p className="error" style={{ color: "red" }}>
+            {error}
+          </p>
+        )}
         {message && <p className="success">{message}</p>}
 
         <div className="submit-container">
