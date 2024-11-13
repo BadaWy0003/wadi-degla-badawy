@@ -56,7 +56,7 @@ export default function Navbar(){
                     </div>
                 </div>
                   <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}><a>Gallery</a></Link>
-                <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Contact</a></Link>
+                <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}><a>Contact</a></Link>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>

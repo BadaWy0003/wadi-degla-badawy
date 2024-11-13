@@ -22,7 +22,7 @@ export default function Signup (){
                 <div className='text'>Sign up</div>
                 <div className='underline'></div>
             </div>
-            <div className='inputs'>
+            <form className='inputs'>
                 <div className='input'>
                     <div className='enter-name'>
                         <div className='fname'><p>First name</p><input type='text'/></div> 
@@ -49,9 +49,9 @@ export default function Signup (){
                 </div>
                 
 
-            </div>
+            </form>
             <div className='submit-container'>
-                <button className='btn1'>SIGN UP</button>
+            <input type="submit" value="SIGN UP" className='btn1'/>
                 <div className='forgot-password'>Already have an account? 
                     <Link to='/login'><span>Login</span></Link>
                 </div>

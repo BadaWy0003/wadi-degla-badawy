@@ -1,0 +1,25 @@
+.contact-container{
+
+}
+
+.contact-inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: var(--whiteColor);
+    padding: 5rem 0 5rem 0;
+}
+
+.contact-inner p{
+    color: var(--whiteColor) !important;
+}
+
+.contact-inner-left{
+    border: 1px solid var(--darkGrayColor);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.contact-inner-right{
+
+}

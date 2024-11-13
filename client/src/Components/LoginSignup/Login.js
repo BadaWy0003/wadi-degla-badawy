@@ -22,7 +22,7 @@ export default function Login (){
                 <div className='text'>Login</div>
                 <div className='underline'></div>
             </div>
-            <div className='inputs'>
+            <form className='inputs'>
 
                 <div className='input'>
                     <p>Email</p><input type='email' />
@@ -33,9 +33,9 @@ export default function Login (){
                     <input type='password' />
                 </div>
 
-            </div>
+            </form>
             <div className='submit-container'>
-                <button className='btn1'>LOGIN</button>
+                <input type="submit" value="LOGIN" className='btn1'/>
                 <div className='forgot-password'>Don't have an account?
                     <Link to='/signup'><span>Register</span></Link>
                 </div>
