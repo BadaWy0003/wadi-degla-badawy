@@ -10,6 +10,7 @@ import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
 //import facebook_icon from '../Assets/Icons/facebook-logo.svg';
 //import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg';
 import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
+import { data } from "jquery";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -19,6 +20,11 @@ export default function Signup() {
   const [agreeToTerms, setAgreeToTerms] = useState(false); // New state for terms checkbox
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
+
+  const validateUsername = (username) => {
+    const usernameRegex = /^[A-Za-z]{4,20}$/;
+    return usernameRegex.test(username);
+  };
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,13 +38,17 @@ export default function Signup() {
 
   const validatePassword = (password) => {
     const passwordRegex =
-      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(password);
   };
 
   const handleSignup = async () => {
     if (!username) {
       setError("Username is required.");
+      return;
+    }
+    if (!validateUsername(username)) {
+      setError("Username must be between 4 and 20 letters with no symbols");
       return;
     }
     if (!validateEmail(email)) {
@@ -51,7 +61,7 @@ export default function Signup() {
     }
     if (!validatePassword(password)) {
       setError(
-        "Password must be at least 8 characters, including a letter, a number, and a special character."
+        "Password must be at least 8 characters, including uppercase leter, lowercase letter, number and a special character."
       );
       return;
     }
@@ -70,10 +80,18 @@ export default function Signup() {
           password,
         }
       );
-      setMessage(response.data.message);
-      setError(null);
+      if (response.ok) {
+        setMessage(response.data.message);
+        setError(null);
+        console.log("ok");
+      } else {
+        setError(response.data.message);
+        console.log("not ok");
+      }
     } catch (err) {
-      setError(err.response?.data?.error || "Signup failed");
+      setError(
+        err.response?.data?.error || "Something went wrong please try again"
+      );
       setMessage("");
     }
   };
