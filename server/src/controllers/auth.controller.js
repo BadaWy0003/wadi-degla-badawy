@@ -20,7 +20,8 @@ AuthController.customerRegister = async (req, res) => {
       token: data.token,
     });
   } catch (err) {
-    res.status(400).send({ message: err.message });
+     const statusCode = err.statusCode || 400; // Default to 400 if no statusCode is set
+     res.status(statusCode).send({ message: err.message });
   }
 };
 

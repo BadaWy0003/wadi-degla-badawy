@@ -13,7 +13,9 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
   const emailExistAsAdmin = await Admin.findOne({ email });
 
   if (emailExistAsCustomer || emailExistAsAdmin) {
-    throw new Error('Email already exists');
+    const error = new Error('Email already exists');
+    error.statusCode = 409; // Set a status code for this specific error
+    throw error;
   }
 
   const hashedPassword = await hashPassword(password);

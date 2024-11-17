@@ -80,19 +80,23 @@ export default function Signup() {
           password,
         }
       );
-      if (response.ok) {
-        setMessage(response.data.message);
-        setError(null);
-        console.log("ok");
-      } else {
-        setError(response.data.message);
-        console.log("not ok");
+
+      if (response.status === 200 || response.status === 201) {
+        // Registration successful, notify the user
+        console.log(response.data); // Handle message appropriately
+        alert("Registration successful! Please verify your email.");
+        // Redirect or update UI
+         // Example navigation (React Router)
       }
-    } catch (err) {
-      setError(
-        err.response?.data?.error || "Something went wrong please try again"
-      );
-      setMessage("");
+    } catch (error) {
+      // Handle error response
+      if (error.response) {
+        console.error(error.response.data.error); // Log error details
+        alert(error.response.data.error || "Registration failed. Please try again.");
+      } else {
+        console.error(error.message);
+        alert("Network error. Please try again.");
+      }
     }
   };
 
