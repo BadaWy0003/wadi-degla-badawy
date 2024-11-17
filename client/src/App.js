@@ -11,6 +11,7 @@ import Navbar from "./Components/Navbar/Navbar.js";
 import Footer from "./Components/Footer/Footer.js";
 import Products from "./Components/Products/Products.js";
 import Visualizer from "./Components/Products/Visualizer.js";
+import Contact from "./Components/Contact/Contact.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/gallery" element={<Gallery />} />
           <Route exact path="/products" element={<Products />} />
           <Route exact path="/visualizer" element={<Visualizer />} />
+          <Route exact path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </div>

@@ -27,7 +27,8 @@ function Footer() {
           <div className='footer-left-bg'>
             <h1>GET IN TOUCH</h1>
             <p>At Wadi Degla for Marble & Granite, we value our customers' inquiries and feedback. Our dedicated team is here to assist you and provide the information you need.</p>
-            <button className='btn1'>CONTACT US</button>
+            
+            <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}><button className='btn1'>CONTACT US</button></Link>
           </div>
         </div>
         <div className='footer-right'>
@@ -41,11 +42,11 @@ function Footer() {
                 <h4>Company</h4>
                 <ui className="list-unstyled">
                 <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Home</a></Link>
-                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>About</a></Link>
-                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Order</a></Link>
-                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
-                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Projects</a></Link>
-                  <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Contact</a></Link>
+                  <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}><a>About</a></Link>
+                  <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
+                  <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}><a>Visualizer</a></Link>
+                  <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}><a>Gallery</a></Link>
+                  <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}><a>Contact</a></Link>
                 </ui>
                 </div>
                 <div className="col">
