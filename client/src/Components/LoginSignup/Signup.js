@@ -101,7 +101,6 @@ export default function Signup() {
       <div className="container1">
         <h1>Wadi Degla</h1>
         <p>Join us by filling the following form</p>
-
         <img src={wadi_degla_logo_login} alt="" />
       </div>
       <div className="container2">
@@ -109,133 +108,84 @@ export default function Signup() {
           <div className="text">Sign up</div>
           <div className="underline"></div>
         </div>
-        <form className="inputs">
+        <div className="inputs">
           <div className="input">
             <div className="enter-name">
               <div className="fname">
-                <p>First name</p>
-                <input type="text" />
-              </div>
-              <div className="lname">
-                <p>Last name</p> <input type="text" />
+                <p>Username</p>
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
               </div>
             </div>
           </div>
 
           <div className="input">
             <p>Email</p>
-            <input type="email" />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
 
           <div className="input">
             <p>Phone number</p>
-            <input type="phone" />
+            <input
+              type="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
           </div>
 
           <div className="input">
             <div className="pass">
-              <p>Password</p> <img src={password_eye_hidden_icon} alt="" />{" "}
+              <p>Password</p>
+              <img src={password_eye_hidden_icon} alt="" />
             </div>
-            <input type="password" />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <p className="pass-instructions">
               Use 8 or more characters with a mix of letters, numbers & symbols
             </p>
           </div>
+
           <div className="check-terms">
-            <input type="checkbox" className="cbox" />
+            <input
+              type="checkbox"
+              className="cbox"
+              checked={agreeToTerms}
+              onChange={() => setAgreeToTerms(!agreeToTerms)} // Toggle checkbox state
+            />
             <div className="termsserv">
               By creating an account, I agree to our <span>Terms of use </span>
               and <span>Privacy Policy</span>
             </div>
           </div>
-        </form>
+        </div>
+
+        {error && (
+          <p className="error" style={{ color: "red" }}>
+            {error}
+          </p>
+        )}
+        {message && <p className="success">{message}</p>}
+
         <div className="submit-container">
-          <input type="submit" value="SIGN UP" className="btn1" />
+          <button className="btn1" onClick={handleSignup}>
+            SIGN UP
+          </button>
           <div className="forgot-password">
             Already have an account?
             <Link to="/login">
               <span>Login</span>
             </Link>
           </div>
-        </div>
-      </div>
-      <div className="inputs">
-        <div className="input">
-          <div className="enter-name">
-            <div className="fname">
-              <p>Username</p>
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="input">
-          <p>Email</p>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div className="input">
-          <p>Phone number</p>
-          <input
-            type="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </div>
-
-        <div className="input">
-          <div className="pass">
-            <p>Password</p>
-            <img src={password_eye_hidden_icon} alt="" />
-          </div>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <p className="pass-instructions">
-            Use 8 or more characters with a mix of letters, numbers & symbols
-          </p>
-        </div>
-
-        <div className="check-terms">
-          <input
-            type="checkbox"
-            className="cbox"
-            checked={agreeToTerms}
-            onChange={() => setAgreeToTerms(!agreeToTerms)} // Toggle checkbox state
-          />
-          <div className="termsserv">
-            By creating an account, I agree to our <span>Terms of use </span>
-            and <span>Privacy Policy</span>
-          </div>
-        </div>
-      </div>
-
-      {error && (
-        <p className="error" style={{ color: "red" }}>
-          {error}
-        </p>
-      )}
-      {message && <p className="success">{message}</p>}
-
-      <div className="submit-container">
-        <button className="btn1" onClick={handleSignup}>
-          SIGN UP
-        </button>
-        <div className="forgot-password">
-          Already have an account?
-          <Link to="/login">
-            <span>Login</span>
-          </Link>
         </div>
       </div>
     </div>
