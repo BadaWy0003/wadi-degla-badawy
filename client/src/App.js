@@ -12,6 +12,7 @@ import Footer from "./Components/Footer/Footer.js";
 import Products from "./Components/Products/Products.js";
 import Visualizer from "./Components/Products/Visualizer.js";
 import Contact from "./Components/Contact/Contact.js";
+import MyAccount from "./Components/MyAccount/MyAccount.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Route exact path="/products" element={<Products />} />
           <Route exact path="/visualizer" element={<Visualizer />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/my account" element={<MyAccount />} />
+
         </Routes>
         <Footer />
       </div>

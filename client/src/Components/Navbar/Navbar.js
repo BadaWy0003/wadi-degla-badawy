@@ -46,12 +46,12 @@ export default function Navbar(){
 			<nav ref={navRef}>
 				<Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Home</a></Link>
                 <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}><a>About</a></Link>
-                <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Order</a></Link>
                 <div className="nav-item-with-submenu">
-                    <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
+                    <a>Explore</a>
                     
                     {/* Submenu */}
                     <div className="submenu">
+                    <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
                     <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}><a>Visualizer</a></Link>
                     </div>
                 </div>
@@ -63,7 +63,14 @@ export default function Navbar(){
 					<FaTimes />
 				</button>
 			</nav>
+            <div className="nav-item-with-submenu">
             <Link to='/Login' onClick={() => {window.scrollTo(0, 0);}}><img src={account_icon}/></Link>
+                    
+                    {/* Submenu */}
+                    <div className="submenu">
+                    <Link to='/my account' onClick={() => {window.scrollTo(0, 0);}}><a>My Account</a></Link>
+                    </div>
+                </div>
 			<button
 				className="nav-btn"
 				onClick={showNavbar}>
