@@ -14,6 +14,7 @@ import wadi_degla_logo_login from '../Assets/wadi-degla-logo-login.svg'
 import account_icon from '../Assets/Icons/account-icon.svg'
 // import user_icon from '../Assets/Icons/user-icon.svg';
 import React, { useState, useEffect, useRef } from 'react';
+import { useGlobalState } from '../GlobalStateContext.js';
 import {FaBars, FaTimes} from "react-icons/fa";
 
 
@@ -26,6 +27,8 @@ export default function Navbar(){
     }
 
     const [scrolled, setScrolled] = useState(false);
+
+    const { globalState } = useGlobalState(); // to see if user is logged in
 
     useEffect(() => {
         const handleScroll = () => {
@@ -64,12 +67,26 @@ export default function Navbar(){
 				</button>
 			</nav>
             <div className="nav-item-with-submenu">
-            <Link to='/Login' onClick={() => {window.scrollTo(0, 0);}}><img src={account_icon}/></Link>
-                    
-                    {/* Submenu */}
-                    <div className="submenu">
-                    <Link to='/my account' onClick={() => {window.scrollTo(0, 0);}}><a>My Account</a></Link>
-                    </div>
+                {globalState.isLoggedIn ? (
+                    <>
+                       
+                        <img src={account_icon} alt="Account Icon" />
+                        
+                        
+                        {/* Submenu */}
+                        <div className="submenu">
+                            <Link to='/my account' onClick={() => { window.scrollTo(0, 0); }}>
+                                My Account
+                            </Link>
+                            <button>Logout</button>
+                        </div>
+                    </>
+                ) : (
+                    <Link to='/login' onClick={() => { window.scrollTo(0, 0); }}>
+                        Login
+                    </Link>
+                )}
+            
                 </div>
 			<button
 				className="nav-btn"
