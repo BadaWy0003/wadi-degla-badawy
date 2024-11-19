@@ -16,6 +16,7 @@ import account_icon from '../Assets/Icons/account-icon.svg'
 import React, { useState, useEffect, useRef } from 'react';
 import { useGlobalState } from '../GlobalStateContext.js';
 import {FaBars, FaTimes} from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -28,7 +29,9 @@ export default function Navbar(){
 
     const [scrolled, setScrolled] = useState(false);
 
-    const { globalState } = useGlobalState(); // to see if user is logged in
+    const { globalState, setGlobalState } = useGlobalState(); // to see if user is logged in
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -78,7 +81,14 @@ export default function Navbar(){
                             <Link to='/my account' onClick={() => { window.scrollTo(0, 0); }}>
                                 My Account
                             </Link>
-                            <button>Logout</button>
+                            <button onClick={() => { setGlobalState({
+                                ...globalState,
+                                isLoggedIn: false,
+                            }); navigate('/'); // Redirect to the homepage
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'})// Smooth scrolling to the top
+                             }}>Logout</button>
                         </div>
                     </>
                 ) : (
