@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Contact.css';
-import bullseye_gold from '../Assets/Icons/bullseye-gold.svg'
-import paper_plane_gold from '../Assets/Icons/paper-plane-gold.svg'
-import company_logo from '../Assets/Icons/partners/company-logo.png'
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Select from 'react-select';
 import { useGlobalState } from '../GlobalStateContext.js';
@@ -17,47 +13,150 @@ import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-w
 
 
 export default function Contact(){
-    const [countries, setCountries] = useState([]);
     const [countryOptions, setCountryOptions] = useState([]);
-    const [selectedCountry, setSelectedCountry] = useState(null);
-    const [selectedCode, setSelectedCode] = useState(null);
-    const { globalState, setGlobalState } = useGlobalState(); // to see if user is logged in
+    const [countryCodeOptions, setCountryCodeOptions] = useState([]);
+    const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+    const [errors, setErrors] = useState({});
 
 
+    const [formData, setFormData] = useState({
+      fname: '',
+      cname: '',
+      rnc: '',
+      email: '',
+      phone: '',
+      whatsapp: '',
+      country: null,
+      countryCode: null,
+      address: '',
+      port: '',
+      message: '',
+    });
+  
+  
+
+    // Fetch country and country code data _____________________________________________________________________________________________________
     useEffect(() => {
-        // Fetch country data
-        fetch('https://restcountries.com/v3.1/all')
-          .then((response) => response.json())
-          .then((data) => {
-            const formattedCountries = data.map((country) => ({
-              label: country.name.common,
-              value: country.name.common,
-              code: country.idd?.root
-                ? `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes[0] : ''}`
-                : null,
+      fetch('https://restcountries.com/v3.1/all')
+        .then((response) => response.json())
+        .then((data) => {
+          const formattedCountries = data.map((country) => ({
+            label: country.name.common,
+            value: country.name.common,
+          }));
+
+          const formattedCodes = data
+            .filter((country) => country.idd?.root)
+            .map((country) => ({
+              label: `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes[0] : ''} (${country.name.common})`,
+              value: `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes[0] : ''}`,
             }));
+
+          setCountryOptions(formattedCountries);
+          setCountryCodeOptions(formattedCodes);
+        })
+        .catch((error) => console.error('Error fetching country data:', error));
+    }, []);
+
+
     
-            setCountryOptions(formattedCountries);
-          })
-          .catch((error) => console.error('Error fetching country data:', error));
-      }, []);
-    
-      const handleCountryChange = (selectedOption) => {
-        setSelectedCountry(selectedOption);
-        setSelectedCode(selectedOption.code);
-      };
-    
-      const handleCodeChange = (selectedOption) => {
-        setSelectedCode(selectedOption.value);
-        setSelectedCountry(countryOptions.find((country) => country.code === selectedOption.value));
-      };
-    
-      const codeOptions = countryOptions
-        .filter((country) => country.code)
-        .map((country) => ({
-          label: `${country.code} (${country.label})`,
-          value: country.code,
+        // Pre-fill form for logged-in users _____________________________________________________________________________________________________
+    useEffect(() => {
+      if (globalState.isLoggedIn) {
+        setFormData((prev) => ({
+          ...prev,
+          fname: globalState.user?.fullName || '',
+          email: globalState.user?.email || '',
+          phone: globalState.user?.phone || '',
+          whatsapp: globalState.user?.whatsapp || '',
+          country: globalState.user?.country || null,
+          countryCode: globalState.user?.countryCode || null,
+          address: globalState.user?.address || '',
         }));
+      }
+    }, [globalState]);
+
+
+    //Validation for phone number _____________________________________________________________________________________________________
+    const validateFields = () => {
+      const newErrors = {};
+      const phoneRegex = /^\d{8,15}$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+      if (formData.phone && !phoneRegex.test(formData.phone)) {
+        newErrors.phone = 'Phone number must be numeric and between 8 to 15 digits.';
+      }
+  
+      if (formData.whatsapp && !phoneRegex.test(formData.whatsapp)) {
+        newErrors.whatsapp = 'Phone number must be numeric and between 8 to 15 digits.';
+      }
+      
+      if (formData.email && !emailRegex.test(formData.email)) {
+        newErrors.email = 'Please enter a valid email.';
+      }
+
+      return newErrors;
+    };
+
+
+  // Handle input change _____________________________________________________________________________________________________
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Handle country selection _____________________________________________________________________________________________________
+  const handleCountryChange = (selectedOption) => {
+    setFormData((prev) => ({
+      ...prev,
+      country: selectedOption,
+    }));
+  };
+ 
+  // Handle country code selection _____________________________________________________________________________________________________
+  const handleCountryCodeChange = (selectedOption) => {
+    setFormData((prev) => ({
+      ...prev,
+      countryCode: selectedOption?.value || null,
+    }));
+  };
+
+//_____________________________________________________________________________________________________
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const validationErrors = validateFields();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({}); // Clear errors if validation passes
+    console.log('Form Data Submitted:', formData);
+
+    // Simulate API submission
+    setTimeout(() => {
+      setShowSuccessPopup(true);
+
+      // Clear the form after submission
+      setFormData({
+        fname: '',
+        cname: '',
+        rnc: '',
+        email: '',
+        phone: '',
+        whatsapp: '',
+        country: null,
+        countryCode: null,
+        address: '',
+        port: '',
+        message: '',
+      });
+    }, 500); // Simulate a delay for feedback
+  };
+//_____________________________________________________________________________________________________
       
 
     const responsive2 = {
@@ -79,6 +178,7 @@ export default function Contact(){
         }
       };
 
+//_____________________________________________________________________________________________________
 
       const customStyles = {
         control: (provided) => ({
@@ -118,6 +218,8 @@ export default function Contact(){
         }),
       };
     
+      //_____________________________________________________________________________________________________
+
     return(
         <div className='contact-container'>
                 <div className="gallery-hero">
@@ -127,86 +229,147 @@ export default function Contact(){
                     <div className="contact-inner">
 
                         <div className="contact-inner-left">
+                        {showSuccessPopup && (
+                  <div className="success-popup">
+                    <p>Message sent successfully!</p>
+                    <button onClick={() => setShowSuccessPopup(false)} className='btn1'>Close</button>
+                  </div>
+                )}
                             <h1>Send us a message</h1>
                             <p>Our team will get back to you as soon as possible!</p>
 
-                        <form className="contact-form" id="contact-form">
+                        <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
                         {globalState.isLoggedIn == false ? (
                             <>
-                            <label for="fname">*Full name</label> <br/>
-                            <input type="text" id="fname" name="fname" placeholder="Enter your full name" required/> <br/>
+                            <label htmlFor="fname">*Full Name</label>
+                            <input
+                              type="text"
+                              id="fname"
+                              name="fname"
+                              placeholder="Enter your full name"
+                              value={formData.fname}
+                              onChange={handleInputChange}
+                              required
+                            />
 
-                            <label for="cname">Company/Project name</label> <br/>
-                            <input type="text" id="cname" name="cname" placeholder="Enter your company/project name"/> <br/>
-                            <label for="rnc">Tax ID/RNC</label> <br/>
-                            <input type="text" id="rnc" name="rnc" placeholder="Enter tax id/rnc"/> <br/>
+                            <label htmlFor="cname">*Company/Project Name</label>
+                            <input
+                              type="text"
+                              id="cname"
+                              name="cname"
+                              placeholder="Enter your company/project name"
+                              value={formData.cname}
+                              onChange={handleInputChange}
+                              required
+                            />
 
-                            <label for="email">*Email address</label> <br/>
-                            <input type="email" id="email" name="email" placeholder="Enter your email address" required/> <br/>
+                            <label htmlFor="rnc">Tax ID/RNC</label>
+                            <input
+                              type="text"
+                              id="rnc"
+                              name="rnc"
+                              placeholder="Enter tax id/rnc"
+                              value={formData.rnc}
+                              onChange={handleInputChange}
+                            />
 
-                            {/* Searchable Country Code Selector */}
-                            <div>
-                                <label htmlFor="country-code">Search Country Code:</label>
-                                <Select
-                                id="country-code"
-                                options={countryOptions}
-                                onChange={handleCountryChange}
-                                value={codeOptions.find((option) => option.value === selectedCode)}
+                            <label htmlFor="email">*Email Address</label>
+                            <input
+                              type="email"
+                              id="email"
+                              name="email"
+                              placeholder="Enter your email address"
+                              value={formData.email}
+                              onChange={handleInputChange}
+                              required
+                            />
+                            {errors.email && <p className="error">{errors.email}</p>}
 
-                                placeholder="Search country or code"
-                                styles={customStyles} // Apply custom styles to country select
-                                isSearchable
-                                />
-                            </div>
+                            <label htmlFor="phone">*Phone Number</label>
+                            <Select
+                              id="country-code"
+                              options={countryCodeOptions}
+                              value={countryCodeOptions.find(
+                                (option) => option.value === formData.countryCode
+                              )}
+                              onChange={handleCountryCodeChange}
+                              placeholder="Search country code"
+                              styles={customStyles}
+                              isSearchable
+                              required
+                            />
 
-                            {/* Phone Number Input */}
-                            <label htmlFor="phone">Phone Number:</label>
-                                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ marginRight: '10px' }}>{selectedCode || '+___'}</span>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        placeholder="Enter phone number"
-                                    />
-                                    </div>  <br/>  
+                            <input
+                              type="tel"
+                              id="phone"
+                              name="phone"
+                              placeholder="Enter phone number"
+                              value={formData.phone}
+                              onChange={handleInputChange}
+                              required
+                            />
+                            {errors.phone && <p className="error">{errors.phone}</p>}
 
-                                    <label htmlFor="whatsapp">Whatsapp number:</label>
-                                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ marginRight: '10px' }}>{selectedCode || '+___'}</span>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        placeholder="Enter phone number"
-                                    />
-                                    </div>  <br/>  
 
-                            <label htmlFor="country">Select Country:</label>
-                                <Select
-                                id="country"
-                                options={countryOptions}
-                                placeholder="Search for a country"
+                            <label htmlFor="whatsapp">WhatsApp Number</label>
+                            <input
+                              type="tel"
+                              id="whatsapp"
+                              name="whatsapp"
+                              placeholder="Enter WhatsApp number"
+                              value={formData.whatsapp}
+                              onChange={handleInputChange}
+                            />
+                            {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
 
-                                styles={customStyles} // Apply custom styles to country select
-                                isSearchable
-                                /> <br/>
 
-                            <label for="address">Address</label> <br/>
-                            <input type="text" id="address" name="address" placeholder="Enter your address"/> <br/>    
+                            <label htmlFor="country">*Country</label>
+                            <Select
+                              id="country"
+                              options={countryOptions}
+                              value={formData.country}
+                              onChange={handleCountryChange}
+                              placeholder="Search for a country"
+                              styles={customStyles}
+                              isSearchable
+                              required
+                            />
+
+                            <label htmlFor="address">Address</label>
+                            <input
+                              type="text"
+                              id="address"
+                              name="address"
+                              placeholder="Enter your address"
+                              value={formData.address}
+                              onChange={handleInputChange}
+                            />
+                       
+                            <label htmlFor="port">*Port of Destination</label>
+                            <input
+                              type="text"
+                              id="port"
+                              name="port"
+                              placeholder="Enter port of destination"
+                              value={formData.port}
+                              onChange={handleInputChange}
+                              required
+                            />
+
+                            
                             </>
                         ): (<>Since you are signed in, we will get the rest of your info from your account<br/></> )}
-                            
-
-                            <label for="port">*Port of destination</label> <br/>
-                            <input type="text" id="port" name="port" placeholder="Enter port of destination" required /> <br/>
-
-                          
-
-                            <label for="message">Message</label> <br/>
-                            <textarea name="message" form="contact-form" placeholder="Enter your message here..."/> <br/>
-                                    
-                            <input type="submit" value="SEND" className='btn1'/>
+                        <label htmlFor="message">*Message</label>
+                            <textarea
+                              id="message"
+                              name="message"
+                              placeholder="Enter your message here..."
+                              value={formData.message}
+                              onChange={handleInputChange}
+                              required
+                            />  
+                                                                
+                            <button type="submit" className='btn1'> SEND </button>
                         </form>
                         </div>
 
