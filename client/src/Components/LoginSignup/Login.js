@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-//import email_icon from '../Assets/Icons/email-icon.svg';
 import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
-//import google_icon from '../Assets/Icons/google-logo.svg';
-//import apple_icon from '../Assets/Icons/apple-logo.svg';
-//import facebook_icon from '../Assets/Icons/facebook-logo.svg';
-//import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg';
 import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
 
 export default function Login() {
@@ -17,14 +11,39 @@ export default function Login() {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
 
+  // Email validation regex
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Password validation (at least 8 characters, one letter, one number)
+  const validatePassword = (password) => {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
   const handleLogin = async () => {
+    // Validate inputs
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address.");
+      setMessage("");
+      return;
+    }
+    if (!validatePassword(password)) {
+      setError(
+        "Password must be at least 8 characters, including uppercase leter, lowercase letter, number and a special character."
+      );
+      setMessage("");
+      return;
+    }
+
+    // If validation passes, proceed with API request
     try {
       const response = await axios.post(
         "http://localhost:5000/api/auth/customer/login",
-        {
-          email,
-          password,
-        }
+        { email, password }
       );
       console.log(response);
 
@@ -73,7 +92,11 @@ export default function Login() {
           </div>
         </div>
 
-        {error && <p className="error">{error}</p>}
+        {error && (
+          <p className="error" style={{ color: "red" }}>
+            {error}
+          </p>
+        )}
         {message && <p className="success">{message}</p>}
 
         <div className="submit-container">
