@@ -61,21 +61,28 @@ export default function Contact(){
 
 
     
-        // Pre-fill form for logged-in users _____________________________________________________________________________________________________
-    useEffect(() => {
-      if (globalState.isLoggedIn) {
-        setFormData((prev) => ({
-          ...prev,
-          fname: globalState.user?.fullName || '',
-          email: globalState.user?.email || '',
-          phone: globalState.user?.phone || '',
-          whatsapp: globalState.user?.whatsapp || '',
-          country: globalState.user?.country || null,
-          countryCode: globalState.user?.countryCode || null,
-          address: globalState.user?.address || '',
-        }));
-      }
-    }, [globalState]);
+      // Pre-fill form for logged-in users _____________________________________________________________________________________________________
+useEffect(() => {
+  if (globalState.isLoggedIn) {
+    setFormData((prev) => {
+      const updatedData = {
+        ...prev,
+        fname: globalState?.fname || '',
+        cname: globalState?.cname || '',
+        rnc: globalState?.rnc || '',
+        port: globalState?.port || '',
+        email: globalState?.email || '',
+        phone: globalState?.phone || '',
+        whatsapp: globalState?.whatsapp || '',
+        country: globalState?.country || null,
+        countryCode: globalState?.countryCode || null,
+        address: globalState?.address || '',
+      };
+      console.log("Form data pre-filled from globalState:", updatedData);
+      return updatedData;
+    });
+  }
+}, [globalState]);
 
 
     //Validation for phone number _____________________________________________________________________________________________________
