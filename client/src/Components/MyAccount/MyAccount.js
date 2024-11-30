@@ -67,7 +67,7 @@ export default function MyAccount(){
 
                     <div className="my-account-container-right">
                         {selectedTab == 'Account Information' ? (
-                            <div>{Object.entries(account_data)
+                            <div>{Object.entries(globalState)
                                 .filter(([key, value]) => value) // Filter out properties with empty values
                                 .map(([key, value]) => (
                                     <p key={key}>
@@ -76,7 +76,7 @@ export default function MyAccount(){
                                 ))}</div>
                             
                         ) : (  
-                            <h1>Change Password Content</h1>
+                            <button className='btn1'>Change Password</button>
                         )}
                     </div>    
                 </div>       
