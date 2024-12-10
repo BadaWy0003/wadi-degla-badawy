@@ -4,7 +4,13 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+const allowedOrigins = ['http://localhost:3000'];
+app.use(
+  cors({
+    origin: allowedOrigins, // Allow requests from this origin
+    credentials: true, // Allow credentials (cookies, authorization headers)
+  }),
+);
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -41,9 +41,12 @@ export default function Login() {
 
     // If validation passes, proceed with API request
     try {
+      console.log(email, password);
+
       const response = await axios.post(
         "http://localhost:5000/api/auth/customer/login",
-        { email, password }
+        { email, password },
+        { withCredentials: true } // Include cookies in requests
       );
       console.log(response);
 

@@ -34,15 +34,26 @@ AuthController.customerLogin = async (req, res) => {
       password,
     });
 
-    res.status(200).cookie('auth', data.token, { httpOnly: true }).json({
-      id: data.customer.id,
-      username: data.customer.username,
-      email: data.customer.email,
-      token: data.token,
-    });
+    res
+      .status(200)
+      .cookie('auth', data.token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'Strict',
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+      })
+      .json({
+        id: data.customer.id,
+        username: data.customer.username,
+        email: data.customer.email,
+      });
   } catch (err) {
     res.status(401).send({ message: err.message });
   }
+};
+
+AuthController.customerCheckAuth = async (req, res) => {
+  res.status(200).json({ user: req.user });
 };
 
 AuthController.adminLogin = async (req, res) => {
