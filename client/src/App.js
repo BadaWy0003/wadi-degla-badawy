@@ -12,6 +12,7 @@ import Footer from "./Components/Footer/Footer.js";
 import Products from "./Components/Products/Products.js";
 import Visualizer from "./Components/Products/Visualizer.js";
 import Contact from "./Components/Contact/Contact.js";
+import Contact2 from "./Components/Contact/Contact2.js";
 import MyAccount from "./Components/MyAccount/MyAccount.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useGlobalState } from "./Components/GlobalStateContext";
@@ -68,6 +69,7 @@ function App() {
           <Route exact path="/products" element={<Products />} />
           <Route exact path="/visualizer" element={<Visualizer />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/contact2" element={<Contact2 />} />
           <Route exact path="/my account" element={<MyAccount />} />
         </Routes>
         <Footer />

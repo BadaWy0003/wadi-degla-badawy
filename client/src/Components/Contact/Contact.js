@@ -14,8 +14,7 @@ import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-w
 
 
 export default function Contact(){
-    const [countryOptions, setCountryOptions] = useState([]);
-    const [countryCodeOptions, setCountryCodeOptions] = useState([]);
+    
     const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
     const [errors, setErrors] = useState({});
@@ -37,30 +36,7 @@ export default function Contact(){
   
   
 
-    // Fetch country and country code data _____________________________________________________________________________________________________
-    useEffect(() => {
-      fetch('https://restcountries.com/v3.1/all')
-        .then((response) => response.json())
-        .then((data) => {
-          const formattedCountries = data.map((country) => ({
-            label: country.name.common,
-            value: country.name.common,
-          }));
-
-          const formattedCodes = data
-            .filter((country) => country.idd?.root)
-            .map((country) => ({
-              label: `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes[0] : ''} (${country.name.common})`,
-              value: `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes[0] : ''}`,
-            }));
-
-          setCountryOptions(formattedCountries);
-          setCountryCodeOptions(formattedCodes);
-        })
-        .catch((error) => console.error('Error fetching country data:', error));
-    }, []);
-
-
+    
     
       // Pre-fill form for logged-in users _____________________________________________________________________________________________________
 useEffect(() => {
@@ -114,22 +90,7 @@ useEffect(() => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle country selection _____________________________________________________________________________________________________
-  const handleCountryChange = (selectedOption) => {
-    setFormData((prev) => ({
-      ...prev,
-      country: selectedOption,
-    }));
-  };
- 
-  // Handle country code selection _____________________________________________________________________________________________________
-  const handleCountryCodeChange = (selectedOption) => {
-    setFormData((prev) => ({
-      ...prev,
-      countryCode: selectedOption?.value || null,
-    }));
-  };
-
+  
 //_____________________________________________________________________________________________________
 
   const handleSubmit = (e) => {
@@ -186,69 +147,8 @@ useEffect(() => {
         }
       };
 
-//_____________________________________________________________________________________________________
 
-    const customStyles = {
-      container: (provided) => ({
-        ...provided,
-        width: '100%',
-        maxWidth: '250px', // Set a fixed max width for the container
-      }),
-      control: (provided) => ({
-        ...provided,
-        backgroundColor: '#f5f5f5',
-        borderColor: '#ad9571',
-        padding: '0',
-        fontSize: '12px',
-        borderRadius: '4px',
-        boxShadow: 'none',
-        height: '3rem',
-        width: '100%', // Force control width to fit the parent width
-        maxWidth: '250px', // Set a fixed max width for the dropdown
-        overflow: 'hidden', // Prevent expanding
-        textOverflow: 'ellipsis', // Ellipsis for overflowed text
-        display: 'flex',
-        alignItems: 'center',
-      }),
-      valueContainer: (provided) => ({
-        ...provided,
-        padding: '0 8px',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-      }),
-      singleValue: (provided) => ({
-        ...provided,
-        color: '#333',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-        maxWidth: 'calc(100% - 30px)', // Adjust for the dropdown indicator
-      }),
-      dropdownIndicator: (provided) => ({
-        ...provided,
-        color: '#ad9571',
-      }),
-      indicatorSeparator: () => ({
-        display: 'none', // Hide separator
-      }),
-      menu: (provided) => ({
-        ...provided,
-        backgroundColor: '#fff',
-        borderRadius: '4px',
-        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-        width: '100%',
-        maxWidth: '250px',
-      }),
-      option: (provided, state) => ({
-        ...provided,
-        backgroundColor: state.isSelected ? '#6a7b83' : state.isFocused ? '#ad9571' : '#fff',
-        color: state.isSelected ? '#fff' : '#333',
-        padding: '8px',
-        fontSize: '14px',
-      }),
-    };
-
+   
     
       //_____________________________________________________________________________________________________
 
@@ -324,19 +224,6 @@ useEffect(() => {
 
                             <div className='input-field country-phone'>
                               <label htmlFor="phone">*Phone Number</label>
-                              <Select
-                                id="country-code"
-                                options={countryCodeOptions}
-                                value={countryCodeOptions.find(
-                                  (option) => option.value === formData.countryCode
-                                )}
-                                onChange={handleCountryCodeChange}
-                                placeholder="Search country code"
-                                styles={customStyles}
-                                isSearchable
-                                required
-                              />
-
                               <input
                                 type="tel"
                                 id="phone"
@@ -350,18 +237,6 @@ useEffect(() => {
 
                             <div className='input-field country-phone'>
                               <label htmlFor="whatsapp">WhatsApp Number</label>
-                              <Select
-                                id="country-code"
-                                options={countryCodeOptions}
-                                value={countryCodeOptions.find(
-                                  (option) => option.value === formData.countryCode
-                                )}
-                                onChange={handleCountryCodeChange}
-                                placeholder="Search country code"
-                                styles={customStyles}
-                                isSearchable
-                                required
-                              />
                               <input
                                 type="tel"
                                 id="whatsapp"
@@ -375,15 +250,6 @@ useEffect(() => {
                           <div className='country-address'>
                             <div className='input-field' id='input-country'>
                               <label htmlFor="country">*Country</label>
-                              <Select
-                                id="country"
-                                options={countryOptions}
-                                value={formData.country}
-                                onChange={handleCountryChange}
-                                styles={customStyles}
-                                isSearchable
-                                required
-                              />
                             </div>
 
                             <div className='input-field' id='input-address'>
