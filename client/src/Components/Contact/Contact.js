@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Contact.css';
+import '../LoginSignup/Signup.css'
 import 'react-multi-carousel/lib/styles.css';
 import Select from 'react-select';
 import { useGlobalState } from '../GlobalStateContext.js';
@@ -187,43 +188,67 @@ useEffect(() => {
 
 //_____________________________________________________________________________________________________
 
-      const customStyles = {
-        control: (provided) => ({
-          ...provided,
-          backgroundColor: '#f5f5f5', // Light background color
-          borderColor: '#ccc', // Border color
-          padding: '10px',
-          fontSize: '14px',
-          borderRadius: '4px',
-          boxShadow: 'none',
-          minHeight: '40px',
-        }),
-        menu: (provided) => ({
-          ...provided,
-          backgroundColor: '#fff', // Menu background color
-          borderRadius: '4px',
-          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', // Drop shadow for menu
-          
-        }),
-        option: (provided, state) => ({
-          ...provided,
-          backgroundColor: state.isSelected ? '#007bff' : state.isFocused ? '#e6e6e6' : '#fff', // Highlight on focus or selection
-          color: state.isSelected ? '#fff' : '#333', // Text color
-          padding: '10px',
-          fontSize: '14px',
-        }),
-        singleValue: (provided) => ({
-          ...provided,
-          color: '#333', // Text color for the selected item
-        }),
-        dropdownIndicator: (provided) => ({
-          ...provided,
-          color: '#007bff', // Dropdown indicator color
-        }),
-        indicatorSeparator: () => ({
-          display: 'none', // Remove the separator between indicator and select box
-        }),
-      };
+    const customStyles = {
+      container: (provided) => ({
+        ...provided,
+        width: '100%',
+        maxWidth: '250px', // Set a fixed max width for the container
+      }),
+      control: (provided) => ({
+        ...provided,
+        backgroundColor: '#f5f5f5',
+        borderColor: '#ad9571',
+        padding: '0',
+        fontSize: '12px',
+        borderRadius: '4px',
+        boxShadow: 'none',
+        height: '3rem',
+        width: '100%', // Force control width to fit the parent width
+        maxWidth: '250px', // Set a fixed max width for the dropdown
+        overflow: 'hidden', // Prevent expanding
+        textOverflow: 'ellipsis', // Ellipsis for overflowed text
+        display: 'flex',
+        alignItems: 'center',
+      }),
+      valueContainer: (provided) => ({
+        ...provided,
+        padding: '0 8px',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+      }),
+      singleValue: (provided) => ({
+        ...provided,
+        color: '#333',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        maxWidth: 'calc(100% - 30px)', // Adjust for the dropdown indicator
+      }),
+      dropdownIndicator: (provided) => ({
+        ...provided,
+        color: '#ad9571',
+      }),
+      indicatorSeparator: () => ({
+        display: 'none', // Hide separator
+      }),
+      menu: (provided) => ({
+        ...provided,
+        backgroundColor: '#fff',
+        borderRadius: '4px',
+        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+        width: '100%',
+        maxWidth: '250px',
+      }),
+      option: (provided, state) => ({
+        ...provided,
+        backgroundColor: state.isSelected ? '#6a7b83' : state.isFocused ? '#ad9571' : '#fff',
+        color: state.isSelected ? '#fff' : '#333',
+        padding: '8px',
+        fontSize: '14px',
+      }),
+    };
+
     
       //_____________________________________________________________________________________________________
 
@@ -248,133 +273,155 @@ useEffect(() => {
                         <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
                         {globalState.isLoggedIn == false ? (
                             <>
-                            <label htmlFor="fname">*Full Name</label>
-                            <input
-                              type="text"
-                              id="fname"
-                              name="fname"
-                              placeholder="Enter your full name"
-                              value={formData.fname}
-                              onChange={handleInputChange}
-                              required
-                            />
+                            <div className='input-field'>
+                              <label htmlFor="fname">*Full Name</label>
+                              <input
+                                type="text"
+                                id="fname"
+                                name="fname"
+                                value={formData.fname}
+                                onChange={handleInputChange}
+                                required
+                              />
+                          </div>
+                        <div className='double-input-fields'>
+                          <div className='input-field'>
+                              <label htmlFor="cname">*Company/Project</label>
+                              <input
+                                type="text"
+                                id="cname"
+                                name="cname"
+                                value={formData.cname}
+                                onChange={handleInputChange}
+                                required
+                              />
+                            </div>
 
-                            <label htmlFor="cname">*Company/Project Name</label>
-                            <input
-                              type="text"
-                              id="cname"
-                              name="cname"
-                              placeholder="Enter your company/project name"
-                              value={formData.cname}
-                              onChange={handleInputChange}
-                              required
-                            />
+                            <div className='input-field'>
+                              <label htmlFor="rnc">Tax ID/RNC</label>
+                              <input
+                                type="text"
+                                id="rnc"
+                                name="rnc"
+                                value={formData.rnc}
+                                onChange={handleInputChange}
+                              />
+                            </div>
+                          </div>
 
-                            <label htmlFor="rnc">Tax ID/RNC</label>
-                            <input
-                              type="text"
-                              id="rnc"
-                              name="rnc"
-                              placeholder="Enter tax id/rnc"
-                              value={formData.rnc}
-                              onChange={handleInputChange}
-                            />
+                            <div className='input-field'>
+                              <label htmlFor="email">*Email Address</label>
+                              <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required
+                              />
+                              {errors.email && <p className="error">{errors.email}</p>}
+                            </div>
 
-                            <label htmlFor="email">*Email Address</label>
-                            <input
-                              type="email"
-                              id="email"
-                              name="email"
-                              placeholder="Enter your email address"
-                              value={formData.email}
-                              onChange={handleInputChange}
-                              required
-                            />
-                            {errors.email && <p className="error">{errors.email}</p>}
+                            <div className='input-field country-phone'>
+                              <label htmlFor="phone">*Phone Number</label>
+                              <Select
+                                id="country-code"
+                                options={countryCodeOptions}
+                                value={countryCodeOptions.find(
+                                  (option) => option.value === formData.countryCode
+                                )}
+                                onChange={handleCountryCodeChange}
+                                placeholder="Search country code"
+                                styles={customStyles}
+                                isSearchable
+                                required
+                              />
 
-                            <label htmlFor="phone">*Phone Number</label>
-                            <Select
-                              id="country-code"
-                              options={countryCodeOptions}
-                              value={countryCodeOptions.find(
-                                (option) => option.value === formData.countryCode
-                              )}
-                              onChange={handleCountryCodeChange}
-                              placeholder="Search country code"
-                              styles={customStyles}
-                              isSearchable
-                              required
-                            />
+                              <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                                required
+                              />
+                              {errors.phone && <p className="error">{errors.phone}</p>}
+                            </div>
 
-                            <input
-                              type="tel"
-                              id="phone"
-                              name="phone"
-                              placeholder="Enter phone number"
-                              value={formData.phone}
-                              onChange={handleInputChange}
-                              required
-                            />
-                            {errors.phone && <p className="error">{errors.phone}</p>}
+                            <div className='input-field country-phone'>
+                              <label htmlFor="whatsapp">WhatsApp Number</label>
+                              <Select
+                                id="country-code"
+                                options={countryCodeOptions}
+                                value={countryCodeOptions.find(
+                                  (option) => option.value === formData.countryCode
+                                )}
+                                onChange={handleCountryCodeChange}
+                                placeholder="Search country code"
+                                styles={customStyles}
+                                isSearchable
+                                required
+                              />
+                              <input
+                                type="tel"
+                                id="whatsapp"
+                                name="whatsapp"
+                                value={formData.whatsapp}
+                                onChange={handleInputChange}
+                              />
+                              {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
+                            </div>
 
+                          <div className='country-address'>
+                            <div className='input-field' id='input-country'>
+                              <label htmlFor="country">*Country</label>
+                              <Select
+                                id="country"
+                                options={countryOptions}
+                                value={formData.country}
+                                onChange={handleCountryChange}
+                                styles={customStyles}
+                                isSearchable
+                                required
+                              />
+                            </div>
 
-                            <label htmlFor="whatsapp">WhatsApp Number</label>
-                            <input
-                              type="tel"
-                              id="whatsapp"
-                              name="whatsapp"
-                              placeholder="Enter WhatsApp number"
-                              value={formData.whatsapp}
-                              onChange={handleInputChange}
-                            />
-                            {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
-
-
-                            <label htmlFor="country">*Country</label>
-                            <Select
-                              id="country"
-                              options={countryOptions}
-                              value={formData.country}
-                              onChange={handleCountryChange}
-                              placeholder="Search for a country"
-                              styles={customStyles}
-                              isSearchable
-                              required
-                            />
-
-                            <label htmlFor="address">Address</label>
-                            <input
-                              type="text"
-                              id="address"
-                              name="address"
-                              placeholder="Enter your address"
-                              value={formData.address}
-                              onChange={handleInputChange}
-                            />
-                       
-                            <label htmlFor="port">*Port of Destination</label>
-                            <input
-                              type="text"
-                              id="port"
-                              name="port"
-                              placeholder="Enter port of destination"
-                              value={formData.port}
-                              onChange={handleInputChange}
-                              required
-                            />
+                            <div className='input-field' id='input-address'>
+                              <label htmlFor="address">Address</label>
+                              <input
+                                type="text"
+                                id="address"
+                                name="address"
+                                value={formData.address}
+                                onChange={handleInputChange}
+                              />
+                            </div>
+                          </div>
+                            <div className='input-field'>                       
+                              <label htmlFor="port">*Port of Destination</label>
+                              <input
+                                type="text"
+                                id="port"
+                                name="port"
+                                value={formData.port}
+                                onChange={handleInputChange}
+                                required
+                              />
+                            </div>
 
                             
                             </>
                         ): (<>Since you are signed in, we will get the rest of your info from your account<br/></> )}
-                        <label htmlFor="message">*Message</label>
-                            <textarea
-                              id="message"
-                              name="message"
-                              placeholder="Enter your message here..."
-                              value={formData.message}
-                              onChange={handleInputChange}
-                              required
-                            />  
+                        <div className='input-field-message'>
+                          <label htmlFor="message">*Message</label>
+                              <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                required
+                              />  
+                            </div>
                                                                 
                             <button type="submit" className='btn1'> SEND </button>
                         </form>

@@ -17,7 +17,7 @@ export const GlobalStateProvider = ({ children }) => {
         countryCode: '+1',
         address: '123 logged in dr. west, Ontario',
         port: 'example port',
-        isLoggedIn: true,
+        isLoggedIn: false,
     });
 
     return (

@@ -11,24 +11,28 @@
 }
 
 
-
+/*CONTACT FORM SECTION _________________________________________________________*/
 .contact-inner-left{
-    border: 1px solid var(--darkGrayColor);
+    /* border: 1px solid var(--darkGrayColor);
     border-radius: 1rem;
     padding: 2rem;
+    width: 40%; */
+    border: 1px solid var(--darkGrayColor);
+    display: inline-block;
+    /* flex-grow: 2; */
+    justify-content: space-evenly;
+    padding: 1rem 5rem;
+    border-radius: 1rem;
+    min-width: fit-content;
+    height: 100%;
+    min-height: 90vh;;
 }
 
 .contact-inner-left p{
     color: var(--whiteColor) ;
 
 }
-.contact-inner-right p{
-    color: var(--whiteColor) ;
-}
 
-.css-1d6wndx-control{
-    
-}
 
 .contact-form{
     display: flex;
@@ -60,4 +64,110 @@
     font-size: 12px;
     margin-top: 5px;
   }
+
+  .input-field{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .double-input-fields{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+  }
+
+  .double-input-fields .input-field{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+  }
+
+  .country-address{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+  }
+
+  #input-country{
+    min-width: 15rem;
+  }
+
+  #input-address{
+    flex-grow: 0;
+  }
+
+  .country-phone{
+    
+  }
+/* __________________________________________________________________________________________*/
+
+  /* Fix width of the select dropdown */
+.contact-form .react-select__control {
+    width: 100% !important;
+    max-width: 250px !important;
+  }
   
+  .contact-form .react-select__single-value {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  
+  .contact-form .react-select__value-container {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Ensure the dropdown menu doesn't expand */
+  .contact-form .react-select__menu {
+    width: 100% !important;
+    max-width: 250px !important;
+  }
+
+/* __________________________________________________________________________________________*/
+
+   .input-field input{
+    height: 3rem;
+    border: solid 1px var(--lightGrayColor);
+    border-radius: 0.3rem;
+    padding: 0 1rem 0 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .input-field input:focus{
+    border: solid 1px var(--goldColor);
+} 
+
+.input-field label{
+    font-size: 0.85rem;
+}
+
+.input-field-message{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field-message textarea{
+    height: 2.5rem;
+    border: solid 1px var(--lightGrayColor);
+    border-radius: 0.3rem;
+    padding: 0 1rem 0 1rem;
+    min-height: 5rem;
+    resize: none;
+}
+
+.contact-form .btn1{
+    margin-top: 2rem;
+}
+
+/* _________________________________________________________*/
+
+
+.contact-inner-right p{
+    color: var(--whiteColor) ;
+}
+
+.css-1d6wndx-control{
+    
+}
