@@ -95,10 +95,235 @@
   #input-address{
     flex-grow: 0;
   }
+  /* Phone input __________________________________ */
+  /* General styling for the phone input container */
+.contact-form .react-tel-input {
+  width: 100%; /* Full width */
+  height: 3rem;
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--blackColor);
+  display: flex;
+  align-items: center;
+}
 
-  .country-phone{
+/* When the input is focused */
+.contact-form .react-tel-input .form-control:focus {
+  border: 1px solid var(--goldColor); /* Highlighted border */
+  box-shadow: none; /* Remove default shadow */
+}
+
+/* Input field inside the phone container */
+.contact-form .react-tel-input .form-control {
+  border: none; /* Remove inner borders */
+  outline: none; /* Remove outline */
+  font-size: 0.85rem;
+  padding-left: 4rem; /* Add space for the country flag */
+  height: 100%; /* Match container height */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Country flag and dropdown indicator container */
+.contact-form .react-tel-input .flag-dropdown {
+  background-color: var(--goldColor); /* Optional background */
+  border: none; /* Remove default borders */
+  border-right: 1px solid var(--lightGrayColor); /* Separator */
+  border-radius: 0.3rem 0 0 0.3rem; /* Rounded left corner */
+  height: 100%; /* Full height */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.contact-form .react-tel-input .selected-flag{
+  background-color: var(--goldColor); /* Optional background */
+}
+.contact-form .react-tel-input .selected-flag:hover{
+  background-color: var(--goldColor); /* Optional background */
+
+}
+.contact-form .react-tel-input .selected-flag:focus{
+  background-color: var(--goldColor); /* Optional background */
+
+}
+
+
+/* Dropdown arrow */
+.contact-form .react-tel-input .arrow {
+  color: var(--grayColor); /* Match the theme */
+}
+
+/* Placeholder styling */
+.contact-form .react-tel-input .form-control::placeholder {
+  color: var(--grayColor); /* Placeholder color */
+  font-size: 0.85rem;
+}
+
+/* Optional: Style the dropdown menu */
+.contact-form .react-tel-input .country-list {
+  position: absolute; /* Position absolutely relative to the input */
+    top: 100%; /* Position directly below the input field */
+    left: 0; /* Align it to the left edge of the input */
+    right: 0; /* Align it to the right edge of the input */
+    z-index: 10; /* Make sure it appears above other content */
+    border: 1px solid var(--lightGrayColor); /* Border around the dropdown */
+    border-radius: 0.3rem;
+    font-size: 0.85rem;
+    max-height: 300px;
+    overflow-y: auto; /* Add scrolling if needed */
+    background-color: var(--whiteColor); /* Background for the dropdown */
+}
+
+/* Style each option in the dropdown */
+.contact-form .react-tel-input .country {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* Highlight the selected option */
+.contact-form .react-tel-input .country:hover,
+.contact-form .react-tel-input .country.highlight {
+  background-color: var(--goldColor); /* Highlight color */
+  color: var(--blackColor);
+}
+
+  /* ___________________________________________________ */
+
+
+
+  /* Country selector __________________________________ */
+  /* General styles for react-select to match the form */
+.contact-form .react-select__control {
     
-  }
+    height: 3rem; /* Ensure consistent height */
+    border: 1px solid var(--lightGrayColor);
+    border-radius: 0.3rem;
+    padding: 0 1rem;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center; /* Vertically align items inside */
+
+}
+
+.contact-form .react-select__control:hover {
+    border: solid 1px var(--goldColor);
+}
+
+.contact-form .react-select__control--is-focused {
+    border: solid 1px var(--goldColor);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--goldColor);
+}
+
+.contact-form .react-select__value-container {
+    font-size: 0.85rem;
+    color: var(--blackColor);
+    display: flex;
+    align-items: center; /* Centers value content vertically */
+    padding: 0 0.5rem;
+    height: 100%; /* Ensures full height for proper alignment */
+
+}
+
+.contact-form .react-select__indicator {
+    color: var(--darkGrayColor);
+    display: flex;
+    align-items: center; /* Centers the dropdown indicator */
+    padding: 0.5rem;
+
+}
+
+.contact-form .react-select__indicator:hover {
+    color: var(--goldColor);
+}
+
+.contact-form .react-select__placeholder {
+
+    display: flex;
+    align-items: center; /* Center placeholder vertically */
+    margin: 0; /* Remove unnecessary margin */
+    height: 100%; /* Ensure it fills the container */
+    color: var(--grayColor);
+    font-size: 0.85rem;
+
+}
+
+.contact-form .react-select__single-value {
+    color: var(--blackColor);
+    display: flex;
+
+    display: flex;
+    align-items: center; /* Center selected value vertically */
+    margin: 0; /* Remove unnecessary margin */
+    height: 100%; /* Ensure it fills the container */
+    font-size: 0.85rem;
+
+
+}
+
+.contact-form .react-select__menu {
+    background-color: var(--whiteColor);
+    border: 1px solid var(--lightGrayColor);
+    border-radius: 0.3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 0.5rem; /* Adjust menu spacing */
+
+    font-size: 0.85rem;
+
+
+}
+
+.contact-form .react-select__option {
+    color: var(--blackColor);
+    cursor: pointer;
+    padding: 0.5rem 1rem; /* Adjust option spacing */
+    font-size: 0.85rem; /* Matches input field font size */
+
+
+}
+
+.contact-form .react-select__option--is-focused {
+    background-color: var(--lightGrayColor);
+    color: var(--blackColor);
+}
+
+.contact-form .react-select__option--is-selected {
+    background-color: var(--goldColor);
+    color: var(--whiteColor);
+}
+
+.contact-form .react-select__menu-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.contact-form .react-select__menu-notice {
+    color: var(--darkGrayColor);
+    font-size: 0.8rem;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Ensure dropdown width doesn't exceed container */
+.contact-form .react-select__control,
+.contact-form .react-select__menu {
+    width: 100% !important;
+    max-width: 250px !important;
+}
+
+/* Add transition for smooth hover/focus effects */
+.contact-form .react-select__control,
+.contact-form .react-select__option {
+    transition: all 0.2s ease-in-out;
+}
+.css-1u9des2-indicatorSeparator{
+  display: none;
+}
+  /* ___________________________________________________ */
 /* __________________________________________________________________________________________*/
 
   /* Fix width of the select dropdown */

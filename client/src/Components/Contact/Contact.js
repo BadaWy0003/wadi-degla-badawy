@@ -2,8 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './Contact.css';
 import '../LoginSignup/Signup.css'
 import 'react-multi-carousel/lib/styles.css';
-import Select from 'react-select';
 import { useGlobalState } from '../GlobalStateContext.js';
+import PhoneInput from 'react-phone-input-2'; // Import PhoneInput component
+import Select from 'react-select'; // Import react-select
+
+import "react-phone-input-2/lib/style.css";
+import countryList from 'react-select-country-list'; // Optional helper for countries
+
+
 
 import facebook_circle_white_icon from '../Assets/Icons/Social/facebook-circle-white-icon.svg'
 import instagram_circle_white_icon from '../Assets/Icons/Social/instagram-circle-white-icon.svg'
@@ -18,6 +24,8 @@ export default function Contact(){
     const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
     const [errors, setErrors] = useState({});
+    const countryOptions = countryList().getData(); // Get country list
+
 
 
     const [formData, setFormData] = useState({
@@ -67,6 +75,7 @@ useEffect(() => {
       const newErrors = {};
       const phoneRegex = /^\d{8,15}$/;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
   
       if (formData.phone && !phoneRegex.test(formData.phone)) {
         newErrors.phone = 'Phone number must be numeric and between 8 to 15 digits.';
@@ -80,14 +89,16 @@ useEffect(() => {
         newErrors.email = 'Please enter a valid email.';
       }
 
+      if (!formData.country) newErrors.country = 'Country selection is required.';
+
+
       return newErrors;
     };
 
 
   // Handle input change _____________________________________________________________________________________________________
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   
@@ -184,7 +195,6 @@ useEffect(() => {
                                 required
                               />
                           </div>
-                        <div className='double-input-fields'>
                           <div className='input-field'>
                               <label htmlFor="cname">*Company/Project</label>
                               <input
@@ -207,7 +217,6 @@ useEffect(() => {
                                 onChange={handleInputChange}
                               />
                             </div>
-                          </div>
 
                             <div className='input-field'>
                               <label htmlFor="email">*Email Address</label>
@@ -222,34 +231,40 @@ useEffect(() => {
                               {errors.email && <p className="error">{errors.email}</p>}
                             </div>
 
+
                             <div className='input-field country-phone'>
                               <label htmlFor="phone">*Phone Number</label>
-                              <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
+                              <PhoneInput
+                                country={'us'} // Default country
                                 value={formData.phone}
-                                onChange={handleInputChange}
-                                required
+                                onChange={(value) => handleInputChange('phone', value)}
+                                inputProps={{
+                                  name: 'phone',
+                                  required: true,
+                                }}
                               />
                               {errors.phone && <p className="error">{errors.phone}</p>}
                             </div>
 
                             <div className='input-field country-phone'>
                               <label htmlFor="whatsapp">WhatsApp Number</label>
-                              <input
-                                type="tel"
-                                id="whatsapp"
-                                name="whatsapp"
+                              <PhoneInput
+                                country={'us'}
                                 value={formData.whatsapp}
-                                onChange={handleInputChange}
+                                onChange={(value) => handleInputChange('whatsapp', value)}
                               />
                               {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
                             </div>
-
-                          <div className='country-address'>
                             <div className='input-field' id='input-country'>
                               <label htmlFor="country">*Country</label>
+                              <Select
+                                options={countryOptions} // Use country list as options
+                                value={formData.country}
+                                classNamePrefix="react-select"
+                                onChange={(value) => handleInputChange('country', value)}
+                                placeholder="Select your country"
+                              />
+                              {errors.country && <p className="error">{errors.country}</p>}
                             </div>
 
                             <div className='input-field' id='input-address'>
@@ -262,7 +277,6 @@ useEffect(() => {
                                 onChange={handleInputChange}
                               />
                             </div>
-                          </div>
                             <div className='input-field'>                       
                               <label htmlFor="port">*Port of Destination</label>
                               <input
