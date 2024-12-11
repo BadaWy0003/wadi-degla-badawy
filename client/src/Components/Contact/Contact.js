@@ -184,6 +184,7 @@ useEffect(() => {
                         <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
                         {globalState.isLoggedIn == false ? (
                             <>
+                            <div className='double-inputs'>
                             <div className='input-field'>
                               <label htmlFor="fname">*Full Name</label>
                               <input
@@ -206,6 +207,8 @@ useEffect(() => {
                                 required
                               />
                             </div>
+                            </div>
+                            <div className='double-inputs'>
 
                             <div className='input-field'>
                               <label htmlFor="rnc">Tax ID/RNC</label>
@@ -230,7 +233,9 @@ useEffect(() => {
                               />
                               {errors.email && <p className="error">{errors.email}</p>}
                             </div>
+                            </div>
 
+                            <div className='double-inputs'>
 
                             <div className='input-field country-phone'>
                               <label htmlFor="phone">*Phone Number</label>
@@ -255,6 +260,9 @@ useEffect(() => {
                               />
                               {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
                             </div>
+                            </div>
+
+                            <div className='double-inputs'>
                             <div className='input-field' id='input-country'>
                               <label htmlFor="country">*Country</label>
                               <Select
@@ -276,6 +284,7 @@ useEffect(() => {
                                 value={formData.address}
                                 onChange={handleInputChange}
                               />
+                            </div>
                             </div>
                             <div className='input-field'>                       
                               <label htmlFor="port">*Port of Destination</label>

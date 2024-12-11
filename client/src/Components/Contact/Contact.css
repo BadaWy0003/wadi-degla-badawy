@@ -7,7 +7,8 @@
     flex-direction: row;
     justify-content: space-around;
     color: var(--whiteColor);
-    padding: 5rem 0 5rem 0;
+    padding: 5rem;
+    column-gap: 5rem;
 }
 
 
@@ -25,7 +26,8 @@
     border-radius: 1rem;
     min-width: fit-content;
     height: 100%;
-    min-height: 90vh;;
+    min-height: 90vh;
+    flex: 55;
 }
 
 .contact-inner-left p{
@@ -68,15 +70,17 @@
   .input-field{
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
-  .double-input-fields{
+  .double-inputs{
     display: flex;
     justify-content: space-between;
     column-gap: 1rem;
+    margin-top: 1rem;
   }
 
-  .double-input-fields .input-field{
+  .double-inputs .input-field{
     display: flex;
     justify-content: space-between;
     column-gap: 1rem;
@@ -196,6 +200,10 @@
 
   /* Country selector __________________________________ */
   /* General styles for react-select to match the form */
+
+ #input-country{
+  justify-content: start;
+ }
 .contact-form .react-select__control {
     
     height: 3rem; /* Ensure consistent height */
@@ -205,6 +213,8 @@
     font-size: 0.85rem;
     display: flex;
     align-items: center; /* Vertically align items inside */
+    width: 100% !important; /* Take up the full width of the parent */
+    min-width: unset !important; /* Remove any minimum width constraints */
 
 }
 
@@ -312,7 +322,6 @@
 .contact-form .react-select__control,
 .contact-form .react-select__menu {
     width: 100% !important;
-    max-width: 250px !important;
 }
 
 /* Add transition for smooth hover/focus effects */
@@ -324,36 +333,13 @@
   display: none;
 }
   /* ___________________________________________________ */
-/* __________________________________________________________________________________________*/
 
-  /* Fix width of the select dropdown */
-.contact-form .react-select__control {
-    width: 100% !important;
-    max-width: 250px !important;
-  }
   
-  .contact-form .react-select__single-value {
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-  }
-  
-  .contact-form .react-select__value-container {
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-  }
-  
-  /* Ensure the dropdown menu doesn't expand */
-  .contact-form .react-select__menu {
-    width: 100% !important;
-    max-width: 250px !important;
-  }
 
 /* __________________________________________________________________________________________*/
 
    .input-field input{
-    height: 3rem;
+    height: 34.5pt;
     border: solid 1px var(--lightGrayColor);
     border-radius: 0.3rem;
     padding: 0 1rem 0 1rem;
@@ -388,7 +374,9 @@
 
 /* _________________________________________________________*/
 
-
+.contact-inner-right{
+  flex: 45;
+}
 .contact-inner-right p{
     color: var(--whiteColor) ;
 }
