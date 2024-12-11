@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
 import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
+import Cookies from "js-cookie";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -52,10 +53,11 @@ export default function Login() {
 
       setMessage(response.data.message);
       setError(null);
-      // Save token to local storage
-      localStorage.setItem("token", response.data.token);
+
+      const token = Cookies;
+      console.log(token);
     } catch (err) {
-      setError(err.response?.data?.error || "Login failed");
+      setError(err.response?.data?.message || "Login failed");
       setMessage("");
     }
   };
