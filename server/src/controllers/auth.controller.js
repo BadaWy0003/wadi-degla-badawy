@@ -48,6 +48,8 @@ AuthController.customerLogin = async (req, res) => {
         email: data.customer.email,
       });
   } catch (err) {
+    console.log(err.message);
+    
     res.status(401).send({ message: err.message });
   }
 };

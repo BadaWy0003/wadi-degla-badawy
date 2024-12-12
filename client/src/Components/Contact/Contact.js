@@ -6,7 +6,6 @@ import { useGlobalState } from '../GlobalStateContext.js';
 import PhoneInput from 'react-phone-input-2'; // Import PhoneInput component
 import Select from 'react-select'; // Import react-select
 
-import "react-phone-input-2/lib/style.css";
 import countryList from 'react-select-country-list'; // Optional helper for countries
 
 

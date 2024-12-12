@@ -14,7 +14,7 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
 
   if (emailExistAsCustomer || emailExistAsAdmin) {
     const error = new Error('Email already exists');
-    error.statusCode = 409; // Set a status code for this specific error
+    error.statusCode = 409;
     throw error;
   }
 
