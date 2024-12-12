@@ -1,5 +1,112 @@
-.my-account-container{
+
+
+/* Container Styling */
+.my-account-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    color: var(--whiteColor);
+    border-radius: 1rem;
+    padding: 5rem;
+    border: blue solid 1px;
+}
+
+/* Left Sidebar Styling */
+.my-account-container-left {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid red 1px;
+
+}
+
+
+
+
+.my-account-container-left .btn2,
+.my-account-container-left .btn1 {
+    width: 100%;
+}
+
+
+
+
+/* Right Content Styling */
+.my-account-container-right {
+    width: 100%;
+    flex: 1 1 70%;
+    border-radius: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--whiteColor);
+    min-height: 80vh;
+    border: solid red 1px;
+    justify-content: center;
     align-items: center;
+}
+
+.my-account-container-right p {
+    font-size: 1rem;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--whiteColor);
+    color: var(--whiteColor);
+    padding-bottom: 0.5rem;
+}
+
+
+#change-password{
+    width: 80%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .my-account-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .my-account-container-left {
+        flex: 1 1 100%;
+        padding: 1rem;
+    }
+
+    .my-account-container-right {
+        flex: 1 1 100%;
+        padding: 1rem;
+    }
+
+    .my-account-container-left ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .my-account-container-left .btn2,
+    .my-account-container-left .btn1 {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-account-container-left ul {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .my-account-container-left .btn2,
+    .my-account-container-left .btn1 {
+        font-size: 0.85rem;
+    }
+
+    .my-account-container-right p {
+        font-size: 0.9rem;
+    }
 }

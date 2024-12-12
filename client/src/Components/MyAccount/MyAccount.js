@@ -45,29 +45,24 @@ export default function MyAccount(){
 
     return(
         <div className='contact-container'>
-                <div className="gallery-hero">
-                        <div className="gallery-hero-bg"></div>
-                            <h1>My Account</h1>
-                    </div>
+                
 
                 <div className="my-account-container">
 
                     <div className="my-account-container-left">
-                        <ul>
-                            <li><button className="btn2" onClick={() => setSelectedTab('Account Information')}>Account Information</button></li>
-                            <li><button className="btn2" onClick={() => setSelectedTab('Change Password')}>Change Password</button></li>
-                            <li><button className='btn1' onClick={() => { setGlobalState({
+                            <button className="btn2" onClick={() => setSelectedTab('Account Information')}>Account Information</button>
+                            <button className="btn2" onClick={() => setSelectedTab('Change Password')}>Change Password</button>
+                            <button className='btn1' onClick={() => { setGlobalState({
                                 ...globalState,
                                 isLoggedIn: false,
                             }); navigate('/'); // Redirect to the homepage
                                 window.scrollTo({top: 0, behavior: 'smooth'})
-                             }}>Logout</button></li>
-                        </ul>
+                             }}>Logout</button>
                     </div>
 
                     <div className="my-account-container-right">
                         {selectedTab == 'Account Information' ? (
-                            <div>{Object.entries(globalState)
+                            <div className='tabs-content'>{Object.entries(globalState)
                                 .filter(([key, value]) => value) // Filter out properties with empty values
                                 .map(([key, value]) => (
                                     <p key={key}>
@@ -76,7 +71,9 @@ export default function MyAccount(){
                                 ))}</div>
                             
                         ) : (  
-                            <button className='btn1'>Change Password</button>
+                            <div className='tabs-content'>
+                                <button className='btn1' id='change-password'>Change Password</button>
+                            </div>
                         )}
                     </div>    
                 </div>       

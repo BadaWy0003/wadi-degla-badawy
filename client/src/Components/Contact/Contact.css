@@ -14,14 +14,10 @@
 
 /*CONTACT FORM SECTION _________________________________________________________*/
 .contact-inner-left{
-    /* border: 1px solid var(--darkGrayColor);
-    border-radius: 1rem;
-    padding: 2rem;
-    width: 40%; */
-    border: 1px solid var(--darkGrayColor);
-    display: inline-block;
-    /* flex-grow: 2; */
-    justify-content: space-evenly;
+    border: 1px solid var(--goldColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 1rem 5rem;
     border-radius: 1rem;
     min-width: fit-content;
@@ -29,9 +25,12 @@
     min-height: 90vh;
     flex: 55;
 }
-
+.contact-inner-left h1{
+  text-align: center;
+}
 .contact-inner-left p{
     color: var(--whiteColor) ;
+    text-align: center;
 
 }
 
@@ -162,7 +161,7 @@
 
 /* Placeholder styling */
 .contact-form .react-tel-input .form-control::placeholder {
-  color: var(--grayColor); /* Placeholder color */
+  color: var(--lightGrayColor); /* Placeholder color */
   font-size: 0.85rem;
 }
 
@@ -256,7 +255,7 @@
     align-items: center; /* Center placeholder vertically */
     margin: 0; /* Remove unnecessary margin */
     height: 100%; /* Ensure it fills the container */
-    color: var(--grayColor);
+    color: var(--lightGrayColor);
     font-size: 0.85rem;
 
 }
@@ -363,7 +362,7 @@
     height: 2.5rem;
     border: solid 1px var(--lightGrayColor);
     border-radius: 0.3rem;
-    padding: 0 1rem 0 1rem;
+    padding: 1rem;
     min-height: 5rem;
     resize: none;
 }
@@ -381,6 +380,271 @@
     color: var(--whiteColor) ;
 }
 
-.css-1d6wndx-control{
-    
+/* General Styling for the contact-inner-right */
+.contact-inner-right {
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+/* Header Styling */
+.contact-inner-right h1 {
+  font-size: 2.2rem;
+  color: var(--whiteColor);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Contact Info Container */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+/* Section Box */
+.contact-info > div {
+  flex: 1 1 calc(45% - 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Section Headings */
+.contact-info h4 {
+  font-size: 1.1rem;
+  color: var(--goldColor);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--goldColor);
+  padding-bottom: 5px;
+}
+
+/* Phone Numbers */
+.phone-numbers a,
+.email-address a,
+.location a {
+  color: var(--whiteColor);
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: inline-block;
+  transition: all 0.5s;
+
+}
+
+.phone-numbers a:hover,
+.email-address a:hover,
+.location a:hover {
+  color: var(--goldColor);
+  scale: 99%;
+  transition: all 0.5s;
+}
+
+/* Location Styling */
+.location a {
+  line-height: 1.5;
+}
+
+/* Social Media Section */
+.social {
+  text-align: center;
+  flex: 1 1 100%;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.social-icons-footer {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease-in-out, filter 0.2s ease;
+  filter: grayscale(100%);
+}
+
+.social-icons-footer:hover {
+  filter: grayscale(0%);
+  cursor: pointer;
+}
+
+/* QR Code Styling */
+.social img {
+  margin-top: 10px;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+.social img:hover {
+  filter: grayscale(0%);
+
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-inner {
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+    gap: 2rem;
+  }
+
+  .contact-inner-left, .contact-inner-right {
+    flex: 1 1 100%;
+    min-width: unset;
+    padding: 1.5rem 3rem;
+  }
+
+  .contact-inner-left {
+    min-height: unset;
+    height: auto;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-info > div {
+    flex: 1 1 100%;
+  }
+
+  /* Phone Numbers */
+.phone-numbers a,
+.email-address a,
+.location a {
+  text-align: center;
+}
+h4{
+  text-align: center;
+}
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 2rem 1rem;
+  }
+
+  .contact-inner {
+    padding: 2rem 1rem;
+  }
+
+  .contact-inner-left, .contact-inner-right {
+    padding: 1rem 2rem;
+  }
+
+  .contact-inner-left h1, .contact-inner-right h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-info h4 {
+    font-size: 1rem;
+  }
+
+  .contact-info a {
+    font-size: 0.9rem;
+  }
+
+  .social-icons-footer {
+    width: 30px;
+    height: 30px;
+  }
+
+  .social img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Adjust the contact-inner container */
+  .contact-inner {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  /* Adjust the left and right sections */
+  .contact-inner-left,
+  .contact-inner-right {
+    flex: 1 1 100%;
+    padding: 1rem;
+    min-width: unset;
+  }
+
+  /* Contact form adjustments */
+  .contact-form {
+    gap: 1rem; /* Reduce the gap between form elements */
+  }
+
+  /* Stack double inputs vertically */
+  .double-inputs {
+    flex-direction: column;
+    gap: 1rem; /* Adjust spacing between stacked inputs */
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  /* Adjust input and textarea sizes */
+  .input-field input,
+  .input-field textarea,
+  .react-tel-input .form-control,
+  .react-select__control {
+    font-size: 0.9rem; /* Smaller font size for better fit */
+    padding: 0.7rem; /* Adjust padding */
+    height: 20pt;
+  }
+
+  .double-inputs{
+    margin-top: 0;
+  }
+  /* Align the labels and reduce spacing */
+  .input-field label {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  
+  /* Optimize button styling */
+  .contact-form .btn1 {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Success popup adjustments */
+  .success-popup {
+    width: 90%; /* Reduce the popup width */
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Social media icons and QR code */
+  .social-icons-footer {
+    width: 30px; /* Smaller icon size */
+    height: 30px;
+  }
+
+  .social img {
+    max-width: 70px;
+    max-height: 70px;
+  }
 }

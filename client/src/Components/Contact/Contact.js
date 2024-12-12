@@ -16,6 +16,7 @@ import instagram_circle_white_icon from '../Assets/Icons/Social/instagram-circle
 import x_circle_white_icon from '../Assets/Icons/Social/x-circle-white-icon.svg'
 import linkedin_circle_white_icon from '../Assets/Icons/Social/linkedin-circle-white-icon.svg'
 import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-white-icon.svg'
+import qr from '../Assets/Icons/Social/QR.png'
 
 
 
@@ -36,7 +37,6 @@ export default function Contact(){
       phone: '',
       whatsapp: '',
       country: null,
-      countryCode: null,
       address: '',
       port: '',
       message: '',
@@ -60,7 +60,6 @@ useEffect(() => {
         phone: globalState?.phone || '',
         whatsapp: globalState?.whatsapp || '',
         country: globalState?.country || null,
-        countryCode: globalState?.countryCode || null,
         address: globalState?.address || '',
       };
       console.log("Form data pre-filled from globalState:", updatedData);
@@ -129,7 +128,6 @@ useEffect(() => {
         phone: '',
         whatsapp: '',
         country: null,
-        countryCode: null,
         address: '',
         port: '',
         message: '',
@@ -177,10 +175,11 @@ useEffect(() => {
                     <p>Message sent successfully!</p>
                     <button onClick={() => setShowSuccessPopup(false)} className='btn1'>Close</button>
                   </div>
-                )}
+                )}      
+                <div className='contact-form-title'>
                             <h1>Send us a message</h1>
                             <p>Our team will get back to you as soon as possible!</p>
-
+                        </div>
                         <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
                         {globalState.isLoggedIn == false ? (
                             <>
@@ -192,7 +191,7 @@ useEffect(() => {
                                 id="fname"
                                 name="fname"
                                 value={formData.fname}
-                                onChange={handleInputChange}
+                                onChange={(e) => handleInputChange('fname', e.target.value)}
                                 required
                               />
                           </div>
@@ -203,7 +202,7 @@ useEffect(() => {
                                 id="cname"
                                 name="cname"
                                 value={formData.cname}
-                                onChange={handleInputChange}
+                                onChange={(e) => handleInputChange('cname', e.target.value)}
                                 required
                               />
                             </div>
@@ -217,8 +216,8 @@ useEffect(() => {
                                 id="rnc"
                                 name="rnc"
                                 value={formData.rnc}
-                                onChange={handleInputChange}
-                              />
+                                onChange={(e) => handleInputChange('rnc', e.target.value)}
+                                />
                             </div>
 
                             <div className='input-field'>
@@ -228,7 +227,7 @@ useEffect(() => {
                                 id="email"
                                 name="email"
                                 value={formData.email}
-                                onChange={handleInputChange}
+                                onChange={(e) => handleInputChange('email', e.target.value)}
                                 required
                               />
                               {errors.email && <p className="error">{errors.email}</p>}
@@ -240,9 +239,13 @@ useEffect(() => {
                             <div className='input-field country-phone'>
                               <label htmlFor="phone">*Phone Number</label>
                               <PhoneInput
-                                country={'us'} // Default country
-                                value={formData.phone}
-                                onChange={(value) => handleInputChange('phone', value)}
+                                value={formData.phone} // The full number with country code
+                                onChange={(value) => {
+                                  setFormData((prev) => ({
+                                    ...prev,
+                                    phone: value, // Store the full number including country code
+                                  }));
+                                }}
                                 inputProps={{
                                   name: 'phone',
                                   required: true,
@@ -254,9 +257,13 @@ useEffect(() => {
                             <div className='input-field country-phone'>
                               <label htmlFor="whatsapp">WhatsApp Number</label>
                               <PhoneInput
-                                country={'us'}
                                 value={formData.whatsapp}
-                                onChange={(value) => handleInputChange('whatsapp', value)}
+                                onChange={(value) => {
+                                  setFormData((prev) => ({
+                                    ...prev,
+                                    whatsapp: value, // Store the full number including country code
+                                  }));
+                                }}
                               />
                               {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
                             </div>
@@ -270,7 +277,7 @@ useEffect(() => {
                                 value={formData.country}
                                 classNamePrefix="react-select"
                                 onChange={(value) => handleInputChange('country', value)}
-                                placeholder="Select your country"
+                                placeholder="Search for a country"
                               />
                               {errors.country && <p className="error">{errors.country}</p>}
                             </div>
@@ -282,8 +289,8 @@ useEffect(() => {
                                 id="address"
                                 name="address"
                                 value={formData.address}
-                                onChange={handleInputChange}
-                              />
+                                onChange={(e) => handleInputChange('address', e.target.value)}
+                                />
                             </div>
                             </div>
                             <div className='input-field'>                       
@@ -293,7 +300,7 @@ useEffect(() => {
                                 id="port"
                                 name="port"
                                 value={formData.port}
-                                onChange={handleInputChange}
+                                onChange={(e) => handleInputChange('port', e.target.value)}
                                 required
                               />
                             </div>
@@ -307,7 +314,7 @@ useEffect(() => {
                                 id="message"
                                 name="message"
                                 value={formData.message}
-                                onChange={handleInputChange}
+                                onChange={(e) => handleInputChange('message', e.target.value)}
                                 required
                               />  
                             </div>
@@ -351,6 +358,8 @@ useEffect(() => {
                                         <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank"><img src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
 
                                     </div>
+                                    <h4>Or scan the QR code</h4>
+                                    <img src={qr} href="https://wadideg.social/"/>
                                 </div>
                             </div>
 
