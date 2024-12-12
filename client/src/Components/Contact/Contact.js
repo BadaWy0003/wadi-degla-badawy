@@ -5,7 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 import { useGlobalState } from '../GlobalStateContext.js';
 import PhoneInput from 'react-phone-input-2'; // Import PhoneInput component
 import Select from 'react-select'; // Import react-select
-
+import "react-phone-input-2/lib/style.css";
 import countryList from 'react-select-country-list'; // Optional helper for countries
 
 
@@ -80,7 +80,7 @@ useEffect(() => {
       }
   
       if (formData.whatsapp && !phoneRegex.test(formData.whatsapp)) {
-        newErrors.whatsapp = 'Phone number must be numeric and between 8 to 15 digits.';
+        newErrors.whatsapp = 'Whatsapp number must be numeric and between 8 to 15 digits.';
       }
       
       if (formData.email && !emailRegex.test(formData.email)) {
@@ -229,7 +229,7 @@ useEffect(() => {
                                 onChange={(e) => handleInputChange('email', e.target.value)}
                                 required
                               />
-                              {errors.email && <p className="error">{errors.email}</p>}
+                              {/* {errors.email && <p className="error">{errors.email}</p>} */}
                             </div>
                             </div>
 
@@ -245,12 +245,13 @@ useEffect(() => {
                                     phone: value, // Store the full number including country code
                                   }));
                                 }}
+                                placeholder="Enter full number with country code"
                                 inputProps={{
                                   name: 'phone',
                                   required: true,
                                 }}
                               />
-                              {errors.phone && <p className="error">{errors.phone}</p>}
+                              {/* {errors.phone && <p className="error">{errors.phone}</p>} */}
                             </div>
 
                             <div className='input-field country-phone'>
@@ -263,8 +264,9 @@ useEffect(() => {
                                     whatsapp: value, // Store the full number including country code
                                   }));
                                 }}
+                                placeholder="Enter full number with country code"
                               />
-                              {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
+                              {/* {errors.whatsapp && <p className="error">{errors.whatsapp}</p>} */}
                             </div>
                             </div>
 
@@ -278,7 +280,7 @@ useEffect(() => {
                                 onChange={(value) => handleInputChange('country', value)}
                                 placeholder="Search for a country"
                               />
-                              {errors.country && <p className="error">{errors.country}</p>}
+                              {/* {errors.country && <p className="error">{errors.country}</p>} */}
                             </div>
 
                             <div className='input-field' id='input-address'>
@@ -317,6 +319,11 @@ useEffect(() => {
                                 required
                               />  
                             </div>
+                            {errors.email && <p className="error">{errors.email}</p>}
+                            {errors.country && <p className="error">{errors.country}</p>}
+                            {errors.phone && <p className="error">{errors.phone}</p>}
+                            {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
+
                                                                 
                             <button type="submit" className='btn1'> SEND </button>
                         </form>
@@ -358,7 +365,7 @@ useEffect(() => {
 
                                     </div>
                                     <h4>Or scan the QR code</h4>
-                                    <img src={qr} href="https://wadideg.social/"/>
+                                    <a href='https://wadideg.social/' target="_blank"> <img src={qr}/> </a>
                                 </div>
                             </div>
 

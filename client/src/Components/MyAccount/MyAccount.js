@@ -44,9 +44,12 @@ export default function MyAccount(){
       };
 
     return(
-        <div className='contact-container'>
+        <div className='account-container'>
                 
-
+            {/* Breadcrumb Navigation */}
+            <div className="breadcrumb">
+                <a href="/">Home</a> &gt; <a href="/account">My Account</a> &gt; {selectedTab}
+            </div>
                 <div className="my-account-container">
 
                     <div className="my-account-container-left">
@@ -65,9 +68,11 @@ export default function MyAccount(){
                             <div className='tabs-content'>{Object.entries(globalState)
                                 .filter(([key, value]) => value) // Filter out properties with empty values
                                 .map(([key, value]) => (
+                                    <div className='user-info'>
                                     <p key={key}>
-                                        {`${key.replace('_', ' ')}: ${value}`}
+                                        {`${key.replace('_', ' ')}:`} <p className='value'>{value}</p>
                                     </p>
+                                    </div>
                                 ))}</div>
                             
                         ) : (  

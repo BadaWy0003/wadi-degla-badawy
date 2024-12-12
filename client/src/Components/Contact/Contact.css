@@ -64,6 +64,7 @@
     color: red !important;
     font-size: 12px;
     margin-top: 5px;
+    align-items: start;
   }
 
   .input-field{
