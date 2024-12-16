@@ -164,7 +164,12 @@ useEffect(() => {
         <div className='contact-container'>
                 <div className="gallery-hero">
                         <div className="gallery-hero-bg"></div>
-                            <h1>CONTACT US</h1>
+                          <div className='page-title'>
+                              <h1>CONTACT US</h1>
+                              <div className="breadcrumb">
+                                <a href="/">Home</a> <p>{'>'} Contact Us</p>
+                            </div>
+                        </div>  
                     </div>
                     <div className="contact-inner">
 

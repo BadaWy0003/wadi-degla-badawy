@@ -5,3 +5,33 @@
   z-index: 1;
   background-color: var(--darkerBlackColor);
 }
+.page-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+  font-size: 14px;
+  color: var(--darkGrayColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.breadcrumb a {
+  color: var(--goldColor);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--blueColor);
+}
+
+.breadcrumb p {
+  color: var(--whiteColor);
+}

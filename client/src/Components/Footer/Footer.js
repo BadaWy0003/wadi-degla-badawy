@@ -15,11 +15,14 @@ import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-w
 //import whatsapp_white_icon from '../Assets/Icons/Social/whatsapp-white-icon.svg'
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 //import {FaBars, FaTimes} from "react-icons/fa";
 
 
 
 function Footer() {
+  const navigate = useNavigate();
     
     return (
       <footer className='footer-main'>
@@ -28,7 +31,14 @@ function Footer() {
             <h1>GET IN TOUCH</h1>
             <p>At Wadi Degla for Marble & Granite, we value our customers' inquiries and feedback. Our dedicated team is here to assist you and provide the information you need.</p>
             
-            <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}><button className='btn1'>CONTACT US</button></Link>
+            <button 
+            className='btn1'
+            onClick={() => {
+                             navigate('/contact'); // Redirect to the homepage
+                                window.scrollTo({top: 0})
+                             }}> 
+              CONTACT US</button>
+
           </div>
         </div>
         <div className='footer-right'>

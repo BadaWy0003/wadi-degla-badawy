@@ -48,32 +48,45 @@ export default function MyAccount(){
                 
             {/* Breadcrumb Navigation */}
             <div className="breadcrumb">
-                <a href="/">Home</a> &gt; <a href="/account">My Account</a> &gt; {selectedTab}
+                <a href="/">Home</a> &gt; <a href="/my account">My Account</a> &gt; {selectedTab}
             </div>
                 <div className="my-account-container">
 
                     <div className="my-account-container-left">
-                            <button className="btn2" onClick={() => setSelectedTab('Account Information')}>Account Information</button>
-                            <button className="btn2" onClick={() => setSelectedTab('Change Password')}>Change Password</button>
-                            <button className='btn1' onClick={() => { setGlobalState({
+
+                            <button 
+                            className={`btn2 ${selectedTab === 'Account Information' ? 'active' : ''}`} 
+                            onClick={() => setSelectedTab('Account Information')}>
+                                Account Information
+                                </button>
+
+                            <button 
+                            className={`btn2 ${selectedTab === 'Change Password' ? 'active' : ''}`} 
+                            onClick={() => setSelectedTab('Change Password')}>
+                                Change Password
+                                </button>
+
+                            <button 
+                            className='btn1' 
+                            onClick={() => { setGlobalState({
                                 ...globalState,
                                 isLoggedIn: false,
                             }); navigate('/'); // Redirect to the homepage
                                 window.scrollTo({top: 0, behavior: 'smooth'})
-                             }}>Logout</button>
+                             }}>Logout
+                             </button>
                     </div>
 
                     <div className="my-account-container-right">
                         {selectedTab == 'Account Information' ? (
-                            <div className='tabs-content'>{Object.entries(globalState)
-                                .filter(([key, value]) => value) // Filter out properties with empty values
-                                .map(([key, value]) => (
-                                    <div className='user-info'>
-                                    <p key={key}>
-                                        {`${key.replace('_', ' ')}:`} <p className='value'>{value}</p>
-                                    </p>
-                                    </div>
-                                ))}</div>
+                            <div className='tabs-content'>
+                                    <p>Full Name: <p className='value'> {globalState.full_name || account_data.full_name}</p></p>
+                                    <p>Email: <p className='value'>{globalState.email || account_data.email}</p></p>
+                                    <p>Phone: <p className='value'>{globalState.phone || account_data.phone}</p></p>
+                                    <p>Country: <p className='value'>{globalState.country || account_data.country}</p></p>
+                                    <p>Company Name: <p className='value'>{globalState.company || account_data.company}</p></p>
+                                    <p>Address: <p className='value'>{globalState.address || "Not provided"}</p></p>
+                                </div>
                             
                         ) : (  
                             <div className='tabs-content'>

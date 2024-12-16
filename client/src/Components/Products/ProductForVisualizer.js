@@ -14,7 +14,7 @@ export default function ProductForVisualizer({ item, onClick }) {
       <div className="product-card" onClick={onClick}>
         <img src={polishedFinish.imageUrl} alt={item.name} />
         <h3>{item.name}</h3>
-        <p>{item.category}</p>
+        
       </div>
     );
   }

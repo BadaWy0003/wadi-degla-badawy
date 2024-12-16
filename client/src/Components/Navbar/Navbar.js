@@ -53,7 +53,7 @@ export default function Navbar(){
 				<Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Home</a></Link>
                 <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}><a>About</a></Link>
                 <div className="nav-item-with-submenu">
-                    <a>Explore</a>
+                    <a>Explore ↓</a>
                     
                     {/* Submenu */}
                     <div className="submenu">

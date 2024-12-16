@@ -6,7 +6,10 @@
     justify-content: center;
     grid-template-columns: auto;
     height: 100%;
-    margin-top: 5rem;
+    margin-top: -7rem;
+    padding-bottom: 5rem;
+    padding-top: 15rem;
+    padding-right: 5rem;
 }
 
 div.container1{

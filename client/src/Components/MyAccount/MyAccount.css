@@ -5,27 +5,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     align-items: center;
-    height: 100vh;
-    padding: 5rem;
+    flex-wrap: wrap; /* Allow wrapping if space is constrained */
+    min-height: fit-content; /* Allow it to grow based on content */
+    padding-bottom: 5rem;
+    padding-top: 15rem;
+    margin-top: -7rem;
 }
 
-/* Breadcrumb Navigation */
-.breadcrumb {
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: var(--darkGrayColor);
-}
 
-.breadcrumb a {
-    color: var(--goldColor);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
 
-.breadcrumb a:hover {
-    color: var(--blueColor);
-}
 
 .my-account-container {
     display: flex;
@@ -36,6 +29,11 @@
     border-radius: 12px;
     overflow: hidden;
     align-items: center;
+    border: solid 1px var(--goldColor);
+    height: fit-content;
+    padding: 2rem;
+    margin-top: 1rem;
+
 }
 
 /* Left-side navigation */
@@ -48,13 +46,19 @@
     gap: 10px;
     height: 100%; /* Ensure left navigation takes full height */
     justify-content: center;
+    border-right: solid 1px var(--goldColor);
+    padding-right: 2rem;
+
 }
 
 .my-account-container-left button {
     text-align: left;
 }
 
-
+.my-account-container-left .active {
+    background-color: var(--whiteColor);
+    color: var(--goldColor);
+}
 
 
 
@@ -62,20 +66,23 @@
 /* Right-side content */
 .my-account-container-right {
     flex: 2;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    gap: 15px;
-    border-left: solid 1px var(--goldColor);
-    min-height: 70vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-height: 100%; /* Ensure it doesn't exceed parent height */
+    padding: 0 2rem;
+
 }
 
+
 .tabs-content {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     font-size: 16px;
     line-height: 1.6;
+
 }
 .tabs-content p {
     margin: 0 0 10px;
@@ -103,9 +110,6 @@
     /* align-self: flex-start; */
     width: 100%;
     cursor: pointer;
-    background-color: var(--whiteColor);
-    border-color: var(--whiteColor);
-    color: var(--goldColor);
 }
 
 #change-password:hover{
