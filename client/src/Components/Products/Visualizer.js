@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Visualizer.css';
 import { Link } from "react-router-dom";
 import hero_bg from '../Assets/Media/hero-bg.jpg';
@@ -11,8 +11,14 @@ export default function Visualizer() {
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
   const [showIndoor, setShowIndoor] = useState(true); // Toggle for indoor
   const [showOutdoor, setShowOutdoor] = useState(true); // Toggle for outdoor
+
   const indoorRef = useRef(null);
   const outdoorRef = useRef(null);
+
+
+  
+
+
 
   // Filter products based on selected category and search query
   const filteredProducts = productData.filter(item => {
@@ -57,15 +63,12 @@ const scrollToIndoor = () => {
 
   return (
     <div className='products-container'>
-      <div className="products-hero">
         <div
-          className="products-hero-bg"
-          style={{
-            backgroundImage: selectedProduct
-              ? `url(${selectedProduct.currentMockup})`
-              : `url(${hero_bg})`
-          }}
-        ></div>
+        className="products-hero"
+        style={{
+          backgroundImage: `url(${selectedProduct ? selectedProduct.mockup : hero_bg})`, // Set dynamic background image
+        }}
+      >
         <h1>{selectedProduct ? selectedProduct.name : "Visualizer"}</h1>
         {!selectedProduct && <p className='hero-hint'>Select a product from below and it will show here</p>}
       </div>
@@ -114,7 +117,7 @@ const scrollToIndoor = () => {
           <div className="toggle-buttons">
             {hasIndoorProducts && (
               <button
-                className={`btn2 ${showIndoor ? 'active' : ''}`}
+                className={`toggle-btn ${showIndoor ? 'active' : ''}`}
                 onClick={() => setShowIndoor(!showIndoor)}
               >
                 {showIndoor ? 'Hide Indoor' : 'Show Indoor'}
@@ -122,7 +125,7 @@ const scrollToIndoor = () => {
             )}
             {hasOutdoorProducts && (
               <button
-                className={`btn2 ${showOutdoor ? 'active' : ''}`}
+                className={`toggle-btn ${showOutdoor ? 'active' : ''}`}
                 onClick={() => setShowOutdoor(!showOutdoor)}
               >
                 {showOutdoor ? 'Hide Outdoor' : 'Show Outdoor'}

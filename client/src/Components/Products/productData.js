@@ -1,4 +1,4 @@
-import './Products.css';
+import './Visualizer.css';
 import Galala from '../Assets/Media/Products/Galala.png'
 import Sunny_Menia from '../Assets/Media/Products/Sunny-Menia.png'
 import Selvia_Menia from '../Assets/Media/Products/Selvia-Menia.png'

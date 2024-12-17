@@ -1,19 +1,41 @@
 import React, { useState } from 'react';
-import './Products.css';
-import Product from '../Home/Product.js';
-import { productData } from './productData.js'; // Import the product data
+import './Visualizer.css';
 
 export default function Modal({ product, onClose }) {
-    return (
-      <div className="modal-overlay" onClick={onClose}>
-        <div className="modal-content" onClick={e => e.stopPropagation()}>
-          <span className="modal-close" onClick={onClose}>&times;</span>
-          <img src={product.finish.imageUrl} alt={product.name} />
-          <h2>{product.name}</h2>
-          <p>Category: {product.category}</p>
-          <p>Finish: {product.finish.finishName}</p>
-          <p>Description: {product.description}</p>
+  // Set "Polished" as the default finish
+  const [selectedFinish, setSelectedFinish] = useState(
+    product.finish.find(finish => finish.finishName === 'Polished') || product.finish[0]
+  );
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <span className="modal-close" onClick={onClose}>&times;</span>
+        
+        {/* Product Image */}
+        <img src={selectedFinish.imageUrl} alt={product.name} className="modal-image" />
+
+        {/* Product Details */}
+        <h2>{product.name}</h2>
+        <p><strong>Category:</strong> {product.category}</p>
+        <p><strong>Finish:</strong> {selectedFinish.finishName}</p>
+
+        {/* Finish Selector */}
+        <div className="finish-selector">
+          <p>Select Finish:</p>
+          <div className="finish-buttons">
+            {product.finish.map(finish => (
+              <button
+                key={finish.finishName}
+                className={`finish-btn ${selectedFinish.finishName === finish.finishName ? 'active' : ''}`}
+                onClick={() => setSelectedFinish(finish)}
+              >
+                {finish.finishName}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}

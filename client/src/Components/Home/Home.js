@@ -10,7 +10,7 @@ import Selvia_Menia from '../Assets/Media/Products/Selvia-Menia.png'
 import Felitto from '../Assets/Media/Products/Felitto.png'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Product from './Product';
+import Product from '../Products/Product';
 import Modal from '../Products/Modal';
 import { productData } from '../Products/productData';
 import company_logo from '../Assets/Icons/partners/company-logo.png'
