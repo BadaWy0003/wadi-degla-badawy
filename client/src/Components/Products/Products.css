@@ -79,24 +79,6 @@
     gap: 1rem;
     padding: 5rem 2rem;
 }
-
-.category-title-and-product-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    width: 48%; /* Divide into two equal sections */
-    border: solid 1px var(--lightGrayColor);
-    border-radius: 1rem;
-    padding: 0 1rem
-}
-
-.category-title-and-product-cards h2 {
-    font-size: 1.5rem;
-    color: var(--darkGrayColor);
-    font-weight: 400;
-    text-align: center;
-}
 .search-bar{
     padding: 1rem;
     border-radius: 1rem;
@@ -106,7 +88,7 @@
     transition: all 0.3s;
 
 }
-
+/* SEARCH BAR _____________________*/
 .search-bar:active{
     border-color: var(--whiteColor);
     transition: all 0.3s;
@@ -115,6 +97,25 @@
 .search-bar:hover{
     border-color: var(--darkerBlackColor);
     transition: all 0.3s;
+}
+/* _______________________________*/
+
+.category-title-and-product-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 48%; /* Divide into two equal sections */
+    border: solid 1px gainsboro;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.category-title-and-product-cards h2 {
+    font-size: 1.5rem;
+    color: var(--darkGrayColor);
+    font-weight: 400;
+    text-align: center;
 }
 
 .category-title-and-product-cards-2 {
@@ -134,7 +135,7 @@
 
 .product-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     column-gap: 1rem;
     width: 100%;
     padding-bottom: 1rem;
@@ -144,7 +145,7 @@
 
 /* Product Cards */
 .product-card {
-    background-color: var(--whiteColor);
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -155,8 +156,8 @@
     overflow: hidden;
     cursor: pointer;
     width: 100%;
-    max-width: 140px;
-    max-height: 8rem;
+    
+    
 }
 
 .product-card:hover {
@@ -166,6 +167,7 @@
 
 .product-card:hover img{
     transform: scale(1.1); /* Zoom effect on hover */
+    border-radius: 1rem 1rem 0 0;
 
 }
 
@@ -173,7 +175,7 @@
     width: 100%;
     height: 100px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 1rem;
     margin-bottom: 0.5rem;
     transition: transform 0.3s ease; /* Smooth hover effect */
 }
@@ -183,7 +185,7 @@
 .product-card h3 {
     font-size: 0.8rem;
     font-weight: 400;
-    color: var(--darkerBlackColor);
+    color: var(--darkGrayColor);
     text-align: center;
     margin: 0;
 }
