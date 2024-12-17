@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Products.css';
+import './Visualizer.css';
 import { Link } from "react-router-dom";
 import hero_bg from '../Assets/Media/hero-bg.jpg';
 import home_bg from '../Assets/Media/home-bg2.jpg'

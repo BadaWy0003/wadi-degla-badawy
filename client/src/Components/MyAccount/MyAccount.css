@@ -56,10 +56,12 @@
 }
 
 .my-account-container-left .active {
-    background-color: var(--whiteColor);
+    background-color: var(--whiteColor) !important;
     color: var(--goldColor);
 }
-
+.my-account-container-left .btn2 {
+    background-color: transparent;
+}
 
 
 
@@ -120,6 +122,7 @@
 @media (max-width: 768px) {
     .my-account-container {
         flex-direction: column;
+        align-items: normal; 
     }
 
     .my-account-container-left {
@@ -128,7 +131,16 @@
         padding: 15px;
     }
 
+    .my-account-container-right{
+        padding-right: 2rem;
+        padding-left: 1rem;
+    }
     .tabs-content {
+        margin-top: 1rem;
         font-size: 14px;
+    }
+    .tabs-content p{
+        padding: 0;
+        
     }
 }
