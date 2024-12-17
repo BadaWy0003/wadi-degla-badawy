@@ -12,7 +12,9 @@ export default function ProductForVisualizer({ item, onClick }) {
   
     return (
       <div className="product-card" onClick={onClick}>
+        <div className='img-div'>
         <img src={polishedFinish.imageUrl} alt={item.name} />
+        </div>
         <h3>{item.name}</h3>
         
       </div>
