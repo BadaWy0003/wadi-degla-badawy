@@ -78,6 +78,14 @@ AuthService.loginCustomerAndSignToken = async (customerData) => {
   return { customer, token };
 };
 
+AuthService.customerCheckAuth = async (user) => {
+  const customer = await Customer.findById(
+    user._id,
+    'id email password fullName companyName rnc phone whatsapp country countryCode address port',
+  );
+  return customer;
+};
+
 AuthService.loginAdminAndSignToken = async (adminData) => {
   const { email, password } = adminData;
 
