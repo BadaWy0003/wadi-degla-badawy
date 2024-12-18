@@ -7,8 +7,8 @@ const app = express();
 const allowedOrigins = ['http://localhost:3000'];
 app.use(
   cors({
-    origin: allowedOrigins, // Allow requests from this origin
-    credentials: true, // Allow credentials (cookies, authorization headers)
+    origin: allowedOrigins,
+    credentials: true,
   }),
 );
 app.use(cookieParser());
@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 require('dotenv').config();
 require('./start/routes')(app);
 require('./start/database')();
+require('./start/amazonS3Bucket').listBuckets();
 
 const port = process.env.PORT || 5000;
 const server = app.listen(port, async () => {
