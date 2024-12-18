@@ -2,26 +2,40 @@ const AuthController = {};
 const AuthService = require('../services/auth.service');
 
 AuthController.customerRegister = async (req, res) => {
-  const { username, email, phone, password } = req.body;
+  const { fullName, companyName, rnc, email, phone, whatsapp, country, countryCode, address, port, password } = req.body;
 
   try {
     const data = await AuthService.createCustomerAndGenerateToken({
-      username,
+      fullName,
+      companyName,
+      rnc,
       email,
       phone,
+      whatsapp,
+      country,
+      countryCode,
+      address,
+      port,
       password,
     });
 
     res.status(201).cookie('auth', data.token, { httpOnly: true }).json({
       id: data.newCustomer.id,
-      username: data.newCustomer.username,
+      fullName: data.newCustomer.fullName,
+      companyName: data.newCustomer.companyName,
+      rnc: data.newCustomer.rnc,
       email: data.newCustomer.email,
       phone: data.newCustomer.phone,
+      whatsapp: data.newCustomer.whatsapp,
+      country: data.newCustomer.country,
+      countryCode: data.newCustomer.countryCode,
+      address: data.newCustomer.address,
+      port: data.newCustomer.port,
       token: data.token,
     });
   } catch (err) {
-     const statusCode = err.statusCode || 400; // Default to 400 if no statusCode is set
-     res.status(statusCode).send({ message: err.message });
+    const statusCode = err.statusCode || 400; // Default to 400 if no statusCode is set
+    res.status(statusCode).send({ message: err.message });
   }
 };
 
@@ -44,13 +58,21 @@ AuthController.customerLogin = async (req, res) => {
       })
       .json({
         id: data.customer.id,
-        username: data.customer.username,
+        fullName: data.customer.fullName,
+        companyName: data.customer.companyName,
+        rnc: data.customer.rnc,
         email: data.customer.email,
+        phone: data.customer.phone,
+        whatsapp: data.customer.whatsapp,
+        country: data.customer.country,
+        countryCode: data.customer.countryCode,
+        address: data.customer.address,
+        port: data.customer.port,
         token: data.token,
       });
   } catch (err) {
     console.log(err.message);
-    
+
     res.status(401).send({ message: err.message });
   }
 };

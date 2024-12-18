@@ -7,7 +7,7 @@ const comparePassword = require('../utils/compare-password');
 const { generateSignedCustomerToken, generateSignedAdminToken } = require('../utils/generate-token');
 
 AuthService.createCustomerAndGenerateToken = async (customerData) => {
-  const { username, email, phone, password } = customerData;
+  const { fullName, companyName, rnc, email, phone, whatsapp, country, countryCode, address, port, password } = customerData;
 
   const emailExistAsCustomer = await Customer.findOne({ email });
   const emailExistAsAdmin = await Admin.findOne({ email });
@@ -27,9 +27,16 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
     const newCustomer = await Customer.create(
       [
         {
-          username,
+          fullName,
+          companyName,
+          rnc,
           email,
           phone,
+          whatsapp,
+          country,
+          countryCode,
+          address,
+          port,
           password: hashedPassword,
         },
       ],

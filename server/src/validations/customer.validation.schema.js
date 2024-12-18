@@ -15,7 +15,7 @@ const passwordSchema = passwordComplexity(complexityOptions);
 const registerCustomerReqSchema = {
   body: Joi.object()
     .keys({
-      username: Joi.string().min(4).max(20).required(),
+      fullName: Joi.string().min(4).max(20).required(),
       email: Joi.string().email().required(),
       phone: Joi.string()
         .pattern(/^[0-9]{10,15}$/)
