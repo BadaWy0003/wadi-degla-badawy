@@ -46,6 +46,7 @@ AuthController.customerLogin = async (req, res) => {
         id: data.customer.id,
         username: data.customer.username,
         email: data.customer.email,
+        token: data.token,
       });
   } catch (err) {
     console.log(err.message);
