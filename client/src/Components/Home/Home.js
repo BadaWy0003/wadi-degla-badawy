@@ -108,13 +108,13 @@ export default function Home(){
       };
       
       // console.log("GlobalState.loggedIn: " + globalState.isLoggedIn + " GlobalState.token: "+ globalState.token );
-      console.log("HOME/////GlobalState.fullname: " + globalState.fullName + 
-        " GlobalState.companyName: "+ globalState.companyName + " GlobalState.address: "
-         + globalState.address + " GlobalState.whatsapp: " + globalState.whatsapp + 
-        "GlobalState.port: "+ globalState.port + " GlobalState.isLoggedIn: " + globalState.isLoggedIn + 
-        " GlobalState.token: "+globalState.token + " GlobalState.rnc: "+globalState.rnc + 
-        " GlobalState.country: "+globalState.country + " GlobalState.countryCode: "+globalState.countryCode
-      +" GlobalState.email: "+globalState.email+" GlobalState.phone: "+globalState.phone);
+      // console.log("HOME/////GlobalState.fullname: " + globalState.fullName + 
+      //   " GlobalState.companyName: "+ globalState.companyName + " GlobalState.address: "
+      //    + globalState.address + " GlobalState.whatsapp: " + globalState.whatsapp + 
+      //   "GlobalState.port: "+ globalState.port + " GlobalState.isLoggedIn: " + globalState.isLoggedIn + 
+      //   " GlobalState.token: "+globalState.token + " GlobalState.rnc: "+globalState.rnc + 
+      //   " GlobalState.country: "+globalState.country + " GlobalState.countryCode: "+globalState.countryCode
+      // +" GlobalState.email: "+globalState.email+" GlobalState.phone: "+globalState.phone);
     return(
         <div className="homepage">
             <div className="hero">

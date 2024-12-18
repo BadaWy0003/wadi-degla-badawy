@@ -1,30 +1,48 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
-// Create a Context
 const GlobalStateContext = createContext();
 
-// Create a Provider Component
+export const useGlobalState = () => useContext(GlobalStateContext);
+
 export const GlobalStateProvider = ({ children }) => {
-  const [globalState, setGlobalState] = useState(() => {
-    // Load initial state from localStorage if available
-    const savedUserData = localStorage.getItem("userData");
-    return savedUserData
-      ? { ...JSON.parse(savedUserData), isLoggedIn: true }
-      : {
-          isLoggedIn: false,
-          token: null,
-          fullName: "",
-          companyName: "",
-          rnc: "",
-          email: "",
-          phone: "",
-          whatsapp: "",
-          country: "",
-          countryCode: "",
-          address: "",
-          port: "",
-        };
+  const [globalState, setGlobalState] = useState({
+    isLoggedIn: false,
+    id: "",
+    fullName: "",
+    companyName: "",
+    rnc: "",
+    email: "",
+    phone: "",
+    whatsapp: "",
+    country: "",
+    address: "",
+    port: "",
   });
+
+  // Fetch user data on app initialization
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/auth/customer/me", // Adjust the endpoint
+          { withCredentials: true }
+        );
+
+        if (response.status === 200) {
+          setGlobalState({
+            isLoggedIn: true,
+            ...response.data,
+          });
+        }
+      } catch (err) {
+        console.error("Failed to fetch user data:", err.response?.data || err.message);
+        setGlobalState({ isLoggedIn: false }); // Reset state on failure
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   return (
     <GlobalStateContext.Provider value={{ globalState, setGlobalState }}>
@@ -32,7 +50,3 @@ export const GlobalStateProvider = ({ children }) => {
     </GlobalStateContext.Provider>
   );
 };
-
-
-// Custom Hook for using the Global State
-export const useGlobalState = () => useContext(GlobalStateContext);

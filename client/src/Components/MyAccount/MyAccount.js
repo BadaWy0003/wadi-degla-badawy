@@ -16,30 +16,43 @@ export default function MyAccount(){
     const navigate = useNavigate();
 
 
-    const handleLogout = () => {
-        // Clear user data from localStorage
-        localStorage.removeItem("userData");
-      
-        // Reset global state
-        setGlobalState({
-          isLoggedIn: false,
-          token: null,
-          fullName: "",
-          companyName: "",
-          rnc: "",
-          email: "",
-          phone: "",
-          whatsapp: "",
-          country: "",
-          countryCode: "",
-          address: "",
-          port: "",
-        });
-      
-        navigate("/login");
-        window.scrollTo({top: 0, behavior: 'smooth'})
-      };
-      
+    const handleLogout = async () => {
+      try {
+          // Optional: Call a logout API (if required)
+          const response = await fetch("http://localhost:5000/api/auth/logout", {
+              method: "POST",
+              credentials: "include", // Ensures cookies are sent with the request
+          });
+  
+          if (response.ok) {
+              console.log("Logout successful");
+  
+              // Reset global state
+              setGlobalState({
+                  isLoggedIn: false,
+                  token: null,
+                  fullName: "",
+                  companyName: "",
+                  rnc: "",
+                  email: "",
+                  phone: "",
+                  whatsapp: "",
+                  country: "",
+                  countryCode: "",
+                  address: "",
+                  port: "",
+              });
+  
+              // Navigate to the login page
+              navigate("/login");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+          } else {
+              console.error("Failed to logout:", response.statusText);
+          }
+      } catch (error) {
+          console.error("Error during logout:", error);
+      }
+  };   
     
     const responsive2 = {
         superLargeDesktop: {

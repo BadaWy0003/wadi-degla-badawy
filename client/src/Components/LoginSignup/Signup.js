@@ -49,9 +49,13 @@ try{
     //     "Username must be between 4 and 20 letters with no symbols.";
     // }
 
-    // if (!fname) {
-    //   newError.fname = "Please enter your full name.";
-    // }
+    if (!fullName) {
+      newError.fullName = "Please enter your full name.";
+    }
+
+    if (!companyName) {
+      newError.companyName = "The company/project name is required";
+    }
 
     if (!email) {
       newError.email = "Email is required.";
@@ -75,12 +79,12 @@ try{
       newError.password =
         "Password must be at least 8 characters, including an uppercase letter, lowercase letter, number, and a special character.";
     }
-    // if (!country) {
-    //   newError.fname = "Please select a country.";
-    // }
-    // if (!port) {
-    //   newError.port = "Please enter the port of destination in case of shipment, if not please enter 'N/A'";
-    // }
+    if (!country) {
+      newError.country = "Please select a country.";
+    }
+    if (!port) {
+      newError.port = "Please enter the port of destination in case of shipment, if not please enter 'N/A'";
+    }
     // if (!agreeToTerms) {
     //   newError.terms = "You must agree to the terms and conditions.";
     // }
@@ -155,9 +159,13 @@ try{
   return (
     <div className="container-big">
       <div className="container1">
-        <h1>Wadi Degla</h1>
-        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
-        <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
+        <div className="container1-title">
+          <h1>Wadi Degla</h1>
+          <h3>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h3>
+        </div>
+        <div className="container1-img">
+          <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
+        </div>
       </div>
       <div className="container2">
         <div className="signup-form-title">
@@ -183,7 +191,7 @@ try{
                 value={fullName}
                 onChange={(e) => setfullName(e.target.value)}
               />
-              {/* {error.fname && <p className="error">{error.fname}</p>} */}
+              {error.fullName && <p className="error">{error.fullName}</p>}
 
             </div>
             <div className="input-field">
@@ -195,6 +203,7 @@ try{
                 value={companyName}
                 onChange={(e) => setcompanyName(e.target.value)}
               />
+              {error.companyName && <p className="error">{error.companyName}</p>}
 
             </div>
           </div>
@@ -253,7 +262,7 @@ try{
                 classNamePrefix="react-select"
                 placeholder="Search for a country"
               />
-              {/* {error.country && <p className="error">{error.country}</p>} */}
+              {error.country && <p className="error">{error.country}</p>}
 
             </div>
             <div className="input-field">
@@ -290,7 +299,7 @@ try{
                   onChange={(e) => setPort(e.target.value)}
 
                 />
-              {/* {error.port && <p className="error">{error.port}</p>} */}
+              {error.port && <p className="error">{error.port}</p>}
 
               </div>
               
@@ -308,16 +317,19 @@ try{
             </label>
             {error.terms && <p className="error">{error.terms}</p>}
           </div> */}
+          <div className="submit">
           <button type="submit" className="btn1">
             Sign Up
           </button>
-        </form>
-        <div className="forgot-password">
+          <div className="forgot-password">
           Already have an account?{" "}
           <Link to="/login">
             <span>Login</span>
           </Link>
+          </div>
         </div>
+
+        </form>
       </div>
     </div>
   );

@@ -2,54 +2,47 @@ import React, { useState } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
+import { useNavigate } from "react-router-dom";
+import { useGlobalState } from "../GlobalStateContext.js";
 import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
-import Cookies from "js-cookie";
-import { useNavigate } from 'react-router-dom';
-import { useGlobalState } from '../GlobalStateContext.js';
-
-
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [errors, setErrors] = useState({}); // State to hold field-specific errors
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
+  const { setGlobalState } = useGlobalState(); // Access global state for user data
 
   // Email validation regex
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   // Password validation (at least 8 characters, one letter, one number)
-  const validatePassword = (password) => {
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return passwordRegex.test(password);
-  };
+  const validatePassword = (password) =>
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
 
   const handleLogin = async () => {
+    let validationErrors = {};
     // Validate inputs
     if (!validateEmail(email)) {
-      setError("Please enter a valid email address.");
-      setMessage("");
-      return;
+      validationErrors.email = "Please enter a valid email address.";
     }
+
     if (!validatePassword(password)) {
-      setError(
-        "Password must be at least 8 characters, including uppercase leter, lowercase letter, number and a special character."
-      );
+      validationErrors.password =
+        "Password must be at least 8 characters, including uppercase, lowercase, number, and special character.";
+    }
+
+    // If there are validation errors, update state and stop submission
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
       setMessage("");
       return;
     }
 
-    // If validation passes, proceed with API request
+    // Clear errors and proceed with API request
+    setErrors({});
     try {
-      console.log(email, password);
-
       const response = await axios.post(
         "http://localhost:5000/api/auth/customer/login",
         { email, password },
@@ -57,60 +50,17 @@ export default function Login() {
       );
 
       if (response.status === 200 || response.status === 201) {
-        const userData = {
-          token: response.data.token,
-          fullName: response.data.fullName,
-          companyName: response.data.companyName,
-          rnc: response.data.rnc,
-          email: response.data.email,
-          phone: response.data.phone,
-          whatsapp: response.data.whatsapp,
-          country: response.data.country,
-          countryCode: response.data.countryCode,
-          address: response.data.address,
-          port: response.data.port,
-        };
-  
-        // Save user data to localStorage
-        // localStorage.setItem("userData", JSON.stringify(userData));
-  
-        // Update global state
+        // Update global state with user data
         setGlobalState({
-          ...globalState,
           isLoggedIn: true,
-          ...userData,
+          ...response.data, // Spread all fields from response.data
         });
-  
-              // Navigate to the home page
-              navigate("/");        
-              window.scrollTo({top: 0, behavior: 'smooth'})
-              
-        
-              // Store the token in a cookie for persistence
-              Cookies.set("authToken", response.data.token, { secure: true, sameSite: "Strict" });
 
-              // TESTING TO SEE THE globalState using console log ____________________________________________________
-              // console.log("GlobalState.port: "+ globalState.port); 
-              // console.log("LOGIN/////GlobalState.fullname: " + globalState.fullName + 
-              //   " GlobalState.companyName: "+ globalState.companyName + " GlobalState.address: "
-              //    + globalState.address + " GlobalState.whatsapp: " + globalState.whatsapp + 
-              //   "GlobalState.port: "+ globalState.port + " GlobalState.isLoggedIn: " + globalState.isLoggedIn + 
-              //   " GlobalState.token: "+globalState.token + " GlobalState.rnc: "+globalState.rnc + 
-              //   " GlobalState.country: "+globalState.country + " GlobalState.countryCode: "+globalState.countryCode
-              // +" GlobalState.email: "+globalState.email+" GlobalState.phone: "+globalState.phone);
-
-              setMessage("Login successful!");
-              setError(null);
-        
-              
-              
-      setMessage(response.data.message);
-      setError(null);
-
-      const token = Cookies;
-      console.log(token);
-    }} catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+        setMessage("Login successful!");
+        navigate("/");
+      }
+    } catch (err) {
+      setErrors({ general: err.response?.data?.message || "Login failed. Please try again." });
       setMessage("");
     }
   };
@@ -118,9 +68,13 @@ export default function Login() {
   return (
     <div className="container-big">
       <div className="container1">
-        <h1>Wadi Degla</h1>
-        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
-        <img src={wadi_degla_logo_login} alt="" />
+        <div className="container1-title">
+          <h1>Wadi Degla</h1>
+          <h3>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h3>
+        </div>
+        <div className="container1-img">
+          <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
+        </div>
       </div>
       <div className="container2">
         <div className="head">
@@ -128,50 +82,50 @@ export default function Login() {
           <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum!</p>
           <div className="underline"></div>
         </div>
-        
-        <div className="input-field">
-        <label htmlFor="email">Email Address</label>
+        <form
+          className="signup-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin();
+          }}
+        >
+          <div className="input-field">
+            <label htmlFor="email">Email Address</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-              {/* {error.email && <p className="error">{error.email}</p>} */}
-            </div>
+            {errors.email && <p className="error">{errors.email}</p>}
+          </div>
 
           <div className="input-field">
-          <label htmlFor="password">Password</label>
-          {/* <img src={password_eye_hidden_icon} alt="" /> */}
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {/* {error.password && <p className="error">{error.password}</p>} */}
-
-        </div>
-
-      
-            
-
-        {error && (
-          <p className="error" style={{ color: "red" }}>
-            {error}
-          </p>
-        )}
-        {message && <p className="success">{message}</p>}
-
-        <div className="submit-container">
-          <button className="btn1" onClick={handleLogin}>
-            LOGIN
-          </button>
-          <div className="forgot-password">
-            Don't have an account?
-            <Link to="/signup">
-              <span>Register</span>
-            </Link>
+            {errors.password && <p className="error">{errors.password}</p>}
           </div>
-        </div>
+
+          {errors.general && (
+            <p className="error" style={{ color: "red" }}>
+              {errors.general}
+            </p>
+          )}
+          {message && <p className="success">{message}</p>}
+
+          <div className="submit">
+            <button className="btn1">LOGIN</button>
+            <div className="forgot-password">
+              Don't have an account?
+              <Link to="/signup">
+                <span>Register</span>
+              </Link>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );

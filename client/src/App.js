@@ -30,7 +30,7 @@ function App() {
           }
         );
         if (response.status === 200 || response.status === 201) {
-         console.log(response.data.user);
+         console.log(response.data);
         }
       } catch {
         setUser(null);
