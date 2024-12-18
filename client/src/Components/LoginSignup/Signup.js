@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-//import email_icon from '../Assets/Icons/email-icon.svg';
+import { useNavigate } from "react-router-dom";
 import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
-//import google_icon from '../Assets/Icons/google-logo.svg';
-//import apple_icon from '../Assets/Icons/apple-logo.svg';
-//import facebook_icon from '../Assets/Icons/facebook-logo.svg';
-//import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg';
 import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
-import { data } from "jquery";
+import { useGlobalState } from "../GlobalStateContext.js";
+import PhoneInput from "react-phone-input-2"; // Import PhoneInput component
+import Select from "react-select"; // Import react-select
+import "react-phone-input-2/lib/style.css";
+import countryList from "react-select-country-list"; // Optional helper for countries
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -18,56 +17,69 @@ export default function Signup() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [agreeToTerms, setAgreeToTerms] = useState(false); // New state for terms checkbox
-  const [error, setError] = useState(null);
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState({}); // Initialize error as an object
+  const countryOptions = countryList().getData(); // Get country list
+  const [whatsapp, setWhatsapp] = useState("");
+  const [cname, setCname] = useState("");
+  const [fname, setFname] = useState("");
+  const [country, setCountry] = useState(null);
+  const [address, setAddress] = useState("");
+  const [rnc, setRnc] = useState("");
 
-  const validateUsername = (username) => {
-    const usernameRegex = /^[A-Za-z]{4,20}$/;
-    return usernameRegex.test(username);
-  };
+  const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
+  const navigate = useNavigate();
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validatePhone = (phone) => {
-    const phoneRegex = /^\d{10}$/;
-    return phoneRegex.test(phone);
-  };
-
-  const validatePassword = (password) => {
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return passwordRegex.test(password);
-  };
+  const validateUsername = (username) => /^[A-Za-z]{4,20}$/.test(username);
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validatePhone = (phone) => /^\d{10}$/.test(phone);
+  const validateWhatsapp = (whatsapp) => /^\d{10}$/.test(whatsapp);
+  const validatePassword = (password) =>
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+      password
+    );
 
   const handleSignup = async () => {
+    const newError = {};
+
     if (!username) {
-      setError("Username is required.");
-      return;
+      newError.username = "Username is required.";
+    } else if (!validateUsername(username)) {
+      newError.username =
+        "Username must be between 4 and 20 letters with no symbols.";
     }
-    if (!validateUsername(username)) {
-      setError("Username must be between 4 and 20 letters with no symbols");
-      return;
+
+    if (!email) {
+      newError.email = "Email is required.";
+    } else if (!validateEmail(email)) {
+      newError.email = "Please enter a valid email.";
     }
-    if (!validateEmail(email)) {
-      setError("Please enter a valid email.");
-      return;
+
+    if (!phone) {
+      newError.phone = "Phone number is required.";
+    } else if (!validatePhone(phone)) {
+      newError.phone = "Phone number must be 10 digits.";
     }
-    if (!validatePhone(phone)) {
-      setError("Phone number must be 10 digits.");
-      return;
+
+    if (!whatsapp) {
+      newError.whatsapp = "WhatsApp number is required.";
+    } else if (!validateWhatsapp(whatsapp)) {
+      newError.whatsapp = "WhatsApp number must be 10 digits.";
     }
-    if (!validatePassword(password)) {
-      setError(
-        "Password must be at least 8 characters, including uppercase leter, lowercase letter, number and a special character."
-      );
-      return;
+
+    if (!password) {
+      newError.password = "Password is required.";
+    } else if (!validatePassword(password)) {
+      newError.password =
+        "Password must be at least 8 characters, including an uppercase letter, lowercase letter, number, and a special character.";
     }
+
     if (!agreeToTerms) {
-      setError("You must agree to the terms and conditions.");
-      return;
+      newError.terms = "You must agree to the terms and conditions.";
+    }
+
+    setError(newError);
+    if (Object.keys(newError).length > 0) {
+      return; // Stop execution if there are validation errors
     }
 
     try {
@@ -82,17 +94,16 @@ export default function Signup() {
       );
 
       if (response.status === 200 || response.status === 201) {
-        // Registration successful, notify the user
-        console.log(response.data); // Handle message appropriately
         alert("Registration successful! Please verify your email.");
-        // Redirect or update UI
-         // Example navigation (React Router)
+        navigate("/");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     } catch (error) {
-      // Handle error response
       if (error.response) {
-        console.error(error.response.data.error); // Log error details
-        alert(error.response.data.error || "Registration failed. Please try again.");
+        console.error(error.response.data.error);
+        alert(
+          error.response.data.error || "Registration failed. Please try again."
+        );
       } else {
         console.error(error.message);
         alert("Network error. Please try again.");
@@ -105,91 +116,135 @@ export default function Signup() {
       <div className="container1">
         <h1>Wadi Degla</h1>
         <p>Join us by filling the following form</p>
-        <img src={wadi_degla_logo_login} alt="" />
+        <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
       </div>
       <div className="container2">
         <div className="head">
           <div className="text">Sign up</div>
           <div className="underline"></div>
         </div>
-        <div className="inputs">
-          <div className="input">
-            <div className="enter-name">
-              <div className="fname">
-                <p>Username</p>
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
+        <form
+          className="contact-form"
+          id="contact-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSignup();
+          }}
+        >
+          <div className="double-inputs">
+            <div className="input-field">
+              <label htmlFor="fname">*Full Name</label>
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                value={fname}
+                onChange={(e) => setFname(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-field">
+              <label htmlFor="cname">*Company/Project</label>
+              <input
+                type="text"
+                id="cname"
+                name="cname"
+                value={cname}
+                onChange={(e) => setCname(e.target.value)}
+                required
+              />
             </div>
           </div>
-
-          <div className="input">
-            <p>Email</p>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <div className="input">
-            <p>Phone number</p>
-            <input
-              type="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-
-          <div className="input">
-            <div className="pass">
-              <p>Password</p>
-              <img src={password_eye_hidden_icon} alt="" />
+          <div className="double-inputs">
+            <div className="input-field">
+              <label htmlFor="rnc">Tax ID/RNC</label>
+              <input
+                type="text"
+                id="rnc"
+                name="rnc"
+                value={rnc}
+                onChange={(e) => setRnc(e.target.value)}
+              />
             </div>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <p className="pass-instructions">
-              Use 8 or more characters with a mix of letters, numbers & symbols
-            </p>
-          </div>
-
-          <div className="check-terms">
-            <input
-              type="checkbox"
-              className="cbox"
-              checked={agreeToTerms}
-              onChange={() => setAgreeToTerms(!agreeToTerms)} // Toggle checkbox state
-            />
-            <div className="termsserv">
-              By creating an account, I agree to our <span>Terms of use </span>
-              and <span>Privacy Policy</span>
+            <div className="input-field">
+              <label htmlFor="email">*Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              {error.email && <p className="error">{error.email}</p>}
             </div>
           </div>
-        </div>
-
-        {error && (
-          <p className="error" style={{ color: "red" }}>
-            {error}
-          </p>
-        )}
-        {message && <p className="success">{message}</p>}
-
-        <div className="submit-container">
-          <button className="btn1" onClick={handleSignup}>
-            SIGN UP
+          <div className="double-inputs">
+            <div className="input-field country-phone">
+              <label htmlFor="phone">*Phone Number</label>
+              <PhoneInput
+                value={phone}
+                onChange={setPhone}
+                placeholder="Enter full number with country code"
+                inputProps={{
+                  name: "phone",
+                  required: true,
+                }}
+              />
+              {error.phone && <p className="error">{error.phone}</p>}
+            </div>
+            <div className="input-field country-phone">
+              <label htmlFor="whatsapp">WhatsApp Number</label>
+              <PhoneInput
+                value={whatsapp}
+                onChange={setWhatsapp}
+                placeholder="Enter full number with country code"
+              />
+              {error.whatsapp && <p className="error">{error.whatsapp}</p>}
+            </div>
+          </div>
+          <div className="double-inputs">
+            <div className="input-field" id="input-country">
+              <label htmlFor="country">*Country</label>
+              <Select
+                options={countryOptions}
+                value={country}
+                onChange={setCountry}
+                classNamePrefix="react-select"
+                placeholder="Search for a country"
+              />
+            </div>
+            <div className="input-field" id="input-address">
+              <label htmlFor="address">Address</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="input-field">
+            <label>
+              <input
+                type="checkbox"
+                checked={agreeToTerms}
+                onChange={(e) => setAgreeToTerms(e.target.checked)}
+              />
+              I agree to the terms and conditions
+            </label>
+            {error.terms && <p className="error">{error.terms}</p>}
+          </div>
+          <button type="submit" className="btn1">
+            Sign Up
           </button>
-          <div className="forgot-password">
-            Already have an account?
-            <Link to="/login">
-              <span>Login</span>
-            </Link>
-          </div>
+        </form>
+        <div className="forgot-password">
+          Already have an account?{" "}
+          <Link to="/login">
+            <span>Login</span>
+          </Link>
         </div>
       </div>
     </div>
