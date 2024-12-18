@@ -13,7 +13,9 @@ export default function Modal({ product, onClose }) {
         <span className="modal-close" onClick={onClose}>&times;</span>
         
         {/* Product Image */}
+        <div className='modal-image-div'>
         <img src={selectedFinish.imageUrl} alt={product.name} className="modal-image" />
+        </div>
 
         {/* Product Details */}
         <h2>{product.name}</h2>

@@ -72,17 +72,27 @@
 
 .products-categories .btn2{
     min-width: 23%;
+    border-color: transparent;
 }
 
 .products-categories .btn2:hover {
     scale: 100%;
+    background-color: transparent;
+    border-bottom-color: var(--whiteColor);
+
 }
 
 .products-categories .active {
-    background-color: var(--whiteColor);
-    color: var(--darkerBlackColor);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-bottom-color: var(--goldColor);
+    color: var(--goldColor);
 }
+
+.products-categories .active2:hover {
+    border-bottom-color: var(--goldColor);
+    color: var(--goldColor);
+
+}
+
 
 /* Indoor & Outdoor Categories Layout */
 .products-page {

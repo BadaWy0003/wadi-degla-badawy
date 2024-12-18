@@ -5,12 +5,18 @@ import axios from "axios";
 import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
 import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
 import Cookies from "js-cookie";
+import { useNavigate } from 'react-router-dom';
+import { useGlobalState } from '../GlobalStateContext.js';
+
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
 
   // Email validation regex
   const validateEmail = (email) => {
@@ -49,14 +55,29 @@ export default function Login() {
         { email, password },
         { withCredentials: true } // Include cookies in requests
       );
-      console.log(response);
 
+      if (response.status === 200 || response.status === 201) {
+              // Registration successful, notify the user
+              console.log(response.data); // Handle message appropriately
+              alert("Registration successful! Please verify your email.");
+              // Redirect or update UI
+              // Example navigation (React Router)
+              setGlobalState({
+                ...globalState,
+                isLoggedIn: true,
+                token: response.data.token
+      });
+              navigate('/');
+              window.scrollTo({top: 0, behavior: 'smooth'})
+              
+      console.log("GlobalState: " + globalState);
+              
       setMessage(response.data.message);
       setError(null);
 
       const token = Cookies;
       console.log(token);
-    } catch (err) {
+    }} catch (err) {
       setError(err.response?.data?.message || "Login failed");
       setMessage("");
     }

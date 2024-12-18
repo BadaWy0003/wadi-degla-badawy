@@ -36,12 +36,14 @@ import image6 from '../Assets/Media/Gallery/6.jpg'
 import image7 from '../Assets/Media/Gallery/7.jpg'
 import image8 from '../Assets/Media/Gallery/8.jpg'
 import image9 from '../Assets/Media/Gallery/9.jpg'
+import { useGlobalState } from '../GlobalStateContext.js';
 
 //slamo 3leko
 
 
 
 export default function Home(){
+  const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
 
     const [selectedProduct, setSelectedProduct] = useState(null); 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -105,6 +107,7 @@ export default function Home(){
         }
       };
       
+      console.log("GlobalState.loggedIn: " + globalState.isLoggedIn + " GlobalState.token: "+ globalState.token );
       
     return(
         <div className="homepage">

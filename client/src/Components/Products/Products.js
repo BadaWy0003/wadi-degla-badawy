@@ -6,7 +6,7 @@ import Modal from './Modal'; // Existing Modal component
 import { productData } from './productData.js'; // Product data
 
 export default function Visualizer() {
-  const [selectedCategory, setSelectedCategory] = useState('All'); // Default to "All"
+  const [selectedCategory, setSelectedCategory] = useState('Imported Marble'); // Default to "All"
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
   const [selectedProduct, setSelectedProduct] = useState(null); // State for the modal product
   const [isModalOpen, setIsModalOpen] = useState(false); // State to track modal open/close
@@ -25,7 +25,7 @@ export default function Visualizer() {
 
   // Filter products based on selected category and search query
   const filteredProducts = productData.filter(item => {
-    const isCategoryMatch = selectedCategory === 'All' || item.category === selectedCategory;
+    const isCategoryMatch = selectedCategory === 'Imported Marble' || item.category === selectedCategory;
     const isSearchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
     return isCategoryMatch && isSearchMatch;
   });
@@ -45,12 +45,6 @@ export default function Visualizer() {
       {/* Categories and Search */}
       <div className='products-categories-and-title-2'>
         <div className="products-categories-2">
-          <button
-            className={`btn2 ${selectedCategory === 'All' ? 'active-2' : ''}`}
-            onClick={() => setSelectedCategory('All')}
-          >
-            All
-          </button>
           <button
             className={`btn2 ${selectedCategory === 'Imported Marble' ? 'active-2' : ''}`}
             onClick={() => setSelectedCategory('Imported Marble')}

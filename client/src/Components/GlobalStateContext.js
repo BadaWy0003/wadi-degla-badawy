@@ -7,17 +7,18 @@ const GlobalStateContext = createContext();
 export const GlobalStateProvider = ({ children }) => {
   const [globalState, setGlobalState] = useState({
     user: null,
-    fname: "Logged in user's name",
-    cname: "example company",
-    rnc: "example rnc",
-    email: "logged@in.user",
-    phone: "01234567",
-    whatsapp: "76543210",
-    country: "Canada",
-    countryCode: "+1",
-    address: "123 logged in dr. west, Ontario",
-    port: "example port",
-    isLoggedIn: true,
+    fname: "",
+    cname: "",
+    rnc: "",
+    email: "",
+    phone: "",
+    whatsapp: "",
+    country: "",
+    countryCode: "",
+    address: "",
+    port: "",
+    isLoggedIn: false,
+    token: ''
   });
 
   return (

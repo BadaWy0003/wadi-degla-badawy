@@ -16,7 +16,7 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [agreeToTerms, setAgreeToTerms] = useState(false); // New state for terms checkbox
+  // const [agreeToTerms, setAgreeToTerms] = useState(false); // New state for terms checkbox
   const [error, setError] = useState({}); // Initialize error as an object
   const countryOptions = countryList().getData(); // Get country list
   const [whatsapp, setWhatsapp] = useState("");
@@ -60,9 +60,7 @@ export default function Signup() {
       newError.phone = "Phone number must be 10 digits.";
     }
 
-    if (!whatsapp) {
-      newError.whatsapp = "WhatsApp number is required.";
-    } else if (!validateWhatsapp(whatsapp)) {
+     if (whatsapp && !validateWhatsapp(whatsapp)) {
       newError.whatsapp = "WhatsApp number must be 10 digits.";
     }
 
@@ -73,9 +71,9 @@ export default function Signup() {
         "Password must be at least 8 characters, including an uppercase letter, lowercase letter, number, and a special character.";
     }
 
-    if (!agreeToTerms) {
-      newError.terms = "You must agree to the terms and conditions.";
-    }
+    // if (!agreeToTerms) {
+    //   newError.terms = "You must agree to the terms and conditions.";
+    // }
 
     setError(newError);
     if (Object.keys(newError).length > 0) {
@@ -119,12 +117,13 @@ export default function Signup() {
         <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
       </div>
       <div className="container2">
-        <div className="head">
-          <div className="text">Sign up</div>
+        <div className="signup-form-title">
+          <h1>Sign up</h1>
+          <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum!</p>
           <div className="underline"></div>
         </div>
         <form
-          className="contact-form"
+          className="signup-form"
           id="contact-form"
           onSubmit={(e) => {
             e.preventDefault();
@@ -212,6 +211,7 @@ export default function Signup() {
                 onChange={setCountry}
                 classNamePrefix="react-select"
                 placeholder="Search for a country"
+                required
               />
             </div>
             <div className="input-field" id="input-address">
@@ -225,7 +225,18 @@ export default function Signup() {
               />
             </div>
           </div>
-          <div className="input-field">
+
+          <div className='input-field'>                       
+                              <label htmlFor="port">*Port of Destination</label>
+                              <input
+                                type="text"
+                                id="port"
+                                name="port"
+                                required
+                              />
+                            </div>
+
+          {/* <div className="input-field">
             <label>
               <input
                 type="checkbox"
@@ -235,7 +246,7 @@ export default function Signup() {
               I agree to the terms and conditions
             </label>
             {error.terms && <p className="error">{error.terms}</p>}
-          </div>
+          </div> */}
           <button type="submit" className="btn1">
             Sign Up
           </button>
