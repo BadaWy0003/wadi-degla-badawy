@@ -5,20 +5,25 @@ const GlobalStateContext = createContext();
 
 // Create a Provider Component
 export const GlobalStateProvider = ({ children }) => {
-  const [globalState, setGlobalState] = useState({
-    user: null,
-    fname: "",
-    cname: "",
-    rnc: "",
-    email: "",
-    phone: "",
-    whatsapp: "",
-    country: "",
-    countryCode: "",
-    address: "",
-    port: "",
-    isLoggedIn: false,
-    token: ''
+  const [globalState, setGlobalState] = useState(() => {
+    // Load initial state from localStorage if available
+    const savedUserData = localStorage.getItem("userData");
+    return savedUserData
+      ? { ...JSON.parse(savedUserData), isLoggedIn: true }
+      : {
+          isLoggedIn: false,
+          token: null,
+          fullName: "",
+          companyName: "",
+          rnc: "",
+          email: "",
+          phone: "",
+          whatsapp: "",
+          country: "",
+          countryCode: "",
+          address: "",
+          port: "",
+        };
   });
 
   return (
@@ -27,6 +32,7 @@ export const GlobalStateProvider = ({ children }) => {
     </GlobalStateContext.Provider>
   );
 };
+
 
 // Custom Hook for using the Global State
 export const useGlobalState = () => useContext(GlobalStateContext);

@@ -9,7 +9,7 @@ const customerSchema = new Schema({
   phone: { type: String, required: true, unique: true },
   whatsapp: { type: String },
   country: { type: String, required: true },
-  countryCode: { type: String, required: true },
+  countryCode: { type: String},
   address: { type: String },
   port: { type: String, required: true },
   password: { type: String, required: true },

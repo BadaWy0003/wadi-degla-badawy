@@ -15,15 +15,32 @@ export default function MyAccount(){
     const { globalState, setGlobalState } = useGlobalState(); // to see if user is logged in
     const navigate = useNavigate();
 
-    const account_data = {
-        full_name: 'example name',
-        email: 'example@example.com',
-        phone: '0123456789',
-        company: 'example corp',
-        tax_id: '',
-        whatsapp: '',
-        country: 'Nigeria',
-    }
+
+    const handleLogout = () => {
+        // Clear user data from localStorage
+        localStorage.removeItem("userData");
+      
+        // Reset global state
+        setGlobalState({
+          isLoggedIn: false,
+          token: null,
+          fullName: "",
+          companyName: "",
+          rnc: "",
+          email: "",
+          phone: "",
+          whatsapp: "",
+          country: "",
+          countryCode: "",
+          address: "",
+          port: "",
+        });
+      
+        navigate("/login");
+        window.scrollTo({top: 0, behavior: 'smooth'})
+      };
+      
+    
     const responsive2 = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
@@ -68,24 +85,20 @@ export default function MyAccount(){
 
                             <button 
                             className='btn1' 
-                            onClick={() => { setGlobalState({
-                                ...globalState,
-                                isLoggedIn: false,
-                            }); navigate('/'); // Redirect to the homepage
-                                window.scrollTo({top: 0, behavior: 'smooth'})
-                             }}>Logout
+                            onClick={handleLogout}>Logout
                              </button>
                     </div>
 
                     <div className="my-account-container-right">
                         {selectedTab == 'Account Information' ? (
                             <div className='tabs-content'>
-                                    <p>Full Name: <p className='value'> {globalState.full_name || account_data.full_name}</p></p>
-                                    <p>Email: <p className='value'>{globalState.email || account_data.email}</p></p>
-                                    <p>Phone: <p className='value'>{globalState.phone || account_data.phone}</p></p>
-                                    <p>Country: <p className='value'>{globalState.country || account_data.country}</p></p>
-                                    <p>Company Name: <p className='value'>{globalState.company || account_data.company}</p></p>
-                                    <p>Address: <p className='value'>{globalState.address || "Not provided"}</p></p>
+                                    <p>Full Name: <p className='value'> {globalState.fullName}</p></p>
+                                    <p>Email: <p className='value'>{globalState.email}</p></p>
+                                    <p>Phone: <p className='value'>{globalState.phone}</p></p>
+                                    <p>Country: <p className='value'>{globalState.country}</p></p>
+                                    <p>Company/Project Name: <p className='value'>{globalState.companyName}</p></p>
+                                    <p>Address: <p className='value'>{globalState.address}</p></p>
+
                                 </div>
                             
                         ) : (  

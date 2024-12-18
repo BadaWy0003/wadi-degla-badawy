@@ -32,6 +32,29 @@ export default function Navbar(){
     const { globalState, setGlobalState } = useGlobalState(); // to see if user is logged in
     const navigate = useNavigate();
 
+    const handleLogout = () => {
+        // Clear user data from localStorage
+        localStorage.removeItem("userData");
+      
+        // Reset global state
+        setGlobalState({
+          isLoggedIn: false,
+          token: null,
+          fullName: "",
+          companyName: "",
+          rnc: "",
+          email: "",
+          phone: "",
+          whatsapp: "",
+          country: "",
+          countryCode: "",
+          address: "",
+          port: "",
+        });
+      
+        navigate("/login");
+        window.scrollTo({top: 0, behavior: 'smooth'})
+      };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -81,14 +104,7 @@ export default function Navbar(){
                             <Link to='/my account' onClick={() => { window.scrollTo(0, 0); }}>
                                 My Account
                             </Link>
-                            <button onClick={() => { setGlobalState({
-                                ...globalState,
-                                isLoggedIn: false,
-                            }); navigate('/'); // Redirect to the homepage
-                            window.scrollTo({
-                                top: 0,
-                                behavior: 'smooth'})// Smooth scrolling to the top
-                             }}>Logout</button>
+                            <button onClick={handleLogout}>Logout</button>
                         </div>
                     </>
                 ) : (

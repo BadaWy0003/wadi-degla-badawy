@@ -57,20 +57,52 @@ export default function Login() {
       );
 
       if (response.status === 200 || response.status === 201) {
-              // Registration successful, notify the user
-              console.log(response.data); // Handle message appropriately
-              alert("Registration successful! Please verify your email.");
-              // Redirect or update UI
-              // Example navigation (React Router)
-              setGlobalState({
-                ...globalState,
-                isLoggedIn: true,
-                token: response.data.token
-      });
-              navigate('/');
+        const userData = {
+          token: response.data.token,
+          fullName: response.data.fullName,
+          companyName: response.data.companyName,
+          rnc: response.data.rnc,
+          email: response.data.email,
+          phone: response.data.phone,
+          whatsapp: response.data.whatsapp,
+          country: response.data.country,
+          countryCode: response.data.countryCode,
+          address: response.data.address,
+          port: response.data.port,
+        };
+  
+        // Save user data to localStorage
+        // localStorage.setItem("userData", JSON.stringify(userData));
+  
+        // Update global state
+        setGlobalState({
+          ...globalState,
+          isLoggedIn: true,
+          ...userData,
+        });
+  
+              // Navigate to the home page
+              navigate("/");        
               window.scrollTo({top: 0, behavior: 'smooth'})
               
-      console.log("GlobalState: " + globalState);
+        
+              // Store the token in a cookie for persistence
+              Cookies.set("authToken", response.data.token, { secure: true, sameSite: "Strict" });
+
+              // TESTING TO SEE THE globalState using console log ____________________________________________________
+              // console.log("GlobalState.port: "+ globalState.port); 
+              // console.log("LOGIN/////GlobalState.fullname: " + globalState.fullName + 
+              //   " GlobalState.companyName: "+ globalState.companyName + " GlobalState.address: "
+              //    + globalState.address + " GlobalState.whatsapp: " + globalState.whatsapp + 
+              //   "GlobalState.port: "+ globalState.port + " GlobalState.isLoggedIn: " + globalState.isLoggedIn + 
+              //   " GlobalState.token: "+globalState.token + " GlobalState.rnc: "+globalState.rnc + 
+              //   " GlobalState.country: "+globalState.country + " GlobalState.countryCode: "+globalState.countryCode
+              // +" GlobalState.email: "+globalState.email+" GlobalState.phone: "+globalState.phone);
+
+              setMessage("Login successful!");
+              setError(null);
+        
+              
               
       setMessage(response.data.message);
       setError(null);
@@ -87,36 +119,40 @@ export default function Login() {
     <div className="container-big">
       <div className="container1">
         <h1>Wadi Degla</h1>
-        <p>Join us by filling the following form</p>
+        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
         <img src={wadi_degla_logo_login} alt="" />
       </div>
       <div className="container2">
         <div className="head">
-          <div className="text">Login</div>
+          <h1>Login</h1>
+          <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum!</p>
           <div className="underline"></div>
         </div>
-        <div className="inputs">
-          <div className="input">
-            <p>Email</p>
+        
+        <div className="input-field">
+        <label htmlFor="email">Email Address</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
-
-          <div className="input">
-            <div className="pass">
-              <p>Password</p>
-              <img src={password_eye_hidden_icon} alt="" />
+              {/* {error.email && <p className="error">{error.email}</p>} */}
             </div>
+
+          <div className="input-field">
+          <label htmlFor="password">Password</label>
+          {/* <img src={password_eye_hidden_icon} alt="" /> */}
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
+            {/* {error.password && <p className="error">{error.password}</p>} */}
+
         </div>
+
+      
+            
 
         {error && (
           <p className="error" style={{ color: "red" }}>

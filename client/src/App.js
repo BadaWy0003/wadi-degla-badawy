@@ -42,14 +42,6 @@ function App() {
     checkAuth();
   }, []);
 
-  axios
-    .get("http://localhost:5000/api/index")
-    .then((response) => {
-      console.log("Backend Respond", response);
-    })
-    .catch((error) => {
-      console.error("There was an error fetching the data!", error);
-    });
 
   return (
     <BrowserRouter>

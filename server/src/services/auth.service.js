@@ -61,7 +61,7 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
 AuthService.loginCustomerAndSignToken = async (customerData) => {
   const { email, password } = customerData;
 
-  const customer = await Customer.findOne({ email }, 'id email password');
+  const customer = await Customer.findOne({ email }, 'id email password fullName companyName rnc phone whatsapp country countryCode address port');
 
   if (!customer) {
     throw new Error('User not found');

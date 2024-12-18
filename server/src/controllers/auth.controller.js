@@ -18,7 +18,6 @@ AuthController.customerRegister = async (req, res) => {
       port,
       password,
     });
-
     res.status(201).cookie('auth', data.token, { httpOnly: true }).json({
       id: data.newCustomer.id,
       fullName: data.newCustomer.fullName,
@@ -47,6 +46,7 @@ AuthController.customerLogin = async (req, res) => {
       email,
       password,
     });
+    console.log(data);
 
     res
       .status(200)

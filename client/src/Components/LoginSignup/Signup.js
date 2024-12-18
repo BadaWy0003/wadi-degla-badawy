@@ -42,7 +42,6 @@ try{
 
   const handleSignup = async () => {
     const newError = {};
-
     // if (!username) {
     //   newError.username = "Username is required.";
     // } else if (!validateUsername(username)) {
@@ -101,7 +100,7 @@ try{
           email,
           phone,
           whatsapp,
-          country,
+          country: country.label,
           address,
           port,
           password,
@@ -110,8 +109,34 @@ try{
 
       if (response.status === 200 || response.status === 201) {
         alert("Registration successful! Please verify your email.");
-        navigate("/");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        const userData = {
+          token: response.data.token,
+          fullName: response.data.fullName,
+          companyName: response.data.companyName,
+          rnc: response.data.rnc,
+          email: response.data.email,
+          phone: response.data.phone,
+          whatsapp: response.data.whatsapp,
+          country: response.data.country,
+          countryCode: response.data.countryCode,
+          address: response.data.address,
+          port: response.data.port,
+        };
+  
+        // Save user data to localStorage
+        localStorage.setItem("userData", JSON.stringify(userData));
+  
+        // Update global state
+        setGlobalState({
+          ...globalState,
+          isLoggedIn: true,
+          ...userData,
+        });
+  
+              // Navigate to the home page
+              navigate("/");        
+              window.scrollTo({top: 0, behavior: 'smooth'})
+              
       }
     } catch (error) {
       if (error.response) {
@@ -131,13 +156,13 @@ try{
     <div className="container-big">
       <div className="container1">
         <h1>Wadi Degla</h1>
-        <p>Join us by filling the following form</p>
+        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
         <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
       </div>
       <div className="container2">
         <div className="signup-form-title">
           <h1>Sign up</h1>
-          <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum!</p>
+          <p>Join us by filling the following form!</p>
           <div className="underline"></div>
         </div>
         <form
@@ -261,6 +286,9 @@ try{
                   type="text"
                   id="port"
                   name="port"
+                  value={port}
+                  onChange={(e) => setPort(e.target.value)}
+
                 />
               {/* {error.port && <p className="error">{error.port}</p>} */}
 
