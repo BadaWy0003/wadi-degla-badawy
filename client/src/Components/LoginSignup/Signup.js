@@ -12,7 +12,8 @@ import "react-phone-input-2/lib/style.css";
 import countryList from "react-select-country-list"; // Optional helper for countries
 
 export default function Signup() {
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
+  const [fullName, setfullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -20,16 +21,16 @@ export default function Signup() {
   const [error, setError] = useState({}); // Initialize error as an object
   const countryOptions = countryList().getData(); // Get country list
   const [whatsapp, setWhatsapp] = useState("");
-  const [cname, setCname] = useState("");
-  const [fname, setFname] = useState("");
+  const [companyName, setcompanyName] = useState("");
   const [country, setCountry] = useState(null);
   const [address, setAddress] = useState("");
   const [rnc, setRnc] = useState("");
+  const [port, setPort] = useState("");
 
   const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
   const navigate = useNavigate();
 
-  const validateUsername = (username) => /^[A-Za-z]{4,20}$/.test(username);
+  // const validateUsername = (username) => /^[A-Za-z]{4,20}$/.test(username);
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (phone) => /^\d{10}$/.test(phone);
   const validateWhatsapp = (whatsapp) => /^\d{10}$/.test(whatsapp);
@@ -37,16 +38,21 @@ export default function Signup() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
       password
     );
+try{
 
   const handleSignup = async () => {
     const newError = {};
 
-    if (!username) {
-      newError.username = "Username is required.";
-    } else if (!validateUsername(username)) {
-      newError.username =
-        "Username must be between 4 and 20 letters with no symbols.";
-    }
+    // if (!username) {
+    //   newError.username = "Username is required.";
+    // } else if (!validateUsername(username)) {
+    //   newError.username =
+    //     "Username must be between 4 and 20 letters with no symbols.";
+    // }
+
+    // if (!fname) {
+    //   newError.fname = "Please enter your full name.";
+    // }
 
     if (!email) {
       newError.email = "Email is required.";
@@ -70,7 +76,12 @@ export default function Signup() {
       newError.password =
         "Password must be at least 8 characters, including an uppercase letter, lowercase letter, number, and a special character.";
     }
-
+    // if (!country) {
+    //   newError.fname = "Please select a country.";
+    // }
+    // if (!port) {
+    //   newError.port = "Please enter the port of destination in case of shipment, if not please enter 'N/A'";
+    // }
     // if (!agreeToTerms) {
     //   newError.terms = "You must agree to the terms and conditions.";
     // }
@@ -84,9 +95,15 @@ export default function Signup() {
       const response = await axios.post(
         "http://localhost:5000/api/auth/customer/register",
         {
-          username,
+          fullName,
+          companyName,
+          rnc,
           email,
           phone,
+          whatsapp,
+          country,
+          address,
+          port,
           password,
         }
       );
@@ -108,6 +125,7 @@ export default function Signup() {
       }
     }
   };
+
 
   return (
     <div className="container-big">
@@ -132,39 +150,30 @@ export default function Signup() {
         >
           <div className="double-inputs">
             <div className="input-field">
-              <label htmlFor="fname">*Full Name</label>
+              <label htmlFor="fullName">*Full Name</label>
               <input
                 type="text"
-                id="fname"
-                name="fname"
-                value={fname}
-                onChange={(e) => setFname(e.target.value)}
-                required
+                id="fullName"
+                name="fullName"
+                value={fullName}
+                onChange={(e) => setfullName(e.target.value)}
               />
+              {/* {error.fname && <p className="error">{error.fname}</p>} */}
+
             </div>
             <div className="input-field">
-              <label htmlFor="cname">*Company/Project</label>
+              <label htmlFor="companyName">*Company/Project Name</label>
               <input
                 type="text"
-                id="cname"
-                name="cname"
-                value={cname}
-                onChange={(e) => setCname(e.target.value)}
-                required
+                id="companyName"
+                name="companyName"
+                value={companyName}
+                onChange={(e) => setcompanyName(e.target.value)}
               />
+
             </div>
           </div>
           <div className="double-inputs">
-            <div className="input-field">
-              <label htmlFor="rnc">Tax ID/RNC</label>
-              <input
-                type="text"
-                id="rnc"
-                name="rnc"
-                value={rnc}
-                onChange={(e) => setRnc(e.target.value)}
-              />
-            </div>
             <div className="input-field">
               <label htmlFor="email">*Email Address</label>
               <input
@@ -173,10 +182,18 @@ export default function Signup() {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
               {error.email && <p className="error">{error.email}</p>}
             </div>
+            <div className='input-field'>  
+              <label htmlFor="password">*Password</label>                     
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {error.password && <p className="error">{error.password}</p>}
+              </div>
           </div>
           <div className="double-inputs">
             <div className="input-field country-phone">
@@ -187,7 +204,6 @@ export default function Signup() {
                 placeholder="Enter full number with country code"
                 inputProps={{
                   name: "phone",
-                  required: true,
                 }}
               />
               {error.phone && <p className="error">{error.phone}</p>}
@@ -211,10 +227,24 @@ export default function Signup() {
                 onChange={setCountry}
                 classNamePrefix="react-select"
                 placeholder="Search for a country"
-                required
+              />
+              {/* {error.country && <p className="error">{error.country}</p>} */}
+
+            </div>
+            <div className="input-field">
+              <label htmlFor="rnc">Tax ID/RNC</label>
+              <input
+                type="text"
+                id="rnc"
+                name="rnc"
+                value={rnc}
+                onChange={(e) => setRnc(e.target.value)}
               />
             </div>
-            <div className="input-field" id="input-address">
+          </div>
+
+          <div className="double-inputs">
+          <div className="input-field" id="input-address">
               <label htmlFor="address">Address</label>
               <input
                 type="text"
@@ -224,17 +254,20 @@ export default function Signup() {
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
-          </div>
 
           <div className='input-field'>                       
-                              <label htmlFor="port">*Port of Destination</label>
-                              <input
-                                type="text"
-                                id="port"
-                                name="port"
-                                required
-                              />
-                            </div>
+                <label htmlFor="port">*Port of Destination</label>
+                <input
+                  type="text"
+                  id="port"
+                  name="port"
+                />
+              {/* {error.port && <p className="error">{error.port}</p>} */}
+
+              </div>
+              
+              </div>
+
 
           {/* <div className="input-field">
             <label>
@@ -260,4 +293,8 @@ export default function Signup() {
       </div>
     </div>
   );
+}catch(err){
+  console.log(err);
+  throw new Error('bayezz')
+}
 }
