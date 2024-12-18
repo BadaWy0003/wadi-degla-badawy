@@ -161,7 +161,8 @@ try{
       <div className="container1">
         <div className="container1-title">
           <h1>Wadi Degla</h1>
-          <h3>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h3>
+          <h3>Welcome to Wadi Degla! Feel free to create an account it only takes a couple of minutes.
+          </h3>
         </div>
         <div className="container1-img">
           <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />

@@ -70,7 +70,7 @@ export default function Login() {
       <div className="container1">
         <div className="container1-title">
           <h1>Wadi Degla</h1>
-          <h3>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h3>
+          <h3>Welcome to Wadi Degla! Feel free to create an account it only takes a couple of minutes.</h3>
         </div>
         <div className="container1-img">
           <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
@@ -79,7 +79,7 @@ export default function Login() {
       <div className="container2">
         <div className="head">
           <h1>Login</h1>
-          <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum!</p>
+          <p>Welcome back!</p>
           <div className="underline"></div>
         </div>
         <form
