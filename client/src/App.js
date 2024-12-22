@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Signup from "./Components/LoginSignup/Signup.js";
 import Login from "./Components/LoginSignup/Login.js";
 import Gallery from "./Components/Gallery/Gallery.js";
@@ -14,12 +14,12 @@ import Visualizer from "./Components/Products/Visualizer.js";
 import Contact from "./Components/Contact/Contact.js";
 import MyAccount from "./Components/MyAccount/MyAccount.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useGlobalState } from "./Components/GlobalStateContext";
+// import { useGlobalState } from "./Components/GlobalStateContext";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const { globalState, setGlobalState } = useGlobalState();
+  // const [user, setUser] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // const { globalState, setGlobalState } = useGlobalState();
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -33,9 +33,9 @@ function App() {
          console.log(response.data);
         }
       } catch {
-        setUser(null);
+        // setUser(null);
       } finally {
-        setLoading(false);
+        // setLoading(false);
       }
     };
 

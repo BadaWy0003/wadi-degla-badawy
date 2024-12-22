@@ -223,7 +223,7 @@
   /* General styles for react-select to match the form */
 
   #input-country{
-    justify-content: start;
+    justify-content: flex-start;
    }
   .signup-form .react-select__control {
       
@@ -355,7 +355,7 @@
 .submit{
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   column-gap: 3rem;
   margin-top: 1rem;

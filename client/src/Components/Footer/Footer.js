@@ -14,7 +14,7 @@ import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-w
 //import linkedin_white_icon from '../Assets/Icons/Social/linkedin-white-icon.svg'
 //import whatsapp_white_icon from '../Assets/Icons/Social/whatsapp-white-icon.svg'
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //import {FaBars, FaTimes} from "react-icons/fa";
@@ -44,29 +44,29 @@ function Footer() {
         <div className='footer-right'>
           <div className='footer-right-content'>
             <div className='footer-about'>
-              <img src={wadi_degla_logo_color} className='logo-color'/>
+              <img alt='' src={wadi_degla_logo_color} className='logo-color'/>
               <p>Welcome to <span>Wadi Degla</span> for Marble & Granite, your trusted partner in the marble business since 1980.</p>
             </div>
             <div className='footer-nav'>
               <div className="col">
                 <h4>Company</h4>
-                <ui className="list-unstyled">
-                <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Home</a></Link>
-                  <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}><a>About</a></Link>
-                  <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
-                  <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}><a>Visualizer</a></Link>
-                  <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}><a>Gallery</a></Link>
-                  <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}><a>Contact</a></Link>
-                </ui>
+                <ul className="list-unstyled">
+                <Link to='/' onClick={() => {window.scrollTo(0, 0);}}>Home</Link>
+                  <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}>About</Link>
+                  <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}>Products</Link>
+                  <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}>Visualizer</Link>
+                  <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}>Gallery</Link>
+                  <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}>Contact</Link>
+                </ul>
                 </div>
                 <div className="col">
                 <h4>Social</h4>
                 <div className='social'>
-                  <a href='https://www.facebook.com/wadideglaco' target="_blank"><img src={facebook_circle_white_icon} className='social-icons-footer'/></a>
-                  <a href='https://instagram.com/wadideglaco' target="_blank"><img src={instagram_circle_white_icon} className='social-icons-footer'/></a>
-                  <a href='https://twitter.com/wadideglaaco' target="_blank"><img src={x_circle_white_icon} className='social-icons-footer'/></a>
-                  <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank"><img src={linkedin_circle_white_icon} className='social-icons-footer'/></a>
-                  <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank"><img src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://www.facebook.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={facebook_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://instagram.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={instagram_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://twitter.com/wadideglaaco' target="_blank" rel="noopener noreferrer"><img alt='' src={x_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank" rel="noopener noreferrer"><img alt='' src={linkedin_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank" rel="noopener noreferrer"><img alt='' src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
 
                   </div>
                 </div>

@@ -85,21 +85,21 @@ export default function Navbar(){
     
     return(
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-           <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><img src={wadi_degla_logo_login} className='logo'/></Link>
+           <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><img alt=''  src={wadi_degla_logo_login} className='logo'/></Link>
 			<nav ref={navRef}>
-				<Link to='/' onClick={() => {window.scrollTo(0, 0);}}><a>Home</a></Link>
-                <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}><a>About</a></Link>
+				<Link to='/' onClick={() => {window.scrollTo(0, 0);}}>Home</Link>
+                <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}>About</Link>
                 <div className="nav-item-with-submenu">
-                    <a>Explore ↓</a>
+                    <p>Explore ↓</p>
                     
                     {/* Submenu */}
                     <div className="submenu">
-                    <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><a>Products</a></Link>
-                    <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}><a>Visualizer</a></Link>
+                    <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}>Products</Link>
+                    <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}>Visualizer</Link>
                     </div>
                 </div>
-                  <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}><a>Gallery</a></Link>
-                <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}><a>Contact</a></Link>
+                  <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}>Gallery</Link>
+                <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}>Contact</Link>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>

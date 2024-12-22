@@ -12,31 +12,31 @@ import company_logo from '../Assets/Icons/partners/company-logo.png'
 // import company_logo_8 from '../Assets/Icons/partners/company-logo-8.svg'
 // import company_logo_9 from '../Assets/Icons/partners/company-logo-9.svg'
 // import company_logo_10 from '../Assets/Icons/partners/company-logo-10.svg'
-import Carousel from 'react-multi-carousel';
+// import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 
 
 export default function About(){
 
-    const responsive2 = {
-        superLargeDesktop: {
-          breakpoint: { max: 4000, min: 3000 },
-          items: 6
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 6
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1.4
-        }
-      };
+    // const responsive2 = {
+    //     superLargeDesktop: {
+    //       breakpoint: { max: 4000, min: 3000 },
+    //       items: 6
+    //     },
+    //     desktop: {
+    //       breakpoint: { max: 3000, min: 1024 },
+    //       items: 6
+    //     },
+    //     tablet: {
+    //       breakpoint: { max: 1024, min: 464 },
+    //       items: 2
+    //     },
+    //     mobile: {
+    //       breakpoint: { max: 464, min: 0 },
+    //       items: 1.4
+    //     }
+    //   };
 
     return(
         <div className='about-container'>
@@ -102,7 +102,7 @@ export default function About(){
             <div className="our-partners">
                 <h1>Our Partners</h1>
                 <div className="partners-about">
-                    <img src={company_logo} />
+                    <img alt='' src={company_logo} />
                     {/*<img src={company_logo_2} />
                     <img src={company_logo_3} />
                     <img src={company_logo_4} />

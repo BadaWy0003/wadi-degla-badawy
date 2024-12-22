@@ -1,7 +1,7 @@
 import React from 'react'
 import './Gallery.css'
-import { Link } from "react-router-dom";
-import wadi_degla_logo_login from '../Assets/wadi-degla-logo-login.svg'
+// import { Link } from "react-router-dom";
+// import wadi_degla_logo_login from '../Assets/wadi-degla-logo-login.svg'
 import LightGallery from "lightgallery/react/Lightgallery.es5";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
@@ -9,12 +9,12 @@ import "lightgallery/css/lg-thumbnail.css"
 import "lightgallery/css/lg-autoplay.css"
 import "lightgallery/css/lg-share.css"
 import "lightgallery/css/lg-rotate.css"
-import lgThumbnail from "lightgallery/plugins/thumbnail"
-import lgZoom from "lightgallery/plugins/zoom"
-import lgAutoplay from "lightgallery/plugins/autoplay"
-import lgVideo from "lightgallery/plugins/video"
-import lgShare from "lightgallery/plugins/share"
-import lgRotate from "lightgallery/plugins/rotate"
+// import lgThumbnail from "lightgallery/plugins/thumbnail"
+// import lgZoom from "lightgallery/plugins/zoom"
+// import lgAutoplay from "lightgallery/plugins/autoplay"
+// import lgVideo from "lightgallery/plugins/video"
+// import lgShare from "lightgallery/plugins/share"
+// import lgRotate from "lightgallery/plugins/rotate"
 import image1 from '../Assets/Media/Gallery/1.jpg'
 import image2 from '../Assets/Media/Gallery/2.jpg'
 import image3 from '../Assets/Media/Gallery/3.jpg'
@@ -72,7 +72,7 @@ export default function Gallery (){
                 
                 >
                 {galleryUrl.map((img, i) =>
-                    <img src={img} key={i} className="image-ingallery" loading="lazy"/>)} 
+                    <img alt='' src={img} key={i} className="image-ingallery" loading="lazy"/>)} 
                     </LightGallery>               
             </div>
         </div>

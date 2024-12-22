@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import './Home.css';
 import { Link } from "react-router-dom";
-import hero_bg from '../Assets/Media/hero-bg.jpg';
-import home_bg from '../Assets/Media/home-bg2.jpg'
-import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg'
-import Galala from '../Assets/Media/Products/Galala.png'
-import Sunny_Menia from '../Assets/Media/Products/Sunny-Menia.png'
-import Selvia_Menia from '../Assets/Media/Products/Selvia-Menia.png'
-import Felitto from '../Assets/Media/Products/Felitto.png'
+// import hero_bg from '../Assets/Media/hero-bg.jpg';
+// import home_bg from '../Assets/Media/home-bg2.jpg'
+// import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg'
+// import Galala from '../Assets/Media/Products/Galala.png'
+// import Sunny_Menia from '../Assets/Media/Products/Sunny-Menia.png'
+// import Selvia_Menia from '../Assets/Media/Products/Selvia-Menia.png'
+// import Felitto from '../Assets/Media/Products/Felitto.png'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Product from '../Products/Product';
@@ -43,7 +43,7 @@ import { useGlobalState } from '../GlobalStateContext.js';
 
 
 export default function Home(){
-  const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
+  const globalState = useGlobalState(); // Access global state for user data
 
     const [selectedProduct, setSelectedProduct] = useState(null); 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -198,7 +198,7 @@ export default function Home(){
                             dotListClass="custom-dot-list-style"
                             itemClass="carousel-item-padding-40-px" 
                 >
-                    <img src={company_logo} />
+                    <img alt='' src={company_logo} />
                     {/*<img src={company_logo_2} />
                     <img src={company_logo_3} />
                     <img src={company_logo_4} />

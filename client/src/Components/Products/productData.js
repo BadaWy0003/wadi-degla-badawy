@@ -1,10 +1,10 @@
 import './Visualizer.css';
-import Galala from '../Assets/Media/Products/Galala.png'
-import Sunny_Menia from '../Assets/Media/Products/Sunny-Menia.png'
-import Selvia_Menia from '../Assets/Media/Products/Selvia-Menia.png'
-import Felitto from '../Assets/Media/Products/Felitto.png'
-import Test_Mockup_1 from '../Assets/Media/Products/mockups/test-mockup-1.png'
-import Test_Mockup_2 from '../Assets/Media/Products/mockups/test-mockup-2.jpg'
+// import Galala from '../Assets/Media/Products/Galala.png'
+// import Sunny_Menia from '../Assets/Media/Products/Sunny-Menia.png'
+// import Selvia_Menia from '../Assets/Media/Products/Selvia-Menia.png'
+// import Felitto from '../Assets/Media/Products/Felitto.png'
+// import Test_Mockup_1 from '../Assets/Media/Products/mockups/test-mockup-1.png'
+// import Test_Mockup_2 from '../Assets/Media/Products/mockups/test-mockup-2.jpg'
 
 
 

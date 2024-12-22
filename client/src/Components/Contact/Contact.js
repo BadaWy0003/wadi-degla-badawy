@@ -21,7 +21,7 @@ import qr from '../Assets/Icons/Social/QR.png'
 
 export default function Contact(){
     
-    const { globalState, setGlobalState } = useGlobalState(); // Access global state for user data
+    const globalState = useGlobalState(); // Access global state for user data
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
     const [errors, setErrors] = useState({});
     const countryOptions = countryList().getData(); // Get country list
@@ -132,24 +132,24 @@ export default function Contact(){
 //_____________________________________________________________________________________________________
       
 
-    const responsive2 = {
-        superLargeDesktop: {
-          breakpoint: { max: 4000, min: 3000 },
-          items: 6
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 6
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1.4
-        }
-      };
+    // const responsive2 = {
+    //     superLargeDesktop: {
+    //       breakpoint: { max: 4000, min: 3000 },
+    //       items: 6
+    //     },
+    //     desktop: {
+    //       breakpoint: { max: 3000, min: 1024 },
+    //       items: 6
+    //     },
+    //     tablet: {
+    //       breakpoint: { max: 1024, min: 464 },
+    //       items: 2
+    //     },
+    //     mobile: {
+    //       breakpoint: { max: 464, min: 0 },
+    //       items: 1.4
+    //     }
+    //   };
 
 
    
@@ -163,7 +163,8 @@ export default function Contact(){
                           <div className='page-title'>
                               <h1>CONTACT US</h1>
                               <div className="breadcrumb">
-                                <a href="/">Home</a> <p>{'>'} Contact Us</p>
+                                <a href="/">Home</a> 
+                                <p>{'>'} Contact Us</p>
                             </div>
                         </div>  
                     </div>
@@ -345,7 +346,7 @@ export default function Contact(){
 
                                 <div className="location">
                                     <h4>Address</h4>
-                                    <a href='https://maps.app.goo.gl/bM4qT3UBLVt3r7tN7' target="_blank"> 
+                                    <a href='https://maps.app.goo.gl/bM4qT3UBLVt3r7tN7' target="_blank" rel="noopener noreferrer"> 
                                         36, 25A Shaq Althoaban Industrial 
                                         Area for Marble & Granite, Tourrah, 
                                         Cairo, Egypt 
@@ -354,15 +355,15 @@ export default function Contact(){
                                 <div className="social">
                                     <h4>Social</h4>
                                     <div className='social-icons'>
-                                        <a href='https://www.facebook.com/wadideglaco' target="_blank"><img src={facebook_circle_white_icon} className='social-icons-footer'/></a>
-                                        <a href='https://instagram.com/wadideglaco' target="_blank"><img src={instagram_circle_white_icon} className='social-icons-footer'/></a>
-                                        <a href='https://twitter.com/wadideglaaco' target="_blank"><img src={x_circle_white_icon} className='social-icons-footer'/></a>
-                                        <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank"><img src={linkedin_circle_white_icon} className='social-icons-footer'/></a>
-                                        <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank"><img src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
+                                        <a href='https://www.facebook.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt=''  src={facebook_circle_white_icon} className='social-icons-footer'/></a>
+                                        <a href='https://instagram.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt=''  src={instagram_circle_white_icon} className='social-icons-footer'/></a>
+                                        <a href='https://twitter.com/wadideglaaco' target="_blank" rel="noopener noreferrer"><img alt=''  src={x_circle_white_icon} className='social-icons-footer'/></a>
+                                        <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank" rel="noopener noreferrer"><img alt=''  src={linkedin_circle_white_icon} className='social-icons-footer'/></a>
+                                        <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank" rel="noopener noreferrer"><img alt=''  src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
 
                                     </div>
                                     <h4>Or scan the QR code</h4>
-                                    <a href='https://wadideg.social/' target="_blank"> <img src={qr}/> </a>
+                                    <a href='https://wadideg.social/' target="_blank" rel="noopener noreferrer"> <img alt=''  src={qr}/> </a>
                                 </div>
                             </div>
 

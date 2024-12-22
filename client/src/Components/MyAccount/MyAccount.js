@@ -3,11 +3,6 @@ import './MyAccount.css';
 import { useGlobalState } from '../GlobalStateContext.js';
 import { useNavigate } from 'react-router-dom';
 
-import facebook_circle_white_icon from '../Assets/Icons/Social/facebook-circle-white-icon.svg'
-import instagram_circle_white_icon from '../Assets/Icons/Social/instagram-circle-white-icon.svg'
-import x_circle_white_icon from '../Assets/Icons/Social/x-circle-white-icon.svg'
-import linkedin_circle_white_icon from '../Assets/Icons/Social/linkedin-circle-white-icon.svg'
-import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-white-icon.svg'
 
 
 export default function MyAccount(){
@@ -54,24 +49,24 @@ export default function MyAccount(){
       }
   };   
     
-    const responsive2 = {
-        superLargeDesktop: {
-          breakpoint: { max: 4000, min: 3000 },
-          items: 6
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 6
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1.4
-        }
-      };
+    // const responsive2 = {
+    //     superLargeDesktop: {
+    //       breakpoint: { max: 4000, min: 3000 },
+    //       items: 6
+    //     },
+    //     desktop: {
+    //       breakpoint: { max: 3000, min: 1024 },
+    //       items: 6
+    //     },
+    //     tablet: {
+    //       breakpoint: { max: 1024, min: 464 },
+    //       items: 2
+    //     },
+    //     mobile: {
+    //       breakpoint: { max: 464, min: 0 },
+    //       items: 1.4
+    //     }
+    //   };
 
     return(
         <div className='account-container'>
@@ -103,14 +98,14 @@ export default function MyAccount(){
                     </div>
 
                     <div className="my-account-container-right">
-                        {selectedTab == 'Account Information' ? (
+                        {selectedTab === 'Account Information' ? (
                             <div className='tabs-content'>
-                                    <p>Full Name: <p className='value'> {globalState.fullName}</p></p>
-                                    <p>Email: <p className='value'>{globalState.email}</p></p>
-                                    <p>Phone: <p className='value'>{globalState.phone}</p></p>
-                                    <p>Country: <p className='value'>{globalState.country}</p></p>
-                                    <p>Company/Project Name: <p className='value'>{globalState.companyName}</p></p>
-                                    <p>Address: <p className='value'>{globalState.address}</p></p>
+                                    <div>Full Name: <p className='value'> {globalState.fullName}</p></div>
+                                    <div>Email: <p className='value'>{globalState.email}</p></div>
+                                    <div>Phone: <p className='value'>{globalState.phone}</p></div>
+                                    <div>Country: <p className='value'>{globalState.country}</p></div>
+                                    <div>Company/Project Name: <p className='value'>{globalState.companyName}</p></div>
+                                    <div>Address: <p className='value'>{globalState.address}</p></div>
 
                                 </div>
                             

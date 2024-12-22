@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Visualizer.css';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import hero_bg from '../Assets/Media/hero-bg.jpg';
 import ProductForVisualizer from './ProductForVisualizer.js';
 import { productData } from './productData.js'; // Import the product data
@@ -149,9 +149,9 @@ export default function Visualizer() {
         <div className="products-page">
           {/* Scroll to outdoor link */}
           {window.innerWidth < 768 && showIndoor && showOutdoor && hasOutdoorProducts && (
-            <a onClick={scrollToOutdoor} className="scroll-to-outdoor-btn">
+            <p onClick={scrollToOutdoor} className="scroll-to-outdoor-btn">
               Scroll to Outdoor ↓
-            </a>
+            </p>
           )}
 
           {/* Indoor Section */}
@@ -179,9 +179,9 @@ export default function Visualizer() {
 
           {/* Scroll to indoor link */}
           {window.innerWidth < 768 && showIndoor && showOutdoor && hasOutdoorProducts && (
-            <a onClick={scrollToIndoor} className="scroll-to-indoor-btn">
+            <p onClick={scrollToIndoor} className="scroll-to-indoor-btn">
               Scroll to Indoor ↑
-            </a>
+            </p>
           )}
 
           {/* Outdoor Section */}

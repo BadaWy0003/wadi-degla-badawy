@@ -153,7 +153,7 @@
   
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 0.3rem;
   padding-left: 5rem;
@@ -257,8 +257,9 @@
   .footer-nav .col {
     align-items: start;
   }
-  .footer-nav .col h4{
-    
+  .list-unstyled{
+    justify-content: start;
+    padding-left: 0;
   }
   
 

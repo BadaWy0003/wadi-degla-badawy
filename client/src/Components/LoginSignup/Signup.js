@@ -3,7 +3,7 @@ import "./Signup.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
+// import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
 import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
 import { useGlobalState } from "../GlobalStateContext.js";
 import PhoneInput from "react-phone-input-2"; // Import PhoneInput component
