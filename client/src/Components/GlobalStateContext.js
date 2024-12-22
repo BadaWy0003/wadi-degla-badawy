@@ -20,12 +20,12 @@ export const GlobalStateProvider = ({ children }) => {
     port: "",
   });
 
-  // Fetch user data on app initialization
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/auth/customer/me", // Adjust the endpoint
+          "http://localhost:5000/api/auth/customer/check-auth", // Adjust the endpoint
           { withCredentials: true }
         );
 
@@ -36,7 +36,10 @@ export const GlobalStateProvider = ({ children }) => {
           });
         }
       } catch (err) {
-        console.error("Failed to fetch user data:", err.response?.data || err.message);
+        console.error(
+          "Failed to fetch user data:",
+          err.response?.data || err.message
+        );
         setGlobalState({ isLoggedIn: false }); // Reset state on failure
       }
     };

@@ -20,28 +20,27 @@ function App() {
   // const [user, setUser] = useState(null);
   // const [loading, setLoading] = useState(true);
   // const { globalState, setGlobalState } = useGlobalState();
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:5000/api/auth/customer/check-auth",
-          {
-            withCredentials: true, // Ensures cookies are sent
-          }
-        );
-        if (response.status === 200 || response.status === 201) {
-         console.log(response.data);
-        }
-      } catch {
-        // setUser(null);
-      } finally {
-        // setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const checkAuth = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         "http://localhost:5000/api/auth/customer/check-auth",
+  //         {
+  //           withCredentials: true, // Ensures cookies are sent
+  //         }
+  //       );
+  //       if (response.status === 200 || response.status === 201) {
+  //        console.log(response.data);
+  //       }
+  //     } catch {
+  //       // setUser(null);
+  //     } finally {
+  //       // setLoading(false);
+  //     }
+  //   };
 
-    checkAuth();
-  }, []);
-
+  //   checkAuth();
+  // }, []);
 
   return (
     <BrowserRouter>
