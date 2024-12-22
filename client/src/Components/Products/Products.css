@@ -196,16 +196,22 @@
 /* Modal Custom Styles */
 .modal-custom {
     position: fixed; /* Fullscreen modal */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 70vw;
+    height: fit-content;
+    max-height: 70vh;
     background-color: var(--whiteColor);
     display: flex;
     flex-direction: column; /* Vertical layout */
-    overflow-y: auto; /* Allow scrolling for the entire modal */
-    padding: 0; /* Remove padding for fullscreen experience */
+    padding:  3rem 2rem; /* Remove padding for fullscreen experience */
     z-index: 1000; /* Ensure it appears above all elements */
+    display: flex;
+    flex-direction: row;
+    border-radius: 1rem;
+    column-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    border: 2px solid var(--goldColor);
   }
   
   /* Close Button */
@@ -226,28 +232,32 @@
   /* Modal Top Section - Image */
   .modal-left {
     width: 100%;
-    height: 50vh; /* Image occupies half the screen height */
+    height: 520px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 1rem;
   }
   
   .modal-product-image {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     object-fit: cover; /* Maintain aspect ratio while covering container */
-    border-radius: 0; /* No rounding for fullscreen modal */
+    border-radius: 1rem; /* No rounding for fullscreen modal */
   }
   
   /* Modal Bottom Section - Content */
   .modal-right {
     width: 100%;
-    background-color: var(--blackColor);
-    color: var(--whiteColor);
-    padding: 2rem;
+    color: var(--darkGrayColor);
+    padding: 1rem 2rem;
     border-radius: 0; /* No rounding for fullscreen modal */
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--goldColor);
+    border-radius: 1rem;
+    height: 550px;
+    justify-content: space-around;
   }
   
   .modal-title {
@@ -272,9 +282,11 @@
   .modal-info-value {
     font-size: 1rem;
     font-weight: bold;
-    color: var(--whiteColor);
+    color: var(--blackColor);
   }
-  
+  #modal-info-category-value{
+    color: var(--blueColor);
+  }
   .modal-select {
     color: var(--goldColor);
     padding: 0.3rem;
@@ -292,38 +304,64 @@
   
   /* Applications Section */
   .modal-applications {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Add spacing between items */
+  justify-content: space-between; /* Ensure items are distributed evenly */
+
   }
   
   .application-icon {
+    background-color: var(--darkerBlackColor); /* Example styling */
     width: 50px;
     height: 50px;
-    background-color: var(--darkerBlackColor);
-    border: 1px solid var(--goldColor);
-    border-radius: 5px;
   }
+  
+
   
   /* Sample Button */
   .modal-right .btn1 {
     margin-top: 2rem;
-    padding: 0.8rem 1.5rem;
-    background-color: var(--goldColor);
-    color: var(--blackColor);
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
   }
   
-  .modal-right .btn1:hover {
-    background-color: var(--blueColor);
-    color: var(--whiteColor);
-  }
-  
+ 
   /* Responsive Design */
+  @media (max-height: 900px) {
+    .modal-custom {
+      position: fixed; /* Fullscreen modal */
+      width: 70vw;
+      max-height: 65vh;
+      background-color: var(--whiteColor);
+      display: flex;
+      flex-direction: column; /* Vertical layout */
+      padding:  3rem 2rem; /* Remove padding for fullscreen experience */
+      z-index: 1000; /* Ensure it appears above all elements */
+      display: flex;
+      flex-direction: row;
+      border-radius: 1rem;
+      column-gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5rem;
+      border: 2px solid var(--goldColor);
+    }
+    .modal-right{
+      max-height: 60vh;
+    }
   
+  }
+  @media (max-height: 700px) {
+    .modal-custom{
+      padding: 3rem 1rem;
+    }
+    .modal-right{
+      border: none;
+      border-radius: 0;
+      border-left: 1px solid var(--goldColor);
+    }
+  }
+
+
   /* Medium Screens (768px to 1240px) */
   @media (max-width: 1240px) {
     .modal-left {
@@ -333,84 +371,118 @@
     .modal-right {
       padding: 1.5rem;
     }
-  
+    .modal-info-grid{
+      margin-bottom: 0;
+      height: fit-content;
+    }
     .modal-title {
       font-size: 1.8rem;
     }
   
     .modal-applications {
-      grid-template-columns: repeat(3, 1fr);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
     }
   }
   
   /* Small Screens (Below 768px) */
   @media (max-width: 768px) {
-    .modal-custom{
-        padding: 5rem 0;
-        overflow-y: scroll;
-    }
-    .modal-left {
-      height: 40vh; /* Further reduce image height */
-    }
-    .modal-left img{
-        max-width: 90%;
-        border-radius: 8px;
-    }
-  
-    .modal-right {
-        justify-content: center;
-        align-items: center;
-      padding: 0;
-      background-color: transparent;
-      color: var(--darkGrayColor);
-    }
-  
-    .modal-title {
-      font-size: 1.5rem;
+   
+    .modal-custom {
+      position: fixed; /* Fullscreen modal */
+      width: 80%;
+      height: 80%;
+      background-color: var(--whiteColor);
+      display: flex;
+      flex-direction: column; /* Vertical layout */
+      padding:  2rem; /* Remove padding for fullscreen experience */
+      z-index: 1000; /* Ensure it appears above all elements */
+      display: flex;
+      column-gap: 0;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 0;
+      row-gap: 0;
 
     }
-
-    .div-flex{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: 2rem;
-    }
-
-    .modal-info-label{
-        color: var(--darkGrayColor);
-    }
-    .modal-info-value{
-        color: var(--blackColor);
-
-    }
-  
-    .modal-applications {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .modal-applications p{
-        color: var(--blackColor);
-      }
-  
     .modal-close {
-      font-size: 1.3rem;
-      top: 5px;
-      right: 10px;
+      font-size: 2rem;
+      
     }
-  
-    .modal-right .btn1 {
-      width: 80%; /* Full-width button for smaller screens */
-      padding: 1rem;
+
+    .modal-left {
+      max-height: 25%;
     }
-  }
-  @media (max-width: 550px) {
     .div-flex{
         flex-direction: column;
     }
     .modal-applications{
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
 
     }
+    .modal-title{
+      margin-top: 0;
+    }
+    .modal-right{
+      border: none;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: unset;
+    }
+    .modal-right .btn1 {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+  @media (max-width: 550px) {
+    .modal-custom {
+      position: fixed; /* Fullscreen modal */
+      width: 90%;
+      max-height: 90%;
+      background-color: var(--whiteColor);
+      display: flex;
+      flex-direction: column; /* Vertical layout */
+      padding:  0; /* Remove padding for fullscreen experience */
+      z-index: 1000; /* Ensure it appears above all elements */
+      display: flex;
+      column-gap: 0;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 0;
+      border: none;
+      border-radius: 0;
+      row-gap: 0;
+
+    }
+    .modal-close {
+      font-size: 2rem;
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+
+    .modal-left {
+      max-height: 25%;
+      
+    }
+    .modal-left img{
+border-radius: 0;      
+    }
+    .div-flex{
+        flex-direction: column;
+    }
+    .modal-applications{
+        grid-template-columns: repeat(5, 1fr);
+
+    }
+    .modal-title{
+      margin-top: 0;
+    }
+    .modal-right .btn1 {
+      margin-top: 1rem;
+    }
+  
   }
 /* Responsive Design */
 @media (max-width: 768px) {

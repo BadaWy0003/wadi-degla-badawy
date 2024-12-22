@@ -56,7 +56,7 @@ export default function Modal({ product, onClose }) {
           <div>
             <p>Application:</p>
             <div className="modal-applications">
-              {[...Array(10)].map((_, i) => (
+              {[...Array(8)].map((_, i) => (
                 <div key={i} className="application-icon"></div>
               ))}
             </div>
