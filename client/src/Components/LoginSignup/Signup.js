@@ -324,7 +324,7 @@ try{
           </button>
           <div className="forgot-password">
           Already have an account?{" "}
-          <Link to="/login">
+          <Link to='/login' onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" })}}>
             <span>Login</span>
           </Link>
           </div>

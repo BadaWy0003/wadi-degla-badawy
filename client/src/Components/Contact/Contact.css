@@ -543,7 +543,7 @@
 .location a {
   text-align: center;
 }
-h4{
+.contact-inner-right h4{
   text-align: center;
 }
 }
@@ -596,7 +596,7 @@ h4{
   .contact-inner-left,
   .contact-inner-right {
     flex: 1 1 100%;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     min-width: unset;
   }
 
@@ -637,6 +637,7 @@ h4{
   
   /* Optimize button styling */
   .contact-form .btn1 {
+    margin-top: 0.5rem;
     font-size: 1rem;
     padding: 0.7rem 1rem;
     width: 100%;

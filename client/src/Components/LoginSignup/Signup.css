@@ -48,15 +48,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem 5rem;
+    padding: 1rem 5rem 2rem 5rem;
     border-radius: 1rem;
-    min-width: 35vw ;
     max-width: fit-content;
     min-height: 70vh;
     flex: 55;
     background-color: var(--whiteColor);
 }
-.container2 .head h1{
+.container2 .signup-form-title h1{
   margin-bottom: 1rem;
   color: var(--blueColor) ;
 }
@@ -64,7 +63,7 @@
 .container2 p{
   margin-top: 0;
   margin-bottom: 2rem ;
-    color: var(--darkerBlackColor) ;
+    color: var(--darkGrayColor) ;
 
 }
 
@@ -400,17 +399,16 @@
 /* Responsive Design for Smaller Screens */
 
 /* For tablets and small desktops */
-@media (max-width: 1024px) {
+@media (max-width: 1235px) {
   /* Stack containers vertically */
   .container-big {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 2rem; /* Add spacing between containers */
   }
 
   /* Adjust left and right containers */
   .container1, .container2 {
-    width: 90%; /* Full width for better readability */
     padding: 2rem; /* Adjust padding for smaller screens */
   }
 
@@ -422,26 +420,48 @@
   .container1 p {
     font-size: 1.2rem;
   }
+  #container2-login{
+    min-width: 35vw;
+  }
 
   /* Inputs in signup-form */
-  .signup-form .input-field input,
-  .signup-form .input-field textarea {
-    width: 100%; /* Full width */
+  .signup-form .input-field input{
+    /* width: 97%; Full width */
     font-size: 0.9rem; /* Adjust font size */
     padding: 0.7rem; /* Adjust padding */
+    height: 25px;
   }
 
   /* Label adjustment for signup-form */
   .signup-form .input-field label {
     font-size: 0.85rem;
   }
-
+  .submit{
+    margin-top: 2rem;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
   /* Button adjustments */
   .submit button {
     width: 100%;
     font-size: 1rem; /* Adjust font size */
     padding: 0.8rem; /* Add comfortable padding */
   }
+}
+
+@media (max-width: 1024px) {
+  .container-big{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .container1, .container2 {
+    padding: 2rem;
+}
+#container2-login{
+  min-width: 50vw;
+}
+
 }
 
 /* For tablets and large phones */
@@ -452,6 +472,10 @@
 
   .container1, .container2 {
     padding: 1.5rem; /* Adjust padding further */
+  }
+  #container2-login{
+    max-width: 90vw;
+    min-width: 80vw;
   }
 
   .container2 h1 {
@@ -475,14 +499,15 @@
 /* For small phones */
 @media (max-width: 576px) {
   .container-big {
-    padding: 1rem;
+    padding: 3rem 1rem;
     gap: 1rem; /* Reduce gap for compact layout */
   }
 
   /* Adjust containers for stacking */
   .container1, .container2 {
-    width: 100%;
+    min-width: 90%;
     padding: 1rem;
+    padding-bottom: 2rem;
   }
 
   /* Adjust form layout */
@@ -490,12 +515,28 @@
     gap: 1rem; /* Increase spacing between form elements */
   }
 
+  .signup-form .double-inputs{
+    margin-bottom: 1rem;
+
+  }
+
   /* Ensure full width for inputs */
-  .signup-form .input-field input,
-  .signup-form .input-field textarea {
-    width: 100%;
+  .signup-form .input-field{
     font-size: 0.8rem;
-    padding: 0.5rem;
+  }
+
+   .signup-form .country-phone{
+    max-width: 100% !important;
+  } 
+
+  .signup-form #input-country{
+    max-width: 100% !important;
+
+  }
+  .submit{
+    margin-top: 2rem;
+    flex-direction: column;
+    row-gap: 1rem;
   }
 
   /* Adjust button for smaller screens */
@@ -510,4 +551,5 @@
   .forgot-password {
     text-align: center;
   }
+
 }

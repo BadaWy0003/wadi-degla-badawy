@@ -46,27 +46,23 @@ export default function Contact(){
     
     
       // Pre-fill form for logged-in users _____________________________________________________________________________________________________
-useEffect(() => {
-  if (globalState.isLoggedIn) {
-    setFormData((prev) => {
-      const updatedData = {
-        ...prev,
-        fname: globalState?.fname || '',
-        cname: globalState?.cname || '',
-        rnc: globalState?.rnc || '',
-        port: globalState?.port || '',
-        email: globalState?.email || '',
-        phone: globalState?.phone || '',
-        whatsapp: globalState?.whatsapp || '',
-        country: globalState?.country || null,
-        address: globalState?.address || '',
-      };
-      console.log("Form data pre-filled from globalState:", updatedData);
-      return updatedData;
-    });
-  }
-}, [globalState]);
-
+      useEffect(() => {
+        if (globalState.isLoggedIn) {
+          setFormData((prev) => ({
+            ...prev,
+            fname: globalState?.fullName || '',
+            cname: globalState?.companyName || '',
+            rnc: globalState?.rnc || '',
+            email: globalState?.email || '',
+            phone: globalState?.phone || '',
+            whatsapp: globalState?.whatsapp || '',
+            country: globalState?.country || null,
+            address: globalState?.address || '',
+            port: globalState?.port || '',
+          }));
+        }
+      }, [globalState]);
+      
 
     //Validation for phone number _____________________________________________________________________________________________________
     const validateFields = () => {
@@ -185,8 +181,7 @@ useEffect(() => {
                             <p>Our team will get back to you as soon as possible!</p>
                         </div>
                         <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
-                        {globalState.isLoggedIn == false ? (
-                            <>
+
                             <div className='double-inputs'>
                             <div className='input-field'>
                               <label htmlFor="fname">*Full Name</label>
@@ -311,10 +306,7 @@ useEffect(() => {
                               />
                             </div>
 
-                            
-                            </>
-                        ): (<>Since you are signed in, we will get the rest of your info from your account<br/></> )}
-                        <div className='input-field-message'>
+                          <div className='input-field-message'>
                           <label htmlFor="message">*Message</label>
                               <textarea
                                 id="message"

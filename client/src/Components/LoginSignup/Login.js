@@ -76,8 +76,8 @@ export default function Login() {
           <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
         </div>
       </div>
-      <div className="container2">
-        <div className="head">
+      <div className="container2" id="container2-login">
+        <div className="signup-form-title">
           <h1>Login</h1>
           <p>Welcome back!</p>
           <div className="underline"></div>
@@ -120,7 +120,7 @@ export default function Login() {
             <button className="btn1">LOGIN</button>
             <div className="forgot-password">
               Don't have an account?
-              <Link to="/signup">
+              <Link to="/signup" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" })}}>
                 <span>Register</span>
               </Link>
             </div>

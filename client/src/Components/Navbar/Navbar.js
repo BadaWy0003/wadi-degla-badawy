@@ -122,7 +122,7 @@ export default function Navbar(){
                         </div>
                     </>
                 ) : (
-                    <Link to='/login' onClick={() => { window.scrollTo(0, 0); }}>
+                    <Link to='/login' onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" })}}>
                         Login
                     </Link>
                 )}
