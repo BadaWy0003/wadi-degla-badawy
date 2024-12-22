@@ -112,6 +112,7 @@
   grid-template-columns: 30% 30%;
   row-gap: 1rem;
   column-gap: 1rem;
+  padding: 0;
 }
 
 .list-unstyled a{
@@ -257,14 +258,12 @@
   .footer-nav .col {
     align-items: start;
   }
-  .list-unstyled{
-    justify-content: start;
-    padding-left: 0;
-  }
   
 
   .footer-nav .col .list-unstyled{
     column-gap: 2rem;
+    justify-content: start;
+
   }
   .footer-nav .col .social{
     column-gap: 1rem;

@@ -7,6 +7,9 @@ import instagram_circle_white_icon from '../Assets/Icons/Social/instagram-circle
 import x_circle_white_icon from '../Assets/Icons/Social/x-circle-white-icon.svg'
 import linkedin_circle_white_icon from '../Assets/Icons/Social/linkedin-circle-white-icon.svg'
 import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-white-icon.svg'
+// import telegram_circle_white_icon from '../Assets/Icons/Social/telegram-circle-white-icon.svg';
+// import tiktok_circle_white_icon from '../Assets/Icons/Social/tiktok-circle-white-icon.svg';
+
 
 //import facebook_white_icon from '../Assets/Icons/Social/facebook-white-icon.svg'
 //import instagram_white_icon from '../Assets/Icons/Social/instagram-white-icon.svg'
@@ -67,6 +70,9 @@ function Footer() {
                   <a href='https://twitter.com/wadideglaaco' target="_blank" rel="noopener noreferrer"><img alt='' src={x_circle_white_icon} className='social-icons-footer'/></a>
                   <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank" rel="noopener noreferrer"><img alt='' src={linkedin_circle_white_icon} className='social-icons-footer'/></a>
                   <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank" rel="noopener noreferrer"><img alt='' src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
+                  {/* <a href='https://t.me/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={telegram_circle_white_icon} className='social-icons-footer' /></a>
+                  <a href='https://www.tiktok.com/@wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={tiktok_circle_white_icon} className='social-icons-footer' /></a> */}
+                  
 
                   </div>
                 </div>

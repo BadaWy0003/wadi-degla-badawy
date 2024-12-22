@@ -593,11 +593,14 @@
   }
 
   /* Adjust the left and right sections */
-  .contact-inner-left,
-  .contact-inner-right {
+  .contact-inner-left
+   {
     flex: 1 1 100%;
     padding: 1rem 1rem 2rem 1rem;
     min-width: unset;
+  }
+  .contact-inner-right{
+    padding: 0;
   }
 
   /* Contact form adjustments */
