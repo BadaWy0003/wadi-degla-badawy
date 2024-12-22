@@ -15,10 +15,11 @@ export default function Visualizer() {
   const indoorRef = useRef(null);
   const outdoorRef = useRef(null);
 
-
-  
-
-
+  // Reset toggle state when the category changes
+  useEffect(() => {
+    setShowIndoor(true);
+    setShowOutdoor(true);
+  }, [selectedCategory]);
 
   // Filter products based on selected category and search query
   const filteredProducts = productData.filter(item => {
@@ -36,18 +37,18 @@ export default function Visualizer() {
   const visibleOutdoorProducts = showOutdoor ? outdoorProducts : [];
 
   // Scroll to the outdoor section
-const scrollToOutdoor = () => {
+  const scrollToOutdoor = () => {
     if (outdoorRef.current) {
       outdoorRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   // Scroll to the indoor section
-const scrollToIndoor = () => {
+  const scrollToIndoor = () => {
     if (indoorRef.current) {
       indoorRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };  
+  };
 
   // Check for product availability in current category
   const hasIndoorProducts = indoorProducts.length > 0;
@@ -62,18 +63,26 @@ const scrollToIndoor = () => {
   };
 
   return (
-    <div className='products-container'>
-        <div
-        className="products-hero"
-        style={{
-          backgroundImage: `url(${selectedProduct ? selectedProduct.mockup : hero_bg})`, // Set dynamic background image
-        }}
-      >
+    <div className="products-container">
+      <div className="products-hero">
+        {selectedProduct ? (
+          <img
+            src={selectedProduct.currentMockup}
+            alt={selectedProduct.name}
+            className="products-hero-image"
+          />
+        ) : (
+          <img
+            src={hero_bg}
+            alt="Hero Background"
+            className="products-hero-image"
+          />
+        )}
         <h1>{selectedProduct ? selectedProduct.name : "Visualizer"}</h1>
-        {!selectedProduct && <p className='hero-hint'>Select a product from below and it will show here</p>}
+        {!selectedProduct && <p className="hero-hint">Select a product from below and it will show here</p>}
       </div>
 
-      <div className='products-categories-and-title'>
+      <div className="products-categories-and-title">
         <div className="products-categories">
           <button
             className={`btn2 ${selectedCategory === 'Imported Marble' ? 'active' : ''}`}
@@ -115,7 +124,8 @@ const scrollToIndoor = () => {
         {/* Toggle Buttons */}
         {(hasIndoorProducts || hasOutdoorProducts) && (
           <div className="toggle-buttons">
-            {hasIndoorProducts && (
+            {/* Show "Hide Indoor" button only if outdoor products exist */}
+            {hasIndoorProducts && hasOutdoorProducts && (
               <button
                 className={`toggle-btn ${showIndoor ? 'active' : ''}`}
                 onClick={() => setShowIndoor(!showIndoor)}
@@ -134,21 +144,14 @@ const scrollToIndoor = () => {
           </div>
         )}
       </div>
-            
 
       {filteredProducts.length > 0 ? (
         <div className="products-page">
-            {/*Scroll to outdoor only shows on mobile screens*/}
-            {window.innerWidth < 768 && showIndoor && showOutdoor && (
+          {/* Scroll to outdoor link */}
+          {window.innerWidth < 768 && showIndoor && showOutdoor && hasOutdoorProducts && (
             <a onClick={scrollToOutdoor} className="scroll-to-outdoor-btn">
-                Scroll to Outdoor ↓
+              Scroll to Outdoor ↓
             </a>
-            )}
-          {/* Show message if both toggles are off */}
-          {!showIndoor && !showOutdoor && (
-            <div className="no-sections-message">
-              <p>Please select from the buttons above to view the indoor and outdoor sections.</p>
-            </div>
           )}
 
           {/* Indoor Section */}
@@ -173,12 +176,13 @@ const scrollToIndoor = () => {
               </div>
             </div>
           )}
-            {/* Scroll to Indoor category link */}
-            {window.innerWidth < 768 && showIndoor && showOutdoor && (
+
+          {/* Scroll to indoor link */}
+          {window.innerWidth < 768 && showIndoor && showOutdoor && hasOutdoorProducts && (
             <a onClick={scrollToIndoor} className="scroll-to-indoor-btn">
-                Scroll to Indoor ↑
+              Scroll to Indoor ↑
             </a>
-            )}
+          )}
 
           {/* Outdoor Section */}
           {showOutdoor && visibleOutdoorProducts.length > 0 && (

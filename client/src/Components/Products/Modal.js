@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Visualizer.css';
+import './Products.css'; // Updated CSS for styling the modal
 
 export default function Modal({ product, onClose }) {
   // Set "Polished" as the default finish
@@ -9,33 +9,60 @@ export default function Modal({ product, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <div className="modal-content modal-custom" onClick={e => e.stopPropagation()}>
+        {/* Close Button */}
         <span className="modal-close" onClick={onClose}>&times;</span>
-        
-        {/* Product Image */}
-        <div className='modal-image-div'>
-        <img src={selectedFinish.imageUrl} alt={product.name} className="modal-image" />
+
+        {/* Left Section - Image */}
+        <div className="modal-left">
+          <img
+            src={selectedFinish.imageUrl}
+            alt={product.name}
+            className="modal-product-image"
+          />
         </div>
 
-        {/* Product Details */}
-        <h2>{product.name}</h2>
-        <p><strong>Category:</strong> {product.category}</p>
-        <p><strong>Finish:</strong> {selectedFinish.finishName}</p>
-
-        {/* Finish Selector */}
-        <div className="finish-selector">
-          <p>Select Finish:</p>
-          <div className="finish-buttons">
-            {product.finish.map(finish => (
-              <button
-                key={finish.finishName}
-                className={`finish-btn ${selectedFinish.finishName === finish.finishName ? 'active' : ''}`}
-                onClick={() => setSelectedFinish(finish)}
+        {/* Right Section - Information */}
+        <div className="modal-right">
+          <h3 className="modal-title">Product Information</h3>
+          <div className='div-flex'>
+          <div className="modal-info-grid">
+            <div className="modal-info-label">Name:</div>
+            <div className="modal-info-value">{product.name}</div>
+            
+            <div className="modal-info-label">Finish:</div>
+            <div className="modal-info-value">
+              <select
+                className="modal-select"
+                value={selectedFinish.finishName}
+                onChange={(e) =>
+                  setSelectedFinish(
+                    product.finish.find(finish => finish.finishName === e.target.value)
+                  )
+                }
               >
-                {finish.finishName}
-              </button>
-            ))}
+                {product.finish.map(finish => (
+                  <option key={finish.finishName} value={finish.finishName}>
+                    {finish.finishName}
+                  </option>
+                ))}
+              </select>
+            </div>
+            
+            <div className="modal-info-label">Category:</div>
+            <div className="modal-info-value" id='modal-info-category-value'>{product.category}</div>
           </div>
+          
+          <div>
+            <p>Application:</p>
+            <div className="modal-applications">
+              {[...Array(10)].map((_, i) => (
+                <div key={i} className="application-icon"></div>
+              ))}
+            </div>
+          </div>
+          </div>
+          <button className="btn1">Request a Sample</button>
         </div>
       </div>
     </div>
