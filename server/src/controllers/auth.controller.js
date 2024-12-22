@@ -123,7 +123,12 @@ AuthController.adminLogin = async (req, res) => {
 };
 
 AuthController.deleteCookie = async (req, res) => {
-  res.status(200).clearCookie('auth').send('user logged out');
+  res.status(200).clearCookie('auth', {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'Strict',
+  });
+  res.status(200).send('Logged out');
 };
 
 module.exports = AuthController;
