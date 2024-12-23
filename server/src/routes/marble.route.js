@@ -1,6 +1,10 @@
 const express = require('express');
 const Marble = require('../models/Marble');
-const upload = require('../utils/multer');
+const { bucket } = require('../start/firebase');
+const multer = require('multer');
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 const router = express.Router();
 
@@ -51,7 +55,46 @@ router.post('/', upload.array('images', 10), async (req, res) => {
     res.status(500).json({ error: 'Failed to create Marble.', details: err.message });
   }
 });
-  
+
+router.post('/upload', upload.single('file'), async (req, res) => {
+  try {
+    const file = req.file;
+
+    if (!file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+
+    const fileName = `uploads/${Date.now()}_${file.originalname}`;
+    const blob = bucket.file(fileName);
+    const blobStream = blob.createWriteStream({
+      metadata: {
+        contentType: file.mimetype,
+      },
+    });
+
+    blobStream.on('error', (error) => {
+      console.error('Upload error:', error);
+      res.status(500).json({ message: 'Failed to upload file', error });
+    });
+
+    blobStream.on('finish', async () => {
+      // Make the file public
+      await blob.makePublic();
+
+      // Get the public URL
+      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+      res.status(200).json({
+        message: 'File uploaded successfully',
+        url: publicUrl,
+      });
+    });
+
+    blobStream.end(file.buffer);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', error });
+  }
+});
+
 
 router.get('/', async (req, res) => {
   try {

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 // import wadi_degla_logo_login from '../Assets/wadi-degla-logo-login.svg'
 
 // import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg'
-import wadi_degla_logo_color from '../Assets/wadi-degla-logo-color.svg'
+import wadi_degla_logo_color from "../Assets/Icons/apple-logo.svg";
 // import wadi_degla_logo_color_stroke from '../Assets/wadi-degla-logo-color-stroke.svg'
 // import wadi_degla_logo_gold from '../Assets/wadi-degla-logo-gold.svg'
-import wadi_degla_logo_white from '../Assets/wadi-degla-logo-white.svg'
+import wadi_degla_logo_white from "../Assets/Icons/eye-gold.svg";
 // import wadi_degla_logo_white_gradient from '../Assets/wadi-degla-logo-white-gradient.svg'
 //import facebook_logo_white from '../Assets/Icons/facebook-logo-white.svg'
 //import instagram_logo_white from '../Assets/Icons/instagram-logo-white.svg'
