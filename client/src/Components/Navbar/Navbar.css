@@ -37,16 +37,21 @@ header {
 	transition: all 0.5s;
 
 }
-
+.header a, .header p{
+	font-size: 0.9rem;
+}
+.logo-div{
+	width: 7rem;
+	justify-content: center;
+}
 .logo{
-	max-width: 5rem;
-}
-
-header img{
+	max-width: 7rem;
 	transition: all 0.5s;
+	max-height: 3rem;
+	
 }
 
-header img:hover{
+.logo:hover{
 	scale: 98%;
 	transition: all 0.5s;
 }
@@ -68,67 +73,188 @@ header img:hover{
 	color: var(--goldColor);
 }
 
+
 nav a {
-	margin: 0 1rem;
-	color: var(--textColor);
-	text-decoration: none;
+    margin: 0 1rem;
+    color: var(--textColor);
+    text-decoration: none;
 }
 
 nav a:hover {
-	scale: 98%;
+    scale: 98%;
 }
 
-/* Container for nav item with submenu */
-.nav-item-with-submenu {
-	position: relative;
-	display: inline-block;
-  }
-  
-  /* Hide the submenu by default */
-  .submenu {
-	display: none;
-	position: absolute;
-	background-color: #fff; /* Adjust to match your theme */
-	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Submenu shadow */
-	padding: 10px;
-	z-index: 1;
-	min-width: 160px;
-  }
-  
-  /* Display the submenu when the parent is hovered */
-  .nav-item-with-submenu:hover .submenu {
-	display: block;
-  }
-  
-  /* Style for submenu links */
-  .submenu a {
-	display: block;
-	padding: 8px 16px;
-	text-decoration: none;
-	color: #333;
-  }
-  
-  .submenu a:hover {
-	background-color: #f1f1f1;
-  }
+/* Submenu container */
+/* submenu if page scrolled ________________________*/
 
-  
+.scrolled .submenu {
+    display: none;
+    position: absolute;
+    background-color: #000; /* Matches the dark theme */
+    border-bottom: 1px solid var(--goldColor); /* Adds a subtle border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    padding: 1rem 0 1rem 0;
+    z-index: 99999;
+    min-width: 180px; /* Slightly wider submenu */
+    border-radius: 0; /* Rounded corners */
+    top: 100%; /* Place submenu directly beneath the parent */
+    left: 0; /* Align submenu with the parent */
+    transition: all 0.3s ease; /* Smooth transition for better feel */
+}
+
+/* Submenu links */
+.scrolled .submenu a {
+    display: block;
+    padding: 10px 15px; /* Adds space around text for better clickability */
+    text-decoration: none;
+    font-size: 0.9rem; /* Slightly smaller text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+	border-left: solid 2px transparent;
+	margin: 0;
+
+}
+
+/* Hover effect for submenu links */
+.scrolled .submenu a:hover {
+    color: var(--goldColor); /* Invert text color for better contrast */
+	border-left: 2px solid var(--goldColor);
+}
+
+/* Display submenu on hover */
+.scrolled .nav-item-with-submenu:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Smooth dropdown effect */
+}
+
+/* Optional: Subtle animation for submenu dropdown */
+.scrolled .submenu {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Adjust spacing and alignment of parent menu item */
+.scrolled .nav-item-with-submenu {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.scrolled .nav-item-with-submenu p {
+    margin: 0;
+    padding: 1rem 0;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.scrolled .nav-item-with-submenu p:hover {
+    color: var(--goldColor); /* Match hover effect with submenu */
+}
+
+
+
+/* submenu if page not scrolled ________________________*/
+.submenu {
+    display: none;
+    position: absolute;
+	background-color: rgba(255,255,255,0.1);
+    border-bottom: 1px solid var(--goldColor); /* Adds a subtle border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    padding: 1rem 0 1rem 0;
+    z-index: 99999;
+    min-width: 180px; /* Slightly wider submenu */
+    border-radius: 0; /* Rounded corners */
+    top: 100%; /* Place submenu directly beneath the parent */
+    left: 0; /* Align submenu with the parent */
+    transition: all 0.3s ease; /* Smooth transition for better feel */
+}
+
+/* Submenu links */
+.submenu a {
+    display: block;
+    padding: 10px 15px; /* Adds space around text for better clickability */
+    text-decoration: none;
+    color: var(--whiteColor); /* Subtle contrast for the links */
+    font-size: 0.9rem; /* Slightly smaller text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+	border-left: solid 2px transparent;
+	margin: 0;
+}
+
+/* Hover effect for submenu links */
+.submenu a:hover {
+     /* Highlight the item with gold */
+    color: var(--goldColor); /* Invert text color for better contrast */
+	border-left: solid 2px var(--goldColor);
+}
+
+/* Display submenu on hover */
+.nav-item-with-submenu:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Smooth dropdown effect */
+}
+
+/* Optional: Subtle animation for submenu dropdown */
+.submenu {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Adjust spacing and alignment of parent menu item */
+.nav-item-with-submenu {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.nav-item-with-submenu p {
+    margin: 0;
+    padding: 1rem 0;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.nav-item-with-submenu p:hover {
+	transition: all 0.1s;
+	color: var(--lightGrayColor);
+}
+
+
+.scrolled .account-or-login{
+	color: var(--goldColor);
+}
+
 header .nav-btn {
-	padding: 5px;
-	cursor: pointer;
-	background: transparent;
-	border: none;
-	outline: none;
-	color: var(--textColor);
-	display: none;
-	opacity: 0;
-	font-size: 1.8rem;
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--textColor);
+    display: none;
+    opacity: 0;
+    font-size: 1.8rem;
+}
+.scrolled .nav-btn{
+	color: var(--goldColor);
 }
 
 header div,
 nav {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive-specific styles */
+.nav-item-desktop {
+    display: block;
+}
+
+.nav-item-mobile {
+    display: none;
 }
 
 /*===========================================================*/
@@ -173,13 +299,14 @@ nav {
 		align-items: center;
 		justify-content: center;
 		gap: 1.5rem;
-		background-color: var(--goldColor);
+		background-color: var(--darkerBlackColor);
 		transition: 1s;
         z-index: 999999;
 	}
 
 	header .responsive_nav {
 		transform: translateY(150vh);
+		justify-content: center;
 	}
 
 
@@ -190,6 +317,44 @@ nav {
 	}
 
 	nav a {
-		font-size: 1.5rem;
+		font-size: 1rem;
 	}
+	.nav-item-with-submenu:hover{
+	}
+	.nav-item-with-submenu p{
+		margin:0;
+		padding: 0;
+		padding-left: 1rem;
+	}
+	.submenu{
+		background-color: var(--darkerBlackColor);
+		border: 1px solid var(--goldColor);
+		border-radius: 8px;
+	}
+    header nav img {
+        max-width: 5rem;
+        margin-bottom: 2rem;
+    }
+
+    .responsive-nav-bottom {
+        text-align: center;
+    }
+
+    /* .responsive-nav-bottom a,
+    .responsive-nav-bottom button {
+        font-size: 1.5rem;
+    } */
+
+    .nav-item-desktop {
+        display: none;
+    }
+
+    .nav-item-mobile {
+        display: block;
+    }
+#logo-nav-mobile{
+	max-width: 100%;
 }
+	
+}
+

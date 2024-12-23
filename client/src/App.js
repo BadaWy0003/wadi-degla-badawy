@@ -1,7 +1,7 @@
-import axios from "axios";
+// import axios from "axios";
 
 import "./App.css";
-import React, { useEffect } from "react";
+import React from "react";
 import Signup from "./Components/LoginSignup/Signup.js";
 import Login from "./Components/LoginSignup/Login.js";
 import Gallery from "./Components/Gallery/Gallery.js";
