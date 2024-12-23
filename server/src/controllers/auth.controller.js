@@ -46,7 +46,6 @@ AuthController.customerLogin = async (req, res) => {
       email,
       password,
     });
-    console.log(data);
 
     res
       .status(200)
