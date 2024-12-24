@@ -23,12 +23,12 @@ export default function Visualizer() {
     setIsModalOpen(false);
   };
 
-  // Filter products based on selected category and search query
-  const filteredProducts = productData.filter(item => {
-    const isCategoryMatch = selectedCategory === 'Imported Marble' || item.category === selectedCategory;
-    const isSearchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
-    return isCategoryMatch && isSearchMatch;
-  });
+// Filter products based on selected category and search query
+const filteredProducts = productData.filter(item => {
+  const isCategoryMatch = item.category === selectedCategory;
+  const isSearchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+  return isCategoryMatch && isSearchMatch;
+});
 
   return (
     <div className='products-container-2'>

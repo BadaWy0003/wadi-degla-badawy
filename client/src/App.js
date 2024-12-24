@@ -12,22 +12,56 @@ import Visualizer from "./Components/Products/Visualizer.js";
 import Contact from "./Components/Contact/Contact.js";
 import MyAccount from "./Components/MyAccount/MyAccount.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useGlobalState } from "./Components/GlobalStateContext"; // Ensure this exists
+import { ProtectedRoute } from "./Components/ProtectedRoute"; // Create this file as described earlier
 
 function App() {
+  const { globalState } = useGlobalState();
+  const isLoggedIn = globalState.isLoggedIn;
+
   return (
     <BrowserRouter>
       <div className="main">
         <Navbar />
         <Routes>
+          {/* Public routes */}
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/login" element={<Login />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/gallery" element={<Gallery />} />
           <Route exact path="/products" element={<Products />} />
           <Route exact path="/visualizer" element={<Visualizer />} />
           <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/my account" element={<MyAccount />} />
+
+          {/* Protected routes for NOT logged-in users */}
+          <Route
+            exact
+            path="/signup"
+            element={
+              <ProtectedRoute condition={!isLoggedIn} redirectTo="/my account">
+                <Signup />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            exact
+            path="/login"
+            element={
+              <ProtectedRoute condition={!isLoggedIn} redirectTo="/my account">
+                <Login />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Protected routes for logged-in users */}
+          <Route
+            exact
+            path="/my account"
+            element={
+              <ProtectedRoute condition={isLoggedIn} redirectTo="/login">
+                <MyAccount />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         <Footer />
       </div>
