@@ -3,8 +3,8 @@ import "./Signup.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import password_eye_hidden_icon from "../Assets/Icons/password-eye-hidden.svg";
-import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
+// import password_eye_hidden_icon from "../../Public/Assets/Icons/password-eye-hidden.svg";
+import wadi_degla_logo_login from "../../Public/Assets/Logo-Identity/wadi-degla-logo-login.svg";
 import { useGlobalState } from "../GlobalStateContext.js";
 import PhoneInput from "react-phone-input-2"; // Import PhoneInput component
 import Select from "react-select"; // Import react-select
@@ -32,8 +32,8 @@ export default function Signup() {
 
   // const validateUsername = (username) => /^[A-Za-z]{4,20}$/.test(username);
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const validatePhone = (phone) => /^\d{10}$/.test(phone);
-  const validateWhatsapp = (whatsapp) => /^\d{10}$/.test(whatsapp);
+  const validatePhone = (phone) => /^\d{15}$/.test(phone);
+  const validateWhatsapp = (whatsapp) => /^\d{15}$/.test(whatsapp);
   const validatePassword = (password) =>
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
       password

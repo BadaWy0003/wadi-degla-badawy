@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Visualizer.css';
 // import { Link } from "react-router-dom";
-import hero_bg from '../Assets/Media/hero-bg.jpg';
+import hero_bg from '../../Public/Assets/Media/hero-bg.jpg';
 import ProductForVisualizer from './ProductForVisualizer.js';
 import { productData } from './productData.js'; // Import the product data
 

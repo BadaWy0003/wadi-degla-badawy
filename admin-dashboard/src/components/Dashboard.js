@@ -15,7 +15,7 @@ import {
   MenuOutlined,
 } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
-import wd_logo from '../components/Assets/wadi-degla-logo-color.svg'
+import wd_logo from '../../Public/Assets/wadi-degla-logo-color.svg'
 
 
 const SideBar = () => {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../GlobalStateContext.js";
-import wadi_degla_logo_login from "../Assets/wadi-degla-logo-login.svg";
+import wadi_degla_logo_login from "../../Public/Assets/Logo-Identity/wadi-degla-logo-login.svg";
 
 export default function Login() {
   const [email, setEmail] = useState("");

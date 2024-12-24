@@ -8,15 +8,15 @@ import Select from 'react-select'; // Import react-select
 import "react-phone-input-2/lib/style.css";
 import countryList from 'react-select-country-list'; // Optional helper for countries
 
-import facebook_circle_white_icon from '../Assets/Icons/Social/facebook-circle-white-icon.svg';
-import instagram_circle_white_icon from '../Assets/Icons/Social/instagram-circle-white-icon.svg';
-import x_circle_white_icon from '../Assets/Icons/Social/x-circle-white-icon.svg';
-import linkedin_circle_white_icon from '../Assets/Icons/Social/linkedin-circle-white-icon.svg';
-import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-white-icon.svg';
-import telegram_circle_white_icon from '../Assets/Icons/Social/telegram-circle-white-icon.svg';
-import tiktok_circle_white_icon from '../Assets/Icons/Social/tiktok-circle-white-icon.svg';
+import facebook_circle_white_icon from '../../Public/Assets/Icons/Social/facebook-circle-white-icon.svg';
+import instagram_circle_white_icon from '../../Public/Assets/Icons/Social/instagram-circle-white-icon.svg';
+import x_circle_white_icon from '../../Public/Assets/Icons/Social/x-circle-white-icon.svg';
+import linkedin_circle_white_icon from '../../Public/Assets/Icons/Social/linkedin-circle-white-icon.svg';
+import whatsapp_circle_white_icon from '../../Public/Assets/Icons/Social/whatsapp-circle-white-icon.svg';
+import telegram_circle_white_icon from '../../Public/Assets/Icons/Social/telegram-circle-white-icon.svg';
+import tiktok_circle_white_icon from '../../Public/Assets/Icons/Social/tiktok-circle-white-icon.svg';
 
-import qr from '../Assets/Icons/Social/QR.png';
+import qr from '../../Public/Assets/Icons/Social/QR.png';
 
 export default function Contact() {
   const { globalState, loading } = useGlobalState(); // Access global state for user data and loading status

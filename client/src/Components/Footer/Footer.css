@@ -27,7 +27,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-image: url("../Assets/Media/pattern-1.png");
+  background-image: url("../../Public/Assets/Media/pattern-1.png");
   width: stretch !important;
   height: stretch !important;
   overflow-y: hidden;

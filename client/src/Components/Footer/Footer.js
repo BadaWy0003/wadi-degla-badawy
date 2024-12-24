@@ -1,21 +1,21 @@
 import './Footer.css'
 import { Link } from "react-router-dom";
-//import wadi_degla_icon from '../Assets/Icons/wadi-degla-logo-icon.svg'
-import wadi_degla_logo_color from '../Assets/Media/Logo-Identity/Logo-Color.svg'
-import facebook_circle_white_icon from '../Assets/Icons/Social/facebook-circle-white-icon.svg'
-import instagram_circle_white_icon from '../Assets/Icons/Social/instagram-circle-white-icon.svg'
-import x_circle_white_icon from '../Assets/Icons/Social/x-circle-white-icon.svg'
-import linkedin_circle_white_icon from '../Assets/Icons/Social/linkedin-circle-white-icon.svg'
-import whatsapp_circle_white_icon from '../Assets/Icons/Social/whatsapp-circle-white-icon.svg'
-// import telegram_circle_white_icon from '../Assets/Icons/Social/telegram-circle-white-icon.svg';
-// import tiktok_circle_white_icon from '../Assets/Icons/Social/tiktok-circle-white-icon.svg';
+//import wadi_degla_icon from '../../Public/Assets/Icons/wadi-degla-logo-icon.svg'
+import wadi_degla_logo_color from '../../Public/Assets/Logo-Identity/wadi-degla-logo-color.svg'
+import facebook_circle_white_icon from '../../Public/Assets/Icons/Social/facebook-circle-white-icon.svg'
+import instagram_circle_white_icon from '../../Public/Assets/Icons/Social/instagram-circle-white-icon.svg'
+import x_circle_white_icon from '../../Public/Assets/Icons/Social/x-circle-white-icon.svg'
+import linkedin_circle_white_icon from '../../Public/Assets/Icons/Social/linkedin-circle-white-icon.svg'
+import whatsapp_circle_white_icon from '../../Public/Assets/Icons/Social/whatsapp-circle-white-icon.svg'
+// import telegram_circle_white_icon from '../../Public/Assets/Icons/Social/telegram-circle-white-icon.svg';
+// import tiktok_circle_white_icon from '../../Public/Assets/Icons/Social/tiktok-circle-white-icon.svg';
 
 
-//import facebook_white_icon from '../Assets/Icons/Social/facebook-white-icon.svg'
-//import instagram_white_icon from '../Assets/Icons/Social/instagram-white-icon.svg'
-//import x_white_icon from '../Assets/Icons/Social/x-white-icon.svg'
-//import linkedin_white_icon from '../Assets/Icons/Social/linkedin-white-icon.svg'
-//import whatsapp_white_icon from '../Assets/Icons/Social/whatsapp-white-icon.svg'
+//import facebook_white_icon from '../../Public/Assets/Icons/Social/facebook-white-icon.svg'
+//import instagram_white_icon from '../../Public/Assets/Icons/Social/instagram-white-icon.svg'
+//import x_white_icon from '../../Public/Assets/Icons/Social/x-white-icon.svg'
+//import linkedin_white_icon from '../../Public/Assets/Icons/Social/linkedin-white-icon.svg'
+//import whatsapp_white_icon from '../../Public/Assets/Icons/Social/whatsapp-white-icon.svg'
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';

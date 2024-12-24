@@ -19,7 +19,7 @@
 }
 
 .products-container-2 .products-hero-bg-2 {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Assets/Media/hero-bg.jpg");
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../Public/Assets/Media/hero-bg.jpg");
     position: absolute;
     top: 0;
     left: 0;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Products.css';
-import hero_bg from '../Assets/Media/hero-bg.jpg';
+import hero_bg from '../../Public/Assets/Media/hero-bg.jpg';
 import Product from './Product'; // Updated Product component
 import Modal from './Modal'; // Existing Modal component
 import { productData } from './productData.js'; // Product data

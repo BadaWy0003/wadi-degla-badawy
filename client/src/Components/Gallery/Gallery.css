@@ -17,7 +17,7 @@
 }
 
 .gallery-hero-bg {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Assets/Media/Gallery/28.jpg");
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Assets/Media/Gallery/28.jpg");
 
     position: absolute;
     top: 0;
