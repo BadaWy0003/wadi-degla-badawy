@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import './Products.css'; // Updated CSS for styling the modal
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Modal({ product, onClose }) {
   // Set "Polished" as the default finish
   const [selectedFinish, setSelectedFinish] = useState(
     product.finish.find(finish => finish.finishName === 'Polished') || product.finish[0]
   );
+    const navigate = useNavigate();
+  
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -62,7 +66,10 @@ export default function Modal({ product, onClose }) {
             </div>
           </div>
           </div>
-          <button className="btn1">Request a Sample</button>
+          <button className="btn1" onClick={() => {
+                             navigate('/contact'); // Redirect to the homepage
+                                window.scrollTo({top: 0})
+                             }}>Request a Sample</button>
         </div>
       </div>
     </div>
