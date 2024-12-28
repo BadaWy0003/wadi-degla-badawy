@@ -36,6 +36,14 @@
     margin: 0;
   }
   
+  #breadcrumb-visualizer{
+    position: absolute;
+    top: 55%; /* Below the title */
+
+  }
+  .products-container .sub-breadcrumb{
+    color: var(--lightGrayColor);
+  }
   .hero-hint {
     position: absolute;
     top: 60%; /* Below the title */

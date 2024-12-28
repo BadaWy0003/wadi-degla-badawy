@@ -89,7 +89,13 @@ export default function Gallery (){
        <div className='gallery-container'>
         <div className="gallery-hero">
                 <div className="gallery-hero-bg"></div>
+                <div className='page-title'>
                     <h1>GALLERY</h1>
+                    <div className="breadcrumb">
+                        <a href="/">Home</a>
+                        <p>{'>'} Gallery</p>
+                    </div>
+                    </div>
             </div>
         <div className="gallery-gallery">
                 <LightGallery

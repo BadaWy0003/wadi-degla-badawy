@@ -27,6 +27,8 @@
     background-size: cover;
     background-position: start;
     z-index: -1; /* Ensure the background is behind other content */
+    display: flex;
+    flex-direction: column;
 }
 
 

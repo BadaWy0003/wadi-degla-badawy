@@ -58,6 +58,7 @@ export default function Login() {
 
         setMessage("Login successful!");
         navigate("/");
+        window.scrollTo({top: 0, behavior: 'smooth'})
       }
     } catch (err) {
       setErrors({ general: err.response?.data?.message || "Login failed. Please try again." });

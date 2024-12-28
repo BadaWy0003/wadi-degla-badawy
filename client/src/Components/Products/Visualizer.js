@@ -79,6 +79,11 @@ export default function Visualizer() {
           />
         )}
         <h1>{selectedProduct ? selectedProduct.name : "Visualizer"}</h1>
+        <div className="breadcrumb" id='breadcrumb-visualizer'>
+                        <a href="/">Home</a>
+                        <p className='sub-breadcrumb'>{'>'} Explore</p>
+                        <p>{'>'} Visualizer </p>
+                    </div>
         {!selectedProduct && <p className="hero-hint">Select a product from below and it will show here</p>}
       </div>
 

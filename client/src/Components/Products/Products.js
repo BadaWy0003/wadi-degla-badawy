@@ -38,7 +38,13 @@ const filteredProducts = productData.filter(item => {
           className="products-hero-bg-2"
           style={{ backgroundImage: `url(${hero_bg})` }}
         ></div>
-        <h1>Visualizer</h1>
+        <h1>Products</h1>
+        <div className="breadcrumb">
+                        <a href="/">Home</a>
+                        <p className='sub-breadcrumb'>{'>'} Explore</p>
+                        <p>{'>'} Products </p>
+                    </div>
+
         <p className='hero-hint-2'>Select a product from below to view its details.</p>
       </div>
 
