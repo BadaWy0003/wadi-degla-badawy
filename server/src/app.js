@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
 app.use(
   cors({
     origin: allowedOrigins,
@@ -19,14 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 require('dotenv').config();
 require('./start/routes')(app);
 
-
 const port = process.env.PORT || 5000;
 const server = app.listen(port, async () => {
   console.log(`Server running on port ${port}`);
 });
 
 module.exports = server;
-
-
-
-

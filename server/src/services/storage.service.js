@@ -72,4 +72,39 @@ StorageService.handleMaterialUpload = async ({ name, type, finish, file }) => {
   }
 };
 
+StorageService.fetchMaterialsByType = async (type) => {
+  const materialsRef = firestore.collection('materials');
+  const querySnapshot = await materialsRef.where('type', '==', type).get();
+
+  if (querySnapshot.empty) {
+    return []; // Return an empty array if no materials are found
+  }
+
+  // Map through the query snapshot and extract material data
+  const materials = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  return materials;
+};
+
+StorageService.fetchAllProducts = async () => {
+  const materialsRef = firestore.collection('materials');
+  const querySnapshot = await materialsRef.get();
+
+  if (querySnapshot.empty) {
+    return []; // Return an empty array if no materials are found
+  }
+
+  // Map through the query snapshot and extract material data
+  const products = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  return products;
+};
+
+
 module.exports = StorageService;
