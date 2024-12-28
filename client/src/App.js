@@ -11,6 +11,8 @@ import Products from "./Components/Products/Products.js";
 import Visualizer from "./Components/Products/Visualizer.js";
 import Contact from "./Components/Contact/Contact.js";
 import MyAccount from "./Components/MyAccount/MyAccount.js";
+import ProductDetails from "./Components/Products/ProductDetails.js";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useGlobalState } from "./Components/GlobalStateContext"; // Ensure this exists
 import { ProtectedRoute } from "./Components/ProtectedRoute"; // Create this file as described earlier
@@ -29,6 +31,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/gallery" element={<Gallery />} />
           <Route exact path="/products" element={<Products />} />
+          <Route path="/products/:productId" element={<ProductDetails />} />
           <Route exact path="/visualizer" element={<Visualizer />} />
           <Route exact path="/contact" element={<Contact />} />
 

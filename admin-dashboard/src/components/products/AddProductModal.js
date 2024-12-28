@@ -84,10 +84,10 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
           imageUrl: URL.createObjectURL(file)
         }));
       } else {
-        const imageUrl = URL.createObjectURL(file);
         setProductData(prev => ({
           ...prev,
-          [type]: imageUrl
+          [type]: file, // Store the actual file instead of URL
+          [`${type}Preview`]: URL.createObjectURL(file) // Store URL separately for preview
         }));
       }
     }
@@ -130,19 +130,56 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      onSubmit(productData);
-      setProductData({
-        id: '',
-        name: '',
-        category: '',
-        finish: [],
-        mockup: '',
-        mockupOutdoor: '',
-      });
-      onClose();
+      try {
+        const formData = new FormData();
+        
+        // Add the file
+        if (productData.mockup) {
+          formData.append('file', productData.mockup);
+        }
+
+        // Add other fields
+        formData.append('name', productData.name);
+        formData.append('type', productData.category);
+
+        // Convert finishes array to string and add
+        const finishesData = productData.finish.map(f => ({
+          finishName: f.finishName,
+          imageUrl: f.imageUrl
+        }));
+        formData.append('finishes', JSON.stringify(finishesData));
+        console.log(formData.get('finishes'));
+        // Log formData contents for debugging
+        for (let pair of formData.entries()) {
+          console.log(pair[0], pair[1]);
+        }
+
+        // Send the POST request
+        const response = await fetch('http://localhost:5000/api/storage/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.message || 'Upload failed');
+        }
+
+        console.log('Upload successful:', result);
+        onSubmit(productData);
+        handleReset();
+        onClose();
+      } catch (error) {
+        console.error('Error uploading product:', error);
+        setErrors(prev => ({
+          ...prev,
+          submit: error.message || 'Failed to upload product. Please try again.'
+        }));
+      }
     }
   };
 

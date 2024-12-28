@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import './Products.css'; // Updated CSS for styling the modal
 import { useNavigate } from 'react-router-dom';
 
+import block from '../../Public/Assets/Icons/product-icons/block.svg';
+import exterior_cladding from '../../Public/Assets/Icons/product-icons/exterior-cladding.svg';
+import landscaping from '../../Public/Assets/Icons/product-icons/landscaping.svg';
+import slabs from '../../Public/Assets/Icons/product-icons/slabs.svg';
+import staircase from '../../Public/Assets/Icons/product-icons/staircase.svg';
+import wall_cladding from '../../Public/Assets/Icons/product-icons/wall-cladding.svg';
+import windowsills from '../../Public/Assets/Icons/product-icons/windowsills.svg';
+
+
 
 export default function Modal({ product, onClose }) {
   // Set "Polished" as the default finish
@@ -9,8 +18,16 @@ export default function Modal({ product, onClose }) {
     product.finish.find(finish => finish.finishName === 'Polished') || product.finish[0]
   );
     const navigate = useNavigate();
-  
-
+    const applicationIcons = [
+      { src: block, name: "Block" },
+      { src: exterior_cladding, name: "Exterior Cladding" },
+      { src: landscaping, name: "Landscaping" },
+      { src: slabs, name: "Slabs" },
+      { src: staircase, name: "Staircase" },
+      { src: wall_cladding, name: "Wall Cladding" },
+      { src: windowsills, name: "Window Sills" },
+    ];
+    
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content modal-custom" onClick={e => e.stopPropagation()}>
@@ -58,12 +75,21 @@ export default function Modal({ product, onClose }) {
           </div>
           
           <div>
+
             <p>Application:</p>
             <div className="modal-applications">
-              {[...Array(8)].map((_, i) => (
-                <div key={i} className="application-icon"></div>
+              {applicationIcons.map((app, index) => (
+                <div key={index} className="application-icon-wrapper">
+                  <img
+                    src={app.src}
+                    alt={app.name}
+                    className="application-icon"
+                  />
+                  <div className="hover-name">{app.name}</div>
+                </div>
               ))}
             </div>
+
           </div>
           </div>
           <button className="btn1" onClick={() => {

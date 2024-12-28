@@ -65,8 +65,9 @@
   row-gap: 3rem;
   width: 60%;
   height: fit-content;
-  background-color: #000000;
+  background-color: var(--darkerBlackColor);
   overflow-x: hidden;
+  border-top: 1px solid var(--goldColor); 
   
 
 }
