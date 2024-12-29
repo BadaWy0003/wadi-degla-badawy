@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Box,
   Table,
@@ -18,51 +18,72 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddUserModal from './AddUserModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
+import { useGlobalState } from "../GlobalStateContext"; // Ensure this exists
 
-const sampleUsers = [
-  {
-    id: 'USR001',
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-  },
-  {
-    id: 'USR002',
-    name: 'Jane Smith',
-    email: 'jane.smith@example.com',
-  },
-  {
-    id: 'USR003',
-    name: 'Mike Johnson',
-    email: 'mike.j@example.com',
-  },
-];
+
 
 export default function Users() {
-  const [users, setUsers] = useState(sampleUsers);
+  const [users, setUsers] = useState([]);
   const [orderBy, setOrderBy] = useState('name');
   const [order, setOrder] = useState('asc');
   const [openDialog, setOpenDialog] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
+  const { globalState } = useGlobalState();
   const [formData, setFormData] = useState({
     id: '',
     name: '',
     email: '',
+    role: '',
   });
   const [selected, setSelected] = useState([]);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
 
+  useEffect(() => {
+    // Fetch users from the API
+    const fetchUsers = async () => {
+      const token = globalState.token; // Retrieve token from global state
+    
+      try {
+        const response = await fetch('http://localhost:5000/api/admin/all', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`, // Use the token
+            'Content-Type': 'application/json',
+          },
+        });
+    
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`HTTP Error! Status: ${response.status}, Body: ${errorText}`);
+        }
+    
+        const data = await response.json();
+        setUsers(data.map(user => ({
+          id: user.id,
+          name: user.username,
+          email: user.email,
+          role: user.role,
+        })));
+      } catch (error) {
+        console.error('Failed to fetch users:', error.message);
+      }
+    };
+    
+    fetchUsers();
+  }, []);
+
   const handleSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
-    
+
     const sortedUsers = [...users].sort((a, b) => {
       if (a[property] < b[property]) return order === 'asc' ? -1 : 1;
       if (a[property] > b[property]) return order === 'asc' ? 1 : -1;
       return 0;
     });
-    
+
     setUsers(sortedUsers);
   };
 
@@ -110,6 +131,7 @@ export default function Users() {
         id: `USR${String(users.length + 1).padStart(3, '0')}`,
         name: '',
         email: '',
+        role: '',
       });
     }
     setOpenDialog(true);
@@ -118,7 +140,7 @@ export default function Users() {
   const handleCloseDialog = () => {
     setOpenDialog(false);
     setEditingUser(null);
-    setFormData({ id: '', name: '', email: '' });
+    setFormData({ id: '', name: '', email: '', role: '' });
   };
 
   const handleSubmit = () => {
@@ -194,6 +216,15 @@ export default function Users() {
                   Email
                 </TableSortLabel>
               </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === 'role'}
+                  direction={orderBy === 'role' ? order : 'asc'}
+                  onClick={() => handleSort('role')}
+                >
+                  Role
+                </TableSortLabel>
+              </TableCell>
               <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -212,6 +243,7 @@ export default function Users() {
                 <TableCell>{user.id}</TableCell>
                 <TableCell>{user.name}</TableCell>
                 <TableCell>{user.email}</TableCell>
+                <TableCell>{user.role}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
                     <IconButton 

@@ -25,29 +25,13 @@ export default function ProductsTable({
   onMoreInfo,
   onEdit,
   onDelete,
+  data // Add data as a prop
 }) {
-  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch data from the API
-    fetch("http://localhost:5000/api/storage/all")
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.data) {
-          // Transform data if necessary
-          const transformedData = result.data.map((item) => ({
-            id: item.id,
-            name: item.name,
-            category: item.type, // Map 'type' to 'category'
-            finishes: item.finishes, // Keep finishes array
-          }));
-          setData(transformedData);
-        }
-      })
-      .catch((error) => console.error("Error fetching data:", error))
-      .finally(() => setLoading(false));
-  }, []);
+    setLoading(false);
+  }, [data]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -117,7 +101,7 @@ export default function ProductsTable({
               </TableCell>
               <TableCell>{product.id}</TableCell>
               <TableCell>{product.name}</TableCell>
-              <TableCell>{product.category}</TableCell>
+              <TableCell>{product.type}</TableCell>
               <TableCell>{product.finishes.length}</TableCell>
               <TableCell>
                 <IconButton onClick={() => onMoreInfo(product)} color="primary">

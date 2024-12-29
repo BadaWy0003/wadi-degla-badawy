@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import axios from "axios";
+import { useGlobalState } from "../GlobalStateContext";
+
+
 import { 
   Box, 
   TextField, 
@@ -10,6 +14,9 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const { setGlobalState } = useGlobalState(); // Access global state for user data
+  const [message, setMessage] = useState("");
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -32,14 +39,34 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Add your authentication logic here
-      // For demo purposes, we'll just navigate to dashboard
-      navigate('/');
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/auth/admin/login",
+          { email: formData.email, password: formData.password },
+          { withCredentials: true } // Include cookies
+        );
+  
+        if (response.status === 200 || response.status === 201) {
+          // Update global state
+          setGlobalState({
+            isLoggedIn: true,
+            ...response.data,
+          });
+  
+          setMessage("Login successful!");
+          navigate("/"); // Redirect to homepage
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      } catch (err) {
+        setErrors({ general: err.response?.data?.message || "Login failed. Please try again." });
+        setMessage("");
+      }
     }
   };
+  
 
   return (
     <Container component="main" maxWidth="xs">

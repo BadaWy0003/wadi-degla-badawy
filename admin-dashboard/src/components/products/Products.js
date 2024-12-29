@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { productData } from './productData';
+import { useState, useEffect } from 'react';
 import { Box, Typography, Modal, Grid, Paper, Button } from '@mui/material';
 import ProductsSearchBar from './ProductsSearchBar';
 import ProductsTable from './ProductsTable';
@@ -29,10 +28,29 @@ export default function Products() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchField, setSearchField] = useState('name');
   const [openAddModal, setOpenAddModal] = useState(false);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = () => {
+    setLoading(true);
+    fetch("http://localhost:5000/api/storage/all")
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.data) {
+          setData(result.data);
+        }
+      })
+      .catch((error) => console.error("Error fetching data:", error))
+      .finally(() => setLoading(false));
+  };
 
   const handleSelectAll = (event) => {
     if (event.target.checked) {
-      const newSelected = productData.map((product) => product.id);
+      const newSelected = data.map((product) => product.id);
       setSelected(newSelected);
       return;
     }
@@ -52,19 +70,41 @@ export default function Products() {
     setSelected(newSelected);
   };
 
-  const handleDeleteSelected = () => {
-    // Implement delete functionality
-    console.log('Deleting:', selected);
+  const handleDeleteSelected = async () => {
+    try {
+      const deletePromises = selected.map(id =>
+        fetch(`http://localhost:5000/api/storage/${id}`, {
+          method: 'DELETE'
+        })
+      );
+      
+      await Promise.all(deletePromises);
+      fetchProducts(); // Refresh the list
+      setSelected([]); // Clear selection
+    } catch (error) {
+      console.error('Error deleting products:', error);
+    }
   };
 
   const handleEdit = (product) => {
-    // Implement edit functionality
+    // To be implemented when you have the edit modal ready
     console.log('Editing:', product);
   };
 
-  const handleDelete = (id) => {
-    // Implement delete functionality
-    console.log('Deleting single:', id);
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/storage/product/${id}`, {
+        method: 'DELETE'
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete product');
+      }
+
+      fetchProducts(); // Refresh the list
+    } catch (error) {
+      console.error('Error deleting product:', error);
+    }
   };
 
   const handleMoreInfo = (product) => {
@@ -82,17 +122,25 @@ export default function Products() {
     return [...data].sort((a, b) => {
       if (orderBy === 'finishes') {
         return order === 'asc' 
-          ? a.finish.length - b.finish.length
-          : b.finish.length - a.finish.length;
+          ? a.finishes.length - b.finishes.length
+          : b.finishes.length - a.finishes.length;
       }
       
-      if (a[orderBy] < b[orderBy]) {
-        return order === 'asc' ? -1 : 1;
+      // Handle category/type field
+      if (orderBy === 'category') {
+        const aValue = a.type || '';
+        const bValue = b.type || '';
+        return order === 'asc' 
+          ? aValue.localeCompare(bValue)
+          : bValue.localeCompare(aValue);
       }
-      if (a[orderBy] > b[orderBy]) {
-        return order === 'asc' ? 1 : -1;
-      }
-      return 0;
+
+      // Handle other fields
+      const aValue = a[orderBy] || '';
+      const bValue = b[orderBy] || '';
+      return order === 'asc' 
+        ? String(aValue).localeCompare(String(bValue))
+        : String(bValue).localeCompare(String(aValue));
     });
   };
 
@@ -105,7 +153,7 @@ export default function Products() {
         case 'id':
           return product.id.toString().includes(searchValue);
         case 'category':
-          return product.category.toLowerCase().includes(searchValue);
+          return product.type.toLowerCase().includes(searchValue);
         case 'name':
         default:
           return product.name.toLowerCase().includes(searchValue);
@@ -113,15 +161,16 @@ export default function Products() {
     });
   };
 
-  const sortedAndFilteredData = sortData(filterData(productData));
+  const sortedAndFilteredData = sortData(filterData(data));
 
   const handleAddProduct = (newProduct) => {
-    // This will be replaced with an API call when connected to the database
-    console.log('Adding new product:', {
-      ...newProduct,
-      id: Math.max(...productData.map(p => p.id)) + 1 // Temporary ID generation
-    });
+    // Refresh the products list after adding
+    fetchProducts();
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Box sx={{ width: '100%', p: 2 }}>
@@ -173,49 +222,22 @@ export default function Products() {
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                   <Typography><strong>ID:</strong> {selectedProduct.id}</Typography>
-                  <Typography><strong>Category:</strong> {selectedProduct.category}</Typography>
-                  <Typography><strong>Total Finishes:</strong> {selectedProduct.finish.length}</Typography>
+                  <Typography><strong>Category:</strong> {selectedProduct.type}</Typography>
+                  <Typography><strong>Total Finishes:</strong> {selectedProduct.finishes.length}</Typography>
                 </Grid>
                 <Grid item xs={12}>
                   <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Available Finishes:</Typography>
                   <Grid container spacing={2}>
-                    {selectedProduct.finish.map((finish, index) => (
-                      <Grid item xs={12} sm={6} md={4} key={index}>
-                        <Paper sx={{ p: 1 }}>
-                          <Typography><strong>{finish.finishName}</strong></Typography>
-                          <img 
-                            src={finish.imageUrl} 
-                            alt={finish.finishName}
-                            style={{ width: '100%', height: 'auto', maxHeight: '200px', objectFit: 'contain' }}
-                          />
-                        </Paper>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </Grid>
-                <Grid item xs={12}>
-                  <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Mockups:</Typography>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                      <Typography>Indoor Mockup:</Typography>
-                      <img 
-                        src={selectedProduct.mockup} 
-                        alt="Indoor Mockup"
-                        style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain' }}
-                      />
-                    </Grid>
-                    {selectedProduct.mockupOutdoor && (
-                      <Grid item xs={12} sm={6}>
-                        <Typography>Outdoor Mockup:</Typography>
-                        <img 
-                          src={selectedProduct.mockupOutdoor} 
-                          alt="Outdoor Mockup"
+                    {selectedProduct.finishes.map((finish, index) => (
+                      <Grid item xs={12} sm={6} md={4} key={index}>                        <Paper sx={{ p: 1 }}>                          <Typography><strong>{finish.finishName}</strong></Typography>                          <img                             src={`http://localhost:5000${finish.imageUrl}`}                            alt={finish.finishName}                            style={{ width: '100%', height: 'auto', maxHeight: '200px', objectFit: 'contain' }}                          />                        </Paper>                      </Grid>                    ))}                  </Grid>                </Grid>                {selectedProduct.mockupUrl && (                  <Grid item xs={12}>                    <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Mockup:</Typography>                    <Grid container spacing={2}>                      <Grid item xs={12}>                        <img 
+                          src={`http://localhost:5000${selectedProduct.mockupUrl}`}
+                          alt="Mockup"
                           style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain' }}
                         />
                       </Grid>
-                    )}
+                    </Grid>
                   </Grid>
-                </Grid>
+                )}
               </Grid>
             </>
           )}

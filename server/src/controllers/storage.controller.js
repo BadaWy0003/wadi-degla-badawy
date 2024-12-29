@@ -5,7 +5,7 @@ StorageController.uploadMaterial = async (req, res) => {
   try {
     const { name, type, finishes } = req.body; // `finishes` is expected as a JSON string.
     const files = req.files;
-
+    console.log('Files:', typeof files);
     if (!name || !type || !finishes || files.length === 0) {
       return res.status(400).json({
         message: 'Missing required fields: name, type, finishes, or files',

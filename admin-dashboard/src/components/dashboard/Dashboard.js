@@ -6,9 +6,11 @@ import {
   Group,
   People,
 } from '@mui/icons-material';
+import { useGlobalState } from "../GlobalStateContext"; // Ensure this exists
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  
 
   const menuCards = [
     {
@@ -36,6 +38,13 @@ export default function Dashboard() {
       color: '#9c27b0', // purple
     },
   ];
+  const { globalState } = useGlobalState();
+
+
+
+  console.log("HOME/////GlobalState.username: " + globalState.username + 
+    " GlobalState.email: "+ globalState.email + " GlobalState.token: "
+     + globalState.token + " GlobalState.role: " + globalState.role);
 
   return (
     <Box sx={{ p: 3 }}>
