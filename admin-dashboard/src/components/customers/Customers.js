@@ -121,17 +121,6 @@ export default function Customers() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/customer/create', 
-        { credentials: 'include',
-          method: 'POST',
-        },
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      if (!response.ok) throw new Error('Failed to create customer');
       const response = await fetch(
         "http://localhost:5000/api/customer/create",
         { method: "POST", credentials: "include" },
@@ -147,20 +136,11 @@ export default function Customers() {
       setOpenDialog(false);
     } catch (error) {
       console.error("Error:", error);
-      console.error("Error:", error);
     }
   };
 
   const handleDeleteConfirm = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/customer/delete/${customerToDelete}`, 
-        { credentials: 'include',
-          method: 'DELETE',
-        },
-      {
-      });
-      if (!response.ok) throw new Error('Failed to delete customer');
-      fetchCustomers();      // Refresh the list
       const response = await fetch(
         `http://localhost:5000/api/customer/delete/${customerToDelete}`,
         { method: "DELETE", credentials: "include" }
@@ -169,9 +149,7 @@ export default function Customers() {
       fetchCustomers(); // Refresh the list
       setOpenDeleteDialog(false);
       console.log("Customer deleted successfully");
-      console.log("Customer deleted successfully");
     } catch (error) {
-      console.error("Error:", error);
       console.error("Error:", error);
     }
   };
