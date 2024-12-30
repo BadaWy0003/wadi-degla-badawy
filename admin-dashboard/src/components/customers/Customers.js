@@ -135,7 +135,7 @@ export default function Customers() {
       fetchCustomers(); // Refresh the list
       setOpenDialog(false);
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
@@ -150,9 +150,9 @@ export default function Customers() {
       if (!response.ok) throw new Error('Failed to delete customer');
       fetchCustomers();      // Refresh the list
       setOpenDeleteDialog(false);
-      console.log('Customer deleted successfully');
+      console.log("Customer deleted successfully");
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
