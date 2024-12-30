@@ -9,7 +9,7 @@ const adminCollection = () => db.collection('admins');
 
 // Create a new customer
 CustomerService.createCustomer = async (customerData) => {
-  const { username, email, password } = customerData;
+  const { fullName, companyName, rnc, email, phone, whatsapp, country, countryCode, address, port, password } = customerData;
 
   // Check if email exists in customers or admins collection
   const emailExistAsCustomer = await customerCollection().where('email', '==', email).get();
@@ -23,8 +23,16 @@ CustomerService.createCustomer = async (customerData) => {
 
   // Add new customer
   const newCustomerRef = await customerCollection().add({
-    username,
+    fullName,
+    companyName,
+    rnc: rnc || null,
     email,
+    phone,
+    whatsapp: whatsapp || null,
+    country,
+    countryCode: countryCode || null,
+    address: address || null,
+    port,
     password: hashedPassword,
   });
 
