@@ -79,7 +79,6 @@ AuthController.customerLogin = async (req, res) => {
 AuthController.customerCheckAuth = async (req, res) => {
   try {
     const data = await AuthService.customerCheckAuth(req.user);
-    console.log(data);
 
     res.status(200).json({
       id: data._id,
