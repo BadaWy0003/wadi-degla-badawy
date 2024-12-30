@@ -18,7 +18,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddUserModal from './AddUserModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
-import { useGlobalState } from "../GlobalStateContext"; // Ensure this exists
 
 
 
@@ -28,11 +27,11 @@ export default function Users() {
   const [order, setOrder] = useState('asc');
   const [openDialog, setOpenDialog] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
-  const { globalState } = useGlobalState();
   const [formData, setFormData] = useState({
     id: '',
-    name: '',
+    userName: '',
     email: '',
+    password: '',
     role: '',
   });
   const [selected, setSelected] = useState([]);
@@ -141,11 +140,11 @@ export default function Users() {
   const handleSubmit = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/admin/create',
-        { credentials: 'include'},
+        { credentials: 'include',
+          method: 'POST',
+        },
         {
-        method: 'POST',
         headers: {
-          'Authorization': `Bearer ${globalState.token}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
@@ -163,13 +162,10 @@ export default function Users() {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(`http://localhost:5000/api/admin/delete/${id}`,
-        { credentials: 'include'},
-       {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${globalState.token}`
-        }
-      });
+        { credentials: 'include',
+          method: 'DELETE',
+        },
+       );
 
       if (!response.ok) throw new Error('Failed to delete user');
       
@@ -184,13 +180,10 @@ export default function Users() {
       await Promise.all(
         selected.map(id => 
           fetch(`http://localhost:5000/api/admin/delete/${id}`,
-            { credentials: 'include'},
-            {
-            method: 'DELETE',
-            headers: {
-              'Authorization': `Bearer ${globalState.token}`
-            }
-          })
+            { credentials: 'include',
+              method: 'DELETE',
+            },
+            )
         )
       );
       

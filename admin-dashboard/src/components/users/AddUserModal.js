@@ -25,16 +25,9 @@ export default function AddUserModal({
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField
             fullWidth
-            label="ID"
-            value={formData.id}
-            onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-            required
-          />
-          <TextField
-            fullWidth
-            label="Name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            label="Username"
+            value={formData.userName}
+            onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
             required
           />
           <TextField
@@ -43,6 +36,23 @@ export default function AddUserModal({
             type="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            required
+          />
+
+          <TextField
+            fullWidth
+            label="password"
+            type="password"
+            value={formData.password}
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            required
+          />
+
+          <TextField
+            fullWidth
+            label="role"
+            value={formData.role}
+            onChange={(e) => setFormData({ ...formData, role: e.target.value })}
             required
           />
         </Box>

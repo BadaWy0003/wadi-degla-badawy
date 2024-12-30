@@ -108,6 +108,7 @@ export default function Customers() {
         companyName: '',
         rnc: '',
         email: '',
+        password: '',
         phone: '',
         whatsapp: '',
         country: '',
@@ -121,9 +122,10 @@ export default function Customers() {
   const handleSubmit = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/customer/create', 
-        { credentials: 'include'},
+        { credentials: 'include',
+          method: 'POST',
+        },
       {
-        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -140,9 +142,10 @@ export default function Customers() {
   const handleDeleteConfirm = async () => {
     try {
       const response = await fetch(`http://localhost:5000/api/customer/delete/${customerToDelete}`, 
-        { credentials: 'include'},
+        { credentials: 'include',
+          method: 'DELETE',
+        },
       {
-        method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete customer');
       fetchCustomers();      // Refresh the list
@@ -201,7 +204,7 @@ export default function Customers() {
       </DialogTitle>
       <DialogContent>
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {['fullName', 'companyName', 'rnc', 'email', 'phone', 'whatsapp', 'country', 'address', 'port'].map((field) => (
+          {['fullName', 'companyName', 'rnc', 'email' , 'phone', 'whatsapp', 'country', 'address', 'port', 'password'].map((field) => (
             <TextField
               key={field}
               fullWidth
