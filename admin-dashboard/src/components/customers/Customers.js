@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useGlobalState } from '../GlobalStateContext';
 import {
   Box,
   Table,
@@ -48,7 +49,8 @@ const sampleCustomers = [
 ];
 
 export default function Customers() {
-  const [customers, setCustomers] = useState(sampleCustomers);
+  const [customers, setCustomers] = useState([]);
+  const { globalState } = useGlobalState();
   const [orderBy, setOrderBy] = useState('name');
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
@@ -59,11 +61,37 @@ export default function Customers() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchField, setSearchField] = useState('name');
   const [formData, setFormData] = useState({
-    id: '',
-    name: '',
+    fullName: '',
+    companyName: '',
+    rnc: '',
     email: '',
-    company: '',
+    phone: '',
+    whatsapp: '',
+    country: '',
+    address: '',
+    port: ''
   });
+
+  useEffect(() => {
+    fetchCustomers();
+  }, []);
+
+  const fetchCustomers = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/customer/all', 
+      { withCredentials: true },
+      {
+        headers: {
+          'Authorization': `Bearer ${globalState.token}`
+        }
+      });
+      if (!response.ok) throw new Error('Failed to fetch customers');
+      const data = await response.json();
+      setCustomers(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   const handleSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -99,35 +127,55 @@ export default function Customers() {
     } else {
       setEditingCustomer(null);
       setFormData({
-        id: `CUST${String(customers.length + 1).padStart(3, '0')}`,
-        name: '',
+        fullName: '',
+        companyName: '',
+        rnc: '',
         email: '',
-        company: '',
+        phone: '',
+        whatsapp: '',
+        country: '',
+        address: '',
+        port: ''
       });
     }
     setOpenDialog(true);
   };
 
-  const handleSubmit = () => {
-    if (editingCustomer) {
-      setCustomers(customers.map(customer => 
-        customer.id === editingCustomer.id ? formData : customer
-      ));
-    } else {
-      setCustomers([...customers, formData]);
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/customer/create', 
+      { withCredentials: true },
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${globalState.token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      if (!response.ok) throw new Error('Failed to create customer');
+      fetchCustomers(); // Refresh the list
+      setOpenDialog(false);
+    } catch (error) {
+      console.error('Error:', error);
     }
-    setOpenDialog(false);
   };
 
-  const handleDeleteConfirm = () => {
-    if (customerToDelete) {
-      setCustomers(customers.filter(customer => customer.id !== customerToDelete));
-    } else {
-      setCustomers(customers.filter(customer => !selected.includes(customer.id)));
-      setSelected([]);
+  const handleDeleteConfirm = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/customer/delete/${customerToDelete}`, 
+      { withCredentials: true },
+      {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${globalState.token}`
+        }
+      });
+      if (!response.ok) throw new Error('Failed to delete customer');
+      fetchCustomers(); // Refresh the list
+    } catch (error) {
+      console.error('Error:', error);
     }
-    setOpenDeleteDialog(false);
-    setCustomerToDelete(null);
   };
 
   const filteredCustomers = customers.filter(customer => {
@@ -178,35 +226,16 @@ export default function Customers() {
       </DialogTitle>
       <DialogContent>
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          <TextField
-            fullWidth
-            label="ID"
-            value={formData.id}
-            onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-            required
-          />
-          <TextField
-            fullWidth
-            label="Name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            required
-          />
-          <TextField
-            fullWidth
-            label="Email"
-            type="email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            required
-          />
-          <TextField
-            fullWidth
-            label="Company"
-            value={formData.company}
-            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-            required
-          />
+          {['fullName', 'companyName', 'rnc', 'email', 'phone', 'whatsapp', 'country', 'address', 'port'].map((field) => (
+            <TextField
+              key={field}
+              fullWidth
+              label={field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')}
+              value={formData[field]}
+              onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
+              required
+            />
+          ))}
         </Box>
       </DialogContent>
       <DialogActions>

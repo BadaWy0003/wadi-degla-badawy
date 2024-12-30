@@ -39,37 +39,36 @@ export default function Users() {
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
 
-  useEffect(() => {
-    // Fetch users from the API
-    const fetchUsers = async () => {
-      const token = globalState.token; // Retrieve token from global state
-    
-      try {
-        const response = await fetch('http://localhost:5000/api/admin/all', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`, // Use the token
-            'Content-Type': 'application/json',
-          },
-        });
-    
-        if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`HTTP Error! Status: ${response.status}, Body: ${errorText}`);
+  const fetchUsers = async () => {
+    const token = globalState.token;
+    try {
+      const response = await fetch('http://localhost:5000/api/admin/all',
+      { withCredentials: true }, 
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
         }
-    
-        const data = await response.json();
-        setUsers(data.map(user => ({
-          id: user.id,
-          name: user.username,
-          email: user.email,
-          role: user.role,
-        })));
-      } catch (error) {
-        console.error('Failed to fetch users:', error.message);
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP Error! Status: ${response.status}, Body: ${errorText}`);
       }
-    };
-    
+
+      const data = await response.json();
+      setUsers(data.map(user => ({
+        id: user.id,
+        name: user.username,
+        email: user.email,
+        role: user.role,
+      })));
+    } catch (error) {
+      console.error('Failed to fetch users:', error.message);
+    }
+  };
+
+  useEffect(() => {
     fetchUsers();
   }, []);
 
@@ -110,15 +109,10 @@ export default function Users() {
 
   const handleDeleteConfirm = () => {
     if (userToDelete) {
-      // Single user delete
-      setUsers(users.filter(user => user.id !== userToDelete));
+      handleDelete(userToDelete);
     } else {
-      // Bulk delete
-      setUsers(users.filter(user => !selected.includes(user.id)));
-      setSelected([]);
+      handleDeleteSelected();
     }
-    setOpenDeleteDialog(false);
-    setUserToDelete(null);
   };
 
   const handleOpenDialog = (user = null) => {
@@ -143,15 +137,68 @@ export default function Users() {
     setFormData({ id: '', name: '', email: '', role: '' });
   };
 
-  const handleSubmit = () => {
-    if (editingUser) {
-      setUsers(users.map(user => 
-        user.id === editingUser.id ? formData : user
-      ));
-    } else {
-      setUsers([...users, formData]);
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/admin/create',
+      { withCredentials: true },
+       {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${globalState.token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) throw new Error('Failed to create user');
+      
+      fetchUsers(); // Now fetchUsers is in scope
+      handleCloseDialog();
+    } catch (error) {
+      console.error('Error:', error);
     }
-    handleCloseDialog();
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/admin/delete/${id}`,
+       { withCredentials: true },
+       {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${globalState.token}`
+        }
+      });
+
+      if (!response.ok) throw new Error('Failed to delete user');
+      
+      fetchUsers(); // Now fetchUsers is in scope
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleDeleteSelected = async () => {
+    try {
+      await Promise.all(
+        selected.map(id => 
+          fetch(`http://localhost:5000/api/admin/delete/${id}`,
+          { withCredentials: true },
+           {
+            method: 'DELETE',
+            headers: {
+              'Authorization': `Bearer ${globalState.token}`
+            }
+          })
+        )
+      );
+      
+      fetchUsers(); // Now fetchUsers is in scope
+      setSelected([]);
+      setOpenDeleteDialog(false);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
