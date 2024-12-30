@@ -105,17 +105,10 @@ AuthController.adminCheckAuth = async (req, res) => {
     const data = await AuthService.adminCheckAuth(req.user);
 
     res.status(200).json({
-      id: data._id,
-      fullName: data.fullName,
-      companyName: data.companyName,
-      rnc: data.rnc,
+      id: data.id,
+      username: data.username,
       email: data.email,
-      phone: data.phone,
-      whatsapp: data.whatsapp,
-      country: data.country,
-      countryCode: data.countryCode,
-      address: data.address,
-      port: data.port,
+      role: data.role,
     });
   } catch (err) {
     console.log(err.message);
