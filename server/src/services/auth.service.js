@@ -106,6 +106,25 @@ AuthService.customerCheckAuth = async (user) => {
   }
 };
 
+AuthService.adminCheckAuth = async (user) => {
+  try {
+    const adminRef = adminCollection().doc(user.id);
+    const adminSnapshot = await adminRef.get();
+
+    if (!adminSnapshot.exists) {
+      return null;
+    }
+
+    const admin = { id: adminSnapshot.id, ...adminSnapshot.data() };
+    delete admin.password;
+
+    return admin;
+  } catch (error) {
+    console.error('Error checking admin auth:', error.message);
+    throw new Error('Failed to verify authentication. Please try again.');
+  }
+};
+
 // Login admin and generate token
 AuthService.loginAdminAndSignToken = async (adminData) => {
   const { email, password } = adminData;

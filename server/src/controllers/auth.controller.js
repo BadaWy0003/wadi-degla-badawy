@@ -100,6 +100,30 @@ AuthController.customerCheckAuth = async (req, res) => {
   }
 };
 
+AuthController.adminCheckAuth = async (req, res) => {
+  try {
+    const data = await AuthService.adminCheckAuth(req.user);
+
+    res.status(200).json({
+      id: data._id,
+      fullName: data.fullName,
+      companyName: data.companyName,
+      rnc: data.rnc,
+      email: data.email,
+      phone: data.phone,
+      whatsapp: data.whatsapp,
+      country: data.country,
+      countryCode: data.countryCode,
+      address: data.address,
+      port: data.port,
+    });
+  } catch (err) {
+    console.log(err.message);
+
+    res.status(401).send({ message: err.message });
+  }
+};
+
 AuthController.adminLogin = async (req, res) => {
   const { email, password } = req.body;
 

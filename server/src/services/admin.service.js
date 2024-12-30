@@ -79,7 +79,8 @@ AdminService.getAdminById = async (adminId) => {
     throw new Error('Admin not found');
   }
 
-  return { id: adminDoc.id, ...adminDoc.data() };
+  const { password, ...adminData } = adminDoc.data(); // Exclude the password field
+  return { id: adminDoc.id, ...adminData };
 };
 
 // Fetch All Admins
@@ -90,8 +91,12 @@ AdminService.fetchAllAdmin = async () => {
     return [];
   }
 
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return snapshot.docs.map((doc) => {
+    const { password, ...adminData } = doc.data(); // Exclude the password field
+    return { id: doc.id, ...adminData };
+  });
 };
+
 
 // Update Admin
 AdminService.currentAdminUpdate = async (adminId, newAdmin) => {
