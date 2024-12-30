@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useGlobalState } from '../GlobalStateContext';
 import {
   Box,
   Table,
@@ -27,31 +26,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
 
-const sampleCustomers = [
-  {
-    id: 'CUST001',
-    name: 'John Smith',
-    email: 'john@company.com',
-    company: 'Tech Corp',
-  },
-  {
-    id: 'CUST002',
-    name: 'Sarah Wilson',
-    email: 'sarah@enterprise.com',
-    company: 'Enterprise Ltd',
-  },
-  {
-    id: 'CUST003',
-    name: 'Mike Brown',
-    email: 'mike@business.com',
-    company: 'Business Inc',
-  },
-];
+
+
 
 export default function Customers() {
   const [customers, setCustomers] = useState([]);
-  const { globalState } = useGlobalState();
-  const [orderBy, setOrderBy] = useState('name');
+  const [orderBy, setOrderBy] = useState('fullName');
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
@@ -59,7 +39,7 @@ export default function Customers() {
   const [customerToDelete, setCustomerToDelete] = useState(null);
   const [editingCustomer, setEditingCustomer] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchField, setSearchField] = useState('name');
+  const [searchField, setSearchField] = useState('fullName');
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
@@ -77,14 +57,11 @@ export default function Customers() {
   }, []);
 
   const fetchCustomers = async () => {
+    
     try {
       const response = await fetch('http://localhost:5000/api/customer/all', 
-      { withCredentials: true },
-      {
-        headers: {
-          'Authorization': `Bearer ${globalState.token}`
-        }
-      });
+        { credentials: 'include'},
+      );
       if (!response.ok) throw new Error('Failed to fetch customers');
       const data = await response.json();
       setCustomers(data);
@@ -144,11 +121,10 @@ export default function Customers() {
   const handleSubmit = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/customer/create', 
-      { withCredentials: true },
+        { credentials: 'include'},
       {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${globalState.token}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
@@ -164,15 +140,14 @@ export default function Customers() {
   const handleDeleteConfirm = async () => {
     try {
       const response = await fetch(`http://localhost:5000/api/customer/delete/${customerToDelete}`, 
-      { withCredentials: true },
+        { credentials: 'include'},
       {
         method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${globalState.token}`
-        }
       });
       if (!response.ok) throw new Error('Failed to delete customer');
-      fetchCustomers(); // Refresh the list
+      fetchCustomers();      // Refresh the list
+      setOpenDeleteDialog(false);
+      console.log('Customer deleted successfully');
     } catch (error) {
       console.error('Error:', error);
     }
@@ -198,10 +173,10 @@ export default function Customers() {
         onChange={(e) => setSearchField(e.target.value)}
         sx={{ width: 150 }}
       >
-        <MenuItem value="name">Name</MenuItem>
+        <MenuItem value="fullName">Name</MenuItem>
         <MenuItem value="id">ID</MenuItem>
         <MenuItem value="email">Email</MenuItem>
-        <MenuItem value="company">Company</MenuItem>
+        <MenuItem value="companyName">Company</MenuItem>
       </TextField>
       <TextField
         fullWidth
@@ -336,9 +311,9 @@ export default function Customers() {
                   />
                 </TableCell>
                 <TableCell>{customer.id}</TableCell>
-                <TableCell>{customer.name}</TableCell>
+                <TableCell>{customer.fullName}</TableCell>
                 <TableCell>{customer.email}</TableCell>
-                <TableCell>{customer.company}</TableCell>
+                <TableCell>{customer.companyName}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
                     <IconButton 

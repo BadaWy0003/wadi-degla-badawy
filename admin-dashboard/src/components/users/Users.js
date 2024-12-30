@@ -40,13 +40,14 @@ export default function Users() {
   const [userToDelete, setUserToDelete] = useState(null);
 
   const fetchUsers = async () => {
-    const token = globalState.token;
+  
     try {
       const response = await fetch('http://localhost:5000/api/admin/all',
-      { withCredentials: true }, 
+      { credentials: 'include',
+        method: 'GET',
+       }, 
       {
         headers: {
-          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         }
       });
@@ -140,8 +141,8 @@ export default function Users() {
   const handleSubmit = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/admin/create',
-      { withCredentials: true },
-       {
+        { credentials: 'include'},
+        {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${globalState.token}`,
@@ -162,7 +163,7 @@ export default function Users() {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(`http://localhost:5000/api/admin/delete/${id}`,
-       { withCredentials: true },
+        { credentials: 'include'},
        {
         method: 'DELETE',
         headers: {
@@ -183,8 +184,8 @@ export default function Users() {
       await Promise.all(
         selected.map(id => 
           fetch(`http://localhost:5000/api/admin/delete/${id}`,
-          { withCredentials: true },
-           {
+            { credentials: 'include'},
+            {
             method: 'DELETE',
             headers: {
               'Authorization': `Bearer ${globalState.token}`
