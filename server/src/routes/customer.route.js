@@ -11,7 +11,7 @@ router.delete('/delete/:customerId', adminAuth, authorize('SUPER_ADMIN'), Custom
 
 router.get('/me', customerAuth, CustomerController.getCurrentCustomer);
 
-router.get('/all', adminAuth, authorize('ADMIN'), CustomerController.getAllCustomer);
+router.get('/all', adminAuth, authorize('MODERATOR'), CustomerController.getAllCustomer);
 
 router.put('/me/edit', customerAuth, CustomerController.putCurrentCustomer);
 

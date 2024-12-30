@@ -9,12 +9,12 @@ router.post('/create', adminAuth, authorize('SUPER_ADMIN'), AdminController.crea
 
 router.delete('/delete/:adminId', adminAuth, authorize('SUPER_ADMIN'), AdminController.deleteAdmin);
 
-router.get('/me', adminAuth, AdminController.getCurrentAdmin);
+router.get('/me', adminAuth, authorize('MODERATOR'), AdminController.getCurrentAdmin);
 
 router.get('/all', adminAuth, authorize('SUPER_ADMIN'), AdminController.getAllAdmin);
 
-router.put('/me/edit', adminAuth, AdminController.putCurrentAdmin);
+router.put('/me/edit', adminAuth, authorize('MODERATOR'), AdminController.putCurrentAdmin);
 
-router.get('/:adminId', adminAuth, authorize('ADMIN'), AdminController.getAdminById);
+router.get('/:adminId', adminAuth, authorize('SUPER_ADMIN'), AdminController.getAdminById);
 
 module.exports = router;
