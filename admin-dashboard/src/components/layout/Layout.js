@@ -2,11 +2,14 @@ import { Outlet } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import { Dashboard as DashboardIcon, Inventory, Collections, Group, People } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useGlobalState } from "../GlobalStateContext"; // Ensure this exists
 
 const drawerWidth = 280;
 
 export default function Layout() {
   const navigate = useNavigate();
+  const { setGlobalState } = useGlobalState();
+
 
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
@@ -15,6 +18,37 @@ export default function Layout() {
     { text: 'Users', icon: <Group />, path: '/users' },
     { text: 'Customers', icon: <People />, path: '/customers' },
   ];
+  
+  const handleLogout = async () => {
+    try {
+        // Optional: Call a logout API (if required)
+        const response = await fetch("http://localhost:5000/api/auth/logout", {
+            method: "POST",
+            credentials: "include", // Ensures cookies are sent with the request
+        });
+
+        if (response.ok) {
+            console.log("Logout successful");
+
+            // Reset global state
+            setGlobalState({
+                isLoggedIn: false,
+                userName: "",
+                email: "",
+                role: "",
+                
+            });
+
+            // Navigate to the login page
+            navigate("/login");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+            console.error("Failed to logout:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error during logout:", error);
+    }
+};
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
@@ -36,6 +70,7 @@ export default function Layout() {
           }}>
             Admin Dashboard
           </Typography>
+          <button onClick={()=>{handleLogout()}}>Logout</button>
         </Toolbar>
       </AppBar>
       
