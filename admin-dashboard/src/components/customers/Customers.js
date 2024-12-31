@@ -121,10 +121,12 @@ export default function Customers() {
 
   const handleSubmit = async () => {
     try {
+      console.log(formData);
       const response = await fetch(
         "http://localhost:5000/api/customer/create",
-        { method: "POST", credentials: "include" },
         {
+          method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -140,6 +142,7 @@ export default function Customers() {
   };
 
   const handleDeleteConfirm = async () => {
+
     try {
       const response = await fetch(
         `http://localhost:5000/api/customer/delete/${customerToDelete}`,

@@ -28,58 +28,60 @@ export default function Users() {
   const [openDialog, setOpenDialog] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
   const [formData, setFormData] = useState({
-    id: '',
-    userName: '',
-    email: '',
-    password: '',
-    role: '',
+    id: "",
+    username: "",
+    email: "",
+    password: "",
+    role: "",
   });
-  const [selected, setSelected] = useState([]);
-  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-  const [userToDelete, setUserToDelete] = useState(null);
-
-  const fetchUsers = async () => {
-  
-    try {
-      const response = await fetch('http://localhost:5000/api/admin/all',
-      { credentials: 'include',
-        method: 'GET',
-       }, 
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`HTTP Error! Status: ${response.status}, Body: ${errorText}`);
-      }
-
-      const data = await response.json();
-      setUsers(data.map(user => ({
-        id: user.id,
-        name: user.username,
-        email: user.email,
-        role: user.role,
-      })));
-    } catch (error) {
-      console.error('Failed to fetch users:', error.message);
-    }
-  };
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
+  const [selected, setSelected] = useState([]);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [userToDelete, setUserToDelete] = useState(null);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/admin/all", {
+        credentials: "include",
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(
+          `HTTP Error! Status: ${response.status}, Body: ${errorText}`
+        );
+      }
+
+      const data = await response.json();
+      setUsers(
+        data.map((user) => ({
+          id: user.id,
+          name: user.username,
+          email: user.email,
+          role: user.role,
+        }))
+      );
+    } catch (error) {
+      console.error("Failed to fetch users:", error.message);
+    }
+  };
+
   const handleSort = (property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
+    const isAsc = orderBy === property && order === "asc";
+    setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
 
     const sortedUsers = [...users].sort((a, b) => {
-      if (a[property] < b[property]) return order === 'asc' ? -1 : 1;
-      if (a[property] > b[property]) return order === 'asc' ? 1 : -1;
+      if (a[property] < b[property]) return order === "asc" ? -1 : 1;
+      if (a[property] > b[property]) return order === "asc" ? 1 : -1;
       return 0;
     });
 
@@ -88,7 +90,7 @@ export default function Users() {
 
   const handleSelectAll = (event) => {
     if (event.target.checked) {
-      setSelected(users.map(user => user.id));
+      setSelected(users.map((user) => user.id));
     } else {
       setSelected([]);
     }
@@ -101,18 +103,20 @@ export default function Users() {
     if (selectedIndex === -1) {
       newSelected = [...selected, id];
     } else {
-      newSelected = selected.filter(item => item !== id);
+      newSelected = selected.filter((item) => item !== id);
     }
 
     setSelected(newSelected);
   };
 
-  const handleDeleteConfirm = () => {
+  const handleDeleteConfirm = async () => {
     if (userToDelete) {
-      handleDelete(userToDelete);
+      await handleDelete(userToDelete);
     } else {
-      handleDeleteSelected();
+      await handleDeleteSelected();
     }
+    setOpenDeleteDialog(false);
+    setUserToDelete(null);
   };
 
   const handleOpenDialog = (user = null) => {
@@ -121,12 +125,6 @@ export default function Users() {
       setFormData(user);
     } else {
       setEditingUser(null);
-      setFormData({
-        id: `USR${String(users.length + 1).padStart(3, '0')}`,
-        name: '',
-        email: '',
-        role: '',
-      });
     }
     setOpenDialog(true);
   };
@@ -134,28 +132,26 @@ export default function Users() {
   const handleCloseDialog = () => {
     setOpenDialog(false);
     setEditingUser(null);
-    setFormData({ id: '', name: '', email: '', role: '' });
+    setFormData({ username: "", email: "", password: "", role: "" });
   };
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/admin/create',
-        { credentials: 'include',
-          method: 'POST',
-        },
-        {
+      const response = await fetch("http://localhost:5000/api/admin/create", {
+        credentials: "include",
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error('Failed to create user');
-      
+      if (!response.ok) throw new Error("Failed to create user");
+
       fetchUsers(); // Now fetchUsers is in scope
       handleCloseDialog();
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 

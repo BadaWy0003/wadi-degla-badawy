@@ -3,6 +3,7 @@ const CustomerService = require('../services/customer.service');
 
 CustomerController.createCustomer = async (req, res) => {
   try {
+    console.log(req.body);
     const data = await CustomerService.createCustomer(req.body);
 
     res.status(201).send(data);

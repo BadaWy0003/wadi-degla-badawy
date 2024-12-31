@@ -33,7 +33,7 @@ StorageService.handleMaterialUpload = async ({ name, type, finishes, files }) =>
   const uploadedFinishes = await Promise.all(
     files.map(async (file, index) => {
       const publicUrl = await uploadFileToStorage(file, type);
-      return { finish: finishes[index], link: publicUrl };
+      return { finish: finishes[index].finishName, link: publicUrl };
     }),
   );
 

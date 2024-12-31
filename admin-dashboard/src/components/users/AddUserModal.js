@@ -18,16 +18,16 @@ export default function AddUserModal({
 }) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>
-        {editingUser ? 'Edit User' : 'Add New User'}
-      </DialogTitle>
+      <DialogTitle>{editingUser ? "Edit User" : "Add New User"}</DialogTitle>
       <DialogContent>
-        <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Box sx={{ pt: 2, display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField
             fullWidth
             label="Username"
-            value={formData.userName}
-            onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
+            value={formData.username}
+            onChange={(e) =>
+              setFormData({ ...formData, username: e.target.value })
+            }
             required
           />
           <TextField
@@ -35,7 +35,9 @@ export default function AddUserModal({
             label="Email"
             type="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             required
           />
 
@@ -44,7 +46,9 @@ export default function AddUserModal({
             label="password"
             type="password"
             value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
             required
           />
 
@@ -60,7 +64,7 @@ export default function AddUserModal({
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
         <Button onClick={onSubmit} variant="contained" color="primary">
-          {editingUser ? 'Save Changes' : 'Add User'}
+          {editingUser ? "Save Changes" : "Add User"}
         </Button>
       </DialogActions>
     </Dialog>

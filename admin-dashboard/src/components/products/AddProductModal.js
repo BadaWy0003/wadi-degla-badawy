@@ -151,22 +151,25 @@ const style = {
           formData.append('type', productData.category);
 
           // Convert finishes array to string and add
-          const finishesData = productData.finish.map(f => ({
+          const finishesData = productData.finish.map((f) => ({
             finishName: f.finishName,
-            imageUrl: f.imageUrl
           }));
-          formData.append('finishes', JSON.stringify(finishesData));
-          console.log(formData.get('finishes'));
+          formData.append("finishes", JSON.stringify(finishesData));
+          console.log(formData.get("finishes"));
           // Log formData contents for debugging
           for (let pair of formData.entries()) {
             console.log(pair[0], pair[1]);
           }
 
           // Send the POST request
-          const response = await fetch('http://localhost:5000/api/storage/upload', {
-            method: 'POST',
-            body: formData,
-          });
+          const response = await fetch(
+            "http://localhost:5000/api/storage/upload",
+            {
+              method: "POST",
+              body: formData,
+              credentials: "include",
+            }
+          );
 
           const result = await response.json();
 
