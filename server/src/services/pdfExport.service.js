@@ -1,21 +1,81 @@
+const { nanoid } = require('nanoid');
+const puppeteer = require('puppeteer');
+const hbs = require('handlebars');
+const fs = require('fs');
+const path = require('path');
+const { Firestore } = require('@google-cloud/firestore');
+const { bucket } = require('../start/firebase');
+
+const firestore = new Firestore();
+
 const PdfExportService = {};
 
-const { nanoid } = require('nanoid');
-const generatePdf = require('../utils/export-pdf');
+// Compile Handlebars template
+async function compileTemplate(templateName, data) {
+  const templatePath = path.join(__dirname, '../templates', `${templateName}.hbs`);
+  const templateContent = await fs.promises.readFile(templatePath, 'utf-8');
+  return hbs.compile(templateContent)(data);
+}
 
-PdfExportService.exportPdf = async (data) => {
-  try {
-    const fileType = data.documentType.toLowerCase();
-    const fileId = nanoid(6);
+// Generate PDF buffer
+PdfExportService.generatePdfBuffer = async (data) => {
+  const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], headless: true });
+  const page = await browser.newPage();
 
-    const fileName = `${fileType}-${fileId}`;
-    const templateName = 'invoice';
-    const pdf = await generatePdf(templateName, data, fileName);
+  const htmlContent = await compileTemplate(data.documentType, data);
+  await page.setContent(htmlContent, { timeout: 60000 });
 
-    return pdf;
-  } catch (error) {
-    throw new Error(error);
-  }
+  const pdfBuffer = await page.pdf({ format: 'A4', printBackground: true });
+  await browser.close();
+
+  return pdfBuffer;
+};
+
+// Generate PDF and save to local file system
+PdfExportService.generatePdfToFile = async (data, fileName) => {
+  const filePath = path.join(__dirname, '../common/uploads', `${fileName}.pdf`);
+  const pdfBuffer = await PdfExportService.generatePdfBuffer(data);
+
+  await fs.promises.writeFile(filePath, pdfBuffer);
+  return filePath;
+};
+
+// Upload PDF to Firebase
+async function uploadPdfToFirebase(pdfPath, metadata) {
+  const fileName = path.basename(pdfPath);
+  const destination = `documents/${fileName}`;
+
+  // Upload the file to GCS
+  const [file] = await bucket.upload(pdfPath, { destination });
+
+  // Make the file publicly accessible
+  await file.makePublic();
+
+  // Generate the public URL
+  const fileUrl = `https://storage.googleapis.com/${bucket.name}/${destination}`;
+
+  // Store metadata in Firestore
+  await firestore.collection('documents').add({
+    ...metadata,
+    url: fileUrl,
+    createdAt: Firestore.Timestamp.now(),
+  });
+
+  // Remove the local file after upload
+  fs.unlinkSync(pdfPath);
+
+  return fileUrl;
+}
+
+// Generate, upload, and store metadata for PDF
+PdfExportService.generateAndUploadPdf = async (data, metadata) => {
+  const fileId = nanoid(6);
+  const fileName = `${data.documentType.toLowerCase()}-${fileId}`;
+
+  const pdfPath = await PdfExportService.generatePdfToFile(data, fileName);
+  const pdfUrl = await uploadPdfToFirebase(pdfPath, metadata);
+
+  return pdfUrl;
 };
 
 module.exports = PdfExportService;
