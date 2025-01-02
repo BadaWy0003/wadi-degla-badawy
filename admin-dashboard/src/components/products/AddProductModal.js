@@ -118,9 +118,9 @@ const style = {
     const validateForm = () => {
       const newErrors = {};
       
-      if (!productData.id) {
-        newErrors.id = 'ID is required';
-      }
+      // if (!productData.id) {
+      //   newErrors.id = 'ID is required';
+      // }
       
       if (productData.finish.length === 0) {
         newErrors.finish = 'At least one finish with an image is required';
@@ -215,20 +215,7 @@ const style = {
           <Typography variant="h6" sx={{ mb: 2 }}>Add New Product</Typography>
           
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Product ID"
-                name="id"
-                value={productData.id}
-                onChange={handleInputChange}
-                required
-                error={!!errors.id}
-                helperText={errors.id}
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} >
               <TextField
                 fullWidth
                 label="Product Name"

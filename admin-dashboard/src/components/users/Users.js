@@ -226,15 +226,7 @@ export default function Users() {
                   onChange={handleSelectAll}
                 />
               </TableCell>
-              <TableCell>
-                <TableSortLabel
-                  active={orderBy === 'id'}
-                  direction={orderBy === 'id' ? order : 'asc'}
-                  onClick={() => handleSort('id')}
-                >
-                  ID
-                </TableSortLabel>
-              </TableCell>
+
               <TableCell>
                 <TableSortLabel
                   active={orderBy === 'name'}
@@ -277,7 +269,6 @@ export default function Users() {
                     onChange={() => handleSelect(user.id)}
                   />
                 </TableCell>
-                <TableCell>{user.id}</TableCell>
                 <TableCell>{user.name}</TableCell>
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.role}</TableCell>

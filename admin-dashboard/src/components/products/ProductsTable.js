@@ -53,15 +53,6 @@ export default function ProductsTable({
             </TableCell>
             <TableCell>
               <TableSortLabel
-                active={orderBy === "id"}
-                direction={orderBy === "id" ? order : "asc"}
-                onClick={() => onRequestSort("id")}
-              >
-                ID
-              </TableSortLabel>
-            </TableCell>
-            <TableCell>
-              <TableSortLabel
                 active={orderBy === "name"}
                 direction={orderBy === "name" ? order : "asc"}
                 onClick={() => onRequestSort("name")}
@@ -99,7 +90,6 @@ export default function ProductsTable({
                   onChange={() => onSelect(product.id)}
                 />
               </TableCell>
-              <TableCell>{product.id}</TableCell>
               <TableCell>{product.name}</TableCell>
               <TableCell>{product.type}</TableCell>
               <TableCell>{product.finishes.length}</TableCell>

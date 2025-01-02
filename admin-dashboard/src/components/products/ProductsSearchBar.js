@@ -2,13 +2,15 @@ import { TextField, MenuItem, InputAdornment, Box, Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+
 export default function ProductsSearchBar({ 
   searchQuery, 
   searchField, 
   onSearchChange, 
   onFieldChange,
   selected,
-  onDeleteSelected
+  onDeleteSelected,
+  setOpenDeleteDialog // Add this prop
 }) {
   return (
     <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
@@ -43,7 +45,7 @@ export default function ProductsSearchBar({
         variant="contained"
         color="error"
         startIcon={<DeleteIcon />}
-        onClick={onDeleteSelected}
+        onClick={() => setOpenDeleteDialog(true)} // Update this to open dialog
         disabled={selected.length === 0}
         sx={{ ml: 'auto' }}
       >

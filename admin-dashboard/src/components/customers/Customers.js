@@ -140,22 +140,68 @@ export default function Customers() {
       console.error("Error:", error);
     }
   };
-
+//_______________________________________________________________ from users.js
   const handleDeleteConfirm = async () => {
-
+    if (customerToDelete) {
+      await handleDelete(customerToDelete);
+    } else {
+      await handleDeleteSelected();
+    }
+    setOpenDeleteDialog(false);
+    setCustomerToDelete(null);
+  };
+  const handleDelete = async (id) => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/customer/delete/${customerToDelete}`,
-        { method: "DELETE", credentials: "include" }
-      );
-      if (!response.ok) throw new Error("Failed to delete customer");
-      fetchCustomers(); // Refresh the list
-      setOpenDeleteDialog(false);
+      const response = await fetch(`http://localhost:5000/api/customer/delete/${id}`,
+        { credentials: 'include',
+          method: 'DELETE',
+        },
+       );
+
+      if (!response.ok) throw new Error('Failed to delete user');
       console.log("Customer deleted successfully");
+      fetchCustomers(); // Now fetchUsers is in scope
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Error:', error);
     }
   };
+
+  const handleDeleteSelected = async () => {
+    try {
+      await Promise.all(
+        selected.map(id => 
+          fetch(`http://localhost:5000/api/customer/delete/${id}`,
+            { credentials: 'include',
+              method: 'DELETE',
+            },
+            )
+        )
+      );
+      console.log("Customers deleted successfully");
+      fetchCustomers(); // Now fetchUsers is in scope
+      setSelected([]);
+      setOpenDeleteDialog(false);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+//_______________________________________________________________ 
+
+  // const handleDeleteConfirm = async () => {
+
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:5000/api/customer/delete/${customerToDelete}`,
+  //       { method: "DELETE", credentials: "include" }
+  //     );
+  //     if (!response.ok) throw new Error("Failed to delete customer");
+  //     fetchCustomers(); // Refresh the list
+  //     setOpenDeleteDialog(false);
+  //     console.log("Customer deleted successfully");
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // };
 
   const filteredCustomers = customers.filter(customer => {
     const searchValue = customer[searchField].toLowerCase();
@@ -178,7 +224,6 @@ export default function Customers() {
         sx={{ width: 150 }}
       >
         <MenuItem value="fullName">Name</MenuItem>
-        <MenuItem value="id">ID</MenuItem>
         <MenuItem value="email">Email</MenuItem>
         <MenuItem value="companyName">Company</MenuItem>
       </TextField>
@@ -288,7 +333,7 @@ export default function Customers() {
                   onChange={handleSelectAll}
                 />
               </TableCell>
-              {['id', 'name', 'email', 'company'].map((field) => (
+              {['name', 'email', 'company'].map((field) => (
                 <TableCell key={field}>
                   <TableSortLabel
                     active={orderBy === field}
@@ -314,7 +359,6 @@ export default function Customers() {
                     onChange={() => handleSelect(customer.id)}
                   />
                 </TableCell>
-                <TableCell>{customer.id}</TableCell>
                 <TableCell>{customer.fullName}</TableCell>
                 <TableCell>{customer.email}</TableCell>
                 <TableCell>{customer.companyName}</TableCell>

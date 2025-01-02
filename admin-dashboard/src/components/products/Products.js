@@ -4,6 +4,7 @@ import ProductsSearchBar from './ProductsSearchBar';
 import ProductsTable from './ProductsTable';
 import AddIcon from '@mui/icons-material/Add';
 import AddProductModal from './AddProductModal';
+import DeleteConfirmDialog from './DeleteConfirmDialog';
 
 const modalStyle = {
   position: 'absolute',
@@ -30,6 +31,8 @@ export default function Products() {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [productToDelete, setProductToDelete] = useState(null);
 
   useEffect(() => {
     fetchProducts();
@@ -70,21 +73,28 @@ export default function Products() {
     setSelected(newSelected);
   };
 
+
   const handleDeleteSelected = async () => {
     try {
-      const deletePromises = selected.map(id =>
-        fetch(`http://localhost:5000/api/storage/${id}`, {
-          method: 'DELETE'
-        })
+      await Promise.all(
+        selected.map(id => 
+          fetch(`http://localhost:5000/api/storage/product/${id}`, // Fix API endpoint
+            { 
+              credentials: 'include',
+              method: 'DELETE',
+            }
+          )
+        )
       );
       
-      await Promise.all(deletePromises);
-      fetchProducts(); // Refresh the list
-      setSelected([]); // Clear selection
+      fetchProducts();
+      setSelected([]);
+      setOpenDeleteDialog(false);
     } catch (error) {
-      console.error('Error deleting products:', error);
+      console.error('Error:', error);
     }
   };
+
 
   const handleEdit = (product) => {
     // To be implemented when you have the edit modal ready
@@ -93,9 +103,10 @@ export default function Products() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/storage/product/${id}`, {
-        method: 'DELETE'
-      });
+      const response = await fetch(`http://localhost:5000/api/storage/product/${id}`, 
+        { credentials: 'include',
+          method: 'DELETE',
+        });
 
       if (!response.ok) {
         throw new Error('Failed to delete product');
@@ -105,6 +116,16 @@ export default function Products() {
     } catch (error) {
       console.error('Error deleting product:', error);
     }
+  };
+  
+  const handleConfirmDelete = async () => {
+    if (productToDelete) { // Change from selectedProduct to productToDelete
+      await handleDelete(productToDelete);
+    } else {
+      await handleDeleteSelected();
+    }
+    setOpenDeleteDialog(false);
+    setProductToDelete(null);
   };
 
   const handleMoreInfo = (product) => {
@@ -194,10 +215,11 @@ export default function Products() {
         onFieldChange={setSearchField}
         selected={selected}
         onDeleteSelected={handleDeleteSelected}
+        setOpenDeleteDialog={setOpenDeleteDialog} // Add this prop
       />
 
       <ProductsTable
-        data={sortedAndFilteredData}
+        data={sortedAndFilteredData || []} // Add fallback empty array
         orderBy={orderBy}
         order={order}
         selected={selected}
@@ -206,7 +228,10 @@ export default function Products() {
         onSelect={handleSelect}
         onMoreInfo={handleMoreInfo}
         onEdit={handleEdit}
-        onDelete={handleDelete}
+        onDelete={(id) => {
+          setProductToDelete(id); // Use productToDelete instead of selectedProduct
+          setOpenDeleteDialog(true);
+        }}
       />
 
       <Modal
@@ -221,23 +246,56 @@ export default function Products() {
               </Typography>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                  <Typography><strong>ID:</strong> {selectedProduct.id}</Typography>
                   <Typography><strong>Category:</strong> {selectedProduct.type}</Typography>
-                  <Typography><strong>Total Finishes:</strong> {selectedProduct.finishes.length}</Typography>
+                  <Typography><strong>Total Finishes:</strong> {selectedProduct.finishes?.length || 0}</Typography>
                 </Grid>
-                <Grid item xs={12}>
-                  <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Available Finishes:</Typography>
-                  <Grid container spacing={2}>
-                    {selectedProduct.finishes.map((finish, index) => (
-                      <Grid item xs={12} sm={6} md={4} key={index}>                        <Paper sx={{ p: 1 }}>                          <Typography><strong>{finish.finishName}</strong></Typography>                          <img                             src={`http://localhost:5000${finish.imageUrl}`}                            alt={finish.finishName}                            style={{ width: '100%', height: 'auto', maxHeight: '200px', objectFit: 'contain' }}                          />                        </Paper>                      </Grid>                    ))}                  </Grid>                </Grid>                {selectedProduct.mockupUrl && (                  <Grid item xs={12}>                    <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Mockup:</Typography>                    <Grid container spacing={2}>                      <Grid item xs={12}>                        <img 
-                          src={`http://localhost:5000${selectedProduct.mockupUrl}`}
-                          alt="Mockup"
-                          style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain' }}
-                        />
-                      </Grid>
+                
+                {selectedProduct.finishes && selectedProduct.finishes.length > 0 && (
+                  <Grid item xs={12}>
+                    <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Available Finishes:</Typography>
+                    <Grid container spacing={2}>
+                      {selectedProduct.finishes.map((finish, index) => (
+                        <Grid item xs={12} sm={6} md={4} key={index}>
+                          <Paper sx={{ p: 1 }}>
+                            <Typography><strong>{finish.finish}</strong></Typography>
+                            {finish.link && (
+                              <img 
+                                src={finish.link}
+                                alt={finish.finish}
+                                style={{ width: '100%', height: 'auto', maxHeight: '200px', objectFit: 'contain' }}
+                              />
+                            )}
+                          </Paper>
+                        </Grid>
+                      ))}
                     </Grid>
                   </Grid>
                 )}
+
+                <Grid item xs={12}>
+                  <Grid container spacing={2}>
+                    {selectedProduct.mockupUrl && (
+                      <Grid item xs={12} sm={6}>
+                        <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Indoor Mockup:</Typography>
+                        <img 
+                          src={`http://localhost:5000${selectedProduct.mockupUrl}`}
+                          alt="Indoor Mockup"
+                          style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain' }}
+                        />
+                      </Grid>
+                    )}
+                    {selectedProduct.mockupOutdoorUrl && (
+                      <Grid item xs={12} sm={6}>
+                        <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Outdoor Mockup:</Typography>
+                        <img 
+                          src={`http://localhost:5000${selectedProduct.mockupOutdoorUrl}`}
+                          alt="Outdoor Mockup"
+                          style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain' }}
+                        />
+                      </Grid>
+                    )}
+                  </Grid>
+                </Grid>
               </Grid>
             </>
           )}
@@ -249,6 +307,17 @@ export default function Products() {
         onClose={() => setOpenAddModal(false)}
         onSubmit={handleAddProduct}
       />
+            <DeleteConfirmDialog
+              open={openDeleteDialog}
+              onClose={() => {
+                setOpenDeleteDialog(false);
+                setProductToDelete(null);
+              }}
+              onConfirm={handleConfirmDelete}
+              singleDelete={!!productToDelete} // Fix the logic and use productToDelete
+              count={selected.length}
+            />
+      
     </Box>
   );
 }

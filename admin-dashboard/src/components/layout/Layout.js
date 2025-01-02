@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
-import { Dashboard as DashboardIcon, Inventory, Collections, Group, People } from '@mui/icons-material';
+import { Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload,} from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../GlobalStateContext"; // Ensure this exists
 
@@ -17,6 +17,7 @@ export default function Layout() {
     { text: 'Gallery', icon: <Collections />, path: '/gallery' },
     { text: 'Users', icon: <Group />, path: '/users' },
     { text: 'Customers', icon: <People />, path: '/customers' },
+    { text: 'Documents', icon: <DriveFolderUpload />, path: '/documents' },
   ];
   
   const handleLogout = async () => {

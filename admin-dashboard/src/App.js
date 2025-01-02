@@ -7,6 +7,7 @@ import Products from './components/products/Products';
 import Gallery from './components/gallery/Gallery';
 import Users from './components/users/Users';
 import Customers from './components/customers/Customers';
+import Documents from './components/documents/Documents';
 import Login from './components/auth/Login';
 import { ProtectedRoute } from "./components/ProtectedRoute.js"; // Create this file as described earlier
 import { useGlobalState } from "./components/GlobalStateContext"; // Ensure this exists
@@ -38,6 +39,7 @@ function App() {
             <Route path="gallery" element={<Gallery />} />
             <Route path="users" element={<Users />} />
             <Route path="customers" element={<Customers />} />
+            <Route path="documents" element={<Documents />} />
           </Route>
         </Routes>
       </BrowserRouter>
