@@ -30,11 +30,19 @@ function Gallery() {
   const [orderBy, setOrderBy] = React.useState('name');
   const [order, setOrder] = React.useState('asc');
   const [selected, setSelected] = React.useState([]);
+  const [setOpenDialog] = React.useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);
   const [imageToDelete, setImageToDelete] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [searchField ] = React.useState('name');
   const [openAddModal, setOpenAddModal] = React.useState(false);
   const [customCategory, setCustomCategory] = React.useState('');
+
+  const [formData] = React.useState({
+    name: '',
+    finishName: '',
+    finishImage: null
+  });
 
   React.useEffect(() => {
     fetchGallery();
@@ -84,19 +92,29 @@ function Gallery() {
     setSelected(newSelected);
   };
 
+
   const handleAddImage = (newImage) => {
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('type', 'Gallery');
       formDataToSend.append('name', newImage.name);
-      formDataToSend.append('files', newImage.finish[0].imageFile);
       
+      // Structure the finish array with all required properties
       const finishes = [{
-        finish: newImage.finish[0].finishName,
-        link: newImage.finish[0].imageUrl
+        finishName: newImage.finish[0].finishName,
+        imageFile: newImage.finish[0].imageFile,
+        imageUrl: newImage.finish[0].imageUrl
       }];
       
       formDataToSend.append('finishes', JSON.stringify(finishes));
+      // Append the actual file
+      formDataToSend.append('files', newImage.finish[0].imageFile);
+
+      console.log('Sending to API:', {
+        type: 'Gallery',
+        name: newImage.name,
+        finishes: finishes
+      });
 
       fetch("http://localhost:5000/api/storage/upload", {
         method: "POST",
@@ -121,6 +139,7 @@ function Gallery() {
       alert('Error preparing image upload. Please try again.');
     }
   };
+
 
   const handleDeleteConfirm = async () => {
     if (imageToDelete) {
@@ -168,8 +187,34 @@ function Gallery() {
     }
   };
 
+  const handleSubmit = async () => {
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('finishName', formData.finishName);
+      formDataToSend.append('finishImage', formData.finishImage);
+      
+      const response = await fetch(
+        "http://localhost:5000/api/storage/upload",
+        {
+          method: "POST",
+          credentials: "include",
+          body: formDataToSend,
+        }
+      );
+      if (!response.ok) throw new Error("Failed to add image");
+      fetchGallery();
+      setOpenDialog(false);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const filteredGallery = Array.isArray(gallery) ? gallery.filter(image => {
-    return (image.name || '').toLowerCase().includes(searchQuery.toLowerCase());
+    const searchValue = searchField === 'finishName' 
+      ? (image.finishes[0]?.finish || '').toLowerCase()
+      : (image[searchField] || '').toLowerCase();
+    return searchValue.includes(searchQuery.toLowerCase());
   }) : [];
 
   const sortedGallery = filteredGallery.sort((a, b) => {
@@ -180,10 +225,11 @@ function Gallery() {
   });
 
   const renderSearchBar = () => (
-    <Box sx={{ mb: 3 }}>
+    <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
+      
       <TextField
         fullWidth
-        placeholder="Search by name..."
+        placeholder={`Search by ${searchField}...`}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         InputProps={{
@@ -196,6 +242,8 @@ function Gallery() {
       />
     </Box>
   );
+
+
 
   const renderDeleteDialog = () => (
     <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)}>
@@ -223,7 +271,8 @@ function Gallery() {
   );
 
   const tableColumns = [
-    { id: 'name', label: 'Name' }
+    { id: 'finishName', label: 'Name' },
+    { id: 'image', label: 'Image' }
   ].map((column) => (
     <TableCell key={column.id}>
       <TableSortLabel
@@ -249,7 +298,7 @@ function Gallery() {
               onChange={() => handleSelect(image.id)}
             />
           </TableCell>
-          <TableCell>{image.name}</TableCell>
+          <TableCell>{image.finishes[0]?.finish || ''}</TableCell>
           <TableCell>
             {image.finishes[0]?.link && (
               <img 
@@ -260,16 +309,18 @@ function Gallery() {
             )}
           </TableCell>
           <TableCell>
-            <IconButton 
-              size="small" 
-              color="error"
-              onClick={() => {
-                setImageToDelete(image.id);
-                setOpenDeleteDialog(true);
-              }}
-            >
-              <DeleteIcon />
-            </IconButton>
+            <Box sx={{ display: 'flex', gap: 1 }}>
+              <IconButton 
+                size="small" 
+                color="error"
+                onClick={() => {
+                  setImageToDelete(image.id);
+                  setOpenDeleteDialog(true);
+                }}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </Box>
           </TableCell>
         </TableRow>
       ))}
@@ -314,7 +365,6 @@ function Gallery() {
                 />
               </TableCell>
               {tableColumns}
-              <TableCell>Image</TableCell>
               <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>

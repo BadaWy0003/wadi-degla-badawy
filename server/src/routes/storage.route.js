@@ -10,7 +10,7 @@ const upload = multer({ storage });
 const router = express.Router();
 
 router.post('/upload', adminAuth, authorize('MODERATOR'), upload.array('files', 10), StorageController.uploadMaterial);
-router.get('/type/:type', adminAuth, authorize('MODERATOR'), StorageController.getMaterialsByType);
+router.get('/type/:type', StorageController.getMaterialsByType);
 router.get('/all', StorageController.getAllProducts);
 router.delete('/product/:id', adminAuth, authorize('MODERATOR'), StorageController.deleteProduct);
 module.exports = router;

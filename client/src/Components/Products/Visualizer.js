@@ -3,7 +3,7 @@ import './Visualizer.css';
 // import { Link } from "react-router-dom";
 import hero_bg from '../../Public/Assets/Media/hero-bg.jpg';
 import ProductForVisualizer from './ProductForVisualizer.js';
-import { productData } from './productData.js'; // Import the product data
+// import { productData } from './productData.js'; // Import the product data
 
 export default function Visualizer() {
   const [selectedCategory, setSelectedCategory] = useState('Imported Marble');
@@ -11,9 +11,22 @@ export default function Visualizer() {
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
   const [showIndoor, setShowIndoor] = useState(true); // Toggle for indoor
   const [showOutdoor, setShowOutdoor] = useState(true); // Toggle for outdoor
-
+  const [data, setData] = useState([]); // Set the product data
+  const [loading, setLoading] = useState(false);
   const indoorRef = useRef(null);
   const outdoorRef = useRef(null);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/storage/all')
+      .then(response => response.json())
+      .then(result => {
+        setData(result.data || []);
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+        setData([]);
+      });
+  }, []);
 
   // Reset toggle state when the category changes
   useEffect(() => {
@@ -22,15 +35,20 @@ export default function Visualizer() {
   }, [selectedCategory]);
 
   // Filter products based on selected category and search query
-  const filteredProducts = productData.filter(item => {
-    const isCategoryMatch = item.category === selectedCategory;
+  const filteredProducts = data.filter(item => {
+    const isCategoryMatch = item.type === selectedCategory;
     const isSearchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
     return isCategoryMatch && isSearchMatch;
   });
 
-  // Separate indoor and outdoor products for the selected category
-  const indoorProducts = filteredProducts.filter(item => item.mockup);
-  const outdoorProducts = filteredProducts.filter(item => item.mockupOutdoor);
+  // Get mockup images from finishes
+  const indoorProducts = filteredProducts.filter(item => 
+    item.finishes.some(f => f.finish === 'mockup')
+  );
+  
+  const outdoorProducts = filteredProducts.filter(item => 
+    item.finishes.some(f => f.finish === 'mockupOutdoor')
+  );
 
   // Apply toggle logic ONLY to the selected category
   const visibleIndoorProducts = showIndoor ? indoorProducts : [];
@@ -55,9 +73,13 @@ export default function Visualizer() {
   const hasOutdoorProducts = outdoorProducts.length > 0;
 
   const handleProductClick = (item, type) => {
+    const mockupFinish = item.finishes.find(f => 
+      f.finish === (type === 'indoor' ? 'mockup' : 'mockupOutdoor')
+    );
+    
     setSelectedProduct({
       ...item,
-      currentMockup: type === 'indoor' ? item.mockup : item.mockupOutdoor
+      currentMockup: mockupFinish ? mockupFinish.link : null
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

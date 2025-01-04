@@ -1,34 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Products.css';
 import hero_bg from '../../Public/Assets/Media/hero-bg.jpg';
 import Product from './Product'; // Updated Product component
-import Modal from './Modal'; // Existing Modal component
-import { productData } from './productData.js'; // Product data
+// Remove Modal import
 
 export default function Visualizer() {
-  const [selectedCategory, setSelectedCategory] = useState('Imported Marble'); // Default to "All"
+  const [selectedCategory, setSelectedCategory] = useState('Egyptian Marble');
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
-  const [selectedProduct, setSelectedProduct] = useState(null); // State for the modal product
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to track modal open/close
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // Function to open the modal
-  const openModal = (product) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:5000/api/storage/all");
+      const result = await response.json();
+      if (result.data) {
+        setData(result.data);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  // Function to close the modal
-  const closeModal = () => {
-    setSelectedProduct(null);
-    setIsModalOpen(false);
-  };
-
-// Filter products based on selected category and search query
-const filteredProducts = productData.filter(item => {
-  const isCategoryMatch = item.category === selectedCategory;
-  const isSearchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
-  return isCategoryMatch && isSearchMatch;
-});
+  // Filter products based on selected category and search query
+  const filteredProducts = data.filter(item => {
+    const isCategoryMatch = item.type === selectedCategory;
+    const isSearchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return isCategoryMatch && isSearchMatch;
+  });
 
   return (
     <div className='products-container-2'>
@@ -51,30 +57,15 @@ const filteredProducts = productData.filter(item => {
       {/* Categories and Search */}
       <div className='products-categories-and-title-2'>
         <div className="products-categories-2">
-          <button
-            className={`btn2 ${selectedCategory === 'Imported Marble' ? 'active-2' : ''}`}
-            onClick={() => setSelectedCategory('Imported Marble')}
-          >
-            Imported Marble
-          </button>
-          <button
-            className={`btn2 ${selectedCategory === 'Egyptian Marble' ? 'active-2' : ''}`}
-            onClick={() => setSelectedCategory('Egyptian Marble')}
-          >
-            Egyptian Marble
-          </button>
-          <button
-            className={`btn2 ${selectedCategory === 'Imported Granite' ? 'active-2' : ''}`}
-            onClick={() => setSelectedCategory('Imported Granite')}
-          >
-            Imported Granite
-          </button>
-          <button
-            className={`btn2 ${selectedCategory === 'Egyptian Granite' ? 'active-2' : ''}`}
-            onClick={() => setSelectedCategory('Egyptian Granite')}
-          >
-            Egyptian Granite
-          </button>
+          {['Egyptian Marble', 'Imported Marble', 'Egyptian Granite', 'Imported Granite'].map(category => (
+            <button
+              key={category}
+              className={`btn2 ${selectedCategory === category ? 'active-2' : ''}`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         <h1>{selectedCategory}</h1>
@@ -89,32 +80,27 @@ const filteredProducts = productData.filter(item => {
         />
       </div>
 
-      {/* Product Cards */}
-      {filteredProducts.length > 0 ? (
-        <div className="product-cards-container-2">
-          <div className="product-cards-2">
-            {filteredProducts.map(item => (
-              <Product 
-                key={item.id}
-                item={item}
-                openModal={openModal}
-              />
-            ))}
-          </div>
-        </div>
+      {loading ? (
+        <div className="loading-message">Loading products...</div>
       ) : (
-        <div className="no-products-message-2">
-          <p>
-            {selectedCategory === "Imported Granite"
-              ? `${selectedCategory} Coming soon.`
-              : `No products available for your search in ${selectedCategory}.`}
-          </p>
-        </div>
-      )}
-
-      {/* Modal */}
-      {isModalOpen && selectedProduct && (
-        <Modal product={selectedProduct} onClose={closeModal} />
+        <>
+          {filteredProducts.length > 0 ? (
+            <div className="product-cards-container-2">
+              <div className="product-cards-2">
+                {filteredProducts.map(item => (
+                  <Product 
+                    key={item.id}
+                    item={item}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="no-products-message-2">
+              <p>No products available for your search in {selectedCategory}.</p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

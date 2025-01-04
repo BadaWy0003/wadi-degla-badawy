@@ -121,7 +121,16 @@ export default function Customers() {
 
   const handleSubmit = async () => {
     try {
-      console.log(formData);
+      // Structure the customer data properly
+      const customerData = {
+        ...formData,
+        username: formData.email, // Add username field using email
+        role: 'customer', // Add role field
+        active: true, // Add active status
+      };
+
+      console.log('Submitting customer data:', customerData);
+
       const response = await fetch(
         "http://localhost:5000/api/customer/create",
         {
@@ -130,14 +139,23 @@ export default function Customers() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(customerData),
         }
       );
-      if (!response.ok) throw new Error("Failed to create customer");
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to create customer");
+      }
+
+      const result = await response.json();
+      console.log("Customer created successfully:", result);
+      
       fetchCustomers(); // Refresh the list
       setOpenDialog(false);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error creating customer:", error);
+      alert(error.message || "Failed to create customer. Please try again.");
     }
   };
 //_______________________________________________________________ from users.js

@@ -166,9 +166,13 @@ export default function Products() {
   };
 
   const filterData = (data) => {
-    if (!searchQuery) return data;
+    // First filter out Gallery items
+    const nonGalleryItems = data.filter(product => product.type !== 'Gallery');
+    
+    // Then apply search filter if there's a search query
+    if (!searchQuery) return nonGalleryItems;
 
-    return data.filter(product => {
+    return nonGalleryItems.filter(product => {
       const searchValue = searchQuery.toLowerCase();
       switch (searchField) {
         case 'id':

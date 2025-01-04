@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { productData } from './productData';
 import block from '../../Public/Assets/Icons/product-icons/block.svg';
 import exterior_cladding from '../../Public/Assets/Icons/product-icons/exterior-cladding.svg';
 import landscaping from '../../Public/Assets/Icons/product-icons/landscaping.svg';
@@ -12,14 +11,48 @@ import windowsills from '../../Public/Assets/Icons/product-icons/windowsills.svg
 export default function ProductDetails() {
   const { productId } = useParams();
   const navigate = useNavigate();
-  
-  // Find the product from productData
-  const product = productData.find(p => p.id === parseInt(productId));
-  
-  // Set default finish
-  const [selectedFinish, setSelectedFinish] = useState(
-    product?.finish.find(finish => finish.finishName === 'Polished') || product?.finish[0]
-  );
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [selectedFinish, setSelectedFinish] = useState(null);
+
+  useEffect(() => {
+    const fetchProductFromAll = async () => {
+      try {
+        // Fetch all products
+        const response = await fetch("http://localhost:5000/api/storage/all", {
+          credentials: 'include'
+        });
+        
+        if (!response.ok) throw new Error('Failed to fetch products');
+        
+        const result = await response.json();
+        if (result.data) {
+          // Find the specific product by ID
+          const foundProduct = result.data.find(p => p.id === productId);
+          if (foundProduct) {
+            setProduct(foundProduct);
+            // Set default finish
+            const polishedFinish = foundProduct.finishes.find(f => f.finish === 'Polished') 
+              || foundProduct.finishes[0];
+            setSelectedFinish(polishedFinish);
+          } else {
+            throw new Error('Product not found');
+          }
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        navigate('/products');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (productId) {
+      fetchProductFromAll();
+    } else {
+      navigate('/products');
+    }
+  }, [productId, navigate]);
 
   const applicationIcons = [
     { src: block, name: "Block" },
@@ -31,8 +64,12 @@ export default function ProductDetails() {
     { src: windowsills, name: "Window Sills" },
   ];
 
+  if (loading) {
+    return <div className="loading-message">Loading product details...</div>;
+  }
+
   if (!product) {
-    return <div>Product not found</div>;
+    return <div className="error-message">Product not found</div>;
   }
 
   return (
@@ -47,7 +84,7 @@ export default function ProductDetails() {
       <div className="product-details-container">
         <div className="details-left">
           <img
-            src={selectedFinish.imageUrl}
+            src={selectedFinish?.link}
             alt={product.name}
             className="product-image"
           />
@@ -59,23 +96,22 @@ export default function ProductDetails() {
           <div className="info-grid">
             <div className="info-label">Category:</div>
             <div className="info-value" style={{color: 'var(--blueColor)'}}>
-              {product.category}
+              {product.type}
             </div>
             
             <div className="info-label">Finish:</div>
             <div className="info-value">
               <select
                 className="modal-select"
-                value={selectedFinish.finishName}
-                onChange={(e) =>
-                  setSelectedFinish(
-                    product.finish.find(finish => finish.finishName === e.target.value)
-                  )
-                }
+                value={selectedFinish?.finish || ''}
+                onChange={(e) => {
+                  const newFinish = product.finishes.find(f => f.finish === e.target.value);
+                  setSelectedFinish(newFinish);
+                }}
               >
-                {product.finish.map(finish => (
-                  <option key={finish.finishName} value={finish.finishName}>
-                    {finish.finishName}
+                {product.finishes.map(finish => (
+                  <option key={finish.finish} value={finish.finish}>
+                    {finish.finish}
                   </option>
                 ))}
               </select>

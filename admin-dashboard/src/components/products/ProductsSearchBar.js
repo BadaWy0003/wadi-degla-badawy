@@ -23,7 +23,6 @@ export default function ProductsSearchBar({
       >
         <MenuItem value="name">Search by Name</MenuItem>
         <MenuItem value="category">Search by Category</MenuItem>
-        <MenuItem value="id">Search by ID</MenuItem>
       </TextField>
 
       <TextField

@@ -161,7 +161,7 @@ export default function Home(){
                 </div>
                 <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}><button className="btn2">ABOUT US</button></Link>
                 </div>
-            <div className="products-home">
+            {/* <div className="products-home">
                 <h1>Explore some of our products</h1>
                 <Carousel responsive={responsive1} 
                             swipeable={true}
@@ -179,18 +179,17 @@ export default function Home(){
             <Product 
               key={item.id} 
               item={item} 
-              openModal={openModal} // Pass the openModal function to Product component
             />
           ))}
                 </Carousel>
                 <div className="products-btn-plc">
                 <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><button className="btn1">EXPLORE ALL</button></Link>
                 </div>
-            </div>
+            </div> */}
             {/* Modal for showing product details */}
-      {isModalOpen && selectedProduct && (
+      {/* {isModalOpen && selectedProduct && (
         <Modal product={selectedProduct} onClose={closeModal} />
-      )}
+      )} */}
             <div className="our-partners">
                 <h1>Our Partners</h1>
                 <Carousel responsive={responsive2}

@@ -13,9 +13,8 @@ import windowsills from '../../Public/Assets/Icons/product-icons/windowsills.svg
 
 
 export default function Modal({ product, onClose }) {
-  // Set "Polished" as the default finish
   const [selectedFinish, setSelectedFinish] = useState(
-    product.finish.find(finish => finish.finishName === 'Polished') || product.finish[0]
+    product.finishes.find(finish => finish.finish === 'Polished') || product.finishes[0]
   );
     const navigate = useNavigate();
     const applicationIcons = [
@@ -37,7 +36,7 @@ export default function Modal({ product, onClose }) {
         {/* Left Section - Image */}
         <div className="modal-left">
           <img
-            src={selectedFinish.imageUrl}
+            src={selectedFinish.link}
             alt={product.name}
             className="modal-product-image"
           />
@@ -55,29 +54,28 @@ export default function Modal({ product, onClose }) {
             <div className="modal-info-value">
               <select
                 className="modal-select"
-                value={selectedFinish.finishName}
-                onChange={(e) =>
-                  setSelectedFinish(
-                    product.finish.find(finish => finish.finishName === e.target.value)
-                  )
-                }
+                value={selectedFinish.finish}
+                onChange={(e) => {
+                    const newFinish = product.finishes.find(f => f.finish === e.target.value);
+                    setSelectedFinish(newFinish);
+                  }}
               >
-                {product.finish.map(finish => (
-                  <option key={finish.finishName} value={finish.finishName}>
-                    {finish.finishName}
+                {product.finishes.map(finish => (
+                  <option key={finish.finish} value={finish.finish}>
+                    {finish.finish}
                   </option>
                 ))}
               </select>
             </div>
             
             <div className="modal-info-label">Category:</div>
-            <div className="modal-info-value" id='modal-info-category-value'>{product.category}</div>
+            <div className="modal-info-value" id='modal-info-category-value'>{product.type}</div>
           </div>
           
           <div>
 
             <p>Application:</p>
-            <div className="modal-applications">
+            <div className="modal-applications"></div>
               {applicationIcons.map((app, index) => (
                 <div key={index} className="application-icon-wrapper">
                   <img
@@ -98,6 +96,5 @@ export default function Modal({ product, onClose }) {
                              }}>Request a Sample</button>
         </div>
       </div>
-    </div>
   );
 }

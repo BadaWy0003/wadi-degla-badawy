@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Gallery.css'
 // import { Link } from "react-router-dom";
 // import wadi_degla_logo_login from '../../Public/Assets/wadi-degla-logo-login.svg'
@@ -49,41 +49,28 @@ import "lightgallery/css/lg-rotate.css"
 
 
 export default function Gallery (){
+    const [gallery, setGallery] = useState([]);
 
-    const galleryUrl = [
-        '/Assets/Media/Gallery/1.jpg',
-        '/Assets/Media/Gallery/2.jpg',
-        '/Assets/Media/Gallery/3.jpg',
-        '/Assets/Media/Gallery/4.jpg',
-        '/Assets/Media/Gallery/5.jpg',
-        '/Assets/Media/Gallery/6.jpg',
-        '/Assets/Media/Gallery/7.jpg',
-        '/Assets/Media/Gallery/8.jpg',
-        '/Assets/Media/Gallery/9.jpg',
-        '/Assets/Media/Gallery/10.jpg',
-        '/Assets/Media/Gallery/11.jpg',
-        '/Assets/Media/Gallery/12.jpg',
-        '/Assets/Media/Gallery/13.jpg',
-        '/Assets/Media/Gallery/14.jpg',
-        '/Assets/Media/Gallery/15.jpg',
-        '/Assets/Media/Gallery/16.jpg',
-        '/Assets/Media/Gallery/17.jpg',
-        '/Assets/Media/Gallery/18.jpg',
-        '/Assets/Media/Gallery/19.jpg',
-        '/Assets/Media/Gallery/20.jpg',
-        '/Assets/Media/Gallery/21.jpg',
-        '/Assets/Media/Gallery/22.jpg',
-        '/Assets/Media/Gallery/23.jpg',
-        '/Assets/Media/Gallery/24.jpg',
-        '/Assets/Media/Gallery/25.jpg',
-        '/Assets/Media/Gallery/26.jpg',
-        '/Assets/Media/Gallery/27.jpg',
-        '/Assets/Media/Gallery/29.jpg',
-        '/Assets/Media/Gallery/30.jpg',
-        '/Assets/Media/Gallery/31.jpg'
+    useEffect(() => {
+        const fetchGallery = async () => {
+            const typeName = "Gallery";
+            const url = `http://localhost:5000/api/storage/type/${typeName}`;
+            try {
+                const response = await fetch(url, { 
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                if (!response.ok) throw new Error('Failed to fetch Gallery');
+                const { data } = await response.json();
+                setGallery(Array.isArray(data) ? data : []);
+            } catch (error) {
+                console.error('Error:', error);
+                setGallery([]);
+            }
+        };
 
-    ]
-  
+        fetchGallery();
+    }, []);
 
     return (
        <div className='gallery-container'>
@@ -102,8 +89,17 @@ export default function Gallery (){
                 elementClassNames="custom-wrapper-class"
                 
                 >
-                {galleryUrl.map((img, i) =>
-                    <img alt='' src={img} key={i} className="image-ingallery" loading="lazy"/>)} 
+                {gallery.map((item, i) => (
+                        item.finishes && item.finishes[0]?.link && (
+                            <img
+                                alt={item.name || ''}
+                                src={item.finishes[0].link}
+                                key={item.id || i}
+                                className="image-ingallery"
+                                loading="lazy"
+                            />
+                        )
+                    ))} 
                     </LightGallery>               
             </div>
         </div>
