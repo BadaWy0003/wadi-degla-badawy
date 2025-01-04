@@ -109,11 +109,13 @@ export default function ProductDetails() {
                   setSelectedFinish(newFinish);
                 }}
               >
-                {product.finishes.map(finish => (
-                  <option key={finish.finish} value={finish.finish}>
-                    {finish.finish}
-                  </option>
-                ))}
+                {product.finishes
+                  .filter(finish => !['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'].includes(finish.finish))
+                  .map(finish => (
+                    <option key={finish.finish} value={finish.finish}>
+                      {finish.finish}
+                    </option>
+                  ))}
               </select>
             </div>
           </div>

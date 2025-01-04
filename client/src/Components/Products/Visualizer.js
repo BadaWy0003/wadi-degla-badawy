@@ -43,11 +43,11 @@ export default function Visualizer() {
 
   // Get mockup images from finishes
   const indoorProducts = filteredProducts.filter(item => 
-    item.finishes.some(f => f.finish === 'mockup')
+    item.finishes.some(f => f.finish === 'indoorMockup')
   );
   
   const outdoorProducts = filteredProducts.filter(item => 
-    item.finishes.some(f => f.finish === 'mockupOutdoor')
+    item.finishes.some(f => f.finish === 'outdoorMockup')
   );
 
   // Apply toggle logic ONLY to the selected category
@@ -74,7 +74,7 @@ export default function Visualizer() {
 
   const handleProductClick = (item, type) => {
     const mockupFinish = item.finishes.find(f => 
-      f.finish === (type === 'indoor' ? 'mockup' : 'mockupOutdoor')
+      f.finish === (type === 'indoor' ? 'indoorMockup' : 'outdoorMockup')
     );
     
     setSelectedProduct({
