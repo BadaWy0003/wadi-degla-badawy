@@ -13,40 +13,41 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
   const [formData, setFormData] = useState({
     finishName: '',
     imageFile: null,
-    imagePreview: null
+    imageUrl: null
   });
 
   useEffect(() => {
     return () => {
-      if (formData.imagePreview) {
-        URL.revokeObjectURL(formData.imagePreview);
+      if (formData.imageUrl) {
+        URL.revokeObjectURL(formData.imageUrl);
       }
     };
-  }, [formData.imagePreview]);
+  }, [formData.imageUrl]);
 
   useEffect(() => {
     if (!open) {
-      if (formData.imagePreview) {
-        URL.revokeObjectURL(formData.imagePreview);
+      if (formData.imageUrl) {
+        URL.revokeObjectURL(formData.imageUrl);
       }
       setFormData({
         finishName: '',
         imageFile: null,
-        imagePreview: null
+        imageUrl: null
       });
     }
-  }, [open]);
+  }, [open, formData.imageUrl]); // Add formData.imageUrl to dependencies
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (formData.imagePreview) {
-        URL.revokeObjectURL(formData.imagePreview);
+      if (formData.imageUrl) {
+        URL.revokeObjectURL(formData.imageUrl);
       }
+      const imageUrl = URL.createObjectURL(file);
       setFormData(prev => ({
         ...prev,
         imageFile: file,
-        imagePreview: URL.createObjectURL(file)
+        imageUrl: imageUrl
       }));
     }
   };
@@ -57,7 +58,7 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
       finish: [{
         finishName: formData.finishName,
         imageFile: formData.imageFile,
-        imageUrl: formData.imagePreview
+        imageUrl: formData.imageUrl
       }]
     };
     
@@ -76,7 +77,7 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField
             fullWidth
-            label="Finish Name"
+            label="Name"
             value={formData.finishName}
             onChange={(e) => setFormData(prev => ({ ...prev, finishName: e.target.value }))}
             required
@@ -87,9 +88,9 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
             onChange={handleImageUpload}
             style={{ margin: '10px 0' }}
           />
-          {formData.imagePreview && (
+          {formData.imageUrl && (
             <img 
-              src={formData.imagePreview} 
+              src={formData.imageUrl} 
               alt="Preview" 
               style={{ maxHeight: 200, objectFit: 'contain' }}
             />

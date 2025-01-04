@@ -19,10 +19,8 @@ import {
   DialogActions,
   DialogContentText,
   TextField,
-  MenuItem,
   InputAdornment,
 } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete'; // Fixed import path
 import SearchIcon from '@mui/icons-material/Search';
 import AddImageModal from './AddImageModal';
@@ -32,20 +30,11 @@ function Gallery() {
   const [orderBy, setOrderBy] = React.useState('name');
   const [order, setOrder] = React.useState('asc');
   const [selected, setSelected] = React.useState([]);
-  const [openDialog, setOpenDialog] = React.useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);
   const [imageToDelete, setImageToDelete] = React.useState(null);
-  const [editingImage, setEditingImage] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [searchField, setSearchField] = React.useState('name');
   const [openAddModal, setOpenAddModal] = React.useState(false);
   const [customCategory, setCustomCategory] = React.useState('');
-
-  const [formData, setFormData] = React.useState({
-    name: '',
-    finishName: '',
-    finishImage: null
-  });
 
   React.useEffect(() => {
     fetchGallery();
@@ -95,27 +84,12 @@ function Gallery() {
     setSelected(newSelected);
   };
 
-  const handleOpenDialog = (image = null) => {
-    if (image) {
-      setEditingImage(image);
-      setFormData(image);
-    } else {
-      setEditingImage(null);
-      setFormData({
-        name: '',
-        finishName: '',
-        finishImage: null
-      });
-    }
-    setOpenDialog(true);
-  };
-
   const handleAddImage = (newImage) => {
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('type', 'Gallery');
       formDataToSend.append('name', newImage.name);
-      formDataToSend.append('file', newImage.finish[0].imageFile);
+      formDataToSend.append('files', newImage.finish[0].imageFile);
       
       const finishes = [{
         finish: newImage.finish[0].finishName,
@@ -123,13 +97,6 @@ function Gallery() {
       }];
       
       formDataToSend.append('finishes', JSON.stringify(finishes));
-
-      console.log('Sending to API:', {
-        type: 'Gallery',
-        name: newImage.name,
-        finishes: finishes,
-        file: newImage.finish[0].imageFile
-      });
 
       fetch("http://localhost:5000/api/storage/upload", {
         method: "POST",
@@ -153,13 +120,6 @@ function Gallery() {
       console.error('Error preparing upload:', error);
       alert('Error preparing image upload. Please try again.');
     }
-  };
-
-  const handleFileChange = (event) => {
-    setFormData({
-      ...formData,
-      finishImage: event.target.files[0]
-    });
   };
 
   const handleDeleteConfirm = async () => {
@@ -208,34 +168,8 @@ function Gallery() {
     }
   };
 
-  const handleSubmit = async () => {
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append('name', formData.name);
-      formDataToSend.append('finishName', formData.finishName);
-      formDataToSend.append('finishImage', formData.finishImage);
-      
-      const response = await fetch(
-        "http://localhost:5000/api/storage/upload",
-        {
-          method: "POST",
-          credentials: "include",
-          body: formDataToSend,
-        }
-      );
-      if (!response.ok) throw new Error("Failed to add image");
-      fetchGallery();
-      setOpenDialog(false);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   const filteredGallery = Array.isArray(gallery) ? gallery.filter(image => {
-    const searchValue = searchField === 'finishName' 
-      ? (image.finishes[0]?.finish || '').toLowerCase()
-      : (image[searchField] || '').toLowerCase();
-    return searchValue.includes(searchQuery.toLowerCase());
+    return (image.name || '').toLowerCase().includes(searchQuery.toLowerCase());
   }) : [];
 
   const sortedGallery = filteredGallery.sort((a, b) => {
@@ -246,19 +180,10 @@ function Gallery() {
   });
 
   const renderSearchBar = () => (
-    <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
-      <TextField
-        select
-        value={searchField}
-        onChange={(e) => setSearchField(e.target.value)}
-        sx={{ width: 150 }}
-      >
-        <MenuItem value="name">Name</MenuItem>
-        <MenuItem value="finishName">Finish Name</MenuItem>
-      </TextField>
+    <Box sx={{ mb: 3 }}>
       <TextField
         fullWidth
-        placeholder={`Search by ${searchField}...`}
+        placeholder="Search by name..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         InputProps={{
@@ -270,44 +195,6 @@ function Gallery() {
         }}
       />
     </Box>
-  );
-
-  const renderAddEditDialog = () => (
-    <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-      <DialogTitle>
-        {editingImage ? 'Edit Image' : 'Add New Image'}
-      </DialogTitle>
-      <DialogContent>
-        <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          <TextField
-            fullWidth
-            label="Name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            required
-          />
-          <TextField
-            fullWidth
-            label="Finish Name"
-            value={formData.finishName}
-            onChange={(e) => setFormData({ ...formData, finishName: e.target.value })}
-            required
-          />
-          <input
-            accept="image/*"
-            type="file"
-            onChange={handleFileChange}
-            style={{ margin: '10px 0' }}
-          />
-        </Box>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setOpenDialog(false)}>Cancel</Button>
-        <Button onClick={handleSubmit} variant="contained" color="primary">
-          {editingImage ? 'Save Changes' : 'Add Image'}
-        </Button>
-      </DialogActions>
-    </Dialog>
   );
 
   const renderDeleteDialog = () => (
@@ -336,9 +223,7 @@ function Gallery() {
   );
 
   const tableColumns = [
-    { id: 'name', label: 'Name' },
-    { id: 'finishName', label: 'Finish Name' },
-    { id: 'image', label: 'Image' }
+    { id: 'name', label: 'Name' }
   ].map((column) => (
     <TableCell key={column.id}>
       <TableSortLabel
@@ -365,7 +250,6 @@ function Gallery() {
             />
           </TableCell>
           <TableCell>{image.name}</TableCell>
-          <TableCell>{image.finishes[0]?.finish || ''}</TableCell>
           <TableCell>
             {image.finishes[0]?.link && (
               <img 
@@ -376,25 +260,16 @@ function Gallery() {
             )}
           </TableCell>
           <TableCell>
-            <Box sx={{ display: 'flex', gap: 1 }}>
-              <IconButton 
-                size="small" 
-                color="primary"
-                onClick={() => handleOpenDialog(image)}
-              >
-                <EditIcon />
-              </IconButton>
-              <IconButton 
-                size="small" 
-                color="error"
-                onClick={() => {
-                  setImageToDelete(image.id);
-                  setOpenDeleteDialog(true);
-                }}
-              >
-                <DeleteIcon />
-              </IconButton>
-            </Box>
+            <IconButton 
+              size="small" 
+              color="error"
+              onClick={() => {
+                setImageToDelete(image.id);
+                setOpenDeleteDialog(true);
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </TableCell>
         </TableRow>
       ))}
@@ -439,6 +314,7 @@ function Gallery() {
                 />
               </TableCell>
               {tableColumns}
+              <TableCell>Image</TableCell>
               <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -446,7 +322,6 @@ function Gallery() {
         </Table>
       </TableContainer>
 
-      {renderAddEditDialog()}
       {renderDeleteDialog()}
             
       <AddImageModal 
