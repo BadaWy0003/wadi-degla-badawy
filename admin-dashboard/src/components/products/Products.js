@@ -43,7 +43,7 @@ export default function Products() {
 
   const fetchProducts = () => {
     setLoading(true);
-    fetch("http://localhost:5000/api/storage/all")
+    fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`)
       .then((response) => response.json())
       .then((result) => {
         if (result.data) {
@@ -80,16 +80,16 @@ export default function Products() {
   const handleDeleteSelected = async () => {
     try {
       await Promise.all(
-        selected.map(id => 
-          fetch(`http://localhost:5000/api/storage/product/${id}`, // Fix API endpoint
-            { 
+        selected.map(id =>
+          fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${id}`, // Fix API endpoint
+            {
               credentials: 'include',
               method: 'DELETE',
             }
           )
         )
       );
-      
+
       fetchProducts();
       setSelected([]);
       setOpenDeleteDialog(false);
@@ -110,8 +110,9 @@ export default function Products() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/storage/product/${id}`, 
-        { credentials: 'include',
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${id}`,
+        {
+          credentials: 'include',
           method: 'DELETE',
         });
 
@@ -124,7 +125,7 @@ export default function Products() {
       console.error('Error deleting product:', error);
     }
   };
-  
+
   const handleConfirmDelete = async () => {
     if (productToDelete) { // Change from selectedProduct to productToDelete
       await handleDelete(productToDelete);
@@ -149,16 +150,16 @@ export default function Products() {
   const sortData = (data) => {
     return [...data].sort((a, b) => {
       if (orderBy === 'finishes') {
-        return order === 'asc' 
+        return order === 'asc'
           ? a.finishes.length - b.finishes.length
           : b.finishes.length - a.finishes.length;
       }
-      
+
       // Handle category/type field
       if (orderBy === 'category') {
         const aValue = a.type || '';
         const bValue = b.type || '';
-        return order === 'asc' 
+        return order === 'asc'
           ? aValue.localeCompare(bValue)
           : bValue.localeCompare(aValue);
       }
@@ -166,7 +167,7 @@ export default function Products() {
       // Handle other fields
       const aValue = a[orderBy] || '';
       const bValue = b[orderBy] || '';
-      return order === 'asc' 
+      return order === 'asc'
         ? String(aValue).localeCompare(String(bValue))
         : String(bValue).localeCompare(String(aValue));
     });
@@ -175,7 +176,7 @@ export default function Products() {
   const filterData = (data) => {
     // First filter out Gallery items
     const nonGalleryItems = data.filter(product => product.type !== 'Gallery');
-    
+
     // Then apply search filter if there's a search query
     if (!searchQuery) return nonGalleryItems;
 
@@ -218,7 +219,7 @@ export default function Products() {
           Add Product
         </Button>
       </Box>
-      
+
       <ProductsSearchBar
         searchQuery={searchQuery}
         searchField={searchField}
@@ -260,7 +261,7 @@ export default function Products() {
                   <Typography><strong>Category:</strong> {selectedProduct.type}</Typography>
                   <Typography><strong>Total Finishes:</strong> {selectedProduct.finishes?.length || 0}</Typography>
                 </Grid>
-                
+
                 {selectedProduct.finishes && selectedProduct.finishes.length > 0 && (
                   <Grid item xs={12}>
                     <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Available Finishes:</Typography>
@@ -270,7 +271,7 @@ export default function Products() {
                           <Paper sx={{ p: 1 }}>
                             <Typography><strong>{finish.finish}</strong></Typography>
                             {finish.link && (
-                              <img 
+                              <img
                                 src={finish.link}
                                 alt={finish.finish}
                                 style={{ width: '100%', height: 'auto', maxHeight: '200px', objectFit: 'contain' }}
@@ -288,8 +289,8 @@ export default function Products() {
                     {selectedProduct.mockupUrl && (
                       <Grid item xs={12} sm={6}>
                         <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Indoor Mockup:</Typography>
-                        <img 
-                          src={`http://localhost:5000${selectedProduct.mockupUrl}`}
+                        <img
+                          src={`${process.env.REACT_APP_BASE_API_URL}${selectedProduct.mockupUrl}`}
                           alt="Indoor Mockup"
                           style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain' }}
                         />
@@ -298,8 +299,8 @@ export default function Products() {
                     {selectedProduct.mockupOutdoorUrl && (
                       <Grid item xs={12} sm={6}>
                         <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Outdoor Mockup:</Typography>
-                        <img 
-                          src={`http://localhost:5000${selectedProduct.mockupOutdoorUrl}`}
+                        <img
+                          src={`${process.env.REACT_APP_BASE_API_URL}${selectedProduct.mockupOutdoorUrl}`}
                           alt="Outdoor Mockup"
                           style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain' }}
                         />
@@ -318,16 +319,16 @@ export default function Products() {
         onClose={() => setOpenAddModal(false)}
         onSubmit={handleAddProduct}
       />
-            <DeleteConfirmDialog
-              open={openDeleteDialog}
-              onClose={() => {
-                setOpenDeleteDialog(false);
-                setProductToDelete(null);
-              }}
-              onConfirm={handleConfirmDelete}
-              singleDelete={!!productToDelete} // Fix the logic and use productToDelete
-              count={selected.length}
-            />
+      <DeleteConfirmDialog
+        open={openDeleteDialog}
+        onClose={() => {
+          setOpenDeleteDialog(false);
+          setProductToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        singleDelete={!!productToDelete} // Fix the logic and use productToDelete
+        count={selected.length}
+      />
       <EditProductModal
         open={openEditModal}
         onClose={() => {
@@ -337,7 +338,7 @@ export default function Products() {
         onSubmit={handleEditSubmit}
         product={editingProduct}
       />
-      
+
     </Box>
   );
 }

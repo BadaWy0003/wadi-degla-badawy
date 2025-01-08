@@ -132,10 +132,10 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
     if (newFinish.finishName && (newFinish.imageUrl || newFinish.imageFile)) {
       setProductData(prev => ({
         ...prev,
-        finish: [...prev.finish, { 
-          finishName: newFinish.finishName, 
+        finish: [...prev.finish, {
+          finishName: newFinish.finishName,
           imageUrl: newFinish.imageUrl,
-          imageFile: newFinish.imageFile 
+          imageFile: newFinish.imageFile
         }]
       }));
       setNewFinish({ finishName: '', imageUrl: '', imageFile: null });
@@ -152,11 +152,11 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     // if (!productData.id) {
     //   newErrors.id = 'ID is required';
     // }
-    
+
     if (productData.finish.length === 0) {
       newErrors.finish = 'At least one finish with an image is required';
     }
@@ -170,15 +170,15 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
     if (validateForm()) {
       try {
         const formData = new FormData();
-        
+
         // Add the file
         if (productData.mockup) {
           console.log('Adding mockup file:', productData.mockup);
           formData.append('files', productData.mockup);
         }
         console.log(productData);
-        if(productData.finish.length) {
-          productData.finish.forEach((finish) => {formData.append('files', finish.imageFile);});
+        if (productData.finish.length) {
+          productData.finish.forEach((finish) => { formData.append('files', finish.imageFile); });
         }
         console.log(productData.finish[0].imageFile);
         // Add other fields
@@ -198,7 +198,7 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
 
         // Send the POST request
         const response = await fetch(
-          "http://localhost:5000/api/storage/upload",
+          `${process.env.REACT_APP_BASE_API_URL}/api/storage/upload`,
           {
             method: "POST",
             body: formData,
@@ -248,7 +248,7 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
     <Modal open={open} onClose={onClose}>
       <Box sx={style} component="form" onSubmit={handleSubmit}>
         <Typography variant="h6" sx={{ mb: 2 }}>Add New Product</Typography>
-        
+
         <Grid container spacing={2}>
           <Grid item xs={12} >
             <TextField
@@ -260,7 +260,7 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
               required
             />
           </Grid>
-          
+
           <Grid item xs={12}>
             {!isCustomCategory ? (
               <TextField
@@ -389,7 +389,7 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
                 <AddIcon />
               </IconButton>
             </Box>
-            
+
             {productData.finish.map((finish, index) => (
               <Box key={index} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
                 <Typography>{finish.finishName}</Typography>

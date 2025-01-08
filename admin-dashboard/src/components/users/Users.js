@@ -48,7 +48,7 @@ export default function Users() {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/all", {
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/admin/all`, {
         credentials: "include",
         method: "GET",
       });
@@ -137,7 +137,7 @@ export default function Users() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/create", {
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/admin/create`, {
         credentials: "include",
         method: "POST",
         headers: {
@@ -157,14 +157,15 @@ export default function Users() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/delete/${id}`,
-        { credentials: 'include',
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/admin/delete/${id}`,
+        {
+          credentials: 'include',
           method: 'DELETE',
         },
-       );
+      );
 
       if (!response.ok) throw new Error('Failed to delete user');
-      
+
       fetchUsers(); // Now fetchUsers is in scope
     } catch (error) {
       console.error('Error:', error);
@@ -174,15 +175,16 @@ export default function Users() {
   const handleDeleteSelected = async () => {
     try {
       await Promise.all(
-        selected.map(id => 
-          fetch(`http://localhost:5000/api/admin/delete/${id}`,
-            { credentials: 'include',
+        selected.map(id =>
+          fetch(`${process.env.REACT_APP_BASE_API_URL}/api/admin/delete/${id}`,
+            {
+              credentials: 'include',
               method: 'DELETE',
             },
-            )
+          )
         )
       );
-      
+
       fetchUsers(); // Now fetchUsers is in scope
       setSelected([]);
       setOpenDeleteDialog(false);
@@ -197,16 +199,16 @@ export default function Users() {
         <Typography variant="h4">Users</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
-            <Button 
-              variant="contained" 
+            <Button
+              variant="contained"
               color="error"
               onClick={() => setOpenDeleteDialog(true)}
             >
               Delete Selected ({selected.length})
             </Button>
           )}
-          <Button 
-            variant="contained" 
+          <Button
+            variant="contained"
             color="primary"
             onClick={() => handleOpenDialog()}
           >
@@ -214,7 +216,7 @@ export default function Users() {
           </Button>
         </Box>
       </Box>
-      
+
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -259,7 +261,7 @@ export default function Users() {
           </TableHead>
           <TableBody>
             {users.map((user) => (
-              <TableRow 
+              <TableRow
                 key={user.id}
                 selected={selected.includes(user.id)}
               >
@@ -274,15 +276,15 @@ export default function Users() {
                 <TableCell>{user.role}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <IconButton 
-                      size="small" 
+                    <IconButton
+                      size="small"
                       color="primary"
                       onClick={() => handleOpenDialog(user)}
                     >
                       <EditIcon />
                     </IconButton>
-                    <IconButton 
-                      size="small" 
+                    <IconButton
+                      size="small"
                       color="error"
                       onClick={() => {
                         setUserToDelete(user.id);

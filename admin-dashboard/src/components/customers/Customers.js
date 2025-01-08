@@ -57,10 +57,10 @@ export default function Customers() {
   }, []);
 
   const fetchCustomers = async () => {
-    
+
     try {
-      const response = await fetch('http://localhost:5000/api/customer/all', 
-        { credentials: 'include'},
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/customer/all`,
+        { credentials: 'include' },
       );
       if (!response.ok) throw new Error('Failed to fetch customers');
       const data = await response.json();
@@ -132,7 +132,7 @@ export default function Customers() {
       console.log('Submitting customer data:', customerData);
 
       const response = await fetch(
-        "http://localhost:5000/api/customer/create",
+        `${process.env.REACT_APP_BASE_API_URL}/api/customer/create`,
         {
           method: "POST",
           credentials: "include",
@@ -150,7 +150,7 @@ export default function Customers() {
 
       const result = await response.json();
       console.log("Customer created successfully:", result);
-      
+
       fetchCustomers(); // Refresh the list
       setOpenDialog(false);
     } catch (error) {
@@ -158,7 +158,7 @@ export default function Customers() {
       alert(error.message || "Failed to create customer. Please try again.");
     }
   };
-//_______________________________________________________________ from users.js
+  //_______________________________________________________________ from users.js
   const handleDeleteConfirm = async () => {
     if (customerToDelete) {
       await handleDelete(customerToDelete);
@@ -170,11 +170,12 @@ export default function Customers() {
   };
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/customer/delete/${id}`,
-        { credentials: 'include',
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/customer/delete/${id}`,
+        {
+          credentials: 'include',
           method: 'DELETE',
         },
-       );
+      );
 
       if (!response.ok) throw new Error('Failed to delete user');
       console.log("Customer deleted successfully");
@@ -187,12 +188,13 @@ export default function Customers() {
   const handleDeleteSelected = async () => {
     try {
       await Promise.all(
-        selected.map(id => 
-          fetch(`http://localhost:5000/api/customer/delete/${id}`,
-            { credentials: 'include',
+        selected.map(id =>
+          fetch(`${process.env.REACT_APP_BASE_API_URL}/api/customer/delete/${id}`,
+            {
+              credentials: 'include',
               method: 'DELETE',
             },
-            )
+          )
         )
       );
       console.log("Customers deleted successfully");
@@ -203,13 +205,13 @@ export default function Customers() {
       console.error('Error:', error);
     }
   };
-//_______________________________________________________________ 
+  //_______________________________________________________________ 
 
   // const handleDeleteConfirm = async () => {
 
   //   try {
   //     const response = await fetch(
-  //       `http://localhost:5000/api/customer/delete/${customerToDelete}`,
+  //       `${process.env.REACT_APP_BASE_API_URL}/api/customer/delete/${customerToDelete}`,
   //       { method: "DELETE", credentials: "include" }
   //     );
   //     if (!response.ok) throw new Error("Failed to delete customer");
@@ -268,7 +270,7 @@ export default function Customers() {
       </DialogTitle>
       <DialogContent>
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {['fullName', 'companyName', 'rnc', 'email' , 'phone', 'whatsapp', 'country', 'address', 'port', 'password'].map((field) => (
+          {['fullName', 'companyName', 'rnc', 'email', 'phone', 'whatsapp', 'country', 'address', 'port', 'password'].map((field) => (
             <TextField
               key={field}
               fullWidth
@@ -294,8 +296,8 @@ export default function Customers() {
       <DialogTitle>Confirm Delete</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          {customerToDelete 
-            ? 'Are you sure you want to delete this customer?' 
+          {customerToDelete
+            ? 'Are you sure you want to delete this customer?'
             : `Are you sure you want to delete ${selected.length} selected customers?`
           }
         </DialogContentText>
@@ -320,16 +322,16 @@ export default function Customers() {
         <Typography variant="h4">Customers</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
-            <Button 
-              variant="contained" 
+            <Button
+              variant="contained"
               color="error"
               onClick={() => setOpenDeleteDialog(true)}
             >
               Delete Selected ({selected.length})
             </Button>
           )}
-          <Button 
-            variant="contained" 
+          <Button
+            variant="contained"
             color="primary"
             onClick={() => handleOpenDialog()}
           >
@@ -339,7 +341,7 @@ export default function Customers() {
       </Box>
 
       {renderSearchBar()}
-      
+
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -367,7 +369,7 @@ export default function Customers() {
           </TableHead>
           <TableBody>
             {sortedCustomers.map((customer) => (
-              <TableRow 
+              <TableRow
                 key={customer.id}
                 selected={selected.includes(customer.id)}
               >
@@ -382,15 +384,15 @@ export default function Customers() {
                 <TableCell>{customer.companyName}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <IconButton 
-                      size="small" 
+                    <IconButton
+                      size="small"
                       color="primary"
                       onClick={() => handleOpenDialog(customer)}
                     >
                       <EditIcon />
                     </IconButton>
-                    <IconButton 
-                      size="small" 
+                    <IconButton
+                      size="small"
                       color="error"
                       onClick={() => {
                         setCustomerToDelete(customer.id);

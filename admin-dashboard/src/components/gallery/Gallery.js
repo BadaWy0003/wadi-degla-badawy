@@ -34,7 +34,7 @@ function Gallery() {
   const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);
   const [imageToDelete, setImageToDelete] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [searchField ] = React.useState('name');
+  const [searchField] = React.useState('name');
   const [openAddModal, setOpenAddModal] = React.useState(false);
   const [customCategory, setCustomCategory] = React.useState('');
 
@@ -50,11 +50,13 @@ function Gallery() {
 
   const fetchGallery = async () => {
     const typeName = "Gallery";
-    const url = `http://localhost:5000/api/storage/type/${typeName}`;
+    const url = `${process.env.REACT_APP_BASE_API_URL}/api/storage/type/${typeName}`;
     try {
-      const response = await fetch(url, 
-        { method: 'GET',
-          credentials: 'include'},
+      const response = await fetch(url,
+        {
+          method: 'GET',
+          credentials: 'include'
+        },
       );
       if (!response.ok) throw new Error('Failed to fetch Gallery');
       const { data } = await response.json();
@@ -98,14 +100,14 @@ function Gallery() {
       const formDataToSend = new FormData();
       formDataToSend.append('type', 'Gallery');
       formDataToSend.append('name', newImage.name);
-      
+
       // Structure the finish array with all required properties
       const finishes = [{
         finishName: newImage.finish[0].finishName,
         imageFile: newImage.finish[0].imageFile,
         imageUrl: newImage.finish[0].imageUrl
       }];
-      
+
       formDataToSend.append('finishes', JSON.stringify(finishes));
       // Append the actual file
       formDataToSend.append('files', newImage.finish[0].imageFile);
@@ -116,24 +118,24 @@ function Gallery() {
         finishes: finishes
       });
 
-      fetch("http://localhost:5000/api/storage/upload", {
+      fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/upload`, {
         method: "POST",
         credentials: "include",
         body: formDataToSend,
       })
-      .then(response => {
-        if (!response.ok) throw new Error(`Upload failed: ${response.status}`);
-        return response.json();
-      })
-      .then(data => {
-        console.log('Upload successful:', data);
-        fetchGallery();
-        setOpenAddModal(false);
-      })
-      .catch(error => {
-        console.error('Upload error:', error);
-        alert('Failed to upload image. Please try again.');
-      });
+        .then(response => {
+          if (!response.ok) throw new Error(`Upload failed: ${response.status}`);
+          return response.json();
+        })
+        .then(data => {
+          console.log('Upload successful:', data);
+          fetchGallery();
+          setOpenAddModal(false);
+        })
+        .catch(error => {
+          console.error('Upload error:', error);
+          alert('Failed to upload image. Please try again.');
+        });
     } catch (error) {
       console.error('Error preparing upload:', error);
       alert('Error preparing image upload. Please try again.');
@@ -153,15 +155,16 @@ function Gallery() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/storage/product/${id}`,
-        { credentials: 'include',
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${id}`,
+        {
+          credentials: 'include',
           method: 'DELETE',
         },
-       );
+      );
 
       if (!response.ok) throw new Error('Failed to delete image from gallery');
       console.log("image deleted successfully from the gallery");
-      fetchGallery(); 
+      fetchGallery();
     } catch (error) {
       console.error('Error:', error);
     }
@@ -170,16 +173,17 @@ function Gallery() {
   const handleDeleteSelected = async () => {
     try {
       await Promise.all(
-        selected.map(id => 
-          fetch(`http://localhost:5000/api/storage/product/${id}`,
-            { credentials: 'include',
+        selected.map(id =>
+          fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${id}`,
+            {
+              credentials: 'include',
               method: 'DELETE',
             },
-            )
+          )
         )
       );
       console.log("Images deleted successfully from the gallery");
-      fetchGallery(); 
+      fetchGallery();
       setSelected([]);
       setOpenDeleteDialog(false);
     } catch (error) {
@@ -193,9 +197,9 @@ function Gallery() {
       formDataToSend.append('name', formData.name);
       formDataToSend.append('finishName', formData.finishName);
       formDataToSend.append('finishImage', formData.finishImage);
-      
+
       const response = await fetch(
-        "http://localhost:5000/api/storage/upload",
+        `${process.env.REACT_APP_BASE_API_URL}/api/storage/upload`,
         {
           method: "POST",
           credentials: "include",
@@ -211,7 +215,7 @@ function Gallery() {
   };
 
   const filteredGallery = Array.isArray(gallery) ? gallery.filter(image => {
-    const searchValue = searchField === 'finishName' 
+    const searchValue = searchField === 'finishName'
       ? (image.finishes[0]?.finish || '').toLowerCase()
       : (image[searchField] || '').toLowerCase();
     return searchValue.includes(searchQuery.toLowerCase());
@@ -226,7 +230,7 @@ function Gallery() {
 
   const renderSearchBar = () => (
     <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
-      
+
       <TextField
         fullWidth
         placeholder={`Search by ${searchField}...`}
@@ -250,8 +254,8 @@ function Gallery() {
       <DialogTitle>Confirm Delete</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          {imageToDelete 
-            ? 'Are you sure you want to delete this image from the gallery?' 
+          {imageToDelete
+            ? 'Are you sure you want to delete this image from the gallery?'
             : `Are you sure you want to delete ${selected.length} selected images from the gallery?`
           }
         </DialogContentText>
@@ -288,7 +292,7 @@ function Gallery() {
   const renderTableBody = () => (
     <TableBody>
       {sortedGallery.map((image) => (
-        <TableRow 
+        <TableRow
           key={image.id}
           selected={selected.includes(image.id)}
         >
@@ -301,17 +305,17 @@ function Gallery() {
           <TableCell>{image.finishes[0]?.finish || ''}</TableCell>
           <TableCell>
             {image.finishes[0]?.link && (
-              <img 
-                src={image.finishes[0].link} 
-                alt={image.name} 
+              <img
+                src={image.finishes[0].link}
+                alt={image.name}
                 style={{ height: '50px', width: 'auto' }}
               />
             )}
           </TableCell>
           <TableCell>
             <Box sx={{ display: 'flex', gap: 1 }}>
-              <IconButton 
-                size="small" 
+              <IconButton
+                size="small"
                 color="error"
                 onClick={() => {
                   setImageToDelete(image.id);
@@ -333,26 +337,26 @@ function Gallery() {
         <Typography variant="h4">Gallery</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
-            <Button 
-              variant="contained" 
+            <Button
+              variant="contained"
               color="error"
               onClick={() => setOpenDeleteDialog(true)}
             >
               Delete Selected ({selected.length})
             </Button>
           )}
-          <Button 
-            variant="contained" 
+          <Button
+            variant="contained"
             color="primary"
             onClick={() => setOpenAddModal(true)}
-            >
+          >
             Add New image to gallery
           </Button>
         </Box>
       </Box>
 
       {renderSearchBar()}
-      
+
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -373,15 +377,15 @@ function Gallery() {
       </TableContainer>
 
       {renderDeleteDialog()}
-            
-      <AddImageModal 
+
+      <AddImageModal
         open={openAddModal}
         onClose={() => setOpenAddModal(false)}
         onAdd={handleAddImage}
         customCategory={customCategory}
         setCustomCategory={setCustomCategory}
       />
-      
+
     </Box>
   );
 }

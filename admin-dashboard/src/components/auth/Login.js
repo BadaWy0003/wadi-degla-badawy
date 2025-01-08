@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import axios from "axios";
 import { useGlobalState } from "../GlobalStateContext";
-
-
-import { 
-  Box, 
-  TextField, 
-  Button, 
-  Paper, 
-  Typography, 
-  Container 
+import {
+  Box,
+  TextField,
+  Button,
+  Paper,
+  Typography,
+  Container
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -44,18 +42,18 @@ export default function Login() {
     if (validateForm()) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/auth/admin/login",
+          `${process.env.REACT_APP_BASE_API_URL}/api/auth/admin/login`,
           { email: formData.email, password: formData.password },
           { withCredentials: true } // Include cookies
         );
-  
+
         if (response.status === 200 || response.status === 201) {
           // Update global state
           setGlobalState({
             isLoggedIn: true,
             ...response.data,
           });
-  
+
           setMessage("Login successful!");
           navigate("/"); // Redirect to homepage
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -66,7 +64,7 @@ export default function Login() {
       }
     }
   };
-  
+
 
   return (
     <Container component="main" maxWidth="xs">

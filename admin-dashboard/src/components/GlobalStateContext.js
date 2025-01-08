@@ -20,7 +20,7 @@ export const GlobalStateProvider = ({ children }) => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/auth/admin/check-auth",
+          `${process.env.REACT_APP_BASE_API_URL}/api/auth/admin/check-auth`,
           { withCredentials: true }
         );
 

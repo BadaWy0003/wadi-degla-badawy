@@ -175,7 +175,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
       try {
         // Step 1: Delete the existing product
         const deleteResponse = await fetch(
-          `http://localhost:5000/api/storage/product/${product.id}`,
+          `${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${product.id}`,
           {
             method: "DELETE",
             credentials: "include",
@@ -188,7 +188,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
 
         // Step 2: Create a new product with updated data using the upload endpoint
         const formData = new FormData();
-        
+
         // Add base fields
         formData.append('name', productData.name);
         formData.append('type', productData.category);
@@ -215,7 +215,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
 
         // Create new product
         const createResponse = await fetch(
-          "http://localhost:5000/api/storage/upload",
+          `${process.env.REACT_APP_BASE_API_URL}/api/storage/upload`,
           {
             method: "POST",
             body: formData,
@@ -244,7 +244,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     <Modal open={open} onClose={onClose}>
       <Box sx={style} component="form" onSubmit={handleSubmit}>
         <Typography variant="h6" sx={{ mb: 2 }}>Edit Product</Typography>
-        
+
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
@@ -256,7 +256,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
               required
             />
           </Grid>
-          
+
           <Grid item xs={12}>
             {!isCustomCategory ? (
               <TextField
@@ -385,7 +385,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
                 <AddIcon />
               </IconButton>
             </Box>
-            
+
             {productData.finish.map((finish, index) => (
               <Box key={index} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
                 <Typography>{finish.finishName}</Typography>
