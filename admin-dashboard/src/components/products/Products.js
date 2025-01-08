@@ -5,6 +5,7 @@ import ProductsTable from './ProductsTable';
 import AddIcon from '@mui/icons-material/Add';
 import AddProductModal from './AddProductModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
+import EditProductModal from './EditProductModal';
 
 const modalStyle = {
   position: 'absolute',
@@ -33,6 +34,8 @@ export default function Products() {
   const [loading, setLoading] = useState(true);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [productToDelete, setProductToDelete] = useState(null);
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
 
   useEffect(() => {
     fetchProducts();
@@ -97,8 +100,12 @@ export default function Products() {
 
 
   const handleEdit = (product) => {
-    // To be implemented when you have the edit modal ready
-    console.log('Editing:', product);
+    setEditingProduct(product);
+    setOpenEditModal(true);
+  };
+
+  const handleEditSubmit = () => {
+    fetchProducts(); // Refresh the list after successful edit
   };
 
   const handleDelete = async (id) => {
@@ -321,6 +328,15 @@ export default function Products() {
               singleDelete={!!productToDelete} // Fix the logic and use productToDelete
               count={selected.length}
             />
+      <EditProductModal
+        open={openEditModal}
+        onClose={() => {
+          setOpenEditModal(false);
+          setEditingProduct(null);
+        }}
+        onSubmit={handleEditSubmit}
+        product={editingProduct}
+      />
       
     </Box>
   );
