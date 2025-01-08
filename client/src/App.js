@@ -9,8 +9,8 @@ import Navbar from "./Components/Navbar/Navbar.js";
 import Footer from "./Components/Footer/Footer.js";
 import Products from "./Components/Products/Products.js";
 import Visualizer from "./Components/Products/Visualizer.js";
-import Contact from "./Components/Contact/Contact.js";
 import MyAccount from "./Components/MyAccount/MyAccount.js";
+import Contact from "./Components/Contact/Contact.js";
 import ProductDetails from "./Components/Products/ProductDetails.js";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
