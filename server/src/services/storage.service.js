@@ -25,20 +25,27 @@ const uploadFileToStorage = async (file, type) => {
   return `https://storage.googleapis.com/${bucket.name}/${fileName}`;
 };
 
-StorageService.handleMaterialUpload = async ({ name, type, finishes, files }) => {
+
+StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }) => {
   const materialsRef = firestore.collection('materials');
-  const querySnapshot = await materialsRef.where('name', '==', name).where('type', '==', type).get();
+  console.log("ID", id);
+  const docSnapshot = id ? await materialsRef.doc(id).get() : undefined;
+  console.log({ docSnapshot }, docSnapshot.empty);
 
-  // Upload files and associate them with finishes
-  const uploadedFinishes = await Promise.all(
-    files.map(async (file, index) => {
-      const publicUrl = await uploadFileToStorage(file, type);
-      return { finish: finishes[index].finishName, link: publicUrl };
-    }),
-  );
+  let uploadedFinishes = [];
+  if (files.length) {
+    const finishesWithoutFile = finishes.filter(f => !f.link);
+    uploadedFinishes = await Promise.all(
+      files.map(async (file) => {
+        const publicUrl = await uploadFileToStorage(file, type);
+        return { finish: finishesWithoutFile.shift()?.finishName, link: publicUrl };
+      }),
+    );
 
-  if (querySnapshot.empty) {
-    // Create new material
+    uploadedFinishes = uploadedFinishes.filter(f => f.finish);
+  }
+
+  if (!docSnapshot || !docSnapshot.exists) {
     const newMaterial = {
       name,
       type,
@@ -47,28 +54,34 @@ StorageService.handleMaterialUpload = async ({ name, type, finishes, files }) =>
     await materialsRef.add(newMaterial);
     return { message: 'Material created successfully', data: newMaterial };
   } else {
-    // Update existing material
-    const doc = querySnapshot.docs[0];
-    const existingData = doc.data();
+    const existingData = docSnapshot.data();
+    let nextFinishes = existingData.finishes ?? [];
+
 
     uploadedFinishes.forEach((uploadedFinish) => {
-      const finishIndex = existingData.finishes.findIndex((f) => f.finish === uploadedFinish.finish);
+      const finishIndex = nextFinishes.findIndex((f) => f.finish === uploadedFinish.finish);
 
       if (finishIndex >= 0) {
-        existingData.finishes[finishIndex].link = uploadedFinish.link;
+        nextFinishes[finishIndex].link = uploadedFinish.link;
       } else {
-        existingData.finishes.push(uploadedFinish);
+        nextFinishes.push(uploadedFinish);
       }
     });
 
-    await doc.ref.update({ finishes: existingData.finishes });
+    nextFinishes = nextFinishes.filter(f => finishes.some(ff => ff.finishName === f.finish));
+
+    await materialsRef.doc(id).update({
+      name,
+      type,
+      finishes: nextFinishes
+    });
 
     return {
       message: `Material updated successfully`,
       data: {
         name,
         type,
-        finishes: existingData.finishes,
+        finishes: nextFinishes,
       },
     };
   }

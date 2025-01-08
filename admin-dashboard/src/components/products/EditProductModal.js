@@ -173,20 +173,6 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     e.preventDefault();
     if (validateForm()) {
       try {
-        // Step 1: Delete the existing product
-        const deleteResponse = await fetch(
-          `${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${product.id}`,
-          {
-            method: "DELETE",
-            credentials: "include",
-          }
-        );
-
-        if (!deleteResponse.ok) {
-          throw new Error('Failed to delete existing product');
-        }
-
-        // Step 2: Create a new product with updated data using the upload endpoint
         const formData = new FormData();
 
         // Add base fields
@@ -215,9 +201,9 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
 
         // Create new product
         const createResponse = await fetch(
-          `${process.env.REACT_APP_BASE_API_URL}/api/storage/upload`,
+          `${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${product.id}`,
           {
-            method: "POST",
+            method: "PUT",
             body: formData,
             credentials: "include",
           }

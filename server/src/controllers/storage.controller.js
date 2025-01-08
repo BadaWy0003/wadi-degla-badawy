@@ -4,23 +4,26 @@ const StorageService = require('../services/storage.service');
 StorageController.uploadMaterial = async (req, res) => {
   try {
     const { name, type, finishes } = req.body; // `finishes` is expected as a JSON string.
+    const id = req.params.id;
     const files = req.files;
-    console.log('Files:', typeof files);
-    if (!name || !type || !finishes || files.length === 0) {
+
+    if (!name || !type || !finishes) {
       return res.status(400).json({
         message: 'Missing required fields: name, type, finishes, or files',
       });
     }
-    console.log('Missing required fields:', req.files, req.body);
-    const finishesArray = JSON.parse(finishes); // Parse finishes string into an array.
 
-    if (finishesArray.length !== files.length) {
+    const finishesArray = JSON.parse(finishes);
+    const finishesWithoutFile = finishesArray.filter(f => !f.link);
+
+    if (finishesWithoutFile.length !== files.length) {
       return res.status(400).json({
         message: 'The number of finishes does not match the number of uploaded files',
       });
     }
 
     const response = await StorageService.handleMaterialUpload({
+      id,
       name,
       type,
       finishes: finishesArray,
