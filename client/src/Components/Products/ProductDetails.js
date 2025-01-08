@@ -19,12 +19,12 @@ export default function ProductDetails() {
     const fetchProductFromAll = async () => {
       try {
         // Fetch all products
-        const response = await fetch("http://localhost:5000/api/storage/all", {
+        const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`, {
           credentials: 'include'
         });
-        
+
         if (!response.ok) throw new Error('Failed to fetch products');
-        
+
         const result = await response.json();
         if (result.data) {
           // Find the specific product by ID
@@ -32,7 +32,7 @@ export default function ProductDetails() {
           if (foundProduct) {
             setProduct(foundProduct);
             // Set default finish
-            const polishedFinish = foundProduct.finishes.find(f => f.finish === 'Polished') 
+            const polishedFinish = foundProduct.finishes.find(f => f.finish === 'Polished')
               || foundProduct.finishes[0];
             setSelectedFinish(polishedFinish);
           } else {
@@ -92,13 +92,13 @@ export default function ProductDetails() {
 
         <div className="details-right">
           <h1 className="details-title">{product.name}</h1>
-          
+
           <div className="info-grid">
             <div className="info-label">Category:</div>
-            <div className="info-value" style={{color: 'var(--blueColor)'}}>
+            <div className="info-value" style={{ color: 'var(--blueColor)' }}>
               {product.type}
             </div>
-            
+
             <div className="info-label">Finish:</div>
             <div className="info-value">
               <select
@@ -136,10 +136,10 @@ export default function ProductDetails() {
             </div>
           </div>
 
-          <button 
-            className="btn1" 
+          <button
+            className="btn1"
             onClick={() => navigate('/contact')}
-            style={{width: '100%', marginTop: '2rem'}}
+            style={{ width: '100%', marginTop: '2rem' }}
           >
             Request a Sample
           </button>

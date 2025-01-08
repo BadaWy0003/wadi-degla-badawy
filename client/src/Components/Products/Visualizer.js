@@ -17,7 +17,7 @@ export default function Visualizer() {
   const outdoorRef = useRef(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/storage/all')
+    fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`)
       .then(response => response.json())
       .then(result => {
         setData(result.data || []);
@@ -42,11 +42,11 @@ export default function Visualizer() {
   });
 
   // Get mockup images from finishes
-  const indoorProducts = filteredProducts.filter(item => 
+  const indoorProducts = filteredProducts.filter(item =>
     item.finishes.some(f => f.finish === 'indoorMockup')
   );
-  
-  const outdoorProducts = filteredProducts.filter(item => 
+
+  const outdoorProducts = filteredProducts.filter(item =>
     item.finishes.some(f => f.finish === 'outdoorMockup')
   );
 
@@ -73,10 +73,10 @@ export default function Visualizer() {
   const hasOutdoorProducts = outdoorProducts.length > 0;
 
   const handleProductClick = (item, type) => {
-    const mockupFinish = item.finishes.find(f => 
+    const mockupFinish = item.finishes.find(f =>
       f.finish === (type === 'indoor' ? 'indoorMockup' : 'outdoorMockup')
     );
-    
+
     setSelectedProduct({
       ...item,
       currentMockup: mockupFinish ? mockupFinish.link : null
@@ -102,10 +102,10 @@ export default function Visualizer() {
         )}
         <h1>{selectedProduct ? selectedProduct.name : "Visualizer"}</h1>
         <div className="breadcrumb" id='breadcrumb-visualizer'>
-                        <a href="/">Home</a>
-                        <p className='sub-breadcrumb'>{'>'} Explore</p>
-                        <p>{'>'} Visualizer </p>
-                    </div>
+          <a href="/">Home</a>
+          <p className='sub-breadcrumb'>{'>'} Explore</p>
+          <p>{'>'} Visualizer </p>
+        </div>
         {!selectedProduct && <p className="hero-hint">Select a product from below and it will show here</p>}
       </div>
 

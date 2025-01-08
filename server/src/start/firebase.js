@@ -1,17 +1,16 @@
 const admin = require('firebase-admin');
+const fs = require('node:fs');
+const path = require('node:path');
+
+if (process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64) {
+  const credentialsBuffer = Buffer.from(process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64, 'base64');
+  const tempPath = path.join('/tmp', 'firebase-credentials.json');
+  fs.writeFileSync(tempPath, credentialsBuffer);
+  process.env.GOOGLE_APPLICATION_CREDENTIALS = tempPath;
+}
 
 admin.initializeApp({
-  credential: admin.credential.cert({
-    private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    client_email: process.env.FIREBASE_CLIENT_EMAIL,
-    project_id: process.env.FIREBASE_PROJECT_ID,
-  }),
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  // apiKey: process.env.FIREBASE_API_KEY,
-  // authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  // projectId: process.env.FIREBASE_PROJECT_ID,
-  // appId: process.env.FIREBASE_APP_ID,
-  // measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET
 });
 
 const bucket = admin.storage().bucket();

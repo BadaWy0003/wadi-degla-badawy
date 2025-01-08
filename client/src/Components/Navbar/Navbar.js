@@ -15,13 +15,13 @@ import wadi_degla_logo_white from "../../Public/Assets/Logo-Identity/wadi-degla-
 // import user_icon from '../../Public/Assets/Icons/user-icon.svg';
 import React, { useState, useEffect, useRef } from 'react';
 import { useGlobalState } from '../GlobalStateContext.js';
-import {FaBars, FaTimes} from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
 
 
 
-export default function Navbar(){
+export default function Navbar() {
     const navRef = useRef();
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive_nav");
@@ -39,14 +39,14 @@ export default function Navbar(){
     const handleLogout = async () => {
         try {
             // Optional: Call a logout API (if required)
-            const response = await fetch("http://localhost:5000/api/auth/logout", {
+            const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/auth/logout`, {
                 method: "POST",
                 credentials: "include", // Ensures cookies are sent with the request
             });
-    
+
             if (response.ok) {
                 console.log("Logout successful");
-    
+
                 // Reset global state
                 setGlobalState({
                     isLoggedIn: false,
@@ -62,7 +62,7 @@ export default function Navbar(){
                     address: "",
                     port: "",
                 });
-    
+
                 // Navigate to the login page
                 navigate("/login");
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -86,11 +86,11 @@ export default function Navbar(){
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-    
-    return(
+
+    return (
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-                        <Link to='/' onClick={() => { window.scrollTo(0, 0); }}>
-                <img alt='' src={ scrolled? wadi_degla_logo_color : wadi_degla_logo_white} className='logo' />
+            <Link to='/' onClick={() => { window.scrollTo(0, 0); }}>
+                <img alt='' src={scrolled ? wadi_degla_logo_color : wadi_degla_logo_white} className='logo' />
             </Link>
             <nav ref={navRef}>
                 {/* Responsive Logo (only for small screens) */}
@@ -102,10 +102,10 @@ export default function Navbar(){
                 <div className="nav-item-with-submenu">
                     <p>Explore ↓</p>
                     <div className='submenu-bg'>
-                    <div className="submenu">
-                        <Link to='/products' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>Products</Link>
-                        <Link to='/visualizer' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>Visualizer</Link>
-                    </div>
+                        <div className="submenu">
+                            <Link to='/products' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>Products</Link>
+                            <Link to='/visualizer' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>Visualizer</Link>
+                        </div>
                     </div>
                 </div>
                 <Link to='/gallery' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>Gallery</Link>
@@ -113,19 +113,19 @@ export default function Navbar(){
 
                 {/* Responsive Login/My Account Section */}
                 <div className="responsive-nav-bottom nav-item-mobile">
-                {globalState.isLoggedIn ? (
-                    <div className="nav-item-with-submenu">
-                    <p>Account ↓</p>
-                    <div className="submenu">
-                    <Link to='/my account' onClick={() => {closeNavbar(); window.scrollTo(0, 0); }}>My Account</Link>
-                        <Link to='/login' onClick={() => { closeNavbar(); handleLogout(); }}>Logout</Link>
-                    </div>
-                </div>
-                
-                ) : (
-                    <Link to='/login' onClick={() => {closeNavbar(); window.scrollTo(0, 0); }}>Login</Link>
+                    {globalState.isLoggedIn ? (
+                        <div className="nav-item-with-submenu">
+                            <p>Account ↓</p>
+                            <div className="submenu">
+                                <Link to='/my account' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>My Account</Link>
+                                <Link to='/login' onClick={() => { closeNavbar(); handleLogout(); }}>Logout</Link>
+                            </div>
+                        </div>
 
-                )}
+                    ) : (
+                        <Link to='/login' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>Login</Link>
+
+                    )}
                 </div>
 
                 {/* Close Button */}
@@ -138,17 +138,17 @@ export default function Navbar(){
             <div className="nav-item-desktop">
                 {globalState.isLoggedIn ? (
                     <div className="nav-item-with-submenu">
-                    <p className='account-or-login'>Account ↓</p>
-                    <div className='submenu-bg'>
-                    <div className="submenu">
-                    <Link to='/my account' onClick={() => {closeNavbar(); window.scrollTo(0, 0); }}>My Account</Link>
-                        <Link to='/login' onClick={() => { closeNavbar(); handleLogout(); }}>Logout</Link>
+                        <p className='account-or-login'>Account ↓</p>
+                        <div className='submenu-bg'>
+                            <div className="submenu">
+                                <Link to='/my account' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>My Account</Link>
+                                <Link to='/login' onClick={() => { closeNavbar(); handleLogout(); }}>Logout</Link>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
-                
+
                 ) : (
-                    <Link className='account-or-login' to='/login' onClick={() => {closeNavbar(); window.scrollTo(0, 0); }}>Login/Signup</Link>
+                    <Link className='account-or-login' to='/login' onClick={() => { closeNavbar(); window.scrollTo(0, 0); }}>Login/Signup</Link>
 
 
                 )}
@@ -159,7 +159,7 @@ export default function Navbar(){
                 <FaBars />
             </button>
 
-            
+
         </header>
     )
 }

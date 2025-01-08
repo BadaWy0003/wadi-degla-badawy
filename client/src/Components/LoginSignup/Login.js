@@ -44,7 +44,7 @@ export default function Login() {
     setErrors({});
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/customer/login",
+        `${process.env.REACT_APP_BASE_API_URL}/api/auth/customer/login`,
         { email, password },
         { withCredentials: true } // Include cookies in requests
       );
@@ -58,7 +58,7 @@ export default function Login() {
 
         setMessage("Login successful!");
         navigate("/");
-        window.scrollTo({top: 0, behavior: 'smooth'})
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     } catch (err) {
       setErrors({ general: err.response?.data?.message || "Login failed. Please try again." });
@@ -121,7 +121,7 @@ export default function Login() {
             <button className="btn1">LOGIN</button>
             <div className="forgot-password">
               Don't have an account?
-              <Link to="/signup" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" })}}>
+              <Link to="/signup" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }) }}>
                 <span>Register</span>
               </Link>
             </div>

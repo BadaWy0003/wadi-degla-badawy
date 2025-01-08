@@ -48,15 +48,15 @@ import "lightgallery/css/lg-rotate.css"
 
 
 
-export default function Gallery (){
+export default function Gallery() {
     const [gallery, setGallery] = useState([]);
 
     useEffect(() => {
         const fetchGallery = async () => {
             const typeName = "Gallery";
-            const url = `http://localhost:5000/api/storage/type/${typeName}`;
+            const url = `${process.env.REACT_APP_BASE_API_URL}/api/storage/type/${typeName}`;
             try {
-                const response = await fetch(url, { 
+                const response = await fetch(url, {
                     method: 'GET',
                     credentials: 'include'
                 });
@@ -73,8 +73,8 @@ export default function Gallery (){
     }, []);
 
     return (
-       <div className='gallery-container'>
-        <div className="gallery-hero">
+        <div className='gallery-container'>
+            <div className="gallery-hero">
                 <div className="gallery-hero-bg"></div>
                 <div className='page-title'>
                     <h1>GALLERY</h1>
@@ -82,14 +82,14 @@ export default function Gallery (){
                         <a href="/">Home</a>
                         <p>{'>'} Gallery</p>
                     </div>
-                    </div>
+                </div>
             </div>
-        <div className="gallery-gallery">
+            <div className="gallery-gallery">
                 <LightGallery
-                elementClassNames="custom-wrapper-class"
-                
+                    elementClassNames="custom-wrapper-class"
+
                 >
-                {gallery.map((item, i) => (
+                    {gallery.map((item, i) => (
                         item.finishes && item.finishes[0]?.link && (
                             <img
                                 alt={item.name || ''}
@@ -99,8 +99,8 @@ export default function Gallery (){
                                 loading="lazy"
                             />
                         )
-                    ))} 
-                    </LightGallery>               
+                    ))}
+                </LightGallery>
             </div>
         </div>
     )

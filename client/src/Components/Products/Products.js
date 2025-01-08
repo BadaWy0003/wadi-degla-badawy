@@ -17,7 +17,7 @@ export default function Visualizer() {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/api/storage/all");
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`);
       const result = await response.json();
       if (result.data) {
         setData(result.data);
@@ -46,10 +46,10 @@ export default function Visualizer() {
         ></div>
         <h1>Products</h1>
         <div className="breadcrumb">
-                        <a href="/">Home</a>
-                        <p className='sub-breadcrumb'>{'>'} Explore</p>
-                        <p>{'>'} Products </p>
-                    </div>
+          <a href="/">Home</a>
+          <p className='sub-breadcrumb'>{'>'} Explore</p>
+          <p>{'>'} Products </p>
+        </div>
 
         <p className='hero-hint-2'>Select a product from below to view its details.</p>
       </div>
@@ -88,7 +88,7 @@ export default function Visualizer() {
             <div className="product-cards-container-2">
               <div className="product-cards-2">
                 {filteredProducts.map(item => (
-                  <Product 
+                  <Product
                     key={item.id}
                     item={item}
                   />
