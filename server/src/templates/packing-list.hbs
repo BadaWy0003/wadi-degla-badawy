@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Packing list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        body {
+
+            margin-top: 8%;
+            margin-left: 12%;
+            width: 50%;
+            height: auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            border-color: black;
+        }
+
+        .headerLeft {
+
+            font-size: smaller;
+            position: relative;
+            top: -0.5vw;
+            width: fit-content;
+            line-height: 10px;
+            margin-top: 20px;
+        }
+
+        .headerRight {
+
+            position: relative;
+            top: -260px;
+            left: 120%;
+        }
+
+        .title {
+            color: rgb(112, 65, 7);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            position: relative;
+            right: 7vw;
+        }
+
+        .vl {
+            border-left: 2px solid rgba(107, 105, 105, 0.884);
+            height: 80px;
+            position: relative;
+            left: 70%;
+            top: -12vw;
+        }
+
+        .notify {
+
+            position: relative;
+            left: 76%;
+            top: -21vw;
+            width: 400px;
+            height: 15px;
+
+        }
+
+        .Table {
+
+            position: relative;
+            top: -6vh;
+        }
+
+        th {
+            padding: 3px;
+            background-color: #715b3d;
+            color: #ffffff;
+            font-weight: bold;
+
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        tr {
+            text-align: center;
+            font-size: small;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <img src="https://i.ibb.co/CMCwjy1/Default-Logo-Cropped.png" alt="logo" width="33%" style="">
+        <div class="headerLeft">
+            <p>Shipper: <span style="font-weight: bold;">Wadi Degla for Marble and Granite</span>
+            <p>Phone: <span style="font-weight: bold;"> +20 - 106 - 726 - 0314</span></p>
+            <p>Website: <span style="font-weight: bold;">https://wadidegla-eg.com</span></p>
+            <p>Email: <span style="font-weight: bold;">info@wadidegla-eg.com</span></p>
+            <p>Street Address: <span style="line-height: 20px; font-weight: bold;">
+                   36, 241D Shaq Althoaban Industrial Area for Marble & Granite, Tourrah, Cairo, Egypt
+                <span></p>
+        </div>
+
+        <div class="headerRight">
+            <h1 class="title">PACKING LIST</h1>
+            <div style="font-size: smaller; line-height: 15px;">
+
+                <table border="1"
+                    style="font-size: larger;  font-weight: bolder;  position: relative; right: 10vw; border-color:rgb(0, 0, 0) ; width: 25vw; height: 100px; border-collapse:collapse ;">
+
+                    <tr style="background-color: #d9d9d9;">
+                        <td style="border-right: 0px; width: 50%; text-align: right; border-color: rgb(0, 0, 0);">
+                            PROFORMA INV #
+                            </th>
+                        <td style="border-left: 0px; border-color:  rgb(0, 0, 0);;">
+                            </th>
+                    </tr>
+                    <tr>
+                        <td style="border-right: 0px; text-align: right; border-color: rgb(0, 0, 0);;">DATE</th>
+                        <td style="border-left: 0px; border-color:  rgb(0, 0, 0);"> {{invoiceDate}}</th>
+                    </tr>
+
+                    <td style="border-right: 0px;text-align: right; border-color:  rgb(0, 0, 0);;">CONTAINER #</td>
+                    <td style="border-left: 0px;border-color: rgb(0, 0, 0);">{{customerId}}</td>
+
+                    <tr style="background-color: #d9d9d9;">
+                        <td style="border-right: 0px; text-align: right; border-color:  rgb(0, 0, 0);">INVOICE #</td>
+                        <td style="border-left: 0px;border-color:  rgb(0, 0, 0);">{{invoiceNumber}}</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div style="position: relative; top: -170px;">
+            <p
+                style="width: 75vw; padding: 2px; background-color: #715b3d; color: white; font-family: fantasy; font-weight: 100;">
+                CONSIGNIE</p>
+
+            <div style="font-size: small; font-weight: bold; line-height: 30px;">
+                <p>Name: {{customerName}}</p>
+                <p>Location: {{customerAddress}}</p>
+                <p>Telephone {{customerPhone}} </p>
+                <p>RNC:</p>
+            </div>
+            <div class="vl"></div>
+
+            <div class="notify">
+                <table border="1" style="border-collapse: collapse;">
+                    <tr>
+                        <th style="background-color: #ad9571; width: 36.8vw;">NOTIFY</th>
+                    </tr>
+                    <tr>
+                        <td style="height: 70px;"></td>
+                    </tr>
+                </table>
+
+                <div class="notifyBox">
+
+                </div>
+
+            </div>
+
+
+
+            <div class="Table">
+                <table border="1" style="padding: 5%; border-collapse: collapse; width: 75vw;">
+                    <tr>
+                        <th style=" width: 8%;">Boxes #</th>
+                        <th style=" width: 40%;">Description</th>
+                        <th style="">Tiles</th>
+                        <th style=" width: 10%;">Length</th>
+                        <th style="">Height</th>
+                        <th style="">Total M2</th>
+
+                    </tr>
+                    {{#each boxes}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{description}}</td>
+                        <td>{{tiles}}</td>
+                        <td>{{length}}</td>
+                        <td>{{height}}</td>
+                        <td>{{total}}</td>
+                    </tr>
+
+
+                    {{/each}}
+                    <tr style="font-weight: bold;">
+                        <td></td>
+                        <td style="background-color: #f2f2f2;">Total Tiles</td>
+                        <td style="background-color: #f2f2f2;">1234</td>
+                        <td style="background-color: #d9d9d9;" colspan="2">TOTAL</td>
+                        <td style="background-color: #d9d9d9;">1234</td>
+                    </tr>
+                    <tr style="border-left: 0px; border-right: 0px;">
+                        <td style="border-left: 0px; border-right: 0px;"></td>
+                        <td style="border-left: 0px; border-right: 0px;">Net Weight : 26.5 Gross Weight: 27</td>
+                        <td style="border-left: 0px; border-right: 0px;" colspan="4"></td>
+                    </tr>
+
+                </table>
+                <p
+                    style="text-align: center; width: 150%; font-size: medium; text-decoration-line: underline; margin-top: 10%;">
+                    Packing:
+                    Tiles in Wooden Boxes
+                    10% less or more
+                </p>
+
+                <div
+                    style="line-height: 5px; position: relative; top: 4vw; width: 150%; text-align: center; font-size: smaller;">
+                    <p>For questions about this shipment, please contact</p>
+                    <p>Wadi Degla Phone &nbsp;&nbsp; +20 - 106 - 726 - 0314 &nbsp;&nbsp; E-mail: info@wadidegla-eg.com
+                    </p>
+                    <p>Scan QR Code for other contacts</p>
+                    <p style="font-size: small; font-weight: bold;">Thank You!
+                    </p>
+
+                    <img src="https://i.ibb.co/mNNLC42/QR-code.jpg" alt="qr-code" width="15%"
+                        style="position: relative; left: 42%; top: -11vw;">
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+</body>
