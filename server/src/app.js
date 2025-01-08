@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'https://admin-dashboard-withered-waterfall-6127.fly.dev', 'https://client-rough-dawn-8020.fly.dev'];
 app.use(
   cors({
     origin: allowedOrigins,
