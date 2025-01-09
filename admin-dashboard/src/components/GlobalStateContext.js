@@ -29,6 +29,8 @@ export const GlobalStateProvider = ({ children }) => {
             isLoggedIn: true,
             ...response.data,
           });
+        } else {
+          setGlobalState({ isLoggedIn: false });
         }
       } catch (err) {
         console.error(
@@ -45,7 +47,9 @@ export const GlobalStateProvider = ({ children }) => {
   }, []);
 
   return (
-    <GlobalStateContext.Provider value={{ globalState, setGlobalState, loading }}>
+    <GlobalStateContext.Provider
+      value={{ globalState, setGlobalState, loading }}
+    >
       {children}
     </GlobalStateContext.Provider>
   );
