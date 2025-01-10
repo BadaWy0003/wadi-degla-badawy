@@ -40,6 +40,70 @@ PdfExportService.generatePdfToFile = async (data, fileName) => {
   return filePath;
 };
 
+PdfExportService.fetchAllInvoices = async () => {
+  const materialsRef = firestore.collection('documents');
+  const querySnapshot = await materialsRef.get();
+
+  if (querySnapshot.empty) {
+    return []; // Return an empty array if no invoices are found
+  }
+
+  // Map through the query snapshot and extract invoice data
+  const invoices = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  return invoices;
+};
+
+PdfExportService.fetchInvoicesByType = async (type) => {
+  const materialsRef = firestore.collection('documents');
+  const querySnapshot = await materialsRef.where('type', '==', type).get();
+
+  if (querySnapshot.empty) {
+    return []; // Return an empty array if no invoices are found
+  }
+
+  // Map through the query snapshot and extract invoice data
+  const invoices = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  return invoices;
+};
+
+
+PdfExportService.deleteInvoice = async (invoiceId) => {
+  const materialsRef = firestore.collection('documents');
+  const docRef = materialsRef.doc(invoiceId);
+
+  // Retrieve the product document
+  const doc = await docRef.get();
+  if (!doc.exists) {
+    throw new Error('Invoice not found');
+  }
+
+  const invoice = doc.data();
+  if (invoice.url) {
+    const fileName = invoice.url.replace(`https://storage.googleapis.com/${bucket.name}/`, '');
+    const fileRef = bucket.file(fileName);
+
+    try {
+      await fileRef.delete();
+      console.log(`Deleted file from Firebase Storage: ${invoice.url}`);
+    } catch (error) {
+      console.error(`Failed to delete file ${invoice.url}:`, error.message);
+      // Continue with other deletions even if one fails
+    }
+  }
+  // Delete the Firestore document
+  await docRef.delete();
+
+  return { message: 'Invoice and associated files deleted successfully' };
+};
+
 // Upload PDF to Firebase
 async function uploadPdfToFirebase(pdfPath, metadata) {
   const fileName = path.basename(pdfPath);
