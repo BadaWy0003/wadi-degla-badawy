@@ -25,48 +25,58 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
-
-
-
+import DownloadIcon from '@mui/icons-material/Download';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export default function Documents() {
-  const [customers, setCustomers] = useState([]);
-  const [orderBy, setOrderBy] = useState('fullName');
+  const [documents, setDocuments] = useState([]);
+  const [orderBy, setOrderBy] = useState('id');
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-  const [customerToDelete, setCustomerToDelete] = useState(null);
-  const [editingCustomer, setEditingCustomer] = useState(null);
+  const [documentToDelete, setDocumentToDelete] = useState(null);
+  const [editingDocument, setEditingDocument] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchField, setSearchField] = useState('fullName');
+  const [searchField, setSearchField] = useState('id');
   const [formData, setFormData] = useState({
-    fullName: '',
-    companyName: '',
+    documentType: 'INVOICE',
+    proformaInvoice: '',
+    invoiceDate: '',
+    containerId: '',
+    invoiceNumber: '',
+    customerName: '',
+    customerAddress: '',
+    customerPhone: '',
     rnc: '',
-    email: '',
-    phone: '',
-    whatsapp: '',
-    country: '',
-    address: '',
-    port: ''
+    notifyContent: '',
+    shippingTerm: '',
+    PaymentTerms: '',
+    items: [{
+      id: '1',
+      description: '',
+      quantity: '',
+      unitPrice: '',
+      total: ''
+    }]
   });
 
   useEffect(() => {
-    fetchCustomers();
+    fetchDocuments();
   }, []);
 
-  const fetchCustomers = async () => {
-
+  const fetchDocuments = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/customer/all`,
+      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/export-pdf/all`,
         { credentials: 'include' },
       );
-      if (!response.ok) throw new Error('Failed to fetch customers');
-      const data = await response.json();
-      setCustomers(data);
+      if (!response.ok) throw new Error('Failed to fetch documents');
+      const result = await response.json();
+      // Extract documents from the data property
+      setDocuments(result.data || []);
     } catch (error) {
       console.error('Error:', error);
+      setDocuments([]); // Set empty array on error
     }
   };
 
@@ -78,7 +88,7 @@ export default function Documents() {
 
   const handleSelectAll = (event) => {
     if (event.target.checked) {
-      setSelected(filteredCustomers.map(customer => customer.id));
+      setSelected(filteredDocuments.map(document => document.id));
     } else {
       setSelected([]);
     }
@@ -97,23 +107,32 @@ export default function Documents() {
     setSelected(newSelected);
   };
 
-  const handleOpenDialog = (customer = null) => {
-    if (customer) {
-      setEditingCustomer(customer);
-      setFormData(customer);
+  const handleOpenDialog = (document = null) => {
+    if (document) {
+      setEditingDocument(document);
+      setFormData(document);
     } else {
-      setEditingCustomer(null);
+      setEditingDocument(null);
       setFormData({
-        fullName: '',
-        companyName: '',
+        documentType: 'INVOICE',
+        proformaInvoice: '',
+        invoiceDate: '',
+        containerId: '',
+        invoiceNumber: '',
+        customerName: '',
+        customerAddress: '',
+        customerPhone: '',
         rnc: '',
-        email: '',
-        password: '',
-        phone: '',
-        whatsapp: '',
-        country: '',
-        address: '',
-        port: ''
+        notifyContent: '',
+        shippingTerm: '',
+        PaymentTerms: '',
+        items: [{
+          id: '1',
+          description: '',
+          quantity: '',
+          unitPrice: '',
+          total: ''
+        }]
       });
     }
     setOpenDialog(true);
@@ -123,7 +142,7 @@ export default function Documents() {
     try {
       console.log(formData);
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_API_URL}/api/customer/create`,
+        `${process.env.REACT_APP_BASE_API_URL}/api/export-pdf/generate-upload-pdf`,
         {
           method: "POST",
           credentials: "include",
@@ -133,8 +152,8 @@ export default function Documents() {
           body: JSON.stringify(formData),
         }
       );
-      if (!response.ok) throw new Error("Failed to create customer");
-      fetchCustomers(); // Refresh the list
+      if (!response.ok) throw new Error("Failed to create document");
+      fetchDocuments(); // Refresh the list
       setOpenDialog(false);
     } catch (error) {
       console.error("Error:", error);
@@ -142,32 +161,88 @@ export default function Documents() {
   };
 
   const handleDeleteConfirm = async () => {
-
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_API_URL}/api/customer/delete/${customerToDelete}`,
+        `${process.env.REACT_APP_BASE_API_URL}/api/export-pdf/invoice/${documentToDelete}`,
         { method: "DELETE", credentials: "include" }
       );
-      if (!response.ok) throw new Error("Failed to delete customer");
-      fetchCustomers(); // Refresh the list
+      if (!response.ok) throw new Error("Failed to delete document");
+      fetchDocuments(); // Refresh the list
       setOpenDeleteDialog(false);
-      console.log("Customer deleted successfully");
+      console.log("Document deleted successfully");
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
-  const filteredCustomers = customers.filter(customer => {
-    const searchValue = customer[searchField].toLowerCase();
-    return searchValue.includes(searchQuery.toLowerCase());
-  });
+  const handleDownload = async (url) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = `document-${Date.now()}.pdf`; // or get filename from response headers
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(downloadUrl);
+    } catch (error) {
+      console.error('Error downloading file:', error);
+    }
+  };
 
-  const sortedCustomers = filteredCustomers.sort((a, b) => {
+  const handleGenerateAndDownload = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_API_URL}/api/export-pdf/generate-upload-pdf`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      
+      if (!response.ok) throw new Error("Failed to create document");
+      
+      const result = await response.json();
+      // Assuming the API returns the PDF URL in the response
+      if (result.data?.url) {
+        await handleDownload(result.data.url);
+      }
+      
+      fetchDocuments(); // Refresh the list
+      setOpenDialog(false);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const handleView = (url) => {
+    window.open(url, '_blank');
+  };
+
+  const filteredDocuments = documents ? documents.filter(document => {
+    // Handle case where searchField might not exist on document
+    const searchValue = document[searchField]?.toString().toLowerCase() || '';
+    return searchValue.includes(searchQuery.toLowerCase());
+  }) : [];
+
+  const sortedDocuments = filteredDocuments.sort((a, b) => {
     const isAsc = order === 'asc';
     if (a[orderBy] < b[orderBy]) return isAsc ? -1 : 1;
     if (a[orderBy] > b[orderBy]) return isAsc ? 1 : -1;
     return 0;
   });
+
+  const formatDate = (timestamp) => {
+    if (!timestamp) return '';
+    const date = new Date(timestamp._seconds * 1000);
+    return date.toLocaleString();  // This will show both date and time in the user's locale
+  };
 
   const renderSearchBar = () => (
     <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
@@ -177,10 +252,9 @@ export default function Documents() {
         onChange={(e) => setSearchField(e.target.value)}
         sx={{ width: 150 }}
       >
-        <MenuItem value="fullName">Name</MenuItem>
         <MenuItem value="id">ID</MenuItem>
-        <MenuItem value="email">Email</MenuItem>
-        <MenuItem value="companyName">Company</MenuItem>
+        <MenuItem value="invoiceNumber">Invoice Number</MenuItem>
+        <MenuItem value="customerName">Customer Name</MenuItem>
       </TextField>
       <TextField
         fullWidth
@@ -201,11 +275,11 @@ export default function Documents() {
   const renderAddEditDialog = () => (
     <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
       <DialogTitle>
-        {editingCustomer ? 'Edit Customer' : 'Add New Customer'}
+        {editingDocument ? 'Edit Document' : 'Add New Document'}
       </DialogTitle>
       <DialogContent>
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {['fullName', 'companyName', 'rnc', 'email', 'phone', 'whatsapp', 'country', 'address', 'port', 'password'].map((field) => (
+          {['documentType', 'proformaInvoice', 'invoiceDate', 'containerId', 'invoiceNumber', 'customerName', 'customerAddress', 'customerPhone', 'rnc', 'notifyContent', 'shippingTerm', 'PaymentTerms'].map((field) => (
             <TextField
               key={field}
               fullWidth
@@ -215,13 +289,36 @@ export default function Documents() {
               required
             />
           ))}
+          {formData.items.map((item, index) => (
+            <Box key={index} sx={{ display: 'flex', gap: 2 }}>
+              {['description', 'quantity', 'unitPrice', 'total'].map((field) => (
+                <TextField
+                  key={field}
+                  fullWidth
+                  label={field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')}
+                  value={item[field]}
+                  onChange={(e) => {
+                    const newItems = [...formData.items];
+                    newItems[index][field] = e.target.value;
+                    setFormData({ ...formData, items: newItems });
+                  }}
+                  required
+                />
+              ))}
+            </Box>
+          ))}
         </Box>
       </DialogContent>
       <DialogActions>
         <Button onClick={() => setOpenDialog(false)}>Cancel</Button>
         <Button onClick={handleSubmit} variant="contained" color="primary">
-          {editingCustomer ? 'Save Changes' : 'Add Customer'}
+          {editingDocument ? 'Save Changes' : 'Add Document'}
         </Button>
+        {!editingDocument && (
+          <Button onClick={handleGenerateAndDownload} variant="contained" color="secondary">
+            Generate & Download PDF
+          </Button>
+        )}
       </DialogActions>
     </Dialog>
   );
@@ -231,16 +328,16 @@ export default function Documents() {
       <DialogTitle>Confirm Delete</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          {customerToDelete
-            ? 'Are you sure you want to delete this customer?'
-            : `Are you sure you want to delete ${selected.length} selected customers?`
+          {documentToDelete
+            ? 'Are you sure you want to delete this document?'
+            : `Are you sure you want to delete ${selected.length} selected documents?`
           }
         </DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={() => {
           setOpenDeleteDialog(false);
-          setCustomerToDelete(null);
+          setDocumentToDelete(null);
         }}>
           Cancel
         </Button>
@@ -254,7 +351,7 @@ export default function Documents() {
   return (
     <Box sx={{ p: 3 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
-        <Typography variant="h4">Customers</Typography>
+        <Typography variant="h4">Documents</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
             <Button
@@ -270,7 +367,7 @@ export default function Documents() {
             color="primary"
             onClick={() => handleOpenDialog()}
           >
-            Add New Customer
+            Add New Document
           </Button>
         </Box>
       </Box>
@@ -283,19 +380,19 @@ export default function Documents() {
             <TableRow>
               <TableCell padding="checkbox">
                 <Checkbox
-                  indeterminate={selected.length > 0 && selected.length < filteredCustomers.length}
-                  checked={selected.length === filteredCustomers.length}
+                  indeterminate={selected.length > 0 && selected.length < filteredDocuments.length}
+                  checked={selected.length === filteredDocuments.length}
                   onChange={handleSelectAll}
                 />
               </TableCell>
-              {['id', 'name', 'email', 'company'].map((field) => (
+              {['id', 'type', 'createdAt'].map((field) => (
                 <TableCell key={field}>
                   <TableSortLabel
                     active={orderBy === field}
                     direction={orderBy === field ? order : 'asc'}
                     onClick={() => handleSort(field)}
                   >
-                    {field.charAt(0).toUpperCase() + field.slice(1)}
+                    {field === 'createdAt' ? 'Created At' : field.charAt(0).toUpperCase() + field.slice(1)}
                   </TableSortLabel>
                 </TableCell>
               ))}
@@ -303,27 +400,26 @@ export default function Documents() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {sortedCustomers.map((customer) => (
+            {sortedDocuments.map((document) => (
               <TableRow
-                key={customer.id}
-                selected={selected.includes(customer.id)}
+                key={document.id}
+                selected={selected.includes(document.id)}
               >
                 <TableCell padding="checkbox">
                   <Checkbox
-                    checked={selected.includes(customer.id)}
-                    onChange={() => handleSelect(customer.id)}
+                    checked={selected.includes(document.id)}
+                    onChange={() => handleSelect(document.id)}
                   />
                 </TableCell>
-                <TableCell>{customer.id}</TableCell>
-                <TableCell>{customer.fullName}</TableCell>
-                <TableCell>{customer.email}</TableCell>
-                <TableCell>{customer.companyName}</TableCell>
+                <TableCell>{document.id}</TableCell>
+                <TableCell>{document.type}</TableCell>
+                <TableCell>{formatDate(document.createdAt)}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
                     <IconButton
                       size="small"
                       color="primary"
-                      onClick={() => handleOpenDialog(customer)}
+                      onClick={() => handleOpenDialog(document)}
                     >
                       <EditIcon />
                     </IconButton>
@@ -331,11 +427,25 @@ export default function Documents() {
                       size="small"
                       color="error"
                       onClick={() => {
-                        setCustomerToDelete(customer.id);
+                        setDocumentToDelete(document.id);
                         setOpenDeleteDialog(true);
                       }}
                     >
                       <DeleteIcon />
+                    </IconButton>
+                    <IconButton
+                      size="small"
+                      color="primary"
+                      onClick={() => handleDownload(document.url)}
+                    >
+                      <DownloadIcon />
+                    </IconButton>
+                    <IconButton
+                      size="small"
+                      color="primary"
+                      onClick={() => handleView(document.url)}
+                    >
+                      <VisibilityIcon />
                     </IconButton>
                   </Box>
                 </TableCell>

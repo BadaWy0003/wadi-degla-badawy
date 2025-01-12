@@ -69,7 +69,7 @@ export default function Layout() {
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            Admin Dashboard
+            Wadi Degla
           </Typography>
           <button onClick={() => { handleLogout() }}>Logout</button>
         </Toolbar>

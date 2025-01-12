@@ -5,6 +5,7 @@ import {
   Collections,
   Group,
   People,
+  DriveFolderUpload
 } from '@mui/icons-material';
 import { useGlobalState } from "../GlobalStateContext"; // Ensure this exists
 
@@ -37,6 +38,12 @@ export default function Dashboard() {
       path: '/customers',
       color: '#9c27b0', // purple
     },
+    {
+      title: 'Documents',
+      icon: <DriveFolderUpload sx={{ fontSize: 60 }} />,
+      path: '/documents',
+      color: '#ad9571', // purple
+    },
   ];
   const { globalState } = useGlobalState();
 
@@ -49,7 +56,7 @@ export default function Dashboard() {
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h4" sx={{ mb: 4 }}>
-        Welcome to Admin Dashboard
+        Welcome to the Admin Dashboard
       </Typography>
 
       <Grid container spacing={3}>
