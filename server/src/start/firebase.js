@@ -10,7 +10,10 @@ if (process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64) {
 }
 
 admin.initializeApp({
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  apiKey: process.env.FIREBASE_API_KEY,
+  projectId: process.env.FIREBASE_PROJECT_ID,
 });
 
 const bucket = admin.storage().bucket();
