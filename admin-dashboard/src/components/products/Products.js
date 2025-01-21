@@ -43,7 +43,7 @@ export default function Products() {
 
   const fetchProducts = () => {
     setLoading(true);
-    fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`)
+    fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`, { credentials: 'include' })
       .then((response) => response.json())
       .then((result) => {
         if (result.data) {

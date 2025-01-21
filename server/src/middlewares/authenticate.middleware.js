@@ -11,7 +11,7 @@ const customerAuth = async (req, res, next) => {
     const token = req.cookies.auth || req.headers.authorization?.split(' ')[1];
 
     if (!token) {
-      throw new Error('Invalid Auth Token');
+      throw new Error(`Invalid Auth Token ${token}`,);
     }
 
     // Verify the token
@@ -39,7 +39,7 @@ const adminAuth = async (req, res, next) => {
     const token = req.cookies.auth || req.headers.authorization?.split(' ')[1];
 
     if (!token) {
-      throw new Error('Invalid Auth Token');
+      throw new Error(`Invalid Auth Token ${token}`);
     }
 
     // Verify the token
