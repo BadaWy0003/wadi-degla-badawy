@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
-import { Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, } from '@mui/icons-material';
+import { Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { useGlobalState } from "../GlobalStateContext"; // Ensure this exists
+import { useGlobalState } from '../GlobalStateContext'; // Ensure this exists
+import apiClient from '../../util/client';
 
 const drawerWidth = 280;
 
 export default function Layout() {
   const navigate = useNavigate();
   const { setGlobalState } = useGlobalState();
-
 
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
@@ -22,32 +22,23 @@ export default function Layout() {
 
   const handleLogout = async () => {
     try {
-      // Optional: Call a logout API (if required)
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/auth/logout`, {
-        method: "POST",
-        credentials: "include", // Ensures cookies are sent with the request
+      await apiClient.post(`/api/auth/logout`);
+
+      console.log('Logout successful');
+
+      // Reset global state
+      setGlobalState({
+        isLoggedIn: false,
+        userName: '',
+        email: '',
+        role: '',
       });
 
-      if (response.ok) {
-        console.log("Logout successful");
-
-        // Reset global state
-        setGlobalState({
-          isLoggedIn: false,
-          userName: "",
-          email: "",
-          role: "",
-
-        });
-
-        // Navigate to the login page
-        navigate("/login");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        console.error("Failed to logout:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error during logout:", error);
+      // Navigate to the login page
+      navigate('/login');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } finally {
+      localStorage.removeItem('auth_token');
     }
   };
 
@@ -57,21 +48,30 @@ export default function Layout() {
         position="fixed"
         elevation={0}
         sx={{
-          zIndex: (theme) => theme.zIndex.drawer + 1,
+          zIndex: theme => theme.zIndex.drawer + 1,
           backdropFilter: 'blur(6px)',
           backgroundColor: 'rgba(255, 255, 255, 0.9)',
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography variant="h5" sx={{
-            fontWeight: 600,
-            background: 'linear-gradient(45deg, #ad9571 30%, #6a7b83 90%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 600,
+              background: 'linear-gradient(45deg, #ad9571 30%, #6a7b83 90%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
             Wadi Degla
           </Typography>
-          <button onClick={() => { handleLogout() }}>Logout</button>
+          <button
+            onClick={() => {
+              handleLogout();
+            }}
+          >
+            Logout
+          </button>
         </Toolbar>
       </AppBar>
 
@@ -90,7 +90,7 @@ export default function Layout() {
       >
         <Toolbar />
         <List>
-          {menuItems.map((item) => (
+          {menuItems.map(item => (
             <ListItem
               button
               key={item.text}
@@ -100,20 +100,22 @@ export default function Layout() {
                 transition: 'all 0.2s ease',
                 '&:hover': {
                   transform: 'translateX(8px)',
-                }
+                },
               }}
             >
-              <ListItemIcon sx={{
-                minWidth: 40,
-                color: 'primary.main'
-              }}>
+              <ListItemIcon
+                sx={{
+                  minWidth: 40,
+                  color: 'primary.main',
+                }}
+              >
                 {item.icon}
               </ListItemIcon>
               <ListItemText
                 primary={item.text}
                 primaryTypographyProps={{
                   fontWeight: 500,
-                  fontSize: '0.95rem'
+                  fontSize: '0.95rem',
                 }}
               />
             </ListItem>

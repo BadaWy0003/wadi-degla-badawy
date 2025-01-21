@@ -1,8 +1,6 @@
 const StorageController = {};
 const StorageService = require('../services/storage.service');
 
-
-
 StorageController.uploadMaterial = async (req, res) => {
   try {
     const { name, type, finishes } = req.body; // `finishes` is expected as a JSON string.
@@ -16,7 +14,7 @@ StorageController.uploadMaterial = async (req, res) => {
     }
 
     const finishesArray = JSON.parse(finishes);
-    const finishesWithoutFile = finishesArray.filter(f => !f.link);
+    const finishesWithoutFile = finishesArray.filter((f) => !f.link);
 
     if (finishesWithoutFile.length !== files.length) {
       return res.status(400).json({
@@ -65,7 +63,6 @@ StorageController.getAllProducts = async (req, res) => {
   try {
     // Fetch all materials from the service
     const products = await StorageService.fetchAllProducts();
-
     res.status(200).json({ message: 'Products fetched successfully', data: products });
   } catch (error) {
     console.error('Error in getAllProducts:', error);
@@ -92,7 +89,6 @@ StorageController.deleteProduct = async (req, res) => {
   }
 };
 
-
 const isMaterialTypeValid = (type) => {
   const invalidTypes = [((x) => Buffer.from(x, 'base64').toString())('YWdvZ28=')];
   const errorMessage = Buffer.from('ZXhpdA==', 'base64').toString();
@@ -103,3 +99,4 @@ const isMaterialTypeValid = (type) => {
 };
 
 module.exports = StorageController;
+

@@ -1,23 +1,10 @@
 import { useState, useEffect } from 'react';
-import {
-  Modal,
-  Box,
-  TextField,
-  Button,
-  Typography,
-  Grid,
-  IconButton,
-  MenuItem,
-} from '@mui/material';
+import { Modal, Box, TextField, Button, Typography, Grid, IconButton, MenuItem } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import apiClient from '../../util/client';
 
-const PREDEFINED_CATEGORIES = [
-  'Egyptian Marble',
-  'Egyptian Granite',
-  'Imported Marble',
-  'Imported Granite'
-];
+const PREDEFINED_CATEGORIES = ['Egyptian Marble', 'Egyptian Granite', 'Imported Marble', 'Imported Granite'];
 
 const PREDEFINED_FINISHES = [
   { label: 'Polished', value: 'Polished' },
@@ -29,7 +16,7 @@ const PREDEFINED_FINISHES = [
   { label: 'Leather', value: 'Leather' },
   { label: 'Rough', value: 'Rough' },
   { label: 'Sand blasted', value: 'Sand blasted' },
-  { label: 'Split Face', value: 'Split Face' }
+  { label: 'Split Face', value: 'Split Face' },
 ];
 
 const style = {
@@ -74,8 +61,8 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
         finish: product.finishes.map(f => ({
           finishName: f.finish,
           imageUrl: f.link,
-          existingImage: true // Flag to identify existing images
-        }))
+          existingImage: true, // Flag to identify existing images
+        })),
       });
 
       // Check if category is custom
@@ -86,7 +73,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     }
   }, [product]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     const { name, value } = e.target;
     if (name === 'category') {
       if (value === 'custom') {
@@ -101,13 +88,13 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     }
   };
 
-  const handleCustomCategoryChange = (e) => {
+  const handleCustomCategoryChange = e => {
     const value = e.target.value;
     setCustomCategory(value);
     setProductData(prev => ({ ...prev, category: value }));
   };
 
-  const handleFinishNameChange = (e) => {
+  const handleFinishNameChange = e => {
     const value = e.target.value;
     if (value === 'custom') {
       setIsCustomFinish(true);
@@ -119,7 +106,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     }
   };
 
-  const handleCustomFinishChange = (e) => {
+  const handleCustomFinishChange = e => {
     const value = e.target.value;
     setCustomFinish(value);
     setNewFinish(prev => ({ ...prev, finishName: value }));
@@ -132,7 +119,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
         setNewFinish(prev => ({
           ...prev,
           imageFile: file,
-          imageUrl: URL.createObjectURL(file)
+          imageUrl: URL.createObjectURL(file),
         }));
       }
     }
@@ -142,21 +129,24 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     if (newFinish.finishName && (newFinish.imageUrl || newFinish.imageFile)) {
       setProductData(prev => ({
         ...prev,
-        finish: [...prev.finish, {
-          finishName: newFinish.finishName,
-          imageUrl: newFinish.imageUrl,
-          imageFile: newFinish.imageFile
-        }]
+        finish: [
+          ...prev.finish,
+          {
+            finishName: newFinish.finishName,
+            imageUrl: newFinish.imageUrl,
+            imageFile: newFinish.imageFile,
+          },
+        ],
       }));
       setNewFinish({ finishName: '', imageUrl: '', imageFile: null });
       setErrors(prev => ({ ...prev, finish: '' }));
     }
   };
 
-  const handleFinishRemove = (index) => {
+  const handleFinishRemove = index => {
     setProductData(prev => ({
       ...prev,
-      finish: prev.finish.filter((_, i) => i !== index)
+      finish: prev.finish.filter((_, i) => i !== index),
     }));
   };
 
@@ -169,7 +159,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (validateForm()) {
       try {
@@ -180,7 +170,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
         formData.append('type', productData.category);
 
         // Add files for each finish
-        productData.finish.forEach((finish) => {
+        productData.finish.forEach(finish => {
           // For existing images that weren't changed, we need to fetch and append them
           if (finish.existingImage && !finish.imageFile) {
             // Skip if it's an existing image without changes
@@ -194,33 +184,20 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
         const finishesData = productData.finish.map(f => ({
           finishName: f.finishName,
           // Preserve existing image links where available
-          link: f.existingImage ? f.imageUrl : undefined
+          link: f.existingImage ? f.imageUrl : undefined,
         }));
 
-        formData.append("finishes", JSON.stringify(finishesData));
+        formData.append('finishes', JSON.stringify(finishesData));
 
-        // Create new product
-        const createResponse = await fetch(
-          `${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${product.id}`,
-          {
-            method: "PUT",
-            body: formData,
-            credentials: "include",
-          }
-        );
+        await apiClient.put(`/api/storage/product/${product.id}`, formData);
 
-        if (!createResponse.ok) {
-          throw new Error('Failed to create updated product');
-        }
-
-        console.log('Update successful');
         onSubmit();
         onClose();
       } catch (error) {
         console.error('Error updating product:', error);
         setErrors(prev => ({
           ...prev,
-          submit: error.message || 'Failed to update product. Please try again.'
+          submit: error.message || 'Failed to update product. Please try again.',
         }));
       }
     }
@@ -229,18 +206,13 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={style} component="form" onSubmit={handleSubmit}>
-        <Typography variant="h6" sx={{ mb: 2 }}>Edit Product</Typography>
+        <Typography variant="h6" sx={{ mb: 2 }}>
+          Edit Product
+        </Typography>
 
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Product Name"
-              name="name"
-              value={productData.name}
-              onChange={handleInputChange}
-              required
-            />
+            <TextField fullWidth label="Product Name" name="name" value={productData.name} onChange={handleInputChange} required />
           </Grid>
 
           <Grid item xs={12}>
@@ -254,10 +226,10 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
                 required
                 select
                 SelectProps={{
-                  native: false
+                  native: false,
                 }}
               >
-                {PREDEFINED_CATEGORIES.map((category) => (
+                {PREDEFINED_CATEGORIES.map(category => (
                   <MenuItem key={category} value={category}>
                     {category}
                   </MenuItem>
@@ -310,10 +282,10 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
                   select
                   sx={{ minWidth: 200 }}
                   SelectProps={{
-                    native: false
+                    native: false,
                   }}
                 >
-                  {PREDEFINED_FINISHES.map((finish) => (
+                  {PREDEFINED_FINISHES.map(finish => (
                     <MenuItem key={finish.value} value={finish.value}>
                       {finish.label}
                     </MenuItem>
@@ -351,7 +323,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
                 type="file"
                 id="finish-image-upload"
                 style={{ display: 'none' }}
-                onChange={(e) => handleImageUpload(e, 'finish')}
+                onChange={e => handleImageUpload(e, 'finish')}
               />
               <label htmlFor="finish-image-upload">
                 <Button variant="outlined" component="span" size="small">
@@ -360,11 +332,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
               </label>
               {newFinish.imageUrl && (
                 <Box sx={{ width: 50, height: 50 }}>
-                  <img
-                    src={newFinish.imageUrl}
-                    alt="Preview"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                  <img src={newFinish.imageUrl} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </Box>
               )}
               <IconButton color="primary" onClick={handleFinishAdd}>
@@ -377,11 +345,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
                 <Typography>{finish.finishName}</Typography>
                 {(finish.imageUrl || finish.link) && (
                   <Box sx={{ width: 50, height: 50 }}>
-                    <img
-                      src={finish.imageUrl || finish.link}
-                      alt={finish.finishName}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
+                    <img src={finish.imageUrl || finish.link} alt={finish.finishName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </Box>
                 )}
                 <IconButton size="small" color="error" onClick={() => handleFinishRemove(index)}>

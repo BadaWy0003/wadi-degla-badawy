@@ -44,20 +44,21 @@ export default function Login() {
         const response = await axios.post(
           `${process.env.REACT_APP_BASE_API_URL}/api/auth/admin/login`,
           { email: formData.email, password: formData.password },
-          { withCredentials: true } // Include cookies
+          { withCredentials: true }
         );
 
-        if (response.status === 200 || response.status === 201) {
-          // Update global state
-          setGlobalState({
-            isLoggedIn: true,
-            ...response.data,
-          });
+        localStorage.setItem("auth_token", response.data.token);
 
-          setMessage("Login successful!");
-          navigate("/"); // Redirect to homepage
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        // Update global state
+        setGlobalState({
+          isLoggedIn: true,
+          ...response.data,
+        });
+
+        setMessage("Login successful!");
+        navigate("/"); // Redirect to homepage
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
       } catch (err) {
         setErrors({ general: err.response?.data?.message || "Login failed. Please try again." });
         setMessage("");

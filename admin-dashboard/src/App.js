@@ -9,9 +9,11 @@ import Users from './components/users/Users';
 import Customers from './components/customers/Customers';
 import Documents from './components/documents/Documents';
 import Login from './components/auth/Login';
-import { ProtectedRoute } from "./components/ProtectedRoute.js"; // Create this file as described earlier
-import { useGlobalState } from "./components/GlobalStateContext"; // Ensure this exists
+import { ProtectedRoute } from './components/ProtectedRoute.js'; // Create this file as described earlier
+import { useGlobalState } from './components/GlobalStateContext'; // Ensure this exists
+import { ToastContainer } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const { globalState } = useGlobalState();
@@ -20,12 +22,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <ToastContainer autoClose={5000} hideProgressBar />
       <BrowserRouter>
         <Routes>
-          <Route 
-            path="/login" 
-            element={isLoggedIn ? <Navigate to="/" replace /> : <Login />} 
-          />
+          <Route path="/login" element={isLoggedIn ? <Navigate to="/" replace /> : <Login />} />
           <Route
             path="/"
             element={

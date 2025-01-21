@@ -24,6 +24,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete'; // Fixed import path
 import SearchIcon from '@mui/icons-material/Search';
 import AddImageModal from './AddImageModal';
+import apiClient from '../../util/client';
 
 function Gallery() {
   const [gallery, setGallery] = React.useState([]);
@@ -41,7 +42,7 @@ function Gallery() {
   const [formData] = React.useState({
     name: '',
     finishName: '',
-    finishImage: null
+    finishImage: null,
   });
 
   React.useEffect(() => {
@@ -49,31 +50,22 @@ function Gallery() {
   }, []);
 
   const fetchGallery = async () => {
-    const typeName = "Gallery";
-    const url = `${process.env.REACT_APP_BASE_API_URL}/api/storage/type/${typeName}`;
+    const typeName = 'Gallery';
     try {
-      const response = await fetch(url,
-        {
-          method: 'GET',
-          credentials: 'include'
-        },
-      );
-      if (!response.ok) throw new Error('Failed to fetch Gallery');
-      const { data } = await response.json();
-      setGallery(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.error('Error:', error);
-      setGallery([]); // Set empty array on error
+      const { data } = await apiClient.get(`/api/storage/type/${typeName}`);
+      setGallery(Array.isArray(data.data) ? data.data : []);
+    } catch (err) {
+      setGallery([]);
     }
   };
 
-  const handleSort = (property) => {
+  const handleSort = property => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
 
-  const handleSelectAll = (event) => {
+  const handleSelectAll = event => {
     if (event.target.checked) {
       setSelected(filteredGallery.map(image => image.id));
     } else {
@@ -81,7 +73,7 @@ function Gallery() {
     }
   };
 
-  const handleSelect = (id) => {
+  const handleSelect = id => {
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
@@ -94,54 +86,38 @@ function Gallery() {
     setSelected(newSelected);
   };
 
+  const handleAddImage = async newImage => {
+    const formDataToSend = new FormData();
+    formDataToSend.append('type', 'Gallery');
+    formDataToSend.append('name', newImage.name);
 
-  const handleAddImage = (newImage) => {
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append('type', 'Gallery');
-      formDataToSend.append('name', newImage.name);
-
-      // Structure the finish array with all required properties
-      const finishes = [{
+    // Structure the finish array with all required properties
+    const finishes = [
+      {
         finishName: newImage.finish[0].finishName,
         imageFile: newImage.finish[0].imageFile,
-        imageUrl: newImage.finish[0].imageUrl
-      }];
+        imageUrl: newImage.finish[0].imageUrl,
+      },
+    ];
 
-      formDataToSend.append('finishes', JSON.stringify(finishes));
-      // Append the actual file
-      formDataToSend.append('files', newImage.finish[0].imageFile);
+    formDataToSend.append('finishes', JSON.stringify(finishes));
+    // Append the actual file
+    formDataToSend.append('files', newImage.finish[0].imageFile);
 
-      console.log('Sending to API:', {
-        type: 'Gallery',
-        name: newImage.name,
-        finishes: finishes
-      });
+    console.log('Sending to API:', {
+      type: 'Gallery',
+      name: newImage.name,
+      finishes: finishes,
+    });
 
-      fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/upload`, {
-        method: "POST",
-        credentials: "include",
-        body: formDataToSend,
-      })
-        .then(response => {
-          if (!response.ok) throw new Error(`Upload failed: ${response.status}`);
-          return response.json();
-        })
-        .then(data => {
-          console.log('Upload successful:', data);
-          fetchGallery();
-          setOpenAddModal(false);
-        })
-        .catch(error => {
-          console.error('Upload error:', error);
-          alert('Failed to upload image. Please try again.');
-        });
-    } catch (error) {
-      console.error('Error preparing upload:', error);
-      alert('Error preparing image upload. Please try again.');
+    try {
+      await apiClient.post(`/api/storage/upload`, formDataToSend);
+      fetchGallery();
+      setOpenAddModal(false);
+    } catch (err) {
+      alert('Failed to upload image. Please try again.');
     }
   };
-
 
   const handleDeleteConfirm = async () => {
     if (imageToDelete) {
@@ -153,73 +129,45 @@ function Gallery() {
     setImageToDelete(null);
   };
 
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${id}`,
-        {
-          credentials: 'include',
-          method: 'DELETE',
-        },
-      );
-
-      if (!response.ok) throw new Error('Failed to delete image from gallery');
-      console.log("image deleted successfully from the gallery");
-      fetchGallery();
-    } catch (error) {
-      console.error('Error:', error);
-    }
+  const handleDelete = async id => {
+    await apiClient.delete(`/api/storage/product/${id}`);
+    fetchGallery();
   };
 
   const handleDeleteSelected = async () => {
-    try {
-      await Promise.all(
-        selected.map(id =>
-          fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${id}`,
-            {
-              credentials: 'include',
-              method: 'DELETE',
-            },
-          )
-        )
-      );
-      console.log("Images deleted successfully from the gallery");
-      fetchGallery();
-      setSelected([]);
-      setOpenDeleteDialog(false);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    await Promise.all(selected.map(id => apiClient.delete(`/api/storage/product/${id}`)));
+    console.log('Images deleted successfully from the gallery');
+    fetchGallery();
+    setSelected([]);
+    setOpenDeleteDialog(false);
   };
 
-  const handleSubmit = async () => {
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append('name', formData.name);
-      formDataToSend.append('finishName', formData.finishName);
-      formDataToSend.append('finishImage', formData.finishImage);
+  // const handleSubmit = async () => {
+  //   try {
+  //     const formDataToSend = new FormData();
+  //     formDataToSend.append('name', formData.name);
+  //     formDataToSend.append('finishName', formData.finishName);
+  //     formDataToSend.append('finishImage', formData.finishImage);
 
-      const response = await fetch(
-        `${process.env.REACT_APP_BASE_API_URL}/api/storage/upload`,
-        {
-          method: "POST",
-          credentials: "include",
-          body: formDataToSend,
-        }
-      );
-      if (!response.ok) throw new Error("Failed to add image");
-      fetchGallery();
-      setOpenDialog(false);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+  //     const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/upload`, {
+  //       method: 'POST',
+  //       credentials: 'include',
+  //       body: formDataToSend,
+  //     });
+  //     if (!response.ok) throw new Error('Failed to add image');
+  //     fetchGallery();
+  //     setOpenDialog(false);
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
 
-  const filteredGallery = Array.isArray(gallery) ? gallery.filter(image => {
-    const searchValue = searchField === 'finishName'
-      ? (image.finishes[0]?.finish || '').toLowerCase()
-      : (image[searchField] || '').toLowerCase();
-    return searchValue.includes(searchQuery.toLowerCase());
-  }) : [];
+  const filteredGallery = Array.isArray(gallery)
+    ? gallery.filter(image => {
+        const searchValue = searchField === 'finishName' ? (image.finishes[0]?.finish || '').toLowerCase() : (image[searchField] || '').toLowerCase();
+        return searchValue.includes(searchQuery.toLowerCase());
+      })
+    : [];
 
   const sortedGallery = filteredGallery.sort((a, b) => {
     const isAsc = order === 'asc';
@@ -230,12 +178,11 @@ function Gallery() {
 
   const renderSearchBar = () => (
     <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
-
       <TextField
         fullWidth
         placeholder={`Search by ${searchField}...`}
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={e => setSearchQuery(e.target.value)}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -247,8 +194,6 @@ function Gallery() {
     </Box>
   );
 
-
-
   const renderDeleteDialog = () => (
     <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)}>
       <DialogTitle>Confirm Delete</DialogTitle>
@@ -256,15 +201,16 @@ function Gallery() {
         <DialogContentText>
           {imageToDelete
             ? 'Are you sure you want to delete this image from the gallery?'
-            : `Are you sure you want to delete ${selected.length} selected images from the gallery?`
-          }
+            : `Are you sure you want to delete ${selected.length} selected images from the gallery?`}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => {
-          setOpenDeleteDialog(false);
-          setImageToDelete(null);
-        }}>
+        <Button
+          onClick={() => {
+            setOpenDeleteDialog(false);
+            setImageToDelete(null);
+          }}
+        >
           Cancel
         </Button>
         <Button onClick={handleDeleteConfirm} color="error" variant="contained">
@@ -276,14 +222,10 @@ function Gallery() {
 
   const tableColumns = [
     { id: 'finishName', label: 'Name' },
-    { id: 'image', label: 'Image' }
-  ].map((column) => (
+    { id: 'image', label: 'Image' },
+  ].map(column => (
     <TableCell key={column.id}>
-      <TableSortLabel
-        active={orderBy === column.id}
-        direction={orderBy === column.id ? order : 'asc'}
-        onClick={() => handleSort(column.id)}
-      >
+      <TableSortLabel active={orderBy === column.id} direction={orderBy === column.id ? order : 'asc'} onClick={() => handleSort(column.id)}>
         {column.label}
       </TableSortLabel>
     </TableCell>
@@ -291,26 +233,14 @@ function Gallery() {
 
   const renderTableBody = () => (
     <TableBody>
-      {sortedGallery.map((image) => (
-        <TableRow
-          key={image.id}
-          selected={selected.includes(image.id)}
-        >
+      {sortedGallery.map(image => (
+        <TableRow key={image.id} selected={selected.includes(image.id)}>
           <TableCell padding="checkbox">
-            <Checkbox
-              checked={selected.includes(image.id)}
-              onChange={() => handleSelect(image.id)}
-            />
+            <Checkbox checked={selected.includes(image.id)} onChange={() => handleSelect(image.id)} />
           </TableCell>
           <TableCell>{image.finishes[0]?.finish || ''}</TableCell>
           <TableCell>
-            {image.finishes[0]?.link && (
-              <img
-                src={image.finishes[0].link}
-                alt={image.name}
-                style={{ height: '50px', width: 'auto' }}
-              />
-            )}
+            {image.finishes[0]?.link && <img src={image.finishes[0].link} alt={image.name} style={{ height: '50px', width: 'auto' }} />}
           </TableCell>
           <TableCell>
             <Box sx={{ display: 'flex', gap: 1 }}>
@@ -337,19 +267,11 @@ function Gallery() {
         <Typography variant="h4">Gallery</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
-            <Button
-              variant="contained"
-              color="error"
-              onClick={() => setOpenDeleteDialog(true)}
-            >
+            <Button variant="contained" color="error" onClick={() => setOpenDeleteDialog(true)}>
               Delete Selected ({selected.length})
             </Button>
           )}
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => setOpenAddModal(true)}
-          >
+          <Button variant="contained" color="primary" onClick={() => setOpenAddModal(true)}>
             Add New image to gallery
           </Button>
         </Box>
@@ -385,7 +307,6 @@ function Gallery() {
         customCategory={customCategory}
         setCustomCategory={setCustomCategory}
       />
-
     </Box>
   );
 }

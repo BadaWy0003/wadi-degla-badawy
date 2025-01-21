@@ -25,9 +25,7 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
-
-
-
+import apiClient from '../../util/client';
 
 export default function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -49,7 +47,7 @@ export default function Customers() {
     whatsapp: '',
     country: '',
     address: '',
-    port: ''
+    port: '',
   });
 
   useEffect(() => {
@@ -57,26 +55,17 @@ export default function Customers() {
   }, []);
 
   const fetchCustomers = async () => {
-
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/customer/all`,
-        { credentials: 'include' },
-      );
-      if (!response.ok) throw new Error('Failed to fetch customers');
-      const data = await response.json();
-      setCustomers(data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    const { data } = await apiClient.get(`/api/customer/all`);
+    setCustomers(data);
   };
 
-  const handleSort = (property) => {
+  const handleSort = property => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
 
-  const handleSelectAll = (event) => {
+  const handleSelectAll = event => {
     if (event.target.checked) {
       setSelected(filteredCustomers.map(customer => customer.id));
     } else {
@@ -84,7 +73,7 @@ export default function Customers() {
     }
   };
 
-  const handleSelect = (id) => {
+  const handleSelect = id => {
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
@@ -113,7 +102,7 @@ export default function Customers() {
         whatsapp: '',
         country: '',
         address: '',
-        port: ''
+        port: '',
       });
     }
     setOpenDialog(true);
@@ -131,31 +120,13 @@ export default function Customers() {
 
       console.log('Submitting customer data:', customerData);
 
-      const response = await fetch(
-        `${process.env.REACT_APP_BASE_API_URL}/api/customer/create`,
-        {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(customerData),
-        }
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to create customer");
-      }
-
-      const result = await response.json();
-      console.log("Customer created successfully:", result);
+      await apiClient.post(`/api/customer/create`, customerData);
 
       fetchCustomers(); // Refresh the list
       setOpenDialog(false);
     } catch (error) {
-      console.error("Error creating customer:", error);
-      alert(error.message || "Failed to create customer. Please try again.");
+      console.error('Error creating customer:', error);
+      alert(error.message || 'Failed to create customer. Please try again.');
     }
   };
   //_______________________________________________________________ from users.js
@@ -168,36 +139,16 @@ export default function Customers() {
     setOpenDeleteDialog(false);
     setCustomerToDelete(null);
   };
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/customer/delete/${id}`,
-        {
-          credentials: 'include',
-          method: 'DELETE',
-        },
-      );
 
-      if (!response.ok) throw new Error('Failed to delete user');
-      console.log("Customer deleted successfully");
-      fetchCustomers(); // Now fetchUsers is in scope
-    } catch (error) {
-      console.error('Error:', error);
-    }
+  const handleDelete = async id => {
+    await apiClient.delete(`/api/customer/delete/${id}`);
+    fetchCustomers();
   };
 
   const handleDeleteSelected = async () => {
     try {
-      await Promise.all(
-        selected.map(id =>
-          fetch(`${process.env.REACT_APP_BASE_API_URL}/api/customer/delete/${id}`,
-            {
-              credentials: 'include',
-              method: 'DELETE',
-            },
-          )
-        )
-      );
-      console.log("Customers deleted successfully");
+      await Promise.all(selected.map(id => apiClient.delete(`/api/customer/delete/${id}`)));
+      console.log('Customers deleted successfully');
       fetchCustomers(); // Now fetchUsers is in scope
       setSelected([]);
       setOpenDeleteDialog(false);
@@ -205,7 +156,7 @@ export default function Customers() {
       console.error('Error:', error);
     }
   };
-  //_______________________________________________________________ 
+  //_______________________________________________________________
 
   // const handleDeleteConfirm = async () => {
 
@@ -237,12 +188,7 @@ export default function Customers() {
 
   const renderSearchBar = () => (
     <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
-      <TextField
-        select
-        value={searchField}
-        onChange={(e) => setSearchField(e.target.value)}
-        sx={{ width: 150 }}
-      >
+      <TextField select value={searchField} onChange={e => setSearchField(e.target.value)} sx={{ width: 150 }}>
         <MenuItem value="fullName">Name</MenuItem>
         <MenuItem value="email">Email</MenuItem>
         <MenuItem value="companyName">Company</MenuItem>
@@ -251,7 +197,7 @@ export default function Customers() {
         fullWidth
         placeholder={`Search by ${searchField}...`}
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={e => setSearchQuery(e.target.value)}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -265,18 +211,16 @@ export default function Customers() {
 
   const renderAddEditDialog = () => (
     <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-      <DialogTitle>
-        {editingCustomer ? 'Edit Customer' : 'Add New Customer'}
-      </DialogTitle>
+      <DialogTitle>{editingCustomer ? 'Edit Customer' : 'Add New Customer'}</DialogTitle>
       <DialogContent>
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {['fullName', 'companyName', 'rnc', 'email', 'phone', 'whatsapp', 'country', 'address', 'port', 'password'].map((field) => (
+          {['fullName', 'companyName', 'rnc', 'email', 'phone', 'whatsapp', 'country', 'address', 'port', 'password'].map(field => (
             <TextField
               key={field}
               fullWidth
               label={field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')}
               value={formData[field]}
-              onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
+              onChange={e => setFormData({ ...formData, [field]: e.target.value })}
               required
             />
           ))}
@@ -298,15 +242,16 @@ export default function Customers() {
         <DialogContentText>
           {customerToDelete
             ? 'Are you sure you want to delete this customer?'
-            : `Are you sure you want to delete ${selected.length} selected customers?`
-          }
+            : `Are you sure you want to delete ${selected.length} selected customers?`}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => {
-          setOpenDeleteDialog(false);
-          setCustomerToDelete(null);
-        }}>
+        <Button
+          onClick={() => {
+            setOpenDeleteDialog(false);
+            setCustomerToDelete(null);
+          }}
+        >
           Cancel
         </Button>
         <Button onClick={handleDeleteConfirm} color="error" variant="contained">
@@ -322,19 +267,11 @@ export default function Customers() {
         <Typography variant="h4">Customers</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
-            <Button
-              variant="contained"
-              color="error"
-              onClick={() => setOpenDeleteDialog(true)}
-            >
+            <Button variant="contained" color="error" onClick={() => setOpenDeleteDialog(true)}>
               Delete Selected ({selected.length})
             </Button>
           )}
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => handleOpenDialog()}
-          >
+          <Button variant="contained" color="primary" onClick={() => handleOpenDialog()}>
             Add New Customer
           </Button>
         </Box>
@@ -353,13 +290,9 @@ export default function Customers() {
                   onChange={handleSelectAll}
                 />
               </TableCell>
-              {['name', 'email', 'company'].map((field) => (
+              {['name', 'email', 'company'].map(field => (
                 <TableCell key={field}>
-                  <TableSortLabel
-                    active={orderBy === field}
-                    direction={orderBy === field ? order : 'asc'}
-                    onClick={() => handleSort(field)}
-                  >
+                  <TableSortLabel active={orderBy === field} direction={orderBy === field ? order : 'asc'} onClick={() => handleSort(field)}>
                     {field.charAt(0).toUpperCase() + field.slice(1)}
                   </TableSortLabel>
                 </TableCell>
@@ -368,27 +301,17 @@ export default function Customers() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {sortedCustomers.map((customer) => (
-              <TableRow
-                key={customer.id}
-                selected={selected.includes(customer.id)}
-              >
+            {sortedCustomers.map(customer => (
+              <TableRow key={customer.id} selected={selected.includes(customer.id)}>
                 <TableCell padding="checkbox">
-                  <Checkbox
-                    checked={selected.includes(customer.id)}
-                    onChange={() => handleSelect(customer.id)}
-                  />
+                  <Checkbox checked={selected.includes(customer.id)} onChange={() => handleSelect(customer.id)} />
                 </TableCell>
                 <TableCell>{customer.fullName}</TableCell>
                 <TableCell>{customer.email}</TableCell>
                 <TableCell>{customer.companyName}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <IconButton
-                      size="small"
-                      color="primary"
-                      onClick={() => handleOpenDialog(customer)}
-                    >
+                    <IconButton size="small" color="primary" onClick={() => handleOpenDialog(customer)}>
                       <EditIcon />
                     </IconButton>
                     <IconButton

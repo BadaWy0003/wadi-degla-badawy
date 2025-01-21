@@ -6,6 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import AddProductModal from './AddProductModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
 import EditProductModal from './EditProductModal';
+import apiClient from '../../util/client';
 
 const modalStyle = {
   position: 'absolute',
@@ -41,65 +42,46 @@ export default function Products() {
     fetchProducts();
   }, []);
 
-  const fetchProducts = () => {
-    setLoading(true);
-    fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`, { credentials: 'include' })
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.data) {
-          setData(result.data);
-        }
-      })
-      .catch((error) => console.error("Error fetching data:", error))
-      .finally(() => setLoading(false));
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      const { data } = await apiClient.get('/api/storage/all');
+      setData(data.data);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleSelectAll = (event) => {
+  const handleSelectAll = event => {
     if (event.target.checked) {
-      const newSelected = data.map((product) => product.id);
+      const newSelected = data.map(product => product.id);
       setSelected(newSelected);
       return;
     }
     setSelected([]);
   };
 
-  const handleSelect = (id) => {
+  const handleSelect = id => {
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
     if (selectedIndex === -1) {
       newSelected = [...selected, id];
     } else {
-      newSelected = selected.filter((itemId) => itemId !== id);
+      newSelected = selected.filter(itemId => itemId !== id);
     }
 
     setSelected(newSelected);
   };
 
-
   const handleDeleteSelected = async () => {
-    try {
-      await Promise.all(
-        selected.map(id =>
-          fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${id}`, // Fix API endpoint
-            {
-              credentials: 'include',
-              method: 'DELETE',
-            }
-          )
-        )
-      );
-
-      fetchProducts();
-      setSelected([]);
-      setOpenDeleteDialog(false);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    await Promise.all(selected.map(id => apiClient.delete(`/api/storage/product/${id}`)));
+    fetchProducts();
+    setSelected([]);
+    setOpenDeleteDialog(false);
   };
 
-
-  const handleEdit = (product) => {
+  const handleEdit = product => {
     setEditingProduct(product);
     setOpenEditModal(true);
   };
@@ -108,26 +90,14 @@ export default function Products() {
     fetchProducts(); // Refresh the list after successful edit
   };
 
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/product/${id}`,
-        {
-          credentials: 'include',
-          method: 'DELETE',
-        });
-
-      if (!response.ok) {
-        throw new Error('Failed to delete product');
-      }
-
-      fetchProducts(); // Refresh the list
-    } catch (error) {
-      console.error('Error deleting product:', error);
-    }
+  const handleDelete = async id => {
+    await apiClient.delete(`/api/storage/product/${id}`);
+    fetchProducts();
   };
 
   const handleConfirmDelete = async () => {
-    if (productToDelete) { // Change from selectedProduct to productToDelete
+    if (productToDelete) {
+      // Change from selectedProduct to productToDelete
       await handleDelete(productToDelete);
     } else {
       await handleDeleteSelected();
@@ -136,44 +106,38 @@ export default function Products() {
     setProductToDelete(null);
   };
 
-  const handleMoreInfo = (product) => {
+  const handleMoreInfo = product => {
     setSelectedProduct(product);
     setOpenModal(true);
   };
 
-  const handleRequestSort = (property) => {
+  const handleRequestSort = property => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
 
-  const sortData = (data) => {
+  const sortData = data => {
     return [...data].sort((a, b) => {
       if (orderBy === 'finishes') {
-        return order === 'asc'
-          ? a.finishes.length - b.finishes.length
-          : b.finishes.length - a.finishes.length;
+        return order === 'asc' ? a.finishes.length - b.finishes.length : b.finishes.length - a.finishes.length;
       }
 
       // Handle category/type field
       if (orderBy === 'category') {
         const aValue = a.type || '';
         const bValue = b.type || '';
-        return order === 'asc'
-          ? aValue.localeCompare(bValue)
-          : bValue.localeCompare(aValue);
+        return order === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
       }
 
       // Handle other fields
       const aValue = a[orderBy] || '';
       const bValue = b[orderBy] || '';
-      return order === 'asc'
-        ? String(aValue).localeCompare(String(bValue))
-        : String(bValue).localeCompare(String(aValue));
+      return order === 'asc' ? String(aValue).localeCompare(String(bValue)) : String(bValue).localeCompare(String(aValue));
     });
   };
 
-  const filterData = (data) => {
+  const filterData = data => {
     // First filter out Gallery items
     const nonGalleryItems = data.filter(product => product.type !== 'Gallery');
 
@@ -196,7 +160,7 @@ export default function Products() {
 
   const sortedAndFilteredData = sortData(filterData(data));
 
-  const handleAddProduct = (newProduct) => {
+  const handleAddProduct = newProduct => {
     // Refresh the products list after adding
     fetchProducts();
   };
@@ -209,13 +173,7 @@ export default function Products() {
     <Box sx={{ width: '100%', p: 2 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
         <Typography variant="h4">Products</Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          startIcon={<AddIcon />}
-          onClick={() => setOpenAddModal(true)}
-          sx={{ ml: 'auto' }}
-        >
+        <Button variant="contained" color="primary" startIcon={<AddIcon />} onClick={() => setOpenAddModal(true)} sx={{ ml: 'auto' }}>
           Add Product
         </Button>
       </Box>
@@ -240,16 +198,13 @@ export default function Products() {
         onSelect={handleSelect}
         onMoreInfo={handleMoreInfo}
         onEdit={handleEdit}
-        onDelete={(id) => {
+        onDelete={id => {
           setProductToDelete(id); // Use productToDelete instead of selectedProduct
           setOpenDeleteDialog(true);
         }}
       />
 
-      <Modal
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-      >
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
         <Box sx={modalStyle}>
           {selectedProduct && (
             <>
@@ -258,18 +213,26 @@ export default function Products() {
               </Typography>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                  <Typography><strong>Category:</strong> {selectedProduct.type}</Typography>
-                  <Typography><strong>Total Finishes:</strong> {selectedProduct.finishes?.length || 0}</Typography>
+                  <Typography>
+                    <strong>Category:</strong> {selectedProduct.type}
+                  </Typography>
+                  <Typography>
+                    <strong>Total Finishes:</strong> {selectedProduct.finishes?.length || 0}
+                  </Typography>
                 </Grid>
 
                 {selectedProduct.finishes && selectedProduct.finishes.length > 0 && (
                   <Grid item xs={12}>
-                    <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Available Finishes:</Typography>
+                    <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
+                      Available Finishes:
+                    </Typography>
                     <Grid container spacing={2}>
                       {selectedProduct.finishes.map((finish, index) => (
                         <Grid item xs={12} sm={6} md={4} key={index}>
                           <Paper sx={{ p: 1 }}>
-                            <Typography><strong>{finish.finish}</strong></Typography>
+                            <Typography>
+                              <strong>{finish.finish}</strong>
+                            </Typography>
                             {finish.link && (
                               <img
                                 src={finish.link}
@@ -288,7 +251,9 @@ export default function Products() {
                   <Grid container spacing={2}>
                     {selectedProduct.mockupUrl && (
                       <Grid item xs={12} sm={6}>
-                        <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Indoor Mockup:</Typography>
+                        <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
+                          Indoor Mockup:
+                        </Typography>
                         <img
                           src={`${process.env.REACT_APP_BASE_API_URL}${selectedProduct.mockupUrl}`}
                           alt="Indoor Mockup"
@@ -298,7 +263,9 @@ export default function Products() {
                     )}
                     {selectedProduct.mockupOutdoorUrl && (
                       <Grid item xs={12} sm={6}>
-                        <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>Outdoor Mockup:</Typography>
+                        <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
+                          Outdoor Mockup:
+                        </Typography>
                         <img
                           src={`${process.env.REACT_APP_BASE_API_URL}${selectedProduct.mockupOutdoorUrl}`}
                           alt="Outdoor Mockup"
@@ -314,11 +281,7 @@ export default function Products() {
         </Box>
       </Modal>
 
-      <AddProductModal
-        open={openAddModal}
-        onClose={() => setOpenAddModal(false)}
-        onSubmit={handleAddProduct}
-      />
+      <AddProductModal open={openAddModal} onClose={() => setOpenAddModal(false)} onSubmit={handleAddProduct} />
       <DeleteConfirmDialog
         open={openDeleteDialog}
         onClose={() => {
@@ -338,7 +301,6 @@ export default function Products() {
         onSubmit={handleEditSubmit}
         product={editingProduct}
       />
-
     </Box>
   );
 }

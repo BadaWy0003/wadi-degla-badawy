@@ -18,8 +18,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddUserModal from './AddUserModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
-
-
+import apiClient from '../../util/client';
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -28,11 +27,11 @@ export default function Users() {
   const [openDialog, setOpenDialog] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
   const [formData, setFormData] = useState({
-    id: "",
-    username: "",
-    email: "",
-    password: "",
-    role: "",
+    id: '',
+    username: '',
+    email: '',
+    password: '',
+    role: '',
   });
 
   useEffect(() => {
@@ -47,63 +46,47 @@ export default function Users() {
   }, []);
 
   const fetchUsers = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/admin/all`, {
-        credentials: "include",
-        method: "GET",
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(
-          `HTTP Error! Status: ${response.status}, Body: ${errorText}`
-        );
-      }
-
-      const data = await response.json();
-      setUsers(
-        data.map((user) => ({
-          id: user.id,
-          name: user.username,
-          email: user.email,
-          role: user.role,
-        }))
-      );
-    } catch (error) {
-      console.error("Failed to fetch users:", error.message);
-    }
+    const { data } = await apiClient.get(`/api/admin/all`);
+    setUsers(
+      data.map(user => ({
+        id: user.id,
+        name: user.username,
+        email: user.email,
+        role: user.role,
+      })),
+    );
   };
 
-  const handleSort = (property) => {
-    const isAsc = orderBy === property && order === "asc";
-    setOrder(isAsc ? "desc" : "asc");
+  const handleSort = property => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
 
     const sortedUsers = [...users].sort((a, b) => {
-      if (a[property] < b[property]) return order === "asc" ? -1 : 1;
-      if (a[property] > b[property]) return order === "asc" ? 1 : -1;
+      if (a[property] < b[property]) return order === 'asc' ? -1 : 1;
+      if (a[property] > b[property]) return order === 'asc' ? 1 : -1;
       return 0;
     });
 
     setUsers(sortedUsers);
   };
 
-  const handleSelectAll = (event) => {
+  const handleSelectAll = event => {
     if (event.target.checked) {
-      setSelected(users.map((user) => user.id));
+      setSelected(users.map(user => user.id));
     } else {
       setSelected([]);
     }
   };
 
-  const handleSelect = (id) => {
+  const handleSelect = id => {
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
     if (selectedIndex === -1) {
       newSelected = [...selected, id];
     } else {
-      newSelected = selected.filter((item) => item !== id);
+      newSelected = selected.filter(item => item !== id);
     }
 
     setSelected(newSelected);
@@ -132,58 +115,23 @@ export default function Users() {
   const handleCloseDialog = () => {
     setOpenDialog(false);
     setEditingUser(null);
-    setFormData({ username: "", email: "", password: "", role: "" });
+    setFormData({ username: '', email: '', password: '', role: '' });
   };
 
   const handleSubmit = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/admin/create`, {
-        credentials: "include",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) throw new Error("Failed to create user");
-
-      fetchUsers(); // Now fetchUsers is in scope
-      handleCloseDialog();
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    await apiClient.post(`/api/admin/create`, formData);
+    fetchUsers();
+    handleCloseDialog();
   };
 
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/admin/delete/${id}`,
-        {
-          credentials: 'include',
-          method: 'DELETE',
-        },
-      );
-
-      if (!response.ok) throw new Error('Failed to delete user');
-
-      fetchUsers(); // Now fetchUsers is in scope
-    } catch (error) {
-      console.error('Error:', error);
-    }
+  const handleDelete = async id => {
+    await apiClient.delete(`/api/admin/delete/${id}`);
+    fetchUsers();
   };
 
   const handleDeleteSelected = async () => {
     try {
-      await Promise.all(
-        selected.map(id =>
-          fetch(`${process.env.REACT_APP_BASE_API_URL}/api/admin/delete/${id}`,
-            {
-              credentials: 'include',
-              method: 'DELETE',
-            },
-          )
-        )
-      );
+      await Promise.all(selected.map(id => apiClient.delete(`/api/admin/delete/${id}`)));
 
       fetchUsers(); // Now fetchUsers is in scope
       setSelected([]);
@@ -199,19 +147,11 @@ export default function Users() {
         <Typography variant="h4">Users</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
-            <Button
-              variant="contained"
-              color="error"
-              onClick={() => setOpenDeleteDialog(true)}
-            >
+            <Button variant="contained" color="error" onClick={() => setOpenDeleteDialog(true)}>
               Delete Selected ({selected.length})
             </Button>
           )}
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => handleOpenDialog()}
-          >
+          <Button variant="contained" color="primary" onClick={() => handleOpenDialog()}>
             Add New User
           </Button>
         </Box>
@@ -230,29 +170,17 @@ export default function Users() {
               </TableCell>
 
               <TableCell>
-                <TableSortLabel
-                  active={orderBy === 'name'}
-                  direction={orderBy === 'name' ? order : 'asc'}
-                  onClick={() => handleSort('name')}
-                >
+                <TableSortLabel active={orderBy === 'name'} direction={orderBy === 'name' ? order : 'asc'} onClick={() => handleSort('name')}>
                   Name
                 </TableSortLabel>
               </TableCell>
               <TableCell>
-                <TableSortLabel
-                  active={orderBy === 'email'}
-                  direction={orderBy === 'email' ? order : 'asc'}
-                  onClick={() => handleSort('email')}
-                >
+                <TableSortLabel active={orderBy === 'email'} direction={orderBy === 'email' ? order : 'asc'} onClick={() => handleSort('email')}>
                   Email
                 </TableSortLabel>
               </TableCell>
               <TableCell>
-                <TableSortLabel
-                  active={orderBy === 'role'}
-                  direction={orderBy === 'role' ? order : 'asc'}
-                  onClick={() => handleSort('role')}
-                >
+                <TableSortLabel active={orderBy === 'role'} direction={orderBy === 'role' ? order : 'asc'} onClick={() => handleSort('role')}>
                   Role
                 </TableSortLabel>
               </TableCell>
@@ -260,27 +188,17 @@ export default function Users() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map((user) => (
-              <TableRow
-                key={user.id}
-                selected={selected.includes(user.id)}
-              >
+            {users.map(user => (
+              <TableRow key={user.id} selected={selected.includes(user.id)}>
                 <TableCell padding="checkbox">
-                  <Checkbox
-                    checked={selected.includes(user.id)}
-                    onChange={() => handleSelect(user.id)}
-                  />
+                  <Checkbox checked={selected.includes(user.id)} onChange={() => handleSelect(user.id)} />
                 </TableCell>
                 <TableCell>{user.name}</TableCell>
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.role}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <IconButton
-                      size="small"
-                      color="primary"
-                      onClick={() => handleOpenDialog(user)}
-                    >
+                    <IconButton size="small" color="primary" onClick={() => handleOpenDialog(user)}>
                       <EditIcon />
                     </IconButton>
                     <IconButton
