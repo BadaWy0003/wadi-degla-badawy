@@ -27,7 +27,7 @@ PdfExportController.generateAndUploadPdf = async (req, res) => {
 
     const pdfUrl = await PdfExportService.generateAndUploadPdf(req.body, metadata);
 
-    res.status(200).json({ message: 'PDF generated and uploaded successfully', pdfUrl });
+    res.status(200).json({ message: 'PDF generated and uploaded successfully', pdfUrl, data: req.body });
   } catch (error) {
     console.error('Error generating and uploading PDF:', error);
     res.status(500).json({ error: 'Failed to generate and upload PDF' });
@@ -64,7 +64,6 @@ PdfExportController.getInvoicesByType = async (req, res) => {
   }
 };
 
-
 PdfExportController.deleteInvoice = async (req, res) => {
   const { id } = req.params;
 
@@ -84,5 +83,5 @@ PdfExportController.deleteInvoice = async (req, res) => {
   }
 };
 
-
 module.exports = PdfExportController;
+

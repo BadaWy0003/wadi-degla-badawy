@@ -174,9 +174,9 @@ export default function Documents() {
 
   const handleGenerateAndDownload = async () => {
     const { data } = await apiClient.post(`/api/export-pdf/generate-upload-pdf`, formData);
-
-    if (data?.url) {
-      await handleDownload(data.url);
+    console.log('Sent Data', data.data);
+    if (data?.pdfUrl) {
+      await handleDownload(data.pdfUrl);
     }
 
     fetchDocuments();
