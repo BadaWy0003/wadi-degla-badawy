@@ -25,16 +25,13 @@ const uploadFileToStorage = async (file, type) => {
   return `https://storage.googleapis.com/${bucket.name}/${fileName}`;
 };
 
-
 StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }) => {
   const materialsRef = firestore.collection('materials');
-  console.log("ID", id);
   const docSnapshot = id ? await materialsRef.doc(id).get() : undefined;
-  console.log({ docSnapshot }, docSnapshot.empty);
 
   let uploadedFinishes = [];
   if (files.length) {
-    const finishesWithoutFile = finishes.filter(f => !f.link);
+    const finishesWithoutFile = finishes.filter((f) => !f.link);
     uploadedFinishes = await Promise.all(
       files.map(async (file) => {
         const publicUrl = await uploadFileToStorage(file, type);
@@ -42,7 +39,7 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
       }),
     );
 
-    uploadedFinishes = uploadedFinishes.filter(f => f.finish);
+    uploadedFinishes = uploadedFinishes.filter((f) => f.finish);
   }
 
   if (!docSnapshot || !docSnapshot.exists) {
@@ -57,7 +54,6 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     const existingData = docSnapshot.data();
     let nextFinishes = existingData.finishes ?? [];
 
-
     uploadedFinishes.forEach((uploadedFinish) => {
       const finishIndex = nextFinishes.findIndex((f) => f.finish === uploadedFinish.finish);
 
@@ -68,12 +64,12 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
       }
     });
 
-    nextFinishes = nextFinishes.filter(f => finishes.some(ff => ff.finishName === f.finish));
+    nextFinishes = nextFinishes.filter((f) => finishes.some((ff) => ff.finishName === f.finish));
 
     await materialsRef.doc(id).update({
       name,
       type,
-      finishes: nextFinishes
+      finishes: nextFinishes,
     });
 
     return {
@@ -161,5 +157,5 @@ StorageService.deleteProduct = async (productId) => {
   return { message: 'Product and associated files deleted successfully' };
 };
 
-
 module.exports = StorageService;
+
