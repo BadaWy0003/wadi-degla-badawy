@@ -3,10 +3,18 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'https://admin-dashboard-withered-waterfall-6127.fly.dev', 'https://client-rough-dawn-8020.fly.dev'];
+const allowedOrigins = [
+  'https://admin.wadidegla-eg.com',
+  'https://app.wadidegla-eg.com',
+  'https://www.wadidegla-eg.com',
+  'https://wadidegla-eg.com',
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'https://admin-dashboard-withered-waterfall-6127.fly.dev',
+  'https://client-rough-dawn-8020.fly.dev',
+];
 app.use(
   cors({
     origin: allowedOrigins,
@@ -25,3 +33,4 @@ const server = app.listen(port, async () => {
 });
 
 module.exports = server;
+

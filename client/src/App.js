@@ -12,10 +12,13 @@ import Visualizer from "./Components/Products/Visualizer.js";
 import MyAccount from "./Components/MyAccount/MyAccount.js";
 import Contact from "./Components/Contact/Contact.js";
 import ProductDetails from "./Components/Products/ProductDetails.js";
+import { ToastContainer } from "react-toastify";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useGlobalState } from "./Components/GlobalStateContext"; // Ensure this exists
 import { ProtectedRoute } from "./Components/ProtectedRoute"; // Create this file as described earlier
+
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { globalState } = useGlobalState();
@@ -25,6 +28,7 @@ function App() {
     <BrowserRouter>
       <div className="main">
         <Navbar />
+        <ToastContainer autoClose={5000} hideProgressBar />
         <Routes>
           {/* Public routes */}
           <Route exact path="/" element={<Home />} />

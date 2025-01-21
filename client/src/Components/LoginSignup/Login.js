@@ -53,7 +53,7 @@ export default function Login() {
       // Update global state with user data
       setGlobalState({
         isLoggedIn: true,
-        ...response.data, // Spread all fields from response.data
+        ...data, // Spread all fields from response.data
       });
       localStorage.setItem("auth_token", data.token);
 

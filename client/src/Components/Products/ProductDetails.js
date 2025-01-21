@@ -7,6 +7,7 @@ import slabs from "../../Public/Assets/Icons/product-icons/slabs.svg";
 import staircase from "../../Public/Assets/Icons/product-icons/staircase.svg";
 import wall_cladding from "../../Public/Assets/Icons/product-icons/wall-cladding.svg";
 import windowsills from "../../Public/Assets/Icons/product-icons/windowsills.svg";
+import apiClient from "../../util/client.js";
 
 export default function ProductDetails() {
   const { productId } = useParams();

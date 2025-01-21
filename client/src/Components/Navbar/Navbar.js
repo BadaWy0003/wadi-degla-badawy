@@ -17,6 +17,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useGlobalState } from "../GlobalStateContext.js";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import apiClient from "../../util/client.js";
 
 export default function Navbar() {
   const navRef = useRef();

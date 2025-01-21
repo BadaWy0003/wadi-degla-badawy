@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
 import hero_bg from "../../Public/Assets/Media/hero-bg.jpg";
-import Product from "./Product"; // Updated Product component
+import Product from "./Product";
+import apiClient from "../../util/client.js";
+
 // Remove Modal import
 
 export default function Visualizer() {
