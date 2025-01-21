@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import block from '../../Public/Assets/Icons/product-icons/block.svg';
-import exterior_cladding from '../../Public/Assets/Icons/product-icons/exterior-cladding.svg';
-import landscaping from '../../Public/Assets/Icons/product-icons/landscaping.svg';
-import slabs from '../../Public/Assets/Icons/product-icons/slabs.svg';
-import staircase from '../../Public/Assets/Icons/product-icons/staircase.svg';
-import wall_cladding from '../../Public/Assets/Icons/product-icons/wall-cladding.svg';
-import windowsills from '../../Public/Assets/Icons/product-icons/windowsills.svg';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import block from "../../Public/Assets/Icons/product-icons/block.svg";
+import exterior_cladding from "../../Public/Assets/Icons/product-icons/exterior-cladding.svg";
+import landscaping from "../../Public/Assets/Icons/product-icons/landscaping.svg";
+import slabs from "../../Public/Assets/Icons/product-icons/slabs.svg";
+import staircase from "../../Public/Assets/Icons/product-icons/staircase.svg";
+import wall_cladding from "../../Public/Assets/Icons/product-icons/wall-cladding.svg";
+import windowsills from "../../Public/Assets/Icons/product-icons/windowsills.svg";
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -19,29 +19,25 @@ export default function ProductDetails() {
     const fetchProductFromAll = async () => {
       try {
         // Fetch all products
-        const response = await fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`, {
-          credentials: 'include'
-        });
+        const { data } = await apiClient.get(`/api/storage/all`);
 
-        if (!response.ok) throw new Error('Failed to fetch products');
-
-        const result = await response.json();
-        if (result.data) {
+        if (data.data) {
           // Find the specific product by ID
-          const foundProduct = result.data.find(p => p.id === productId);
+          const foundProduct = data.data.find((p) => p.id === productId);
           if (foundProduct) {
             setProduct(foundProduct);
             // Set default finish
-            const polishedFinish = foundProduct.finishes.find(f => f.finish === 'Polished')
-              || foundProduct.finishes[0];
+            const polishedFinish =
+              foundProduct.finishes.find((f) => f.finish === "Polished") ||
+              foundProduct.finishes[0];
             setSelectedFinish(polishedFinish);
           } else {
-            throw new Error('Product not found');
+            throw new Error("Product not found");
           }
         }
       } catch (error) {
-        console.error('Error:', error);
-        navigate('/products');
+        console.error("Error:", error);
+        navigate("/products");
       } finally {
         setLoading(false);
       }
@@ -50,7 +46,7 @@ export default function ProductDetails() {
     if (productId) {
       fetchProductFromAll();
     } else {
-      navigate('/products');
+      navigate("/products");
     }
   }, [productId, navigate]);
 
@@ -76,9 +72,11 @@ export default function ProductDetails() {
     <div className="product-details-page">
       <div className="breadcrumb">
         <a href="/">Home</a>
-        <p>{'>'} Explore</p>
-        <a href="/products">{'>'} Products</a>
-        <p>{'>'} {product.name}</p>
+        <p>{">"} Explore</p>
+        <a href="/products">{">"} Products</a>
+        <p>
+          {">"} {product.name}
+        </p>
       </div>
 
       <div className="product-details-container">
@@ -95,7 +93,7 @@ export default function ProductDetails() {
 
           <div className="info-grid">
             <div className="info-label">Category:</div>
-            <div className="info-value" style={{ color: 'var(--blueColor)' }}>
+            <div className="info-value" style={{ color: "var(--blueColor)" }}>
               {product.type}
             </div>
 
@@ -103,15 +101,25 @@ export default function ProductDetails() {
             <div className="info-value">
               <select
                 className="modal-select"
-                value={selectedFinish?.finish || ''}
+                value={selectedFinish?.finish || ""}
                 onChange={(e) => {
-                  const newFinish = product.finishes.find(f => f.finish === e.target.value);
+                  const newFinish = product.finishes.find(
+                    (f) => f.finish === e.target.value
+                  );
                   setSelectedFinish(newFinish);
                 }}
               >
                 {product.finishes
-                  .filter(finish => !['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'].includes(finish.finish))
-                  .map(finish => (
+                  .filter(
+                    (finish) =>
+                      ![
+                        "indoorMockup",
+                        "mockup",
+                        "outdoorMockup",
+                        "mockupOutdoor",
+                      ].includes(finish.finish)
+                  )
+                  .map((finish) => (
                     <option key={finish.finish} value={finish.finish}>
                       {finish.finish}
                     </option>
@@ -138,8 +146,8 @@ export default function ProductDetails() {
 
           <button
             className="btn1"
-            onClick={() => navigate('/contact')}
-            style={{ width: '100%', marginTop: '2rem' }}
+            onClick={() => navigate("/contact")}
+            style={{ width: "100%", marginTop: "2rem" }}
           >
             Request a Sample
           </button>

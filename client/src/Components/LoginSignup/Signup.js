@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import apiClient from "../../util/client.js";
 import { useNavigate } from "react-router-dom";
 // import password_eye_hidden_icon from "../../Public/Assets/Icons/password-eye-hidden.svg";
 import wadi_degla_logo_login from "../../Public/Assets/Logo-Identity/wadi-degla-logo-login.svg";
@@ -39,7 +39,6 @@ export default function Signup() {
       password
     );
   try {
-
     const handleSignup = async () => {
       const newError = {};
       // if (!username) {
@@ -83,7 +82,8 @@ export default function Signup() {
         newError.country = "Please select a country.";
       }
       if (!port) {
-        newError.port = "Please enter the port of destination in case of shipment, if not please enter 'N/A'";
+        newError.port =
+          "Please enter the port of destination in case of shipment, if not please enter 'N/A'";
       }
       // if (!agreeToTerms) {
       //   newError.terms = "You must agree to the terms and conditions.";
@@ -95,58 +95,54 @@ export default function Signup() {
       }
 
       try {
-        const response = await axios.post(
-          `${process.env.REACT_APP_BASE_API_URL}/api/auth/customer/register`,
-          {
-            fullName,
-            companyName,
-            rnc,
-            email,
-            phone,
-            whatsapp,
-            country: country.label,
-            address,
-            port,
-            password,
-          }
-        );
+        const { data } = await apiClient.post(`/api/auth/customer/register`, {
+          fullName,
+          companyName,
+          rnc,
+          email,
+          phone,
+          whatsapp,
+          country: country.label,
+          address,
+          port,
+          password,
+        });
 
-        if (response.status === 200 || response.status === 201) {
-          alert("Registration successful! Please verify your email.");
-          const userData = {
-            token: response.data.token,
-            fullName: response.data.fullName,
-            companyName: response.data.companyName,
-            rnc: response.data.rnc,
-            email: response.data.email,
-            phone: response.data.phone,
-            whatsapp: response.data.whatsapp,
-            country: response.data.country,
-            countryCode: response.data.countryCode,
-            address: response.data.address,
-            port: response.data.port,
-          };
+        alert("Registration successful! Please verify your email.");
+        const userData = {
+          token: data.token,
+          fullName: data.fullName,
+          companyName: data.companyName,
+          rnc: data.rnc,
+          email: data.email,
+          phone: data.phone,
+          whatsapp: data.whatsapp,
+          country: data.country,
+          countryCode: data.countryCode,
+          address: data.address,
+          port: data.port,
+        };
 
-          // Save user data to localStorage
-          localStorage.setItem("userData", JSON.stringify(userData));
+        // Save user data to localStorage
+        localStorage.setItem("userData", JSON.stringify(userData));
+        localStorage.setItem("auth_token", JSON.stringify(data.token));
 
-          // Update global state
-          setGlobalState({
-            ...globalState,
-            isLoggedIn: true,
-            ...userData,
-          });
+        // Update global state
+        setGlobalState({
+          ...globalState,
+          isLoggedIn: true,
+          ...userData,
+        });
 
-          // Navigate to the home page
-          navigate("/");
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-
-        }
+        // Navigate to the home page
+        navigate("/");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } catch (error) {
         if (error.response) {
           console.error(error.response.data.error);
           alert(
-            error.response.data.error || "Registration failed. Please try again."
+            error.response.data.error ||
+              "Registration failed. Please try again."
           );
         } else {
           console.error(error.message);
@@ -155,13 +151,14 @@ export default function Signup() {
       }
     };
 
-
     return (
       <div className="container-big">
         <div className="container1">
           <div className="container1-title">
             <h1>Wadi Degla</h1>
-            <h3>Welcome to Wadi Degla! Feel free to create an account it only takes a couple of minutes.
+            <h3>
+              Welcome to Wadi Degla! Feel free to create an account it only
+              takes a couple of minutes.
             </h3>
           </div>
           <div className="container1-img">
@@ -193,7 +190,6 @@ export default function Signup() {
                   onChange={(e) => setfullName(e.target.value)}
                 />
                 {error.fullName && <p className="error">{error.fullName}</p>}
-
               </div>
               <div className="input-field">
                 <label htmlFor="companyName">*Company/Project Name</label>
@@ -204,8 +200,9 @@ export default function Signup() {
                   value={companyName}
                   onChange={(e) => setcompanyName(e.target.value)}
                 />
-                {error.companyName && <p className="error">{error.companyName}</p>}
-
+                {error.companyName && (
+                  <p className="error">{error.companyName}</p>
+                )}
               </div>
             </div>
             <div className="double-inputs">
@@ -220,7 +217,7 @@ export default function Signup() {
                 />
                 {error.email && <p className="error">{error.email}</p>}
               </div>
-              <div className='input-field'>
+              <div className="input-field">
                 <label htmlFor="password">*Password</label>
                 <input
                   type="password"
@@ -264,7 +261,6 @@ export default function Signup() {
                   placeholder="Search for a country"
                 />
                 {error.country && <p className="error">{error.country}</p>}
-
               </div>
               <div className="input-field">
                 <label htmlFor="rnc">Tax ID/RNC</label>
@@ -290,7 +286,7 @@ export default function Signup() {
                 />
               </div>
 
-              <div className='input-field'>
+              <div className="input-field">
                 <label htmlFor="port">*Port of Destination</label>
                 <input
                   type="text"
@@ -298,14 +294,10 @@ export default function Signup() {
                   name="port"
                   value={port}
                   onChange={(e) => setPort(e.target.value)}
-
                 />
                 {error.port && <p className="error">{error.port}</p>}
-
               </div>
-
             </div>
-
 
             {/* <div className="input-field">
             <label>
@@ -324,18 +316,22 @@ export default function Signup() {
               </button>
               <div className="forgot-password">
                 Already have an account?{" "}
-                <Link to='/login' onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }) }}>
+                <Link
+                  to="/login"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
                   <span>Login</span>
                 </Link>
               </div>
             </div>
-
           </form>
         </div>
       </div>
     );
   } catch (err) {
     console.log(err);
-    throw new Error('bayezz')
+    throw new Error("bayezz");
   }
 }

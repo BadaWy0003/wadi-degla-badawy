@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import './Gallery.css'
+import React, { useState, useEffect } from "react";
+import "./Gallery.css";
 // import { Link } from "react-router-dom";
 // import wadi_degla_logo_login from '../../Public/Assets/wadi-degla-logo-login.svg'
 import LightGallery from "lightgallery/react/Lightgallery.es5";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css"
-import "lightgallery/css/lg-autoplay.css"
-import "lightgallery/css/lg-share.css"
-import "lightgallery/css/lg-rotate.css"
+import "lightgallery/css/lg-thumbnail.css";
+import "lightgallery/css/lg-autoplay.css";
+import "lightgallery/css/lg-share.css";
+import "lightgallery/css/lg-rotate.css";
+import apiClient from "../../util/client";
 // import lgThumbnail from "lightgallery/plugins/thumbnail"
 // import lgZoom from "lightgallery/plugins/zoom"
 // import lgAutoplay from "lightgallery/plugins/autoplay"
@@ -46,62 +47,53 @@ import "lightgallery/css/lg-rotate.css"
 // import image30 from '/Assets/Media/Gallery/30.jpg'
 // import image31 from '/Assets/Media/Gallery/31.jpg'
 
-
-
 export default function Gallery() {
-    const [gallery, setGallery] = useState([]);
+  const [gallery, setGallery] = useState([]);
 
-    useEffect(() => {
-        const fetchGallery = async () => {
-            const typeName = "Gallery";
-            const url = `${process.env.REACT_APP_BASE_API_URL}/api/storage/type/${typeName}`;
-            try {
-                const response = await fetch(url, {
-                    method: 'GET',
-                    credentials: 'include'
-                });
-                if (!response.ok) throw new Error('Failed to fetch Gallery');
-                const { data } = await response.json();
-                setGallery(Array.isArray(data) ? data : []);
-            } catch (error) {
-                console.error('Error:', error);
-                setGallery([]);
-            }
-        };
+  useEffect(() => {
+    const fetchGallery = async () => {
+      const typeName = "Gallery";
+      try {
+        const { data } = await apiClient.get(`/api/storage/type/${typeName}`);
+        setGallery(Array.isArray(data.data) ? data.data : []);
+      } catch (error) {
+        console.error("Error:", error);
+        setGallery([]);
+      }
+    };
 
-        fetchGallery();
-    }, []);
+    fetchGallery();
+  }, []);
 
-    return (
-        <div className='gallery-container'>
-            <div className="gallery-hero">
-                <div className="gallery-hero-bg"></div>
-                <div className='page-title'>
-                    <h1>GALLERY</h1>
-                    <div className="breadcrumb">
-                        <a href="/">Home</a>
-                        <p>{'>'} Gallery</p>
-                    </div>
-                </div>
-            </div>
-            <div className="gallery-gallery">
-                <LightGallery
-                    elementClassNames="custom-wrapper-class"
-
-                >
-                    {gallery.map((item, i) => (
-                        item.finishes && item.finishes[0]?.link && (
-                            <img
-                                alt={item.name || ''}
-                                src={item.finishes[0].link}
-                                key={item.id || i}
-                                className="image-ingallery"
-                                loading="lazy"
-                            />
-                        )
-                    ))}
-                </LightGallery>
-            </div>
+  return (
+    <div className="gallery-container">
+      <div className="gallery-hero">
+        <div className="gallery-hero-bg"></div>
+        <div className="page-title">
+          <h1>GALLERY</h1>
+          <div className="breadcrumb">
+            <a href="/">Home</a>
+            <p>{">"} Gallery</p>
+          </div>
         </div>
-    )
+      </div>
+      <div className="gallery-gallery">
+        <LightGallery elementClassNames="custom-wrapper-class">
+          {gallery.map(
+            (item, i) =>
+              item.finishes &&
+              item.finishes[0]?.link && (
+                <img
+                  alt={item.name || ""}
+                  src={item.finishes[0].link}
+                  key={item.id || i}
+                  className="image-ingallery"
+                  loading="lazy"
+                />
+              )
+          )}
+        </LightGallery>
+      </div>
+    </div>
+  );
 }

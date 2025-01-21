@@ -1,31 +1,24 @@
 import { useState } from 'react';
-import axios from "axios";
-import { useGlobalState } from "../GlobalStateContext";
-import {
-  Box,
-  TextField,
-  Button,
-  Paper,
-  Typography,
-  Container
-} from '@mui/material';
+import { useGlobalState } from '../GlobalStateContext';
+import { Box, TextField, Button, Paper, Typography, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import apiClient from '../../util/client';
 
 export default function Login() {
   const { setGlobalState } = useGlobalState(); // Access global state for user data
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -37,35 +30,29 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post(
-          `${process.env.REACT_APP_BASE_API_URL}/api/auth/admin/login`,
-          { email: formData.email, password: formData.password },
-          { withCredentials: true }
-        );
+        const { data } = await apiClient.post(`/api/auth/admin/login`, { email: formData.email, password: formData.password });
 
-        localStorage.setItem("auth_token", response.data.token);
+        localStorage.setItem('auth_token', data.token);
 
         // Update global state
         setGlobalState({
           isLoggedIn: true,
-          ...response.data,
+          ...data,
         });
 
-        setMessage("Login successful!");
-        navigate("/"); // Redirect to homepage
-        window.scrollTo({ top: 0, behavior: "smooth" });
-
+        setMessage('Login successful!');
+        navigate('/'); // Redirect to homepage
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } catch (err) {
-        setErrors({ general: err.response?.data?.message || "Login failed. Please try again." });
-        setMessage("");
+        setErrors({ general: err.response?.data?.message || 'Login failed. Please try again.' });
+        setMessage('');
       }
     }
   };
-
 
   return (
     <Container component="main" maxWidth="xs">
@@ -110,12 +97,7 @@ export default function Login() {
               error={!!errors.password}
               helperText={errors.password}
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Sign In
             </Button>
           </Box>

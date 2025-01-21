@@ -1,29 +1,27 @@
-import React, { useState, useRef, useEffect } from 'react';
-import './Visualizer.css';
-// import { Link } from "react-router-dom";
-import hero_bg from '../../Public/Assets/Media/hero-bg.jpg';
-import ProductForVisualizer from './ProductForVisualizer.js';
-// import { productData } from './productData.js'; // Import the product data
+import React, { useState, useRef, useEffect } from "react";
+import "./Visualizer.css";
+import hero_bg from "../../Public/Assets/Media/hero-bg.jpg";
+import ProductForVisualizer from "./ProductForVisualizer.js";
+import apiClient from "../../util/client.js";
 
 export default function Visualizer() {
-  const [selectedCategory, setSelectedCategory] = useState('Imported Marble');
+  const [selectedCategory, setSelectedCategory] = useState("Imported Marble");
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [searchQuery, setSearchQuery] = useState(''); // State for search query
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
   const [showIndoor, setShowIndoor] = useState(true); // Toggle for indoor
   const [showOutdoor, setShowOutdoor] = useState(true); // Toggle for outdoor
   const [data, setData] = useState([]); // Set the product data
-  const [loading, setLoading] = useState(false);
   const indoorRef = useRef(null);
   const outdoorRef = useRef(null);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_API_URL}/api/storage/all`)
-      .then(response => response.json())
-      .then(result => {
-        setData(result.data || []);
+    apiClient
+      .get(`/api/storage/all`)
+      .then(({ data }) => {
+        setData(data.data || []);
       })
-      .catch(error => {
-        console.error('Error fetching products:', error);
+      .catch((error) => {
+        console.error("Error fetching products:", error);
         setData([]);
       });
   }, []);
@@ -35,19 +33,21 @@ export default function Visualizer() {
   }, [selectedCategory]);
 
   // Filter products based on selected category and search query
-  const filteredProducts = data.filter(item => {
+  const filteredProducts = data.filter((item) => {
     const isCategoryMatch = item.type === selectedCategory;
-    const isSearchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const isSearchMatch = item.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
     return isCategoryMatch && isSearchMatch;
   });
 
   // Get mockup images from finishes
-  const indoorProducts = filteredProducts.filter(item =>
-    item.finishes.some(f => f.finish === 'indoorMockup')
+  const indoorProducts = filteredProducts.filter((item) =>
+    item.finishes.some((f) => f.finish === "indoorMockup")
   );
 
-  const outdoorProducts = filteredProducts.filter(item =>
-    item.finishes.some(f => f.finish === 'outdoorMockup')
+  const outdoorProducts = filteredProducts.filter((item) =>
+    item.finishes.some((f) => f.finish === "outdoorMockup")
   );
 
   // Apply toggle logic ONLY to the selected category
@@ -57,14 +57,14 @@ export default function Visualizer() {
   // Scroll to the outdoor section
   const scrollToOutdoor = () => {
     if (outdoorRef.current) {
-      outdoorRef.current.scrollIntoView({ behavior: 'smooth' });
+      outdoorRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   // Scroll to the indoor section
   const scrollToIndoor = () => {
     if (indoorRef.current) {
-      indoorRef.current.scrollIntoView({ behavior: 'smooth' });
+      indoorRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -73,15 +73,15 @@ export default function Visualizer() {
   const hasOutdoorProducts = outdoorProducts.length > 0;
 
   const handleProductClick = (item, type) => {
-    const mockupFinish = item.finishes.find(f =>
-      f.finish === (type === 'indoor' ? 'indoorMockup' : 'outdoorMockup')
+    const mockupFinish = item.finishes.find(
+      (f) => f.finish === (type === "indoor" ? "indoorMockup" : "outdoorMockup")
     );
 
     setSelectedProduct({
       ...item,
-      currentMockup: mockupFinish ? mockupFinish.link : null
+      currentMockup: mockupFinish ? mockupFinish.link : null,
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -101,37 +101,49 @@ export default function Visualizer() {
           />
         )}
         <h1>{selectedProduct ? selectedProduct.name : "Visualizer"}</h1>
-        <div className="breadcrumb" id='breadcrumb-visualizer'>
+        <div className="breadcrumb" id="breadcrumb-visualizer">
           <a href="/">Home</a>
-          <p className='sub-breadcrumb'>{'>'} Explore</p>
-          <p>{'>'} Visualizer </p>
+          <p className="sub-breadcrumb">{">"} Explore</p>
+          <p>{">"} Visualizer </p>
         </div>
-        {!selectedProduct && <p className="hero-hint">Select a product from below and it will show here</p>}
+        {!selectedProduct && (
+          <p className="hero-hint">
+            Select a product from below and it will show here
+          </p>
+        )}
       </div>
 
       <div className="products-categories-and-title">
         <div className="products-categories">
           <button
-            className={`btn2 ${selectedCategory === 'Imported Marble' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('Imported Marble')}
+            className={`btn2 ${
+              selectedCategory === "Imported Marble" ? "active" : ""
+            }`}
+            onClick={() => setSelectedCategory("Imported Marble")}
           >
             Imported Marble
           </button>
           <button
-            className={`btn2 ${selectedCategory === 'Egyptian Marble' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('Egyptian Marble')}
+            className={`btn2 ${
+              selectedCategory === "Egyptian Marble" ? "active" : ""
+            }`}
+            onClick={() => setSelectedCategory("Egyptian Marble")}
           >
             Egyptian Marble
           </button>
           <button
-            className={`btn2 ${selectedCategory === 'Imported Granite' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('Imported Granite')}
+            className={`btn2 ${
+              selectedCategory === "Imported Granite" ? "active" : ""
+            }`}
+            onClick={() => setSelectedCategory("Imported Granite")}
           >
             Imported Granite
           </button>
           <button
-            className={`btn2 ${selectedCategory === 'Egyptian Granite' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('Egyptian Granite')}
+            className={`btn2 ${
+              selectedCategory === "Egyptian Granite" ? "active" : ""
+            }`}
+            onClick={() => setSelectedCategory("Egyptian Granite")}
           >
             Egyptian Granite
           </button>
@@ -144,7 +156,7 @@ export default function Visualizer() {
           type="text"
           placeholder={`Search inside ${selectedCategory} ...`}
           value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}
           className="search-bar"
         />
 
@@ -154,18 +166,18 @@ export default function Visualizer() {
             {/* Show "Hide Indoor" button only if outdoor products exist */}
             {hasIndoorProducts && hasOutdoorProducts && (
               <button
-                className={`toggle-btn ${showIndoor ? 'active' : ''}`}
+                className={`toggle-btn ${showIndoor ? "active" : ""}`}
                 onClick={() => setShowIndoor(!showIndoor)}
               >
-                {showIndoor ? 'Hide Indoor' : 'Show Indoor'}
+                {showIndoor ? "Hide Indoor" : "Show Indoor"}
               </button>
             )}
             {hasOutdoorProducts && (
               <button
-                className={`toggle-btn ${showOutdoor ? 'active' : ''}`}
+                className={`toggle-btn ${showOutdoor ? "active" : ""}`}
                 onClick={() => setShowOutdoor(!showOutdoor)}
               >
-                {showOutdoor ? 'Hide Outdoor' : 'Show Outdoor'}
+                {showOutdoor ? "Hide Outdoor" : "Show Outdoor"}
               </button>
             )}
           </div>
@@ -175,11 +187,14 @@ export default function Visualizer() {
       {filteredProducts.length > 0 ? (
         <div className="products-page">
           {/* Scroll to outdoor link */}
-          {window.innerWidth < 768 && showIndoor && showOutdoor && hasOutdoorProducts && (
-            <p onClick={scrollToOutdoor} className="scroll-to-outdoor-btn">
-              Scroll to Outdoor ↓
-            </p>
-          )}
+          {window.innerWidth < 768 &&
+            showIndoor &&
+            showOutdoor &&
+            hasOutdoorProducts && (
+              <p onClick={scrollToOutdoor} className="scroll-to-outdoor-btn">
+                Scroll to Outdoor ↓
+              </p>
+            )}
 
           {/* Indoor Section */}
           {showIndoor && visibleIndoorProducts.length > 0 && (
@@ -193,11 +208,11 @@ export default function Visualizer() {
             >
               {hasOutdoorProducts && <h2>Indoor</h2>}
               <div className="product-cards">
-                {visibleIndoorProducts.map(item => (
+                {visibleIndoorProducts.map((item) => (
                   <ProductForVisualizer
                     key={item.id}
                     item={item}
-                    onClick={() => handleProductClick(item, 'indoor')}
+                    onClick={() => handleProductClick(item, "indoor")}
                   />
                 ))}
               </div>
@@ -205,22 +220,25 @@ export default function Visualizer() {
           )}
 
           {/* Scroll to indoor link */}
-          {window.innerWidth < 768 && showIndoor && showOutdoor && hasOutdoorProducts && (
-            <p onClick={scrollToIndoor} className="scroll-to-indoor-btn">
-              Scroll to Indoor ↑
-            </p>
-          )}
+          {window.innerWidth < 768 &&
+            showIndoor &&
+            showOutdoor &&
+            hasOutdoorProducts && (
+              <p onClick={scrollToIndoor} className="scroll-to-indoor-btn">
+                Scroll to Indoor ↑
+              </p>
+            )}
 
           {/* Outdoor Section */}
           {showOutdoor && visibleOutdoorProducts.length > 0 && (
             <div className="category-title-and-product-cards" ref={outdoorRef}>
               <h2>Outdoor</h2>
               <div className="product-cards">
-                {visibleOutdoorProducts.map(item => (
+                {visibleOutdoorProducts.map((item) => (
                   <ProductForVisualizer
                     key={item.id}
                     item={item}
-                    onClick={() => handleProductClick(item, 'outdoor')}
+                    onClick={() => handleProductClick(item, "outdoor")}
                   />
                 ))}
               </div>

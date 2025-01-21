@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
+import apiClient from "../util/client";
 
 const GlobalStateContext = createContext();
 
@@ -25,23 +25,19 @@ export const GlobalStateProvider = ({ children }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_BASE_API_URL}/api/auth/customer/check-auth`,
-          { withCredentials: true }
-        );
+        const { data } = await apiClient.get(`/api/auth/customer/check-auth`);
 
-        if (response.status === 200) {
-          setGlobalState({
-            isLoggedIn: true,
-            ...response.data,
-          });
-        }
+        setGlobalState({
+          isLoggedIn: true,
+          ...data,
+        });
       } catch (err) {
         console.error(
           "Failed to fetch user data:",
           err.response?.data || err.message
         );
         setGlobalState({ isLoggedIn: false });
+        localStorage.removeItem("auth_token");
       } finally {
         setLoading(false);
       }
@@ -51,7 +47,9 @@ export const GlobalStateProvider = ({ children }) => {
   }, []);
 
   return (
-    <GlobalStateContext.Provider value={{ globalState, setGlobalState, loading }}>
+    <GlobalStateContext.Provider
+      value={{ globalState, setGlobalState, loading }}
+    >
       {children}
     </GlobalStateContext.Provider>
   );

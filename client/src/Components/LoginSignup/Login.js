@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../GlobalStateContext.js";
 import wadi_degla_logo_login from "../../Public/Assets/Logo-Identity/wadi-degla-logo-login.svg";
+import apiClient from "../../util/client.js";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -19,7 +19,9 @@ export default function Login() {
 
   // Password validation (at least 8 characters, one letter, one number)
   const validatePassword = (password) =>
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+      password
+    );
 
   const handleLogin = async () => {
     let validationErrors = {};
@@ -43,25 +45,26 @@ export default function Login() {
     // Clear errors and proceed with API request
     setErrors({});
     try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_BASE_API_URL}/api/auth/customer/login`,
-        { email, password },
-        { withCredentials: true } // Include cookies in requests
-      );
+      const { data } = await apiClient.post(`/api/auth/customer/login`, {
+        email,
+        password,
+      });
 
-      if (response.status === 200 || response.status === 201) {
-        // Update global state with user data
-        setGlobalState({
-          isLoggedIn: true,
-          ...response.data, // Spread all fields from response.data
-        });
+      // Update global state with user data
+      setGlobalState({
+        isLoggedIn: true,
+        ...response.data, // Spread all fields from response.data
+      });
+      localStorage.setItem("auth_token", data.token);
 
-        setMessage("Login successful!");
-        navigate("/");
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }
+      setMessage("Login successful!");
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
-      setErrors({ general: err.response?.data?.message || "Login failed. Please try again." });
+      setErrors({
+        general:
+          err.response?.data?.message || "Login failed. Please try again.",
+      });
       setMessage("");
     }
   };
@@ -71,7 +74,10 @@ export default function Login() {
       <div className="container1">
         <div className="container1-title">
           <h1>Wadi Degla</h1>
-          <h3>Welcome to Wadi Degla! Feel free to create an account it only takes a couple of minutes.</h3>
+          <h3>
+            Welcome to Wadi Degla! Feel free to create an account it only takes
+            a couple of minutes.
+          </h3>
         </div>
         <div className="container1-img">
           <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
@@ -121,7 +127,12 @@ export default function Login() {
             <button className="btn1">LOGIN</button>
             <div className="forgot-password">
               Don't have an account?
-              <Link to="/signup" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }) }}>
+              <Link
+                to="/signup"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
                 <span>Register</span>
               </Link>
             </div>
