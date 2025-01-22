@@ -49,10 +49,43 @@ PdfExportService.fetchAllInvoices = async () => {
   }
 
   // Map through the query snapshot and extract invoice data
-  const invoices = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+  const invoices = querySnapshot.docs.map((doc) => {
+
+    const data = doc.data();
+
+    return {
+      id: doc.id, // Document ID
+      type: data.type || 'Unknown Type', // Add a fallback for type
+      url: data.url || null, // URL of the PDF
+      userId: data.userId || 'anonymous', // User ID
+      createdAt: data.createdAt || null, // Timestamp when created
+      // Include all detailed fields like `items`, `total`, etc.
+      documentType: data.documentType || null,
+      proformaInvoice: data.proformaInvoice || null,
+      invoiceDate: data.invoiceDate || null,
+      containerId: data.containerId || null,
+      invoiceNumber: data.invoiceNumber || null,
+      customerName: data.customerName || null,
+      customerAddress: data.customerAddress || null,
+      customerPhone: data.customerPhone || null,
+      rnc: data.rnc || null,
+      notifyContent: data.notifyContent || null,
+      shippingTerm: data.shippingTerm || null,
+      PaymentTerms: data.PaymentTerms || null,
+      items: data.items || [], // Default to an empty array if no items exist
+      comment: data.comment || null,
+      shipmentTotalContainers: data.shipmentTotalContainers || null,
+      shipmentFees: data.shipmentFees || null,
+      totalBoxes: data.totalBoxes || null,
+      discount: data.discount || null,
+      netWeight: data.netWeight || null,
+      total: data.total || null,
+      grossWeight: data.grossWeight || null,
+      totalMeters: data.totalMeters || null,
+      packingInfo: data.packingInfo || null,
+    };
+  });
+
 
   return invoices;
 };

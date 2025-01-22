@@ -39,7 +39,7 @@ PdfExportController.getAllInvoices = async (req, res) => {
     // Fetch all materials from the service
     const products = await PdfExportService.fetchAllInvoices();
 
-    res.status(200).json({ message: 'Products fetched successfully', data: products });
+    res.status(200).json({ message: 'Products fetched successfully', data: products , totalCount: products.length});
   } catch (error) {
     console.error('Error in getAllProducts:', error);
     res.status(500).json({ message: 'Internal server error', error });

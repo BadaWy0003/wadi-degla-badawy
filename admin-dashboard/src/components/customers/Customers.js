@@ -22,7 +22,7 @@ import {
   MenuItem,
   InputAdornment,
 } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
+// import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
 import apiClient from '../../util/client';
@@ -311,9 +311,9 @@ export default function Customers() {
                 <TableCell>{customer.companyName}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <IconButton size="small" color="primary" onClick={() => handleOpenDialog(customer)}>
+                    {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(customer)}>
                       <EditIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <IconButton
                       size="small"
                       color="error"

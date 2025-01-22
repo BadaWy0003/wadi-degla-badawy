@@ -14,7 +14,7 @@ import {
   IconButton,
   Checkbox,
 } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
+// import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddUserModal from './AddUserModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
@@ -198,9 +198,9 @@ export default function Users() {
                 <TableCell>{user.role}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <IconButton size="small" color="primary" onClick={() => handleOpenDialog(user)}>
+                    {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(user)}>
                       <EditIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <IconButton
                       size="small"
                       color="error"

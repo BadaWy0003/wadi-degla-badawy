@@ -52,7 +52,7 @@ StorageController.getMaterialsByType = async (req, res) => {
     // Fetch materials from the service
     const materials = await StorageService.fetchMaterialsByType(type);
 
-    res.status(200).json({ message: 'Materials fetched successfully', data: materials });
+    res.status(200).json({ message: 'Materials fetched successfully', data: materials , totalCount: materials.length});
   } catch (error) {
     console.error('Error in getMaterialsByType:', error);
     res.status(500).json({ message: 'Internal server error', error });
@@ -63,7 +63,7 @@ StorageController.getAllProducts = async (req, res) => {
   try {
     // Fetch all materials from the service
     const products = await StorageService.fetchAllProducts();
-    res.status(200).json({ message: 'Products fetched successfully', data: products });
+    res.status(200).json({ message: 'Products fetched successfully', data: products , totalCount: products.length });
   } catch (error) {
     console.error('Error in getAllProducts:', error);
     res.status(500).json({ message: 'Internal server error', error });

@@ -37,6 +37,7 @@ export default function Products() {
   const [productToDelete, setProductToDelete] = useState(null);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
+  const [totalCount, setTotalCount] = useState(0);
 
   useEffect(() => {
     fetchProducts();
@@ -47,6 +48,7 @@ export default function Products() {
       setLoading(true);
       const { data } = await apiClient.get('/api/storage/all');
       setData(data.data);
+      setTotalCount(data.totalCount || 0); // Assuming the backend returns a `totalCount` field
     } finally {
       setLoading(false);
     }
@@ -187,6 +189,9 @@ export default function Products() {
         onDeleteSelected={handleDeleteSelected}
         setOpenDeleteDialog={setOpenDeleteDialog} // Add this prop
       />
+      <Typography variant="subtitle1" sx={{ alignSelf: 'center', fontWeight: 500 }}>
+    Total number of products: {totalCount}
+  </Typography>
 
       <ProductsTable
         data={sortedAndFilteredData || []} // Add fallback empty array

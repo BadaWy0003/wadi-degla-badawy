@@ -1,15 +1,17 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
+import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon, Button } from '@mui/material';
 import { Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../GlobalStateContext'; // Ensure this exists
 import apiClient from '../../util/client';
 
+
 const drawerWidth = 280;
 
 export default function Layout() {
   const navigate = useNavigate();
-  const { setGlobalState } = useGlobalState();
+  const { globalState,setGlobalState } = useGlobalState();
 
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
@@ -58,6 +60,7 @@ export default function Layout() {
             variant="h5"
             sx={{
               fontWeight: 600,
+              fontSize: '3rem',
               background: 'linear-gradient(45deg, #ad9571 30%, #6a7b83 90%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -65,13 +68,22 @@ export default function Layout() {
           >
             Wadi Degla
           </Typography>
-          <button
-            onClick={() => {
-              handleLogout();
+
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 500,
+              fontSize: '1rem',
+              color: '#6a7b83',
             }}
           >
+            Welcome back <strong>{globalState.username}</strong>!
+          </Typography>
+
+          <Button variant="contained" color="secondary" onClick={() => handleLogout()}>
             Logout
-          </button>
+          </Button>
+
         </Toolbar>
       </AppBar>
 

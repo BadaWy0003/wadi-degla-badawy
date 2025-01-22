@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import {
   Box,
   Table,
@@ -27,23 +27,24 @@ import AddImageModal from './AddImageModal';
 import apiClient from '../../util/client';
 
 function Gallery() {
-  const [gallery, setGallery] = React.useState([]);
-  const [orderBy, setOrderBy] = React.useState('name');
-  const [order, setOrder] = React.useState('asc');
-  const [selected, setSelected] = React.useState([]);
-  const [setOpenDialog] = React.useState(false);
-  const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);
-  const [imageToDelete, setImageToDelete] = React.useState(null);
-  const [searchQuery, setSearchQuery] = React.useState('');
+  const [gallery, setGallery] = useState([]);
+  const [orderBy, setOrderBy] = useState('name');
+  const [order, setOrder] = useState('asc');
+  const [selected, setSelected] = useState([]);
+  // const [setOpenDialog] = useState(false);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [imageToDelete, setImageToDelete] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const [searchField] = React.useState('name');
-  const [openAddModal, setOpenAddModal] = React.useState(false);
-  const [customCategory, setCustomCategory] = React.useState('');
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [customCategory, setCustomCategory] = useState('');
+  const [totalCount, setTotalCount] = useState(0);
 
-  const [formData] = React.useState({
-    name: '',
-    finishName: '',
-    finishImage: null,
-  });
+  // const [formData] = useState({
+  //   name: '',
+  //   finishName: '',
+  //   finishImage: null,
+  // });
 
   React.useEffect(() => {
     fetchGallery();
@@ -54,6 +55,8 @@ function Gallery() {
     try {
       const { data } = await apiClient.get(`/api/storage/type/${typeName}`);
       setGallery(Array.isArray(data.data) ? data.data : []);
+      setTotalCount(data.totalCount || 0); // Assuming the backend returns a `totalCount` field
+
     } catch (err) {
       setGallery([]);
     }
@@ -278,6 +281,9 @@ function Gallery() {
       </Box>
 
       {renderSearchBar()}
+      <Typography variant="subtitle1" sx={{ alignSelf: 'center', fontWeight: 500 }}>
+    Total number of images in gallery: {totalCount}
+  </Typography>
 
       <TableContainer component={Paper}>
         <Table>

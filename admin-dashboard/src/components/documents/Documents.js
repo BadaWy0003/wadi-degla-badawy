@@ -22,10 +22,10 @@ import {
   MenuItem,
   InputAdornment,
 } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
+// import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
-import DownloadIcon from '@mui/icons-material/Download';
+// import DownloadIcon from '@mui/icons-material/Download';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import apiClient from '../../util/client';
 
@@ -40,6 +40,7 @@ export default function Documents() {
   const [editingDocument, setEditingDocument] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchField, setSearchField] = useState('id');
+  const [totalCount, setTotalCount] = useState(0);
   const [formData, setFormData] = useState({
     documentType: 'INVOICE',
     proformaInvoice: '',
@@ -72,6 +73,8 @@ export default function Documents() {
     try {
       const { data } = await apiClient.get('/api/export-pdf/all');
       setDocuments(data.data || []);
+      setTotalCount(data.totalCount || 0); // Assuming the backend returns a `totalCount` field
+
     } catch (error) {
       console.error('Error:', error);
       setDocuments([]); // Set empty array on error
@@ -150,38 +153,55 @@ export default function Documents() {
   };
 
   const handleDeleteConfirm = async () => {
-    await apiClient.delete(`/api/export-pdf/invoice/${documentToDelete}`);
-    fetchDocuments(); // Refresh the list
-    setOpenDeleteDialog(false);
-  };
-
-  const handleDownload = async url => {
     try {
-      const response = await fetch(url);
-      const blob = await response.blob();
-      const downloadUrl = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.download = `document-${Date.now()}.pdf`; // or get filename from response headers
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(downloadUrl);
+      if (documentToDelete) {
+        // Delete a single document
+        await apiClient.delete(`/api/export-pdf/invoice/${documentToDelete}`);
+      } else if (selected.length > 0) {
+        // Delete multiple selected documents
+        await Promise.all(
+          selected.map(id => apiClient.delete(`/api/export-pdf/invoice/${id}`))
+        );
+      }
+  
+      // Refresh the document list after deletion
+      fetchDocuments();
+      setOpenDeleteDialog(false);
+      setDocumentToDelete(null);
+      setSelected([]); // Clear the selected array
     } catch (error) {
-      console.error('Error downloading file:', error);
+      console.error('Error deleting documents:', error);
     }
   };
+  
 
-  const handleGenerateAndDownload = async () => {
-    const { data } = await apiClient.post(`/api/export-pdf/generate-upload-pdf`, formData);
-    console.log('Sent Data', data.data);
-    if (data?.pdfUrl) {
-      await handleDownload(data.pdfUrl);
-    }
+  // const handleDownload = async url => {
+  //   try {
+  //     const response = await fetch(url);
+  //     const blob = await response.blob();
+  //     const downloadUrl = window.URL.createObjectURL(blob);
+  //     const link = document.createElement('a');
+  //     link.href = downloadUrl;
+  //     link.download = `document-${Date.now()}.pdf`; // or get filename from response headers
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     link.remove();
+  //     window.URL.revokeObjectURL(downloadUrl);
+  //   } catch (error) {
+  //     console.error('Error downloading file:', error);
+  //   }
+  // };
 
-    fetchDocuments();
-    setOpenDialog(false);
-  };
+  // const handleGenerateAndDownload = async () => {
+  //   const { data } = await apiClient.post(`/api/export-pdf/generate-upload-pdf`, formData);
+  //   console.log('Sent Data', data.data);
+  //   if (data?.pdfUrl) {
+  //     await handleDownload(data.pdfUrl);
+  //   }
+
+  //   fetchDocuments();
+  //   setOpenDialog(false);
+  // };
 
   const handleView = url => {
     window.open(url, '_blank');
@@ -212,8 +232,8 @@ export default function Documents() {
     <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
       <TextField select value={searchField} onChange={e => setSearchField(e.target.value)} sx={{ width: 150 }}>
         <MenuItem value="id">ID</MenuItem>
-        <MenuItem value="invoiceNumber">Invoice Number</MenuItem>
-        <MenuItem value="customerName">Customer Name</MenuItem>
+        {/* <MenuItem value="invoiceNumber">Invoice Number</MenuItem>
+        <MenuItem value="customerName">Customer Name</MenuItem> */}
       </TextField>
       <TextField
         fullWidth
@@ -284,11 +304,11 @@ export default function Documents() {
         <Button onClick={handleSubmit} variant="contained" color="primary">
           {editingDocument ? 'Save Changes' : 'Add Document'}
         </Button>
-        {!editingDocument && (
+        {/* {!editingDocument && (
           <Button onClick={handleGenerateAndDownload} variant="contained" color="secondary">
             Generate & Download PDF
           </Button>
-        )}
+        )} */}
       </DialogActions>
     </Dialog>
   );
@@ -334,7 +354,9 @@ export default function Documents() {
           </Button>
         </Box>
       </Box>
-
+      <Typography variant="subtitle1" sx={{ alignSelf: 'center', fontWeight: 500 }}>
+    Total Documents: {totalCount}
+  </Typography>
       {renderSearchBar()}
 
       <TableContainer component={Paper}>
@@ -369,9 +391,9 @@ export default function Documents() {
                 <TableCell>{formatDate(document.createdAt)}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <IconButton size="small" color="primary" onClick={() => handleOpenDialog(document)}>
+                    {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(document)}>
                       <EditIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <IconButton
                       size="small"
                       color="error"
@@ -382,9 +404,9 @@ export default function Documents() {
                     >
                       <DeleteIcon />
                     </IconButton>
-                    <IconButton size="small" color="primary" onClick={() => handleDownload(document.url)}>
+                    {/* <IconButton size="small" color="primary" onClick={() => handleDownload(document.url)}>
                       <DownloadIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <IconButton size="small" color="primary" onClick={() => handleView(document.url)}>
                       <VisibilityIcon />
                     </IconButton>
