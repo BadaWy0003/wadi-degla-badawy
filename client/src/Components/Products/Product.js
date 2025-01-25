@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Product({ item }) {
   const navigate = useNavigate();
-  const polishedFinish = item.finishes.find(finish => finish.finish === 'Polished') || item.finishes[0];
+  const polishedFinish = item.finishes.find(finish => finish.finishName === 'Polished') || item.finishes[0];
 
   return (
     <div
