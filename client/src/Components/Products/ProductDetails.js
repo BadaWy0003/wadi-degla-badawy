@@ -15,7 +15,7 @@ export default function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedFinish, setSelectedFinish] = useState(null);
-
+  console.log("2nd try");
   useEffect(() => {
     const fetchProductFromAll = async () => {
       try {
@@ -27,11 +27,17 @@ export default function ProductDetails() {
           const foundProduct = data.data.find((p) => p.id === productId);
           if (foundProduct) {
             setProduct(foundProduct);
-            // Set default finish
-            const polishedFinish =
-              foundProduct.finishes.find((f) => f.finish === "Polished") ||
-              foundProduct.finishes[0];
-            setSelectedFinish(polishedFinish);
+            // Set default finish to "Polished" or the first finish if "Polished" doesn't exist
+            const polishedFinish = foundProduct.finishes.find(
+              (f) => f.finish === "Polished"
+            );
+            if (polishedFinish) {
+              setSelectedFinish(polishedFinish);
+            } else if (foundProduct.finishes.length > 0) {
+              setSelectedFinish(foundProduct.finishes[0]);
+            } else {
+              throw new Error("No finishes available for this product");
+            }
           } else {
             throw new Error("Product not found");
           }
