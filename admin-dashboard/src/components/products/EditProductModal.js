@@ -45,6 +45,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
   });
 
   const [newFinish, setNewFinish] = useState({
+    id: Date.now(), // Unique ID for each finish
     finishName: '',
     imageUrl: '',
     imageFile: null,
@@ -59,6 +60,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
         name: product.name,
         category: product.type,
         finish: product.finishes.map(f => ({
+          id: Date.now(), // Assign a unique ID to each existing finish
           finishName: f.finish,
           imageUrl: f.link,
           existingImage: true, // Flag to identify existing images
@@ -132,13 +134,14 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
         finish: [
           ...prev.finish,
           {
+            id: newFinish.id, // Use unique ID
             finishName: newFinish.finishName,
             imageUrl: newFinish.imageUrl,
             imageFile: newFinish.imageFile,
           },
         ],
       }));
-      setNewFinish({ finishName: '', imageUrl: '', imageFile: null });
+      setNewFinish({ id: Date.now(), finishName: '', imageUrl: '', imageFile: null });
       setErrors(prev => ({ ...prev, finish: '' }));
     }
   };
@@ -170,13 +173,9 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
         formData.append('type', productData.category);
 
         // Add files for each finish
-        productData.finish.forEach(finish => {
-          // For existing images that weren't changed, we need to fetch and append them
-          if (finish.existingImage && !finish.imageFile) {
-            // Skip if it's an existing image without changes
-            // The frontend will continue showing the existing URL
-          } else if (finish.imageFile) {
-            formData.append('files', finish.imageFile);
+        productData.finish.forEach((finish, index) => {
+          if (finish.imageFile) {
+            formData.append(`finish_${index}_image`, finish.imageFile);
           }
         });
 
@@ -184,7 +183,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
         const finishesData = productData.finish.map(f => ({
           finishName: f.finishName,
           // Preserve existing image links where available
-          link: f.existingImage ? f.imageUrl : undefined,
+          link: f.existingImage ? f.imageUrl : undefined, // Preserve existing image links
         }));
 
         formData.append('finishes', JSON.stringify(finishesData));

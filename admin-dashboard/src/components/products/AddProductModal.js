@@ -50,6 +50,7 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
   });
 
   const [newFinish, setNewFinish] = useState({
+    id: Date.now(), // Unique ID for each finish
     finishName: '',
     imageUrl: '',
     imageFile: null,
@@ -122,13 +123,14 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
         finish: [
           ...prev.finish,
           {
+            id: newFinish.id, //use unique ID
             finishName: newFinish.finishName,
             imageUrl: newFinish.imageUrl,
             imageFile: newFinish.imageFile,
           },
         ],
       }));
-      setNewFinish({ finishName: '', imageUrl: '', imageFile: null });
+      setNewFinish({ id:Date.now(), finishName: '', imageUrl: '', imageFile: null }); // Reset with new ID
       setErrors(prev => ({ ...prev, finish: '' }));
     }
   };
@@ -177,6 +179,13 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
         formData.append('name', productData.name);
         formData.append('type', productData.category);
 
+        // Add files for each finish
+        productData.finish.forEach((finish, index) => {
+          if (finish.imageFile) {
+            formData.append(`finish_${index}_image`, finish.imageFile);
+          }
+        });
+
         // Convert finishes array to string and add
         const finishesData = productData.finish.map(f => ({
           finishName: f.finishName,
@@ -213,6 +222,7 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
       mockupOutdoor: '',
     });
     setNewFinish({
+      id: Date.now(),
       finishName: '',
       imageUrl: '',
       imageFile: null,
