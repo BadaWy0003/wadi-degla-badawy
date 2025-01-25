@@ -50,7 +50,6 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
   });
 
   const [newFinish, setNewFinish] = useState({
-    id: Date.now(), // Unique ID for each finish
     finishName: '',
     imageUrl: '',
     imageFile: null,
@@ -123,14 +122,13 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
         finish: [
           ...prev.finish,
           {
-            id: newFinish.id, //use unique ID
             finishName: newFinish.finishName,
             imageUrl: newFinish.imageUrl,
             imageFile: newFinish.imageFile,
           },
         ],
       }));
-      setNewFinish({ id:Date.now(), finishName: '', imageUrl: '', imageFile: null }); // Reset with new ID
+      setNewFinish({ finishName: '', imageUrl: '', imageFile: null });
       setErrors(prev => ({ ...prev, finish: '' }));
     }
   };
@@ -160,59 +158,48 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
   const handleSubmit = async e => {
     e.preventDefault();
     if (validateForm()) {
-      try {
-        const formData = new FormData();
+        try {
+            const formData = new FormData();
 
-        // Add the file
-        if (productData.mockup) {
-          console.log('Adding mockup file:', productData.mockup);
-          formData.append('files', productData.mockup);
+            // Add required fields
+            formData.append('name', productData.name); // Product name
+            formData.append('type', productData.category); // Product category
+
+            // Prepare finishes array
+            const finishesArray = productData.finish.map(finish => ({
+                finish: finish.finishName, // Finish name
+                link: finish.link || null, // Existing link, if any
+            }));
+            formData.append('finishes', JSON.stringify(finishesArray));
+
+            // Add files in the same order as finishes without links
+            productData.finish.forEach(finish => {
+                if (!finish.link && finish.imageFile) {
+                    formData.append('files', finish.imageFile); // Use 'files' for all images
+                }
+            });
+
+            // Debugging: Log FormData contents
+            for (let pair of formData.entries()) {
+                console.log(pair[0], pair[1]);
+            }
+
+            // Submit the request
+            const { data } = await apiClient.post('/api/storage/upload', formData);
+
+            console.log('Upload successful:', data);
+            onSubmit(productData);
+            handleReset();
+            onClose();
+        } catch (error) {
+            console.error('Error uploading product:', error.response?.data || error.message);
+            setErrors(prev => ({
+                ...prev,
+                submit: error.response?.data?.message || 'Failed to upload product. Please try again.',
+            }));
         }
-        console.log(productData);
-        if (productData.finish.length) {
-          productData.finish.forEach(finish => {
-            formData.append('files', finish.imageFile);
-          });
-        }
-        console.log(productData.finish[0].imageFile);
-        // Add other fields
-        formData.append('name', productData.name);
-        formData.append('type', productData.category);
-
-        // Add files for each finish
-        productData.finish.forEach((finish, index) => {
-          if (finish.imageFile) {
-            formData.append(`finish_${index}_image`, finish.imageFile);
-          }
-        });
-
-        // Convert finishes array to string and add
-        const finishesData = productData.finish.map(f => ({
-          finishName: f.finishName,
-        }));
-        formData.append('finishes', JSON.stringify(finishesData));
-        console.log(formData.get('finishes'));
-        // Log formData contents for debugging
-        for (let pair of formData.entries()) {
-          console.log(pair[0], pair[1]);
-        }
-
-        const { data } = await apiClient.post(`/api/storage/upload`, formData);
-
-        console.log('Upload successful:', data);
-        onSubmit(productData);
-        handleReset();
-        onClose();
-      } catch (error) {
-        console.error('Error uploading product:', error);
-        setErrors(prev => ({
-          ...prev,
-          submit: error.message || 'Failed to upload product. Please try again.',
-        }));
-      }
     }
-  };
-
+};
   const handleReset = () => {
     setProductData({
       name: '',
@@ -222,7 +209,6 @@ export default function AddProductModal({ open, onClose, onSubmit }) {
       mockupOutdoor: '',
     });
     setNewFinish({
-      id: Date.now(),
       finishName: '',
       imageUrl: '',
       imageFile: null,
