@@ -32,7 +32,6 @@ export default function ProductDetails() {
               foundProduct.finishes.find((f) => f.finish === "Polished") ||
               foundProduct.finishes[0];
             setSelectedFinish(polishedFinish);
-            console.log("1st try")
           } else {
             throw new Error("Product not found");
           }
