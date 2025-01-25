@@ -3,7 +3,13 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Product({ item }) {
   const navigate = useNavigate();
-  const polishedFinish = item.finishes.find(finish => finish.finishName === 'Polished') || item.finishes[0];
+  // Find the "Polished" finish
+  const polishedFinish = item.finishes.find(finish => finish.finish === 'Polished');
+
+  // If "Polished" finish is not found, do not render the product or handle it accordingly
+  if (!polishedFinish) {
+    return null; // or you can return a placeholder or a message
+  }
 
   return (
     <div
