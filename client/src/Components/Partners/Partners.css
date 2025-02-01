@@ -35,3 +35,19 @@
     filter: grayscale(0);
     transition: all 0.5s;
 }
+
+.partners-container button {
+    margin-top: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .partners {
+        grid-template-columns: repeat(2, 1fr);
+        /* 1 logo per row */
+    }
+
+    .partners img {
+        max-width: 10rem;
+    }
+
+}

@@ -21,11 +21,62 @@ export default function Exports(){
         setActiveButton(region); // Update the active button
     };
 
+        // Data for countries in each continent
+        const continentData = {
+            'North & South America': ['USA', 'Brazil', 'Panama'],
+            'Europe': ['Romania', 'Albania', 'Bulgaria', 'Kosovo', 'Slovakia', 'Slovenia', 'Germany', 'Malta'],
+            'Asia': ['South Korea', 'Russia', 'Lebanon', 'Kuwait', 'Jordan', 'Iraq', 'Saudi Arabia', 'UAE'],
+            'Africa': ['Senegal', 'Kenya', 'Gambia', 'Libya'],
+            'Australia': ['Australia'],
+        };
+        // Add this object to your component
+const countryFlags = {
+    // North & South America
+    'USA': 'https://flagcdn.com/us.svg',
+    'Brazil': 'https://flagcdn.com/br.svg',
+    'Panama': 'https://flagcdn.com/pa.svg',
+
+    // Europe
+    'Romania': 'https://flagcdn.com/ro.svg',
+    'Albania': 'https://flagcdn.com/al.svg',
+    'Bulgaria': 'https://flagcdn.com/bg.svg',
+    'Kosovo': 'https://flagcdn.com/xk.svg',
+    'Slovakia': 'https://flagcdn.com/sk.svg',
+    'Slovenia': 'https://flagcdn.com/si.svg',
+    'Germany': 'https://flagcdn.com/de.svg',
+    'Malta': 'https://flagcdn.com/mt.svg',
+
+    // Asia
+    'South Korea': 'https://flagcdn.com/kr.svg',
+    'Russia': 'https://flagcdn.com/ru.svg',
+    'Lebanon': 'https://flagcdn.com/lb.svg',
+    'Kuwait': 'https://flagcdn.com/kw.svg',
+    'Jordan': 'https://flagcdn.com/jo.svg',
+    'Iraq': 'https://flagcdn.com/iq.svg',
+    'Saudi Arabia': 'https://flagcdn.com/sa.svg',
+    'UAE': 'https://flagcdn.com/ae.svg',
+
+    // Africa
+    'Senegal': 'https://flagcdn.com/sn.svg',
+    'Kenya': 'https://flagcdn.com/ke.svg',
+    'Gambia': 'https://flagcdn.com/gm.svg',
+    'Libya': 'https://flagcdn.com/ly.svg',
+
+    // Australia
+    'Australia': 'https://flagcdn.com/au.svg',
+};
+    
+    
     return(
         <div className='exports-container'>
             <div className="gallery-hero">
                     <div className="gallery-hero-bg"></div>
-                        <h1>EXPORTS</h1>
+                        <h1>Exports</h1>
+                        <div className="breadcrumb">
+                        <a href="/">Home</a>
+                        <p>{'>'} Exports</p>
+                        </div>
+
                 </div>       
                 <div className="export-department">
                     <div className="export-department-content">
@@ -80,7 +131,24 @@ export default function Exports(){
                         Australia
                     </button>
                     </div>
-                    <img src={currentImage} alt="Current Market" />
+                                    {/* Display countries for the active continent */}
+                <div className="continent-countries-and-map">
+                    <div className="continent-countries">
+                        {continentData[activeButton].map((country, index) => (
+                        <div>
+                            <img
+                            src={countryFlags[country]} // Flag image URL
+                            alt={`${country} Flag`} // Alt text for accessibility
+                            className="country-flag"
+                            />
+                            <p key={index}>{country}</p>
+                        </div>
+                        ))}
+                        </div>
+                        <img src={currentImage} alt="Current Market" />
+                </div>
+
+                    
                 </div>
             </div>    
             )
