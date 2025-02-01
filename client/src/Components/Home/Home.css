@@ -1,10 +1,9 @@
-
 :root {
     --darkerBlackColor: #0A0A0A;
-	--blackColor: #1F1F1F;
-	--goldColor: #ad9571;
-	--brownColor: #050505;
-	--whiteColor: #fff;
+    --blackColor: #1F1F1F;
+    --goldColor: #ad9571;
+    --brownColor: #050505;
+    --whiteColor: #fff;
     --blueColor: #6a7b83;
     --darkGrayColor: #808285;
     --lightGrayColor: #bcbec0;
@@ -12,11 +11,11 @@
 
 
 
-.homepage{
+.homepage {
     margin-top: -7rem;
 }
 
-.hero{
+.hero {
 
     display: flex;
     flex-direction: row;
@@ -26,7 +25,7 @@
     height: 80vh;
     z-index: 1;
     padding-top: 10rem;
-    
+
 
 }
 
@@ -37,46 +36,48 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - 80px); /* Subtract header height from viewport height */
+    height: calc(100vh - 80px);
+    /* Subtract header height from viewport height */
     background-size: cover;
     background-position: center;
-    z-index: -1; /* Ensure the background is behind other content */
+    z-index: -1;
+    /* Ensure the background is behind other content */
 }
 
-.banner{
+.banner {
     position: absolute;
     left: 10%;
     top: 30%;
     width: 50%;
-    height: fit-content; 
-    background-color: rgba(0, 0, 0, 0.5); 
-    padding: 5rem; 
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5rem;
 
 }
 
 
-.banner h1{
+.banner h1 {
     color: #AD9571;
     margin: 0;
 }
 
-.banner p{
+.banner p {
     color: white;
 }
 
-.banner-opposite{
+.banner-opposite {
     display: flex;
     flex-grow: 1;
 }
 
-.place4btns{
+.place4btns {
     margin-top: 2rem;
     display: flex;
     flex-direction: row;
     column-gap: 2rem;
 }
 
-.btn2{
+.btn2 {
     background-color: rgba(0, 0, 0, 0);
     color: var(--whiteColor);
     border: solid 2px var(--whiteColor);
@@ -88,7 +89,7 @@
 
 }
 
-.btn2:hover{
+.btn2:hover {
     background-color: var(--whiteColor);
     color: var(--goldColor);
     border: solid 2px var(--whiteColor);
@@ -97,7 +98,7 @@
     scale: 98%;
 }
 
-.btn1{
+.btn1 {
     background-color: #AD9571;
     color: #fff;
     border: solid 2px #AD9571;
@@ -109,7 +110,7 @@
 
 }
 
-.btn1:hover{
+.btn1:hover {
     background-color: rgba(0, 0, 0, 0);
     color: #AD9571;
     border: solid 2px #AD9571;
@@ -119,7 +120,7 @@
 
 }
 
-.about-home{
+.about-home {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,69 +133,70 @@
 
 }
 
-.about-home h1{
+.about-home h1 {
     color: var(--goldColor);
 }
 
-.about-home p{
+.about-home p {
     color: var(--whiteColor);
 }
 
-.mission-vision{
+.mission-vision {
     display: flex;
-    
+
     flex-direction: row;
     column-gap: 5rem;
     max-width: 1024px;
 }
 
-.mission{
-    
+.mission {
+
     display: flex;
     column-gap: 1rem;
     align-items: center;
 
-    
+
 }
 
-.mission p{
-    min-width:22vw;
+.mission p {
+    min-width: 22vw;
 
     color: #fff;
 }
 
-.mission h1{
+.mission h1 {
     color: #fff;
 }
 
-.vision{
+.vision {
     display: flex;
     column-gap: 1rem;
     align-items: center;
 }
 
-.vision p{
+.vision p {
     width: 24vw;
     color: #fff;
 }
-.vision h1{
+
+.vision h1 {
     color: #fff;
 }
 
-.mission-vision img{
+.mission-vision img {
     width: 4rem;
     transition: all 0.5s;
 
 }
 
-.mission-vision img:hover{
+.mission-vision img:hover {
     scale: 0.9;
     transition: all 0.5s;
 }
 
 
 
-.products-home{
+.products-home {
     display: flex;
     flex-direction: column;
     background-color: var(--whiteColor);
@@ -203,26 +205,26 @@
     overflow: hidden;
 }
 
-.products-home h1{
+.products-home h1 {
     display: flex;
     justify-content: center;
 }
 
-.products-btn-plc{
+.products-btn-plc {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
 
 }
 
-.react-multi-carousel-track{
-    
+.react-multi-carousel-track {
+
     column-gap: 2rem;
 }
 
 .react-multi-carousel-list {
     overflow: visible !important;
-    
+
 }
 
 /* .product-card{
@@ -283,66 +285,38 @@
     outline: 0;
     cursor: pointer
 }
+
 .react-multi-carousel-dot--active button {
     background: var(--goldColor) !important;
 }
 
-.our-partners{
+
+
+
+.gallery-home {
     display: flex;
     flex-direction: column;
-    background-color: var(--whiteColor);
+    justify-content: center;
+    align-items: center;
     padding: 5rem;
     z-index: 1;
     overflow: hidden;
-
+    row-gap: 5rem;
 }
 
-.our-partners h1{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5rem;
-}
-
-.our-partners img{
-    width: 5rem;
-    filter: grayscale(100%);
-    cursor: pointer;
-    transition: all 0.5s;
-}
-
-.our-partners img:hover{
-    scale: 110%;
-    filter: grayscale(0);
-    transition: all 0.5s;
-
-}
-
-
-
-.gallery-home{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 5rem;
-        z-index: 1;
-        overflow: hidden;
-        row-gap: 5rem;
-}
-
-.gallery-home div{
+.gallery-home div {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     grid-gap: 1rem 1rem !important;
     grid-template-rows: masonry !important;
 }
 
-.gallery-home h1{
+.gallery-home h1 {
     color: var(--goldColor);
 }
 
 
-.image{
+.image {
     display: block;
     width: 100%;
     border-radius: 1rem;
@@ -350,32 +324,34 @@
 
 }
 
-.image:hover{
+.image:hover {
     scale: 98%;
     transition: all 0.5s;
 }
+
 /*////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /* Media query for mobile devices */
 @media only screen and (max-width: 1024px) {
-    .homepage{
+    .homepage {
         width: 100vw;
     }
 
     .react-multi-carousel-list {
         overflow: visible !important;
     }
-    .react-multi-carousel-track{
+
+    .react-multi-carousel-track {
         column-gap: 2px;
     }
 
-    
-    
-    .banner-opposite{
+
+
+    .banner-opposite {
         display: none;
     }
 
-    .hero{
+    .hero {
         min-height: fit-content;
         padding: 0 1rem;
         flex-direction: column;
@@ -383,9 +359,10 @@
         align-items: center;
 
     }
+
     .banner {
         position: relative;
-        width: fit-content; 
+        width: fit-content;
         margin: auto;
         height: fit-content;
         background-color: rgba(0, 0, 0, 0.5);
@@ -394,27 +371,27 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 0; 
-        left: 0; 
-        top: 0; 
+        margin: 0;
+        left: 0;
+        top: 0;
     }
 
-    
-    
-    
-    .banner h1{
+
+
+
+    .banner h1 {
         color: #AD9571;
         margin: 0;
         font-size: 1.5rem;
     }
-    
-    .banner p{
+
+    .banner p {
         color: white;
         font-size: 1rem;
     }
 
-    
-    .place4btns{
+
+    .place4btns {
         margin-top: 1rem;
         display: flex;
         flex-direction: column;
@@ -422,7 +399,7 @@
         column-gap: 0;
     }
 
-    .about-home{
+    .about-home {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -435,7 +412,7 @@
         padding-bottom: 5rem;
     }
 
-    .mission-vision{
+    .mission-vision {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -444,28 +421,30 @@
         max-width: 90vw;
         padding: 0;
     }
-    .mission{
+
+    .mission {
         display: flex;
         column-gap: 1rem;
         width: 100%;
     }
-    
-    .mission p{
+
+    .mission p {
         width: 50vw;
     }
 
-    .vision{
+    .vision {
         display: flex;
         column-gap: 1rem;
         width: 100%;
 
     }
-    .vision p{
+
+    .vision p {
         width: 50vw;
     }
 
-    .gallery-home div{
+    .gallery-home div {
         grid-template-columns: repeat(2, 1fr) !important;
     }
-    
+
 }

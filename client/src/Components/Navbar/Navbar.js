@@ -1,23 +1,13 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-// import wadi_degla_logo_login from '../../Public/Assets/wadi-degla-logo-login.svg'
-
-// import wadi_degla_icon from '../../Public/Assets/Icons/wadi-degla-logo-icon.svg'
 import wadi_degla_logo_color from "../../Public/Assets/Logo-Identity/wadi-degla-logo-color.svg";
-// import wadi_degla_logo_color_stroke from '../../Public/Assets/wadi-degla-logo-color-stroke.svg'
-// import wadi_degla_logo_gold from '../../Public/Assets/wadi-degla-logo-gold.svg'
 import wadi_degla_logo_white from "../../Public/Assets/Logo-Identity/wadi-degla-logo-white.svg";
-// import wadi_degla_logo_white_gradient from '../../Public/Assets/wadi-degla-logo-white-gradient.svg'
-//import facebook_logo_white from '../../Public/Assets/Icons/facebook-logo-white.svg'
-//import instagram_logo_white from '../../Public/Assets/Icons/instagram-logo-white.svg'
-//import linkedin_logo_white from '../../Public/Assets/Icons/linkedin-logo-white.svg'
-// import account_icon from '../../Public/Assets/Icons/account-icon.svg'
-// import user_icon from '../../Public/Assets/Icons/user-icon.svg';
 import React, { useState, useEffect, useRef } from "react";
 import { useGlobalState } from "../GlobalStateContext.js";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../../util/client.js";
+import arrow_down from "../../Public/Assets/Icons/arrow-down.svg";
 
 export default function Navbar() {
   const navRef = useRef();
@@ -95,26 +85,67 @@ export default function Navbar() {
         />
 
         {/* Navigation Links */}
-        <Link
-          to="/"
-          onClick={() => {
-            closeNavbar();
-            window.scrollTo(0, 0);
-          }}
-        >
-          Home
-        </Link>
-        <Link
-          to="/about"
-          onClick={() => {
-            closeNavbar();
-            window.scrollTo(0, 0);
-          }}
-        >
-          About
-        </Link>
         <div className="nav-item-with-submenu">
-          <p>Explore ↓</p>
+          <div className="nav-item-with-submenu-title">
+          <p>Wadi Degla</p>
+          <img src={arrow_down} alt=""/>
+          </div>
+          <div className="submenu-bg">
+            <div className="submenu">
+              <Link
+                to="/history"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                History
+              </Link>
+              <Link
+                to="/factories"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Factories
+              </Link>
+              <Link
+                to="/exports"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Exports
+              </Link>
+              <Link
+                to="/packing"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Packing
+              </Link>
+              <Link
+                to="/about"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Why Choose Us?
+              </Link>
+
+            </div>
+          </div>
+        </div>
+        <div className="nav-item-with-submenu">
+          <div className="nav-item-with-submenu-title">
+          <p>Products</p>
+          <img src={arrow_down} alt=""/>
+          </div>
           <div className="submenu-bg">
             <div className="submenu">
               <Link
@@ -124,7 +155,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Products
+                Explore Our Products
               </Link>
               <Link
                 to="/visualizer"
@@ -133,20 +164,57 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Visualizer
+                Material Visualizer
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="nav-item-with-submenu">
+          <div className="nav-item-with-submenu-title">
+          <p>Resources</p>
+          <img src={arrow_down} alt=""/>
+          </div>
+          <div className="submenu-bg">
+            <div className="submenu">
+              <Link
+                to="/quarries"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Quarries
+              </Link>
+              <Link
+                to="/gallery"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Gallery
+              </Link>
+              <Link
+                to="/partners"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Our Partners
               </Link>
             </div>
           </div>
         </div>
         <Link
-          to="/gallery"
-          onClick={() => {
-            closeNavbar();
-            window.scrollTo(0, 0);
-          }}
-        >
-          Gallery
-        </Link>
+                to="/projects"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Projects
+              </Link>
         <Link
           to="/contact"
           onClick={() => {

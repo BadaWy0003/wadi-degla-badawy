@@ -12,6 +12,8 @@ import Visualizer from "./Components/Products/Visualizer.js";
 import MyAccount from "./Components/MyAccount/MyAccount.js";
 import Contact from "./Components/Contact/Contact.js";
 import ProductDetails from "./Components/Products/ProductDetails.js";
+import Exports from "./Components/Exports/Exports.js";
+import Partners from "./Components/Partners/Partners.js";
 import { ToastContainer } from "react-toastify";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -32,8 +34,10 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/exports" element={<Exports />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/gallery" element={<Gallery />} />
+          <Route exact path="/partners" element={<Partners />} />
           <Route exact path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route exact path="/visualizer" element={<Visualizer />} />

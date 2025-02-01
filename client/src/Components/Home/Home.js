@@ -1,44 +1,18 @@
 import React, {useState} from "react";
 import './Home.css';
 import { Link } from "react-router-dom";
-// import hero_bg from '../../Public/Assets/Media/hero-bg.jpg';
-// import home_bg from '../../Public/Assets/Media/home-bg2.jpg'
-// import wadi_degla_icon from '../../Public/Assets/Icons/wadi-degla-logo-icon.svg'
-// import Galala from '../../Public/Assets/Media/Products/Galala.png'
-// import Sunny_Menia from '../../Public/Assets/Media/Products/Sunny-Menia.png'
-// import Selvia_Menia from '../../Public/Assets/Media/Products/Selvia-Menia.png'
-// import Felitto from '../../Public/Assets/Media/Products/Felitto.png'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Product from '../Products/Product';
 import Modal from '../Products/Modal';
 import { productData } from '../Products/productData';
-import company_logo from '../../Public/Assets/Icons/partners/company-logo.svg'
-// import company_logo_2 from '..Public/Assets/Icons/partners/company-logo-2.svg'
-// import company_logo_3 from '../../Public/Assets/Icons/partners/company-logo-3.svg'
-// import company_logo_4 from '../../Public/Assets/Icons/partners/company-logo-4.svg'
-// import company_logo_5 from '../../Public/Assets/Icons/partners/company-logo-5.svg'
-// import company_logo_6 from '../../Public/Assets/Icons/partners/company-logo-6.svg'
-// import company_logo_7 from '../../Public/Assets/Icons/partners/company-logo-7.svg'
-// import company_logo_8 from '../../Public/Assets/Icons/partners/company-logo-8.svg'
-// import company_logo_9 from '../../Public/Assets/Icons/partners/company-logo-9.svg'
-// import company_logo_10 from '../../Public/Assets/Icons/partners/company-logo-10.svg'
+import Partners from "../Partners/Partners.js";
 
 import bullseye_gold from '../../Public/Assets/Icons/bullseye-gold.svg'
 import paper_plane_gold from '../../Public/Assets/Icons/paper-plane-gold.svg'
 import Gallery from './Gallery-Home'
-// import image1 from '/Assets/Media/Gallery/1.jpg'
-// import image2 from '/Assets/Media/Gallery/2.jpg'
-// import image3 from '/Assets/Media/Gallery/3.jpg'
-// import image4 from '/Assets/Media/Gallery/4.jpg'
-// import image5 from '/Assets/Media/Gallery/5.jpg'
-// import image6 from '/Assets/Media/Gallery/6.jpg'
-// import image7 from '/Assets/Media/Gallery/7.jpg'
-// import image8 from '/Assets/Media/Gallery/8.jpg'
-// import image9 from '/Assets/Media/Gallery/9.jpg'
 import { useGlobalState } from '../GlobalStateContext.js';
 
-//slamo 3leko
 
 
 
@@ -190,22 +164,7 @@ export default function Home(){
       {/* {isModalOpen && selectedProduct && (
         <Modal product={selectedProduct} onClose={closeModal} />
       )} */}
-            <div className="our-partners">
-                <h1>Our Partners</h1>
-                <Carousel responsive={responsive2}
-                            swipeable={true}
-                            showDots={false}
-                            arrows={false}
-                            ssr={true} 
-                            infinite={true}
-                            keyBoardControl={true}
-                            transitionDuration={500}
-                            containerClass="carousel-container"
-                            removeArrowOnDeviceType={["tablet", "mobile"]}
-                            dotListClass="custom-dot-list-style"
-                            itemClass="carousel-item-padding-40-px" 
-                >
-                    <img alt='' src={company_logo} />
+            <Partners />
                     {/*<img src={company_logo_2} />
                     <img src={company_logo_3} />
                     <img src={company_logo_4} />
@@ -218,8 +177,6 @@ export default function Home(){
 
 
 
-                </Carousel>
-            </div>
 
             <div className="gallery-home">
                 <h1>Gallery</h1>

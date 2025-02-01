@@ -1,0 +1,116 @@
+.exports-container {
+    margin-top: -7rem;
+    padding-bottom: 10rem;
+}
+
+
+.export-department {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    column-gap: 5rem;
+}
+
+.export-department-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    max-width: 50%
+}
+
+.export-department-content h1 {
+    color: var(--goldColor);
+
+}
+
+.export-department-content p {
+    color: var(--whiteColor);
+    text-align: justify;
+
+}
+
+.export-department img {
+    max-width: 30%;
+    flex: 1;
+}
+
+.our-markets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.our-markets h1 {
+    color: var(--goldColor);
+    margin-bottom: 5rem;
+}
+
+.markets {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: var(--darkerBlackColor);
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-bottom: 5rem;
+}
+
+.markets button {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--whiteColor);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 15%;
+    padding-bottom: 1rem;
+}
+
+.markets button:hover {
+    color: var(--goldColor);
+    border-bottom: 2px solid var(--whiteColor);
+}
+
+.markets button.active {
+    color: var(--goldColor);
+    border-bottom: 2px solid var(--goldColor);
+}
+
+.our-markets img {
+    width: 60%;
+}
+
+@media screen and (max-width: 768px) {
+    .export-department {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .export-department img {
+        max-width: 50%;
+    }
+
+    .export-department-content {
+        max-width: 100%;
+    }
+
+    .markets {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        background-color: var(--darkerBlackColor);
+        width: 90%;
+        padding: 1rem;
+        margin-bottom: 5rem;
+    }
+
+    .our-markets img {
+        width: 100%;
+    }
+}

@@ -1,78 +1,80 @@
-
 :root {
-	--blackColor: #1F1F1F;
-	--goldColor: #ad9571;
-	--brownColor: #715b3d;
-	--whiteColor: #fff;
+    --blackColor: #1F1F1F;
+    --goldColor: #ad9571;
+    --brownColor: #715b3d;
+    --whiteColor: #fff;
     --blueColor: #6a7b83;
     --darkGrayColor: #808285;
     --lightGrayColor: #bcbec0;
 }
 
-.scrolled{
+.scrolled {
     background-color: black;
-	top: 0;
-	margin-left: 0;
-	margin-right: 0;
-	border-radius: 0;
-	transition: all 0.5s;
-	border: none;
+    top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    transition: all 0.5s;
+    border: none;
 }
 
 
 header {
     position: sticky;
     top: 2rem;
-	margin-left: 2rem;
-	margin-right: 2rem;
-	border-radius: 1rem;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 80px;
-	padding: 1rem 5rem;
-	background-color: rgba(255,255,255,0.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-	color: var(--whiteColor);
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 1rem 5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    color: var(--whiteColor);
     z-index: 9999;
-	transition: all 0.5s;
+    transition: all 0.5s;
 
 }
 
-.header a, .header p{
-	font-size: 0.9rem;
-}
-.logo-div{
-	width: 7rem;
-	justify-content: center;
-}
-.logo{
-	max-width: 7rem;
-	transition: all 0.5s;
-	max-height: 3rem;
-	
+.header a, .header p {
+    font-size: 0.9rem;
 }
 
-.logo:hover{
-	scale: 98%;
-	transition: all 0.5s;
+.logo-div {
+    width: 7rem;
+    justify-content: center;
 }
 
+.logo {
+    max-width: 7rem;
+    transition: all 0.5s;
+    max-height: 3rem;
 
+}
 
-.header a{
-	transition: all 0.1s;
+.logo:hover {
+    scale: 98%;
+    transition: all 0.5s;
 }
 
 
-.header a:hover{
-	
-	transition: all 0.1s;
-	color: var(--lightGrayColor);
+
+.header a {
+    transition: all 0.1s;
 }
 
-.scrolled a:hover{
-	color: var(--goldColor);
+
+.header a:hover {
+
+    transition: all 0.1s;
+    color: var(--lightGrayColor);
+}
+
+.scrolled a:hover {
+    color: var(--goldColor);
 }
 
 
@@ -87,65 +89,104 @@ nav a:hover {
 }
 
 /* Submenu container */
-.submenu-bg{
+.submenu-bg {
     display: none;
     position: absolute;
-	background-color: transparent;
+    background-color: transparent;
     padding: 0.5rem 0;
     z-index: 99999;
-    min-width: 180px; /* Slightly wider submenu */
-    border-radius: 0; /* Rounded corners */
-    top: 100%; /* Place submenu directly beneath the parent */
-    left: 0; /* Align submenu with the parent */
-    transition: all 0.3s ease; /* Smooth transition for better feel */
+    min-width: 180px;
+    /* Slightly wider submenu */
+    border-radius: 0;
+    /* Rounded corners */
+    top: 100%;
+    /* Place submenu directly beneath the parent */
+    left: 0;
+    /* Align submenu with the parent */
+    transition: all 0.3s ease;
+    /* Smooth transition for better feel */
 }
+
 /* submenu if page scrolled ________________________*/
 
 .scrolled .submenu {
     display: none;
     position: absolute;
-    background-color: #000; /* Matches the dark theme */
-    border-bottom: 1px solid var(--goldColor); /* Adds a subtle border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #000;
+    /* Matches the dark theme */
+    border-bottom: 1px solid var(--goldColor);
+    /* Adds a subtle border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
     padding: 1rem 0 1rem 0;
     z-index: 99999;
-    min-width: 175px; /* Slightly wider submenu */
-    border-radius: 0; /* Rounded corners */
-    top: 100%; /* Place submenu directly beneath the parent */
-    left: 0; /* Align submenu with the parent */
-    transition: all 0.3s ease; /* Smooth transition for better feel */
+    min-width: 175px;
+    /* Slightly wider submenu */
+    border-radius: 0;
+    /* Rounded corners */
+    top: 100%;
+    /* Place submenu directly beneath the parent */
+    left: 0;
+    /* Align submenu with the parent */
+    transition: all 0.3s ease;
+    /* Smooth transition for better feel */
 }
 
 /* Submenu links */
 .scrolled .submenu a {
     display: block;
-    padding: 10px 15px; /* Adds space around text for better clickability */
+    padding: 10px 15px;
+    /* Adds space around text for better clickability */
     text-decoration: none;
-    font-size: 0.9rem; /* Slightly smaller text */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-	border-left: solid 2px transparent;
-	margin: 0;
+    font-size: 0.9rem;
+    /* Slightly smaller text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transitions */
+    border-left: solid 2px transparent;
+    margin: 0;
 
 }
 
 /* Hover effect for submenu links */
 .scrolled .submenu a:hover {
-    color: var(--goldColor); /* Invert text color for better contrast */
-	border-left: 2px solid var(--goldColor);
+    color: var(--goldColor);
+    /* Invert text color for better contrast */
+    border-left: 2px solid var(--goldColor);
 }
 
 /* Display submenu on hover */
 .scrolled .nav-item-with-submenu:hover .submenu {
     display: block;
     opacity: 1;
-    transform: translateY(0); /* Smooth dropdown effect */
+    transform: translateY(0);
+    /* Smooth dropdown effect */
 }
+
 .scrolled .nav-item-with-submenu:hover .submenu-bg {
     display: block;
     opacity: 1;
-    transform: translateY(0); /* Smooth dropdown effect */
+    transform: translateY(0);
+    /* Smooth dropdown effect */
 
 }
+
+.nav-item-with-submenu-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    column-gap: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.nav-item-with-submenu-title p {
+    white-space: nowrap
+}
+
+.nav-item-with-submenu-title img {
+    max-width: 0.5rem;
+}
+
 
 /* Optional: Subtle animation for submenu dropdown */
 .scrolled .submenu {
@@ -169,7 +210,8 @@ nav a:hover {
 }
 
 .scrolled .nav-item-with-submenu p:hover {
-    color: var(--goldColor); /* Match hover effect with submenu */
+    color: var(--goldColor);
+    /* Match hover effect with submenu */
 }
 
 
@@ -178,41 +220,54 @@ nav a:hover {
 .submenu {
     display: none;
     position: absolute;
-	background-color: rgba(255,255,255,0.1);
-    border-bottom: 1px solid var(--goldColor); /* Adds a subtle border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid var(--goldColor);
+    /* Adds a subtle border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
     padding: 1rem 0 1rem 0;
     z-index: 99999;
-    min-width: 175px; /* Slightly wider submenu */
-    border-radius: 0; /* Rounded corners */
-    top: 100%; /* Place submenu directly beneath the parent */
-    left: 0; /* Align submenu with the parent */
-    transition: all 0.3s ease; /* Smooth transition for better feel */
+    min-width: 175px;
+    /* Slightly wider submenu */
+    border-radius: 0;
+    /* Rounded corners */
+    top: 100%;
+    /* Place submenu directly beneath the parent */
+    left: 0;
+    /* Align submenu with the parent */
+    transition: all 0.3s ease;
+    /* Smooth transition for better feel */
 }
 
 /* Submenu links */
 .submenu a {
     display: block;
-    padding: 10px 15px; /* Adds space around text for better clickability */
+    padding: 10px 15px;
+    /* Adds space around text for better clickability */
     text-decoration: none;
-    color: var(--whiteColor); /* Subtle contrast for the links */
-    font-size: 0.9rem; /* Slightly smaller text */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-	border-left: solid 2px transparent;
-	margin: 0;
+    color: var(--whiteColor);
+    /* Subtle contrast for the links */
+    font-size: 0.9rem;
+    /* Slightly smaller text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transitions */
+    border-left: solid 2px transparent;
+    margin: 0;
 }
 
 /* Hover effect for submenu links */
 .submenu a:hover {
-     /* Highlight the item with gold */
-    color: var(--goldColor); /* Invert text color for better contrast */
-	border-left: solid 2px var(--goldColor);
+    /* Highlight the item with gold */
+    color: var(--lightGrayColor);
+    /* Invert text color for better contrast */
+    border-left: solid 2px var(--whiteColor);
 }
 
- .nav-item-with-submenu:hover .submenu-bg {
+.nav-item-with-submenu:hover .submenu-bg {
     display: block;
     opacity: 1;
-    transform: translateY(0); /* Smooth dropdown effect */
+    transform: translateY(0);
+    /* Smooth dropdown effect */
 
 }
 
@@ -221,7 +276,8 @@ nav a:hover {
 .nav-item-with-submenu:hover .submenu {
     display: block;
     opacity: 1;
-    transform: translateY(0); /* Smooth dropdown effect */
+    transform: translateY(0);
+    /* Smooth dropdown effect */
 }
 
 /* Optional: Subtle animation for submenu dropdown */
@@ -246,24 +302,27 @@ nav a:hover {
 }
 
 .nav-item-with-submenu p:hover {
-	transition: all 0.1s;
-	color: var(--lightGrayColor);
+    transition: all 0.1s;
+    color: var(--lightGrayColor);
 }
 
- .account-or-login{
-	color: var(--whiteColor);
+.account-or-login {
+    color: var(--whiteColor);
     text-decoration: none;
 }
- .account-or-login:hover{
-	color: var(--darkGrayColor);
+
+.account-or-login:hover {
+    color: var(--darkGrayColor);
     text-decoration: none;
 }
-.scrolled .account-or-login{
-	color: var(--goldColor);
+
+.scrolled .account-or-login {
+    color: var(--goldColor);
     text-decoration: none;
 }
-.scrolled .account-or-login:hover{
-	color: var(--blueColor);
+
+.scrolled .account-or-login:hover {
+    color: var(--blueColor);
     text-decoration: none;
 }
 
@@ -278,8 +337,9 @@ header .nav-btn {
     opacity: 0;
     font-size: 1.8rem;
 }
-.scrolled .nav-btn{
-	color: var(--goldColor);
+
+.scrolled .nav-btn {
+    color: var(--goldColor);
 }
 
 header div,
@@ -301,76 +361,79 @@ nav {
 
 @media only screen and (max-width: 1024px) {
 
-	header {
-		position: sticky;
-		top: 0;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		height: 80px;
-		padding: 1rem 5rem;
-		background-color: rgb(0, 0, 0, 0.3);
-		color: var(--whiteColor);
-		z-index: 99;
-		margin: 0;
-		border-radius: 0;
+    header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        padding: 1rem 5rem;
+        background-color: rgb(0, 0, 0, 0.3);
+        color: var(--whiteColor);
+        z-index: 99;
+        margin: 0;
+        border-radius: 0;
 
-	}
+    }
 
-	.header a:hover{
-		color: var(--whiteColor);
-		font-weight: 700;
-	}
-	
-	
-	header .nav-btn {
-		display: block;
-		opacity: 1;
-	}
+    .header a:hover {
+        color: var(--whiteColor);
+        font-weight: 700;
+    }
 
-	header nav {
-		position: fixed;
-		top: -150vh;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 1.5rem;
-		background-color: var(--darkerBlackColor);
-		transition: 1s;
+
+    header .nav-btn {
+        display: block;
+        opacity: 1;
+    }
+
+    header nav {
+        position: fixed;
+        top: -150vh;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background-color: var(--darkerBlackColor);
+        transition: 1s;
         z-index: 999999;
-	}
+    }
 
-	header .responsive_nav {
-		transform: translateY(150vh);
-		justify-content: center;
-	}
+    header .responsive_nav {
+        transform: translateY(150vh);
+        justify-content: center;
+    }
 
 
-	nav .nav-close-btn {
-		position: absolute;
-		top: 2rem;
-		right: 2rem;
-	}
+    nav .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
 
-	nav a {
-		font-size: 1rem;
-	}
-	/* .nav-item-with-submenu:hover{
+    nav a {
+        font-size: 1rem;
+    }
+
+    /* .nav-item-with-submenu:hover{
 	} */
-	.nav-item-with-submenu p{
-		margin:0;
-		padding: 0;
-		padding-left: 1rem;
-	}
-	.submenu{
-		background-color: var(--darkerBlackColor);
-		border: 1px solid var(--goldColor);
-		border-radius: 8px;
-	}
+    .nav-item-with-submenu p {
+        margin: 0;
+        padding: 0;
+        padding-left: 1rem;
+    }
+
+    .submenu {
+        background-color: var(--darkerBlackColor);
+        border: 1px solid var(--goldColor);
+        border-radius: 8px;
+    }
+
     header nav img {
         max-width: 5rem;
         margin-bottom: 2rem;
@@ -392,9 +455,9 @@ nav {
     .nav-item-mobile {
         display: block;
     }
-#logo-nav-mobile{
-	max-width: 100%;
-}
-	
-}
 
+    #logo-nav-mobile {
+        max-width: 100%;
+    }
+
+}

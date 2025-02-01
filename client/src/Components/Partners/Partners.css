@@ -1,0 +1,37 @@
+/* Partners.css */
+.partners-container {
+    background-color: var(--whiteColor);
+    text-align: center;
+    margin-top: -7rem;
+    padding: 15rem 5rem 10rem 5rem;
+}
+
+.partners {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 logos per row */
+    /* Responsive grid */
+    gap: 1rem;
+    /* Space between logos */
+    padding: 2rem;
+}
+
+.partners-container h1 {
+    color: var(--goldColor);
+}
+
+.partners img {
+    width: 100%;
+    /* Make logos fill their grid cells */
+    max-width: 15rem;
+    margin: auto;
+    filter: grayscale(100%);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.partners img:hover {
+    scale: 110%;
+    filter: grayscale(0);
+    transition: all 0.5s;
+}
