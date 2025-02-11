@@ -15,6 +15,8 @@ import ProductDetails from "./Components/Products/ProductDetails.js";
 import Exports from "./Components/Exports/Exports.js";
 import Packing from "./Components/Packing/Packing.js";
 import Partners from "./Components/Partners/Partners.js";
+import Machinery from "./Components/Machinery/Machinery.js";
+import Quarries from "./Components/Quarries/Quarries.js";
 import { ToastContainer } from "react-toastify";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -37,8 +39,10 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/exports" element={<Exports />} />
           <Route exact path="/packing" element={<Packing />} />
+          <Route exact path="/machinery" element={<Machinery />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/gallery" element={<Gallery />} />
+          <Route exact path="/quarries" element={<Quarries />} />
           <Route exact path="/partners" element={<Partners />} />
           <Route exact path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetails />} />

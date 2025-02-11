@@ -102,13 +102,13 @@ export default function Navbar() {
                 History
               </Link>
               <Link
-                to="/factories"
+                to="/machinery"
                 onClick={() => {
                   closeNavbar();
                   window.scrollTo(0, 0);
                 }}
               >
-                Factories
+                Machinery
               </Link>
               <Link
                 to="/exports"
@@ -183,7 +183,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Quarries
+                Quarries & Factories
               </Link>
               <Link
                 to="/gallery"

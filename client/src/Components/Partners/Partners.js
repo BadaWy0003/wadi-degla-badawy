@@ -8,6 +8,7 @@ import hydepark from '../../Public/Assets/Icons/partners/hydepark.png';
 import wyndham from '../../Public/Assets/Icons/partners/wyndham.png';
 import cfc from '../../Public/Assets/Icons/partners/cfc.webp';
 import trade_logistics from '../../Public/Assets/Icons/partners/trade-logistics.png';
+import egy_consulate_kuwait from '../../Public/Assets/Icons/partners/egy-consulate-kuwait.jpeg';
 
 
 export default function Partners() {
@@ -19,9 +20,11 @@ export default function Partners() {
         orascom,
         mivida,
         hydepark,
+        egy_consulate_kuwait,
         wyndham,
         cfc,
         trade_logistics
+        
     ];
 
     const handleButtonClick = () => {

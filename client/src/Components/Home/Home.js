@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import './Home.css';
 import { Link } from "react-router-dom";
-import Carousel from 'react-multi-carousel';
+// import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Product from '../Products/Product';
-import Modal from '../Products/Modal';
-import { productData } from '../Products/productData';
+// import Product from '../Products/Product';
+// import Modal from '../Products/Modal';
+// import { productData } from '../Products/productData';
 import Partners from "../Partners/Partners.js";
 
 import bullseye_gold from '../../Public/Assets/Icons/bullseye-gold.svg'
@@ -19,8 +19,8 @@ import { useGlobalState } from '../GlobalStateContext.js';
 export default function Home(){
   const globalState = useGlobalState(); // Access global state for user data
 
-    const [selectedProduct, setSelectedProduct] = useState(null); 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [selectedProduct, setSelectedProduct] = useState(null); 
+    // const [isModalOpen, setIsModalOpen] = useState(false);
 
 
     const galleryUrl = [
@@ -38,56 +38,56 @@ export default function Home(){
 
 
     // Function to handle opening the modal
-  const openModal = (product) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
+  // const openModal = (product) => {
+  //   setSelectedProduct(product);
+  //   setIsModalOpen(true);
+  // };
 
-  // Function to close the modal
-  const closeModal = () => {
-    setSelectedProduct(null);
-    setIsModalOpen(false);
-  };
+  // // Function to close the modal
+  // const closeModal = () => {
+  //   setSelectedProduct(null);
+  //   setIsModalOpen(false);
+  // };
 
-    const featuredProducts = productData.slice(0, 8);
+    // const featuredProducts = productData.slice(0, 8);
     
-    const responsive1 = {
-        superLargeDesktop: {
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 4
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1.4
-        }
-      };
+    // const responsive1 = {
+    //     superLargeDesktop: {
+    //       breakpoint: { max: 4000, min: 3000 },
+    //       items: 5
+    //     },
+    //     desktop: {
+    //       breakpoint: { max: 3000, min: 1024 },
+    //       items: 4
+    //     },
+    //     tablet: {
+    //       breakpoint: { max: 1024, min: 464 },
+    //       items: 2
+    //     },
+    //     mobile: {
+    //       breakpoint: { max: 464, min: 0 },
+    //       items: 1.4
+    //     }
+    //   };
 
-      const responsive2 = {
-        superLargeDesktop: {
-          breakpoint: { max: 4000, min: 3000 },
-          items: 6
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 6
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1.4
-        }
-      };
+    //   const responsive2 = {
+    //     superLargeDesktop: {
+    //       breakpoint: { max: 4000, min: 3000 },
+    //       items: 6
+    //     },
+    //     desktop: {
+    //       breakpoint: { max: 3000, min: 1024 },
+    //       items: 6
+    //     },
+    //     tablet: {
+    //       breakpoint: { max: 1024, min: 464 },
+    //       items: 2
+    //     },
+    //     mobile: {
+    //       breakpoint: { max: 464, min: 0 },
+    //       items: 1.4
+    //     }
+    //   };
       
       // console.log("GlobalState.loggedIn: " + globalState.isLoggedIn + " GlobalState.token: "+ globalState.token );
       console.log("HOME/////GlobalState.fullname: " + globalState.fullName + 

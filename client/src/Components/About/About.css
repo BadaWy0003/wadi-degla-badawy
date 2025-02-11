@@ -1,10 +1,9 @@
-
-.about-container{
+.about-container {
     margin-top: -7rem;
 }
 
-.gallery-hero{
-    
+.gallery-hero {
+
     position: relative;
     height: 80vh;
     z-index: 1;
@@ -12,25 +11,27 @@
     justify-content: center;
     align-items: center;
     padding: 0;
-    
+
 }
 
 .about-container .gallery-hero-bg {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Assets/Media/Gallery/28.jpg");
+    /* background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Assets/Media/Gallery/28.jpg"); */
 
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80vh; /* Subtract header height from viewport height */
+    height: 80vh;
+    /* Subtract header height from viewport height */
     background-size: cover;
     background-position: center;
-    z-index: -1; /* Ensure the background is behind other content */
+    z-index: -1;
+    /* Ensure the background is behind other content */
 }
 
 
 
-.about-container .gallery-hero h1{
+.about-container .gallery-hero h1 {
     color: var(--whiteColor);
     display: flex;
     justify-content: center;
@@ -40,15 +41,15 @@
     padding-top: 3rem;
 }
 
-.about-container .about-home h1{
+.about-container .about-home h1 {
     color: var(--goldColor);
 }
 
-.about-home .mission-vision div{
+.about-home .mission-vision div {
     width: 50%;
 }
 
-.about-container .our-partners{
+.about-container .our-partners {
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
@@ -56,11 +57,12 @@
     background-color: var(--darkerBlackColor);
 }
 
-.about-container .our-partners h1{
+.about-container .our-partners h1 {
     color: var(--goldColor);
     margin-bottom: 5rem;
 }
-.partners-about{
+
+.partners-about {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +71,7 @@
     row-gap: 4rem;
 }
 
-.counter-about{
+.counter-about {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -80,11 +82,12 @@
     row-gap: 3rem;
     background-color: var(--whiteColor);
 }
-.counter-about img{
+
+.counter-about img {
     width: 5rem;
 }
 
-.counter{
+.counter {
     display: flex;
     flex-direction: column !important;
     justify-content: center !important;
@@ -94,13 +97,13 @@
     row-gap: 0;
 }
 
-.counter:hover{ 
+.counter:hover {
     scale: 110%;
     transition: all 0.5s;
 
 }
 
-.counter h1{
+.counter h1 {
     color: var(--goldColor);
     justify-content: center !important;
     align-items: center !important;
@@ -108,13 +111,13 @@
     margin-bottom: 0;
 }
 
-.counter h2{
+.counter h2 {
     color: var(--blackColor);
     justify-content: center !important;
     align-items: center !important;
     text-align: center;
 }
 
-.counter p{
+.counter p {
     color: var(--blackColor);
 }

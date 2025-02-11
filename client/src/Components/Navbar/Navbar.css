@@ -420,13 +420,40 @@ nav {
         font-size: 1rem;
     }
 
-    /* .nav-item-with-submenu:hover{
-	} */
-    .nav-item-with-submenu p {
-        margin: 0;
+    .nav-item-with-submenu-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        column-gap: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .nav-item-with-submenu-title p {
+        white-space: nowrap;
+        margin-right: 1rem;
         padding: 0;
         padding-left: 1rem;
     }
+
+    .nav-item-with-submenu-title img {
+        max-width: 0.5rem;
+        position: absolute;
+        right: 0;
+        top: 40%;
+    }
+
+    .scrolled .nav-item-with-submenu p {
+        margin-right: 1rem;
+        padding: 0;
+        padding-left: 1rem;
+
+    }
+
+
+    /* .nav-item-with-submenu:hover{
+	} */
+    .nav-item-with-submenu p {}
 
     .submenu {
         background-color: var(--darkerBlackColor);

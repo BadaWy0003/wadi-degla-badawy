@@ -12,6 +12,7 @@
     /* 3 logos per row */
     /* Responsive grid */
     gap: 1rem;
+    row-gap: 2rem;
     /* Space between logos */
     padding: 2rem;
 }
@@ -21,9 +22,8 @@
 }
 
 .partners img {
-    width: 100%;
+    width: 15rem;
     /* Make logos fill their grid cells */
-    max-width: 15rem;
     margin: auto;
     filter: grayscale(100%);
     cursor: pointer;
@@ -47,7 +47,9 @@
     }
 
     .partners img {
+        width: 100%;
         max-width: 10rem;
+
     }
 
 }

@@ -1,0 +1,151 @@
+.quarries-container {
+    margin-top: -7rem;
+    padding-bottom: 10rem;
+}
+
+.quarries-container .quarries-hero {}
+
+.quarries-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 0rem;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/quarry1.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+
+
+
+}
+
+.quarries-hero h1 {
+    position: absolute;
+    top: 40%;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+.quarries-hero .breadcrumb {
+    position: absolute;
+    top: 50%;
+    padding: 1rem;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+
+
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+}
+
+/* Quarry & Factory Sections */
+.quarries, .factories {
+    padding: 0 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.quarries-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.quarries-title h2 {
+    background-color: var(--darkerBlackColor);
+    color: var(--goldColor);
+    padding: 0 1rem;
+    z-index: 2;
+
+}
+
+.quarries-title hr {
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    border: 1px solid var(--whiteColor);
+    z-index: 1;
+}
+
+.quarries h1, .factories h1 {
+    color: var(--goldColor);
+}
+
+.quarries h3, .factories h3 {
+    color: var(--blueColor);
+}
+
+.quarries p, .factories p {
+    color: var(--whiteColor);
+}
+
+.quarry-card, .factory-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.left img, .right img {
+    min-width: 50%;
+    height: 300px;
+    object-fit: cover;
+}
+
+
+.text {
+    padding: 0 5rem;
+    width: 50%;
+
+}
+
+.global {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 0 5rem;
+
+}
+
+.global img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.global p {
+    color: var(--whiteColor);
+}
+
+/* Custom pagination bullets */
+.global-facilities-slider .swiper-pagination-bullet {
+    background-color: var(--whiteColor);
+    opacity: 50%;
+    margin: 0 8px !important;
+    transition: all 0.1 ease;
+}
+
+/* Active bullet */
+.global-facilities-slider .swiper-pagination-bullet-active {
+    opacity: 100%;
+}

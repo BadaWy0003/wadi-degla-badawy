@@ -25,7 +25,7 @@ export default function Exports(){
         const continentData = {
             'North & South America': ['USA', 'Brazil', 'Panama'],
             'Europe': ['Romania', 'Albania', 'Bulgaria', 'Kosovo', 'Slovakia', 'Slovenia', 'Germany', 'Malta'],
-            'Asia': ['South Korea', 'Russia', 'Lebanon', 'Kuwait', 'Jordan', 'Iraq', 'Saudi Arabia', 'UAE'],
+            'Asia': ['China', 'South Korea', 'Russia', 'Lebanon', 'Kuwait', 'Jordan', 'Iraq', 'Saudi Arabia', 'UAE'],
             'Africa': ['Senegal', 'Kenya', 'Gambia', 'Libya'],
             'Australia': ['Australia'],
         };
@@ -47,6 +47,7 @@ const countryFlags = {
     'Malta': 'https://flagcdn.com/mt.svg',
 
     // Asia
+    'China': 'https://flagcdn.com/cn.svg',
     'South Korea': 'https://flagcdn.com/kr.svg',
     'Russia': 'https://flagcdn.com/ru.svg',
     'Lebanon': 'https://flagcdn.com/lb.svg',
