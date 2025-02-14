@@ -3,7 +3,6 @@
     padding-bottom: 10rem;
 }
 
-.quarries-container .quarries-hero {}
 
 .quarries-hero {
     position: relative;
@@ -42,14 +41,6 @@
 
 
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-}
 
 /* Quarry & Factory Sections */
 .quarries, .factories {
@@ -148,4 +139,84 @@
 /* Active bullet */
 .global-facilities-slider .swiper-pagination-bullet-active {
     opacity: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    /* General Hero Section */
+
+
+    .quarries-hero {
+        background-attachment: unset;
+        height: 50vh;
+
+
+
+    }
+
+    .quarries-hero h1 {
+        text-align: center;
+    }
+
+
+    .quarries-hero .breadcrumb {
+        display: none;
+    }
+
+    /* Quarry & Factory Sections */
+    .quarries, .factories {
+        padding: 1rem;
+        overflow-x: hidden;
+    }
+
+    .quarries-title {}
+
+    .quarries-title h2 {}
+
+    .quarries-title hr {}
+
+    .quarries h1, .factories h1 {}
+
+    .quarries h3, .factories h3 {}
+
+    .quarries p, .factories p {}
+
+    .quarry-card, .factory-card {
+        margin-bottom: 3rem;
+    }
+
+    .left {
+        flex-direction: column;
+    }
+
+    .right {
+        flex-direction: column-reverse;
+    }
+
+    .left img, .right img {
+        min-width: unset;
+        width: 100%;
+        height: unset;
+    }
+
+
+    .text {
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .global {
+        padding: 1rem;
+
+    }
+
+    .global img {
+        height: unset;
+    }
+
+    .global p {}
+
+    .global-facilities-slider .swiper-pagination-bullet {}
+
+    .global-facilities-slider .swiper-pagination-bullet-active {}
 }

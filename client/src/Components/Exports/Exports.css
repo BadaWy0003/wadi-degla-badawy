@@ -3,26 +3,20 @@
     padding-bottom: 10rem;
 }
 
-.exports-container .gallery-hero {
+.exports-container .quarries-hero {
+    position: relative;
     display: flex;
     flex-direction: column;
-
-    margin-bottom: 5rem;
-}
-
-.exports-container .gallery-hero-bg {
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 0rem;
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/24.jpg');
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    /* Subtract header height from viewport height */
     background-size: cover;
-    background-position: top;
+    background-position: center;
     background-attachment: fixed;
 
-    z-index: -1;
+
 
 }
 
@@ -150,14 +144,32 @@
 }
 
 @media screen and (max-width: 768px) {
+
+    .exports-container .quarries-hero {
+        background-attachment: unset;
+        height: 50vh;
+
+
+    }
+
+
     .export-department {
         flex-direction: column;
-        padding: 2rem;
+        padding: 1rem;
         margin-bottom: 5rem;
     }
 
+    .export-department-content h1 {
+        text-align: center;
+    }
+
+    .export-department-content p {
+        text-align: justify;
+    }
+
     .export-department img {
-        max-width: 50%;
+        max-width: unset;
+        width: 100%;
     }
 
     .export-department-content {
@@ -185,6 +197,10 @@
         align-items: center;
         column-gap: 1rem;
         width: 100%;
+    }
+
+    .our-markets {
+        padding: 1rem;
     }
 
     .our-markets img {

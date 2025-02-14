@@ -8,6 +8,8 @@ import Asia from '../../Public/Assets/Media/Asia.svg';
 import Australia from '../../Public/Assets/Media/Australia.svg';
 import Europe from '../../Public/Assets/Media/Europe.svg';
 import home_bg from '../../Public/Assets/Media/home-bg.jpg';
+import exports from '../../Public/Assets/Media/24.jpg';
+
 
 
 
@@ -70,15 +72,14 @@ const countryFlags = {
     
     return(
         <div className='exports-container'>
-            <div className="gallery-hero">
-                    <div className="gallery-hero-bg"></div>
-                        <h1>Exports</h1>
+        {/* 🌟 Hero Section */}
+        <div className="quarries-hero">
+                        <h1>EXPORTS</h1>
                         <div className="breadcrumb">
                         <a href="/">Home</a>
                         <p>{'>'} Exports</p>
                         </div>
-
-                </div>       
+                </div>  
                 <div className="export-department">
                     <div className="export-department-content">
                         <h1>OUR EXPORT DEPARTMENT</h1>
@@ -95,7 +96,7 @@ const countryFlags = {
                         premier supplier of premium natural stone products.</p>    
 
                     </div>
-                    <img src={home_bg} alt=""/>
+                    <img src={exports} alt=""/>
                 </div>   
 
                 <div className="our-markets">

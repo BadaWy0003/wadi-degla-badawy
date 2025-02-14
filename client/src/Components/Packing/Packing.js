@@ -14,14 +14,15 @@ export default function Packing(){
     
     return(
         <div className='packing-container'>
-            <div className="gallery-hero">
-                    <div className="gallery-hero-bg"></div>
-                        <h1>Packing</h1>
+                    {/* 🌟 Hero Section */}
+        <div className="quarries-hero">
+                        <h1>PACKING</h1>
                         <div className="breadcrumb">
                         <a href="/">Home</a>
                         <p>{'>'} Packing</p>
                         </div>
-                </div>       
+                </div>  
+     
                 <div className="packing-slabs">
                     <div className="packing-slabs-content">
                         <h1>PACKING MARBLE AND GRANITE SLABS</h1>

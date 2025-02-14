@@ -3,27 +3,38 @@
     padding-bottom: 10rem;
 }
 
-.packing-container .gallery-hero {
+
+.packing-container .quarries-hero {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10rem;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 0rem;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/21.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+
+
+
 }
 
-.packing-container .gallery-hero-bg {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/21.jpg');
-    background-attachment: fixed;
-    /* Creates the parallax effect */
+.packing-container .quarries-hero h1 {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    /* Subtract header height from viewport height */
-    background-size: cover;
-    background-position: top;
-    z-index: -1;
+    top: 40%;
+    color: var(--whiteColor);
+    z-index: 1;
+}
 
+
+.packing-container .quarries-hero .breadcrumb {
+    position: absolute;
+    top: 50%;
+    padding: 1rem;
+    color: var(--whiteColor);
+    z-index: 1;
 }
 
 
@@ -101,6 +112,21 @@
 }
 
 @media screen and (max-width: 768px) {
+
+    /* General Hero Section */
+    .packing-container .quarries-hero {
+        background-attachment: unset;
+        height: 50vh;
+    }
+
+    .packing-container .quarries-hero h1 {
+        text-align: center;
+    }
+
+    .packing-container .quarries-hero .breadcrumb {
+        display: none;
+    }
+
 
     .packing-slabs,
     .packing-tiles {
