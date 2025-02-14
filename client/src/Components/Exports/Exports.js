@@ -7,7 +7,6 @@ import Americas from '../../Public/Assets/Media/Americas.svg';
 import Asia from '../../Public/Assets/Media/Asia.svg';
 import Australia from '../../Public/Assets/Media/Australia.svg';
 import Europe from '../../Public/Assets/Media/Europe.svg';
-import home_bg from '../../Public/Assets/Media/home-bg.jpg';
 import exports from '../../Public/Assets/Media/24.jpg';
 
 

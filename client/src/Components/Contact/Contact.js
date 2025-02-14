@@ -119,16 +119,15 @@ export default function Contact() {
 
   return (
     <div className='contact-container'>
-      <div className="gallery-hero">
-        <div className="gallery-hero-bg"></div>
-        <div className='page-title'>
+      {/* 🌟 Hero Section */}
+      <div className="quarries-hero">
           <h1>CONTACT US</h1>
           <div className="breadcrumb">
-            <a href="/">Home</a>
-            <p>{'>'} Contact Us</p>
+          <a href="/">Home</a>
+          <p>{'>'} Contact</p>
           </div>
-        </div>
-      </div>
+      </div>  
+
       <div className="contact-inner">
         <div className="contact-inner-left">
           {showSuccessPopup && (

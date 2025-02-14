@@ -77,7 +77,8 @@ export default function Machinery(){
     
     return(
         <div className='machinery-container'>
-            <div className="machinery-hero">
+                    {/* 🌟 Hero Section */}
+                    <div className="quarries-hero">
                         <h1>OUR MACHINERY</h1>
                         <div className="breadcrumb">
                         <a href="/">Home</a>

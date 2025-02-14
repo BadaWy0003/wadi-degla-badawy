@@ -67,16 +67,14 @@ export default function Gallery() {
 
   return (
     <div className="gallery-container">
-      <div className="gallery-hero">
-        <div className="gallery-hero-bg"></div>
-        <div className="page-title">
+      {/* 🌟 Hero Section */}
+      <div className="quarries-hero">
           <h1>GALLERY</h1>
           <div className="breadcrumb">
-            <a href="/">Home</a>
-            <p>{">"} Gallery</p>
+          <a href="/">Home</a>
+          <p>{'>'} Gallery</p>
           </div>
-        </div>
-      </div>
+      </div>  
       <div className="gallery-gallery">
         <LightGallery elementClassNames="custom-wrapper-class">
           {gallery.map(

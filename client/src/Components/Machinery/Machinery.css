@@ -3,9 +3,7 @@
     padding-bottom: 10rem;
 }
 
-.machinery-container .machinery-hero {}
-
-.machinery-hero {
+.machinery-container .quarries-hero {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -22,7 +20,7 @@
 
 }
 
-.machinery-hero h1 {
+.machinery-container .quarries-hero h1 {
     position: absolute;
     top: 40%;
     color: var(--whiteColor);
@@ -30,13 +28,16 @@
 }
 
 
-.machinery-hero .breadcrumb {
+.machinery-container .quarries-hero .breadcrumb {
     position: absolute;
     top: 50%;
     padding: 1rem;
     color: var(--whiteColor);
     z-index: 1;
 }
+
+
+
 
 /* .machinery-container .gallery-hero-bg {
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Layer-2.png');
@@ -172,6 +173,20 @@
 
 @media screen and (max-width: 1000px) {
 
+    /* General Hero Section */
+    .machinery-container .quarries-hero {
+        background-attachment: unset;
+        height: 50vh;
+    }
+
+    .machinery-container .quarries-hero h1 {
+        text-align: center;
+    }
+
+    .machinery-container .quarries-hero .breadcrumb {
+        display: none;
+    }
+
     .machinery-intro {
         padding: 0 1rem;
     }
@@ -223,6 +238,15 @@
     .machinery-hero h1 {
         position: relative;
         top: unset;
+    }
+
+    .machinery-section-title h2 {
+        padding: 0;
+        text-align: center;
+    }
+
+    .machinery-section-title hr {
+        display: none;
     }
 
 }

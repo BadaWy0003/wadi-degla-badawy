@@ -1,210 +1,402 @@
 /* General Container */
 .products-container-2 {
-    margin-top: -7rem;
-    background-color: var(--whiteColor);
-    align-items: center;
-    padding-bottom: 5rem;
+  margin-top: -7rem;
+  background-color: var(--whiteColor);
+  align-items: center;
+  padding-bottom: 5rem;
 }
 
-.products-hero-2 {
-    position: relative;
-    height: 75vh;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+.products-container-2 .quarries-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin-bottom: 0rem;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/hero-bg.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+
+
+
 }
 
-.products-container-2 .products-hero-bg-2 {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../Public/Assets/Media/hero-bg.jpg");
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 75vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
+.products-container-2 .quarries-hero h1 {
+  position: relative;
+  top: unset;
+  color: var(--whiteColor);
+  z-index: 1;
+  margin-bottom: 0;
 }
+
+
+.products-container-2 .quarries-hero .breadcrumb {
+  position: relative;
+  top: unset;
+  padding: 0;
+  color: var(--whiteColor);
+  z-index: 1;
+}
+
 
 .hero-hint-2 {
-    color: var(--whiteColor);
-    font-size: 0.9rem;
+  color: var(--whiteColor);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-.products-container-2 .products-hero-2 h1 {
-    color: var(--whiteColor);
-    display: flex;
-    justify-content: center;
-}
+
 
 /* Category Buttons */
 .products-categories-and-title-2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .products-categories-2 {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    background-color: var(--darkerBlackColor);
-    width: 100%;
-    padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background-color: var(--darkerBlackColor);
+  width: 100%;
+  padding: 0.5rem 0;
 }
 
 .products-categories-2 .btn2 {
-    min-width: 23%;
-    border-color: transparent;
+  min-width: 23%;
+  border-color: transparent;
 }
 
 .products-categories-2 .btn2:hover {
-    scale: 100%;
-    background-color: transparent;
-    border-bottom-color: var(--whiteColor);
+  scale: 100%;
+  background-color: transparent;
+  border-bottom-color: var(--whiteColor);
 }
 
 .products-categories-2 .active-2 {
-    border-bottom-color: var(--goldColor);
-    color: var(--goldColor);
+  border-bottom-color: var(--goldColor);
+  color: var(--goldColor);
 
 }
 
 .products-categories-2 .active-2:hover {
-    border-bottom-color: var(--goldColor);
-    color: var(--goldColor);
+  border-bottom-color: var(--goldColor);
+  color: var(--goldColor);
 
 }
 
 /* Product Cards Layout */
 .product-cards-container-2 {
-    display: flex;
-    justify-content: center;
-    padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem;
 }
 
 .product-cards-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    column-gap: 1rem;
-    width: 100%;
-    padding-bottom: 1rem;
-    row-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  column-gap: 1rem;
+  width: 100%;
+  padding-bottom: 1rem;
+  row-gap: 1rem;
 }
 
 /* Updated Product Cards */
 .product-card-2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: 0.5rem;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    overflow: hidden;
-    cursor: pointer;
-    width: 15rem;
-    /* max-height: 150px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+  width: 15rem;
+  /* max-height: 150px; */
 }
 
 
 
 /* Image Styling */
 
-.img-div-2{
-    border-radius: 10px;
-    width: 90%;
+.img-div-2 {
+  border-radius: 10px;
+  width: 90%;
 }
 
 .product-card-2 img {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease; /* Smooth image scaling */
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  /* Smooth image scaling */
 }
 
 .product-card-2:hover img {
-    transform: scale(1.1); /*  Zoom effect on hover */
-    border-radius: 10px; 
+  transform: scale(1.1);
+  /*  Zoom effect on hover */
+  border-radius: 10px;
 }
 
 
 .product-card-2 h3 {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--darkGrayColor);
-    text-align: center;
-    margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--darkGrayColor);
+  text-align: center;
+  margin-top: 1rem;
 }
+
 .product-card-2:hover h3 {
-    font-weight: 600; 
-    color: var(--goldColor);
+  font-weight: 600;
+  color: var(--goldColor);
 }
 
 /* Search Bar */
 .search-bar-2 {
-    padding: 1rem;
-    border-radius: 1rem;
-    width: 50vw;
-    border: 1px solid var(--lightGrayColor);
-    text-align: center;
-    transition: all 0.3s;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 50vw;
+  border: 1px solid var(--lightGrayColor);
+  text-align: center;
+  transition: all 0.3s;
 }
 
 .search-bar-2:active {
-    border-color: var(--whiteColor);
+  border-color: var(--whiteColor);
 }
 
 .search-bar-2:hover {
-    border-color: var(--darkerBlackColor);
+  border-color: var(--darkerBlackColor);
 }
 
 /* No Products Message */
 .no-products-message-2 {
-    color: var(--lightGrayColor);
-    font-size: 1rem;
-    padding: 1rem;
-    font-style: italic;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  color: var(--lightGrayColor);
+  font-size: 1rem;
+  padding: 1rem;
+  font-style: italic;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 /* Modal Custom Styles */
 /* Modal Overlay */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: 1rem;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
 /* Modal Custom Styles */
 .modal-custom {
-    position: fixed; /* Fullscreen modal */
-    width: 90vw;
-    max-width: 1200px;
-    max-height: 90vh;
+  position: fixed;
+  /* Fullscreen modal */
+  width: 90vw;
+  max-width: 1200px;
+  max-height: 90vh;
+  background-color: var(--whiteColor);
+  display: flex;
+  flex-direction: column;
+  /* Vertical layout */
+  padding: 2rem;
+  /* Remove padding for fullscreen experience */
+  z-index: 1000;
+  /* Ensure it appears above all elements */
+  display: flex;
+  flex-direction: row;
+  border-radius: 1rem;
+  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  border: 2px solid var(--goldColor);
+  overflow: auto;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: var(--goldColor);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  color: var(--blueColor);
+}
+
+/* Modal Top Section - Image */
+.modal-left {
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  flex: 1;
+  min-width: 300px;
+  height: auto;
+  max-height: 70vh;
+}
+
+.modal-product-image {
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  object-fit: cover;
+  /* Maintain aspect ratio while covering container */
+  border-radius: 1rem;
+  /* No rounding for fullscreen modal */
+}
+
+/* Modal Bottom Section - Content */
+.modal-right {
+  width: 100%;
+  color: var(--darkGrayColor);
+  padding: 1rem 2rem;
+  border-radius: 0;
+  /* No rounding for fullscreen modal */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--goldColor);
+  border-radius: 1rem;
+  height: 550px;
+  justify-content: space-around;
+  flex: 1;
+  min-width: 300px;
+  height: auto;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.modal-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--goldColor);
+}
+
+/* Modal Info Grid */
+.modal-info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-info-label {
+  font-size: 1rem;
+}
+
+.modal-info-value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--blackColor);
+}
+
+#modal-info-category-value {
+  color: var(--blueColor);
+}
+
+.modal-select {
+  color: var(--goldColor);
+  padding: 0.3rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--goldColor);
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.modal-select:hover {
+  color: var(--blueColor);
+  border-color: var(--blueColor);
+}
+
+/* Applications Section */
+.modal-applications {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Icon wrapper styling */
+.application-icon-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+/* Image styling */
+.application-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Tooltip styling */
+.hover-name {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  /* Prevent interfering with hover detection */
+}
+
+/* Hover effect */
+.application-icon-wrapper:hover .hover-name {
+  opacity: 1;
+}
+
+/* Sample Button */
+.modal-right .btn1 {
+  margin-top: 2rem;
+}
+
+
+/* Responsive Design */
+@media (max-height: 900px) {
+  .modal-custom {
+    position: fixed;
+    /* Fullscreen modal */
+    width: 70vw;
+    max-height: 65vh;
     background-color: var(--whiteColor);
     display: flex;
-    flex-direction: column; /* Vertical layout */
-    padding:  2rem; /* Remove padding for fullscreen experience */
-    z-index: 1000; /* Ensure it appears above all elements */
+    flex-direction: column;
+    /* Vertical layout */
+    padding: 3rem 2rem;
+    /* Remove padding for fullscreen experience */
+    z-index: 1000;
+    /* Ensure it appears above all elements */
     display: flex;
     flex-direction: row;
     border-radius: 1rem;
@@ -213,404 +405,295 @@
     align-items: center;
     margin-top: 5rem;
     border: 2px solid var(--goldColor);
-    overflow: auto;
   }
-  
-  /* Close Button */
-  .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 1.5rem;
-    color: var(--goldColor);
-    cursor: pointer;
-    z-index: 10;
-  }
-  
-  .modal-close:hover {
-    color: var(--blueColor);
-  }
-  
-  /* Modal Top Section - Image */
-  .modal-left {
-    width: 100%;
-    height: 520px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1rem;
-    flex: 1;
-    min-width: 300px;
-    height: auto;
-    max-height: 70vh;
-  }
-  
-  .modal-product-image {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    object-fit: cover; /* Maintain aspect ratio while covering container */
-    border-radius: 1rem; /* No rounding for fullscreen modal */
-  }
-  
-  /* Modal Bottom Section - Content */
+
   .modal-right {
-    width: 100%;
-    color: var(--darkGrayColor);
-    padding: 1rem 2rem;
-    border-radius: 0; /* No rounding for fullscreen modal */
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--goldColor);
-    border-radius: 1rem;
-    height: 550px;
-    justify-content: space-around;
-    flex: 1;
-    min-width: 300px;
-    height: auto;
-    overflow-y: auto;
-    padding: 1rem;
+    max-height: 60vh;
   }
-  
-  .modal-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: var(--goldColor);
+}
+
+@media (max-height: 770px) {
+
+  /* General Hero Section */
+  .products-container-2 .quarries-hero {
+    background-attachment: unset;
+    height: 50vh;
   }
-  
-  /* Modal Info Grid */
-  .modal-info-grid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .modal-info-label {
-    font-size: 1rem;
-  }
-  
-  .modal-info-value {
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--blackColor);
-  }
-  #modal-info-category-value{
-    color: var(--blueColor);
-  }
-  .modal-select {
-    color: var(--goldColor);
-    padding: 0.3rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid var(--goldColor);
-    background-color: transparent;
-    transition: all 0.3s;
-  }
-  
-  .modal-select:hover {
-    color: var(--blueColor);
-    border-color: var(--blueColor);
-  }
-  
-  /* Applications Section */
-  .modal-applications {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  
-  /* Icon wrapper styling */
-  .application-icon-wrapper {
-    position: relative;
+
+  .products-container-2 .quarries-hero h1 {
     text-align: center;
   }
-  
-  /* Image styling */
+
+  .products-container-2 .quarries-hero .breadcrumb {
+    display: none;
+  }
+
+
+
+  .modal-right {
+    border: none;
+    border-radius: 0;
+    border-left: 1px solid var(--goldColor);
+  }
+
+
+
+}
+
+@media (max-height: 700px) {
+  .modal-custom {
+    padding: 3rem 1rem;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .modal-right {
+    border: none;
+    border-radius: 0;
+    border-left: 1px solid var(--goldColor);
+    padding: 0.5rem;
+  }
+
+  .modal-left {
+    max-height: none;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+  }
+
   .application-icon {
-    width: 90px;
-    height: 90px;
-    border-radius: 8px;
-    cursor: pointer;
+    width: 60px;
+    height: 60px;
   }
-  
-  /* Tooltip styling */
-  .hover-name {
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none; /* Prevent interfering with hover detection */
+}
+
+@media (max-height: 600px) {
+  .modal-left {
+    width: unset;
   }
-  
-  /* Hover effect */
-  .application-icon-wrapper:hover .hover-name {
-    opacity: 1;
+
+  .modal-product-image {
+    height: unset;
+    max-width: 25vw;
   }
-    
-  /* Sample Button */
+
+  .modal-right {}
+
+  .modal-title {
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .application-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-custom {
+    position: fixed;
+    /* Fullscreen modal */
+    width: 80%;
+    height: 80%;
+    background-color: var(--whiteColor);
+    display: flex;
+    flex-direction: column;
+    /* Vertical layout */
+    padding: 2rem;
+    /* Remove padding for fullscreen experience */
+    z-index: 1000;
+    /* Ensure it appears above all elements */
+    display: flex;
+    column-gap: 0;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0;
+    row-gap: 0;
+    flex-direction: column;
+    width: 95vw;
+    gap: 1rem;
+
+  }
+
+  .modal-close {
+    font-size: 2rem;
+
+  }
+
+  .modal-left {
+    max-height: 25%;
+    max-height: 40vh;
+  }
+
+  .div-flex {
+    flex-direction: column;
+  }
+
+  .modal-applications {
+    grid-template-columns: repeat(4, 1fr);
+
+  }
+
+  .modal-title {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+
+  .modal-right {
+    border: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: unset;
+    max-height: none;
+  }
+
+  .modal-info-grid {
+    gap: 0.5rem 1rem;
+  }
+
   .modal-right .btn1 {
-    margin-top: 2rem;
-  }
-  
- 
-  /* Responsive Design */
-  @media (max-height: 900px) {
-    .modal-custom {
-      position: fixed; /* Fullscreen modal */
-      width: 70vw;
-      max-height: 65vh;
-      background-color: var(--whiteColor);
-      display: flex;
-      flex-direction: column; /* Vertical layout */
-      padding:  3rem 2rem; /* Remove padding for fullscreen experience */
-      z-index: 1000; /* Ensure it appears above all elements */
-      display: flex;
-      flex-direction: row;
-      border-radius: 1rem;
-      column-gap: 2rem;
-      justify-content: center;
-      align-items: center;
-      margin-top: 5rem;
-      border: 2px solid var(--goldColor);
-    }
-    .modal-right{
-      max-height: 60vh;
-    }
-  }
-    @media (max-height: 770px) {
-      .modal-right{
-        border: none;
-        border-radius: 0;
-        border-left: 1px solid var(--goldColor);
-      }
-  
+    margin-top: 1rem;
+    width: 100%;
   }
 
-  @media (max-height: 700px) {
-    .modal-custom{
-      padding: 3rem 1rem;
-      flex-direction: row;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .modal-right{
-      border: none;
-      border-radius: 0;
-      border-left: 1px solid var(--goldColor);
-      padding: 0.5rem;
-    }
-    .modal-left {
-      max-height: none;
-    }
-    .modal-title{
-      font-size: 1.5rem;
-      margin: 0 0 1rem 0;
-    }
-    .application-icon{
-      width: 60px;
-      height: 60px;
-    }
+  .application-icon {
+    width: 50px;
+    height: 50px;
+  }
 }
 
-  @media (max-height: 600px) {
-    .modal-left{
-      width: unset;
-    }
-    .modal-product-image{
-      height: unset;
-      max-width: 25vw;
-    }
-    .modal-right{
-      
-    }
-    .modal-title{
-      font-size: 1rem;
-      margin: 0 0 1rem 0;
-    }
-    .application-icon{
-      width: 40px;
-      height: 40px;
-    }
+@media (max-width: 550px) {
+  .modal-custom {
+    position: fixed;
+    /* Fullscreen modal */
+    width: 90%;
+    max-height: 90%;
+    background-color: var(--whiteColor);
+    display: flex;
+    flex-direction: column;
+    /* Vertical layout */
+    padding: 0;
+    /* Remove padding for fullscreen experience */
+    z-index: 1000;
+    /* Ensure it appears above all elements */
+    display: flex;
+    column-gap: 0;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+    row-gap: 0;
+    padding: 1rem;
+
+  }
+
+  .modal-close {
+    font-size: 2rem;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+
+  .modal-left {
+    max-height: 25%;
+    min-width: unset;
+
+  }
+
+  .modal-left img {
+    border-radius: 0;
+  }
+
+  .div-flex {
+    flex-direction: column;
+  }
+
+  .modal-applications {
+    grid-template-columns: repeat(5, 1fr);
+
+  }
+
+  .modal-title {
+    margin-top: 0;
+  }
+
+  .modal-right .btn1 {
+    margin-top: 1rem;
+  }
+
+  .modal-right {
+    min-width: unset;
+  }
+
+  .modal-info-grid {
+    font-size: 0.9rem;
+  }
+
+  .application-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hover-name {
+    font-size: 0.8rem;
+  }
+
 }
 
-  @media (max-width: 768px) {
-    .modal-custom {
-      position: fixed; /* Fullscreen modal */
-      width: 80%;
-      height: 80%;
-      background-color: var(--whiteColor);
-      display: flex;
-      flex-direction: column; /* Vertical layout */
-      padding:  2rem; /* Remove padding for fullscreen experience */
-      z-index: 1000; /* Ensure it appears above all elements */
-      display: flex;
-      column-gap: 0;
-      justify-content: flex-start;
-      align-items: center;
-      margin-top: 0;
-      row-gap: 0;
-      flex-direction: column;
-      width: 95vw;
-      gap: 1rem;
-
-    }
-    .modal-close {
-      font-size: 2rem;
-      
-    }
-
-    .modal-left {
-      max-height: 25%;
-      max-height: 40vh;
-    }
-    .div-flex{
-        flex-direction: column;
-    }
-    .modal-applications{
-        grid-template-columns: repeat(4, 1fr);
-
-    }
-    .modal-title{
-      margin-top: 0;
-      font-size: 1.2rem;
-    }
-    .modal-right{
-      border: none;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: unset;
-      max-height: none;
-    }
-    .modal-info-grid {
-      gap: 0.5rem 1rem;
-    }
-    .modal-right .btn1 {
-      margin-top: 1rem;
-      width: 100%;
-    }
-    .application-icon {
-      width: 50px;
-      height: 50px;
-    }
-  }
-  @media (max-width: 550px) {
-    .modal-custom {
-      position: fixed; /* Fullscreen modal */
-      width: 90%;
-      max-height: 90%;
-      background-color: var(--whiteColor);
-      display: flex;
-      flex-direction: column; /* Vertical layout */
-      padding:  0; /* Remove padding for fullscreen experience */
-      z-index: 1000; /* Ensure it appears above all elements */
-      display: flex;
-      column-gap: 0;
-      justify-content: flex-start;
-      align-items: center;
-      margin-top: 0;
-      border: none;
-      border-radius: 0;
-      row-gap: 0;
-      padding: 1rem;
-
-    }
-    .modal-close {
-      font-size: 2rem;
-      position: relative;
-      top: 0;
-      right: 0;
-    }
-
-    .modal-left {
-      max-height: 25%;
-      min-width: unset;
-      
-    }
-    .modal-left img{
-border-radius: 0;      
-    }
-    .div-flex{
-        flex-direction: column;
-    }
-    .modal-applications{
-        grid-template-columns: repeat(5, 1fr);
-
-    }
-    .modal-title{
-      margin-top: 0;
-    }
-    .modal-right .btn1 {
-      margin-top: 1rem;
-    }
-    .modal-right {
-      min-width: unset;
-    }
-    .modal-info-grid {
-      font-size: 0.9rem;
-    }
-    .application-icon {
-      width: 40px;
-      height: 40px;
-    }
-    .hover-name {
-      font-size: 0.8rem;
-    }
-  
-  }
 /* Responsive Design */
 @media (max-width: 1070px) {
-    .products-hero-2 {
-        position: relative;
-        height: 350px;
-        z-index: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        background-color: var(--darkerBlackColor);
-    }
+  .products-hero-2 {
+    position: relative;
+    height: 350px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: var(--darkerBlackColor);
+  }
 
-    .products-container-2 .products-hero-bg-2 {
-        margin-top: 180px;
-        height: 152px;
-    }
+  .products-container-2 .products-hero-bg-2 {
+    margin-top: 180px;
+    height: 152px;
+  }
 
-    .products-container-2 .products-hero-2 h1 {
-        font-size: 1rem;
-        position: absolute;
-        top: 120px;
-    }
-    .products-categories-2{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .products-categories-2 .btn2 {
-        width: 11rem;
-    }
+  .products-container-2 .products-hero-2 h1 {
+    font-size: 1rem;
+    position: absolute;
+    top: 120px;
+  }
 
-    .search-bar-2 {
-        width: 80%;
-    }
+  .products-categories-2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .product-cards-2 {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    }
+  .products-categories-2 .btn2 {
+    width: 11rem;
+  }
 
-    .product-card-2 {
-        width: 90px;
-    }
+  .search-bar-2 {
+    width: 80%;
+  }
 
-    .product-card-2 img {
-        height: 80px;
-    }
+  .product-cards-2 {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .product-card-2 {
+    width: 90px;
+  }
+
+  .product-card-2 img {
+    height: 80px;
+  }
 }
 
 /* Product Details Page */
@@ -623,7 +706,8 @@ border-radius: 0;
   padding: 2rem;
   background-color: var(--whiteColor);
 }
-#product-details-breadcrumb p{
+
+#product-details-breadcrumb p {
   color: var(--darkGrayColor);
 }
 
@@ -631,7 +715,7 @@ border-radius: 0;
 .product-details-page .modal-custom {
   position: relative;
   margin-top: 0;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border: none;
 }
 
@@ -728,7 +812,7 @@ border-radius: 0;
   .product-details-container {
     gap: 2rem;
   }
-  
+
   .details-title {
     font-size: 2rem;
   }

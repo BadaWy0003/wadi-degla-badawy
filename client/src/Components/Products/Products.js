@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
-import hero_bg from "../../Public/Assets/Media/hero-bg.jpg";
 import Product from "./Product";
 import apiClient from "../../util/client.js";
 
@@ -42,23 +41,20 @@ export default function Visualizer() {
 
   return (
     <div className="products-container-2">
-      {/* Hero Section */}
-      <div className="products-hero-2">
-        <div
-          className="products-hero-bg-2"
-          style={{ backgroundImage: `url(${hero_bg})` }}
-        ></div>
-        <h1>Products</h1>
-        <div className="breadcrumb">
-          <a href="/">Home</a>
-          <p className="sub-breadcrumb">{">"} Explore</p>
-          <p>{">"} Products </p>
-        </div>
-
-        <p className="hero-hint-2">
+                          {/* 🌟 Hero Section */}
+                          <div className="quarries-hero">
+                        <h1>OUR MARBLE & GRANITE</h1>
+                        <div className="breadcrumb">
+                        <a href="/">Home</a>
+                        <p>{'>'} Products</p>
+                        </div>
+                        <p className="hero-hint-2">
           Select a product from below to view its details.
         </p>
-      </div>
+
+                </div>  
+
+
 
       {/* Categories and Search */}
       <div className="products-categories-and-title-2">

@@ -1,110 +1,149 @@
-.contact-container{
-    padding: 0 ;
-    margin-top: -4.5rem;
+.contact-container {
+  padding: 0;
+  margin-top: -4.5rem;
 }
 
-.contact-inner{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    color: var(--whiteColor);
-    padding: 5rem;
-    column-gap: 5rem;
+
+.contact-container .quarries-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin-bottom: 0rem;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/21.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+
+
+
+}
+
+.contact-container .quarries-hero h1 {
+  position: absolute;
+  top: 40%;
+  color: var(--whiteColor);
+  z-index: 1;
+}
+
+
+.contact-container .quarries-hero .breadcrumb {
+  position: absolute;
+  top: 50%;
+  padding: 1rem;
+  color: var(--whiteColor);
+  z-index: 1;
+}
+
+
+.contact-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: var(--whiteColor);
+  padding: 5rem;
+  column-gap: 5rem;
 }
 
 
 /*CONTACT FORM SECTION _________________________________________________________*/
-.contact-inner-left{
-    border: 1px solid var(--goldColor);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 1rem 5rem 5rem 5rem;
-    border-radius: 2rem;
-    min-width: 40%;
-    height: 100%;
-    /* min-height: 90vh; */
-    /* flex: 40; */
+.contact-inner-left {
+  border: 1px solid var(--goldColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem 5rem 5rem 5rem;
+  border-radius: 2rem;
+  min-width: 40%;
+  height: 100%;
+  /* min-height: 90vh; */
+  /* flex: 40; */
 }
-.contact-inner-left h1{
+
+.contact-inner-left h1 {
   text-align: center;
 }
-.contact-inner-left p{
-    color: var(--whiteColor) ;
-    text-align: center;
+
+.contact-inner-left p {
+  color: var(--whiteColor);
+  text-align: center;
 
 }
 
 
-.contact-form{
-    display: flex;
-    flex-direction: column;
+.contact-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .success-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--whiteColor);
-    border: 1px solid var(--goldColor);
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    z-index: 1000;
-  }
-  
-  .success-popup p {
-    margin: 0 0 10px;
-    font-size: 16px;
-    color: var(--blackColor) !important;
-  }
-  
-  .error {
-    color: red !important;
-    font-size: 12px;
-    margin-top: 5px;
-    align-items: start;
-  }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--whiteColor);
+  border: 1px solid var(--goldColor);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1000;
+}
 
-  .input-field{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+.success-popup p {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: var(--blackColor) !important;
+}
 
-  .double-inputs{
-    display: flex;
-    justify-content: space-between;
-    column-gap: 1rem;
-    margin-bottom: 1rem;
-  }
+.error {
+  color: red !important;
+  font-size: 12px;
+  margin-top: 5px;
+  align-items: start;
+}
 
-  .double-inputs .input-field{
-    display: flex;
-    justify-content: flex-start;
-    column-gap: 1rem;
-    height: fit-content;
-  }
+.input-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-  .country-address{
-    display: flex;
-    justify-content: space-between;
-    column-gap: 1rem;
-  }
+.double-inputs {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1rem;
+  margin-bottom: 1rem;
+}
 
-  #input-country{
-    min-width: 15rem;
-  }
+.double-inputs .input-field {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 1rem;
+  height: fit-content;
+}
 
-  #input-address{
-    flex-grow: 0;
-  }
-  /* Phone input __________________________________ */
-  /* General styling for the phone input container */
+.country-address {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1rem;
+}
+
+#input-country {
+  min-width: 15rem;
+}
+
+#input-address {
+  flex-grow: 0;
+}
+
+/* Phone input __________________________________ */
+/* General styling for the phone input container */
 .contact-form .react-tel-input {
-  width: 100%; /* Full width */
+  width: 100%;
+  /* Full width */
   height: 3rem;
   border-radius: 0.3rem;
   font-size: 0.85rem;
@@ -115,84 +154,112 @@
 
 /* When the input is focused */
 .contact-form .react-tel-input .form-control:focus {
-  border: 1px solid var(--goldColor); /* Highlighted border */
-  box-shadow: none; /* Remove default shadow */
+  border: 1px solid var(--goldColor);
+  /* Highlighted border */
+  box-shadow: none;
+  /* Remove default shadow */
 }
 
 /* Input field inside the phone container */
 .contact-form .react-tel-input .form-control {
   border: 1px solid var(--lightGrayColor);
-  outline: none; /* Remove outline */
+  outline: none;
+  /* Remove outline */
   font-size: 0.85rem;
-  padding-left: 4rem; /* Add space for the country flag */
-  height: 100%; /* Match container height */
+  padding-left: 4rem;
+  /* Add space for the country flag */
+  height: 100%;
+  /* Match container height */
   box-sizing: border-box;
   width: 100%;
 }
 
 /* Country flag and dropdown indicator container */
 .contact-form .react-tel-input .flag-dropdown {
-  background-color: var(--goldColor); /* Optional background */
-  border: none; /* Remove default borders */
-  border-right: 1px solid var(--lightGrayColor); /* Separator */
-  border-radius: 0.3rem 0 0 0.3rem; /* Rounded left corner */
-  height: 100%; /* Full height */
+  background-color: var(--goldColor);
+  /* Optional background */
+  border: none;
+  /* Remove default borders */
+  border-right: 1px solid var(--lightGrayColor);
+  /* Separator */
+  border-radius: 0.3rem 0 0 0.3rem;
+  /* Rounded left corner */
+  height: 100%;
+  /* Full height */
   display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
   padding: 0 0.5rem;
   box-sizing: border-box;
 }
 
-.contact-form .react-tel-input .flag-dropdown:hover{
-  background-color: var(--blueColor) !important; /* Optional background */
+.contact-form .react-tel-input .flag-dropdown:hover {
+  background-color: var(--blueColor) !important;
+  /* Optional background */
 }
-.contact-form .react-tel-input .flag-dropdown:focus{
-  background-color: var(--blueColor) !important; /* Optional background */
+
+.contact-form .react-tel-input .flag-dropdown:focus {
+  background-color: var(--blueColor) !important;
+  /* Optional background */
 }
 
 
-.contact-form .react-tel-input .selected-flag{
-  background-color: transparent !important; 
+.contact-form .react-tel-input .selected-flag {
+  background-color: transparent !important;
 
 }
-.contact-form .react-tel-input .selected-flag:hover{
-  background-color: transparent !important; 
+
+.contact-form .react-tel-input .selected-flag:hover {
+  background-color: transparent !important;
 
 }
-.contact-form .react-tel-input .selected-flag:focus{
-  background-color: transparent !important; 
+
+.contact-form .react-tel-input .selected-flag:focus {
+  background-color: transparent !important;
 
 }
-.react-tel-input .flag-dropdown.open{
+
+.react-tel-input .flag-dropdown.open {
   background-color: var(--goldColor);
 
 }
 
 /* Dropdown arrow */
 .contact-form .react-tel-input .arrow {
-  color: var(--grayColor); /* Match the theme */
+  color: var(--grayColor);
+  /* Match the theme */
 }
 
 /* Placeholder styling */
 .contact-form .react-tel-input .form-control::placeholder {
-  color: var(--lightGrayColor); /* Placeholder color */
+  color: var(--lightGrayColor);
+  /* Placeholder color */
   font-size: 0.85rem;
 }
 
 /* Optional: Style the dropdown menu */
 .contact-form .react-tel-input .country-list {
-  position: absolute; /* Position absolutely relative to the input */
-    top: 100%; /* Position directly below the input field */
-    left: 0; /* Align it to the left edge of the input */
-    right: 0; /* Align it to the right edge of the input */
-    z-index: 10; /* Make sure it appears above other content */
-    border: 1px solid var(--lightGrayColor); /* Border around the dropdown */
-    border-radius: 0.3rem;
-    font-size: 0.85rem;
-    max-height: 300px;
-    overflow-y: auto; /* Add scrolling if needed */
-    background-color: var(--whiteColor); /* Background for the dropdown */
+  position: absolute;
+  /* Position absolutely relative to the input */
+  top: 100%;
+  /* Position directly below the input field */
+  left: 0;
+  /* Align it to the left edge of the input */
+  right: 0;
+  /* Align it to the right edge of the input */
+  z-index: 10;
+  /* Make sure it appears above other content */
+  border: 1px solid var(--lightGrayColor);
+  /* Border around the dropdown */
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+  max-height: 300px;
+  overflow-y: auto;
+  /* Add scrolling if needed */
+  background-color: var(--whiteColor);
+  /* Background for the dropdown */
 }
 
 /* Style each option in the dropdown */
@@ -204,185 +271,205 @@
 /* Highlight the selected option */
 .contact-form .react-tel-input .country:hover,
 .contact-form .react-tel-input .country.highlight {
-  background-color: var(--goldColor); /* Highlight color */
+  background-color: var(--goldColor);
+  /* Highlight color */
   color: var(--blackColor);
 }
 
-  /* ___________________________________________________ */
+/* ___________________________________________________ */
 
 
 
-  /* Country selector __________________________________ */
-  /* General styles for react-select to match the form */
+/* Country selector __________________________________ */
+/* General styles for react-select to match the form */
 
- #input-country{
+#input-country {
   justify-content: flex-start;
- }
+}
+
 .contact-form .react-select__control {
-    
-    height: 3rem; /* Ensure consistent height */
-    border: 1px solid var(--lightGrayColor);
-    border-radius: 0.3rem;
-    padding: 0 1rem;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center; /* Vertically align items inside */
-    width: 100% !important; /* Take up the full width of the parent */
-    min-width: unset !important; /* Remove any minimum width constraints */
+
+  height: 3rem;
+  /* Ensure consistent height */
+  border: 1px solid var(--lightGrayColor);
+  border-radius: 0.3rem;
+  padding: 0 1rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  /* Vertically align items inside */
+  width: 100% !important;
+  /* Take up the full width of the parent */
+  min-width: unset !important;
+  /* Remove any minimum width constraints */
 
 }
 
 .contact-form .react-select__control:hover {
-    border: solid 1px var(--goldColor);
+  border: solid 1px var(--goldColor);
 }
 
 .contact-form .react-select__control--is-focused {
-    border: solid 1px var(--goldColor);
-    outline: none;
-    box-shadow: 0 0 0 1px var(--goldColor);
+  border: solid 1px var(--goldColor);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--goldColor);
 }
 
 .contact-form .react-select__value-container {
-    font-size: 0.85rem;
-    color: var(--blackColor);
-    display: flex;
-    align-items: center; /* Centers value content vertically */
-    padding: 0 0.5rem;
-    height: 100%; /* Ensures full height for proper alignment */
+  font-size: 0.85rem;
+  color: var(--blackColor);
+  display: flex;
+  align-items: center;
+  /* Centers value content vertically */
+  padding: 0 0.5rem;
+  height: 100%;
+  /* Ensures full height for proper alignment */
 
 }
 
 .contact-form .react-select__indicator {
-    color: var(--darkGrayColor);
-    display: flex;
-    align-items: center; /* Centers the dropdown indicator */
-    padding: 0.5rem;
+  color: var(--darkGrayColor);
+  display: flex;
+  align-items: center;
+  /* Centers the dropdown indicator */
+  padding: 0.5rem;
 
 }
 
 .contact-form .react-select__indicator:hover {
-    color: var(--goldColor);
+  color: var(--goldColor);
 }
 
 .contact-form .react-select__placeholder {
 
-    display: flex;
-    align-items: center; /* Center placeholder vertically */
-    margin: 0; /* Remove unnecessary margin */
-    height: 100%; /* Ensure it fills the container */
-    color: var(--lightGrayColor);
-    font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  /* Center placeholder vertically */
+  margin: 0;
+  /* Remove unnecessary margin */
+  height: 100%;
+  /* Ensure it fills the container */
+  color: var(--lightGrayColor);
+  font-size: 0.85rem;
 
 }
 
 .contact-form .react-select__single-value {
-    color: var(--blackColor);
-    display: flex;
+  color: var(--blackColor);
+  display: flex;
 
-    display: flex;
-    align-items: center; /* Center selected value vertically */
-    margin: 0; /* Remove unnecessary margin */
-    height: 100%; /* Ensure it fills the container */
-    font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  /* Center selected value vertically */
+  margin: 0;
+  /* Remove unnecessary margin */
+  height: 100%;
+  /* Ensure it fills the container */
+  font-size: 0.85rem;
 
 
 }
 
 .contact-form .react-select__menu {
-    background-color: var(--whiteColor);
-    border: 1px solid var(--lightGrayColor);
-    border-radius: 0.3rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    margin-top: 0.5rem; /* Adjust menu spacing */
+  background-color: var(--whiteColor);
+  border: 1px solid var(--lightGrayColor);
+  border-radius: 0.3rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 0.5rem;
+  /* Adjust menu spacing */
 
-    font-size: 0.85rem;
+  font-size: 0.85rem;
 
 
 }
 
 .contact-form .react-select__option {
-    color: var(--blackColor);
-    cursor: pointer;
-    padding: 0.5rem 1rem; /* Adjust option spacing */
-    font-size: 0.85rem; /* Matches input field font size */
+  color: var(--blackColor);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  /* Adjust option spacing */
+  font-size: 0.85rem;
+  /* Matches input field font size */
 
 
 }
 
 .contact-form .react-select__option--is-focused {
-    background-color: var(--lightGrayColor);
-    color: var(--blackColor);
+  background-color: var(--lightGrayColor);
+  color: var(--blackColor);
 }
 
 .contact-form .react-select__option--is-selected {
-    background-color: var(--goldColor);
-    color: var(--whiteColor);
+  background-color: var(--goldColor);
+  color: var(--whiteColor);
 }
 
 .contact-form .react-select__menu-list {
-    max-height: 200px;
-    overflow-y: auto;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .contact-form .react-select__menu-notice {
-    color: var(--darkGrayColor);
-    font-size: 0.8rem;
-    padding: 10px;
-    text-align: center;
+  color: var(--darkGrayColor);
+  font-size: 0.8rem;
+  padding: 10px;
+  text-align: center;
 }
 
 /* Ensure dropdown width doesn't exceed container */
 .contact-form .react-select__control,
 .contact-form .react-select__menu {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 /* Add transition for smooth hover/focus effects */
 .contact-form .react-select__control,
 .contact-form .react-select__option {
-    transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-.css-1u9des2-indicatorSeparator{
+
+.css-1u9des2-indicatorSeparator {
   display: none;
 }
-  /* ___________________________________________________ */
 
-  
+/* ___________________________________________________ */
+
+
 
 /* __________________________________________________________________________________________*/
 
-   .input-field input{
-    height: 34.5pt;
-    border: solid 1px var(--lightGrayColor);
-    border-radius: 0.3rem;
-    padding: 0 1rem 0 1rem;
-  }
-
-  .input-field input:focus{
-    border: solid 1px var(--goldColor);
-} 
-
-.input-field label{
-    font-size: 0.85rem;
+.input-field input {
+  height: 34.5pt;
+  border: solid 1px var(--lightGrayColor);
+  border-radius: 0.3rem;
+  padding: 0 1rem 0 1rem;
 }
 
-.input-field-message{
-    display: flex;
-    flex-direction: column;
+.input-field input:focus {
+  border: solid 1px var(--goldColor);
 }
 
-.input-field-message textarea{
-    height: 2.5rem;
-    border: solid 1px var(--lightGrayColor);
-    border-radius: 0.3rem;
-    padding: 1rem;
-    min-height: 5rem;
-    resize: none;
+.input-field label {
+  font-size: 0.85rem;
 }
 
-.contact-form .btn1{
-    margin-top: 2rem;
+.input-field-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field-message textarea {
+  height: 2.5rem;
+  border: solid 1px var(--lightGrayColor);
+  border-radius: 0.3rem;
+  padding: 1rem;
+  min-height: 5rem;
+  resize: none;
+}
+
+.contact-form .btn1 {
+  margin-top: 2rem;
 }
 
 /* _________________________________________________________*/
@@ -390,8 +477,8 @@
 /* .contact-inner-right{
   flex: 60;
 } */
-.contact-inner-right p{
-    color: var(--whiteColor) ;
+.contact-inner-right p {
+  color: var(--whiteColor);
 }
 
 /* General Styling for the contact-inner-right */
@@ -421,7 +508,7 @@
 }
 
 /* Section Box */
-.contact-info > div {
+.contact-info>div {
   flex: 1 1 calc(45% - 20px);
   display: flex;
   flex-direction: column;
@@ -504,6 +591,7 @@
   cursor: pointer;
   filter: grayscale(100%);
 }
+
 .social img:hover {
   filter: grayscale(0%);
 
@@ -534,25 +622,41 @@
     gap: 20px;
   }
 
-  .contact-info > div {
+  .contact-info>div {
     flex: 1 1 100%;
   }
 
   /* Phone Numbers */
-.phone-numbers a,
-.email-address a,
-.location a {
-  text-align: center;
-}
-.contact-inner-right h4{
-  text-align: center;
-}
+  .phone-numbers a,
+  .email-address a,
+  .location a {
+    text-align: center;
+  }
+
+  .contact-inner-right h4 {
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
   .contact-container {
     padding: 2rem 1rem;
   }
+
+  /* General Hero Section */
+  .contact-container .quarries-hero {
+    background-attachment: unset;
+    height: 50vh;
+  }
+
+  .contact-container .quarries-hero h1 {
+    text-align: center;
+  }
+
+  .contact-container .quarries-hero .breadcrumb {
+    display: none;
+  }
+
 
   .contact-inner {
     padding: 2rem 1rem;
@@ -586,6 +690,7 @@
 }
 
 @media (max-width: 576px) {
+
   /* Adjust the contact-inner container */
   .contact-inner {
     flex-direction: column;
@@ -594,25 +699,27 @@
   }
 
   /* Adjust the left and right sections */
-  .contact-inner-left
-   {
+  .contact-inner-left {
     flex: 1 1 100%;
     padding: 1rem 1rem 2rem 1rem;
     min-width: unset;
   }
-  .contact-inner-right{
+
+  .contact-inner-right {
     padding: 0;
   }
 
   /* Contact form adjustments */
   .contact-form {
-    gap: 1rem; /* Reduce the gap between form elements */
+    gap: 1rem;
+    /* Reduce the gap between form elements */
   }
 
   /* Stack double inputs vertically */
   .double-inputs {
     flex-direction: column;
-    gap: 1rem; /* Adjust spacing between stacked inputs */
+    gap: 1rem;
+    /* Adjust spacing between stacked inputs */
   }
 
   .input-field {
@@ -624,21 +731,24 @@
   .input-field textarea,
   .react-tel-input .form-control,
   .react-select__control {
-    font-size: 0.9rem; /* Smaller font size for better fit */
-    padding: 0.7rem; /* Adjust padding */
+    font-size: 0.9rem;
+    /* Smaller font size for better fit */
+    padding: 0.7rem;
+    /* Adjust padding */
     height: 20pt;
   }
 
-  .double-inputs{
+  .double-inputs {
     margin-bottom: 0;
   }
+
   /* Align the labels and reduce spacing */
   .input-field label {
     font-size: 0.8rem;
     margin-bottom: 0.3rem;
   }
 
-  
+
   /* Optimize button styling */
   .contact-form .btn1 {
     margin-top: 0.5rem;
@@ -650,14 +760,16 @@
 
   /* Success popup adjustments */
   .success-popup {
-    width: 90%; /* Reduce the popup width */
+    width: 90%;
+    /* Reduce the popup width */
     padding: 1rem;
     font-size: 0.9rem;
   }
 
   /* Social media icons and QR code */
   .social-icons-footer {
-    width: 30px; /* Smaller icon size */
+    width: 30px;
+    /* Smaller icon size */
     height: 30px;
   }
 
