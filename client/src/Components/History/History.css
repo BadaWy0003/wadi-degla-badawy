@@ -1,0 +1,587 @@
+.history-container {
+    margin-top: -7rem;
+}
+
+/*HERO SECTION_____________________________________________________________*/
+.history-container .quarries-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 0rem;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/History/history15.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
+
+}
+
+.history-container .quarries-hero h1 {
+    position: absolute;
+    top: 40%;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+.history-container .quarries-hero .breadcrumb {
+    position: absolute;
+    top: 50%;
+    padding: 1rem;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+
+/*INTRO SECTION_____________________________________________________________*/
+.history-intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    column-gap: 5rem;
+    margin: 5rem 0;
+}
+
+.history-intro-section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.history-intro-section-title h1 {
+    color: var(--goldColor);
+    font-size: 100px;
+}
+
+
+.first-gen-intro {
+    color: var(--whiteColor);
+    text-align: center;
+    padding: 0 5rem;
+}
+
+.first-gen-intro strong {
+    font-weight: 600;
+}
+
+/*FIRST GEN SECTION_____________________________________________________________*/
+
+.first-gen-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem;
+    margin: 5rem 0;
+}
+
+.first-gen-title {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.first-gen-title hr {
+    margin-bottom: -2rem;
+    width: 100%;
+}
+
+.first-gen-title h2 {
+    color: var(--goldColor);
+    text-transform: uppercase;
+    background-color: var(--darkerBlackColor);
+    text-align: center;
+    width: fit-content;
+    padding: 0 1rem;
+}
+
+.first-gen-section-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    color: var(--whiteColor);
+}
+
+.first-gen-section-text p {
+    text-align: justify;
+}
+
+.first-gen-section-text p strong {
+    font-weight: 600;
+    color: var(--goldColor);
+}
+
+.first-gen-section-image {
+    width: 200%;
+    max-width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.first-gen-section-image img {
+    width: 100%;
+    --g: 4px;
+    /* the gap */
+    --b: 2px;
+    /* border thickness*/
+    --c: var(--goldColor);
+    /* the color */
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+    background:
+        var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+        var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b), var(--b) 200%;
+    transition: all .3s ease;
+    --_p: 75%;
+
+}
+
+.first-gen-section-image img:hover {
+    --_p: 25%;
+}
+
+
+/*SECOND GEN SECTION_____________________________________________________________*/
+
+.second-gen-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem;
+    margin: 5rem 0;
+}
+
+.second-gen-title {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-gen-title hr {
+    margin-bottom: -2rem;
+    width: 100%;
+}
+
+.second-gen-title h2 {
+    color: var(--goldColor);
+    text-transform: uppercase;
+    background-color: var(--darkerBlackColor);
+    text-align: center;
+    width: fit-content;
+    padding: 0 1rem;
+}
+
+.second-gen-section-content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    color: var(--whiteColor);
+}
+
+.second-gen-section-text p {
+    text-align: justify;
+}
+
+.second-gen-section-text p strong {
+    font-weight: 600;
+    color: var(--goldColor);
+}
+
+.second-gen-section-image {
+    width: 100%;
+    max-width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.second-gen-section-image img {
+    width: 100%;
+    --g: 4px;
+    /* the gap */
+    --b: 2px;
+    /* border thickness*/
+    --c: var(--goldColor);
+    /* the color */
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+    background:
+        var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+        var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b), var(--b) 200%;
+    transition: all .3s ease;
+    --_p: 75%;
+
+}
+
+.second-gen-section-image img:hover {
+    --_p: 25%;
+}
+
+
+/*THIRD GEN SECTION_____________________________________________________________*/
+
+.third-gen-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem;
+    margin: 5rem 0;
+}
+
+.third-gen-title {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.third-gen-title hr {
+    margin-bottom: -2rem;
+    width: 100%;
+}
+
+.third-gen-title h2 {
+    color: var(--goldColor);
+    text-transform: uppercase;
+    background-color: var(--darkerBlackColor);
+    text-align: center;
+    width: fit-content;
+    padding: 0 1rem;
+}
+
+.third-gen-section-content {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    color: var(--whiteColor);
+}
+
+.third-gen-section-text p {
+    text-align: justify;
+}
+
+.third-gen-section-text p strong {
+    font-weight: 600;
+    color: var(--goldColor);
+}
+
+#third-gen-mid-text-title {
+    color: var(--blueColor);
+}
+
+.third-gen-section-image {
+    width: 200%;
+    max-width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.third-gen-section-image img {
+    width: 100%;
+    --g: 4px;
+    /* the gap */
+    --b: 2px;
+    /* border thickness*/
+    --c: var(--goldColor);
+    /* the color */
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+    background:
+        var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+        var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b), var(--b) 200%;
+    transition: all .3s ease;
+    --_p: 75%;
+
+}
+
+.third-gen-section-image img:hover {
+    --_p: 25%;
+}
+
+
+/*THIRD GEN SECTION_____________________________________________________________*/
+
+.legacy-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem;
+    margin: 5rem 0;
+}
+
+.legacy-title {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.legacy-title hr {
+    margin-bottom: -2rem;
+    width: 100%;
+}
+
+.legacy-title h2 {
+    color: var(--goldColor);
+    text-transform: uppercase;
+    background-color: var(--darkerBlackColor);
+    text-align: center;
+    width: fit-content;
+    padding: 0 1rem;
+}
+
+.legacy-section-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--whiteColor);
+}
+
+.legacy-section-text p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.legacy-section-text p strong {
+    font-weight: 600;
+}
+
+#legacy-mid-text-title {
+    color: var(--blueColor);
+}
+
+.history-final-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 0rem;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/67.jpeg');
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    padding: 0 5rem;
+}
+
+.history-final-section p {
+    color: var(--whiteColor);
+    text-align: center;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1100px) {
+
+    /* FOUNDED IN Section */
+    .history-intro-section {
+        padding: 1rem;
+        column-gap: 5rem;
+        margin: 5rem 0;
+    }
+
+    .history-intro-section-title {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .history-intro-section-title h1 {
+        font-size: 40px;
+    }
+
+    /* First Gen */
+
+    .first-gen-section-image {
+        width: 100%;
+        max-width: unset;
+        flex: 4;
+    }
+
+    .first-gen-section-text {
+        flex: 3;
+    }
+
+    /* second gen*/
+    .second-gen-section-image {
+        width: 100%;
+        max-width: unset;
+        flex: 4;
+    }
+
+    .second-gen-section-text {
+        flex: 3;
+    }
+
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+    /* General Hero Section */
+    .history-container .quarries-hero {
+        background-attachment: unset;
+        height: 50vh;
+    }
+
+    .history-container .quarries-hero h1 {
+        text-align: center;
+    }
+
+    .history-container .quarries-hero .breadcrumb {
+        display: none;
+    }
+
+    /* Intro Section */
+
+    .first-gen-intro {
+        padding: 1rem;
+    }
+
+    /* First Gen */
+    .first-gen-section {
+        padding: 1rem;
+        margin: 5rem 0;
+    }
+
+    .first-gen-title hr {
+        display: none;
+    }
+
+    .first-gen-title h2 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .first-gen-section-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .first-gen-section-image {
+        width: 90%;
+    }
+
+    .first-gen-section-image img {
+        padding: 0;
+    }
+
+    /* Second Gen */
+    .second-gen-section {
+        padding: 1rem;
+        margin: 5rem 0;
+    }
+
+    .second-gen-title hr {
+        display: none;
+    }
+
+    .second-gen-title h2 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .second-gen-section-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .second-gen-section-image {
+        width: 90%;
+    }
+
+    .second-gen-section-image img {
+        padding: 0;
+    }
+
+    /* third Gen */
+    .third-gen-section {
+        padding: 1rem;
+        margin: 5rem 0;
+    }
+
+    .third-gen-title hr {
+        display: none;
+    }
+
+    .third-gen-title h2 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .third-gen-section-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .third-gen-section-image {
+        width: 90%;
+    }
+
+    .third-gen-section-image img {
+        padding: 0;
+    }
+
+
+    /* legacy section */
+
+    .legacy-section {
+        padding: 1rem;
+    }
+
+    .legacy-title hr {
+        display: none;
+    }
+
+    .legacy-title h2 {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Final Section */
+
+    .history-final-section {
+        height: 100vh;
+        background-attachment: unset;
+        padding: 1rem;
+    }
+
+    .history-final-section p {
+        text-align: center;
+        font-size: 20px;
+    }
+
+
+}

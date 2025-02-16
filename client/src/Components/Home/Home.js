@@ -8,8 +8,8 @@ import 'react-multi-carousel/lib/styles.css';
 // import { productData } from '../Products/productData';
 import Partners from "../Partners/Partners.js";
 
-import bullseye_gold from '../../Public/Assets/Icons/bullseye-gold.svg'
-import paper_plane_gold from '../../Public/Assets/Icons/paper-plane-gold.svg'
+// import bullseye_gold from '../../Public/Assets/Icons/bullseye-gold.svg'
+// import paper_plane_gold from '../../Public/Assets/Icons/paper-plane-gold.svg'
 import Gallery from './Gallery-Home'
 import { useGlobalState } from '../GlobalStateContext.js';
 
@@ -51,43 +51,6 @@ export default function Home(){
 
     // const featuredProducts = productData.slice(0, 8);
     
-    // const responsive1 = {
-    //     superLargeDesktop: {
-    //       breakpoint: { max: 4000, min: 3000 },
-    //       items: 5
-    //     },
-    //     desktop: {
-    //       breakpoint: { max: 3000, min: 1024 },
-    //       items: 4
-    //     },
-    //     tablet: {
-    //       breakpoint: { max: 1024, min: 464 },
-    //       items: 2
-    //     },
-    //     mobile: {
-    //       breakpoint: { max: 464, min: 0 },
-    //       items: 1.4
-    //     }
-    //   };
-
-    //   const responsive2 = {
-    //     superLargeDesktop: {
-    //       breakpoint: { max: 4000, min: 3000 },
-    //       items: 6
-    //     },
-    //     desktop: {
-    //       breakpoint: { max: 3000, min: 1024 },
-    //       items: 6
-    //     },
-    //     tablet: {
-    //       breakpoint: { max: 1024, min: 464 },
-    //       items: 2
-    //     },
-    //     mobile: {
-    //       breakpoint: { max: 464, min: 0 },
-    //       items: 1.4
-    //     }
-    //   };
       
       // console.log("GlobalState.loggedIn: " + globalState.isLoggedIn + " GlobalState.token: "+ globalState.token );
       console.log("HOME/////GlobalState.fullname: " + globalState.fullName + 
@@ -112,29 +75,6 @@ export default function Home(){
                         </div>
                 </div>
             </div>
-            <div className="about-home">
-            <h1>About Wadi Degla</h1>
-                <div className="mission-vision">
-                    <div className="mission">
-                        <img src={bullseye_gold} alt=""/>
-                        <div>
-                            <h1>Mission</h1>
-                            <p>To best serve the construction industry by supplying the highest quality of natural 
-                                marbles and stones, and to grow unlimitedly as one of the best manufacturers of marbles
-                                 in the Middle-East and the world.</p>
-                            </div>
-                        </div>
-                    <div className="vision">
-                    <img src={paper_plane_gold} alt=""/>
-                        <div>
-                            <h1>Vision</h1>
-                            <p>To be recognized worldwide as one of the most reliable suppliers of best quality marbles, 
-                                granite, and decorative stones.</p>
-                            </div>
-                    </div>
-                </div>
-                <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}><button className="btn2">ABOUT US</button></Link>
-                </div>
             {/* <div className="products-home">
                 <h1>Explore some of our products</h1>
                 <Carousel responsive={responsive1} 

@@ -2,122 +2,400 @@
     margin-top: -7rem;
 }
 
-.gallery-hero {
-
+/*HERO SECTION_____________________________________________________________*/
+.about-container .quarries-hero {
     position: relative;
-    height: 80vh;
-    z-index: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
+    height: 80vh;
+    margin-bottom: 0rem;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/21.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+
+
 
 }
 
-.about-container .gallery-hero-bg {
-    /* background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Assets/Media/Gallery/28.jpg"); */
+.about-container .quarries-hero h1 {
+    position: absolute;
+    top: 40%;
+    color: var(--whiteColor);
+    z-index: 1;
+}
 
+
+.about-container .quarries-hero .breadcrumb {
+    position: absolute;
+    top: 50%;
+    padding: 1rem;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+
+/*INTRO SECTION_____________________________________________________________*/
+.about-intro-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    gap: 5rem;
+    margin: 5rem 0;
+}
+
+.about-intro-section-content {}
+
+.about-intro-section-content h2 {
+    color: var(--goldColor);
+    font-size: 40px;
+}
+
+.about-intro-section-content p {
+    color: var(--whiteColor);
+    text-align: justify;
+    font-weight: 300;
+}
+
+.about-intro-section-content strong {
+    font-weight: 600;
+}
+
+.about-intro-section-image {
+    width: 100vw;
+    max-width: fit-content;
+    transition: all 0.3s ease;
+
+}
+
+.about-intro-section-image img {
+    width: 100%;
+}
+
+.about-intro-section-image:hover {
+    rotate: -10deg;
+}
+
+/*MISSION & VISION SECTION_____________________________________________________________*/
+.mission-vision-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding: 0 5rem;
+    margin-top: 15rem;
+}
+
+.vision-card, .mission-card {
+    --g: 4px;
+    /* Gap */
+    --b: 2px;
+    /* Border thickness */
+    --c: var(--goldColor);
+    /* Border color */
+
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* Add a pseudo-element for the animated border */
+.vision-card::before, .mission-card::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80vh;
-    /* Subtract header height from viewport height */
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    /* Ensure the background is behind other content */
+    height: 100%;
+    padding: var(--g);
+    background:
+        repeating-linear-gradient(90deg, var(--blackColor) 0 25%, var(--c) 0 50%) repeat-x,
+        repeating-linear-gradient(180deg, var(--blackColor) 0 25%, var(--c) 0 50%) repeat-y,
+        repeating-linear-gradient(90deg, var(--blackColor) 0 25%, var(--c) 0 50%) repeat-x,
+        repeating-linear-gradient(180deg, var(--blackColor) 0 25%, var(--c) 0 50%) repeat-y;
+    background-size: 200% var(--b), var(--b) 200%;
+    background-position: var(--_p, 25%) 0, 0 var(--_p, 125%),
+        var(--_p, 125%) 100%, 100% var(--_p, 25%);
+    transition: background-position 0.3s;
+    pointer-events: none;
+    --_p: 75%;
+
 }
 
+/* On hover, move the border */
+.vision-card:hover::before, .mission-card:hover::before {
+    --_p: 25%;
 
-
-.about-container .gallery-hero h1 {
-    color: var(--whiteColor);
-    display: flex;
-    justify-content: center;
 }
 
-.about-container .about-home {
-    padding-top: 3rem;
-}
-
-.about-container .about-home h1 {
-    color: var(--goldColor);
-}
-
-.about-home .mission-vision div {
-    width: 50%;
-}
-
-.about-container .our-partners {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    background-color: var(--darkerBlackColor);
-}
-
-.about-container .our-partners h1 {
-    color: var(--goldColor);
-    margin-bottom: 5rem;
-}
-
-.partners-about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    column-gap: 10rem;
-    row-gap: 4rem;
-}
-
-.counter-about {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 5rem;
-    column-gap: 5rem;
-    row-gap: 3rem;
-    background-color: var(--whiteColor);
-}
-
-.counter-about img {
+.vision-card img, .mission-card img {
     width: 5rem;
+    transition: all 0.3s;
 }
 
-.counter {
-    display: flex;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    transition: all 0.5s;
-    width: fit-content;
-    row-gap: 0;
+.vision-card:hover, .mission-card:hover {
+    scale: 98%;
 }
 
-.counter:hover {
-    scale: 110%;
-    transition: all 0.5s;
-
-}
-
-.counter h1 {
+.vision-card h2, .mission-card h2 {
     color: var(--goldColor);
-    justify-content: center !important;
-    align-items: center !important;
+    font-size: 40px;
+}
+
+.vision-card p, .mission-card p {
+    color: var(--whiteColor);
     text-align: center;
+}
+
+
+/*OUR EXPERTISE SECTION_____________________________________________________________*/
+.our-expertise-section {
+    padding: 0 5rem;
+    margin-top: 15rem;
+}
+
+.our-expertise-title {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.our-expertise-title hr {
+    margin-bottom: -3.5rem;
+}
+
+.our-expertise-title h2 {
+    background-color: var(--darkerBlackColor);
+    color: var(--goldColor);
+    font-size: 40px;
     margin-bottom: 0;
+    width: fit-content;
+    padding-right: 1rem;
 }
 
-.counter h2 {
-    color: var(--blackColor);
-    justify-content: center !important;
-    align-items: center !important;
+.our-expertise-title p {
+    color: var(--whiteColor);
+    font-size: 14px;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin-top: 0rem;
+}
+
+.our-expertise-section-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--whiteColor);
+    gap: 5rem;
+}
+
+
+
+.our-expertise-section-content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.our-expertise-section-content-text p {
+    margin: 0;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-align: justify;
+    color: var(--blueColor);
+}
+
+.our-expertise-section-content-text li {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    list-style: square;
+    text-align: justify;
+}
+
+.our-expertise-section-content-text li strong {
+    font-weight: 500;
+}
+
+.our-expertise-section-content-text li::marker {
+    color: var(--goldColor);
+}
+
+/*COUNTER SECTION_____________________________________________________________*/
+.about-counters-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    row-gap: 5rem;
+    padding: 0 5rem;
+    color: var(--whiteColor);
+    margin: 5rem 0;
+}
+
+.counter-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.counter-card img {
+    width: 5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.counter-card img:hover {
+    rotate: 10deg;
+}
+
+.counter-card h2 {
+    color: var(--goldColor);
+    margin-top: 0;
+    text-align: center;
+
+}
+
+.counter-card p {
+    text-align: center;
+    font-size: 14px;
+
+}
+
+/*THANKS SECTION_____________________________________________________________*/
+.thanks-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--whiteColor);
+    padding: 5rem 5rem 15rem 5rem;
     text-align: center;
 }
 
-.counter p {
-    color: var(--blackColor);
+.thanks-section h1 {
+    color: var(--goldColor);
+    font-size: 100px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.thanks-section h1:hover {
+    scale: 101%;
+}
+
+.thanks-section h4 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+
+}
+
+@media screen and (max-width: 1200px) {
+    .our-expertise-section-content {
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    /* General Hero Section */
+    .about-container .quarries-hero {
+        background-attachment: unset;
+        height: 50vh;
+    }
+
+    .about-container .quarries-hero h1 {
+        text-align: center;
+    }
+
+    .about-container .quarries-hero .breadcrumb {
+        display: none;
+    }
+
+    .about-intro-section {
+        padding: 1rem;
+        flex-direction: column;
+
+    }
+
+    .about-intro-section-image {
+        width: 90%;
+        max-width: unset;
+
+    }
+
+    /*MISSION & VISION SECTION_____________________________________________________________*/
+    .mission-vision-section {
+        flex-direction: column;
+        padding: 1rem;
+        margin-top: 10rem;
+
+    }
+
+    .vision-card, .mission-card {
+        padding: 1rem;
+
+    }
+
+    /*OUR EXPERTISE SECTION_____________________________________________________________*/
+    .our-expertise-section {
+        padding: 1rem;
+        margin-top: 10rem;
+    }
+
+    .our-expertise-title hr {
+        display: none;
+    }
+
+
+    .our-expertise-section-content img {
+        width: 100%;
+    }
+
+    .our-expertise-section-content-text p {
+        text-align: center;
+    }
+
+
+    /*COUNTER SECTION_____________________________________________________________*/
+    .about-counters-section {
+        padding: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .counter-card {
+        max-width: 100%;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .counter-card h2 {
+        font-size: 24px;
+    }
+
+    /*THANKS SECTION_____________________________________________________________*/
+    .thanks-section {
+        padding: 1rem 1rem 5rem 1rem;
+
+    }
+
+    .thanks-section h1 {
+        font-size: 40px;
+    }
+
+    .thanks-section h4 {
+        font-size: 16px;
+
+    }
+
+
 }

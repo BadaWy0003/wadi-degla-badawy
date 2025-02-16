@@ -17,6 +17,7 @@ import Packing from "./Components/Packing/Packing.js";
 import Partners from "./Components/Partners/Partners.js";
 import Machinery from "./Components/Machinery/Machinery.js";
 import Quarries from "./Components/Quarries/Quarries.js";
+import History from "./Components/History/History.js";
 import { ToastContainer } from "react-toastify";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -37,6 +38,7 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/history" element={<History />} />
           <Route exact path="/exports" element={<Exports />} />
           <Route exact path="/packing" element={<Packing />} />
           <Route exact path="/machinery" element={<Machinery />} />
