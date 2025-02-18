@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Visualizer.css";
-import hero_bg from "../../Public/Assets/Media/hero-bg.jpg";
+import hero_bg from "../../Public/Assets/Media/products-bg2.jpg";
 import ProductForVisualizer from "./ProductForVisualizer.js";
 import apiClient from "../../util/client.js";
 
