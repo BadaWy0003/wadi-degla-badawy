@@ -285,7 +285,15 @@
   }
 
   .footer-right-content {
-    padding: 1rem;
+    padding: 5rem 1rem 1rem 1rem;
+  }
+
+  .footer-about {
+    align-items: center;
+  }
+
+  .footer-about p {
+    text-align: center;
   }
 
   .footer-nav {
