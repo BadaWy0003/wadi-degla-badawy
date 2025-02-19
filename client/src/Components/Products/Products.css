@@ -152,10 +152,10 @@
   color: var(--darkGrayColor);
   text-align: center;
   margin-top: 1rem;
+  transition: all 0.3s ease;
 }
 
 .product-card-2:hover h3 {
-  font-weight: 600;
   color: var(--goldColor);
 }
 

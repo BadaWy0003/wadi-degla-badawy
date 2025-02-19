@@ -1,0 +1,196 @@
+.projects-page {
+    margin-top: -7rem;
+    align-items: center;
+    padding-bottom: 5rem;
+}
+
+/* HERO SECTION ________________________________________*/
+.projects-page .quarries-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 0rem;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Projects/project1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
+
+}
+
+.projects-page .quarries-hero h1 {
+    position: relative;
+    top: unset;
+    color: var(--whiteColor);
+    z-index: 1;
+    margin-bottom: 0;
+}
+
+
+.projects-page .quarries-hero .breadcrumb {
+    position: relative;
+    top: unset;
+    padding: 0;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+/* PROJECTS CONTAINER ________________________________________*/
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+
+}
+
+/* PROJECTS SECTION ________________________________________*/
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    width: 100%;
+
+}
+
+.projects-section-title {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-section-title hr {
+    margin-bottom: -2rem;
+    width: 100%;
+}
+
+.projects-section-title h2 {
+    color: var(--goldColor);
+    text-transform: uppercase;
+    background-color: var(--darkerBlackColor);
+    text-align: center;
+    width: fit-content;
+    padding: 0 1rem;
+}
+
+.projects-section-content {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Default: Multiple projects in a country */
+.multi-projects {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* If there's only one project, make it centered or full-width */
+.single-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* PROJECT CARD ________________________________________*/
+.project-card {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 500px;
+    cursor: unset !important;
+}
+
+.single-project .project-card {
+    width: 600px;
+    /* Adjust this width as needed */
+    max-width: 100%;
+}
+
+.img-div {
+    width: 100%;
+    height: 100%;
+}
+
+.project-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* Ensures the image fills the space without stretching */
+    transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay h3 {
+    padding: 0 1rem;
+}
+
+.overlay p {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 1rem;
+}
+
+.overlay button {
+    width: 90%;
+}
+
+.project-card:hover .overlay {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    /* General Hero Section */
+    .projects-page .quarries-hero {
+        background-attachment: unset;
+        height: 50vh;
+    }
+
+    .projects-page .quarries-hero h1 {
+        text-align: center;
+    }
+
+    .projects-page .quarries-hero .breadcrumb {
+        display: none;
+    }
+}

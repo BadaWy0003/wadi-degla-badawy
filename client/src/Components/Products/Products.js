@@ -10,7 +10,6 @@ export default function Visualizer() {
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  console.log("2nd try");
 
   useEffect(() => {
     fetchProducts();

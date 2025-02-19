@@ -337,20 +337,28 @@
 
 
 /* Responsive Design __________________________________ */
+
+@media (max-width: 1024px) {
+    #breadcrumb-visualizer {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
+    .products-container {
+        margin-top: 0;
+    }
 
     .products-hero {
         /* background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
         height: 0; */
-        padding-top: 30%;
     }
 
     .products-container .products-hero h1 {
         color: var(--whiteColor);
         font-size: 1rem;
-        padding-top: 30%;
 
     }
 
@@ -358,7 +366,6 @@
         color: var(--whiteColor);
         font-size: 0.8rem;
         font-weight: 300;
-        padding-top: 7%;
 
     }
 

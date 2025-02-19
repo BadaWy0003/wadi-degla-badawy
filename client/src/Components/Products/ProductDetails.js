@@ -15,7 +15,6 @@ export default function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedFinish, setSelectedFinish] = useState(null);
-  console.log("2nd try");
   useEffect(() => {
     const fetchProductFromAll = async () => {
       try {
