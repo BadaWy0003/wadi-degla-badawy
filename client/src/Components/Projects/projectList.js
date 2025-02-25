@@ -46,7 +46,7 @@ const projects = [
       gallery: {projectImg2,projectImg3,projectImg4},
       city: "Sharm El-Sheikh",
       country: "Egypt",
-    },,
+    },
     {
       id: "6",
       name: "Project Three",
@@ -54,7 +54,7 @@ const projects = [
       gallery: {projectImg2,projectImg3,projectImg4},
       city: "city",
       country: "China",
-    },,
+    },
     {
       id: "7",
       name: "Project Three",

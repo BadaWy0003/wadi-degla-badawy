@@ -6,11 +6,33 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 
-import image3 from '../../Public/Assets/Media/3.jpg';
-import image21 from '../../Public/Assets/Media/21.jpg';
-import image24 from '../../Public/Assets/Media/24.jpg';
-// import layer2svg from '../../Public/Assets/Media/Layer-2.svg';
-// import layer2png from '../../Public/Assets/Media/Layer-2.png';
+import water_treatment from '../../Public/Assets/Media/Machinery/water-treatment.jpg';
+import water_treatment_2 from '../../Public/Assets/Media/Machinery/water-treatment-2.jpg';
+import slabs_bridge_cutter from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-1.jpg';
+import slabs_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-2.jpg';
+import slabs_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-3.jpeg';
+import slabs_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-4.jpeg';
+import polishing_line from '../../Public/Assets/Media/Machinery/polishing-line.jpg';
+import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line-1.jpg';
+import polishing_line_2 from '../../Public/Assets/Media/Machinery/polishing-line-2.jpg';
+import polishing_line_3 from '../../Public/Assets/Media/Machinery/polishing-line-3.jpg';
+import gangsaws from '../../Public/Assets/Media/Machinery/gangsaws.jpg';
+import gangsaws_2 from '../../Public/Assets/Media/Machinery/gangsaws-2.jpeg';
+import big_bridge_cutter_1 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-1.jpeg';
+import big_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-2.jpeg';
+import big_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-3.jpeg';
+import big_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-4.jpeg';
+import big_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-5.jpeg';
+import big_bridge_cutter_6 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-6.jpeg';
+import big_bridge_cutter_7 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-7.jpeg';
+import big_bridge_cutter_8 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-8.jpeg';
+import monofilos from '../../Public/Assets/Media/Machinery/monofilos.jpeg';
+import risin_line_1 from '../../Public/Assets/Media/Machinery/risin-line-1.jpeg';
+import risin_line_2 from '../../Public/Assets/Media/Machinery/risin-line-2.jpeg';
+import risin_line_3 from '../../Public/Assets/Media/Machinery/risin-line-3.jpeg';
+import splitting_strips from '../../Public/Assets/Media/Machinery/splitting-strips.jpeg';
+import tumble_machine from '../../Public/Assets/Media/Machinery/tumble-machine.jpeg';
+import fork_lift from '../../Public/Assets/Media/Machinery/fork-lift.jpg';
 
 
 
@@ -19,56 +41,57 @@ export default function Machinery(){
     const generalUseData = [
         {
           title: "3 Water treatment plants",
-          images: [image3, image21, image24],
+          images: [water_treatment, water_treatment_2],
         },
         {
           title: "2 Forklifts",
-          images: [ image21,image3,image24],
-        },
-        {
-          title: "3 Air compressors",
-          images: [image24,image21,image3],
+          images: [fork_lift],
         }
+        // ,
+        // {
+        //   title: "3 Air compressors",
+        //   images: [fork_lift,fork_lift,fork_lift],
+        // }
 
       ];
       const mngBlocksData = [
         {
           title: "9 Gangsaws",
-          images: [ image21,image3,image24],
+          images: [gangsaws, gangsaws_2],
         },
         {
           title: "4 Big bridge cutters",
-          images: [image3, image21, image24],
+          images: [big_bridge_cutter_1, big_bridge_cutter_2, big_bridge_cutter_3, big_bridge_cutter_4, big_bridge_cutter_5, big_bridge_cutter_6, big_bridge_cutter_7, big_bridge_cutter_8],
         },
         {
           title: "6 Monofilos",
-          images: [image24,image21,image3],
+          images: [monofilos],
         }
 
       ];
       const mngSlabsData = [
         {
           title: "3 polishing lines",
-          images: [image24,image21,image3],
+          images: [polishing_line, polishing_line_1, polishing_line_2, polishing_line_3],
         },
         {
           title: "1 risin treating line",
-          images: [ image21,image3,image24],
+          images: [ risin_line_1, risin_line_2, risin_line_3],
         }
       ];
 
       const mngTilesData = [
         {
           title: "5 Slabs bridge cutters",
-          images: [image3, image21, image24],
+          images: [slabs_bridge_cutter, slabs_bridge_cutter_2, slabs_bridge_cutter_3, slabs_bridge_cutter_4],
         },
         {
           title: "1 Tumbling machine",
-          images: [image24,image21,image3],
+          images: [tumble_machine],
         },
         {
           title: "3 Splitting strips machines",
-          images: [ image21,image3,image24],
+          images: [splitting_strips],
         }
 
       ];
@@ -108,7 +131,7 @@ export default function Machinery(){
                         loop={true} // Enable infinite loop
                         pagination={{ clickable: true }}
                         slidesPerView={1}
-                        navigation
+                        
                         modules={[Pagination]}
                         className="machinery-slider"
                         lazy={true}
@@ -142,7 +165,7 @@ export default function Machinery(){
                         loop={true} // Enable infinite loop
                         pagination={{ clickable: true }}
                         slidesPerView={1}
-                        navigation
+                        
                         modules={[Pagination]}
                         className="machinery-slider"
                         lazy={true}
@@ -175,7 +198,7 @@ export default function Machinery(){
                         loop={true} // Enable infinite loop
                         pagination={{ clickable: true }}
                         slidesPerView={1}
-                        navigation
+                        
                         modules={[Pagination]}
                         className="machinery-slider"
                         lazy={true}
@@ -209,7 +232,7 @@ export default function Machinery(){
                         loop={true} // Enable infinite loop
                         pagination={{ clickable: true }}
                         slidesPerView={1}
-                        navigation
+                        
                         modules={[Pagination]}
                         className="machinery-slider"
                         lazy={true}

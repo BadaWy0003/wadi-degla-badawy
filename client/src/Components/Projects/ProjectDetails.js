@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "./ProjectDetails.css";
+import "./ProjectDetails.css"
 import { useParams, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
-import apiClient from "../../util/client.js"; // Fetch products from API
-import projects from "./projectList"; // Static project data
-import Product from "../Products/Product"; // Import the Product card component
+import { Pagination } from "swiper/modules";
+import apiClient from "../../util/client.js"; 
+import projects from "./projectList"; 
+import Product from "../Products/Product"; 
 
 export default function ProjectDetails() {
   const { projectId } = useParams();
@@ -16,16 +16,12 @@ export default function ProjectDetails() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Find the project by ID
-  const project = projects.find((p) => p.id === projectId);
-
-  // ✅ Always call useEffect at the top level
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await apiClient.get("/api/storage/all"); // Fetch products from API
-        if (data.data) {
-          setProducts(data.data); // Save fetched products
+        const { data } = await apiClient.get("/api/storage/all"); 
+        if (data?.data) {
+          setProducts(data.data); 
         }
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -37,15 +33,15 @@ export default function ProjectDetails() {
     fetchProducts();
   }, []);
 
-  // ❌ Don't return before hooks are called → Move below!
-  if (!project) {
+  const project = projects?.find((p) => p.id.toString() === projectId);
+
+  if (!projects || !project) {
     return <div className="error-message">Project not found</div>;
   }
 
-  // Generate links for materials supplied
-  const materialProducts = project.materialsSupplied?.map((material) => {
+  const materialProducts = project?.materialsSupplied?.map((material) => {
     return products.find((p) => p.name.toLowerCase() === material.toLowerCase());
-  }).filter(Boolean); // Remove undefined values
+  }).filter(Boolean) ?? []; // Prevents undefined errors
 
   return (
     <div className="project-details-page">
@@ -58,15 +54,20 @@ export default function ProjectDetails() {
 
       <div className="project-details-container">
         <div className="project-details-left">
-          {project.gallery && Object.keys(project.gallery).length > 0 ? (
+          {project?.gallery && Object.keys(project?.gallery)?.length > 0 ? (
             <Swiper
-              key={Object.keys(project.gallery).length}
-              navigation
+              key={Object.keys(project?.gallery)?.length}
               pagination={{ clickable: true }}
-              modules={[Navigation, Pagination]}
+              modules={[Pagination]}
+              lazy={true}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}            
               className="project-gallery-swiper"
             >
-              {Object.values(project.gallery).map((image, index) => (
+              {Object.values(project?.gallery).map((image, index) => (
                 <SwiperSlide key={index}>
                   <img src={image} alt={`Slide ${index}`} className="project-image" />
                 </SwiperSlide>
@@ -81,8 +82,7 @@ export default function ProjectDetails() {
           <h1 className="project-details-title">{project.name}</h1>
           <p className="project-details-description">Location: <strong>{project.city} - {project.country}</strong></p>
 
-          {/* Materials Supplied Section */}
-          <p><strong>Materials Supplied:</strong></p>
+          <p>Materials Supplied:</p>
           {loading ? (
             <p>Loading materials...</p>
           ) : materialProducts.length > 0 ? (
@@ -92,7 +92,7 @@ export default function ProjectDetails() {
               ))}
             </div>
           ) : (
-            <p>No materials available.</p>
+            <p id="no-materials">No materials available.</p>
           )}
 
           <button className="btn1" onClick={() => navigate("/contact")} style={{ width: "100%", marginTop: "2rem" }}>

@@ -1,14 +1,31 @@
 import React from "react";
 import './Packing.css';
 // import Carousel from 'react-multi-carousel';
+import MasonryGrid from "../MasonryGrid/MasonryGrid";
 import 'react-multi-carousel/lib/styles.css';
 import image3 from '../../Public/Assets/Media/3.jpg';
 import image21 from '../../Public/Assets/Media/21.jpg';
 import image24 from '../../Public/Assets/Media/24.jpg';
+import packing1 from '../../Public/Assets/Media/Packing/packing1.jpeg';
+import packing2 from '../../Public/Assets/Media/Packing/packing2.jpeg';
+import packing3 from '../../Public/Assets/Media/Packing/packing3.jpeg';
+import packing4 from '../../Public/Assets/Media/Packing/packing4.jpeg';
+import packing5 from '../../Public/Assets/Media/Packing/packing5.jpeg';
+import packing6 from '../../Public/Assets/Media/Packing/packing6.jpeg';
+import packing7 from '../../Public/Assets/Media/Packing/packing7.jpeg';
 
 
 export default function Packing(){
 
+    const images = [
+        packing1,
+        packing2,
+        packing3,
+        packing4,
+        packing5,
+        packing6,
+        packing7
+    ];
 
     
     
@@ -62,13 +79,9 @@ export default function Packing(){
                     </div>
                 </div> 
             {/* Image Grid Section */}
+
             <div className="image-grid">
-                <div className="grid-item"><img src={image24} alt=""/></div>
-                <div className="grid-item"><img src={image24} alt=""/></div>
-                <div className="grid-item"><img src={image24} alt=""/></div>
-                <div className="grid-item"><img src={image24} alt=""/></div>
-                <div className="grid-item"><img src={image24} alt=""/></div>
-                <div className="grid-item"><img src={image24} alt=""/></div>
+            <MasonryGrid props={images}/>
 
             </div>
             

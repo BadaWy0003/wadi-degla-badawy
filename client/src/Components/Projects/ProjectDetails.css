@@ -30,15 +30,18 @@
 
 .project-details-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     gap: 1rem;
 }
 
 /* LEFT ______________________________________________________ */
 
 .project-gallery-swiper {
-    width: 100%;
-    max-width: 600px;
-    height: 400px;
+    width: 60vw;
+    height: 80vh;
+    max-width: 60vw;
     border-radius: 1rem;
 
 }
@@ -63,10 +66,12 @@
 .project-details-right {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--whiteColor);
+    justify-content: center;
     border-radius: 1rem;
     padding: 2rem;
+    background-color: var(--whiteColor);
+    height: 70vh;
+    min-width: 20vw;
 }
 
 .project-details-right h1 {
@@ -75,4 +80,88 @@
 
 .project-details-right p {
     color: var(--blueColor);
+}
+
+.project-details-right p strong {
+    color: var(--blueColor);
+}
+
+#no-materials {
+    color: var(--blackColor);
+}
+
+.materials-supplied-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.materials-supplied-container .product-card-2 {
+    width: unset;
+}
+
+.materials-supplied-container .product-card-2 img {
+    height: 6rem;
+}
+
+.project-gallery-swiper {
+    cursor: grab;
+}
+
+/* Custom pagination bullets */
+.project-gallery-swiper .swiper-pagination-bullet {
+    background-color: var(--whiteColor);
+    opacity: 50%;
+    margin: 0 8px !important;
+    transition: all 0.1 ease;
+}
+
+/* Active bullet */
+.project-gallery-swiper .swiper-pagination-bullet-active {
+    opacity: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    /* ______________________________________________________ */
+
+    .project-details-container {
+        flex-direction: column-reverse;
+        border: 1px solid var(--goldColor);
+        border-radius: 1rem;
+        padding-bottom: 2rem;
+    }
+
+
+    /* RIGHT ________________________________________________ */
+    .project-details-right {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 0;
+        background-color: unset;
+        height: unset;
+        min-width: unset;
+    }
+
+    .project-details-right button {
+        display: none;
+    }
+
+    #no-materials {
+        color: var(--whiteColor);
+    }
+
+    /* LEFT ______________________________________________________ */
+
+    .project-gallery-swiper {
+        /* width: 60vw;
+    height: 80vh;
+    border-radius: 1rem; */
+        width: unset;
+        max-width: 80vw;
+        height: auto;
+
+    }
+
 }

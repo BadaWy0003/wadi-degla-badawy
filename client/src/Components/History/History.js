@@ -5,7 +5,12 @@ import MasonryGrid from '../MasonryGrid/MasonryGrid';
 import CountUp from 'react-countup';
 import history7 from '../../Public/Assets/Media/History/history7.jpg'
 import sameh_ghanam from '../../Public/Assets/Media/History/sameh-ghanam.jpg'
-import saeed_jr from '../../Public/Assets/Media/History/saeed-jr.jpg'
+import saeed_jr from '../../Public/Assets/Media/History/saeed-jr.png'
+import saeed_jr_2 from '../../Public/Assets/Media/History/saeed-jr-2.jpeg'
+import saeed_jr_3 from '../../Public/Assets/Media/History/saeed-jr-3.jpeg'
+import saeed_jr_4 from '../../Public/Assets/Media/History/saeed-jr-4.jpeg'
+import saeed_jr_5 from '../../Public/Assets/Media/History/saeed-jr-5.jpeg'
+
 import history1 from '../../Public/Assets/Media/History/history1.jpg'
 import history2 from '../../Public/Assets/Media/History/history2.jpg'
 import history3 from '../../Public/Assets/Media/History/history3.jpg'
@@ -28,7 +33,6 @@ import history20 from '../../Public/Assets/Media/History/history20.jpg'
 import history21 from '../../Public/Assets/Media/History/history21.jpg'
 import history22 from '../../Public/Assets/Media/History/history22.jpg'
 import history23 from '../../Public/Assets/Media/History/history23.jpg'
-import history24 from '../../Public/Assets/Media/History/history24.jpg'
 import history25 from '../../Public/Assets/Media/History/history25.jpg'
 import history26 from '../../Public/Assets/Media/History/history26.jpg'
 import history27 from '../../Public/Assets/Media/History/history27.jpg'
@@ -63,7 +67,6 @@ export default function History(){
         history21,
         history22,
         history23,
-        history24,
         history25,
         history26,
         history27,
@@ -166,6 +169,10 @@ export default function History(){
                         <h2>The Rise of a New Generation</h2>
                     </div>
                     <div className="third-gen-section-content">
+                    <div className="third-gen-section-image">
+                            <img src={saeed_jr} alt="saeed-ghanam"/>
+                        </div>
+
                         <div className="third-gen-section-text">
                             <p>When <strong>Saed Alghanam</strong>, the third generation, entered the scene, he was no stranger to the business. From 
                                 the age of 11, he spent summers and winters in the quarries and factories, learning side by side 
@@ -188,9 +195,14 @@ export default function History(){
                                 grand hotel lobbies to soaring architectural landmarks.
                                 </p>
                         </div>
-                        <div className="third-gen-section-image">
-                            <img src={saeed_jr} alt="saeed-ghanam"/>
+                        <div className="third-gen-section-gallery">
+                            <img src={saeed_jr_2} alt="saeed-ghanam"/>
+                            <img src={saeed_jr_3} alt="saeed-ghanam"/>
+                            <img src={saeed_jr_4} alt="saeed-ghanam"/>
+                            <img src={saeed_jr_5} alt="saeed-ghanam"/>
+
                         </div>
+
                     </div>
 
             </div>

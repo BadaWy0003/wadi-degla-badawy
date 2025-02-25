@@ -272,7 +272,7 @@
 
 .third-gen-section-content {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5rem;
@@ -323,8 +323,25 @@
     --_p: 25%;
 }
 
+.third-gen-section-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 
-/*THIRD GEN SECTION_____________________________________________________________*/
+.third-gen-section-gallery img {
+    width: 300px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.third-gen-section-gallery img:hover {
+    transform: rotate(10deg)
+}
+
+/*LEGACY SECTION_____________________________________________________________*/
 
 .legacy-section {
     display: flex;
