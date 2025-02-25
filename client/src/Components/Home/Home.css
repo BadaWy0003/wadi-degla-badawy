@@ -31,7 +31,7 @@
 
 
 .hero-background {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/home-bg3.jpg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/home-bg5.jpg');
     position: absolute;
     top: 0;
     left: 0;
@@ -39,7 +39,9 @@
     height: calc(100vh - 80px);
     /* Subtract header height from viewport height */
     background-size: cover;
-    background-position: center;
+    background-position: top;
+    background-attachment: fixed;
+
     z-index: -1;
     /* Ensure the background is behind other content */
 }

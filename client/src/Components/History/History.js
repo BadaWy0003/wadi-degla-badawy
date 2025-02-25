@@ -132,7 +132,7 @@ export default function History(){
                                 </p>
                         </div>
                         <div className="first-gen-section-image">
-                            <img src={history7} alt="history-7"/>
+                            <img src={history16} alt="history-7"/>
                         </div>
                     </div>
 

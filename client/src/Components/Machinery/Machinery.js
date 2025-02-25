@@ -18,15 +18,19 @@ import polishing_line_2 from '../../Public/Assets/Media/Machinery/polishing-line
 import polishing_line_3 from '../../Public/Assets/Media/Machinery/polishing-line-3.jpg';
 import gangsaws from '../../Public/Assets/Media/Machinery/gangsaws.jpg';
 import gangsaws_2 from '../../Public/Assets/Media/Machinery/gangsaws-2.jpeg';
+import gangsaws_3 from '../../Public/Assets/Media/Machinery/gangsaws-3.jpeg';
+import gangsaws_4 from '../../Public/Assets/Media/Machinery/gangsaws-4.jpeg';
+import gangsaws_5 from '../../Public/Assets/Media/Machinery/gangsaws-5.jpeg';
+
 import big_bridge_cutter_1 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-1.jpeg';
 import big_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-2.jpeg';
 import big_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-3.jpeg';
-import big_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-4.jpeg';
-import big_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-5.jpeg';
-import big_bridge_cutter_6 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-6.jpeg';
-import big_bridge_cutter_7 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-7.jpeg';
+import risin_line_4 from '../../Public/Assets/Media/Machinery/risin-line-4.jpeg';
 import big_bridge_cutter_8 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-8.jpeg';
 import monofilos from '../../Public/Assets/Media/Machinery/monofilos.jpeg';
+import monofilos_2 from '../../Public/Assets/Media/Machinery/monofilos-2.jpg';
+import slabs_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-5.jpeg';
+import risin_line from '../../Public/Assets/Media/Machinery/risin-line.jpeg';
 import risin_line_1 from '../../Public/Assets/Media/Machinery/risin-line-1.jpeg';
 import risin_line_2 from '../../Public/Assets/Media/Machinery/risin-line-2.jpeg';
 import risin_line_3 from '../../Public/Assets/Media/Machinery/risin-line-3.jpeg';
@@ -41,7 +45,7 @@ export default function Machinery(){
     const generalUseData = [
         {
           title: "3 Water treatment plants",
-          images: [water_treatment, water_treatment_2],
+          images: [water_treatment_2, water_treatment],
         },
         {
           title: "2 Forklifts",
@@ -57,33 +61,33 @@ export default function Machinery(){
       const mngBlocksData = [
         {
           title: "9 Gangsaws",
-          images: [gangsaws, gangsaws_2],
+          images: [gangsaws, gangsaws_5, gangsaws_2, gangsaws_3, gangsaws_4],
         },
         {
           title: "4 Big bridge cutters",
-          images: [big_bridge_cutter_1, big_bridge_cutter_2, big_bridge_cutter_3, big_bridge_cutter_4, big_bridge_cutter_5, big_bridge_cutter_6, big_bridge_cutter_7, big_bridge_cutter_8],
+          images: [big_bridge_cutter_1, big_bridge_cutter_2, big_bridge_cutter_3],
         },
         {
           title: "6 Monofilos",
-          images: [monofilos],
+          images: [monofilos_2, monofilos],
         }
 
       ];
       const mngSlabsData = [
         {
           title: "3 polishing lines",
-          images: [polishing_line, polishing_line_1, polishing_line_2, polishing_line_3],
+          images: [polishing_line_1, polishing_line_3, polishing_line, polishing_line_2],
         },
         {
           title: "1 risin treating line",
-          images: [ risin_line_1, risin_line_2, risin_line_3],
+          images: [ risin_line, risin_line_2, risin_line_3],
         }
       ];
 
       const mngTilesData = [
         {
           title: "5 Slabs bridge cutters",
-          images: [slabs_bridge_cutter, slabs_bridge_cutter_2, slabs_bridge_cutter_3, slabs_bridge_cutter_4],
+          images: [slabs_bridge_cutter_2, slabs_bridge_cutter, slabs_bridge_cutter_3, slabs_bridge_cutter_4, slabs_bridge_cutter_5],
         },
         {
           title: "1 Tumbling machine",
