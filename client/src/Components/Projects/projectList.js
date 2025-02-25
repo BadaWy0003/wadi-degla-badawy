@@ -46,6 +46,7 @@ const projects = [
       gallery: {projectImg2,projectImg3,projectImg4},
       city: "Sharm El-Sheikh",
       country: "Egypt",
+      materialsSupplied: ["Nero Marquina", "Amethyst"],
     },
     {
       id: "6",
@@ -54,6 +55,7 @@ const projects = [
       gallery: {projectImg2,projectImg3,projectImg4},
       city: "city",
       country: "China",
+      materialsSupplied: ["Nero Marquina", "Amethyst"],
     },
     {
       id: "7",
@@ -62,6 +64,7 @@ const projects = [
       gallery: {projectImg2,projectImg3,projectImg4},
       city: "Cairo",
       country: "Egypt",
+      materialsSupplied: ["Nero Marquina", "Amethyst"],
     },
   ];
   
