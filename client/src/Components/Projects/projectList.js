@@ -39,7 +39,6 @@ import carribean_palace from '../../Public/Assets/Media/Projects/carribean-palac
 import carribean_palace_2 from '../../Public/Assets/Media/Projects/carribean-palace-2.jpeg'
 import carribean_palace_3 from '../../Public/Assets/Media/Projects/carribean-palace-3.jpeg'
 import carribean_palace_4 from '../../Public/Assets/Media/Projects/carribean-palace-4.jpeg'
-import carribean_palace_5 from '../../Public/Assets/Media/Projects/carribean-palace-5.jpeg'
 import carribean_palace_6 from '../../Public/Assets/Media/Projects/carribean-palace-6.jpeg'
 import carribean_palace_7 from '../../Public/Assets/Media/Projects/carribean-palace-7.jpeg'
 import carribean_palace_8 from '../../Public/Assets/Media/Projects/carribean-palace-8.jpeg'
@@ -47,6 +46,12 @@ import carribean_palace_9 from '../../Public/Assets/Media/Projects/carribean-pal
 import carribean_palace_10 from '../../Public/Assets/Media/Projects/carribean-palace-10.jpeg'
 import carribean_palace_11 from '../../Public/Assets/Media/Projects/carribean-palace-11.jpeg'
 import carribean_palace_12 from '../../Public/Assets/Media/Projects/carribean-palace-12.jpeg'
+import latinamerica_project_1 from '../../Public/Assets/Media/Projects/latinamerica-project-1.jpeg'
+import latinamerica_project_2 from '../../Public/Assets/Media/Projects/latinamerica-project-2.jpeg'
+import latinamerica_project_3 from '../../Public/Assets/Media/Projects/latinamerica-project-3.jpeg'
+import latinamerica_project_4 from '../../Public/Assets/Media/Projects/latinamerica-project-4.jpeg'
+import latinamerica_project_5 from '../../Public/Assets/Media/Projects/latinamerica-project-5.jpeg'
+import latinamerica_project_6 from '../../Public/Assets/Media/Projects/latinamerica-project-6.jpeg'
 
 
 const projects = [
@@ -54,7 +59,7 @@ const projects = [
     id: "1",
     name: "Wyndham Project",
     thumbnail: wyndham,
-    gallery: {
+    gallery: {wyndham,
               wyndham1,
               wyndham2,
               wyndham8,
@@ -71,7 +76,7 @@ const projects = [
               wyndham20,
               wyndham21,
               wyndham22,
-              wyndham},
+              },
     city: "",
     country: "The Carribean",
     materialsSupplied: ["Creamy White Pearl", "Triesta Beige", "Turkish Cararra", "Fantazia Sylvia", "Fantazia Sunny", "Sunny Light", "Melly Grey", "Black Aswan"],
@@ -82,10 +87,10 @@ const projects = [
     name: "The Carribean Palace",
     thumbnail: carribean_palace,
     gallery: {
+      carribean_palace,
       carribean_palace_2,
       carribean_palace_3,
       carribean_palace_4,
-      carribean_palace_5,
       carribean_palace_6,
       carribean_palace_7,
       carribean_palace_8,
@@ -93,7 +98,7 @@ const projects = [
       carribean_palace_10,
       carribean_palace_11,
       carribean_palace_12,
-      carribean_palace,
+      
               },
     city: "",
     country: "The Carribean",
@@ -135,26 +140,42 @@ const projects = [
       country: "Kenya",
       materialsSupplied: ["Creamy White Pearl", "Triesta Grey"],
     },
-    
     {
       id: "7",
-      name: "Romania Project",
-      thumbnail: romania_project_1,
-      gallery: {romania_project_2,romania_project_1},
-      city: "Bucharest",
-      country: "Romania",
-      materialsSupplied: ["Creamy White Pearl"],
+      name: "Latin America Project",
+      thumbnail: latinamerica_project_1,
+      gallery: {
+                latinamerica_project_1,
+                latinamerica_project_2,
+                latinamerica_project_3,
+                latinamerica_project_4,
+                latinamerica_project_5,
+                latinamerica_project_6,
+                
+              },
+      city: "",
+      country: "Latin America",
+      materialsSupplied: ["Sunny Light"],
     },
     {
       id: "8",
       name: "Egyptian Embassy in Kuwait",
       thumbnail: egy_embassy_kuwait_1,
-      gallery: {egy_embassy_kuwait_2,egy_embassy_kuwait_3,egy_embassy_kuwait_4,egy_embassy_kuwait_5,egy_embassy_kuwait_6,egy_embassy_kuwait_7,egy_embassy_kuwait_1},
+      gallery: {egy_embassy_kuwait_1, egy_embassy_kuwait_2,egy_embassy_kuwait_3,egy_embassy_kuwait_4,egy_embassy_kuwait_5,egy_embassy_kuwait_6,egy_embassy_kuwait_7},
       city: "Kuwait City",
       country: "Kuwait",
       materialsSupplied: ["Sunny Light"],
     },
-    
+    {
+      id: "9",
+      name: "Romania Project",
+      thumbnail: romania_project_1,
+      gallery: {romania_project_1, romania_project_2},
+      city: "Bucharest",
+      country: "Romania",
+      materialsSupplied: ["Creamy White Pearl"],
+    },
+
   ];
   
   export default projects;

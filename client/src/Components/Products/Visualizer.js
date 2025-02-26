@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Visualizer.css";
-import hero_bg from "../../Public/Assets/Media/products-bg2.jpg";
+import hero_bg from "../../Public/Assets/Media/visualizer-hero.jpg";
 import ProductForVisualizer from "./ProductForVisualizer.js";
 import apiClient from "../../util/client.js";
 
@@ -101,11 +101,6 @@ export default function Visualizer() {
           />
         )}
         <h1>{selectedProduct ? selectedProduct.name : "Visualizer"}</h1>
-        <div className="breadcrumb" id="breadcrumb-visualizer">
-          <a href="/">Home</a>
-          <p className="sub-breadcrumb">{">"} Explore</p>
-          <p>{">"} Visualizer </p>
-        </div>
         {!selectedProduct && (
           <p className="hero-hint">
             Select a product from below and it will show here

@@ -13,6 +13,7 @@ import creamy_white_pearl_quarry_2 from '../../Public/Assets/Media/Quarries/crea
 import creamy_white_pearl_quarry_3 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-3.jpeg';
 import creamy_white_pearl_quarry_4 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-4.jpeg';
 import galala_quarry_1 from '../../Public/Assets/Media/Quarries/galala-quarry-1.jpeg';
+import galala_quarry_2 from '../../Public/Assets/Media/Quarries/galala-quarry-2.jpeg';
 import galala_quarry_3 from '../../Public/Assets/Media/Quarries/galala-quarry-3.jpeg';
 import galala_quarry_4 from '../../Public/Assets/Media/Quarries/galala-quarry-4.jpeg';
 import image1 from '../../Public/Assets/Media/Quarries/first-factory/image1.jpeg';
@@ -50,7 +51,7 @@ export default function Quarries(){
 
   const galalaQuarryImages = [
     {
-      images: [galala_quarry_4, galala_quarry_3, galala_quarry_1]
+      images: [galala_quarry_1, galala_quarry_4, galala_quarry_2, galala_quarry_3]
     }]
 
   // const zaafranaQuarryImages = [

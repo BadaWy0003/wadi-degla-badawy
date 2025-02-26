@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import apiClient from "../../util/client.js"; 
 import projects from "./projectList"; 
 import Product from "../Products/Product"; 
@@ -58,7 +58,8 @@ export default function ProjectDetails() {
             <Swiper
               key={Object.keys(project?.gallery)?.length}
               pagination={{ clickable: true }}
-              modules={[Pagination]}
+              navigation
+              modules={[Pagination, Navigation]}
               lazy={true}
               loop={true}
               autoplay={{

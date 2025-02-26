@@ -153,12 +153,14 @@
 
 .overlay h3 {
     padding: 0 1rem;
+    text-align: center;
 }
 
 .overlay p {
     font-size: 16px;
     font-weight: 500;
     padding: 0 1rem;
+    text-align: center;
 }
 
 .overlay button {
@@ -175,6 +177,13 @@
 
 
 
+@media screen and (max-width: 1024px) {
+
+    .projects-container {
+        padding: 5rem 2rem;
+    }
+
+}
 
 
 
@@ -193,4 +202,31 @@
     .projects-page .quarries-hero .breadcrumb {
         display: none;
     }
+
+    .projects-section-title {
+        border-bottom: solid 1px var(--goldColor);
+        margin-bottom: 2rem;
+    }
+
+    .projects-section-title hr {
+        display: none;
+    }
+
+    .multi-projects {
+        flex-wrap: wrap;
+    }
+
+    .project-card {
+        width: 600px;
+        max-width: 100%;
+
+    }
+
+    .single-project .project-card {
+        width: 600px;
+        /* Adjust this width as needed */
+        max-width: 100%;
+    }
+
+
 }

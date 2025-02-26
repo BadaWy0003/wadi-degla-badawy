@@ -20,7 +20,7 @@ export default function Project({ project }) {
       {hovered && (
         <div className="overlay">
           <h3>{project.name}</h3>
-          <p>{project.city} - {project.country}</p>
+          <p>{project.city}{project.city?" - ":""}{project.country}</p>
           <button 
           className="btn2"       
           onClick={() => {

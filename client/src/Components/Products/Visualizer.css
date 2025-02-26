@@ -27,7 +27,6 @@
     height: auto;
     /* Maintain aspect ratio */
     object-fit: cover;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/products-bg.jpg');
 
     /* Ensures the image fills its container proportionally */
 }
@@ -44,20 +43,9 @@
     margin: 0;
 }
 
-#breadcrumb-visualizer {
-    position: absolute;
-    top: 55%;
-    /* Below the title */
-
-}
-
-.products-container .sub-breadcrumb {
-    color: var(--lightGrayColor);
-}
-
 .hero-hint {
     position: absolute;
-    top: 60%;
+    top: 55%;
     /* Below the title */
     left: 50%;
     transform: translateX(-50%);

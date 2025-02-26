@@ -14,9 +14,9 @@
   align-items: center;
   height: 80vh;
   margin-bottom: 0rem;
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/products-bg.jpg');
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/products-hero-1.jpg');
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
   background-attachment: fixed;
 
 
@@ -415,9 +415,6 @@
 @media (max-height: 770px) {
 
   /* General Hero Section */
-  .products-container-2 .quarries-hero {
-    background-attachment: unset;
-  }
 
   .products-container-2 .quarries-hero h1 {
     text-align: center;
@@ -427,15 +424,11 @@
     display: none;
   }
 
-
-
   .modal-right {
     border: none;
     border-radius: 0;
     border-left: 1px solid var(--goldColor);
   }
-
-
 
 }
 

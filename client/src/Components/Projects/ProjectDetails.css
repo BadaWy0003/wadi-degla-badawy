@@ -48,7 +48,7 @@
 
 .project-gallery-swiper img {
     width: 100%;
-    height: 100%;
+    height: 50rem;
     object-fit: cover;
     border-radius: 1rem;
 
@@ -131,6 +131,10 @@
     opacity: 100%;
 }
 
+.swiper-button-prev, .swiper-button-next {
+    color: var(--goldColor) !important;
+}
+
 @media screen and (max-width: 1024px) {
     /* ______________________________________________________ */
 
@@ -138,7 +142,7 @@
         flex-direction: column-reverse;
         border: 1px solid var(--goldColor);
         border-radius: 1rem;
-        padding-bottom: 2rem;
+        padding: 2rem 1rem;
     }
 
 
@@ -162,6 +166,12 @@
         color: var(--whiteColor);
     }
 
+    .materials-supplied-container {
+        border: none;
+        overflow: unset;
+        height: unset;
+    }
+
     /* LEFT ______________________________________________________ */
 
     .project-gallery-swiper {
@@ -172,6 +182,10 @@
         max-width: 80vw;
         height: auto;
 
+    }
+
+    .project-gallery-swiper img {
+        height: 30rem;
     }
 
 }
