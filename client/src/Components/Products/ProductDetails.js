@@ -9,6 +9,7 @@ import wall_cladding from "../../Public/Assets/Icons/product-icons/wall-cladding
 import windowsills from "../../Public/Assets/Icons/product-icons/windowsills.svg";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
+import SampleRequestForm from './SampleRequestForm';
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -16,6 +17,8 @@ export default function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedFinish, setSelectedFinish] = useState(null);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   useEffect(() => {
     const fetchProductFromAll = async () => {
       try {
@@ -153,11 +156,18 @@ export default function ProductDetails() {
 
           <button
             className="btn1"
-            onClick={() => navigate("/contact")}
+            onClick={() => setIsFormOpen(true)}
             style={{ width: "100%", marginTop: "2rem" }}
           >
-            Request a Sample
+            REQUEST A SAMPLE
           </button>
+          <SampleRequestForm
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        productName={product.name}
+        productFinish={selectedFinish?.finish}
+      />
+
         </div>
       </div>
       <ContactBubble />
