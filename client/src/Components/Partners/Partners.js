@@ -1,6 +1,7 @@
 import React from "react";
 import './Partners.css';
 import { useNavigate } from "react-router-dom";
+import ContactBubble from "../Contact/ContactBubble";
 import otrovato from '../../Public/Assets/Icons/partners/otrovato.png';
 import orascom from '../../Public/Assets/Icons/partners/orascom.png';
 import mivida from '../../Public/Assets/Icons/partners/mivida.png';
@@ -47,6 +48,7 @@ export default function Partners() {
             <button className="btn1" onClick={handleButtonClick}>
                 Become one of our partners
             </button>
+            <ContactBubble />
         </div>
     );
 }

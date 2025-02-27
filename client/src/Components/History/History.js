@@ -1,7 +1,7 @@
 import React from 'react';
 import './History.css';
 import MasonryGrid from '../MasonryGrid/MasonryGrid';
-
+import ContactBubble from '../Contact/ContactBubble';
 import CountUp from 'react-countup';
 import history7 from '../../Public/Assets/Media/History/history7.jpg'
 import sameh_ghanam from '../../Public/Assets/Media/History/sameh-ghanam.jpg'
@@ -38,6 +38,7 @@ import history26 from '../../Public/Assets/Media/History/history26.jpg'
 import history27 from '../../Public/Assets/Media/History/history27.jpg'
 import history28 from '../../Public/Assets/Media/History/history28.jpeg'
 import history29 from '../../Public/Assets/Media/History/history29.jpeg'
+import history30 from '../../Public/Assets/Media/History/history30.jpeg'
 
 
 
@@ -71,7 +72,8 @@ export default function History(){
         history26,
         history27,
         history28,
-        history29
+        history29,
+        history30
     ];
     
 
@@ -247,6 +249,7 @@ export default function History(){
                     </div>
 
 
+                    <ContactBubble />
 
         </div>    
             )

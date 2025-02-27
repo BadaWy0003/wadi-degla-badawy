@@ -207,14 +207,23 @@ export default function Navbar() {
           </div>
         </div>
         <Link
-                to="/projects"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                Projects
-              </Link>
+          to="/projects"
+          onClick={() => {
+            closeNavbar();
+            window.scrollTo(0, 0);
+          }}
+        >
+          Projects
+        </Link>
+        <Link
+          to="/fairs"
+          onClick={() => {
+            closeNavbar();
+            window.scrollTo(0, 0);
+          }}
+        >
+          Fairs
+        </Link>
         <Link
           to="/contact"
           onClick={() => {

@@ -1,13 +1,15 @@
 import React from "react";
 import './Quarries.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import ContactBubble from "../Contact/ContactBubble";
 
-import image03 from '../../Public/Assets/Media/3.jpg';
-import image21 from '../../Public/Assets/Media/21.jpg';
-import image24 from '../../Public/Assets/Media/24.jpg';
+// import image03 from '../../Public/Assets/Media/3.jpg';
+// import image21 from '../../Public/Assets/Media/21.jpg';
+// import image24 from '../../Public/Assets/Media/24.jpg';
 import creamy_white_pearl_quarry_1 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-1.jpeg';
 import creamy_white_pearl_quarry_2 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-2.jpeg';
 import creamy_white_pearl_quarry_3 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-3.jpeg';
@@ -44,10 +46,10 @@ import third_factory4 from '../../Public/Assets/Media/Quarries/third-factory/thi
 
 export default function Quarries(){
   
-  const globalFactoriesImages = [
-          {
-            images: [image03, image21, image24]
-          }]
+  // const globalFactoriesImages = [
+  //         {
+  //           images: [image03, image21, image24]
+  //         }]
 
   const galalaQuarryImages = [
     {
@@ -129,10 +131,11 @@ export default function Quarries(){
         {/* Galala Quarry */}
         <div className="quarry-card left">
         <Swiper
+        navigation
         loop={true} // Enable infinite loop
         pagination={{ clickable: true }}
         slidesPerView={1}
-        modules={[Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay]}
         className="quarries-slider"
         lazy={true}
         >
@@ -168,10 +171,11 @@ export default function Quarries(){
             </p>
           </div>
           <Swiper
+        navigation
         loop={true} // Enable infinite loop
         pagination={{ clickable: true }}
         slidesPerView={1}
-        modules={[Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay]}
         className="quarries-slider"
         lazy={true}
         >
@@ -201,10 +205,11 @@ export default function Quarries(){
         {/* Factory 2000 */}
         <div className="factory-card left">
         <Swiper
+        navigation
         loop={true} // Enable infinite loop
         pagination={{ clickable: true }}
         slidesPerView={1}
-        modules={[Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay]}
         className="quarries-slider"
         lazy={true}
         >
@@ -240,10 +245,11 @@ export default function Quarries(){
             </p>
           </div>
           <Swiper
+        navigation
         loop={true} // Enable infinite loop
         pagination={{ clickable: true }}
         slidesPerView={1}
-        modules={[Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay]}
         className="quarries-slider"
         lazy={true}
         >
@@ -259,10 +265,11 @@ export default function Quarries(){
         {/* Factory 2015 */}
         <div className="factory-card left">
         <Swiper
+        navigation
         loop={true} // Enable infinite loop
         pagination={{ clickable: true }}
         slidesPerView={1}
-        modules={[Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay]}
         className="quarries-slider"
         lazy={true}
         >
@@ -298,21 +305,26 @@ export default function Quarries(){
             <h2>OUR GLOBAL FACILITIES</h2>
             <hr />
           </div>
-          <p>
+          <div className="coming-soon">
+        <h1>Coming Soon</h1>
+        </div>
+
+          {/* <p>
             Expanding to Gambia, Africa, and South America with Cleopatra by
             Wadi Degla.
-          </p>
+          </p> */}
         </div>
-        <Swiper
+        {/* <Swiper
         loop={true} // Enable infinite loop
         pagination={{ clickable: true }}
+        navigation
         slidesPerView={1}
         autoplay={{
             delay: 3000, // Autoplay delay in milliseconds (3 seconds)
             disableOnInteraction: false, // Continue autoplay after user interaction
             pauseOnMouseEnter: true, // Pause autoplay on hover
           }}        
-        modules={[Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay]}
         className="global-facilities-slider"
         lazy={true}
         >
@@ -322,10 +334,11 @@ export default function Quarries(){
             <div className="swiper-lazy-preloader"></div>
             </SwiperSlide>
         ))}
-        </Swiper>
+        </Swiper> */}
         
       </section>
-  
+      <ContactBubble />
+
       </div>
               
             )

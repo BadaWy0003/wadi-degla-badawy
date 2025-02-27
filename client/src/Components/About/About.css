@@ -11,9 +11,9 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/67.jpeg');
-    background-size: 120%;
-    background-position: top 20% right 0;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/about-hero.jpeg');
+    background-size: cover;
+    background-position: top 20% left 0%;
     background-attachment: fixed;
 
 

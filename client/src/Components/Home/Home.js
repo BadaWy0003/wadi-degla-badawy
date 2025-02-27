@@ -6,8 +6,7 @@ import 'react-multi-carousel/lib/styles.css';
 // import Product from '../Products/Product';
 // import Modal from '../Products/Modal';
 // import { productData } from '../Products/productData';
-import Partners from "../Partners/Partners.js";
-
+import ContactBubble from "../Contact/ContactBubble.js";
 // import bullseye_gold from '../../Public/Assets/Icons/bullseye-gold.svg'
 // import paper_plane_gold from '../../Public/Assets/Icons/paper-plane-gold.svg'
 import Gallery from './Gallery-Home'
@@ -104,7 +103,6 @@ export default function Home(){
       {/* {isModalOpen && selectedProduct && (
         <Modal product={selectedProduct} onClose={closeModal} />
       )} */}
-            <Partners />
                     {/*<img src={company_logo_2} />
                     <img src={company_logo_3} />
                     <img src={company_logo_4} />
@@ -124,6 +122,7 @@ export default function Home(){
                 
                 <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}><button className="btn2">VIEW ALL</button></Link>
             </div>
+                      <ContactBubble />
         </div>
     )
 }

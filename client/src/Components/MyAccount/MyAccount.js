@@ -3,6 +3,7 @@ import "./MyAccount.css";
 import { useGlobalState } from "../GlobalStateContext.js";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../../util/client.js";
+import ContactBubble from "../Contact/ContactBubble.js";
 
 export default function MyAccount() {
   const [selectedTab, setSelectedTab] = useState("Account Information");
@@ -117,6 +118,8 @@ export default function MyAccount() {
           )}
         </div>
       </div>
+      <ContactBubble />
+
     </div>
   );
 }

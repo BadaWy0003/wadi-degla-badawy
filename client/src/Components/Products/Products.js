@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Products.css";
 import Product from "./Product";
 import apiClient from "../../util/client.js";
+import ContactBubble from "../Contact/ContactBubble.js";
 
 // Remove Modal import
 
@@ -109,6 +110,8 @@ export default function Visualizer() {
           )}
         </>
       )}
+                  <ContactBubble />
+
     </div>
   );
 }

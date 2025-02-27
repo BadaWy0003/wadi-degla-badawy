@@ -16,7 +16,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Footer() {
   const navigate = useNavigate();
-    
+  function OnClick(){
+     navigate('/contact'); 
+     window.scrollTo({top: 0});
+    }
+
     return (
       <footer className='footer-main'>
         <div className='footer-left'>
@@ -26,10 +30,7 @@ function Footer() {
             
             <button 
             className='btn1'
-            onClick={() => {
-                             navigate('/contact'); // Redirect to the homepage
-                                window.scrollTo({top: 0})
-                             }}> 
+            onClick={OnClick}> 
               CONTACT US</button>
 
           </div>
@@ -62,6 +63,7 @@ function Footer() {
                 <Link to='/quarries' onClick={() => {window.scrollTo(0, 0);}}>Quarries & Factories</Link>
                   <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}>Gallery</Link>
                   <Link to='/partners' onClick={() => {window.scrollTo(0, 0);}}>Our Partners</Link>
+                  <Link to='/fairs' onClick={() => {window.scrollTo(0, 0);}}>Fairs</Link>
 
                 </div>
 

@@ -9,7 +9,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import apiClient from "../../util/client.js"; 
 import projects from "./projectList"; 
 import Product from "../Products/Product"; 
-
+import ContactBubble from "../Contact/ContactBubble.js";
 export default function ProjectDetails() {
   const { projectId } = useParams();
   const navigate = useNavigate();
@@ -81,7 +81,7 @@ export default function ProjectDetails() {
 
         <div className="project-details-right">
           <h1 className="project-details-title">{project.name}</h1>
-          <p className="project-details-description">Location: <strong>{project.city} - {project.country}</strong></p>
+          <p className="project-details-description">Location: <strong>{project.city}{project.city?" - ":""}{project.country}</strong></p>
 
           <p>Materials Supplied:</p>
           {loading ? (
@@ -101,6 +101,8 @@ export default function ProjectDetails() {
           </button>
         </div>
       </div>
+      <ContactBubble />
+
     </div>
   );
 }

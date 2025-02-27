@@ -2,6 +2,7 @@ import React from "react";
 import "./Projects.css";
 import Project from "./Project";
 import projects from "./projectList"; // Import the project list
+import ContactBubble from "../Contact/ContactBubble";
 
 export default function Projects() {
   // Group projects by country
@@ -44,6 +45,8 @@ export default function Projects() {
           );
         })}
       </div>
+      <ContactBubble />
+
     </div>
   );
 }

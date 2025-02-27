@@ -3,6 +3,7 @@ import "./Visualizer.css";
 import hero_bg from "../../Public/Assets/Media/visualizer-hero.jpg";
 import ProductForVisualizer from "./ProductForVisualizer.js";
 import apiClient from "../../util/client.js";
+import ContactBubble from "../Contact/ContactBubble.js";
 
 export default function Visualizer() {
   const [selectedCategory, setSelectedCategory] = useState("Imported Marble");
@@ -13,17 +14,23 @@ export default function Visualizer() {
   const [data, setData] = useState([]); // Set the product data
   const indoorRef = useRef(null);
   const outdoorRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
+    setLoading(true);
     apiClient
       .get(`/api/storage/all`)
       .then(({ data }) => {
         setData(data.data || []);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
         setData([]);
+        setLoading(false);
       });
+
   }, []);
 
   // Reset toggle state when the category changes
@@ -178,7 +185,10 @@ export default function Visualizer() {
           </div>
         )}
       </div>
-
+      {loading ? (
+        <div className="loading-message">Loading products...</div>
+      ) : (
+        <>
       {filteredProducts.length > 0 ? (
         <div className="products-page">
           {/* Scroll to outdoor link */}
@@ -249,6 +259,10 @@ export default function Visualizer() {
           </p>
         </div>
       )}
+              </>
+      )}
+            <ContactBubble />
+
     </div>
   );
 }

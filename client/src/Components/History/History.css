@@ -558,7 +558,6 @@
     }
 
     .third-gen-section-content {
-        flex-direction: column-reverse;
         align-items: center;
         gap: 1rem;
     }

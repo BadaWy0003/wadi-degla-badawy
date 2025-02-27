@@ -12,7 +12,7 @@ import manpower from '../../Public/Assets/Icons/manpower-stroke.svg'
 import technology from '../../Public/Assets/Icons/technology.svg'
 import craftsmanship from '../../Public/Assets/Icons/craftsmanship.png'
 import global_supply_chain from '../../Public/Assets/Icons/global-supply-chain.svg'
-
+import ContactBubble from "../Contact/ContactBubble";
 
 import 'react-multi-carousel/lib/styles.css';
 
@@ -34,7 +34,7 @@ export default function About(){
             {/* Intro Section */}
             <div className="about-intro-section">
                 <div className="about-intro-section-content">
-                    <h2>Title</h2>
+                    <h2>A Legacy of Excellence</h2>
                     <p> At <strong>Wadi Degla</strong> Marble & Granite, three
                         generations of <strong>passion</strong> and <strong>expertise</strong> converge to bring
                         you the <strong>finest</strong> natural stone products. We are delighted
@@ -186,6 +186,8 @@ export default function About(){
                     partnering with a family dedicated to turning your
                     architectural dreams into timeless realities.</h4>
             </div>
+            <ContactBubble />
+
         </div>    
             )
 }

@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import ContactBubble from "../Contact/ContactBubble";
 
 import water_treatment from '../../Public/Assets/Media/Machinery/water-treatment.jpg';
 import water_treatment_2 from '../../Public/Assets/Media/Machinery/water-treatment-2.jpg';
@@ -25,13 +25,13 @@ import gangsaws_5 from '../../Public/Assets/Media/Machinery/gangsaws-5.jpeg';
 import big_bridge_cutter_1 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-1.jpeg';
 import big_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-2.jpeg';
 import big_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-3.jpeg';
-import risin_line_4 from '../../Public/Assets/Media/Machinery/risin-line-4.jpeg';
-import big_bridge_cutter_8 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-8.jpeg';
+// import risin_line_4 from '../../Public/Assets/Media/Machinery/risin-line-4.jpeg';
+// import big_bridge_cutter_8 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-8.jpeg';
 import monofilos from '../../Public/Assets/Media/Machinery/monofilos.jpeg';
 import monofilos_2 from '../../Public/Assets/Media/Machinery/monofilos-2.jpg';
 import slabs_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-5.jpeg';
 import risin_line from '../../Public/Assets/Media/Machinery/risin-line.jpeg';
-import risin_line_1 from '../../Public/Assets/Media/Machinery/risin-line-1.jpeg';
+// import risin_line_1 from '../../Public/Assets/Media/Machinery/risin-line-1.jpeg';
 import risin_line_2 from '../../Public/Assets/Media/Machinery/risin-line-2.jpeg';
 import risin_line_3 from '../../Public/Assets/Media/Machinery/risin-line-3.jpeg';
 import splitting_strips from '../../Public/Assets/Media/Machinery/splitting-strips.jpeg';
@@ -113,10 +113,10 @@ export default function Machinery(){
                         </div>
                 </div>  
                 <div className="machinery-intro">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>    
+                    <p>At Wadi Degla Marble & Granite, we believe that exceptional craftsmanship begins with 
+                      cutting-edge technology. Our state-of-the-art machinery is the backbone of our 
+                      operations, enabling us to deliver unparalleled precision, efficiency, and quality in everything
+                       we produce.</p>    
                 </div>   
 
                 {/*GENERAL USE SECTION*/}  
@@ -253,7 +253,8 @@ export default function Machinery(){
                         ))}
                     </div>
                     </div>
-            
+                    <ContactBubble />
+
             </div>    
             )
 }

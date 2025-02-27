@@ -8,7 +8,7 @@ import Asia from '../../Public/Assets/Media/Asia.svg';
 import Australia from '../../Public/Assets/Media/Australia.svg';
 import Europe from '../../Public/Assets/Media/Europe.svg';
 import exports from '../../Public/Assets/Media/24.jpg';
-
+import ContactBubble from "../Contact/ContactBubble";
 
 
 
@@ -151,6 +151,8 @@ const countryFlags = {
 
                     
                 </div>
+                <ContactBubble />
+
             </div>    
             )
 }

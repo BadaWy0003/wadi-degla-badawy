@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../GlobalStateContext.js";
 import wadi_degla_logo_login from "../../Public/Assets/Logo-Identity/wadi-degla-logo-login.svg";
 import apiClient from "../../util/client.js";
+import ContactBubble from "../Contact/ContactBubble.js";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -139,6 +140,7 @@ export default function Login() {
           </div>
         </form>
       </div>
+      <ContactBubble />
     </div>
   );
 }

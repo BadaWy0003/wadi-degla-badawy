@@ -2,10 +2,11 @@ import React from "react";
 import './Packing.css';
 // import Carousel from 'react-multi-carousel';
 import MasonryGrid from "../MasonryGrid/MasonryGrid";
+import ContactBubble from "../Contact/ContactBubble";
 import 'react-multi-carousel/lib/styles.css';
 import image3 from '../../Public/Assets/Media/3.jpg';
 import image21 from '../../Public/Assets/Media/21.jpg';
-import image24 from '../../Public/Assets/Media/24.jpg';
+// import image24 from '../../Public/Assets/Media/24.jpg';
 import packing1 from '../../Public/Assets/Media/Packing/packing1.jpeg';
 import packing2 from '../../Public/Assets/Media/Packing/packing2.jpeg';
 import packing3 from '../../Public/Assets/Media/Packing/packing3.jpeg';
@@ -84,7 +85,8 @@ export default function Packing(){
             <MasonryGrid props={images}/>
 
             </div>
-            
+            <ContactBubble />
+
             </div>    
             )
 }

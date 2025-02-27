@@ -12,9 +12,9 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Quarries/galala-quarry-1.jpeg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/quarries-hero.jpg');
     background-size: cover;
-    background-position: top 10% right 0;
+    background-position: top 60% right 0;
     background-attachment: fixed;
 
 
@@ -105,27 +105,28 @@
 } */
 
 .quarries-slider {
-    width: 50vw !important;
-    height: 300px;
+    width: 40vw !important;
+    height: 15rem !important;
 
 }
 
 .swiper-lazy {
     width: 100% !important;
+    height: 15rem;
 }
 
 
 /* Custom pagination bullets */
 .quarries-slider .swiper-pagination-bullet {
     background-color: var(--whiteColor);
-    opacity: 50%;
+    opacity: 100%;
     margin: 8px !important;
     transition: all 0.1 ease;
 }
 
 /* Active bullet */
 .quarries-slider .swiper-pagination-bullet-active {
-    opacity: 100%;
+    background-color: var(--goldColor);
 }
 
 .swiper-lazy-preloader {
@@ -220,10 +221,14 @@
         flex-direction: column-reverse;
     }
 
+    .quarries-slider {
+        width: 100% !important;
+        height: 15rem !important;
+    }
+
+
     .left img, .right img {
-        min-width: unset;
         width: 100%;
-        height: unset;
     }
 
 

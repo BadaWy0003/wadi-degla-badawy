@@ -8,6 +8,7 @@ import staircase from "../../Public/Assets/Icons/product-icons/staircase.svg";
 import wall_cladding from "../../Public/Assets/Icons/product-icons/wall-cladding.svg";
 import windowsills from "../../Public/Assets/Icons/product-icons/windowsills.svg";
 import apiClient from "../../util/client.js";
+import ContactBubble from "../Contact/ContactBubble.js";
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -159,6 +160,8 @@ export default function ProductDetails() {
           </button>
         </div>
       </div>
+      <ContactBubble />
+
     </div>
   );
 }

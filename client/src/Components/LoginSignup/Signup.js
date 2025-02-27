@@ -10,6 +10,7 @@ import PhoneInput from "react-phone-input-2"; // Import PhoneInput component
 import Select from "react-select"; // Import react-select
 import "react-phone-input-2/lib/style.css";
 import countryList from "react-select-country-list"; // Optional helper for countries
+import ContactBubble from "../Contact/ContactBubble.js";
 
 export default function Signup() {
   // const [username, setUsername] = useState("");
@@ -328,6 +329,8 @@ export default function Signup() {
             </div>
           </form>
         </div>
+        <ContactBubble />
+
       </div>
     );
   } catch (err) {
