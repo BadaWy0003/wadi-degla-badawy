@@ -55,10 +55,9 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
   const handleSubmit = () => {
     const submissionData = {
       name: formData.finishName,
-      finish: [{
-        finishName: formData.finishName,
-        imageFile: formData.imageFile,
-        imageUrl: formData.imageUrl
+      finishes: [{
+        finish: formData.finishName,  // Changed from finishName to finish
+        link: formData.imageUrl       // Changed imageUrl to link to match schema
       }]
     };
     
@@ -69,7 +68,7 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
     
     onAdd(submissionData);
   };
-
+  
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Add New Image</DialogTitle>

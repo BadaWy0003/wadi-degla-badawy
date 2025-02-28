@@ -78,6 +78,8 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
       name,
       type,
       finishes: nextFinishes,
+    },{
+      ignoreUndefinedProperties: true
     });
 
     return {
