@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  TextField,
-  Box,
-} from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Box } from '@mui/material';
 
 const AddImageModal = ({ open, onClose, onAdd }) => {
   const [formData, setFormData] = useState({
     finishName: '',
     imageFile: null,
-    imageUrl: null
+    imageUrl: null,
   });
 
   useEffect(() => {
@@ -32,12 +24,12 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
       setFormData({
         finishName: '',
         imageFile: null,
-        imageUrl: null
+        imageUrl: null,
       });
     }
   }, [open, formData.imageUrl]); // Add formData.imageUrl to dependencies
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = e => {
     const file = e.target.files[0];
     if (file) {
       if (formData.imageUrl) {
@@ -47,7 +39,7 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
       setFormData(prev => ({
         ...prev,
         imageFile: file,
-        imageUrl: imageUrl
+        imageUrl: imageUrl,
       }));
     }
   };
@@ -55,20 +47,23 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
   const handleSubmit = () => {
     const submissionData = {
       name: formData.finishName,
-      finishes: [{
-        finish: formData.finishName,  // Changed from finishName to finish
-        link: formData.imageUrl       // Changed imageUrl to link to match schema
-      }]
+      finishes: [
+        {
+          finish: formData.finishName,
+          link: formData.imageUrl,
+          imageFile: formData.imageFile,
+        },
+      ],
     };
-    
+
     if (!formData.imageFile) {
       alert('Please select an image file');
       return;
     }
-    
+
     onAdd(submissionData);
   };
-  
+
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Add New Image</DialogTitle>
@@ -78,32 +73,16 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
             fullWidth
             label="Name"
             value={formData.finishName}
-            onChange={(e) => setFormData(prev => ({ ...prev, finishName: e.target.value }))}
+            onChange={e => setFormData(prev => ({ ...prev, finishName: e.target.value }))}
             required
           />
-          <input
-            accept="image/*"
-            type="file"
-            onChange={handleImageUpload}
-            style={{ margin: '10px 0' }}
-          />
-          {formData.imageUrl && (
-            <img 
-              src={formData.imageUrl} 
-              alt="Preview" 
-              style={{ maxHeight: 200, objectFit: 'contain' }}
-            />
-          )}
+          <input accept="image/*" type="file" onChange={handleImageUpload} style={{ margin: '10px 0' }} />
+          {formData.imageUrl && <img src={formData.imageUrl} alt="Preview" style={{ maxHeight: 200, objectFit: 'contain' }} />}
         </Box>
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button 
-          onClick={handleSubmit} 
-          variant="contained" 
-          color="primary"
-          disabled={!formData.finishName || !formData.imageFile}
-        >
+        <Button onClick={handleSubmit} variant="contained" color="primary" disabled={!formData.finishName || !formData.imageFile}>
           Add Image
         </Button>
       </DialogActions>

@@ -29,7 +29,7 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
   const materialsRef = firestore.collection('materials');
   const docSnapshot = id ? await materialsRef.doc(id).get() : undefined;
 
-  finishes = finishes.map((f) => ({ ...f, finish: f.finishName }));
+  finishes = finishes.map((f) => ({ ...f, finish: f.finish ?? f.finishName }));
 
   let uploadedFinishes = [];
   if (files.length) {

@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Table,
@@ -56,7 +56,6 @@ function Gallery() {
       const { data } = await apiClient.get(`/api/storage/type/${typeName}`);
       setGallery(Array.isArray(data.data) ? data.data : []);
       setTotalCount(data.totalCount || 0); // Assuming the backend returns a `totalCount` field
-
     } catch (err) {
       setGallery([]);
     }
@@ -97,15 +96,15 @@ function Gallery() {
     // Structure the finish array with all required properties
     const finishes = [
       {
-        finishName: newImage.finish[0].finishName,
-        imageFile: newImage.finish[0].imageFile,
-        imageUrl: newImage.finish[0].imageUrl,
+        finishName: newImage.finishes[0].finish,
+        imageFile: newImage.finishes[0].imageFile,
+        imageUrl: newImage.finishes[0].link,
       },
     ];
 
     formDataToSend.append('finishes', JSON.stringify(finishes));
     // Append the actual file
-    formDataToSend.append('files', newImage.finish[0].imageFile);
+    formDataToSend.append('files', newImage.finishes[0].imageFile);
 
     console.log('Sending to API:', {
       type: 'Gallery',
@@ -282,8 +281,8 @@ function Gallery() {
 
       {renderSearchBar()}
       <Typography variant="subtitle1" sx={{ alignSelf: 'center', fontWeight: 500 }}>
-    Total number of images in gallery: {totalCount}
-  </Typography>
+        Total number of images in gallery: {totalCount}
+      </Typography>
 
       <TableContainer component={Paper}>
         <Table>
