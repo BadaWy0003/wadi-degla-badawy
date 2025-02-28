@@ -62,7 +62,7 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     let nextFinishes = existingData.finishes ?? [];
 
     uploadedFinishes.forEach((uploadedFinish) => {
-      const finishIndex = nextFinishes.findIndex((f) => f.finish === uploadedFinish.finishName);
+      const finishIndex = nextFinishes.findIndex((f) => f.finishName === uploadedFinish.finishName);
 
       if (finishIndex >= 0) {
         nextFinishes[finishIndex].link = uploadedFinish.link; // Update existing finish
@@ -72,7 +72,7 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     });
 
     // Filter out finishes not included in the current request
-    nextFinishes = nextFinishes.filter((f) => finishes.some((ff) => ff.finish === f.finish));
+    nextFinishes = nextFinishes.filter((f) => finishes.some((ff) => ff.finishName === f.finishName));
 
     await materialsRef.doc(id).update(
       {
