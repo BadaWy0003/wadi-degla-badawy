@@ -40,14 +40,10 @@ export default function Gallery() {
 
   return (
     <div className="gallery-container">
-      {/* 🌟 Hero Section */}
-      <div className="quarries-hero">
-          <h1>GALLERY</h1>
-          <div className="breadcrumb">
+                <div className="breadcrumb">
           <a href="/">Home</a>
           <p>{'>'} Gallery</p>
           </div>
-      </div>  
       {/* Masonry Grid Gallery */}
       <div className="masonry-container">
       {loading ? (

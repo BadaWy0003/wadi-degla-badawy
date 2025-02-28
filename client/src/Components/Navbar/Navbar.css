@@ -101,7 +101,7 @@ nav a:hover {
     /* Rounded corners */
     top: 100%;
     /* Place submenu directly beneath the parent */
-    left: 0;
+    left: -10px;
     /* Align submenu with the parent */
     transition: all 0.3s ease;
     /* Smooth transition for better feel */
@@ -126,7 +126,7 @@ nav a:hover {
     /* Rounded corners */
     top: 100%;
     /* Place submenu directly beneath the parent */
-    left: 0;
+    left: -10px;
     /* Align submenu with the parent */
     transition: all 0.3s ease;
     /* Smooth transition for better feel */
