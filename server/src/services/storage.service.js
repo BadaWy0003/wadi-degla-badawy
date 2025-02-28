@@ -40,8 +40,8 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
         if (!finish) return null; // Safeguard against mismatched counts
 
         const publicUrl = await uploadFileToStorage(file, type); // Upload the file and get its URL
-        return { finish: finish.finish, link: publicUrl }; // Use 'finish' for mapping
-      })
+        return { finish: finish.finishName, link: publicUrl }; // Use 'finish' for mapping
+      }),
     );
 
     uploadedFinishes = uploadedFinishes.filter(Boolean); // Remove null entries
@@ -62,7 +62,7 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     let nextFinishes = existingData.finishes ?? [];
 
     uploadedFinishes.forEach((uploadedFinish) => {
-      const finishIndex = nextFinishes.findIndex((f) => f.finish === uploadedFinish.finish);
+      const finishIndex = nextFinishes.findIndex((f) => f.finish === uploadedFinish.finishName);
 
       if (finishIndex >= 0) {
         nextFinishes[finishIndex].link = uploadedFinish.link; // Update existing finish
@@ -74,13 +74,16 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     // Filter out finishes not included in the current request
     nextFinishes = nextFinishes.filter((f) => finishes.some((ff) => ff.finish === f.finish));
 
-    await materialsRef.doc(id).update({
-      name,
-      type,
-      finishes: nextFinishes,
-    },{
-      ignoreUndefinedProperties: true
-    });
+    await materialsRef.doc(id).update(
+      {
+        name,
+        type,
+        finishes: nextFinishes,
+      },
+      {
+        ignoreUndefinedProperties: true,
+      },
+    );
 
     return {
       message: `Material updated successfully`,
@@ -92,7 +95,6 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     };
   }
 };
-
 
 StorageService.fetchMaterialsByType = async (type) => {
   const materialsRef = firestore.collection('materials');
