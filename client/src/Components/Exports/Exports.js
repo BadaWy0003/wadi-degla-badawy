@@ -1,11 +1,6 @@
 import React from "react";
 import './Exports.css';
 import 'react-multi-carousel/lib/styles.css';
-// import Africa from '../../Public/Assets/Media/Africa.svg';
-// import Americas from '../../Public/Assets/Media/Americas.svg';
-// import Asia from '../../Public/Assets/Media/Asia.svg';
-// import Australia from '../../Public/Assets/Media/Australia.svg';
-// import Europe from '../../Public/Assets/Media/Europe.svg';
 import exports from '../../Public/Assets/Media/24.jpg';
 import OurMarkets from "./OurMarkets";
 import ContactBubble from "../Contact/ContactBubble";
