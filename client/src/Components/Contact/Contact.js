@@ -271,7 +271,9 @@ export default function Contact() {
             </div>
             <div className="email-address">
               <h4>Email</h4>
-              <a href="mailto:info@wadidegla-eg.com">info@wadidegla-eg.com</a>
+              <a href="mailto:export@wadidegla-eg.com">export@wadidegla-eg.com</a>
+              <a href="mailto:sales@wadidegla-eg.com">sales@wadidegla-eg.com</a>
+              <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
             </div>
             <div className="location">
               <h4>Address</h4>

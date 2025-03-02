@@ -1,7 +1,3 @@
-import projectImg from '../../Public/Assets/Media/Projects/project1.jpeg'
-import projectImg2 from '../../Public/Assets/Media/Projects/project2.jpeg'
-import projectImg3 from '../../Public/Assets/Media/Projects/project3.jpeg'
-import projectImg4 from '../../Public/Assets/Media/Projects/project4.jpeg'
 
 import jm_appartments_1 from '../../Public/Assets/Media/Projects/j-m-appartments.jpeg'
 import south_c_project from '../../Public/Assets/Media/Projects/south-c-project.jpeg'
