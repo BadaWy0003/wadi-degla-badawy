@@ -166,6 +166,16 @@ export default function Navbar() {
               >
                 Material Visualizer
               </Link>
+              <Link
+                to="/patterns"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Patterns
+              </Link>
+
             </div>
           </div>
         </div>

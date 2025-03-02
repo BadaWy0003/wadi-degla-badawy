@@ -106,13 +106,13 @@
 
 .quarries-slider {
     width: 40vw !important;
-    height: 15rem !important;
+    height: 20rem !important;
 
 }
 
 .swiper-lazy {
     width: 100% !important;
-    height: 15rem;
+    height: 100%;
 }
 
 

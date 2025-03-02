@@ -21,6 +21,7 @@ import History from "./Components/History/History.js";
 import Projects from "./Components/Projects/Projects.js";
 import ProjectDetails from "./Components/Projects/ProjectDetails.js";
 import Fairs from "./Components/Fairs/Fairs.js";
+import Patterns from "./Components/Patterns/Patterns.js";
 import { ToastContainer } from "react-toastify";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -55,6 +56,7 @@ function App() {
           <Route exact path="/projects" element={<Projects />} />
           <Route exact path="/projects/:projectId" element={<ProjectDetails />} />
           <Route exact path="/fairs" element={<Fairs />} />
+          <Route exact path="/patterns" element={<Patterns />} />
           <Route exact path="/contact" element={<Contact />} />
 
           {/* Protected routes for NOT logged-in users */}
