@@ -10,7 +10,7 @@ import countryList from 'react-select-country-list'; // Optional helper for coun
 
 import facebook_circle_white_icon from '../../Public/Assets/Icons/Social/facebook-circle-white-icon.svg';
 import instagram_circle_white_icon from '../../Public/Assets/Icons/Social/instagram-circle-white-icon.svg';
-import x_circle_white_icon from '../../Public/Assets/Icons/Social/x-circle-white-icon.svg';
+// import x_circle_white_icon from '../../Public/Assets/Icons/Social/x-circle-white-icon.svg';
 import linkedin_circle_white_icon from '../../Public/Assets/Icons/Social/linkedin-circle-white-icon.svg';
 import whatsapp_circle_white_icon from '../../Public/Assets/Icons/Social/whatsapp-circle-white-icon.svg';
 import telegram_circle_white_icon from '../../Public/Assets/Icons/Social/telegram-circle-white-icon.svg';

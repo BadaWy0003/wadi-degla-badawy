@@ -1,13 +1,27 @@
 import React from "react";
 import './Exports.css';
 import 'react-multi-carousel/lib/styles.css';
+import MasonryGrid from "../MasonryGrid/MasonryGrid";
 import exports from '../../Public/Assets/Media/24.jpg';
 import OurMarkets from "./OurMarkets";
 import ContactBubble from "../Contact/ContactBubble";
 
+import exports1 from '../../Public/Assets/Media/Packing/packing3.jpeg';
+import exports2 from '../../Public/Assets/Media/Packing/packing7.jpeg';
+import exports3 from '../../Public/Assets/Media/Exports/exports3.jpg';
+import exports4 from '../../Public/Assets/Media/Exports/exports4.jpg';
+import exports5 from '../../Public/Assets/Media/Exports/exports5.jpg';
 
 
 export default function Exports(){
+        const images = [
+            exports1,
+            exports2,
+            exports3,
+            exports4,
+            exports5
+                    ];
+    
     return(
         <div className='exports-container'>
         {/* 🌟 Hero Section */}
@@ -37,6 +51,11 @@ export default function Exports(){
                     <img src={exports} alt=""/>
                 </div>   
                 <OurMarkets />
+                <div className="image-grid">
+            <MasonryGrid props={images}/>
+
+            </div>
+
                 <ContactBubble />
 
             </div>    

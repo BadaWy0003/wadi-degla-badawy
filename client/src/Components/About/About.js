@@ -1,17 +1,10 @@
 import React from "react";
 import './About.css';
-import CountUp from 'react-countup';
-import bullseye_gold from '../../Public/Assets/Icons/bullseye-gold.svg'
-import paper_plane_gold from '../../Public/Assets/Icons/paper-plane-gold.svg'
 // import logo_color_notext from '../../Public/Assets/Media/logo-color-notext.svg'
 import logo_color_stroke_notext from '../../Public/Assets/Media/logo-color-stroke-notext.svg'
 import expertise_square_image from '../../Public/Assets/Media/Machinery/risin-line.jpeg'
-import tiles from '../../Public/Assets/Icons/tiles.svg'
-import projects from '../../Public/Assets/Icons/projects.svg'
-import manpower from '../../Public/Assets/Icons/manpower-stroke.svg'
-import technology from '../../Public/Assets/Icons/technology.svg'
-import craftsmanship from '../../Public/Assets/Icons/craftsmanship.png'
-import global_supply_chain from '../../Public/Assets/Icons/global-supply-chain.svg'
+import MissionVisionSection from "./MissionVisionSection";
+import CounterSection from "./CounterSection";
 import ContactBubble from "../Contact/ContactBubble";
 
 import 'react-multi-carousel/lib/styles.css';
@@ -55,28 +48,7 @@ export default function About(){
                 </div>
             </div>
 
-            <div className="mission-vision-section">
-
-                <div className="vision-card" >
-                    <img src={paper_plane_gold} alt="vision-icon"/>
-                    <h2>Our Vision</h2>
-                    <p> To be a global leader in the natural stone industry,
-                        recognized for our exceptional products, sustainable
-                        practices, and dedication to transforming architectural
-                        visions into timeless realities.</p>
-                </div>
-                <div className="mission-card">
-                    <img src={bullseye_gold} alt="mission-icon"/>
-                    <h2>Our Mission</h2>
-                    <p> To deliver unparalleled quality in marble and granite
-                        products, exceeding our clients' expectations through
-                        innovation, expertise, and a commitment to excellence,
-                        while upholding the rich heritage of our family legacy.
-                        </p>
-                </div>
-
-            </div> 
-
+            < MissionVisionSection />
             <div className="our-expertise-section">
                 <div className="our-expertise-title">
                     <hr/>
@@ -112,69 +84,7 @@ export default function About(){
                 </div>
             </div>
 
-            <div className="about-counters-section">
-                <div className="counter-card">
-                    <img src={manpower} alt="manpower-icon"/>
-                    <h2>MANPOWER</h2>
-                    <CountUp start={0}
-                            end={500}
-                            duration={3}
-                            enableScrollSpy={true}
-                            separator=""
-                            suffix=" +"
-                            style={{ fontSize: '40px', fontWeight: 900}} />
-                </div>
-                <div className="counter-card">
-                    <img src={tiles} alt="manpower-icon"/>
-                    <h2>M<sup>2</sup> PRODUCED/DAY</h2>
-                    <CountUp start={0}
-                            end={3000}
-                            duration={3}
-                            enableScrollSpy={true}
-                            separator=""
-                            suffix=" +"
-                            style={{ fontSize: '40px', fontWeight: 900 }} />
-                </div>
-
-                <div className="counter-card">
-                    <img src={projects} alt="manpower-icon"/>
-                    <h2>COMPLETED PROJECTS</h2>
-                    <CountUp start={0}
-                            end={300}
-                            duration={3}
-                            enableScrollSpy={true}
-                            separator=""
-                            suffix=" +"
-                            style={{ fontSize: '40px', fontWeight: 900 }} />
-                </div>
-
-                <div className="counter-card">
-                    <img src={technology} alt="technology-icon"/>
-                    <h2>ADVANCED TECHNOLOGY</h2>
-                    <p>Our factories are equipped with 
-                        state-of-the-art machinery, allowing for precision
-                        and efficiency in extracting and processing
-                        our premium stones.</p>
-                </div>
-                <div className="counter-card">
-                    <img src={craftsmanship} alt="craftsmanship-icon"/>
-                    <h2>SKILLED CRAFTSMANSHIP</h2>
-                    <p>Our artisans carry forward generations of
-                        knowledge, ensuring that every product
-                        meets the highest standards of quality and
-                        artistry.</p>
-                </div>
-
-                <div className="counter-card">
-                    <img src={global_supply_chain} alt="global-supply-chain-icon"/>
-                    <h2>GLOBAL SUPPLY CHAIN</h2>
-                    <p>Our partnerships with quarries and
-                        factories domestically and internationally
-                        ensure a steady supply of high-quality
-                        materials.</p>
-                </div>
-
-            </div>
+            <CounterSection />
 
             <div className="thanks-section">
                 <h1>Elevate Your Vision with Wadi Degla</h1>

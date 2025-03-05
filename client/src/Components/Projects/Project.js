@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Project({ project }) {
   const navigate = useNavigate();
-  const [hovered, setHovered] = useState(false);
 
   return (
     <div
       className="project-card"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       style={{ position: "relative", cursor: "pointer" }}
     >
       <div className="img-div">
@@ -17,7 +14,6 @@ export default function Project({ project }) {
       </div>
 
       {/* Hover overlay */}
-      {hovered && (
         <div className="overlay">
           <h3>{project.name}</h3>
           <p>{project.city}{project.city?" - ":""}{project.country}</p>
@@ -29,7 +25,6 @@ export default function Project({ project }) {
             }}
             >View</button>
         </div>
-      )}
     </div>
   );
 }
