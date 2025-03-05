@@ -102,6 +102,7 @@
     padding: 2rem;
     text-align: center;
     transition: 0.3s;
+    max-width: 35vw;
 }
 
 /* Add a pseudo-element for the animated border */
@@ -352,7 +353,7 @@
 
     .vision-card, .mission-card {
         padding: 1rem;
-
+        max-width: unset;
     }
 
     /*OUR EXPERTISE SECTION_____________________________________________________________*/
