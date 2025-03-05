@@ -537,12 +537,17 @@
 
 }
 
+.email-address p {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: var(--blueColor);
+}
+
 .phone-numbers a:hover,
 .email-address a:hover,
 .location a:hover {
   color: var(--goldColor);
-  scale: 99%;
-  transition: all 0.5s;
+  text-decoration: underline;
 }
 
 /* Location Styling */
@@ -592,6 +597,10 @@
 .social img:hover {
   filter: grayscale(0%);
 
+}
+
+.social .btn1 {
+  width: 100%;
 }
 
 /* Responsive Design */

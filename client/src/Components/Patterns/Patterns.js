@@ -42,10 +42,10 @@ const [splitFace, setSplitFace] = useState(split_face_1);
         <div className='patterns-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
-                        <h1>PATTERNS</h1>
+                        <h1>PATTERNS / PAVERS</h1>
                         <div className="breadcrumb">
                         <a href="/">Home</a>
-                        <p>{'>'} Patterns</p>
+                        <p>{'>'} Patterns / Pavers</p>
                         </div>
                 </div>  
             <div className="pattern-section">

@@ -263,17 +263,23 @@ export default function Contact() {
         <div className="contact-inner-right">
           <h1>Contact information</h1>
           <div className="contact-info">
+          <div className="email-address">
+              <h4>Email</h4>
+              <p>For homes, retail & sales:</p>
+              <a href="mailto:export@wadidegla-eg.com">export@wadidegla-eg.com</a>
+              <p>For projects local & international:</p>
+              <a href="mailto:sales@wadidegla-eg.com">sales@wadidegla-eg.com</a>
+              <p>For international wholesalers, distributors & agents:</p>
+              <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
+              <p>For more information:</p>
+              <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
+            </div>
+
             <div className="phone-numbers">
               <h4>Phone</h4>
               <a href="tel:+201067260314">(+20) 10-6726-0314</a>
               <a href="tel:+201155559896">(+20) 11-5555-9896</a>
               <a href="tel:+201016667890">(+20) 101-666-7890</a>
-            </div>
-            <div className="email-address">
-              <h4>Email</h4>
-              <a href="mailto:export@wadidegla-eg.com">export@wadidegla-eg.com</a>
-              <a href="mailto:sales@wadidegla-eg.com">sales@wadidegla-eg.com</a>
-              <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
             </div>
             <div className="location">
               <h4>Address</h4>
@@ -288,13 +294,14 @@ export default function Contact() {
               <div className='social-icons'>
                 <a href='https://www.facebook.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={facebook_circle_white_icon} className='social-icons-footer' /></a>
                 <a href='https://instagram.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={instagram_circle_white_icon} className='social-icons-footer' /></a>
-                <a href='https://twitter.com/wadideglaaco' target="_blank" rel="noopener noreferrer"><img alt='' src={x_circle_white_icon} className='social-icons-footer' /></a>
+                {/* <a href='https://twitter.com/wadideglaaco' target="_blank" rel="noopener noreferrer"><img alt='' src={x_circle_white_icon} className='social-icons-footer' /></a> */}
                 <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank" rel="noopener noreferrer"><img alt='' src={linkedin_circle_white_icon} className='social-icons-footer' /></a>
                 <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank" rel="noopener noreferrer"><img alt='' src={whatsapp_circle_white_icon} className='social-icons-footer' /></a>
                 <a href='https://t.me/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={telegram_circle_white_icon} className='social-icons-footer' /></a>
                 <a href='https://www.tiktok.com/@wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={tiktok_circle_white_icon} className='social-icons-footer' /></a>
               </div>
-              <h4>Or scan the QR code</h4>
+              <a href='https://drive.google.com/file/d/1rh0sYPG7Fq8eQ_meS-8wSXCPRtaUS-dl/view' target="_blank" rel="noopener noreferrer"> <button className='btn1'>DOWNLOAD OUR BROCHURE</button> </a>
+              <h4>Click Or scan the QR code for all links</h4>
               <a href='https://wadideg.social/' target="_blank" rel="noopener noreferrer"> <img alt='' src={qr} /> </a>
             </div>
           </div>

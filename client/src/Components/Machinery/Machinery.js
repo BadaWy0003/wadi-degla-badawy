@@ -34,7 +34,8 @@ import risin_line from '../../Public/Assets/Media/Machinery/risin-line.jpeg';
 // import risin_line_1 from '../../Public/Assets/Media/Machinery/risin-line-1.jpeg';
 import risin_line_2 from '../../Public/Assets/Media/Machinery/risin-line-2.jpeg';
 import risin_line_3 from '../../Public/Assets/Media/Machinery/risin-line-3.jpeg';
-import splitting_strips from '../../Public/Assets/Media/Machinery/splitting-strips.jpeg';
+import splitting_strips_1 from '../../Public/Assets/Media/Machinery/splitting-strips-1.jpg';
+import splitting_strips_2 from '../../Public/Assets/Media/Machinery/splitting-strips-2.jpg';
 import tumble_machine from '../../Public/Assets/Media/Machinery/tumble-machine.jpeg';
 import fork_lift from '../../Public/Assets/Media/Machinery/fork-lift.jpg';
 
@@ -95,7 +96,7 @@ export default function Machinery(){
         },
         {
           title: "3 Splitting strips machines",
-          images: [splitting_strips],
+          images: [splitting_strips_1, splitting_strips_2],
         }
 
       ];

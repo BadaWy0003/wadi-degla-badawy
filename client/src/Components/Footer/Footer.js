@@ -56,7 +56,7 @@ function Footer() {
                 <h4>EXPLORE</h4>
                 <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}>Our Products</Link>
                 <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}>Material Visualizer</Link>
-                <Link to='/patterns' onClick={() => {window.scrollTo(0, 0);}}>Patterns</Link>
+                <Link to='/patterns' onClick={() => {window.scrollTo(0, 0);}}>Patterns / Pavers</Link>
                 </div>
 
                 <div className="col">
@@ -64,6 +64,7 @@ function Footer() {
                 <Link to='/quarries' onClick={() => {window.scrollTo(0, 0);}}>Quarries & Factories</Link>
                   <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}>Gallery</Link>
                   <Link to='/partners' onClick={() => {window.scrollTo(0, 0);}}>Our Partners</Link>
+                  <Link to='/projects' onClick={() => {window.scrollTo(0, 0);}}>Projects</Link>
                   <Link to='/fairs' onClick={() => {window.scrollTo(0, 0);}}>Fairs</Link>
 
                 </div>

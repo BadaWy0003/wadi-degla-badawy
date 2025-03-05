@@ -103,5 +103,5 @@ export default function GlobeChart({ selectedCountry }) {
     }
   }, [selectedCountry]);
 
-  return <div id="chartdiv" style={{ width: "100%", height: "500px", maxWidth: "100%" }}></div>;
+  return <div id="chartdiv"></div>;
 }

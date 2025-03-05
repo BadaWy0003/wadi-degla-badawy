@@ -173,7 +173,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Patterns
+                Patterns / Pavers
               </Link>
 
             </div>
