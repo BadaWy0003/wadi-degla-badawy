@@ -11,7 +11,7 @@ import { partnerLogos } from "../Partners/Partners.js";
 export default function PartnersHome() {
 
     return(
-        <div className="partners-home-section">
+        <section className="partners-home-section">
             <h2>Our Partners</h2>
             <Swiper
                 slidesPerView={7}
@@ -51,6 +51,6 @@ export default function PartnersHome() {
                 ))}
             </Swiper>
 
-            </div>
+            </section>
     );
 }

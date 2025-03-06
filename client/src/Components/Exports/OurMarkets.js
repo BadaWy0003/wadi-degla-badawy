@@ -62,7 +62,7 @@ export default function OurMarkets(){
       };
     
     return(
-                        <div className="our-markets">
+                        <section className="our-markets">
                             <h2>OUR MARKETS</h2>
                             {/* 🌍 Continent Buttons */}
                             <div className="continent-buttons">
@@ -95,7 +95,7 @@ export default function OurMarkets(){
         
                         {/* 🌐 Interactive Globe */}
                         <GlobeChart selectedCountry={selectedCountry} />
-                        </div>
+                        </section>
         
     );
 }

@@ -12,10 +12,10 @@ import tiles from '../../Public/Assets/Icons/tiles.svg'
 export default function CounterSection() {
 
     return(
-        <div className="about-counters-section">
+        <section className="about-counters-section">
         <div className="counter-card">
             <img src={manpower} alt="manpower-icon"/>
-            <h2>MANPOWER</h2>
+            <h3>MANPOWER</h3>
             <CountUp start={0}
                     end={500}
                     duration={3}
@@ -26,7 +26,7 @@ export default function CounterSection() {
         </div>
         <div className="counter-card">
             <img src={tiles} alt="manpower-icon"/>
-            <h2>M<sup>2</sup> PRODUCED/DAY</h2>
+            <h3>M<sup>2</sup> PRODUCED/DAY</h3>
             <CountUp start={0}
                     end={3000}
                     duration={3}
@@ -38,7 +38,7 @@ export default function CounterSection() {
 
         <div className="counter-card">
             <img src={projects} alt="manpower-icon"/>
-            <h2>COMPLETED PROJECTS</h2>
+            <h3>COMPLETED PROJECTS</h3>
             <CountUp start={0}
                     end={300}
                     duration={3}
@@ -50,7 +50,7 @@ export default function CounterSection() {
 
         <div className="counter-card">
             <img src={technology} alt="technology-icon"/>
-            <h2>ADVANCED TECHNOLOGY</h2>
+            <h3>ADVANCED TECHNOLOGY</h3>
             <p>Our factories are equipped with 
                 state-of-the-art machinery, allowing for precision
                 and efficiency in extracting and processing
@@ -58,7 +58,7 @@ export default function CounterSection() {
         </div>
         <div className="counter-card">
             <img src={craftsmanship} alt="craftsmanship-icon"/>
-            <h2>SKILLED CRAFTSMANSHIP</h2>
+            <h3>SKILLED CRAFTSMANSHIP</h3>
             <p>Our artisans carry forward generations of
                 knowledge, ensuring that every product
                 meets the highest standards of quality and
@@ -67,14 +67,14 @@ export default function CounterSection() {
 
         <div className="counter-card">
             <img src={global_supply_chain} alt="global-supply-chain-icon"/>
-            <h2>GLOBAL SUPPLY CHAIN</h2>
+            <h3>GLOBAL SUPPLY CHAIN</h3>
             <p>Our partnerships with quarries and
                 factories domestically and internationally
                 ensure a steady supply of high-quality
                 materials.</p>
         </div>
 
-    </div>
+    </section>
 
     );
 }

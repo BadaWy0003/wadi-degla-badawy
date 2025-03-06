@@ -105,7 +105,7 @@ export default function FeaturedProducts() {
             </div>  
             <button
             className="btn1"
-            style={{marginTop: "5rem"}}
+            style={{marginTop: "2rem"}}
             onClick={() => {
                 navigate('/products');
                 window.scrollTo({top: 0});

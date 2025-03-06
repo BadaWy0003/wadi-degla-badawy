@@ -265,8 +265,8 @@
     rotate: 10deg;
 }
 
-.counter-card h2 {
-    color: var(--goldColor);
+.counter-card h3 {
+    color: var(--blueColor);
     margin-top: 0;
     text-align: center;
 
@@ -275,6 +275,7 @@
 .counter-card p {
     text-align: center;
     font-size: 14px;
+    color: var(--whiteColor);
 
 }
 

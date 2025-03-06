@@ -59,9 +59,6 @@
     border-radius: 4px;
 }
 
-.sample-request-modal form button {
-    color: var(--blueColor);
-}
 
 .form-group input:disabled {
     background-color: #f0f0f0;

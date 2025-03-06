@@ -1,6 +1,6 @@
 import React from "react";
 import './Home.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import 'react-multi-carousel/lib/styles.css';
 import MissionVisionSection from "../About/MissionVisionSection.js";
 import FeaturedProducts from "./FeaturedProducts.js";
@@ -14,6 +14,8 @@ import ContactBubble from "../Contact/ContactBubble.js";
 
 
 export default function Home(){
+      const navigate = useNavigate();
+    
 //   const globalState = useGlobalState(); // Access global state for user data
 
       
@@ -46,7 +48,15 @@ export default function Home(){
             <PartnersHome />
             <CounterSection />
             <OurMarkets />
-
+            <div className="exports-home-button">
+                <button
+                className="btn2"
+                style={{marginTop: "2rem"}}
+                onClick={() => {
+                    navigate('/exports');
+                    window.scrollTo({top: 0});
+                }}>LEARN MORE</button>                     
+            </div>
                       <ContactBubble />
         </div>
     )
