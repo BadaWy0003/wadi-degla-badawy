@@ -5,7 +5,7 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import { Link, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
 import apiClient from "../../util/client.js";
 import 'react-multi-carousel/lib/styles.css';
 import MissionVisionSection from "../About/MissionVisionSection.js";
@@ -81,7 +81,15 @@ export default function Home(){
         <h2>Featured Products</h2>
         <p>Discover our most popular selections</p>
         <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[EffectCube, Autoplay, Pagination, Navigation]}
+          effect={'cube'}
+            grabCursor={true}
+            cubeEffect={{
+                shadow: true,
+                slideShadows: true,
+                shadowOffset: 20,
+                shadowScale: 0.94,
+                }}
           spaceBetween={30}
           slidesPerView={3}
           navigation
