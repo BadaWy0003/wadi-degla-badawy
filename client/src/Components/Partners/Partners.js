@@ -7,27 +7,26 @@ import orascom from '../../Public/Assets/Icons/partners/orascom.png';
 import mivida from '../../Public/Assets/Icons/partners/mivida.png';
 import hydepark from '../../Public/Assets/Icons/partners/hydepark.png';
 import wyndham from '../../Public/Assets/Icons/partners/wyndham.png';
-import cfc from '../../Public/Assets/Icons/partners/cfc.webp';
+import cfc from '../../Public/Assets/Icons/partners/cfc.svg';
 import trade_logistics from '../../Public/Assets/Icons/partners/trade-logistics.png';
 import egy_consulate_kuwait from '../../Public/Assets/Icons/partners/egy-consulate-kuwait.jpeg';
 
+    // Array of partner logo image URLs
+    export const partnerLogos = [
+        otrovato,
+        orascom,
+        mivida,
+        egy_consulate_kuwait,
+        wyndham,
+        hydepark,
+        cfc,
+        trade_logistics
+    ];
 
 export default function Partners() {
     const navigate = useNavigate();
 
-    // Array of partner logo image URLs
-    const partnerLogos = [
-        otrovato,
-        orascom,
-        mivida,
-        hydepark,
-        egy_consulate_kuwait,
-        wyndham,
-        cfc,
-        trade_logistics
-        
-    ];
-
+    
     const handleButtonClick = () => {
         navigate("/contact"); // Navigate to the contact page
     };
