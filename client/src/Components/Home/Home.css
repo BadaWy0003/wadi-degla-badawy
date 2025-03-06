@@ -17,6 +17,10 @@
 }
 
 .hero {
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/home-bg5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
     display: flex;
     flex-direction: row;
@@ -123,7 +127,10 @@
 
 }
 
-
+.homepage .mission-vision-section {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
 
 
 .products-home {
@@ -262,14 +269,14 @@
 /*////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .featured-products-section {
-    padding: 4rem 2rem;
+    padding: 5rem;
     background-color: var(--whiteColor);
     text-align: center;
 }
 
 .featured-products-section h2 {
     font-size: 2.5rem;
-    color: var(--blackColor);
+    color: var(--goldColor);
     margin-bottom: 1rem;
 }
 
@@ -328,14 +335,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    color: white;
     padding: 20px;
     text-align: center;
 }
@@ -345,16 +351,18 @@
 }
 
 .slide-overlay h3 {
+    color: var(--goldColor);
     margin: 0 0 10px;
     font-size: 1.5rem;
 }
 
 .slide-overlay p {
+    color: var(--whiteColor);
     margin: 0 0 20px;
     font-size: 1rem;
 }
 
-.details-link {
+/* .details-link {
     padding: 8px 20px;
     background: var(--blueColor);
     color: white;
@@ -366,7 +374,7 @@
 
 .details-link:hover {
     background: var(--darkBlueColor);
-}
+} */
 
 .swiper-custom-navigation {
     display: flex;
@@ -380,7 +388,7 @@
 .swiper-custom-button-next {
     cursor: pointer;
     font-size: 30px;
-    color: var(--blueColor);
+    color: var(--goldColor);
     width: 40px;
     height: 40px;
     display: flex;
@@ -394,8 +402,8 @@
 
 .swiper-custom-button-prev:hover,
 .swiper-custom-button-next:hover {
-    background: var(--blueColor);
-    color: white;
+    background: var(--goldColor);
+    color: var(--whiteColor);
 }
 
 .swiper-custom-pagination {
@@ -411,8 +419,8 @@
     cursor: pointer;
 }
 
-.swiper-pagination-bullet-active {
-    background: var(--blueColor);
+.swiper-pagination-bullet .swiper-pagination-bullet-active {
+    background: var(--goldColor);
 }
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////*/
