@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import './Home.css';
-import { Link } from "react-router-dom";
+import 'swiper/css';
+import 'swiper/css/effect-cube';
+import 'swiper/css/pagination';
+import { Link, useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import apiClient from "../../util/client.js";
-import Product from "../Products/Product.js";
 import 'react-multi-carousel/lib/styles.css';
 import MissionVisionSection from "../About/MissionVisionSection.js";
 import CounterSection from "../About/CounterSection.js";
@@ -16,7 +20,8 @@ import ContactBubble from "../Contact/ContactBubble.js";
 export default function Home(){
 //   const globalState = useGlobalState(); // Access global state for user data
   const [featuredProducts, setFeaturedProducts] = useState([]);
-  
+  const navigate = useNavigate();
+
   const featuredNames = [
     "Creamy White Pearl",
     "Pietra Grey",
@@ -73,16 +78,58 @@ export default function Home(){
 
 
             <div className="featured-products-section">
-                <h2>Featured Products</h2>
-                <p>Discover our most popular selections</p>
-                <div className="product-cards-container-2">
-                <div className="product-cards-2">
-                    {featuredProducts.map((item) => (
-                    <Product key={item.id} item={item} />
-                    ))}
+        <h2>Featured Products</h2>
+        <p>Discover our most popular selections</p>
+        <Swiper
+          modules={[Autoplay, Pagination, Navigation]}
+          spaceBetween={30}
+          slidesPerView={3}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
+          }}
+          className="featured-swiper"
+        >
+          {featuredProducts.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div 
+                className="featured-slide"
+                onClick={() => {
+                  navigate(`/products/${item.id}`);
+                  window.scrollTo({top: 0});
+                }}
+              >
+                {item.finishes.find(finish => finish.finish === 'Polished') && (
+                  <img 
+                    src={item.finishes.find(finish => finish.finish === 'Polished').link} 
+                    alt={item.name} 
+                  />
+                )}
+                <div className="slide-content">
+                  <h3>{item.name}</h3>
+                  <p>{item.type}</p>
                 </div>
-                </div>
-            </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
 
             <MissionVisionSection />
