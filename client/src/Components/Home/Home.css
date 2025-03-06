@@ -276,7 +276,7 @@
 
 .featured-products-section h2 {
     font-size: 2.5rem;
-    color: var(--goldColor);
+    color: var(--whiteColor);
     margin-bottom: 1rem;
 }
 
@@ -362,6 +362,10 @@
     font-size: 1rem;
 }
 
+.slide-overlay button {
+    width: 100%;
+}
+
 /* .details-link {
     padding: 8px 20px;
     background: var(--blueColor);
@@ -419,8 +423,12 @@
     cursor: pointer;
 }
 
-.swiper-pagination-bullet .swiper-pagination-bullet-active {
-    background: var(--goldColor);
+.swiper-pagination-bullet-active {
+    background-color: var(--goldColor) !important;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    width: unset !important;
 }
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////*/

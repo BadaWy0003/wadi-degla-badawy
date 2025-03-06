@@ -99,10 +99,10 @@ export default function Home(){
                     prevEl: '.swiper-custom-button-prev'
                 }}
                 modules={[EffectCube, Pagination, Navigation, Autoplay]}
-                //   autoplay={{
-                //     delay: 3000,
-                //     disableOnInteraction: false,
-                //   }}
+                  autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: true,
+                  }}
                 className="featured-cube-swiper"
                 >
                 {featuredProducts.map((item) => (
