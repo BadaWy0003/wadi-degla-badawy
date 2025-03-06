@@ -91,7 +91,6 @@ export default function Home(){
                 shadowScale: 0.94,
                 }}
           spaceBetween={30}
-          slidesPerView={3}
           navigation
           pagination={{ clickable: true }}
           autoplay={{
