@@ -78,66 +78,52 @@ export default function Home(){
 
 
             <div className="featured-products-section">
-        <h2>Featured Products</h2>
-        <p>Discover our most popular selections</p>
-        <Swiper
-          modules={[EffectCube, Autoplay, Pagination, Navigation]}
-          effect={'cube'}
-            grabCursor={true}
-            cubeEffect={{
-                shadow: true,
-                slideShadows: true,
-                shadowOffset: 20,
-                shadowScale: 0.94,
-                }}
-          spaceBetween={30}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
+  <h2>Featured Products</h2>
+  <p>Discover our most popular selections</p>
+  <Swiper
+    effect={'cube'}
+    grabCursor={true}
+    cubeEffect={{
+      shadow: true,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.94,
+    }}
+    pagination={{
+      clickable: true,
+    }}
+    navigation={true}
+    modules={[EffectCube, Pagination, Navigation, Autoplay]}
+    autoplay={{
+      delay: 3000,
+      disableOnInteraction: false,
+    }}
+    className="featured-cube-swiper"
+  >
+    {featuredProducts.map((item) => (
+      <SwiperSlide key={item.id}>
+        <div 
+          className="featured-cube-slide"
+          onClick={() => {
+            navigate(`/products/${item.id}`);
+            window.scrollTo({top: 0});
           }}
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 20
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 30
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 30
-            }
-          }}
-          className="featured-swiper"
         >
-          {featuredProducts.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div 
-                className="featured-slide"
-                onClick={() => {
-                  navigate(`/products/${item.id}`);
-                  window.scrollTo({top: 0});
-                }}
-              >
-                {item.finishes.find(finish => finish.finish === 'Polished') && (
-                  <img 
-                    src={item.finishes.find(finish => finish.finish === 'Polished').link} 
-                    alt={item.name} 
-                  />
-                )}
-                <div className="slide-content">
-                  <h3>{item.name}</h3>
-                  <p>{item.type}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-
+          {item.finishes.find(finish => finish.finish === 'Polished') && (
+            <img 
+              src={item.finishes.find(finish => finish.finish === 'Polished').link} 
+              alt={item.name} 
+            />
+          )}
+          <div className="slide-content">
+            <h3>{item.name}</h3>
+            <p>{item.type}</p>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
 
             <MissionVisionSection />
             <CounterSection />
