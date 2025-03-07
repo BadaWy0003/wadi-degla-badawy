@@ -272,7 +272,7 @@ export default function Contact() {
               <p>For international wholesalers, distributors & agents:</p>
               <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
               <p>For more information:</p>
-              <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
+              <a href="mailto:info@wadidegla-eg.com">info@wadidegla-eg.com</a>
             </div>
 
             <div className="phone-numbers">
