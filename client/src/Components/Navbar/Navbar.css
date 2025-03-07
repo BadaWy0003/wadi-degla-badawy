@@ -1,13 +1,3 @@
-:root {
-    --blackColor: #1F1F1F;
-    --goldColor: #ad9571;
-    --brownColor: #715b3d;
-    --whiteColor: #fff;
-    --blueColor: #6a7b83;
-    --darkGrayColor: #808285;
-    --lightGrayColor: #bcbec0;
-}
-
 .scrolled {
     background-color: black;
     top: 0;

@@ -6,6 +6,7 @@ import MissionVisionSection from "../About/MissionVisionSection.js";
 import FeaturedProducts from "./FeaturedProducts.js";
 import PartnersHome from "./PartnersHome.js";
 import CounterSection from "../About/CounterSection.js";
+import VisualizerHome from "./VisualizerHome.js";
 import OurMarkets from "../Exports/OurMarkets.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 // import { useGlobalState } from '../GlobalStateContext.js';
@@ -65,11 +66,12 @@ export default function Home(){
             <FeaturedProducts />
             <PartnersHome />
             <CounterSection />
+            <VisualizerHome />
             <OurMarkets />
             <div className="home-button-section">
                 <button
                 className="btn2"
-                style={{marginTop: "2rem"}}
+                style={{marginTop: "5rem"}}
                 onClick={() => {
                     navigate('/exports');
                     window.scrollTo({top: 0});

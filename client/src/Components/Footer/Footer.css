@@ -173,6 +173,7 @@
   margin-bottom: 0.3rem;
   padding-left: 5rem;
   padding-right: 5rem;
+  font-size: 14px;
 }
 
 .copy-rights p {
@@ -319,9 +320,8 @@
   }
 
   .copy-rights {
-    padding-left: auto;
-    padding-right: auto;
     justify-content: center;
+    padding: unset;
   }
 }
 
