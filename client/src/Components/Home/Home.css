@@ -283,7 +283,6 @@
 .homepage .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
-    background: var(--greyColor);
     border-radius: 50%;
     cursor: pointer;
 }
