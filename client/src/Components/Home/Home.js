@@ -8,6 +8,7 @@ import PartnersHome from "./PartnersHome.js";
 import CounterSection from "../About/CounterSection.js";
 import VisualizerHome from "./VisualizerHome.js";
 import OurMarkets from "../Exports/OurMarkets.js";
+import ProjectsHome from "./ProjectsHome.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 // import { useGlobalState } from '../GlobalStateContext.js';
 
@@ -77,6 +78,7 @@ export default function Home(){
                     window.scrollTo({top: 0});
                 }}>LEARN MORE</button>                     
             </div>
+            <ProjectsHome />
                       <ContactBubble />
         </div>
     )

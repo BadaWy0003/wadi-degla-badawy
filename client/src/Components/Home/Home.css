@@ -1,6 +1,6 @@
 .homepage {
     margin-top: -7rem;
-    padding-bottom: 10rem;
+    padding-bottom: 0;
 }
 
 .homepage h2 {
@@ -8,9 +8,9 @@
 }
 
 .hero {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/home-bg5.jpg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('../../Public/Assets/Media/home-bg5.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top 15% right 0;
     background-attachment: fixed;
 
     display: flex;
@@ -245,7 +245,7 @@
 }
 
 
-.swiper-custom-navigation {
+.homepage .swiper-custom-navigation {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -253,8 +253,8 @@
     margin-top: 20px;
 }
 
-.swiper-custom-button-prev,
-.swiper-custom-button-next {
+.homepage .swiper-custom-button-prev,
+.homepage .swiper-custom-button-next {
     cursor: pointer;
     font-size: 30px;
     color: var(--goldColor);
@@ -269,18 +269,18 @@
     transition: all 0.3s ease;
 }
 
-.swiper-custom-button-prev:hover,
-.swiper-custom-button-next:hover {
+.homepage .swiper-custom-button-prev:hover,
+.homepage .swiper-custom-button-next:hover {
     background: var(--goldColor);
     color: var(--whiteColor);
 }
 
-.swiper-custom-pagination {
+.homepage .swiper-custom-pagination {
     display: flex;
     gap: 10px;
 }
 
-.swiper-pagination-bullet {
+.homepage .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
     background: var(--greyColor);
@@ -288,11 +288,11 @@
     cursor: pointer;
 }
 
-.swiper-pagination-bullet-active {
+.homepage .swiper-pagination-bullet-active {
     background-color: var(--goldColor) !important;
 }
 
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+.homepage .swiper-horizontal>.swiper-pagination-bullets, .homepage .swiper-pagination-bullets.swiper-pagination-horizontal, .homepage .swiper-pagination-custom, .homepage .swiper-pagination-fraction {
     width: unset !important;
 }
 
@@ -378,6 +378,30 @@
     .visualizer-home-inner p {
         font-size: 14px !important;
     }
+
+    /* PROJECTS HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+    .projects-home-section {
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)),
+            url('../../Public/Assets/Media/Projects/carribean-palace.jpeg') !important;
+        background-attachment: unset !important;
+        height: 60vh !important;
+        padding: 2rem !important;
+        align-items: center !important;
+    }
+
+    .projects-home-section h2 {
+        text-align: center !important;
+    }
+
+    .projects-home-section p {
+        text-align: center !important;
+        max-width: unset !important;
+    }
+
 }
 
 /* VISUALIZER HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -427,6 +451,41 @@
     align-items: center;
     justify-content: center;
 }
+
+/* PROJECTS HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.projects-home-section {
+    background: linear-gradient(90deg,
+            /* 90 degrees = left to right */
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0.1)),
+        url('../../Public/Assets/Media/Projects/carribean-palace.jpeg');
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    height: 80vh;
+    padding: 0 5rem;
+    margin-top: 10rem;
+}
+
+.projects-home-section h2 {
+    color: var(--goldColor);
+    margin: 0;
+}
+
+.projects-home-section p {
+    color: var(--whiteColor);
+    font-size: 20px;
+    max-width: 35vw;
+}
+
 
 /* Media query for mobile devices */
 @media only screen and (max-width: 1024px) {
