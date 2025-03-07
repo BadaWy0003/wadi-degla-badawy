@@ -133,13 +133,31 @@
 
 }
 
+/* INTRO SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.intro-home-section {
+    padding: 5rem;
+    margin-top: 5rem;
+}
+
+.intro-home-section h4 {
+    color: var(--whiteColor);
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+}
+
 /* MISSION VISION SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .homepage .mission-vision-section {
-    margin-top: 10rem;
-    margin-bottom: 10rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
 }
 
+#home-about-button {
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+}
 
 /* FEATURED PRODUCTS SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -182,9 +200,6 @@
 }
 
 @media (max-width: 768px) {
-    .featured-products-section {
-        padding: 2rem 1rem;
-    }
 
     .featured-products-section h2 {
         font-size: 2rem;
@@ -351,7 +366,7 @@
 
 @media (max-width: 768px) {
     .partners-home-section {
-        padding: 2rem 1rem;
+        padding: 2rem 0rem;
     }
 
     .partners-home-section h2 {
@@ -362,11 +377,17 @@
     .partner-slide {
         height: 100px;
     }
+
+    .partner-slide img {
+        max-width: 70%;
+        max-height: 5rem;
+    }
+
 }
 
 /* EXPORTS SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.exports-home-button {
+.home-button-section {
     width: 100%;
     display: flex;
     align-items: center;

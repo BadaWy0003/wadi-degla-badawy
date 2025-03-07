@@ -16,11 +16,10 @@ export default function PartnersHome() {
             <Swiper
                 slidesPerView={7}
                 spaceBetween={30}
-                freeMode={true}
                 loop={true}
                 speed={2000}
                 autoplay={{
-                    delay: 2000,
+                    delay: 1000,
                     disableOnInteraction: false,
                 }}
                 breakpoints={{
@@ -28,13 +27,9 @@ export default function PartnersHome() {
                         slidesPerView: 1,
                         spaceBetween: 20
                     },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 30
-                    },
                     968: {
                         slidesPerView: 3,
-                        spaceBetween: 40
+                        spaceBetween: 10
                     },
                     1024: {
                         slidesPerView: 4,
