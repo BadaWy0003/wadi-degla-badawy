@@ -11,8 +11,8 @@
 .scrolled {
     background-color: black;
     top: 0;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
+    /* Remove margin when scrolled */
     border-radius: 0;
     transition: all 0.5s;
     border: none;
@@ -20,19 +20,22 @@
 
 
 header {
-    position: sticky;
+    position: fixed;
+    /* Change from sticky to fixed */
     top: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    left: 0;
+    /* Add this */
+    right: 0;
+    /* Add this */
+    margin: 0 2rem;
+    /* Change margin to be more specific */
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
     padding: 1rem 5rem;
     background-color: rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
     color: var(--whiteColor);
     z-index: 9999;
     transition: all 0.5s;
@@ -362,12 +365,11 @@ nav {
 @media only screen and (max-width: 1024px) {
 
     header {
-        position: sticky;
+        position: fixed;
         top: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 80px;
         padding: 1rem 5rem;
         background-color: rgb(0, 0, 0, 0.3);
         color: var(--whiteColor);

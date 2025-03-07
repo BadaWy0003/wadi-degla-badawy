@@ -1,11 +1,12 @@
-.main{
+.main {
   max-height: 100vh;
   display: flex;
   flex-direction: column;
   z-index: 1;
   background-color: var(--darkerBlackColor);
 }
-.page-title{
+
+.page-title {
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -200,6 +200,14 @@
 }
 
 @media (max-width: 768px) {
+    /* INTRO SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+    .intro-home-section {
+        padding: 1rem;
+    }
+
+
+    /* FEATURED PRODUCTS SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
     .featured-products-section h2 {
         font-size: 2rem;
@@ -436,7 +444,7 @@
         align-items: center;
         margin: 0;
         left: 0;
-        top: 0;
+        top: 10%;
     }
 
 

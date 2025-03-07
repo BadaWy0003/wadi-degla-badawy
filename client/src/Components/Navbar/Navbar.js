@@ -77,13 +77,20 @@ export default function Navbar() {
       </Link>
       <nav ref={navRef}>
         {/* Responsive Logo (only for small screens) */}
+        <Link
+        to="/"
+        onClick={() => {
+          closeNavbar();
+          window.scrollTo(0, 0);
+        }}
+      >
         <img
           alt="Logo"
           src={wadi_degla_logo_color}
           className="nav-item-mobile"
           id="logo-nav-mobile"
         />
-
+      </Link>
         {/* Navigation Links */}
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
