@@ -48,9 +48,9 @@
 .product-info-panel {
     width: 400px;
     padding: 2rem;
-    background: white;
+    /* background: white;
     border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
     text-align: left;
 }
 
@@ -61,9 +61,18 @@
 }
 
 .product-info-panel p {
-    font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: var(--greyColor);
+    color: var(--blueColor);
+}
+
+.product-info-panel button {
+    border-color: var(--goldColor);
+    color: var(--goldColor);
+}
+
+.product-info-panel button:hover {
+    background-color: var(--goldColor);
+    color: var(--whiteColor);
 }
 
 /* Navigation Controls */
@@ -95,6 +104,10 @@
 .swiper-custom-button-next:hover {
     background: var(--goldColor);
     color: white;
+}
+
+.featured-products-section .swiper-pagination-bullets .swiper-pagination-horizontal {
+    width: unset !important;
 }
 
 .swiper-custom-pagination {
