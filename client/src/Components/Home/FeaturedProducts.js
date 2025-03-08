@@ -128,7 +128,7 @@ export default function FeaturedProducts() {
           window.scrollTo({top: 0});
         }}
       >
-        EXPLORE ALL OUR PRODUCTS
+        EXPLORE ALL OF OUR PRODUCTS
       </button>                     
     </section>
   );
