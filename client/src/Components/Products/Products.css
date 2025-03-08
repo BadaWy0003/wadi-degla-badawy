@@ -740,14 +740,20 @@
 .product-details-page .breadcrumb {
   max-width: 1200px;
   margin: 0 auto 2rem auto;
+  flex-wrap: wrap;
+
 }
 
 .product-details-page .breadcrumb a {
   color: var(--goldColor);
+  text-wrap: nowrap;
+
 }
 
 .product-details-page .breadcrumb p {
   color: var(--darkGrayColor);
+  text-wrap: nowrap;
+
 }
 
 .product-details-container {
@@ -821,7 +827,7 @@
 @media (max-width: 1024px) {
 
   .product-details-page {
-    padding: 1rem !important;
+    padding: 10rem 1rem !important;
     min-height: unset;
     margin-top: unset;
   }

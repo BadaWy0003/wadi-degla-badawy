@@ -16,14 +16,18 @@
 .project-details-page .breadcrumb {
     max-width: 1200px;
     margin: 0 auto 2rem auto;
+    flex-wrap: wrap;
 }
 
 .project-details-page .breadcrumb a {
     color: var(--goldColor);
+    text-wrap: nowrap;
+
 }
 
 .project-details-page .breadcrumb p {
     color: var(--darkGrayColor);
+    text-wrap: nowrap;
 }
 
 /* ______________________________________________________ */
