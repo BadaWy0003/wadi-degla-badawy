@@ -69,7 +69,7 @@ export default function FeaturedProducts() {
           }}
           modules={[EffectCube, Pagination, Navigation, Autoplay]}
           autoplay={{
-            delay: 5000,
+            delay: 3000,
             disableOnInteraction: true,
           }}
           className="featured-cube-swiper"
