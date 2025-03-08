@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
-import "./Home.css"
+import "./FeaturedProducts.css"
 import { useNavigate } from "react-router-dom";
 import apiClient from "../../util/client.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
