@@ -23,18 +23,17 @@
 }
 
 .projects-page .quarries-hero h1 {
-    position: relative;
-    top: unset;
+    position: absolute;
+    top: 50%;
     color: var(--whiteColor);
     z-index: 1;
-    margin-bottom: 0;
 }
 
 
 .projects-page .quarries-hero .breadcrumb {
-    position: relative;
-    top: unset;
-    padding: 0;
+    position: absolute;
+    top: 60%;
+    padding: 1rem;
     color: var(--whiteColor);
     z-index: 1;
 }
@@ -188,7 +187,6 @@
     /* General Hero Section */
     .projects-page .quarries-hero {
         background-attachment: unset;
-        height: 50vh;
     }
 
     .projects-page .quarries-hero h1 {

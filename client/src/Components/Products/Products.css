@@ -14,7 +14,7 @@
   align-items: center;
   height: 80vh;
   margin-bottom: 0rem;
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/products-hero-1.jpg');
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/products-hero-3.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -24,17 +24,16 @@
 }
 
 .products-container-2 .quarries-hero h1 {
-  position: relative;
-  top: unset;
+  position: absolute;
+  top: 50%;
   color: var(--whiteColor);
   z-index: 1;
-  margin-bottom: 0;
 }
 
 
 .products-container-2 .quarries-hero .breadcrumb {
-  position: relative;
-  top: unset;
+  position: absolute;
+  top: 60%;
   padding: 0;
   color: var(--whiteColor);
   z-index: 1;
@@ -43,8 +42,24 @@
 
 .hero-hint-2 {
   color: var(--whiteColor);
-  font-size: 0.9rem;
+  font-size: 16px;
   text-align: center;
+  position: absolute;
+  top: 65%;
+  z-index: 1;
+
+}
+
+
+.projects-page .quarries-hero h1 {}
+
+
+.projects-page .quarries-hero .breadcrumb {
+  position: absolute;
+  top: 60%;
+  padding: 1rem;
+  color: var(--whiteColor);
+  z-index: 1;
 }
 
 
@@ -496,19 +511,16 @@
 }
 
 @media (max-width: 768px) {
-  .modal-custom {
+
+  /* .modal-custom {
     position: fixed;
-    /* Fullscreen modal */
     width: 80%;
     height: 80%;
     background-color: var(--whiteColor);
     display: flex;
     flex-direction: column;
-    /* Vertical layout */
     padding: 2rem;
-    /* Remove padding for fullscreen experience */
     z-index: 1000;
-    /* Ensure it appears above all elements */
     display: flex;
     column-gap: 0;
     justify-content: flex-start;
@@ -562,11 +574,14 @@
     margin-top: 1rem;
     width: 100%;
   }
-
+ */
   .application-icon {
     width: 50px;
     height: 50px;
   }
+
+
+
 }
 
 @media (max-width: 550px) {
@@ -654,7 +669,6 @@
   /* General Hero Section */
   .products-container-2 .quarries-hero {
     background-attachment: unset;
-    height: 50vh;
   }
 
   .products-container-2 .quarries-hero h1 {
@@ -665,6 +679,9 @@
     display: none;
   }
 
+  .products-container-2 .hero-hint-2 {
+    top: 70%;
+  }
 
   .products-categories-2 {
     display: flex;

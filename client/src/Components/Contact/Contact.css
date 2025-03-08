@@ -20,7 +20,7 @@
 
 .contact-container .quarries-hero h1 {
   position: absolute;
-  top: 40%;
+  top: 50%;
   color: var(--whiteColor);
   z-index: 1;
 }
@@ -28,7 +28,7 @@
 
 .contact-container .quarries-hero .breadcrumb {
   position: absolute;
-  top: 50%;
+  top: 60%;
   padding: 1rem;
   color: var(--whiteColor);
   z-index: 1;
@@ -537,6 +537,7 @@
 
 }
 
+.phone-numbers p,
 .email-address p {
   font-size: 14px;
   margin-bottom: 0;
@@ -639,20 +640,21 @@
     text-align: center;
   }
 
+  .phone-numbers p,
+  .email-address p {
+    text-align: center;
+  }
+
   .contact-inner-right h4 {
     text-align: center;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-container {
-    padding: 2rem 1rem;
-  }
 
   /* General Hero Section */
   .contact-container .quarries-hero {
     background-attachment: unset;
-    height: 50vh;
   }
 
   .contact-container .quarries-hero h1 {

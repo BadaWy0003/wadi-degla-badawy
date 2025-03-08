@@ -32,7 +32,6 @@ export default function Home(){
     return(
         <div className="homepage">
             <div className="hero">
-                <div className="banner">
                     <h1>Wadi Degla for marble & Granite</h1>
                     <p>Welcome to Wadi Degla for Marble & Granite, your trusted partner in the marble business since 1980.</p>
                         <div className="place4btns">
@@ -41,7 +40,6 @@ export default function Home(){
                             <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><button className="btn1">OUR PRODUCTS</button></Link>
 
                         </div>
-                </div>
             </div>
             <section className="intro-home-section">
                 <h4>At <strong>Wadi Degla</strong> Marble & Granite, three

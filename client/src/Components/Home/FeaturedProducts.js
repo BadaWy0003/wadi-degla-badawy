@@ -12,6 +12,7 @@ import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function FeaturedProducts() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [activeProduct, setActiveProduct] = useState(null);
   const navigate = useNavigate();
 
   const featuredNames = [
@@ -43,74 +44,92 @@ export default function FeaturedProducts() {
     }
   };
 
-    return(
-        <section className="featured-products-section">
-            <h2>Featured Products</h2>
-            <p>Discover our most popular selections</p>
-            <Swiper
-            effect={'cube'}
-            grabCursor={true}
-            loop={true}
-            cubeEffect={{
-                shadow: true,
-                slideShadows: true,
-                shadowOffset: 20,
-                shadowScale: 0.94,
-            }}
-            pagination={{
-                clickable: true,
-                el: '.swiper-custom-pagination'
-            }}
-            navigation={{
-                nextEl: '.swiper-custom-button-next',
-                prevEl: '.swiper-custom-button-prev'
-            }}
-            modules={[EffectCube, Pagination, Navigation, Autoplay]}
-                autoplay={{
-                delay: 5000,
-                disableOnInteraction: true,
+  return(
+    <section className="featured-products-section">
+      <h2>Featured Products</h2>
+      <p>Discover our most popular selections</p>
+      <div className="featured-content-wrapper">
+        <Swiper
+          effect={'cube'}
+          grabCursor={true}
+          loop={true}
+          cubeEffect={{
+            shadow: true,
+            slideShadows: true,
+            shadowOffset: 20,
+            shadowScale: 0.94,
+          }}
+          pagination={{
+            clickable: true,
+            el: '.swiper-custom-pagination'
+          }}
+          navigation={{
+            nextEl: '.swiper-custom-button-next',
+            prevEl: '.swiper-custom-button-prev'
+          }}
+          modules={[EffectCube, Pagination, Navigation, Autoplay]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: true,
+          }}
+          className="featured-cube-swiper"
+          onSlideChange={(swiper) => {
+            const realIndex = swiper.realIndex;
+            setActiveProduct(featuredProducts[realIndex]);
+          }}
+          onInit={(swiper) => {
+            setActiveProduct(featuredProducts[0]);
+          }}
+        >
+          {featuredProducts.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className="featured-cube-slide">
+                {item.finishes.find(finish => finish.finish === 'Polished') && (
+                  <img 
+                    src={item.finishes.find(finish => finish.finish === 'Polished').link} 
+                    alt={item.name} 
+                  />
+                )}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <div className="product-info-panel">
+          {activeProduct && (
+            <>
+              <h3>{activeProduct.name}</h3>
+              <p>{activeProduct.type}</p>
+              <button 
+                className="btn2"
+                onClick={() => {
+                  navigate(`/products/${activeProduct.id}`);
+                  window.scrollTo({top: 0});
                 }}
-            className="featured-cube-swiper"
-            >
-            {featuredProducts.map((item) => (
-                <SwiperSlide key={item.id}>
-                <div className="featured-cube-slide">
-                    {item.finishes.find(finish => finish.finish === 'Polished') && (
-                    <img 
-                        src={item.finishes.find(finish => finish.finish === 'Polished').link} 
-                        alt={item.name} 
-                    />
-                    )}
-                    <div className="slide-overlay">
-                    <h3>{item.name}</h3>
-                    <p>{item.type}</p>
-                    <button 
-                        className="btn2"
-                        onClick={() => {
-                        navigate(`/products/${item.id}`);
-                        window.scrollTo({top: 0});
-                        }}
-                    >
-                        More Details
-                    </button>
-                    </div>
-                </div>
-                </SwiperSlide>
-            ))}
-            </Swiper>
-            <div className="swiper-custom-navigation">
-            <div className="swiper-custom-button-prev">‹</div>
-            <div className="swiper-custom-pagination"></div>
-            <div className="swiper-custom-button-next">›</div>
-            </div>  
-            <button
-            className="btn1"
-            style={{marginTop: "2rem"}}
-            onClick={() => {
-                navigate('/products');
-                window.scrollTo({top: 0});
-            }}>EXPLORE ALL OUR PRODUCTS</button>                     
-        </section>
-        
-    );
+              >
+                More Details
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className="swiper-custom-navigation">
+        <div className="swiper-custom-button-prev">‹</div>
+        <div className="swiper-custom-pagination"></div>
+        <div className="swiper-custom-button-next">›</div>
+      </div>  
+      
+      <button
+        className="btn1"
+        style={{marginTop: "2rem"}}
+        onClick={() => {
+          navigate('/products');
+          window.scrollTo({top: 0});
+        }}
+      >
+        EXPLORE ALL OUR PRODUCTS
+      </button>                     
+    </section>
+  );
 }

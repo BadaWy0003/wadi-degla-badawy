@@ -49,7 +49,7 @@
   color: var(--whiteColor);
 }
 
-.footer-left-bg h1 {
+.footer-left-bg h2 {
   color: var(--whiteColor);
   margin-bottom: 0;
 }
@@ -205,6 +205,10 @@
     min-height: unset !important;
   }
 
+  .footer-left-bg p {
+    text-align: center;
+  }
+
   .footer-right {
     width: 100%;
 
@@ -282,9 +286,11 @@
 
   }
 
-  .footer-left-bg h1 {
+  .footer-left-bg h2 {
+    text-align: center;
     width: 100%;
   }
+
 
   .footer-right-content {
     padding: 5rem 1rem 1rem 1rem;

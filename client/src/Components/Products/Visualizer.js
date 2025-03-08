@@ -151,7 +151,7 @@ export default function Visualizer() {
           </button>
         </div>
 
-        <h1>{selectedCategory}</h1>
+        <h2>{selectedCategory}</h2>
 
         {/* Search Bar */}
         <input

@@ -265,20 +265,22 @@ export default function Contact() {
           <div className="contact-info">
           <div className="email-address">
               <h4>Email</h4>
-              <p>For homes, retail & sales:</p>
+              <p>For homes, retail & sales</p>
               <a href="mailto:export@wadidegla-eg.com">export@wadidegla-eg.com</a>
-              <p>For projects local & international:</p>
+              <p>For projects local & international</p>
               <a href="mailto:sales@wadidegla-eg.com">sales@wadidegla-eg.com</a>
-              <p>For international wholesalers, distributors & agents:</p>
+              <p>For international wholesalers, distributors & agents</p>
               <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
-              <p>For more information:</p>
+              <p>For more information</p>
               <a href="mailto:info@wadidegla-eg.com">info@wadidegla-eg.com</a>
             </div>
 
             <div className="phone-numbers">
               <h4>Phone</h4>
+              <p>Head Office</p>
               <a href="tel:+201067260314">(+20) 10-6726-0314</a>
               <a href="tel:+201155559896">(+20) 11-5555-9896</a>
+              <p>Support</p>
               <a href="tel:+201016667890">(+20) 101-666-7890</a>
             </div>
             <div className="location">

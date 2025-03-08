@@ -22,7 +22,7 @@
 
 .about-container .quarries-hero h1 {
     position: absolute;
-    top: 40%;
+    top: 50%;
     color: var(--whiteColor);
     z-index: 1;
 }
@@ -30,7 +30,7 @@
 
 .about-container .quarries-hero .breadcrumb {
     position: absolute;
-    top: 50%;
+    top: 60%;
     padding: 1rem;
     color: var(--whiteColor);
     z-index: 1;
@@ -321,7 +321,6 @@
     /* General Hero Section */
     .about-container .quarries-hero {
         background-attachment: unset;
-        height: 50vh;
     }
 
     .about-container .quarries-hero h1 {

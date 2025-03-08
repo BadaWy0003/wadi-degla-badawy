@@ -25,7 +25,7 @@ function Footer() {
       <footer className='footer-main'>
         <div className='footer-left'>
           <div className='footer-left-bg'>
-            <h1>GET IN TOUCH</h1>
+            <h2>GET IN TOUCH</h2>
             <p>At Wadi Degla for Marble & Granite, we value our customers' inquiries and feedback. Our dedicated team is here to assist you and provide the information you need.</p>
             
             <button 

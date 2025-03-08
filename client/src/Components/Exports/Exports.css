@@ -168,9 +168,11 @@
 
     .exports-container .quarries-hero {
         background-attachment: unset;
-        height: 50vh;
 
+    }
 
+    .exports-container .quarries-hero h1 {
+        top: 50%;
     }
 
 

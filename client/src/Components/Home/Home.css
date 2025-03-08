@@ -8,7 +8,7 @@
 }
 
 .hero {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('../../Public/Assets/Media/home-bg5.jpg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-bg5.jpg');
     background-size: cover;
     background-position: top 15% right 0;
     background-attachment: fixed;
@@ -26,44 +26,37 @@
 }
 
 
-
-.banner {
-    position: absolute;
-    left: 10%;
-    top: 40%;
-    width: 50%;
-    height: fit-content;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5rem;
-
+.homepage .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
-.banner h1 {
+.homepage .hero h1 {
     color: var(--goldColor);
     margin: 0;
-    font-size: 3rem;
-
+    font-size: 40px;
+    text-align: center;
 }
 
-.banner p {
+.homepage .hero p {
     color: var(--whiteColor);
+    text-align: center;
+    margin-top: 0;
 }
 
-.banner-opposite {
-    display: flex;
-    flex-grow: 1;
-}
 
 .place4btns {
-    margin-top: 2rem;
+    margin-top: 3rem;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     column-gap: 2rem;
 }
 
 .btn2 {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
     color: var(--whiteColor);
     border: solid 2px var(--whiteColor);
     border-radius: 2px;
@@ -79,14 +72,13 @@
     color: var(--goldColor);
     border: solid 2px var(--whiteColor);
     padding: 1rem 2rem;
-    transition: all 0.5s;
     scale: 98%;
 }
 
 .btn1 {
-    background-color: #AD9571;
-    color: #fff;
-    border: solid 2px #AD9571;
+    background-color: var(--goldColor);
+    color: var(--whiteColor);
+    border: solid 2px var(--goldColor);
     border-radius: 2px;
     padding: 1rem 2rem;
     font-weight: 600;
@@ -96,11 +88,10 @@
 }
 
 .btn1:hover {
-    background-color: rgba(0, 0, 0, 0);
-    color: #AD9571;
-    border: solid 2px #AD9571;
+    background-color: transparent;
+    color: var(--goldColor);
+    border: solid 2px var(--goldColor);
     padding: 1rem 2rem;
-    transition: all 0.5s;
     scale: 98%;
 
 }
@@ -172,12 +163,27 @@
 }
 
 @media (max-width: 768px) {
+    p {
+        font-size: 16px !important;
+    }
+
+    .hero {
+        background-attachment: unset;
+    }
+
     /* INTRO SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
     .intro-home-section {
         padding: 1rem;
     }
 
+    .intro-home-section h4 {
+        font-size: 16px;
+    }
+
+    .intro-home-section h4 strong {
+        font-weight: 400;
+    }
 
     /* FEATURED PRODUCTS SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -187,63 +193,52 @@
 }
 
 
-.featured-cube-swiper {
-    width: 300px;
-    height: 300px;
-    position: relative;
-    margin: 0 auto;
-}
-
-.featured-cube-slide {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.featured-cube-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slide-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+.featured-content-wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    padding: 20px;
-    text-align: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-.featured-cube-slide:hover .slide-overlay {
-    opacity: 1;
+.featured-cube-swiper {
+    flex: 1;
+    max-width: 500px;
 }
 
-.slide-overlay h3 {
-    color: var(--goldColor);
-    margin: 0 0 10px;
-    font-size: 1.5rem;
+.product-info-panel {
+    flex: 1;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    text-align: left;
 }
 
-.slide-overlay p {
-    color: var(--whiteColor);
-    margin: 0 0 20px;
-    font-size: 1rem;
+.product-info-panel h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--blackColor);
 }
 
-.slide-overlay button {
-    width: 100%;
+.product-info-panel p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--greyColor);
 }
 
+@media (max-width: 968px) {
+    .featured-content-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .product-info-panel {
+        width: 100%;
+        text-align: center;
+    }
+}
 
 .homepage .swiper-custom-navigation {
     display: flex;
@@ -502,61 +497,23 @@
 
 
 
-    .banner-opposite {
-        display: none;
-    }
 
-    .hero {
-        min-height: fit-content;
-        padding: 0 1rem;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-    .banner {
-        position: relative;
-        width: fit-content;
-        margin: auto;
-        height: fit-content;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        left: 0;
-        top: 10%;
+    .homepage .hero {
+        padding: 10rem 1rem 1rem 1rem;
+        background-position: top 0 right 30%;
     }
 
 
-
-
-    .banner h1 {
-        color: #AD9571;
-        margin: 0;
-        font-size: 1.5rem;
-    }
-
-    .banner p {
-        color: white;
-        font-size: 1rem;
-    }
 
 
     .place4btns {
-        margin-top: 1rem;
-        display: flex;
         flex-direction: column;
         row-gap: 1rem;
-        column-gap: 0;
     }
 
-
-    .gallery-home div {
-        grid-template-columns: repeat(2, 1fr) !important;
+    .place4btns button {
+        width: 100%;
     }
+
 
 }

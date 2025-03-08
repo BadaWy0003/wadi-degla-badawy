@@ -30,6 +30,14 @@
     transition: all 0.5s;
 }
 
+#partner-logo-3 {
+    max-width: 10rem;
+}
+
+#partner-logo-4 {
+    max-width: 10rem;
+}
+
 .partners img:hover {
     scale: 110%;
     filter: grayscale(0);

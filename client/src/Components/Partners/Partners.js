@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import ContactBubble from "../Contact/ContactBubble";
 import otrovato from '../../Public/Assets/Icons/partners/otrovato.png';
 import orascom from '../../Public/Assets/Icons/partners/orascom.png';
-import mivida from '../../Public/Assets/Icons/partners/mivida.png';
+import emaar from '../../Public/Assets/Icons/partners/emaar.svg';
 import hydepark from '../../Public/Assets/Icons/partners/hydepark.png';
 import wyndham from '../../Public/Assets/Icons/partners/wyndham.png';
-import cfc from '../../Public/Assets/Icons/partners/cfc.svg';
+import majid_alfuttaim from '../../Public/Assets/Icons/partners/majid-alfuttaim.png';
 import trade_logistics from '../../Public/Assets/Icons/partners/trade-logistics.png';
 import egy_consulate_kuwait from '../../Public/Assets/Icons/partners/egy-consulate-kuwait.jpeg';
 
@@ -15,11 +15,11 @@ import egy_consulate_kuwait from '../../Public/Assets/Icons/partners/egy-consula
     export const partnerLogos = [
         otrovato,
         orascom,
-        mivida,
+        emaar,
         egy_consulate_kuwait,
         wyndham,
         hydepark,
-        cfc,
+        majid_alfuttaim,
         trade_logistics
     ];
 
@@ -37,6 +37,7 @@ export default function Partners() {
             <div className="partners">
                 {partnerLogos.map((logo, index) => (
                     <img
+                        id={`partner-logo-${index + 1}`}
                         key={index} // Unique key for each logo
                         src={logo}
                         alt={`Partner Logo ${index + 1}`}
