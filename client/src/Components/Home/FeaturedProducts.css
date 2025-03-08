@@ -106,7 +106,7 @@
     color: white;
 }
 
-.featured-products-section .swiper-pagination-bullets .swiper-pagination-horizontal {
+.featured-products-section .swiper-horizontal>.swiper-pagination-bullets, .featured-products-section .swiper-pagination-bullets.swiper-pagination-horizontal, .featured-products-section .swiper-pagination-custom, .featured-products-section .swiper-pagination-fraction {
     width: unset !important;
 }
 
@@ -118,7 +118,7 @@
 .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background: #ccc;
+    background: var(--darkGrayColor);
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease;
