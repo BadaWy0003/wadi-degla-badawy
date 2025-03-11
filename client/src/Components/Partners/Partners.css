@@ -34,6 +34,10 @@
     max-width: 10rem;
 }
 
+#partner-logo-7 {
+    max-width: 10rem;
+}
+
 .partners img:hover {
     scale: 110%;
     filter: grayscale(0);

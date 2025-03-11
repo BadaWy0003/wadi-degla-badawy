@@ -21,17 +21,16 @@ import gangsaws_2 from '../../Public/Assets/Media/Machinery/gangsaws-2.jpeg';
 import gangsaws_3 from '../../Public/Assets/Media/Machinery/gangsaws-3.jpeg';
 import gangsaws_4 from '../../Public/Assets/Media/Machinery/gangsaws-4.jpeg';
 import gangsaws_5 from '../../Public/Assets/Media/Machinery/gangsaws-5.jpeg';
+import gangsaws_6 from '../../Public/Assets/Media/Machinery/gangsaws-6.jpeg';
 
 import big_bridge_cutter_1 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-1.jpeg';
 import big_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-2.jpeg';
 import big_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-3.jpeg';
-// import risin_line_4 from '../../Public/Assets/Media/Machinery/risin-line-4.jpeg';
-// import big_bridge_cutter_8 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-8.jpeg';
+import big_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-4.jpeg';
 import monofilos from '../../Public/Assets/Media/Machinery/monofilos.jpeg';
 import monofilos_2 from '../../Public/Assets/Media/Machinery/monofilos-2.jpg';
 import slabs_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-5.jpeg';
 import risin_line from '../../Public/Assets/Media/Machinery/risin-line.jpeg';
-// import risin_line_1 from '../../Public/Assets/Media/Machinery/risin-line-1.jpeg';
 import risin_line_2 from '../../Public/Assets/Media/Machinery/risin-line-2.jpeg';
 import risin_line_3 from '../../Public/Assets/Media/Machinery/risin-line-3.jpeg';
 import splitting_strips_1 from '../../Public/Assets/Media/Machinery/splitting-strips-1.jpg';
@@ -62,11 +61,11 @@ export default function Machinery(){
       const mngBlocksData = [
         {
           title: "9 Gangsaws",
-          images: [gangsaws, gangsaws_5, gangsaws_2, gangsaws_3, gangsaws_4],
+          images: [gangsaws_6, gangsaws, gangsaws_5, gangsaws_2, gangsaws_3, gangsaws_4],
         },
         {
           title: "4 Big bridge cutters",
-          images: [big_bridge_cutter_1, big_bridge_cutter_2, big_bridge_cutter_3],
+          images: [big_bridge_cutter_4, big_bridge_cutter_1, big_bridge_cutter_2, big_bridge_cutter_3],
         },
         {
           title: "6 Monofilos",

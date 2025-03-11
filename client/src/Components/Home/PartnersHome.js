@@ -14,8 +14,8 @@ export default function PartnersHome() {
         <section className="partners-home-section">
             <h2>Our Partners</h2>
             <Swiper
-                slidesPerView={7}
-                spaceBetween={30}
+                slidesPerView={1}
+                spaceBetween={0}
                 loop={true}
                 speed={2000}
                 autoplay={{
@@ -25,11 +25,16 @@ export default function PartnersHome() {
                 breakpoints={{
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 20
+                        spaceBetween: 0, // Remove space for better centering
+                        centeredSlides: true, // Center the single slide
+                    },
+                    768: {
+                        slidesPerView: 3, 
+                        spaceBetween: 15
                     },
                     968: {
                         slidesPerView: 3,
-                        spaceBetween: 10
+                        spaceBetween: 20
                     },
                     1024: {
                         slidesPerView: 4,

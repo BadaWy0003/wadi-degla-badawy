@@ -151,14 +151,21 @@
 
 .partners-swiper {
     max-width: 100%;
-    margin: 0 auto;
+    margin: unset !important;
     height: fit-content;
     /* Fixed height for the swiper container */
+}
+
+.swiper-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .swiper-slide .partner-slide {
     height: 150px;
     display: flex !important;
+    margin: 0 !important;
 }
 
 .partner-slide img {

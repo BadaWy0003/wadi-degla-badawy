@@ -212,6 +212,15 @@ export default function Navbar() {
                 Gallery
               </Link>
               <Link
+                to="/news"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                News
+              </Link>
+              <Link
                 to="/partners"
                 onClick={() => {
                   closeNavbar();

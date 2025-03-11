@@ -17,6 +17,7 @@ import telegram_circle_white_icon from '../../Public/Assets/Icons/Social/telegra
 import tiktok_circle_white_icon from '../../Public/Assets/Icons/Social/tiktok-circle-white-icon.svg';
 
 import qr from '../../Public/Assets/Icons/Social/QR.png';
+import AddressMap from './AddressMap.js';
 
 export default function Contact() {
   const { globalState, loading } = useGlobalState(); // Access global state for user data and loading status
@@ -266,11 +267,11 @@ export default function Contact() {
           <div className="email-address">
               <h4>Email</h4>
               <p>For homes, retail & sales</p>
-              <a href="mailto:export@wadidegla-eg.com">export@wadidegla-eg.com</a>
-              <p>For projects local & international</p>
               <a href="mailto:sales@wadidegla-eg.com">sales@wadidegla-eg.com</a>
-              <p>For international wholesalers, distributors & agents</p>
+              <p>For projects local & international</p>
               <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
+              <p>For international wholesalers, distributors & agents</p>
+              <a href="mailto:export@wadidegla-eg.com">export@wadidegla-eg.com</a>
               <p>For more information</p>
               <a href="mailto:info@wadidegla-eg.com">info@wadidegla-eg.com</a>
             </div>
@@ -290,6 +291,7 @@ export default function Contact() {
                 Area for Marble & Granite, Tourrah,
                 Cairo, Egypt
               </a>
+              <AddressMap />
             </div>
             <div className="social">
               <h4>Social</h4>
