@@ -66,6 +66,7 @@ function Footer() {
                   <Link to='/partners' onClick={() => {window.scrollTo(0, 0);}}>Our Partners</Link>
                   <Link to='/projects' onClick={() => {window.scrollTo(0, 0);}}>Projects</Link>
                   <Link to='/fairs' onClick={() => {window.scrollTo(0, 0);}}>Fairs</Link>
+                  <Link to='/news' onClick={() => {window.scrollTo(0, 0);}}>News</Link>
 
                 </div>
 
