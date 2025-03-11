@@ -125,7 +125,6 @@ export default function Machinery(){
                         <h2>GENERAL USE</h2>
                         <hr/>
                     </div>
-                    <p>Our advanced machinery ensures precision cutting and squaring of blocks.</p>
                     
                     <div className="machinery-grid">
                     {generalUseData.map((item, index) => (
@@ -159,7 +158,6 @@ export default function Machinery(){
                         <hr/>
                     </div>
 
-                    <p>Our advanced machinery ensures precision cutting and squaring of blocks.</p>
                     
                     <div className="machinery-grid">
                     {mngBlocksData.map((item, index) => (
@@ -192,7 +190,6 @@ export default function Machinery(){
                         <h2>MARBLE & GRANITE SLABS</h2>
                         <hr/>
                     </div>
-                    <p>Our advanced machinery ensures precision cutting and squaring of blocks.</p>
                     
                     <div className="machinery-grid">
                     {mngSlabsData.map((item, index) => (
@@ -226,7 +223,6 @@ export default function Machinery(){
                         <hr/>
                     </div>
 
-                    <p>Our advanced machinery ensures precision cutting and squaring of blocks.</p>
                     
                     <div className="machinery-grid">
                     {mngTilesData.map((item, index) => (

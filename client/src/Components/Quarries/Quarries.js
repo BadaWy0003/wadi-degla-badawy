@@ -42,6 +42,8 @@ import third_factory1 from '../../Public/Assets/Media/Quarries/third-factory/thi
 import third_factory2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
 import third_factory3 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory3.jpeg';
 import third_factory4 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory4.jpg';
+import third_factory5 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory5.jpeg';
+import third_factory6 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory6.jpeg';
 
 
 export default function Quarries(){
@@ -99,7 +101,9 @@ export default function Quarries(){
 
   const thirdFactoryImages = [
     {
-      images: [third_factory4,
+      images: [third_factory6,
+                third_factory5,
+                third_factory4,
                 third_factory1,
                 third_factory2,
                 third_factory3]

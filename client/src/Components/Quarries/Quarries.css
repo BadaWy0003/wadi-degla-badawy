@@ -107,6 +107,7 @@
 .quarries-slider {
     width: 40vw !important;
     height: 20rem !important;
+    max-width: 430px;
 
 }
 
