@@ -118,7 +118,7 @@
 }
 
 .project-gallery-swiper {
-    cursor: grab;
+    cursor: pointer;
 }
 
 /* Custom pagination bullets */
@@ -142,8 +142,7 @@
     /* ______________________________________________________ */
 
     .project-details-container {
-        flex-direction: column-reverse;
-        border: 1px solid var(--goldColor);
+        flex-direction: column;
         border-radius: 1rem;
         padding: 2rem 1rem;
     }
@@ -159,6 +158,14 @@
         background-color: unset;
         height: unset;
         min-width: unset;
+    }
+
+    .project-details-right h1 {
+        margin-bottom: 0;
+    }
+
+    .project-details-right p {
+        margin-bottom: 0;
     }
 
     .project-details-right button {
@@ -181,14 +188,16 @@
         /* width: 60vw;
     height: 80vh;
     border-radius: 1rem; */
+        border-radius: 0;
         width: unset;
-        max-width: 80vw;
+        max-width: 100vw;
         height: auto;
 
     }
 
     .project-gallery-swiper img {
         height: 30rem;
+        border-radius: 0;
     }
 
 }

@@ -9,12 +9,17 @@ import { Pagination, Navigation } from "swiper/modules";
 import apiClient from "../../util/client.js"; 
 import projects from "./projectList"; 
 import Product from "../Products/Product"; 
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 import ContactBubble from "../Contact/ContactBubble.js";
+
 export default function ProjectDetails() {
   const { projectId } = useParams();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -43,6 +48,8 @@ export default function ProjectDetails() {
     return products.find((p) => p.name.toLowerCase() === material.toLowerCase());
   }).filter(Boolean) ?? []; // Prevents undefined errors
 
+  const slides = project?.gallery ? Object.values(project?.gallery).map((img) => ({ src: img })) : [];
+
   return (
     <div className="project-details-page">
       <div className="breadcrumb">
@@ -69,7 +76,7 @@ export default function ProjectDetails() {
               className="project-gallery-swiper"
             >
               {Object.values(project?.gallery).map((image, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={index} onClick={() => { setIndex(index); setOpen(true); }}>
                   <img src={image} alt={`Slide ${index}`} className="project-image" />
                 </SwiperSlide>
               ))}
@@ -102,6 +109,9 @@ export default function ProjectDetails() {
         </div>
       </div>
       <ContactBubble />
+
+      {/* Lightbox Component */}
+      <Lightbox open={open} close={() => setOpen(false)} slides={slides} index={index} />
 
     </div>
   );
