@@ -20,6 +20,7 @@ export default function ProjectDetails() {
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -58,7 +59,7 @@ export default function ProjectDetails() {
         <a href="/projects">{">"} Projects</a>
         <p>{">"} {project.name}</p>
       </div>
-
+      <p className="project-hint">Tap on the image to view it in full size and swipe to navigate</p>
       <div className="project-details-container">
         <div className="project-details-left">
           {project?.gallery && Object.keys(project?.gallery)?.length > 0 ? (
@@ -76,8 +77,18 @@ export default function ProjectDetails() {
               className="project-gallery-swiper"
             >
               {Object.values(project?.gallery).map((image, index) => (
-                <SwiperSlide key={index} onClick={() => { setIndex(index); setOpen(true); }}>
+                <SwiperSlide 
+                  key={index} 
+                  onClick={() => { setIndex(index); setOpen(true); }}
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                  >
                   <img src={image} alt={`Slide ${index}`} className="project-image" />
+                  {hovered && (
+                    <div className="image-overlay">
+                      <p>Click on the image to view it in full size and swipe to navigate</p>
+                    </div>
+                  )}
                 </SwiperSlide>
               ))}
             </Swiper>
