@@ -3,7 +3,7 @@ import "./Signup.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../GlobalStateContext.js";
-import wadi_degla_logo_login from "../../Public/Assets/Logo-Identity/wadi-degla-logo-login.svg";
+import wadi_degla_logo_login from '../../Public/Assets/Media/logo-color-stroke-notext.svg';
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 

@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 5rem;
+  padding: 10rem 5rem;
   column-gap: 5rem;
 }
 
@@ -40,6 +40,12 @@
 
 .container1-img img {
   width: 100%;
+  transition: all 0.3s ease;
+
+}
+
+.container1-img img:hover {
+  rotate: -10deg;
 
 }
 
@@ -517,6 +523,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5rem 0;
   }
 
   .container1, .container2 {
@@ -540,6 +547,7 @@
     padding: 1.5rem;
     /* Adjust padding further */
   }
+
 
   #container2-login {
     max-width: 90vw;
@@ -578,6 +586,12 @@
     min-width: 90%;
     padding: 1rem;
     padding-bottom: 2rem;
+  }
+
+  .container2 {
+    background-color: unset;
+    border: none;
+    border-radius: 0;
   }
 
   /* Adjust form layout */
@@ -623,6 +637,7 @@
   /* Center forgot password text */
   .forgot-password {
     text-align: center;
+    color: var(--lightGrayColor);
   }
 
 }
