@@ -167,6 +167,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .project-details-page {
+        padding: 15rem 2rem 5rem 2rem;
+    }
 
     /* ______________________________________________________ */
     .project-hint {
@@ -240,4 +243,20 @@
         border-radius: 0;
     }
 
+
+}
+
+
+@media screen and (max-height: 550px) {
+    .project-details-page p {
+        font-size: 14px;
+    }
+
+    .project-details-page {
+        padding: 10rem 1rem;
+    }
+
+    .project-details-page .breadcrumb {
+        margin-bottom: 0;
+    }
 }

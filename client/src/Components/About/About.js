@@ -87,7 +87,7 @@ export default function About(){
             <CounterSection />
 
             <div className="thanks-section">
-                <h1>Elevate Your Vision with Wadi Degla</h1>
+                <h2>Elevate Your Vision with Wadi Degla</h2>
                 <h4>Wadi Degla Marble & Granite is synonymous with grandeur,
                     quality, and a relentless pursuit of perfection. <br/>Our
                     commitment to excellence is unrivaled, and our legacy is built

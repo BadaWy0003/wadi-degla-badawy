@@ -18,29 +18,29 @@ import galala_quarry_1 from '../../Public/Assets/Media/Quarries/galala-quarry-1.
 import galala_quarry_2 from '../../Public/Assets/Media/Quarries/galala-quarry-2.jpeg';
 import galala_quarry_3 from '../../Public/Assets/Media/Quarries/galala-quarry-3.jpeg';
 import galala_quarry_4 from '../../Public/Assets/Media/Quarries/galala-quarry-4.jpeg';
-import image1 from '../../Public/Assets/Media/Quarries/first-factory/image1.jpeg';
+// import image1 from '../../Public/Assets/Media/Quarries/first-factory/image1.jpeg';
 import image2 from '../../Public/Assets/Media/Quarries/first-factory/image2.jpeg';
 import image3 from '../../Public/Assets/Media/Quarries/first-factory/image3.jpeg';
 import image4 from '../../Public/Assets/Media/Quarries/first-factory/image4.jpeg';
 import image5 from '../../Public/Assets/Media/Quarries/first-factory/image5.jpeg';
 import image6 from '../../Public/Assets/Media/Quarries/first-factory/image6.jpeg';
 import image7 from '../../Public/Assets/Media/Quarries/first-factory/image7.jpeg';
-import image8 from '../../Public/Assets/Media/Quarries/first-factory/image8.jpeg';
+// import image8 from '../../Public/Assets/Media/Quarries/first-factory/image8.jpeg';
 import image9 from '../../Public/Assets/Media/Quarries/first-factory/image9.jpeg';
 
 import secondfactory1 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory1.jpg';
 import secondfactory2 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory2.jpg';
 import secondfactory3 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory3.jpeg';
-import secondfactory4 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory4.jpeg';
+// import secondfactory4 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory4.jpeg';
 import secondfactory5 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory5.jpg';
 import secondfactory6 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory6.jpeg';
 import secondfactory7 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory7.jpeg';
 import secondfactory8 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory8.jpeg';
 import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory9.jpeg';
 
-import third_factory1 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory1.jpeg';
-import third_factory2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
-import third_factory3 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory3.jpeg';
+// import third_factory1 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory1.jpeg';
+// import third_factory2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
+// import third_factory3 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory3.jpeg';
 import third_factory4 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory4.jpg';
 import third_factory5 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory5.jpeg';
 import third_factory6 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory6.jpeg';
@@ -75,15 +75,14 @@ export default function Quarries(){
 
   const firstFactoryImages = [
     {
-      images: [image8,
+      images: [image9,
               image2,
               image3,
               image4,
               image5,
               image6,
               image7,
-              image1,
-              image9]
+              ]
     }]
 
   const secondFactoryImages = [
@@ -92,7 +91,6 @@ export default function Quarries(){
               secondfactory1,
               secondfactory2,
               secondfactory3,
-              secondfactory4,
               secondfactory5,
               secondfactory7,
               secondfactory8,
@@ -103,10 +101,7 @@ export default function Quarries(){
     {
       images: [third_factory6,
                 third_factory5,
-                third_factory4,
-                third_factory1,
-                third_factory2,
-                third_factory3]
+                third_factory4]
     }]
 
                                                           

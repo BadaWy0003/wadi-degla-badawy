@@ -65,6 +65,8 @@
 .first-gen-intro {
     color: var(--whiteColor);
     text-align: center;
+    font-size: 20px !important;
+    font-weight: 300;
     padding: 0 5rem;
 }
 
@@ -403,7 +405,7 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/67.jpeg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/67.jpeg');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
@@ -463,10 +465,14 @@
 }
 
 @media screen and (max-width: 768px) {
+    .history-container p {
+        font-size: 14px !important;
+    }
 
     /* General Hero Section */
     .history-container .quarries-hero {
         background-attachment: unset;
+
     }
 
     .history-container .quarries-hero h1 {
@@ -480,8 +486,9 @@
     /* Intro Section */
 
     .first-gen-intro {
-        padding: 1rem;
+        padding: 0;
     }
+
 
     /* First Gen */
     .first-gen-section {
@@ -585,6 +592,10 @@
         padding: 0;
     }
 
+    .legacy-section-text p {
+        text-align: justify;
+    }
+
     /* Final Section */
 
     .history-final-section {
@@ -593,6 +604,60 @@
         padding: 1rem;
     }
 
+    .history-final-section p {
+        text-align: justify;
+    }
 
 
+}
+
+@media screen and (max-height: 550px) {
+    .history-container p {
+        font-size: 14px !important;
+    }
+
+    .first-gen-section,
+    .second-gen-section,
+    .third-gen-section {
+        padding: 0 1rem;
+    }
+
+    .first-gen-section-content,
+    .second-gen-section-content {
+        gap: 2rem;
+    }
+
+    .first-gen-section-text,
+    .second-gen-section-text {
+        flex: unset;
+    }
+
+    .first-gen-section-image,
+    .second-gen-section-image {
+        flex: unset;
+        min-width: 30vw;
+    }
+
+
+
+    .second-gen-title h2 {
+        width: 60%;
+    }
+
+    .third-gen-section-image {
+        width: 50%;
+        height: 70vh;
+    }
+
+    .third-gen-section-image img {
+        height: 100%;
+    }
+
+    .third-gen-section-content {
+        gap: 2rem;
+    }
+
+    .masonry-grid {
+        column-count: 5;
+    }
 }

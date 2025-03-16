@@ -165,6 +165,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .exports-container p {
+        font-size: 14px;
+    }
 
     .exports-container .quarries-hero {
         background-attachment: unset;
@@ -217,8 +220,35 @@
         margin-bottom: 2rem !important;
     }
 
+    .continent-buttons button {
+        font-size: 16px;
+    }
+
     #chartdiv {
         width: 100vw;
     }
 
+}
+
+@media screen and (max-height: 550px) {
+    .exports-container p {
+        font-size: 14px;
+    }
+
+    .export-department {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .export-department-content {
+        max-width: 60%;
+    }
+
+    .export-department img {
+        max-width: 40%;
+    }
+
+    .our-markets h2 {
+        margin-bottom: 1rem;
+    }
 }

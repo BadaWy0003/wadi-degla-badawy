@@ -25,6 +25,7 @@ import history12 from '../../Public/Assets/Media/History/history12.jpg'
 import history13 from '../../Public/Assets/Media/History/history13.jpg'
 import history14 from '../../Public/Assets/Media/History/history14.jpg'
 import history15 from '../../Public/Assets/Media/History/history15.jpg'
+import history15_1 from '../../Public/Assets/Media/History/history15-1.jpeg'
 import history16 from '../../Public/Assets/Media/History/history16.jpg'
 import history17 from '../../Public/Assets/Media/History/history17.jpg'
 import history18 from '../../Public/Assets/Media/History/history18.jpg'
@@ -60,6 +61,7 @@ export default function History(){
         history13,
         history14,
         history15,
+        history15_1,
         history16,
         history17,
         history18,

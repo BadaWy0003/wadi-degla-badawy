@@ -133,6 +133,7 @@
 }
 
 .overlay {
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -147,6 +148,10 @@
     font-size: 1.5rem;
     font-weight: bold;
     transition: opacity 0.3s ease-in-out;
+}
+
+.project-card:hover .overlay {
+    opacity: 1;
 }
 
 .overlay h3 {
@@ -222,5 +227,15 @@
         max-width: 100%;
     }
 
+    .overlay {
+        opacity: 1;
+    }
 
+
+}
+
+@media screen and (max-height: 550px) {
+    .project-card {
+        height: 300px;
+    }
 }

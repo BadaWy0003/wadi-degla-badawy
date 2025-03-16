@@ -6,8 +6,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import ContactBubble from "../Contact/ContactBubble";
 
-import water_treatment from '../../Public/Assets/Media/Machinery/water-treatment.jpg';
-import water_treatment_2 from '../../Public/Assets/Media/Machinery/water-treatment-2.jpg';
+// import water_treatment from '../../Public/Assets/Media/Machinery/water-treatment.jpg';
+// import water_treatment_2 from '../../Public/Assets/Media/Machinery/water-treatment-2.jpg';
 import slabs_bridge_cutter from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-1.jpg';
 import slabs_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-2.jpg';
 import slabs_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-3.jpeg';
@@ -37,6 +37,12 @@ import splitting_strips_1 from '../../Public/Assets/Media/Machinery/splitting-st
 import splitting_strips_2 from '../../Public/Assets/Media/Machinery/splitting-strips-2.jpg';
 import tumble_machine from '../../Public/Assets/Media/Machinery/tumble-machine.jpeg';
 import fork_lift from '../../Public/Assets/Media/Machinery/fork-lift.jpg';
+import crane_1 from '../../Public/Assets/Media/Packing/packing5.jpeg';
+import crane_2 from '../../Public/Assets/Media/27.jpg';
+// import crane_3 from '../../Public/Assets/Media/63.jpeg';
+// import crane_4 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory3.jpeg';
+import crane_5 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory3.jpeg';
+// import crane_6 from '../../Public/Assets/Media/67.jpeg';
 
 
 
@@ -44,9 +50,20 @@ export default function Machinery(){
 
     const generalUseData = [
         {
-          title: "3 Water treatment plants",
-          images: [water_treatment_2, water_treatment],
+          title: "Cranes",
+          images: [
+                    crane_2,
+                    crane_5,
+                    crane_1
+                  ],
         },
+        // {
+        //   title: "3 Water treatment plants",
+        //   images: [
+        //     water_treatment,
+        //     water_treatment_2
+        //           ],
+        // },
         {
           title: "2 Forklifts",
           images: [fork_lift],

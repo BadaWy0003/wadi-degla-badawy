@@ -42,13 +42,19 @@ export default function Home(){
                         </div>
             </div>
             <section className="intro-home-section">
-                <h4>At <strong>Wadi Degla</strong> Marble & Granite, three
-                        generations of <strong>passion</strong> and <strong>expertise</strong> converge to bring
-                        you the <strong>finest</strong> natural stone products. We are delighted
-                        to introduce you to our legacy, our values, and our
-                        commitment to <strong>excellence</strong> in every project we
-                        undertake.
-                </h4>
+                <h2>45 Years shaping the future of stone</h2>
+                <p>With a legacy spanning 45 years, Wadi Degla for Marble & 
+                    Granite has been at the forefront of quarrying, crafting, and 
+                    exporting the finest natural stone. Passed down through three 
+                    generations, our passion for excellence and innovation has cemented 
+                    our reputation as a global leader in the industry. From 
+                    Egypt’s legendary quarries to landmark projects across the 
+                    world, we continue to shape architectural masterpieces, honoring 
+                    our heritage while embracing the future. With every slab we extract 
+                    and every stone we refine, we uphold a tradition of 
+                    quality, expertise, and trust—bringing visions to life, one stone at 
+                    a time.
+                </p>
             </section>
             <MissionVisionSection />
             <div id="home-about-button" className="home-button-section">

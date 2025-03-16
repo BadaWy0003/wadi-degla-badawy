@@ -138,7 +138,7 @@ export default function Contact() {
             </div>
           )}
           <div className='contact-form-title'>
-            <h1>Send us a message</h1>
+            <h2>Send us a message</h2>
             <p>Our team will get back to you as soon as possible!</p>
           </div>
           <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
@@ -262,7 +262,7 @@ export default function Contact() {
           </form>
         </div>
         <div className="contact-inner-right">
-          <h1>Contact information</h1>
+          <h2>Contact information</h2>
           <div className="contact-info">
           <div className="email-address">
               <h4>Email</h4>
@@ -306,7 +306,9 @@ export default function Contact() {
               </div>
               <a href='https://drive.google.com/file/d/1rh0sYPG7Fq8eQ_meS-8wSXCPRtaUS-dl/view' target="_blank" rel="noopener noreferrer"> <button className='btn1'>DOWNLOAD OUR BROCHURE</button> </a>
               <h4>Click Or scan the QR code for all links</h4>
-              <a href='https://wadideg.social/' target="_blank" rel="noopener noreferrer"> <img alt='' src={qr} /> </a>
+              <div>
+              <a id="qr-code" href='https://wadideg.social/' target="_blank" rel="noopener noreferrer"> <img alt='' src={qr} /> </a>
+              </div>
             </div>
           </div>
         </div>

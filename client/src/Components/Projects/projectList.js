@@ -1,9 +1,13 @@
 
 import jm_appartments_1 from '../../Public/Assets/Media/Projects/j-m-appartments.jpeg'
+
 import south_c_project from '../../Public/Assets/Media/Projects/south-c-project.jpeg'
 import south_c_project2 from '../../Public/Assets/Media/Projects/south-c-project.png'
+
 import theta_lane from '../../Public/Assets/Media/Projects/theta-lane-project.jpeg'
+
 import blu_terrenas from '../../Public/Assets/Media/Projects/blu-terrenas.jpg'
+
 import romania_project_1 from '../../Public/Assets/Media/Projects/romania-project-1.jpeg'
 import romania_project_2 from '../../Public/Assets/Media/Projects/romania-project-2.jpeg'
 
@@ -14,23 +18,32 @@ import egy_embassy_kuwait_4 from '../../Public/Assets/Media/Projects/egy-embassy
 import egy_embassy_kuwait_5 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-5.jpeg'
 import egy_embassy_kuwait_6 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-6.jpeg'
 import egy_embassy_kuwait_7 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-7.jpeg'
+
 import wyndham from '../../Public/Assets/Media/Projects/wyndham.jpeg'
 import wyndham1 from '../../Public/Assets/Media/Projects/wyndham1.jpeg'
+import wyndham1_1 from '../../Public/Assets/Media/Projects/wyndham1-1.jpg'
+import wyndham1_2 from '../../Public/Assets/Media/Projects/wyndham1-2.jpeg'
 import wyndham2 from '../../Public/Assets/Media/Projects/wyndham2.jpeg'
-import wyndham8 from '../../Public/Assets/Media/Projects/wyndham8.jpeg'
+import wyndham2_1 from '../../Public/Assets/Media/Projects/wyndham2-1.jpg'
+import wyndham2_2 from '../../Public/Assets/Media/Projects/wyndham2-2.jpeg'
+import wyndham3 from '../../Public/Assets/Media/Projects/wyndham3.jpeg'
+import wyndham3_1 from '../../Public/Assets/Media/Projects/wyndham3-1.jpeg'
 import wyndham9 from '../../Public/Assets/Media/Projects/wyndham9.jpeg'
 import wyndham10 from '../../Public/Assets/Media/Projects/wyndham10.jpeg'
+import wyndham10_1 from '../../Public/Assets/Media/Projects/wyndham10-1.jpeg'
+import wyndham10_2 from '../../Public/Assets/Media/Projects/wyndham10-2.jpg'
 import wyndham11 from '../../Public/Assets/Media/Projects/wyndham11.jpeg'
 import wyndham12 from '../../Public/Assets/Media/Projects/wyndham12.jpeg'
 import wyndham14 from '../../Public/Assets/Media/Projects/wyndham14.jpeg'
 import wyndham15 from '../../Public/Assets/Media/Projects/wyndham15.jpeg'
 import wyndham16 from '../../Public/Assets/Media/Projects/wyndham16.jpeg'
 import wyndham17 from '../../Public/Assets/Media/Projects/wyndham17.jpeg'
+import wyndham17_1 from '../../Public/Assets/Media/Projects/wyndham17-1.jpeg'
+import wyndham17_2 from '../../Public/Assets/Media/Projects/wyndham17-2.jpeg'
 import wyndham18 from '../../Public/Assets/Media/Projects/wyndham18.jpeg'
 import wyndham19 from '../../Public/Assets/Media/Projects/wyndham19.jpeg'
 import wyndham20 from '../../Public/Assets/Media/Projects/wyndham20.jpeg'
-import wyndham21 from '../../Public/Assets/Media/Projects/wyndham21.jpg'
-import wyndham22 from '../../Public/Assets/Media/Projects/wyndham22.jpg'
+
 import carribean_palace from '../../Public/Assets/Media/Projects/carribean-palace.jpeg'
 import carribean_palace_2 from '../../Public/Assets/Media/Projects/carribean-palace-2.jpeg'
 import carribean_palace_3 from '../../Public/Assets/Media/Projects/carribean-palace-3.jpeg'
@@ -42,6 +55,7 @@ import carribean_palace_9 from '../../Public/Assets/Media/Projects/carribean-pal
 import carribean_palace_10 from '../../Public/Assets/Media/Projects/carribean-palace-10.jpeg'
 import carribean_palace_11 from '../../Public/Assets/Media/Projects/carribean-palace-11.jpeg'
 import carribean_palace_12 from '../../Public/Assets/Media/Projects/carribean-palace-12.jpeg'
+
 import latinamerica_project_1 from '../../Public/Assets/Media/Projects/latinamerica-project-1.jpeg'
 import latinamerica_project_2 from '../../Public/Assets/Media/Projects/latinamerica-project-2.jpeg'
 import latinamerica_project_3 from '../../Public/Assets/Media/Projects/latinamerica-project-3.jpeg'
@@ -49,6 +63,14 @@ import latinamerica_project_4 from '../../Public/Assets/Media/Projects/latinamer
 import latinamerica_project_5 from '../../Public/Assets/Media/Projects/latinamerica-project-5.jpeg'
 import latinamerica_project_6 from '../../Public/Assets/Media/Projects/latinamerica-project-6.jpeg'
 
+import cfc_podiums_1 from '../../Public/Assets/Media/Projects/cfc-podiums-1.jpeg';
+import cfc_podiums_2 from '../../Public/Assets/Media/Projects/cfc-podiums-2.jpeg';
+import cfc_podiums_3 from '../../Public/Assets/Media/Projects/cfc-podiums-3.jpeg';
+import cfc_podiums_4 from '../../Public/Assets/Media/Projects/cfc-podiums-4.jpeg';
+
+import mivida_business_park_1 from '../../Public/Assets/Media/Projects/mivida-business-park-1.jpg';
+import mivida_business_park_2 from '../../Public/Assets/Media/Projects/mivida-business-park-2.jpg';
+import mivida_business_park_3 from '../../Public/Assets/Media/Projects/mivida-business-park-3.jpg';
 
 const projects = [
   {
@@ -57,21 +79,28 @@ const projects = [
     thumbnail: wyndham,
     gallery: {wyndham,
               wyndham1,
+              wyndham1_1,
+              wyndham1_2,
               wyndham2,
-              wyndham8,
+              wyndham2_1,
+              wyndham2_2,
+              wyndham3,
+              wyndham3_1,
               wyndham9,
               wyndham10,
+              wyndham10_1,
+              wyndham10_2,
               wyndham11,
               wyndham12,
               wyndham14,
               wyndham15,
               wyndham16,
               wyndham17,
+              wyndham17_1,
+              wyndham17_2,
               wyndham18,
               wyndham19,
               wyndham20,
-              wyndham21,
-              wyndham22,
               },
     city: "",
     country: "The Carribean",
@@ -170,6 +199,29 @@ const projects = [
       city: "Bucharest",
       country: "Romania",
       materialsSupplied: ["Creamy White Pearl"],
+    },
+    {
+      id: "10",
+      name: "CFC Podiums",
+      thumbnail: cfc_podiums_1,
+      gallery: {cfc_podiums_1,
+                cfc_podiums_2,
+                cfc_podiums_3,
+                cfc_podiums_4},
+      city: "Cairo",
+      country: "Egypt",
+      materialsSupplied: ["Pietra Grey", "Calacatta Italy", "Karnak Grey", "Fantastic White"],
+    },
+    {
+      id: "11",
+      name: "Mivida Business Buildings",
+      thumbnail: mivida_business_park_1,
+      gallery: {mivida_business_park_1,
+                mivida_business_park_2,
+                mivida_business_park_3},
+      city: "Cairo",
+      country: "Egypt",
+      materialsSupplied: ["Pietra Grey", "Calacatta Italy", "Triesta Beige"],
     },
 
   ];

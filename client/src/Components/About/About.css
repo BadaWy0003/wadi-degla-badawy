@@ -2,6 +2,10 @@
     margin-top: -7rem;
 }
 
+.about-container p {
+    font-size: 16px !important;
+}
+
 /*HERO SECTION_____________________________________________________________*/
 .about-container .quarries-hero {
     position: relative;
@@ -145,7 +149,6 @@
 
 .vision-card h2, .mission-card h2 {
     color: var(--goldColor);
-    font-size: 40px;
 }
 
 .vision-card p, .mission-card p {
@@ -172,7 +175,7 @@
 .our-expertise-title h2 {
     background-color: var(--darkerBlackColor);
     color: var(--goldColor);
-    font-size: 40px;
+    font-size: 32px;
     margin-bottom: 0;
     width: fit-content;
     padding-right: 1rem;
@@ -180,7 +183,6 @@
 
 .our-expertise-title p {
     color: var(--whiteColor);
-    font-size: 14px;
     font-weight: 100;
     text-transform: uppercase;
     margin-top: 0rem;
@@ -274,7 +276,6 @@
 
 .counter-card p {
     text-align: center;
-    font-size: 14px;
     color: var(--whiteColor);
 
 }
@@ -290,14 +291,14 @@
     text-align: center;
 }
 
-.thanks-section h1 {
+.thanks-section h2 {
     color: var(--goldColor);
     font-size: 100px;
     font-weight: bold;
     transition: all 0.3s ease;
 }
 
-.thanks-section h1:hover {
+.thanks-section h2:hover {
     scale: 101%;
 }
 
@@ -317,6 +318,10 @@
 
 
 @media screen and (max-width: 768px) {
+    .about-container p {
+        font-size: 14px !important;
+    }
+
 
     /* General Hero Section */
     .about-container .quarries-hero {
@@ -337,6 +342,10 @@
 
     }
 
+    .about-intro-section-content h2 {
+        text-align: center;
+    }
+
     .about-intro-section-image {
         width: 90%;
         max-width: unset;
@@ -354,7 +363,9 @@
     .vision-card, .mission-card {
         padding: 1rem;
         max-width: unset;
+
     }
+
 
     /*OUR EXPERTISE SECTION_____________________________________________________________*/
     .our-expertise-section {
@@ -372,7 +383,7 @@
     }
 
     .our-expertise-section-content-text p {
-        text-align: center;
+        text-align: left;
     }
 
 
@@ -398,14 +409,74 @@
 
     }
 
-    .thanks-section h1 {
-        font-size: 40px;
+    .thanks-section h2 {
+        font-size: 32px;
     }
 
     .thanks-section h4 {
-        font-size: 16px;
+        font-size: 14px;
+        hyphens: auto;
 
     }
 
 
+}
+
+@media screen and (max-height: 550px) {
+    .about-container p {
+        font-size: 14px !important;
+    }
+
+    .about-intro-section {
+        padding: 0 1rem;
+        gap: 2rem;
+    }
+
+    .about-intro-section-content h2 {
+        margin-top: 0;
+    }
+
+    .mission-vision-section {
+        padding: 0 2rem;
+        gap: 2rem;
+    }
+
+    .vision-card, .mission-card {
+        max-width: unset;
+        width: 100%;
+        height: 80vh;
+    }
+
+    .our-expertise-section {
+        padding: 0 1rem;
+    }
+
+    .our-expertise-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .our-expertise-title hr {
+        display: none;
+    }
+
+    .our-expertise-section-content {
+        gap: 1rem;
+    }
+
+    .our-expertise-section-content-image {
+        display: flex;
+        align-items: center;
+        max-width: 50%;
+    }
+
+    .thanks-section {
+        padding: 5rem 1rem;
+    }
+
+    .thanks-section h2 {
+        font-size: 40px;
+    }
 }

@@ -38,19 +38,6 @@
 
 
 
-
-/* .machinery-container .gallery-hero-bg {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Layer-2.png');
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-size: cover;
-    background-position: top;
-    z-index: -1;
-
-} */
 .machinery-intro {
     display: flex;
     flex-direction: column;
@@ -231,6 +218,14 @@
 }
 
 @media screen and (max-width: 768px) {
+    .machinery-container p {
+        font-size: 14px;
+    }
+
+    .machinery-intro p {
+        font-size: 16px;
+    }
+
     .machinery-hero .breadcrumb {
         display: none;
     }

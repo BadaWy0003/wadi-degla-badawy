@@ -82,6 +82,7 @@ nav a:hover {
 }
 
 /* Submenu container */
+
 .submenu-bg {
     display: none;
     position: absolute;
@@ -355,7 +356,6 @@ nav {
 @media only screen and (max-width: 1024px) {
 
     header {
-        position: fixed;
         top: 0;
         display: flex;
         align-items: center;
@@ -479,4 +479,28 @@ nav {
         max-width: 100%;
     }
 
+}
+
+@media only screen and (max-height: 550px) {
+    header {
+        position: sticky;
+    }
+
+    #logo-nav-mobile {
+        max-width: 10rem;
+        margin: 0;
+    }
+
+    header nav {
+        gap: 0.5rem;
+    }
+
+    .submenu {
+        padding: 0 !important;
+        top: 0 !important;
+    }
+
+    .submenu a {
+        padding: 10px;
+    }
 }

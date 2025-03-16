@@ -7,6 +7,10 @@
     font-size: 2rem !important;
 }
 
+.homepage p {
+    font-size: 16px !important;
+}
+
 .hero {
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-bg5.jpg');
     background-size: cover;
@@ -64,6 +68,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.5s;
+    font-family: unset;
 
 }
 
@@ -84,6 +89,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.5s;
+    font-family: unset;
 
 }
 
@@ -103,11 +109,16 @@
     margin-top: 5rem;
 }
 
-.intro-home-section h4 {
+.intro-home-section h2 {
+    color: var(--goldColor);
+    text-transform: capitalize;
+}
+
+.intro-home-section p {
     color: var(--whiteColor);
-    text-align: center;
+    text-align: justify;
+    hyphens: auto;
     font-weight: 400;
-    font-size: 20px;
 }
 
 /* MISSION VISION SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -180,65 +191,6 @@
     filter: grayscale(0%);
 }
 
-@media (max-width: 768px) {
-    .partners-home-section {
-        padding: 2rem 0rem;
-    }
-
-    .partners-home-section h2 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .partner-slide {
-        height: 100px;
-    }
-
-    .partner-slide img {
-        max-width: 70%;
-        max-height: 5rem;
-    }
-
-    .visualizer-home-section {
-        padding: 0 !important;
-    }
-
-    .visualizer-home-inner {
-        background-attachment: unset !important;
-        border-radius: 0 !important;
-        height: 50vh !important;
-        padding: 1rem !important;
-    }
-
-    .visualizer-home-inner p {
-        font-size: 14px !important;
-    }
-
-    /* PROJECTS HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-
-    .projects-home-section {
-        background: linear-gradient(180deg,
-                rgba(0, 0, 0, 0.6),
-                rgba(0, 0, 0, 0.6)),
-            url('../../Public/Assets/Media/Projects/carribean-palace.jpeg') !important;
-        background-attachment: unset !important;
-        height: 60vh !important;
-        padding: 2rem !important;
-        align-items: center !important;
-    }
-
-    .projects-home-section h2 {
-        text-align: center !important;
-    }
-
-    .projects-home-section p {
-        text-align: center !important;
-        max-width: unset !important;
-    }
-
-}
-
 /* VISUALIZER HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .visualizer-home-section {
@@ -274,7 +226,6 @@
 .visualizer-home-section p {
     color: var(--whiteColor);
     text-align: center;
-    font-size: 20px;
 }
 
 
@@ -317,7 +268,6 @@
 
 .projects-home-section p {
     color: var(--whiteColor);
-    font-size: 20px;
     max-width: 35vw;
 }
 
@@ -359,9 +309,10 @@
 
 }
 
+
 @media (max-width: 768px) {
-    p {
-        font-size: 16px !important;
+    .homepage p {
+        font-size: 14px !important;
     }
 
     .hero {
@@ -382,4 +333,84 @@
         font-weight: 400;
     }
 
+
+
+    .partners-home-section {
+        padding: 2rem 0rem;
+    }
+
+    .partners-home-section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .partner-slide {
+        height: 100px;
+    }
+
+    .partner-slide img {
+        max-width: 70%;
+        max-height: 5rem;
+    }
+
+    .visualizer-home-section {
+        padding: 0 !important;
+    }
+
+    .visualizer-home-inner {
+        background-attachment: unset !important;
+        border-radius: 0 !important;
+        height: 50vh !important;
+        padding: 1rem !important;
+    }
+
+
+    /* PROJECTS HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+    .projects-home-section {
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)),
+            url('../../Public/Assets/Media/Projects/carribean-palace.jpeg') !important;
+        background-attachment: unset !important;
+        height: 60vh !important;
+        padding: 2rem !important;
+        align-items: center !important;
+    }
+
+    .projects-home-section h2 {
+        text-align: center !important;
+    }
+
+    .projects-home-section p {
+        text-align: center !important;
+        max-width: unset !important;
+    }
+
+}
+
+
+
+@media (max-width: 550px) {
+
+    .visualizer-home-inner, .projects-home-section {
+        align-items: flex-start !important;
+
+    }
+
+    .visualizer-home-inner h2, .visualizer-home-inner p,
+    .projects-home-section h2, .projects-home-section p {
+        text-align: left !important;
+    }
+}
+
+@media (max-height: 550px) {
+    .homepage p {
+        font-size: 14px !important;
+    }
+
+    .featured-products-section h2 {
+        margin: 0 !important;
+    }
 }

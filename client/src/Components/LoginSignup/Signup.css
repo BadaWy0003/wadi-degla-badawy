@@ -610,6 +610,10 @@
     font-size: 0.8rem;
   }
 
+  .signup-form .input-field label {
+    color: var(--lightGrayColor);
+  }
+
   .signup-form .country-phone {
     max-width: 100% !important;
   }
@@ -640,4 +644,24 @@
     color: var(--lightGrayColor);
   }
 
+}
+
+@media screen and (max-height: 550px) {
+
+  .container1 {
+    max-width: unset;
+    text-align: center;
+  }
+
+  .container1-img {
+    max-width: unset;
+  }
+
+  .container1-img img {
+    width: 40%;
+  }
+
+  .container1-title {}
+
+  .container1-title h3 {}
 }

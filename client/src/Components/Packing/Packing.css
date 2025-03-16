@@ -50,7 +50,6 @@
 
 .packing-container p {
     color: var(--whiteColor);
-    font-weight: 200;
     text-align: justify;
 }
 
@@ -121,6 +120,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .packing-container p {
+        font-size: 14px;
+    }
+
+
 
     /* General Hero Section */
     .packing-container .quarries-hero {
@@ -135,10 +139,17 @@
         display: none;
     }
 
+    .packing-container h3 {
+        font-size: 16px;
+    }
 
-    .packing-slabs,
-    .packing-tiles {
+    .packing-slabs {
         flex-direction: column;
+        padding: 1rem;
+    }
+
+    .packing-tiles {
+        flex-direction: column-reverse;
         padding: 1rem;
     }
 
@@ -173,4 +184,22 @@
     }
 
 
+}
+
+
+@media screen and (max-height: 550px) {
+    .packing-container p {
+        font-size: 14px;
+    }
+
+    .packing-slabs,
+    .packing-tiles {
+        padding: 0 1rem;
+        column-gap: 1rem
+    }
+
+    .packing-slabs img,
+    .packing-tiles img {
+        width: 40%;
+    }
 }

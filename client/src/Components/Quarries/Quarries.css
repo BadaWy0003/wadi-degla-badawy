@@ -105,7 +105,6 @@
 } */
 
 .quarries-slider {
-    width: 40vw !important;
     height: 20rem !important;
     max-width: 430px;
 
@@ -172,8 +171,11 @@
 }
 
 @media screen and (max-width: 768px) {
-    /* General Hero Section */
 
+    /* General Hero Section */
+    .quarries-container p {
+        font-size: 14px;
+    }
 
     .quarries-hero {
         background-attachment: unset;
@@ -186,6 +188,17 @@
         text-align: center;
     }
 
+    .quarries-title {
+        justify-content: unset;
+    }
+
+    .quarries-title hr {
+        display: none;
+    }
+
+    .quarries-title h2 {
+        padding: 0;
+    }
 
     .quarries-hero .breadcrumb {
         display: none;
@@ -197,17 +210,9 @@
         overflow-x: hidden;
     }
 
-    .quarries-title {}
-
-    .quarries-title h2 {}
-
-    .quarries-title hr {}
-
-    .quarries h1, .factories h1 {}
-
-    .quarries h3, .factories h3 {}
-
-    .quarries p, .factories p {}
+    .quarries h3, .factories h3 {
+        font-size: 16px;
+    }
 
     .quarry-card, .factory-card {
         margin-bottom: 3rem;
@@ -246,10 +251,30 @@
     .global img {
         height: unset;
     }
+}
 
-    .global p {}
+@media screen and (max-height: 550px) {
+    .quarries-container p {
+        font-size: 14px;
+    }
 
-    .global-facilities-slider .swiper-pagination-bullet {}
+    .quarries-slider {
+        width: unset;
+    }
 
-    .global-facilities-slider .swiper-pagination-bullet-active {}
+    .quarries, .factories {
+        padding: 0 1rem;
+    }
+
+    .quarry-card, .factory-card {
+        margin-bottom: 2rem;
+    }
+
+    .quarries .text, .factories .text {
+        padding: 0 1rem;
+    }
+
+    .global {
+        padding: 0 1rem;
+    }
 }

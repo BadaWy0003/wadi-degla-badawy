@@ -63,3 +63,20 @@
 .form-group input:disabled {
     background-color: #f0f0f0;
 }
+
+
+@media (max-height: 550px) {
+    .sample-request-modal form label, .sample-request-modal h2 {
+        font-size: 14px !important;
+    }
+
+    .sample-request-modal {
+        padding: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 2px;
+    }
+
+
+}
