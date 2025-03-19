@@ -33,7 +33,7 @@ export default function Partners() {
 
     return (
         <div className='partners-container'>
-            <h1>OUR PARTNERS</h1>
+            <h1>OUR PARTNERS & CLIENTS</h1>
             <div className="partners">
                 {partnerLogos.map((logo, index) => (
                     <img

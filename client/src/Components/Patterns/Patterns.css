@@ -180,3 +180,9 @@
     }
 
 }
+
+@media screen and (max-height: 550px) {
+    .patterns-container .quarries-hero {
+        background-attachment: unset;
+    }
+}

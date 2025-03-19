@@ -179,9 +179,6 @@
 
     .quarries-hero {
         background-attachment: unset;
-
-
-
     }
 
     .quarries-hero h1 {
@@ -256,6 +253,10 @@
 @media screen and (max-height: 550px) {
     .quarries-container p {
         font-size: 14px;
+    }
+
+    .quarries-hero {
+        background-attachment: unset;
     }
 
     .quarries-slider {

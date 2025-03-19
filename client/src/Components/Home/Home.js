@@ -3,6 +3,7 @@ import './Home.css';
 import { Link, useNavigate } from "react-router-dom";
 import 'react-multi-carousel/lib/styles.css';
 import MissionVisionSection from "../About/MissionVisionSection.js";
+import QuarriesHome from "./QuarriesHome.js";
 import FeaturedProducts from "./FeaturedProducts.js";
 import PartnersHome from "./PartnersHome.js";
 import CounterSection from "../About/CounterSection.js";
@@ -67,7 +68,7 @@ export default function Home(){
                 }}>ABOUT WADI DEGLA</button>                     
             </div>
 
-
+            <QuarriesHome />
             <FeaturedProducts />
             <PartnersHome />
             <CounterSection />

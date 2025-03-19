@@ -1,110 +1,12 @@
 import React from "react";
 import './Quarries.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import QuarriesSwiper from "./QuarriesSwiper";
+import {galalaQuarryImages, creamyQuarryImages, firstFactoryImages, secondFactoryImages, thirdFactoryImages} from "./QuarriesImageData";
 import ContactBubble from "../Contact/ContactBubble";
-
-// import image03 from '../../Public/Assets/Media/3.jpg';
-// import image21 from '../../Public/Assets/Media/21.jpg';
-// import image24 from '../../Public/Assets/Media/24.jpg';
-import creamy_white_pearl_quarry_1 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-1.jpeg';
-import creamy_white_pearl_quarry_2 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-2.jpeg';
-import creamy_white_pearl_quarry_3 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-3.jpeg';
-import creamy_white_pearl_quarry_4 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-4.jpeg';
-import galala_quarry_1 from '../../Public/Assets/Media/Quarries/galala-quarry-1.jpeg';
-import galala_quarry_2 from '../../Public/Assets/Media/Quarries/galala-quarry-2.jpeg';
-import galala_quarry_3 from '../../Public/Assets/Media/Quarries/galala-quarry-3.jpeg';
-import galala_quarry_4 from '../../Public/Assets/Media/Quarries/galala-quarry-4.jpeg';
-// import image1 from '../../Public/Assets/Media/Quarries/first-factory/image1.jpeg';
-import image2 from '../../Public/Assets/Media/Quarries/first-factory/image2.jpeg';
-import image3 from '../../Public/Assets/Media/Quarries/first-factory/image3.jpeg';
-import image4 from '../../Public/Assets/Media/Quarries/first-factory/image4.jpeg';
-import image5 from '../../Public/Assets/Media/Quarries/first-factory/image5.jpeg';
-import image6 from '../../Public/Assets/Media/Quarries/first-factory/image6.jpeg';
-import image7 from '../../Public/Assets/Media/Quarries/first-factory/image7.jpeg';
-// import image8 from '../../Public/Assets/Media/Quarries/first-factory/image8.jpeg';
-import image9 from '../../Public/Assets/Media/Quarries/first-factory/image9.jpeg';
-
-import secondfactory1 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory1.jpg';
-import secondfactory2 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory2.jpg';
-import secondfactory3 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory3.jpeg';
-// import secondfactory4 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory4.jpeg';
-import secondfactory5 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory5.jpg';
-import secondfactory6 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory6.jpeg';
-import secondfactory7 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory7.jpeg';
-import secondfactory8 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory8.jpeg';
-import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory9.jpeg';
-
-// import third_factory1 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory1.jpeg';
-// import third_factory2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
-// import third_factory3 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory3.jpeg';
-import third_factory4 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory4.jpg';
-import third_factory5 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory5.jpeg';
-import third_factory6 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory6.jpeg';
 
 
 export default function Quarries(){
   
-  // const globalFactoriesImages = [
-  //         {
-  //           images: [image03, image21, image24]
-  //         }]
-
-  const galalaQuarryImages = [
-    {
-      images: [galala_quarry_1, galala_quarry_4, galala_quarry_2, galala_quarry_3]
-    }]
-
-  // const zaafranaQuarryImages = [
-  //   {
-  //     images: [image03, image21, image24]
-  //   }]
-
-  const creamyQuarryImages = [
-    {
-      images: [creamy_white_pearl_quarry_2, creamy_white_pearl_quarry_1, creamy_white_pearl_quarry_3, creamy_white_pearl_quarry_4]
-    }]
-
-  // const samahaQuarryImages = [
-  //   {
-  //     images: [image03, image21, image24]
-  //   }]
-
-  const firstFactoryImages = [
-    {
-      images: [image9,
-              image2,
-              image3,
-              image4,
-              image5,
-              image6,
-              image7,
-              ]
-    }]
-
-  const secondFactoryImages = [
-    {
-      images: [secondfactory6,
-              secondfactory1,
-              secondfactory2,
-              secondfactory3,
-              secondfactory5,
-              secondfactory7,
-              secondfactory8,
-              secondfactory9]
-    }]
-
-  const thirdFactoryImages = [
-    {
-      images: [third_factory6,
-                third_factory5,
-                third_factory4]
-    }]
-
-                                                          
     
     return(
         <div className="quarries-container">
@@ -129,22 +31,7 @@ export default function Quarries(){
 
         {/* Galala Quarry */}
         <div className="quarry-card left">
-        <Swiper
-        navigation
-        loop={true} // Enable infinite loop
-        pagination={{ clickable: true }}
-        slidesPerView={1}
-        modules={[Navigation, Pagination, Autoplay]}
-        className="quarries-slider"
-        lazy={true}
-        >
-        {galalaQuarryImages[0].images.map((image, i) => (
-            <SwiperSlide key={i}>
-            <img src={image} alt={`${i}`} className="swiper-lazy"/>
-            <div className="swiper-lazy-preloader"></div>
-            </SwiperSlide>
-        ))}
-        </Swiper>
+          <QuarriesSwiper images={galalaQuarryImages} />
           <div
             className="text"
             
@@ -157,7 +44,7 @@ export default function Quarries(){
           </div>
         </div>
 
-        {/* Zafarana Quarry */}
+        {/* Creamy Quarry */}
         <div className="quarry-card right">
           <div
             className="text"
@@ -169,25 +56,8 @@ export default function Quarries(){
             creamy tones and refined texture.
             </p>
           </div>
-          <Swiper
-        navigation
-        loop={true} // Enable infinite loop
-        pagination={{ clickable: true }}
-        slidesPerView={1}
-        modules={[Navigation, Pagination, Autoplay]}
-        className="quarries-slider"
-        lazy={true}
-        >
-        {creamyQuarryImages[0].images.map((image, i) => (
-            <SwiperSlide key={i}>
-            <img src={image} alt={`${i}`} className="swiper-lazy"/>
-            <div className="swiper-lazy-preloader"></div>
-            </SwiperSlide>
-        ))}
-        </Swiper>
+          <QuarriesSwiper images={creamyQuarryImages} />
         </div>
-
-        {/* Creamy White Pearl Quarry */}
 
       </section>
 
@@ -203,23 +73,8 @@ export default function Quarries(){
 
         {/* Factory 2000 */}
         <div className="factory-card left">
-        <Swiper
-        navigation
-        loop={true} // Enable infinite loop
-        pagination={{ clickable: true }}
-        slidesPerView={1}
-        modules={[Navigation, Pagination, Autoplay]}
-        className="quarries-slider"
-        lazy={true}
-        >
-        {firstFactoryImages[0].images.map((image, i) => (
-            <SwiperSlide key={i}>
-            <img src={image} alt={`${i}`} className="swiper-lazy"/>
-            <div className="swiper-lazy-preloader"></div>
-            </SwiperSlide>
-        ))}
-        </Swiper>
-          <div
+        <QuarriesSwiper images={firstFactoryImages} />
+        <div
             className="text"
             
           >
@@ -243,43 +98,13 @@ export default function Quarries(){
               products.
             </p>
           </div>
-          <Swiper
-        navigation
-        loop={true} // Enable infinite loop
-        pagination={{ clickable: true }}
-        slidesPerView={1}
-        modules={[Navigation, Pagination, Autoplay]}
-        className="quarries-slider"
-        lazy={true}
-        >
-        {secondFactoryImages[0].images.map((image, i) => (
-            <SwiperSlide key={i}>
-            <img src={image} alt={`${i}`} className="swiper-lazy"/>
-            <div className="swiper-lazy-preloader"></div>
-            </SwiperSlide>
-        ))}
-        </Swiper>
-        </div>
+          <QuarriesSwiper images={secondFactoryImages} />
+          </div>
 
         {/* Factory 2015 */}
         <div className="factory-card left">
-        <Swiper
-        navigation
-        loop={true} // Enable infinite loop
-        pagination={{ clickable: true }}
-        slidesPerView={1}
-        modules={[Navigation, Pagination, Autoplay]}
-        className="quarries-slider"
-        lazy={true}
-        >
-        {thirdFactoryImages[0].images.map((image, i) => (
-            <SwiperSlide key={i}>
-            <img src={image} alt={`${i}`} className="swiper-lazy"/>
-            <div className="swiper-lazy-preloader"></div>
-            </SwiperSlide>
-        ))}
-        </Swiper>
-            <div
+        <QuarriesSwiper images={thirdFactoryImages} />
+        <div
             className="text"
             
           >

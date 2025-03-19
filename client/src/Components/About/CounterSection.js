@@ -1,4 +1,5 @@
 import React from "react";
+import "./CounterSection.css";
 
 import CountUp from 'react-countup';
 import projects from '../../Public/Assets/Icons/projects.svg'
@@ -7,12 +8,25 @@ import technology from '../../Public/Assets/Icons/technology.svg'
 import craftsmanship from '../../Public/Assets/Icons/craftsmanship.png'
 import global_supply_chain from '../../Public/Assets/Icons/global-supply-chain.svg'
 import tiles from '../../Public/Assets/Icons/tiles.svg'
-
+import experience from '../../Public/Assets/Icons/experience.svg'
 
 export default function CounterSection() {
 
     return(
         <section className="about-counters-section">
+                    <div id="experience-card" className="counter-card">
+            <img src={experience} alt="experience-icon"/>
+            <h3>YEARS OF EXPERIENCE</h3>
+            <CountUp start={0}
+                    end={45}
+                    duration={3}
+                    enableScrollSpy={true}
+                    separator=""
+                    suffix=" +"
+                    style={{ fontSize: '40px', fontWeight: 900}} />
+        </div>
+
+        <div className="about-counters-section-inner">
         <div className="counter-card">
             <img src={manpower} alt="manpower-icon"/>
             <h3>MANPOWER</h3>
@@ -22,7 +36,8 @@ export default function CounterSection() {
                     enableScrollSpy={true}
                     separator=""
                     suffix=" +"
-                    style={{ fontSize: '40px', fontWeight: 900}} />
+                    className="counter-text"
+                     />
         </div>
         <div className="counter-card">
             <img src={tiles} alt="manpower-icon"/>
@@ -33,7 +48,8 @@ export default function CounterSection() {
                     enableScrollSpy={true}
                     separator=""
                     suffix=" +"
-                    style={{ fontSize: '40px', fontWeight: 900 }} />
+                    className="counter-text"
+                     />
         </div>
 
         <div className="counter-card">
@@ -45,7 +61,8 @@ export default function CounterSection() {
                     enableScrollSpy={true}
                     separator=""
                     suffix=" +"
-                    style={{ fontSize: '40px', fontWeight: 900 }} />
+                    className="counter-text"
+                    />
         </div>
 
         <div className="counter-card">
@@ -74,7 +91,7 @@ export default function CounterSection() {
                 materials.</p>
         </div>
 
+    </div>
     </section>
-
     );
 }

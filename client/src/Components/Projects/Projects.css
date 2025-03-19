@@ -235,6 +235,10 @@
 }
 
 @media screen and (max-height: 550px) {
+    .projects-page .quarries-hero {
+        background-attachment: unset;
+    }
+
     .project-card {
         height: 300px;
     }

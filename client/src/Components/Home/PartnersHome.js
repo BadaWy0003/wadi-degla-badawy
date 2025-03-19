@@ -12,7 +12,7 @@ export default function PartnersHome() {
 
     return(
         <section className="partners-home-section">
-            <h2>Our Partners</h2>
+            <h2>Our Partners & Clients</h2>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}
@@ -46,7 +46,7 @@ export default function PartnersHome() {
             >
                 {partnerLogos.map((logo, index) => (
                     <SwiperSlide key={index} className="partner-slide">
-                        <img src={logo} alt={`Partner ${index + 1}`} />
+                        <img id={`Partner-logo-home-${index + 1}`} src={logo} alt={`Partner ${index + 1}`} />
                     </SwiperSlide>
                 ))}
             </Swiper>

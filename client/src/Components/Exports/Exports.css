@@ -235,6 +235,11 @@
         font-size: 14px;
     }
 
+    .exports-container .quarries-hero {
+        background-attachment: unset;
+
+    }
+
     .export-department {
         padding: 1rem;
         gap: 1rem;

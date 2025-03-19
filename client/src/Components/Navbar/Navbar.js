@@ -227,7 +227,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Our Partners
+                Our Partners & Clients
               </Link>
             </div>
           </div>

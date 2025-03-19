@@ -133,6 +133,45 @@
     margin-bottom: 10rem;
 }
 
+/* QUARRIES HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.quarries-home-section {
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('../../Public/Assets/Media/Quarries/quarries-home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80vh;
+    max-width: 100vw;
+    padding: 0 5rem;
+    overflow-x: hidden;
+}
+
+.quarries-home-section h2 {
+    color: var(--goldColor);
+    text-align: center;
+    margin: 0;
+}
+
+.quarries-home-section h4 {
+    color: var(--blueColor);
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.quarries-home-section p {
+    color: var(--whiteColor);
+    text-align: center;
+}
 
 
 /* PARTNERS SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -189,6 +228,14 @@
 
 .partner-slide img:hover {
     filter: grayscale(0%);
+}
+
+#Partner-logo-home-3 {
+    max-width: 10rem;
+}
+
+#Partner-logo-home-5 {
+    max-width: 10rem;
 }
 
 /* VISUALIZER HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -333,6 +380,16 @@
         font-weight: 400;
     }
 
+    .quarries-home-section {
+        background-attachment: unset !important;
+        height: 50vh !important;
+        padding: 1rem !important;
+
+    }
+
+    .quarries-home-section h4 {
+        text-align: left;
+    }
 
 
     .partners-home-section {
@@ -374,8 +431,8 @@
                 rgba(0, 0, 0, 0.6)),
             url('../../Public/Assets/Media/Projects/carribean-palace.jpeg') !important;
         background-attachment: unset !important;
-        height: 60vh !important;
-        padding: 2rem !important;
+        height: 50vh !important;
+        padding: 1rem !important;
         align-items: center !important;
     }
 
@@ -393,10 +450,49 @@
 
 
 @media (max-width: 550px) {
+    .hero {
+        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-mobile-bg-2-1.jpeg');
+        background-size: cover;
+        background-position: bottom;
+    }
+
+    .quarries-home-section {
+        align-items: flex-start !important;
+
+    }
+
+    .hero .place4btns {
+        width: 100%;
+    }
+
+
+    .quarries-home-section button {}
+
+    .quarries-home-section h2, .quarries-home-section p {
+        text-align: left !important;
+    }
 
     .visualizer-home-inner, .projects-home-section {
         align-items: flex-start !important;
 
+    }
+
+    .featured-products-section button,
+    .quarries-home-section button,
+    .visualizer-home-inner button,
+    .projects-home-section button,
+    .home-button-section button {
+        width: 100%;
+
+    }
+
+    .product-info-panel button {
+        width: unset;
+    }
+
+    .home-button-section {
+        padding: 0 1rem;
+        width: unset;
     }
 
     .visualizer-home-inner h2, .visualizer-home-inner p,
@@ -410,7 +506,24 @@
         font-size: 14px !important;
     }
 
+    .quarries-home-section {
+        background-attachment: unset;
+    }
+
     .featured-products-section h2 {
         margin: 0 !important;
     }
+
+    .visualizer-home-inner {
+        background-attachment: unset;
+    }
+
+    .visualizer-home-inner {
+        background-attachment: unset;
+    }
+
+    .projects-home-section {
+        background-attachment: unset;
+    }
+
 }

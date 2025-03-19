@@ -1,8 +1,15 @@
 
-import jm_appartments_1 from '../../Public/Assets/Media/Projects/j-m-appartments.jpeg'
+import jm_appartments_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2.jpeg'
+import jm_appartments_2_1 from '../../Public/Assets/Media/Projects/j-m-appartments-2-1.jpeg'
+import jm_appartments_2_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2-2.jpeg'
 
 import south_c_project from '../../Public/Assets/Media/Projects/south-c-project.jpeg'
 import south_c_project2 from '../../Public/Assets/Media/Projects/south-c-project.png'
+import south_c_project1 from '../../Public/Assets/Media/Projects/south-c-project-1.jpeg'
+import south_c_project2_2 from '../../Public/Assets/Media/Projects/south-c-project-2.jpg'
+import south_c_project3 from '../../Public/Assets/Media/Projects/south-c-project-3.jpg'
+import south_c_project4 from '../../Public/Assets/Media/Projects/south-c-project-4.jpg'
+import south_c_project5 from '../../Public/Assets/Media/Projects/south-c-project-5.jpg'
 
 import theta_lane from '../../Public/Assets/Media/Projects/theta-lane-project.jpeg'
 
@@ -76,7 +83,7 @@ const projects = [
   {
     id: "1",
     name: "Wyndham Project",
-    thumbnail: wyndham,
+    thumbnail: wyndham1_2,
     gallery: {wyndham,
               wyndham1,
               wyndham1_1,
@@ -141,8 +148,8 @@ const projects = [
     {
       id: "4",
       name: "J&M Appartments",
-      thumbnail: jm_appartments_1,
-      gallery: {jm_appartments_1},
+      thumbnail: jm_appartments_2_2,
+      gallery: {jm_appartments_2, jm_appartments_2_2, jm_appartments_2_1},
       city: "Nairobi",
       country: "Kenya",
       materialsSupplied: ["Creamy White Pearl", "Emperador"], 
@@ -150,8 +157,8 @@ const projects = [
     {
       id: "5",
       name: "South C Project",
-      thumbnail: south_c_project2,
-      gallery: {south_c_project},
+      thumbnail: south_c_project1,
+      gallery: {south_c_project1, south_c_project, south_c_project2_2, south_c_project3, south_c_project4, south_c_project5},
       city: "Nairobi",
       country: "Kenya",
       materialsSupplied: ["Creamy White Pearl", "Triesta Grey"],

@@ -63,7 +63,7 @@ function Footer() {
                 <h4>RESOURCES</h4>
                 <Link to='/quarries' onClick={() => {window.scrollTo(0, 0);}}>Quarries & Factories</Link>
                   <Link to='/gallery' onClick={() => {window.scrollTo(0, 0);}}>Gallery</Link>
-                  <Link to='/partners' onClick={() => {window.scrollTo(0, 0);}}>Our Partners</Link>
+                  <Link to='/partners' onClick={() => {window.scrollTo(0, 0);}}>Our Partners & Clients</Link>
                   <Link to='/projects' onClick={() => {window.scrollTo(0, 0);}}>Projects</Link>
                   <Link to='/fairs' onClick={() => {window.scrollTo(0, 0);}}>Fairs</Link>
                   <Link to='/news' onClick={() => {window.scrollTo(0, 0);}}>News</Link>

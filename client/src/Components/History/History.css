@@ -616,6 +616,11 @@
         font-size: 14px !important;
     }
 
+    .history-container .quarries-hero {
+        background-attachment: unset;
+
+    }
+
     .first-gen-section,
     .second-gen-section,
     .third-gen-section {
@@ -660,4 +665,9 @@
     .masonry-grid {
         column-count: 5;
     }
+
+    .history-final-section {
+        background-attachment: unset;
+    }
+
 }

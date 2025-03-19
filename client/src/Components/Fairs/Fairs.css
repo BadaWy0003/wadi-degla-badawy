@@ -77,3 +77,10 @@
     }
 
 }
+
+@media screen and (max-height: 550px) {
+
+    .fairs-container .quarries-hero {
+        background-attachment: unset;
+    }
+}

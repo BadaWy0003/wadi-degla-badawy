@@ -30,12 +30,16 @@
     transition: all 0.5s;
 }
 
+#partner-logo-3 {
+    max-width: 10rem;
+}
+
 #partner-logo-4 {
     max-width: 10rem;
 }
 
 #partner-logo-7 {
-    max-width: 10rem;
+    max-width: 7rem;
 }
 
 .partners img:hover {
@@ -49,6 +53,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .partners-container {
+        padding: 15rem 1rem 10rem 1rem;
+    }
+
     .partners {
         grid-template-columns: repeat(2, 1fr);
         /* 1 logo per row */

@@ -79,3 +79,9 @@
     }
 
 }
+
+@media screen and (max-height: 550px) {
+    .news-container .quarries-hero {
+        background-attachment: unset;
+    }
+}

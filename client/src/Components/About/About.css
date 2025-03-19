@@ -238,47 +238,6 @@
 }
 
 
-/*COUNTER SECTION_____________________________________________________________*/
-.about-counters-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    row-gap: 5rem;
-    padding: 0 5rem;
-    color: var(--whiteColor);
-    margin: 5rem 0;
-}
-
-.counter-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-.counter-card img {
-    width: 5rem;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
-}
-
-.counter-card:hover img {
-    rotate: 10deg;
-}
-
-.counter-card h3 {
-    color: var(--blueColor);
-    margin-top: 0;
-    text-align: center;
-
-}
-
-.counter-card p {
-    text-align: center;
-    color: var(--whiteColor);
-
-}
 
 /*THANKS SECTION_____________________________________________________________*/
 .thanks-section {
@@ -384,24 +343,9 @@
 
     .our-expertise-section-content-text p {
         text-align: left;
+        font-size: 14px !important;
     }
 
-
-    /*COUNTER SECTION_____________________________________________________________*/
-    .about-counters-section {
-        padding: 1rem;
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .counter-card {
-        max-width: 100%;
-        margin-bottom: 0;
-        padding: 0;
-    }
-
-    .counter-card h2 {
-        font-size: 24px;
-    }
 
     /*THANKS SECTION_____________________________________________________________*/
     .thanks-section {
@@ -425,6 +369,10 @@
 @media screen and (max-height: 550px) {
     .about-container p {
         font-size: 14px !important;
+    }
+
+    .about-container .quarries-hero {
+        background-attachment: unset;
     }
 
     .about-intro-section {

@@ -192,6 +192,10 @@
         font-size: 14px;
     }
 
+    .packing-container .quarries-hero {
+        background-attachment: unset;
+    }
+
     .packing-slabs,
     .packing-tiles {
         padding: 0 1rem;

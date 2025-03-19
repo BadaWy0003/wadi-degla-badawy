@@ -245,3 +245,10 @@
     }
 
 }
+
+@media screen and (max-height: 550px) {
+
+    .machinery-container .quarries-hero {
+        background-attachment: unset;
+    }
+}
