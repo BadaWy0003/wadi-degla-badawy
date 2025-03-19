@@ -64,6 +64,8 @@ export default function CounterSection() {
                     className="counter-text"
                     />
         </div>
+        </div>
+        <div className="about-counters-section-inner">
 
         <div className="counter-card">
             <img src={technology} alt="technology-icon"/>

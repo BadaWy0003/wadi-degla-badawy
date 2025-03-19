@@ -144,6 +144,11 @@
   font-size: 1.1rem;
 }
 
+.details-right .info-grid .modal-select {
+  border-color: var(--goldColor);
+  color: var(--goldColor);
+  padding: 5px 10px;
+}
 
 .applications-section h3 {
   color: var(--darkGrayColor);
@@ -390,7 +395,7 @@
   }
 
   .product-details-container {
-    flex-direction: row;
+    flex-direction: row !important;
   }
 
   .product-image {

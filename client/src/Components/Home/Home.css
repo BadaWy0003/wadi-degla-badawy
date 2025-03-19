@@ -12,9 +12,9 @@
 }
 
 .hero {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-bg5.jpg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-mobile-bg-1.jpeg');
     background-size: cover;
-    background-position: top 15% right 0;
+    background-position: bottom 30% right 0;
     background-attachment: fixed;
 
     display: flex;
@@ -219,8 +219,8 @@
 }
 
 .partner-slide img {
-    max-width: 80%;
-    max-height: 8rem;
+    max-width: 60%;
+    max-height: 7rem;
     object-fit: contain;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
@@ -230,12 +230,14 @@
     filter: grayscale(0%);
 }
 
-#Partner-logo-home-3 {
+
+
+#Partner-logo-home-5, #Partner-logo-home-3 {
     max-width: 10rem;
 }
 
-#Partner-logo-home-5 {
-    max-width: 10rem;
+#Partner-logo-home-7 {
+    max-height: 6rem;
 }
 
 /* VISUALIZER HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -431,6 +433,7 @@
                 rgba(0, 0, 0, 0.6)),
             url('../../Public/Assets/Media/Projects/carribean-palace.jpeg') !important;
         background-attachment: unset !important;
+        background-position: center !important;
         height: 50vh !important;
         padding: 1rem !important;
         align-items: center !important;

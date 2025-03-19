@@ -69,3 +69,22 @@
     }
 
 }
+
+@media screen and (max-height: 550px) {
+    .partners-container {
+        padding: 10rem 1rem 10rem 1rem;
+    }
+
+    .partners {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0;
+        /* 1 logo per row */
+    }
+
+    .partners img {
+        width: 100%;
+        max-width: 10rem;
+
+    }
+
+}

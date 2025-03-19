@@ -6,7 +6,7 @@ import slabs_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/slabs-bri
 import slabs_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-4.jpeg';
 
 import polishing_line from '../../Public/Assets/Media/Machinery/polishing-line.jpg';
-import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line-1.jpg';
+import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line-1.jpeg';
 import polishing_line_2 from '../../Public/Assets/Media/Machinery/polishing-line-2.jpg';
 import polishing_line_3 from '../../Public/Assets/Media/Machinery/polishing-line-3.jpg';
 
