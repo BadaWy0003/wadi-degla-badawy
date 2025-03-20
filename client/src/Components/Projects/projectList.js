@@ -79,6 +79,19 @@ import mivida_business_park_1 from '../../Public/Assets/Media/Projects/mivida-bu
 import mivida_business_park_2 from '../../Public/Assets/Media/Projects/mivida-business-park-2.jpg';
 import mivida_business_park_3 from '../../Public/Assets/Media/Projects/mivida-business-park-3.jpg';
 
+import oriana_villas_1 from '../../Public/Assets/Media/Projects/oriana-villas-1.jpeg';
+import oriana_villas_2 from '../../Public/Assets/Media/Projects/oriana-villas-2.jpeg';
+import oriana_villas_3 from '../../Public/Assets/Media/Projects/oriana-villas-3.jpeg';
+
+import mountain_view_ras_elhekma_1 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-1.jpeg';
+import mountain_view_ras_elhekma_2 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-2.jpeg';
+import mountain_view_ras_elhekma_3 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-3.jpeg';
+
+import murano_ain_sokhna_1 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-1.jpeg';
+import murano_ain_sokhna_2 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-2.jpeg';
+import murano_ain_sokhna_3 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-3.jpeg';
+import murano_ain_sokhna_4 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-4.jpeg';
+
 const projects = [
   {
     id: "1",
@@ -229,6 +242,40 @@ const projects = [
       city: "Cairo",
       country: "Egypt",
       materialsSupplied: ["Pietra Grey", "Calacatta Italy", "Triesta Beige"],
+    },
+    {
+      id: "12",
+      name: "Oriana Villas",
+      thumbnail: oriana_villas_1,
+      gallery: {oriana_villas_1,
+                oriana_villas_2,
+                oriana_villas_3},
+      city: "Cairo",
+      country: "Egypt",
+      materialsSupplied: ["Triesta Grey", "Breccia Daino", "Arabescato", "Calacatta Italy", "Sunny Light", "Red Fersan"],
+    },
+    {
+      id: "13",
+      name: "Mountain View Ras El-Hekma",
+      thumbnail: mountain_view_ras_elhekma_1,
+      gallery: {mountain_view_ras_elhekma_1,
+                mountain_view_ras_elhekma_2,
+                mountain_view_ras_elhekma_3},
+      city: "North Coast",
+      country: "Egypt",
+      materialsSupplied: [ "Creamy White Pearl", "Pietra Grey", "Karnak Grey"],
+    },
+    {
+      id: "14",
+      name: "Murano Ain Sokhna",
+      thumbnail: murano_ain_sokhna_2,
+      gallery: {murano_ain_sokhna_1,
+                murano_ain_sokhna_2,
+                murano_ain_sokhna_3,
+                murano_ain_sokhna_4},
+      city: "Red Sea",
+      country: "Egypt",
+      materialsSupplied: ["Sunny Light", "New Halayeb"],
     },
 
   ];

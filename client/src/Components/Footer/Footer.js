@@ -46,8 +46,9 @@ function Footer() {
               <div className="col">
                 <h4>WADI DEGLA</h4>
                 <Link to='/history' onClick={() => {window.scrollTo(0, 0);}}>Our History</Link>
-                  <Link to='/machinery' onClick={() => {window.scrollTo(0, 0);}}>Our Machinery</Link>
-                  <Link to='/exports' onClick={() => {window.scrollTo(0, 0);}}>Exports</Link>
+                <Link to='/machinery' onClick={() => {window.scrollTo(0, 0);}}>Our Machinery</Link>
+                <Link to='/certificates' onClick={() => {window.scrollTo(0, 0);}}>Certificates</Link>
+                <Link to='/exports' onClick={() => {window.scrollTo(0, 0);}}>Exports</Link>
                   <Link to='/packing' onClick={() => {window.scrollTo(0, 0);}}>Packing</Link>
                   <Link to='/about' onClick={() => {window.scrollTo(0, 0);}}>Why Choose Us</Link>
                 </div>

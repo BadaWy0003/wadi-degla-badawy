@@ -30,17 +30,18 @@
     transition: all 0.5s;
 }
 
-#partner-logo-3 {
-    max-width: 10rem;
-}
-
+#partner-logo-3,
 #partner-logo-4 {
     max-width: 10rem;
 }
 
-#partner-logo-7 {
+
+#partner-logo-7,
+#partner-logo-9 {
     max-width: 7rem;
 }
+
+
 
 .partners img:hover {
     scale: 110%;

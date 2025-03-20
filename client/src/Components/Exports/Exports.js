@@ -2,7 +2,7 @@ import React from "react";
 import './Exports.css';
 import 'react-multi-carousel/lib/styles.css';
 import MasonryGrid from "../MasonryGrid/MasonryGrid";
-import exports from '../../Public/Assets/Media/24.jpg';
+import exports from '../../Public/Assets/Media/Exports/exports2.jpg';
 import OurMarkets from "./OurMarkets";
 import ContactBubble from "../Contact/ContactBubble";
 
@@ -11,6 +11,7 @@ import exports2 from '../../Public/Assets/Media/Packing/packing7.jpeg';
 import exports3 from '../../Public/Assets/Media/Exports/exports3.jpg';
 import exports4 from '../../Public/Assets/Media/Exports/exports4.jpg';
 import exports5 from '../../Public/Assets/Media/Exports/exports5.jpg';
+import exports6 from '../../Public/Assets/Media/Exports/exports6.jpeg';
 
 
 export default function Exports(){
@@ -19,7 +20,8 @@ export default function Exports(){
             exports2,
             exports3,
             exports4,
-            exports5
+            exports5,
+            exports6
                     ];
     
     return(

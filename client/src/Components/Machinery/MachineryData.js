@@ -9,6 +9,7 @@ import polishing_line from '../../Public/Assets/Media/Machinery/polishing-line.j
 import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line-1.jpeg';
 import polishing_line_2 from '../../Public/Assets/Media/Machinery/polishing-line-2.jpg';
 import polishing_line_3 from '../../Public/Assets/Media/Machinery/polishing-line-3.jpg';
+import polishing_line_4 from '../../Public/Assets/Media/Machinery/polishing-line-4.jpeg';
 
 import gangsaws from '../../Public/Assets/Media/Machinery/gangsaws.jpg';
 import gangsaws_2 from '../../Public/Assets/Media/Machinery/gangsaws-2.jpeg';
@@ -99,7 +100,7 @@ export const generalUseData = [
       export const mngSlabsData = [
         {
           title: "3 polishing lines",
-          images: [polishing_line_1, polishing_line_3, polishing_line, polishing_line_2],
+          images: [polishing_line_1, polishing_line_3, polishing_line, polishing_line_2, polishing_line_4],
         },
         {
           title: "1 risin treating line",

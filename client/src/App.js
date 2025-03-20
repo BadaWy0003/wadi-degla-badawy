@@ -23,6 +23,7 @@ import Projects from "./Components/Projects/Projects.js";
 import ProjectDetails from "./Components/Projects/ProjectDetails.js";
 import Fairs from "./Components/Fairs/Fairs.js";
 import Patterns from "./Components/Patterns/Patterns.js";
+import Certificates from "./Components/Certificates/Certificates.js";
 import { ToastContainer } from "react-toastify";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/exports" element={<Exports />} />
           <Route exact path="/packing" element={<Packing />} />
           <Route exact path="/machinery" element={<Machinery />} />
+          <Route exact path="/certificates" element={<Certificates />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/gallery" element={<Gallery />} />
           <Route exact path="/quarries" element={<Quarries />} />

@@ -8,11 +8,12 @@
 .featured-products-section h2 {
     font-size: 2.5rem;
     color: var(--goldColor);
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .featured-products-section>p {
-    color: var(--greyColor);
+    color: var(--blueColor);
+    margin-top: 0;
     margin-bottom: 3rem;
 }
 

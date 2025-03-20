@@ -13,7 +13,7 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Projects/project1.jpeg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Projects/projects-hero.jpeg');
     background-size: cover;
     background-position: bottom;
     background-attachment: fixed;
@@ -90,6 +90,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 /* If there's only one project, make it centered or full-width */
@@ -191,7 +192,9 @@
 
     /* General Hero Section */
     .projects-page .quarries-hero {
+        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Projects/projects-hero-mobile.jpeg');
         background-attachment: unset;
+        background-position: center left 35% !important;
     }
 
     .projects-page .quarries-hero h1 {
@@ -237,9 +240,15 @@
 @media screen and (max-height: 550px) {
     .projects-page .quarries-hero {
         background-attachment: unset;
+        background-position: center;
     }
 
     .project-card {
         height: 300px;
     }
+
+    .overlay {
+        opacity: 1;
+    }
+
 }

@@ -118,6 +118,15 @@ export default function Navbar() {
                 Machinery
               </Link>
               <Link
+                to="/certificates"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Certificates
+              </Link>
+              <Link
                 to="/exports"
                 onClick={() => {
                   closeNavbar();

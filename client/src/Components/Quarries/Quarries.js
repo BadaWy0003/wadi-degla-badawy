@@ -36,9 +36,9 @@ export default function Quarries(){
             className="text"
             
           >
-            <h3>Galala Quarry</h3>
+            <h3>Galala Quarries</h3>
             <p>
-              Discovered by our pioneering grandfather, this quarry yields the
+              Discovered by our pioneering grandfather, these quarries yield the
               iconic Galala Marble known for its elegance and durability.
             </p>
           </div>

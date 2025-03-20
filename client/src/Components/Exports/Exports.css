@@ -164,6 +164,11 @@
     max-width: 100%;
 }
 
+.exports-container .masonry-grid {
+    column-count: 3 !important;
+
+}
+
 @media screen and (max-width: 768px) {
     .exports-container p {
         font-size: 14px;
@@ -227,6 +232,11 @@
 
     #chartdiv {
         width: 100vw;
+    }
+
+    .exports-container .masonry-grid {
+        column-count: 2 !important;
+
     }
 
 }

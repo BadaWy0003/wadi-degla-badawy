@@ -142,7 +142,7 @@
     align-items: center;
     width: 100%;
     padding: 5rem 0;
-    margin-bottom: 10rem;
+    margin-bottom: 0;
 }
 
 .partners-home-section h2 {
@@ -194,8 +194,52 @@
     max-width: 10rem;
 }
 
-#Partner-logo-home-7 {
+#Partner-logo-home-7,
+#Partner-logo-home-9,
+#Partner-logo-home-10 {
     max-height: 6rem;
+}
+
+
+
+/* CERTIFICATES SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
+.certificates-home {
+    background-color: var(--whiteColor);
+    padding: 0 5rem 5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1px;
+}
+
+.certificates-home h2 {
+    color: var(--goldColor);
+    margin: 0;
+    text-align: center;
+}
+
+.certificates-hint-pc {
+    text-align: center;
+    margin: 0;
+    color: var(--blueColor);
+}
+
+.certificates-hint-mobile {
+    display: none;
+}
+
+.certificates-home-grid {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.certificates-home-grid img {
+    max-width: 10rem;
 }
 
 /* VISUALIZER HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -253,7 +297,7 @@
             /* 90 degrees = left to right */
             rgba(0, 0, 0, 1),
             rgba(0, 0, 0, 0.1)),
-        url('../../Public/Assets/Media/Projects/carribean-palace.jpeg');
+        url('../../Public/Assets/Media/Projects/projects-hero.jpeg');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
@@ -284,17 +328,6 @@
     .homepage {
         width: 100vw;
     }
-
-    .react-multi-carousel-list {
-        overflow: visible !important;
-    }
-
-    .react-multi-carousel-track {
-        column-gap: 2px;
-    }
-
-
-
 
     .homepage .hero {
         padding: 10rem 1rem 1rem 1rem;
@@ -369,6 +402,33 @@
         max-width: 70%;
         max-height: 5rem;
     }
+
+    .certificates-home {
+        margin-top: -0.1rem;
+        padding: 2rem 1rem;
+
+    }
+
+    .certificates-hint-pc {
+        display: none;
+    }
+
+    .certificates-hint-mobile {
+        display: unset;
+        color: var(--blueColor);
+        text-align: center !important;
+    }
+
+    .certificates-home-grid {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .certificates-home-grid img {
+        max-width: 9rem;
+    }
+
 
     .visualizer-home-section {
         padding: 0 !important;
@@ -468,10 +528,17 @@
 
     .quarries-home-section {
         background-attachment: unset;
+        border-top: 2px solid var(--darkerBlackColor);
+        height: unset;
+        padding: 3rem 5rem;
     }
 
     .featured-products-section h2 {
         margin: 0 !important;
+    }
+
+    .certificates-home {
+        margin-top: -1px;
     }
 
     .visualizer-home-inner {
@@ -483,6 +550,7 @@
     }
 
     .projects-home-section {
+        padding: 3rem 5rem;
         background-attachment: unset;
     }
 

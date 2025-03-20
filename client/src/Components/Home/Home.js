@@ -11,6 +11,7 @@ import VisualizerHome from "./VisualizerHome.js";
 import OurMarkets from "../Exports/OurMarkets.js";
 import ProjectsHome from "./ProjectsHome.js";
 import ContactBubble from "../Contact/ContactBubble.js";
+import CertificatesHome from "./CertificatesHome.js";
 // import { useGlobalState } from '../GlobalStateContext.js';
 
 
@@ -71,6 +72,7 @@ export default function Home(){
             <QuarriesHome />
             <FeaturedProducts />
             <PartnersHome />
+            <CertificatesHome />
             <CounterSection />
             <VisualizerHome />
             <OurMarkets />

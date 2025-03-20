@@ -3,15 +3,15 @@
 // import image21 from '../../Public/Assets/Media/21.jpg';
 // import image24 from '../../Public/Assets/Media/24.jpg';
 
-import galala_quarry_1 from '../../Public/Assets/Media/Quarries/galala-quarry-1.jpeg';
-import galala_quarry_2 from '../../Public/Assets/Media/Quarries/galala-quarry-2.jpeg';
-import galala_quarry_3 from '../../Public/Assets/Media/Quarries/galala-quarry-3.jpeg';
-import galala_quarry_4 from '../../Public/Assets/Media/Quarries/galala-quarry-4.jpeg';
+import galala_quarries_1 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-1.jpeg';
+import galala_quarries_2 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-2.jpeg';
+import galala_quarries_3 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-3.jpg';
+import galala_quarries_4 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-4.jpeg';
+import galala_quarries_5 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-5.jpg';
 
-import creamy_white_pearl_quarry_1 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-1.jpeg';
-import creamy_white_pearl_quarry_2 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-2.jpeg';
-import creamy_white_pearl_quarry_3 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-3.jpeg';
-import creamy_white_pearl_quarry_4 from '../../Public/Assets/Media/Quarries/creamy-white-pearl-quarry-4.jpeg';
+import creamy_white_pearl_quarry_1 from '../../Public/Assets/Media/Quarries/creamy-white-quarry/creamy-white-pearl-quarry-1.jpeg';
+import creamy_white_pearl_quarry_2 from '../../Public/Assets/Media/Quarries/creamy-white-quarry/creamy-white-pearl-quarry-2.jpg';
+import creamy_white_pearl_quarry_3 from '../../Public/Assets/Media/Quarries/creamy-white-quarry/creamy-white-pearl-quarry-3.jpeg';
 
 // import image1 from '../../Public/Assets/Media/Quarries/first-factory/image1.jpeg';
 import image2 from '../../Public/Assets/Media/Quarries/first-factory/image2.jpeg';
@@ -40,7 +40,11 @@ import third_factory from '../../Public/Assets/Media/Quarries/third-factory/thir
 
   export const galalaQuarryImages = 
     
-      [galala_quarry_1, galala_quarry_4, galala_quarry_2, galala_quarry_3]
+      [galala_quarries_1,
+        galala_quarries_2,
+        galala_quarries_3,
+        galala_quarries_4,
+        galala_quarries_5]
     
 
   // export const zaafranaQuarryImages = [
@@ -50,7 +54,7 @@ import third_factory from '../../Public/Assets/Media/Quarries/third-factory/thir
 
   export const creamyQuarryImages = [
     
-      creamy_white_pearl_quarry_2, creamy_white_pearl_quarry_1, creamy_white_pearl_quarry_3, creamy_white_pearl_quarry_4
+    creamy_white_pearl_quarry_1, creamy_white_pearl_quarry_2, creamy_white_pearl_quarry_3,
     ]
 
   // export const samahaQuarryImages = 

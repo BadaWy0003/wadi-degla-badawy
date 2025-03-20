@@ -10,6 +10,9 @@ import wyndham from '../../Public/Assets/Icons/partners/wyndham.png';
 import majid_alfuttaim from '../../Public/Assets/Icons/partners/majid-alfuttaim.png';
 import trade_logistics from '../../Public/Assets/Icons/partners/trade-logistics.png';
 import egy_consulate_kuwait from '../../Public/Assets/Icons/partners/egy-consulate-kuwait.jpeg';
+import ckpc from '../../Public/Assets/Icons/partners/ckpc.jpeg';
+import wd_developments from '../../Public/Assets/Icons/partners/wd-developments.jpeg';
+import mountain_view from '../../Public/Assets/Icons/partners/mountain-view.png';
 
     // Array of partner logo image URLs
     export const partnerLogos = [
@@ -20,7 +23,10 @@ import egy_consulate_kuwait from '../../Public/Assets/Icons/partners/egy-consula
         wyndham,
         hydepark,
         majid_alfuttaim,
-        trade_logistics
+        trade_logistics,
+        ckpc,
+        wd_developments,
+        mountain_view,
     ];
 
 export default function Partners() {
