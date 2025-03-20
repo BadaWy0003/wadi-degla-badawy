@@ -27,3 +27,15 @@ code {
   --darkGrayColor: #808285;
   --lightGrayColor: #bcbec0;
 }
+
+select:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+button:focus {
+  outline: none !important;
+  border-color: none !important;
+  box-shadow: none !important;
+}

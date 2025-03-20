@@ -150,9 +150,6 @@
   padding: 5px 10px;
 }
 
-.details-right .info-grid .modal-select:focus {
-  border-color: var(--goldColor);
-}
 
 .applications-section h3 {
   color: var(--darkGrayColor);
