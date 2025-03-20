@@ -28,14 +28,53 @@ code {
   --lightGrayColor: #bcbec0;
 }
 
+.btn2 {
+  background-color: transparent;
+  color: var(--whiteColor);
+  border: solid 2px var(--whiteColor);
+  border-radius: 2px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-family: unset;
+
+}
+
+.btn2:hover {
+  background-color: var(--whiteColor);
+  color: var(--goldColor);
+  scale: 98%;
+}
+
+.btn1 {
+  background-color: var(--goldColor);
+  color: var(--whiteColor);
+  border: solid 2px var(--goldColor);
+  border-radius: 2px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-family: unset;
+
+
+}
+
+.btn1:hover {
+  background-color: transparent;
+  color: var(--goldColor);
+  scale: 98%;
+
+}
+
 select:focus {
   outline: none !important;
-  border: none !important;
+  border: var(--goldColor) !important;
   box-shadow: none !important;
 }
 
 button:focus {
   outline: none !important;
-  border-color: none !important;
   box-shadow: none !important;
 }
