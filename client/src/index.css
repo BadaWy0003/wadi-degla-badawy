@@ -68,13 +68,29 @@ code {
 
 }
 
-select:focus {
-  outline: none !important;
-  border: var(--goldColor) !important;
-  box-shadow: none !important;
+@media screen and (max-width: 768px) and (min-height: 550px) {
+  select:focus {
+    outline: none !important;
+    border: var(--goldColor) !important;
+    box-shadow: none !important;
+  }
+
+  button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
 }
 
-button:focus {
-  outline: none !important;
-  box-shadow: none !important;
+@media screen and (max-height: 550px) {
+  select:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 }

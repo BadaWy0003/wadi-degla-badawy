@@ -287,7 +287,7 @@ export default function Contact() {
             <div className="location">
               <h4>Address</h4>
               <a href='https://maps.app.goo.gl/bM4qT3UBLVt3r7tN7' target="_blank" rel="noopener noreferrer">
-                36, 25A Shaq Althoaban Industrial
+                36, 241D Shaq Althoaban Industrial
                 Area for Marble & Granite, Tourrah,
                 Cairo, Egypt
               </a>
