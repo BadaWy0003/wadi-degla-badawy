@@ -454,8 +454,6 @@
 
 @media (max-width: 550px) {
     .hero {
-        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-mobile-bg-1.jpeg');
-        background-size: cover;
         background-position: bottom;
     }
 
