@@ -483,7 +483,7 @@
 }
 
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (min-height: 550px) {
 
   .product-details-page {
     padding: 10rem 1rem !important;

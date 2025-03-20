@@ -166,7 +166,7 @@
     opacity: 1;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (min-height: 550px) {
     .project-details-page {
         padding: 15rem 2rem 5rem 2rem;
     }
@@ -258,5 +258,13 @@
 
     .project-details-page .breadcrumb {
         margin-bottom: 0;
+    }
+
+    .project-details-container {
+        align-items: flex-start;
+    }
+
+    .project-details-right {
+        height: fit-content;
     }
 }
