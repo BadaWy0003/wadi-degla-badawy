@@ -23,8 +23,8 @@ import big_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/big-bridge-
 import big_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-3.jpeg';
 import big_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-4.jpeg';
 
-import monofilos from '../../Public/Assets/Media/Machinery/monofilos.jpeg';
 import monofilos_2 from '../../Public/Assets/Media/Machinery/monofilos-2.jpg';
+import monofilos_3 from '../../Public/Assets/Media/Machinery/monofilos-3.jpeg';
 
 import slabs_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-5.jpeg';
 
@@ -32,8 +32,10 @@ import risin_line from '../../Public/Assets/Media/Machinery/risin-line.jpeg';
 import risin_line_2 from '../../Public/Assets/Media/Machinery/risin-line-2.jpeg';
 import risin_line_3 from '../../Public/Assets/Media/Machinery/risin-line-3.jpeg';
 
-import splitting_strips_1 from '../../Public/Assets/Media/Machinery/splitting-strips-1.jpg';
-import splitting_strips_2 from '../../Public/Assets/Media/Machinery/splitting-strips-2.jpg';
+import splitting_strips_1 from '../../Public/Assets/Media/Machinery/splitting-strips-1.jpeg';
+import splitting_strips_2 from '../../Public/Assets/Media/Machinery/splitting-strips-2.jpeg';
+import splitting_strips_3 from '../../Public/Assets/Media/Machinery/splitting-strips-3.jpeg';
+import splitting_strips_4 from '../../Public/Assets/Media/Machinery/splitting-strips-4.jpeg';
 
 import tumble_machine from '../../Public/Assets/Media/Machinery/tumble-machine.jpeg';
 
@@ -42,7 +44,6 @@ import fork_lift from '../../Public/Assets/Media/Machinery/fork-lift.jpg';
 import crane_1 from '../../Public/Assets/Media/Packing/packing5.jpeg';
 import crane_2 from '../../Public/Assets/Media/27.jpg';
 import crane_3 from '../../Public/Assets/Media/Machinery/cranes-3.jpeg';
-import crane_4 from '../../Public/Assets/Media/Quarries/first-factory/image8.jpeg';
 import crane_5 from '../../Public/Assets/Media/Machinery/cranes-5.jpeg';
 
 // import crane_3 from '../../Public/Assets/Media/63.jpeg';
@@ -59,7 +60,6 @@ export const generalUseData = [
                     crane_2,
                     crane_1,
                     crane_5,
-                    crane_4,
                     crane_3
                     
                   ],
@@ -93,7 +93,7 @@ export const generalUseData = [
         },
         {
           title: "6 Monofilos",
-          images: [monofilos_2, monofilos],
+          images: [monofilos_2, monofilos_3],
         }
 
       ];
@@ -119,7 +119,7 @@ export const generalUseData = [
         },
         {
           title: "3 Splitting strips machines",
-          images: [splitting_strips_1, splitting_strips_2],
+          images: [splitting_strips_3, splitting_strips_1, splitting_strips_2, splitting_strips_4],
         }
 
       ];

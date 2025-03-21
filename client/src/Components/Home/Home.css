@@ -297,9 +297,9 @@
             /* 90 degrees = left to right */
             rgba(0, 0, 0, 1),
             rgba(0, 0, 0, 0.1)),
-        url('../../Public/Assets/Media/Projects/projects-hero.jpeg');
+        url('../../Public/Assets/Media/Projects/projects-hero-mobile-5.jpg');
     background-size: cover;
-    background-position: top;
+    background-position: center;
     background-attachment: fixed;
 
     display: flex;
@@ -449,9 +449,10 @@
         background: linear-gradient(180deg,
                 rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0.6)),
-            url('../../Public/Assets/Media/Projects/carribean-palace.jpeg') !important;
+            url('../../Public/Assets/Media/Projects/projects-hero-mobile-5-2.jpg') !important;
         background-attachment: unset !important;
         background-position: center !important;
+        background-size: 200% !important;
         height: 50vh !important;
         padding: 1rem !important;
         align-items: center !important;
