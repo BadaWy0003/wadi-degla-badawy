@@ -2,13 +2,21 @@ import React from 'react';
 import '../Home/Home.css';
 
 export default function ProductForVisualizer({ item, onClick }) {
-  // Find the "Polished" finish to display by default
-  const polishedFinish = item.finishes.find(finish => finish.finish === 'Polished') || item.finishes[0];
+  // Prioritize "Honed", fallback to "Polished", and default to the first available finish
+  const honedFinish = item.finishes?.find(finish => finish.finish === 'Honed');
+  const polishedFinish = item.finishes?.find(finish => finish.finish === 'Polished');
+  const selectedFinish = honedFinish || polishedFinish || item.finishes?.[0]; // Default to first available finish if both are missing
+    
+    // If no finish is available, do not render the product
+    if (!selectedFinish) {
+      return null;
+    }
+  
   
   return (
     <div className="product-card" onClick={onClick}>
       <div className='img-div'>
-        <img src={polishedFinish.link} alt={item.name} />
+      <img src={selectedFinish?.link} alt={`${item.name} - ${selectedFinish?.finish || 'Default'}`} />
       </div>
       <h3>{item.name}</h3>
     </div>
