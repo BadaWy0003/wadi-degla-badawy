@@ -84,12 +84,19 @@ export default function FeaturedProducts() {
           {featuredProducts.map((item) => (
             <SwiperSlide key={item.id}>
               <div className="featured-cube-slide">
-                {item.finishes.find(finish => finish.finish === 'Polished') && (
+              {(() => {
+                const honedFinish = item.finishes.find(finish => finish.finish === 'Honed');
+                const polishedFinish = item.finishes.find(finish => finish.finish === 'Polished');
+                const selectedFinish = honedFinish || polishedFinish; // Use "Honed" if available, otherwise "Polished"
+
+                return selectedFinish ? (
                   <img 
-                    src={item.finishes.find(finish => finish.finish === 'Polished').link} 
-                    alt={item.name} 
+                    src={selectedFinish.link} 
+                    alt={`${item.name} - ${selectedFinish.finish}`} 
                   />
-                )}
+                ) : null;
+              })()}
+
               </div>
             </SwiperSlide>
           ))}

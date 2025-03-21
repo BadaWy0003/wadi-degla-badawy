@@ -22,7 +22,7 @@ import image3 from '../../Public/Assets/Media/Quarries/first-factory/image3.jpeg
 import image4 from '../../Public/Assets/Media/Quarries/first-factory/image4.jpeg';
 import image5 from '../../Public/Assets/Media/Quarries/first-factory/image5.jpeg';
 import image6 from '../../Public/Assets/Media/Quarries/first-factory/image6.jpeg';
-import image7 from '../../Public/Assets/Media/Quarries/first-factory/image7.jpeg';
+// import image7 from '../../Public/Assets/Media/Quarries/first-factory/image7.jpeg';
 // import image8 from '../../Public/Assets/Media/Quarries/first-factory/image8.jpeg';
 import image9 from '../../Public/Assets/Media/Quarries/first-factory/image9.jpeg';
 
@@ -35,8 +35,8 @@ import secondfactory8 from '../../Public/Assets/Media/Quarries/second-factory/se
 import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory9.jpeg';
 // import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory4.jpeg';
 
-import third_factory from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory.jpeg';
-import third_factory_2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
+// import third_factory from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory.jpeg';
+// import third_factory_2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
 import third_factory_3 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory3.jpeg';
 
   // export const globalFactoriesImages = 

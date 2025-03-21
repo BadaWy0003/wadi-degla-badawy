@@ -3,13 +3,16 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Product({ item }) {
   const navigate = useNavigate();
-  // Find the "Polished" finish
+  // Find the "honed" finish or fallback to "polished"
+  const honedFinish = item.finishes.find(finish => finish.finish === 'Honed');
   const polishedFinish = item.finishes.find(finish => finish.finish === 'Polished');
-
-  // If "Polished" finish is not found, do not render the product or handle it accordingly
-  if (!polishedFinish) {
-    return null; // or you can return a placeholder or a message
+  const selectedFinish = honedFinish || polishedFinish; // Use "Honed" if available, otherwise "Polished"
+  
+  // If neither finish is available, return null or a placeholder
+  if (!selectedFinish) {
+    return null;
   }
+  
 
   return (
     <div
