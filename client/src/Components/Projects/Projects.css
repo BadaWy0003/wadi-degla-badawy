@@ -88,7 +88,7 @@
 .multi-projects {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -219,6 +219,7 @@
 
     .multi-projects {
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
     .project-card {
@@ -245,6 +246,10 @@
         background-attachment: unset;
         background-position: center;
 
+    }
+
+    .multi-projects {
+        justify-content: flex-start;
     }
 
 

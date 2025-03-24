@@ -323,6 +323,8 @@
     .homepage .hero {
         padding: 10rem 1rem 1rem 1rem;
         background-position: top 0 right 30%;
+        background-attachment: unset !important;
+
     }
 
 
@@ -346,8 +348,8 @@
         font-size: 14px !important;
     }
 
-    .hero {
-        background-attachment: unset;
+    .homepage .hero {
+        background-attachment: unset !important;
     }
 
     /* INTRO SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
