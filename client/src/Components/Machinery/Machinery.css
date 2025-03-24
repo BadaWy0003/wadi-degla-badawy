@@ -91,6 +91,10 @@
     z-index: -1;
 }
 
+.machinery-captions {
+    color: var(--blueColor) !important;
+    font-weight: 600 !important;
+}
 
 .machinery-section p {
     margin-top: 0;

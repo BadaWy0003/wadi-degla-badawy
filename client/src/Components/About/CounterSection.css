@@ -9,19 +9,23 @@
     margin-bottom: 5rem;
 }
 
-#experience-card h3 {}
 
 #experience-card img {
     width: 10rem;
 }
 
-.about-counters-section-inner {
+/* Default: Grid Layout for Large Screens */
+.counters-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    row-gap: 5rem;
     padding: 0 5rem;
     margin-bottom: 5rem;
+}
+
+
+.counters-swiper {
+    display: none;
 }
 
 .counter-card {
@@ -65,8 +69,18 @@
 
     /*COUNTER SECTION_____________________________________________________________*/
     .about-counters-section-inner {
+        display: block;
         padding: 1rem;
-        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Show Swiper only on smaller screens */
+    .counters-swiper {
+        display: block;
+    }
+
+    /* Hide grid layout for small screens */
+    .counters-grid {
+        display: none;
     }
 
     .counter-card {
@@ -93,19 +107,25 @@
 }
 
 @media screen and (max-width: 550px) {
-    .about-counters-section-inner {
+    /* .about-counters-section-inner {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 1rem;
         padding: 1rem;
+    } */
+
+    .counters-swiper .swiper-slide {
+        display: flex;
+        justify-content: center;
     }
 
     .counter-card {
-        flex: 0 0 70%;
+        max-width: 80%;
+        margin: auto;
         /* Adjust width to make each card wider */
-        scroll-snap-align: start;
+        /* scroll-snap-align: start; */
     }
 
     #experience-card {
@@ -125,5 +145,13 @@
 @media screen and (max-height: 550px) {
     .about-counters-section-inner {
         padding: 0 1rem;
+    }
+
+    .counter-card h3 {
+        font-size: 16px;
+    }
+
+    .counter-text {
+        font-size: 24px;
     }
 }

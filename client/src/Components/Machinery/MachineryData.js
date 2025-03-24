@@ -4,6 +4,8 @@ import slabs_bridge_cutter from '../../Public/Assets/Media/Machinery/slabs-bridg
 import slabs_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-2.jpg';
 import slabs_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-3.jpeg';
 import slabs_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-4.jpeg';
+import slabs_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-5.jpeg';
+import slabs_bridge_cutter_6 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-6.jpg';
 
 import polishing_line from '../../Public/Assets/Media/Machinery/polishing-line.jpg';
 import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line-1.jpeg';
@@ -17,6 +19,7 @@ import gangsaws_3 from '../../Public/Assets/Media/Machinery/gangsaws-3.jpeg';
 import gangsaws_4 from '../../Public/Assets/Media/Machinery/gangsaws-4.jpeg';
 import gangsaws_5 from '../../Public/Assets/Media/Machinery/gangsaws-5.jpeg';
 import gangsaws_6 from '../../Public/Assets/Media/Machinery/gangsaws-6.jpeg';
+import gangsaws_7 from '../../Public/Assets/Media/Machinery/gangsaws-7.jpeg';
 
 import big_bridge_cutter_1 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-1.jpeg';
 import big_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-2.jpeg';
@@ -26,11 +29,9 @@ import big_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/big-bridge-
 import monofilos_2 from '../../Public/Assets/Media/Machinery/monofilos-2.jpg';
 import monofilos_3 from '../../Public/Assets/Media/Machinery/monofilos-3.jpeg';
 
-import slabs_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-5.jpeg';
-
-import risin_line from '../../Public/Assets/Media/Machinery/risin-line.jpeg';
-import risin_line_2 from '../../Public/Assets/Media/Machinery/risin-line-2.jpeg';
 import risin_line_3 from '../../Public/Assets/Media/Machinery/risin-line-3.jpeg';
+import risin_line_5 from '../../Public/Assets/Media/Machinery/risin-line-5.jpeg';
+import risin_line_6 from '../../Public/Assets/Media/Machinery/risin-line-6.jpeg';
 
 import splitting_strips_1 from '../../Public/Assets/Media/Machinery/splitting-strips-1.jpeg';
 import splitting_strips_2 from '../../Public/Assets/Media/Machinery/splitting-strips-2.jpeg';
@@ -39,7 +40,8 @@ import splitting_strips_4 from '../../Public/Assets/Media/Machinery/splitting-st
 
 import tumble_machine from '../../Public/Assets/Media/Machinery/tumble-machine.jpeg';
 
-import fork_lift from '../../Public/Assets/Media/Machinery/fork-lift.jpg';
+import fork_lift_2 from '../../Public/Assets/Media/Machinery/fork-lift-2.jpeg';
+import fork_lift_3 from '../../Public/Assets/Media/Machinery/fork-lift-3.jpeg';
 
 import crane_1 from '../../Public/Assets/Media/Packing/packing5.jpeg';
 import crane_2 from '../../Public/Assets/Media/27.jpg';
@@ -73,7 +75,7 @@ export const generalUseData = [
         // },
         {
           title: "2 Forklifts",
-          images: [fork_lift],
+          images: [fork_lift_3, fork_lift_2],
         }
         // ,
         // {
@@ -85,7 +87,7 @@ export const generalUseData = [
       export const mngBlocksData = [
         {
           title: "9 Gangsaws",
-          images: [gangsaws_6, gangsaws, gangsaws_5, gangsaws_2, gangsaws_3, gangsaws_4],
+          images: [gangsaws_6, gangsaws, gangsaws_5, gangsaws_2, gangsaws_3, gangsaws_4, gangsaws_7],
         },
         {
           title: "4 Big bridge cutters",
@@ -104,14 +106,14 @@ export const generalUseData = [
         },
         {
           title: "1 risin treating line",
-          images: [ risin_line, risin_line_2, risin_line_3],
+          images: [ risin_line_5, risin_line_6, risin_line_3],
         }
       ];
 
       export const mngTilesData = [
         {
-          title: "5 Slabs bridge cutters",
-          images: [slabs_bridge_cutter_2, slabs_bridge_cutter, slabs_bridge_cutter_3, slabs_bridge_cutter_4, slabs_bridge_cutter_5],
+          title: "6 Slabs bridge cutters",
+          images: [slabs_bridge_cutter_2, slabs_bridge_cutter, slabs_bridge_cutter_6, slabs_bridge_cutter_3, slabs_bridge_cutter_4, slabs_bridge_cutter_5],
         },
         {
           title: "1 Tumbling machine",

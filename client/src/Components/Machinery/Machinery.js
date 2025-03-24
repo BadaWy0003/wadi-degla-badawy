@@ -30,6 +30,8 @@ export default function Machinery(){
                         <h2>GENERAL USE</h2>
                         <hr/>
                     </div>
+                    <p className="machinery-captions">6 Overhead cranes with high quality to be able to hold blocks from our stock area
+                    </p>
                     <div className="machinery-grid">
                     {generalUseData.map((item, index) => (
                         <MachinerySwiper key={index} images={item.images} title={item.title} />
@@ -43,6 +45,13 @@ export default function Machinery(){
                         <h2>MARBLE & GRANITE BLOCKS</h2>
                         <hr/>
                     </div>
+                    <p className="machinery-captions">
+                    Cutting and dressing blocks, squaring blocks before cutting by gang saw 
+                    overhead cranes with high quality to able to hold the big block from our quarry up to 50 ton
+                    </p>
+                    <p className="machinery-captions">
+                    Cutting and transforming blocks to slabs with different thickness (e.g. 2cm to 8cm)
+                    </p>
                     <div className="machinery-grid">
                     {mngBlocksData.map((item, index) => (
                         <MachinerySwiper key={index} images={item.images} title={item.title} />
@@ -55,7 +64,11 @@ export default function Machinery(){
                     <div className="machinery-section-title">
                         <h2>MARBLE & GRANITE SLABS</h2>
                         <hr/>
-                    </div>                    
+                    </div>    
+                    <p className="machinery-captions">
+                    Polishing lines can produce any kind of finishes up to 8cm thicknesses except acid and flamed
+                    </p>
+                
                     <div className="machinery-grid">
                     {mngSlabsData.map((item, index) => (
                         <MachinerySwiper key={index} images={item.images} title={item.title} />
@@ -69,6 +82,10 @@ export default function Machinery(){
                         <h2>MARBLE & GRANITE TILES</h2>
                         <hr/>
                     </div>
+                    <p className="machinery-captions">
+                    Bridge cutters cutting slabs to tiles in any size
+                    </p>
+
                     <div className="machinery-grid">
                     {mngTilesData.map((item, index) => (
                         <MachinerySwiper key={index} images={item.images} title={item.title} />

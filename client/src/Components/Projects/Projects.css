@@ -88,7 +88,7 @@
 .multi-projects {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -194,8 +194,8 @@
     .projects-page .quarries-hero {
         background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Projects/projects-hero-mobile-5.jpg');
         background-attachment: unset;
-        background-position: bottom;
-        background-size: cover;
+        background-position: top !important;
+        background-size: 200% !important;
         background-repeat: no-repeat;
 
     }
@@ -246,6 +246,7 @@
         background-position: center;
 
     }
+
 
     .project-card {
         height: 300px;

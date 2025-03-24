@@ -3,80 +3,19 @@ import './History.css';
 import MasonryGrid from '../MasonryGrid/MasonryGrid';
 import ContactBubble from '../Contact/ContactBubble';
 import CountUp from 'react-countup';
-import history7 from '../../Public/Assets/Media/History/history7.jpg'
+import history16 from '../../Public/Assets/Media/History/history16.jpg'
 import sameh_ghanam from '../../Public/Assets/Media/History/sameh-ghanam.jpg'
 import saeed_jr from '../../Public/Assets/Media/History/saeed-jr.png'
 import saeed_jr_2 from '../../Public/Assets/Media/History/saeed-jr-2.jpeg'
 import saeed_jr_3 from '../../Public/Assets/Media/History/saeed-jr-3.jpeg'
 import saeed_jr_4 from '../../Public/Assets/Media/History/saeed-jr-4.jpeg'
 import saeed_jr_5 from '../../Public/Assets/Media/History/saeed-jr-5.jpeg'
-
-import history1 from '../../Public/Assets/Media/History/history1.jpg'
-import history2 from '../../Public/Assets/Media/History/history2.jpg'
-import history3 from '../../Public/Assets/Media/History/history3.jpg'
-import history4 from '../../Public/Assets/Media/History/history4.jpg'
-import history5 from '../../Public/Assets/Media/History/history5.jpg'
-import history6 from '../../Public/Assets/Media/History/history6.jpg'
-import history8 from '../../Public/Assets/Media/History/history8.jpg'
-import history9 from '../../Public/Assets/Media/History/history9.jpg'
-import history10 from '../../Public/Assets/Media/History/history10.jpg'
-import history11 from '../../Public/Assets/Media/History/history11.jpg'
-import history12 from '../../Public/Assets/Media/History/history12.jpg'
-import history13 from '../../Public/Assets/Media/History/history13.jpg'
-import history14 from '../../Public/Assets/Media/History/history14.jpg'
-import history15 from '../../Public/Assets/Media/History/history15.jpg'
-import history15_1 from '../../Public/Assets/Media/History/history15-1.jpeg'
-import history16 from '../../Public/Assets/Media/History/history16.jpg'
-import history17 from '../../Public/Assets/Media/History/history17.jpg'
-import history18 from '../../Public/Assets/Media/History/history18.jpg'
-import history19 from '../../Public/Assets/Media/History/history19.jpg'
-import history20 from '../../Public/Assets/Media/History/history20.jpg'
-import history21 from '../../Public/Assets/Media/History/history21.jpg'
-import history22 from '../../Public/Assets/Media/History/history22.jpg'
-import history23 from '../../Public/Assets/Media/History/history23.jpg'
-import history25 from '../../Public/Assets/Media/History/history25.jpg'
-import history26 from '../../Public/Assets/Media/History/history26.jpg'
-import history27 from '../../Public/Assets/Media/History/history27.jpg'
-import history28 from '../../Public/Assets/Media/History/history28.jpeg'
-import history29 from '../../Public/Assets/Media/History/history29.jpeg'
-import history30 from '../../Public/Assets/Media/History/history30.jpeg'
+import { HistoryImages } from './HistoryImages';
 
 
 
 
 export default function History(){
-    const images = [
-        history1,
-        history2,
-        history3,
-        history4,
-        history5,
-        history6,
-        history7,
-        history8,
-        history9,
-        history10,
-        history11,
-        history12,
-        history13,
-        history14,
-        history15,
-        history15_1,
-        history16,
-        history17,
-        history18,
-        history19,
-        history20,
-        history21,
-        history22,
-        history23,
-        history25,
-        history26,
-        history27,
-        history28,
-        history29,
-        history30
-    ];
     
 
     return(
@@ -180,10 +119,10 @@ export default function History(){
                         <div className="third-gen-section-text">
                             <p>When <strong>Saed Alghanam</strong>, the third generation, entered the scene, he was no stranger to the business. From 
                                 the age of 11, he spent summers and winters in the quarries and factories, learning side by side 
-                                with his father and grandfather. By the time he graduated college in 2022, Saed brought a fresh 
-                                perspective and an enduring passion for global business. Determined to expand beyond the local 
-                                market, he established Wadi Degla Global Exporting, dedicated to showcasing Egyptian marble and 
-                                granite on an international stage.
+                                with his father and grandfather. By the time he graduated college in 2024, Saed had already been 
+                                working consistently since 2023, bringing a fresh perspective and an enduring passion for global 
+                                business. Determined to expand beyond the local market, he established Wadi Degla Global Exporting, dedicated 
+                                to showcasing Egyptian marble and granite on an international stage.
                                 <br/><br/>
                                 Around the same time, the family opened the Creamy White Pearl Quarry in Sinai—an even lighter 
                                 and brighter version of Galala marble, exclusive to Wadi Degla. With control over three major 
@@ -230,7 +169,7 @@ export default function History(){
                                     collaboration.</p>
                         </div>
                         
-                        <MasonryGrid props={images}/>
+                        <MasonryGrid props={HistoryImages}/>
                             
                     </div>
 

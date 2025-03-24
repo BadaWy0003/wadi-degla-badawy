@@ -11,30 +11,21 @@
     font-size: 16px !important;
 }
 
-.hero {
+.homepage .hero {
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-mobile-bg-1.jpeg');
     background-size: cover;
     background-position: bottom 30% right 0;
     background-attachment: fixed;
-
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     top: 0;
     left: 0;
     height: 80vh;
     z-index: 1;
     padding-top: 10rem;
-
-
-}
-
-
-.homepage .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 
@@ -451,7 +442,7 @@
                 rgba(0, 0, 0, 0.6)),
             url('../../Public/Assets/Media/Projects/projects-hero-mobile-5-2.jpg') !important;
         background-attachment: unset !important;
-        background-position: center !important;
+        background-position: top !important;
         background-size: 200% !important;
         height: 50vh !important;
         padding: 1rem !important;
@@ -487,7 +478,6 @@
     }
 
 
-    .quarries-home-section button {}
 
     .quarries-home-section h2, .quarries-home-section p {
         text-align: left !important;
@@ -525,6 +515,15 @@
 @media (max-height: 550px) {
     .homepage p {
         font-size: 14px !important;
+    }
+
+    .homepage .hero {
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .place4btns {
+        flex-direction: row;
     }
 
     .quarries-home-section {

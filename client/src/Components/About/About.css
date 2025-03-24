@@ -190,7 +190,7 @@
 
 .our-expertise-section-content {
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
     color: var(--whiteColor);
     gap: 5rem;
@@ -230,7 +230,7 @@
 }
 
 .our-expertise-section-content-image {
-    max-width: 500px;
+    min-width: 25vw;
 }
 
 .our-expertise-section-content-image img {
