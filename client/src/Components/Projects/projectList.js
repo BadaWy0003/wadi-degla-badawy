@@ -4,7 +4,7 @@ import jm_appartments_2_1 from '../../Public/Assets/Media/Projects/j-m-appartmen
 import jm_appartments_2_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2-2.jpeg'
 
 import south_c_project from '../../Public/Assets/Media/Projects/south-c-project.jpeg'
-import south_c_project2 from '../../Public/Assets/Media/Projects/south-c-project.png'
+// import south_c_project2 from '../../Public/Assets/Media/Projects/south-c-project.png'
 import south_c_project1 from '../../Public/Assets/Media/Projects/south-c-project-1.jpeg'
 import south_c_project2_2 from '../../Public/Assets/Media/Projects/south-c-project-2.jpg'
 import south_c_project3 from '../../Public/Assets/Media/Projects/south-c-project-3.jpg'

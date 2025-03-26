@@ -29,8 +29,8 @@ export default function InspoSwiper({ images }) {
     <p className="inspo-hint">Tap on the image to view it in full size and swipe to navigate</p>
 
     <Swiper
-      effect={'coverflow'}
-      autoplay={{
+  effect="coverflow"
+  autoplay={{
         delay: 2000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
@@ -38,11 +38,11 @@ export default function InspoSwiper({ images }) {
       centeredSlides={true}
       slidesPerView={'2'}
       coverflowEffect={{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
+        rotate: 30, // Reduce rotation to make it more noticeable
+    stretch: 10, // Adds spacing between slides
+    depth: 300, // Increase depth to make perspective more visible
+    modifier: 2, // Intensify the effect
+        slideShadows: false,
       }}
       navigation
       modules={[EffectCoverflow, Navigation, Autoplay]}
