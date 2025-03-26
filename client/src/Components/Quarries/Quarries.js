@@ -70,6 +70,9 @@ export default function Quarries(){
           <h2>OUR FACTORIES</h2>
           <hr />
         </div>
+        <p className="machinery-captions">Our state-of-the-art factories span a combined area of over 
+          27,000 square meters, ensuring top-quality production 
+          at scale.</p>
 
         {/* Factory 2000 */}
         <div className="factory-card left">

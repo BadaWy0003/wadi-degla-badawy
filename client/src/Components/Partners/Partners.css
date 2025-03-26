@@ -21,6 +21,10 @@
     color: var(--goldColor);
 }
 
+.partners-container .breadcrumb p {
+    color: var(--darkGrayColor);
+}
+
 .partners img {
     width: 15rem;
     /* Make logos fill their grid cells */

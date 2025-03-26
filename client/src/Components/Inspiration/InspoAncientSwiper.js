@@ -1,0 +1,68 @@
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+export default function InspoAncientSwiper({ images }) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [hovered, setHovered] = useState(false);
+
+  const handleImageClick = (index) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  return (
+    <div className="inspo-swiper-container">
+          {/* Hint Text for Small Screens */}
+          <p className="inspo-hint">Tap on the image to view it in full size and swipe to navigate</p>
+
+          <Swiper
+  key={images.length} // Forces re-render when images change
+  autoplay={{
+    delay: 2000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  }}
+  navigation
+  loop={true}
+  pagination={{ clickable: true }}
+  slidesPerView={1}
+  modules={[Navigation, Pagination, Autoplay]}
+  className="ancient-swiper"
+>
+{images.map((image, index) => (
+    <SwiperSlide 
+    key={`slide-${index}`} 
+    onClick={() => handleImageClick(index)}
+    style={{ height: "100%" }}
+    >
+  <div className="swiper-slide-container"
+       onMouseEnter={() => setHovered(true)}
+       onMouseLeave={() => setHovered(false)}>
+    <img src={image} alt={`Slide ${index}`} className="swiper-lazy" />
+    {hovered && (
+      <div className="image-overlay">
+        <p>Click on the image to view it in full size and swipe to navigate</p>
+      </div>
+    )}
+  </div>
+</SwiperSlide>
+))}
+      </Swiper>
+
+      {/* Lightbox for full-screen view */}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={images.map((img) => ({ src: img }))}
+        index={lightboxIndex}
+      />
+    </div>
+  );
+}

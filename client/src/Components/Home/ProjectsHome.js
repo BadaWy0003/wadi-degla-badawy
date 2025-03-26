@@ -1,7 +1,6 @@
 import React from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import carribean_palace from '../../Public/Assets/Media/Projects/carribean-palace.jpeg'
 
 
 export default function ProjectsHome() {

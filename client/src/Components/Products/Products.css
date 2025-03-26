@@ -31,14 +31,6 @@
 }
 
 
-.products-container-2 .quarries-hero .breadcrumb {
-  position: absolute;
-  top: 60%;
-  padding: 0;
-  color: var(--whiteColor);
-  z-index: 1;
-}
-
 
 .hero-hint-2 {
   color: var(--whiteColor);
@@ -171,6 +163,10 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 1rem;
+}
+
+.products-categories-and-title-2 h2 {
+  font-size: 32px;
 }
 
 .products-categories-2 {

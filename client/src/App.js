@@ -18,6 +18,7 @@ import Partners from "./Components/Partners/Partners.js";
 import News from "./Components/News/News.js";
 import Machinery from "./Components/Machinery/Machinery.js";
 import Quarries from "./Components/Quarries/Quarries.js";
+import Inspiration from "./Components/Inspiration/Inspiration.js";
 import History from "./Components/History/History.js";
 import Projects from "./Components/Projects/Projects.js";
 import ProjectDetails from "./Components/Projects/ProjectDetails.js";
@@ -51,6 +52,7 @@ function App() {
           <Route exact path="/certificates" element={<Certificates />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/gallery" element={<Gallery />} />
+          <Route exact path="/inspiration" element={<Inspiration />} />
           <Route exact path="/quarries" element={<Quarries />} />
           <Route exact path="/partners" element={<Partners />} />
           <Route exact path="/news" element={<News />} />

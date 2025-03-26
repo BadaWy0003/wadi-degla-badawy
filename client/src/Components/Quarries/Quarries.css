@@ -82,6 +82,8 @@
 
 .quarries h3, .factories h3 {
     color: var(--blueColor);
+    text-transform: uppercase !important;
+
 }
 
 .quarries p, .factories p {
@@ -96,6 +98,17 @@
     margin: 0;
     overflow: hidden;
     width: 100%;
+}
+
+.factories h2 {
+    margin-bottom: 0;
+}
+
+.factories .machinery-captions {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5rem;
+
 }
 
 /* .left img, .right img {
@@ -196,6 +209,11 @@
     .quarries-title h2 {
         padding: 0;
     }
+
+    .factories .machinery-captions {
+        text-align: justify;
+    }
+
 
     .quarries-hero .breadcrumb {
         display: none;

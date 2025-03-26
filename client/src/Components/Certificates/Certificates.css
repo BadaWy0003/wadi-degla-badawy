@@ -4,6 +4,11 @@
     background-color: var(--whiteColor);
 }
 
+.certificates-page h1 {
+    text-align: center;
+    color: var(--goldColor);
+}
+
 .certificates-page .breadcrumb {
     margin-bottom: 5rem;
 }
@@ -31,8 +36,9 @@
 }
 
 .certificate-with-title h2 {
-    color: var(--goldColor);
-    font-size: 32px;
+    color: var(--blackColor);
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .certificate-image {

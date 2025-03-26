@@ -202,7 +202,7 @@ export default function Navbar() {
           </div>
           <div className="submenu-bg">
             <div className="submenu">
-              <Link
+            <Link
                 to="/quarries"
                 onClick={() => {
                   closeNavbar();
@@ -210,6 +210,15 @@ export default function Navbar() {
                 }}
               >
                 Quarries & Factories
+              </Link>
+              <Link
+                to="/inspiration"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Inspiration
               </Link>
               <Link
                 to="/gallery"

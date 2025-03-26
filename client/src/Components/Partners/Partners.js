@@ -40,6 +40,11 @@ export default function Partners() {
     return (
         <div className='partners-container'>
             <h1>OUR PARTNERS & CLIENTS</h1>
+            <div className="breadcrumb">
+            <a href="/">Home</a>
+            <p>{'>'} Certificates</p>
+            </div>
+
             <div className="partners">
                 {partnerLogos.map((logo, index) => (
                     <img

@@ -12,6 +12,7 @@ import OurMarkets from "../Exports/OurMarkets.js";
 import ProjectsHome from "./ProjectsHome.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import CertificatesHome from "./CertificatesHome.js";
+import InspirationHome from "./InspirationHome.js";
 // import { useGlobalState } from '../GlobalStateContext.js';
 
 
@@ -73,6 +74,8 @@ export default function Home(){
             <FeaturedProducts />
             <PartnersHome />
             <CertificatesHome />
+            <InspirationHome />
+
             <CounterSection />
             <VisualizerHome />
             <OurMarkets />

@@ -6,6 +6,7 @@ import CertificateLightBox from "./CertificateLightBox"; // Import Lightbox comp
 export default function Certificates() {
     return (
         <div className="certificates-page">
+            <h1>OUR CERTIFICATES</h1>
             <div className="breadcrumb">
             <a href="/">Home</a>
             <p>{'>'} Certificates</p>

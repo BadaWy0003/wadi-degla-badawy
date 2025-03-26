@@ -105,7 +105,7 @@
 .project-card {
     position: relative;
     overflow: hidden;
-    width: 400px;
+    width: 28vw;
     height: 500px;
     cursor: unset !important;
 }
@@ -173,7 +173,15 @@
 
 
 
+@media screen and (max-width: 1255px) {
 
+    .project-card {
+        width: 25vw;
+        height: 500px;
+        margin: 0;
+    }
+
+}
 
 
 
@@ -192,11 +200,14 @@
 
     /* General Hero Section */
     .projects-page .quarries-hero {
-        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Projects/projects-hero-mobile-5.jpg');
-        background-attachment: unset;
-        background-position: top !important;
-        background-size: 200% !important;
-        background-repeat: no-repeat;
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)),
+            url('../../Public/Assets/Media/Projects/projects-hero-mobile-5-2.jpg') !important;
+        background-attachment: unset !important;
+        background-position: bottom 0% right 40% !important;
+        background-size: cover !important;
+
 
     }
 
@@ -244,12 +255,12 @@
 @media screen and (max-height: 550px) {
     .projects-page .quarries-hero {
         background-attachment: unset;
-        background-position: center;
+        background-position: bottom 50% left 40% !important;
 
     }
 
     .multi-projects {
-        justify-content: flex-start;
+        justify-content: center;
     }
 
 
@@ -261,4 +272,7 @@
         opacity: 1;
     }
 
+    .overlay h3 {
+        font-size: 20px;
+    }
 }

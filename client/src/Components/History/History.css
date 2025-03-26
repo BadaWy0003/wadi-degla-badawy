@@ -292,6 +292,7 @@
 
 #third-gen-mid-text-title {
     color: var(--blueColor);
+    text-transform: uppercase;
 }
 
 .third-gen-section-image {

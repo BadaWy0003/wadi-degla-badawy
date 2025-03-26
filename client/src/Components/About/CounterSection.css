@@ -137,9 +137,6 @@
         /* Keep icon size consistent */
     }
 
-    .counter-card p {
-        hyphens: auto;
-    }
 }
 
 @media screen and (max-height: 550px) {

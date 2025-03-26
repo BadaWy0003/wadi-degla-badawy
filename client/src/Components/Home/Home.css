@@ -34,6 +34,7 @@
     margin: 0;
     font-size: 40px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .homepage .hero p {
@@ -121,6 +122,7 @@
     color: var(--whiteColor);
     text-align: center;
 }
+
 
 
 /* PARTNERS SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -270,6 +272,45 @@
     text-align: center;
 }
 
+/* INSPIRATION HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.inspiration-home-section {
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('../../Public/Assets/Media/Inspiration/inspo-ancient/inspo-ancient-1.jpeg');
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80vh;
+    max-width: 100vw;
+    padding: 0 5rem;
+    overflow-x: hidden;
+}
+
+.inspiration-home-section h2 {
+    color: var(--goldColor);
+    text-align: center;
+    margin: 0;
+}
+
+.inspiration-home-section h4 {
+    color: var(--blueColor);
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.inspiration-home-section p {
+    color: var(--whiteColor);
+    text-align: center;
+}
 
 /* EXPORTS SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -378,6 +419,7 @@
     }
 
 
+
     .partners-home-section {
         padding: 2rem 0rem;
     }
@@ -434,6 +476,16 @@
         padding: 1rem !important;
     }
 
+    .inspiration-home-section {
+        background-attachment: unset !important;
+        height: 50vh !important;
+        padding: 1rem !important;
+
+    }
+
+    .inspiration-home-section h4 {
+        text-align: left;
+    }
 
     /* PROJECTS HOME SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -444,8 +496,9 @@
                 rgba(0, 0, 0, 0.6)),
             url('../../Public/Assets/Media/Projects/projects-hero-mobile-5-2.jpg') !important;
         background-attachment: unset !important;
-        background-position: top !important;
-        background-size: 200% !important;
+        background-position: center !important;
+        background-size: cover !important;
+
         height: 50vh !important;
         padding: 1rem !important;
         align-items: center !important;
@@ -531,7 +584,7 @@
     .quarries-home-section {
         background-attachment: unset;
         border-top: 2px solid var(--darkerBlackColor);
-        height: unset;
+        height: 100vh;
         padding: 3rem 5rem;
     }
 
@@ -543,13 +596,24 @@
         margin-top: -1px;
     }
 
+    .inspiration-home-section {
+        background-attachment: unset;
+        background-position: top 15% left 0;
+        border-top: 2px solid var(--darkerBlackColor);
+        height: 100vh;
+        padding: 3rem 5rem;
+    }
+
     .visualizer-home-inner {
         background-attachment: unset;
+        height: 100vh;
+
     }
 
     .visualizer-home-inner {
         background-attachment: unset;
     }
+
 
     .projects-home-section {
         padding: 3rem 5rem;

@@ -390,7 +390,7 @@ nav {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1.5rem;
+        gap: 3em;
         background-color: var(--darkerBlackColor);
         transition: 1s;
         z-index: 999999;

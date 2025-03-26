@@ -35,9 +35,9 @@ import secondfactory8 from '../../Public/Assets/Media/Quarries/second-factory/se
 import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory9.jpeg';
 // import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory4.jpeg';
 
-// import third_factory from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory.jpeg';
-// import third_factory_2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
+import third_factory_2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
 import third_factory_3 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory3.jpeg';
+import third_factory_4 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory4.jpeg';
 
   // export const globalFactoriesImages = 
   //            [image03, image21, image24]
@@ -95,6 +95,8 @@ import third_factory_3 from '../../Public/Assets/Media/Quarries/third-factory/th
   export const thirdFactoryImages = 
   [
                 
-            third_factory_3
+        third_factory_3,
+        third_factory_2,
+        third_factory_4,
 
     ]
