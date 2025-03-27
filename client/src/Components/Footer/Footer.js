@@ -58,6 +58,7 @@ function Footer() {
                 <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}>Our Products</Link>
                 <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}>Material Visualizer</Link>
                 <Link to='/patterns' onClick={() => {window.scrollTo(0, 0);}}>Patterns / Pavers</Link>
+                <Link to='/kerbstone & cobbles' onClick={() => {window.scrollTo(0, 0);}}>Kerbstone & Cobbles</Link>
                 </div>
 
                 <div className="col">

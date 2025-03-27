@@ -9,6 +9,7 @@ import Navbar from "./Components/Navbar/Navbar.js";
 import Footer from "./Components/Footer/Footer.js";
 import Products from "./Components/Products/Products.js";
 import Visualizer from "./Components/Products/Visualizer.js";
+import KerbCobbles from "./Components/Kerb&Cobbles/KerbCobbles.js";
 import MyAccount from "./Components/MyAccount/MyAccount.js";
 import Contact from "./Components/Contact/Contact.js";
 import ProductDetails from "./Components/Products/ProductDetails.js";
@@ -59,6 +60,7 @@ function App() {
           <Route exact path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route exact path="/visualizer" element={<Visualizer />} />
+          <Route exact path="/kerbstone & cobbles" element={<KerbCobbles />} />
           <Route exact path="/projects" element={<Projects />} />
           <Route exact path="/projects/:projectId" element={<ProjectDetails />} />
           <Route exact path="/fairs" element={<Fairs />} />

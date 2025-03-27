@@ -1,0 +1,74 @@
+.kerbcobbles-container {
+    margin-top: -7rem;
+    padding-bottom: 10rem;
+}
+
+.kerbcobbles-container h2 {
+    font-size: 24px;
+}
+
+.kerbcobbles-container .quarries-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/products-hero-1.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+
+
+
+}
+
+.kerbcobbles-container .quarries-hero h1 {
+    position: absolute;
+    top: 50%;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+.kerbcobbles-container .quarries-hero .breadcrumb {
+    position: absolute;
+    top: 60%;
+    padding: 1rem;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+.kerbcobbles-section {
+    padding: 0 5rem;
+    margin-top: 5rem;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    /* General Hero Section */
+    .kerbcobbles-container .quarries-hero {
+        background-attachment: unset;
+    }
+
+    .kerbcobbles-container .quarries-hero h1 {
+        top: 50%;
+        text-align: center;
+    }
+
+    .kerbcobbles-container .quarries-hero .breadcrumb {
+        display: none;
+    }
+
+
+
+}
+
+@media screen and (max-height: 550px) {
+
+    .kerbcobbles-container .quarries-hero {
+        background-attachment: unset;
+    }
+}
