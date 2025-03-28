@@ -1,7 +1,11 @@
 import React from "react";
 import "./Section.css"; // Create a CSS file for styling
 import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper (Install if not installed)
-import "swiper/css";
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import "swiper/css/navigation";
+import { Navigation, Pagination } from 'swiper/modules';
 
 export default function Section({ title, text, images, imagePosition = "left" }) {
   return (
@@ -9,7 +13,14 @@ export default function Section({ title, text, images, imagePosition = "left" })
       <div className={`section-content ${imagePosition === "right" ? "reverse" : ""}`}>
         {/* Swiper for Images */}
         <div className="image-container">
-          <Swiper spaceBetween={10} slidesPerView={1}>
+          <Swiper 
+          spaceBetween={10} 
+          slidesPerView={1}
+          modules={[Pagination, Navigation]}
+          pagination={{ clickable: true }}
+          navigation
+          grabCursor={true}
+          >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
                 <img src={image} alt={`Slide ${index + 1}`} />

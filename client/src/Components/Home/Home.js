@@ -89,7 +89,8 @@ export default function Home(){
                 }}>LEARN MORE</button>                     
             </div>
             <ProjectsHome />
-                      <ContactBubble />
+
+            <ContactBubble />
         </div>
     )
 }

@@ -1,13 +1,13 @@
-.kerbcobbles-container {
+.cobble-container {
     margin-top: -7rem;
     padding-bottom: 10rem;
 }
 
-.kerbcobbles-container h2 {
+.cobble-container h2 {
     font-size: 24px;
 }
 
-.kerbcobbles-container .quarries-hero {
+.cobble-container .quarries-hero {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -19,11 +19,9 @@
     background-position: bottom;
     background-attachment: fixed;
 
-
-
 }
 
-.kerbcobbles-container .quarries-hero h1 {
+.cobble-container .quarries-hero h1 {
     position: absolute;
     top: 50%;
     color: var(--whiteColor);
@@ -31,7 +29,7 @@
 }
 
 
-.kerbcobbles-container .quarries-hero .breadcrumb {
+.cobble-container .quarries-hero .breadcrumb {
     position: absolute;
     top: 60%;
     padding: 1rem;
@@ -39,28 +37,38 @@
     z-index: 1;
 }
 
-.kerbcobbles-section {
-    padding: 0 5rem;
+.cobble-section {
     margin-top: 5rem;
+    padding: 0 5rem;
 }
 
-
+.cobble-description {
+    margin-top: 5rem;
+    color: var(--whiteColor);
+    text-align: justify;
+}
 
 @media screen and (max-width: 768px) {
 
     /* General Hero Section */
-    .kerbcobbles-container .quarries-hero {
+    .cobble-container .quarries-hero {
         background-attachment: unset;
     }
 
-    .kerbcobbles-container .quarries-hero h1 {
+    .cobble-container .quarries-hero h1 {
         top: 50%;
         text-align: center;
     }
 
-    .kerbcobbles-container .quarries-hero .breadcrumb {
+    .cobble-container .quarries-hero .breadcrumb {
         display: none;
     }
+
+    .cobble-section {
+        padding: 0 1rem;
+    }
+
+
 
 
 
@@ -68,7 +76,9 @@
 
 @media screen and (max-height: 550px) {
 
-    .kerbcobbles-container .quarries-hero {
+    .cobble-container .quarries-hero {
         background-attachment: unset;
     }
+
+
 }

@@ -192,13 +192,22 @@ export default function Navbar() {
                 Patterns / Pavers
               </Link>
               <Link
-                to="/kerbstone & cobbles"
+                to="/kerbstone"
                 onClick={() => {
                   closeNavbar();
                   window.scrollTo(0, 0);
                 }}
               >
-                Kerbstone & Cobbles
+                kerbstone
+              </Link>
+              <Link
+                to="/Cobble"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Cobble
               </Link>
             </div>
           </div>
