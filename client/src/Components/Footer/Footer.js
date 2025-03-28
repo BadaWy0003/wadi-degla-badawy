@@ -60,6 +60,7 @@ function Footer() {
                 <Link to='/patterns' onClick={() => {window.scrollTo(0, 0);}}>Patterns / Pavers</Link>
                 <Link to='/kerbstone' onClick={() => {window.scrollTo(0, 0);}}>kerbstone</Link>
                 <Link to='/Cobble' onClick={() => {window.scrollTo(0, 0);}}>Cobble</Link>
+                <Link to='/Stone Creation' onClick={() => {window.scrollTo(0, 0);}}>Stone Creation</Link>
                 </div>
 
                 <div className="col">

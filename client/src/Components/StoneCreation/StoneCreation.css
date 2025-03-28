@@ -1,0 +1,84 @@
+.stone-creation-container {
+    margin-top: -7rem;
+    padding-bottom: 10rem;
+}
+
+.stone-creation-container h2 {
+    font-size: 24px;
+}
+
+.stone-creation-container .quarries-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/products-hero-1.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+
+}
+
+.stone-creation-container .quarries-hero h1 {
+    position: absolute;
+    top: 50%;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+.stone-creation-container .quarries-hero .breadcrumb {
+    position: absolute;
+    top: 60%;
+    padding: 1rem;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+.stone-creation-section {
+    margin-top: 5rem;
+    padding: 0 5rem;
+}
+
+.stone-creation-description {
+    margin-top: 5rem;
+    color: var(--whiteColor);
+    text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* General Hero Section */
+    .stone-creation-container .quarries-hero {
+        background-attachment: unset;
+    }
+
+    .stone-creation-container .quarries-hero h1 {
+        top: 50%;
+        text-align: center;
+    }
+
+    .stone-creation-container .quarries-hero .breadcrumb {
+        display: none;
+    }
+
+    .stone-creation-section {
+        padding: 0 1rem;
+    }
+
+
+
+
+
+}
+
+@media screen and (max-height: 550px) {
+
+    .stone-creation-container .quarries-hero {
+        background-attachment: unset;
+    }
+
+
+}

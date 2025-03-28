@@ -209,6 +209,15 @@ export default function Navbar() {
               >
                 Cobble
               </Link>
+              <Link
+                to="/Stone Creation"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Stone Creation
+              </Link>
             </div>
           </div>
         </div>
