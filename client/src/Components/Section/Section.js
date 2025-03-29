@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper (Install if
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import "swiper/css/navigation";
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 export default function Section({ title, text, images, imagePosition = "left" }) {
   return (
@@ -16,7 +16,12 @@ export default function Section({ title, text, images, imagePosition = "left" })
           <Swiper 
           spaceBetween={10} 
           slidesPerView={1}
-          modules={[Pagination, Navigation]}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}    
+          modules={[Pagination, Navigation, Autoplay]}
           pagination={{ clickable: true }}
           navigation
           grabCursor={true}

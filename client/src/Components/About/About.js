@@ -2,7 +2,7 @@ import React from "react";
 import './About.css';
 // import logo_color_notext from '../../Public/Assets/Media/logo-color-notext.svg'
 import logo_color_stroke_notext from '../../Public/Assets/Media/logo-color-stroke-notext.svg'
-import expertise_square_image from '../../Public/Assets/Media/about-expertise.jpeg'
+import expertise_square_image from '../../Public/Assets/Media/about-expertise-2.jpeg'
 import MissionVisionSection from "./MissionVisionSection";
 import CounterSection from "./CounterSection";
 import ContactBubble from "../Contact/ContactBubble";

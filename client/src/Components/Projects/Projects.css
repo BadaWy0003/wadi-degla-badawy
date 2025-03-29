@@ -158,6 +158,7 @@
 .overlay h3 {
     padding: 0 1rem;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .overlay p {

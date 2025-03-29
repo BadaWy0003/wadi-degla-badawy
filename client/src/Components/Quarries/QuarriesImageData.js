@@ -28,12 +28,13 @@ import image9 from '../../Public/Assets/Media/Quarries/first-factory/image9.jpeg
 
 import secondfactory1 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory1.jpg';
 import secondfactory2 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory2.jpg';
-// import secondfactory3 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory3.jpeg';
 import secondfactory5 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory5.jpg';
 import secondfactory6 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory6.jpeg';
 import secondfactory8 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory8.jpeg';
 import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory9.jpeg';
-// import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory4.jpeg';
+import secondfactory10 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory10.jpeg';
+import secondfactory11 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory11.jpeg';
+import secondfactory12 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory12.jpeg';
 
 import third_factory_2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.jpeg';
 import third_factory_3 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory3.jpeg';
@@ -89,6 +90,9 @@ import third_factory_4 from '../../Public/Assets/Media/Quarries/third-factory/th
               secondfactory5,
               secondfactory9,
               secondfactory8,
+              secondfactory10,
+              secondfactory11,
+              secondfactory12,
               
     ]
 

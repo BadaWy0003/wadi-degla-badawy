@@ -2,16 +2,18 @@
 // import water_treatment_2 from '../../Public/Assets/Media/Machinery/water-treatment-2.jpg';
 import slabs_bridge_cutter from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-1.jpg';
 import slabs_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-2.jpg';
-import slabs_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-3.jpeg';
+// import slabs_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-3.jpeg';
 import slabs_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-4.jpeg';
-import slabs_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-5.jpeg';
-import slabs_bridge_cutter_6 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-6.jpg';
+// import slabs_bridge_cutter_5 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-5.jpeg';
+import slabs_bridge_cutter_7 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-7.jpeg';
+import slabs_bridge_cutter_8 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-8.jpeg';
 
 import polishing_line from '../../Public/Assets/Media/Machinery/polishing-line.jpg';
 import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line-1.jpeg';
 import polishing_line_2 from '../../Public/Assets/Media/Machinery/polishing-line-2.jpg';
 import polishing_line_3 from '../../Public/Assets/Media/Machinery/polishing-line-3.jpg';
-import polishing_line_4 from '../../Public/Assets/Media/Machinery/polishing-line-4.jpeg';
+// import polishing_line_4 from '../../Public/Assets/Media/Machinery/polishing-line-4.jpeg';
+import polishing_line_5 from '../../Public/Assets/Media/Machinery/polishing-line-5.jpeg';
 
 import gangsaws from '../../Public/Assets/Media/Machinery/gangsaws.jpg';
 import gangsaws_2 from '../../Public/Assets/Media/Machinery/gangsaws-2.jpeg';
@@ -102,7 +104,7 @@ export const generalUseData = [
       export const mngSlabsData = [
         {
           title: "3 polishing lines",
-          images: [polishing_line_1, polishing_line_3, polishing_line, polishing_line_2, polishing_line_4],
+          images: [polishing_line_1, polishing_line_3, polishing_line, polishing_line_2, polishing_line_5],
         },
         {
           title: "1 risin treating line",
@@ -113,7 +115,7 @@ export const generalUseData = [
       export const mngTilesData = [
         {
           title: "6 Slabs bridge cutters",
-          images: [slabs_bridge_cutter_2, slabs_bridge_cutter, slabs_bridge_cutter_6, slabs_bridge_cutter_3, slabs_bridge_cutter_4, slabs_bridge_cutter_5],
+          images: [slabs_bridge_cutter_7, slabs_bridge_cutter_2, slabs_bridge_cutter, slabs_bridge_cutter_8, slabs_bridge_cutter_4],
         },
         {
           title: "1 Tumbling machine",

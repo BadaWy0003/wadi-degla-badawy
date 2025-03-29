@@ -198,7 +198,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                kerbstone
+                Kerbstone
               </Link>
               <Link
                 to="/Cobble"

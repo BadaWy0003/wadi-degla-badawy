@@ -81,6 +81,7 @@
 }
 
 .project-details-right h1 {
+    text-transform: uppercase;
     color: var(--goldColor);
 }
 
