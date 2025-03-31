@@ -12,7 +12,7 @@ export default function PartnersHome() {
 
     return(
         <section className="partners-home-section">
-            <h2>Our Partners & Clients</h2>
+            <h2>Partners & Clients</h2>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}

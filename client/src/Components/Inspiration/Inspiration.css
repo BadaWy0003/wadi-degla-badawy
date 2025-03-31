@@ -108,7 +108,7 @@
 
 .ancient-swiper {
     width: 100%;
-    height: 80vh;
+    height: 60vh;
     margin-bottom: 10px;
     cursor: pointer;
 }
@@ -146,7 +146,7 @@
 /* INSPO SWIPER _____________________________ */
 .inspo-swiper {
     width: 100%;
-    height: 80vh !important;
+    height: 60vh !important;
     /* Ensures Swiper never exceeds 50% of the viewport height */
     cursor: pointer;
 }

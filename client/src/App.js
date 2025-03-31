@@ -63,8 +63,8 @@ function App() {
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route exact path="/visualizer" element={<Visualizer />} />
           <Route exact path="/kerbstone" element={<Kerbstone />} />
-          <Route exact path="/Cobble" element={<Cobble />} />
-          <Route exact path="/Stone Creation" element={<StoneCreation />} />
+          <Route exact path="/Cobbles" element={<Cobble />} />
+          <Route exact path="/Stone Creations" element={<StoneCreation />} />
           <Route exact path="/projects" element={<Projects />} />
           <Route exact path="/projects/:projectId" element={<ProjectDetails />} />
           <Route exact path="/fairs" element={<Fairs />} />

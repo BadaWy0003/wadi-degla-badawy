@@ -10,10 +10,10 @@ export default function StoneCreation(){
         <div className='stone-creation-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
-                        <h1>STONE CREATION</h1>
+                        <h1>Stone Creations</h1>
                         <div className="breadcrumb">
                         <a href="/">Home</a>
-                        <p>{'>'} Stone Creation</p>
+                        <p>{'>'} Stone Creations</p>
                         </div>
                 </div>  
 

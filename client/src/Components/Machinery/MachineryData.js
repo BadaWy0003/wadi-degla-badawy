@@ -29,7 +29,8 @@ import big_bridge_cutter_3 from '../../Public/Assets/Media/Machinery/big-bridge-
 import big_bridge_cutter_4 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-4.jpeg';
 
 import monofilos_2 from '../../Public/Assets/Media/Machinery/monofilos-2.jpg';
-import monofilos_3 from '../../Public/Assets/Media/Machinery/monofilos-3.jpeg';
+// import monofilos_3 from '../../Public/Assets/Media/Machinery/monofilos-3.jpeg';
+import monofilos_4 from '../../Public/Assets/Media/Machinery/monofilos-4.jpeg';
 
 import risin_line_3 from '../../Public/Assets/Media/Machinery/risin-line-3.jpeg';
 import risin_line_5 from '../../Public/Assets/Media/Machinery/risin-line-5.jpeg';
@@ -97,7 +98,7 @@ export const generalUseData = [
         },
         {
           title: "6 Monofilos",
-          images: [monofilos_2, monofilos_3],
+          images: [monofilos_2, monofilos_4],
         }
 
       ];

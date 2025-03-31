@@ -25,31 +25,23 @@ export default function Kerbstone(){
                 </div>  
             <div className="kerbstone-section">   
                 <section className="kerb-intro"> 
-                    <h2>Fully Automatic Production Curbstone / Kerbstone Line</h2>
+                    <h2>Kerbstone – Egyptian Granite</h2>
                     <img className="kerb-intro-img-mobile" src={kerb_intro_img} alt="kerb intro img" />
-                    <p>We are excited to announce that we are currently establishing 
-                        ourselves as the inaugural factory in the Arab Republic of Egypt 
-                        and the Middle East, specializing in the production of kerbstones 
-                        in a wide array of products and sizes. What sets us apart is our 
-                        innovative approach, as we have implemented a fully automated 
-                        production line that eliminates the need for manual labor. Our 
-                        cutting-edge machinery, sourced from China, plays a pivotal role 
-                        in our manufacturing process. These state-of-the-art machines are 
-                        designed to precisely cut and shape each kerbstone piece to 
-                        perfection. Additionally, we have incorporated a 
-                        specialized machine that excels in shaping and profiling 
-                        works, further enhancing the quality and precision of our 
-                        products. We take immense pride in pioneering this groundbreaking 
-                        venture in our region, offering top-notch kerbstones to meet the 
-                        diverse needs of our esteemed customers.
+                    <p>Wadi Degla offers premium-quality kerbstones crafted from authentic Egyptian granite, renowned 
+                        for its exceptional durability, strength, and natural beauty. Our kerbstones are ideal for 
+                        infrastructure, urban planning, landscaping, and luxury developments, providing both 
+                        functionality and a sophisticated aesthetic.
                         <br/><br/>
-                        Sawn-cut curbstones are available with customizable dimensions and surface 
-                        options like sawn-cut, sand-blasted and flamed.
+                        Manufactured in Wadi Degla’s advanced factories, our granite kerbstones are available in a 
+                        variety of surface finishes such as polished ,flamed, honed and sandblasted  can be customized 
+                        to meet any required size or project specification. With high resistance to 
+                        wear, weathering, and heavy traffic, they are the perfect choice for city streets, public 
+                        walkways, hotel driveways, and premium residential projects.
+
                         <br/><br/>
-                        Through our KERB stone production lines, profile machines, and splitting 
-                        machines, we managed to produce many carbide products with different 
-                        designs, from all granite and Egyptian materials, as well as with 
-                        different surface finishes (Cut – Flamed – Sandblast – Splitting)
+                        With over 45 years of expertise and a global export presence, Wadi Degla guarantees reliable 
+                        supply capacity, competitive pricing, and professional logistics support for projects across 
+                        Europe, the Caribbean, and beyond.
 
 </p>
                     </section>
@@ -94,18 +86,6 @@ export default function Kerbstone(){
                     images={roundtop} 
                     imagePosition="right" 
                 />
-                <Section 
-                    title="CIRCULAR CORNER KERBSTONE" 
-                    text="A ‘bend’ in a kerb line is more correctly known as 
-                    a ‘radius’. all bends, curves and arcs are composed of one 
-                    or more radiuses (or radii, if you prefer). While it is 
-                    possible to create a radius by using straight kerbs, there 
-                    are both road kerbs and block-paving kerb units that are 
-                    specially shaped to create true, accurate curves, either 
-                    internal (concave) or external (convex)." 
-                    images={circCorner} 
-                    imagePosition="left" 
-                />
     
                 <Section 
                     title="CHANNEL KERBSTONE" 
@@ -117,7 +97,7 @@ export default function Kerbstone(){
                     home, it’s important to think about where your water travels and 
                     where you can incorporate drainage." 
                     images={channel} 
-                    imagePosition="right" 
+                    imagePosition="left" 
                 />
 
                 <Section 
@@ -129,25 +109,23 @@ export default function Kerbstone(){
                     kerb stones are usually used in urban areas to border traffic islands 
                     and pedestrian crossing aids, which could add value to your property." 
                     images={transition} 
-                    imagePosition="left" 
+                    imagePosition="right" 
                 />
                 <section className="kerb-final"> 
                     <h2>Kerbstone/Curbstone Sizes, Finishes & Materials</h2>
-                    <p>To create a boundary and keep a clean edge to your driveway, kerb stones can add 
-                        great appeal to the outside of your home. As well as offering a stylish finishing 
-                        touch to your driveway, kerb stones and block paving edging are an integral part 
-                        of its overall design. At AFRICA GRANITE we supply a wide range of kerb 
-                        stones, designed with strength, durability and style in mind. With a variety 
-                        of different colours and designs, our kerb stones are the ideal complement to 
-                        any driveway project – whether in a contemporary or traditional setting. In a 
-                        range of textures, sizes and shapes, our kerb stones are the perfect complement 
-                        to your project. As with all of our products.
+                    <p>To create a boundary and maintain a clean edge for your driveway, kerb stones add both 
+                        functionality and visual appeal to your outdoor space. Beyond providing a stylish finishing 
+                        touch, kerb stones and block paving edging play a vital role in the overall design of your 
+                        driveway.
                         <br/><br/>
-                        this is an example for regular sizes that we produce, we are ready to produce any 
-                        dimensions required. as shown above some models of the products that we 
-                        produce, our factory is ready to implement any different designs with the 
-                        required dimensions, finishes, and materials.
-
+                        At WADI DEGLA, we offer a wide range of high-quality kerb stones, crafted for 
+                        strength, durability, and elegance. Available in various colors, textures, sizes, and 
+                        designs, our kerb stones seamlessly complement any driveway project—whether in a modern or 
+                        traditional setting.
+                        <br/><br/>
+                        We provide standard sizes, but our factory is fully equipped to produce custom dimensions to 
+                        meet your specific requirements. As showcased above, we manufacture diverse product models and 
+                        are ready to deliver bespoke designs with the necessary dimensions, finishes, and materials.
                     </p>
 
                         <Table />

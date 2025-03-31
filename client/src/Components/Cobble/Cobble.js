@@ -9,10 +9,10 @@ export default function Cobble(){
         <div className='cobble-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
-                        <h1>COBBLE</h1>
+                        <h1>COBBLES</h1>
                         <div className="breadcrumb">
                         <a href="/">Home</a>
-                        <p>{'>'} Cobble</p>
+                        <p>{'>'} Cobbles</p>
                         </div>
                 </div>  
 

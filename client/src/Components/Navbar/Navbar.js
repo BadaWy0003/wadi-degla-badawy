@@ -201,22 +201,22 @@ export default function Navbar() {
                 Kerbstone
               </Link>
               <Link
-                to="/Cobble"
+                to="/Cobbles"
                 onClick={() => {
                   closeNavbar();
                   window.scrollTo(0, 0);
                 }}
               >
-                Cobble
+                Cobbles
               </Link>
               <Link
-                to="/Stone Creation"
+                to="/Stone Creations"
                 onClick={() => {
                   closeNavbar();
                   window.scrollTo(0, 0);
                 }}
               >
-                Stone Creation
+                Stone Creations
               </Link>
             </div>
           </div>

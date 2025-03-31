@@ -59,8 +59,8 @@ function Footer() {
                 <Link to='/visualizer' onClick={() => {window.scrollTo(0, 0);}}>Material Visualizer</Link>
                 <Link to='/patterns' onClick={() => {window.scrollTo(0, 0);}}>Patterns / Pavers</Link>
                 <Link to='/kerbstone' onClick={() => {window.scrollTo(0, 0);}}>kerbstone</Link>
-                <Link to='/Cobble' onClick={() => {window.scrollTo(0, 0);}}>Cobble</Link>
-                <Link to='/Stone Creation' onClick={() => {window.scrollTo(0, 0);}}>Stone Creation</Link>
+                <Link to='/Cobbles' onClick={() => {window.scrollTo(0, 0);}}>Cobbles</Link>
+                <Link to='/Stone Creations' onClick={() => {window.scrollTo(0, 0);}}>Stone Creations</Link>
                 </div>
 
                 <div className="col">
@@ -93,7 +93,7 @@ function Footer() {
             </div>
           </div>
           <div className='copy-rights'>
-            <p> &copy;{new Date().getFullYear()} Wadi Degla All Rights Reserved</p>
+            <p> &copy;{new Date().getFullYear()} Wadi Degla | Powered by PyraDev</p>
             
           </div>
         </div>
