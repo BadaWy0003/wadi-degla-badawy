@@ -10,7 +10,7 @@ import bullnose2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/bullnose2
 import roundtop1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/roundtop1.jpg";
 import roundtop2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/roundtop2.png";
 
-import circ_corner1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/circ-corner.jpg";
+// import circ_corner1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/circ-corner.jpg";
 
 import channel1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/channel1.jpg";
 import channel2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/channel2.png";
@@ -37,9 +37,9 @@ export const roundtop=[
     roundtop2,
 ]
 
-export const circCorner=[
-    circ_corner1
-]
+// export const circCorner=[
+//     circ_corner1
+// ]
 
 export const channel=[
     channel1,

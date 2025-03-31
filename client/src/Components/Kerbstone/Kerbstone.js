@@ -5,7 +5,6 @@ import { str,
         full_batter,
         bullnose,
         roundtop,
-        circCorner,
         channel,
         transition } from "./KerbstoneImageData";
 import kerb_intro_img from '../../Public/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.jpg';
@@ -78,7 +77,7 @@ export default function Kerbstone(){
                 />
                 <Section 
                     title="ROUND TOP GARDEN EDGE" 
-                    text="AFRICA GRANITE Round Top garden edging is the perfect finishing 
+                    text="Wadi Degla's round top garden edging is the perfect finishing 
                     touch to any garden or pathway, helping to create distinct areas and 
                     guiding visitors in the direction you choose. Available in many 
                     neutral colours, this edging will suit any paving from our 
