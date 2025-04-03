@@ -1,4 +1,6 @@
 import './Footer.css'
+import "../Contact/Contact.css";
+
 import { Link } from "react-router-dom";
 import wadi_degla_logo_color from '../../Public/Assets/Logo-Identity/wadi-degla-logo-color.svg'
 import facebook_circle_white_icon from '../../Public/Assets/Icons/Social/facebook-circle-white-icon.svg'
@@ -38,7 +40,7 @@ function Footer() {
         <div className='footer-right'>
           <div className='footer-right-content'>
             <div className='footer-about'>
-            <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><img alt='' src={wadi_degla_logo_color} className='logo-color'/></Link>
+            <Link to='/' onClick={() => {window.scrollTo(0, 0);}}><img loading="lazy" alt='' src={wadi_degla_logo_color} className='logo-color'/></Link>
             
               <p>Welcome to <span>Wadi Degla</span> for Marble & Granite, your trusted partner in the marble business since 1980.</p>
             </div>
@@ -79,13 +81,13 @@ function Footer() {
                 <h4>CONTACT US</h4>
                 <Link to='/contact' onClick={() => {window.scrollTo(0, 0);}}>Contact</Link>
                 <div className='social'>
-                  <a href='https://www.facebook.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={facebook_circle_white_icon} className='social-icons-footer'/></a>
-                  <a href='https://instagram.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={instagram_circle_white_icon} className='social-icons-footer'/></a>
-                  {/* <a href='https://twitter.com/wadideglaaco' target="_blank" rel="noopener noreferrer"><img alt='' src={x_circle_white_icon} className='social-icons-footer'/></a> */}
-                  <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank" rel="noopener noreferrer"><img alt='' src={linkedin_circle_white_icon} className='social-icons-footer'/></a>
-                  <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank" rel="noopener noreferrer"><img alt='' src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
-                  {/* <a href='https://t.me/wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={telegram_circle_white_icon} className='social-icons-footer' /></a>
-                  <a href='https://www.tiktok.com/@wadideglaco' target="_blank" rel="noopener noreferrer"><img alt='' src={tiktok_circle_white_icon} className='social-icons-footer' /></a> */}
+                  <a href='https://www.facebook.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={facebook_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://instagram.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={instagram_circle_white_icon} className='social-icons-footer'/></a>
+                  {/* <a href='https://twitter.com/wadideglaaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={x_circle_white_icon} className='social-icons-footer'/></a> */}
+                  <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={linkedin_circle_white_icon} className='social-icons-footer'/></a>
+                  <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={whatsapp_circle_white_icon} className='social-icons-footer'/></a>
+                  {/* <a href='https://t.me/wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={telegram_circle_white_icon} className='social-icons-footer' /></a>
+                  <a href='https://www.tiktok.com/@wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={tiktok_circle_white_icon} className='social-icons-footer' /></a> */}
                   
 
                   </div>

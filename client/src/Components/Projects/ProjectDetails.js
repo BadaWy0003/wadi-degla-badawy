@@ -83,7 +83,7 @@ export default function ProjectDetails() {
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                   >
-                  <img src={image} alt={`Slide ${index}`} className="project-image" />
+                  <img loading="lazy" src={image} alt={`Slide ${index}`} className="project-image" />
                   {hovered && (
                     <div className="image-overlay">
                       <p>Click on the image to view it in full size and swipe to navigate</p>
@@ -93,7 +93,7 @@ export default function ProjectDetails() {
               ))}
             </Swiper>
           ) : (
-            <img src={project.thumbnail} alt={project.name} className="project-image" />
+            <img loading="lazy" src={project.thumbnail} alt={project.name} className="project-image" />
           )}
         </div>
 

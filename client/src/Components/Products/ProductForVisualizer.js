@@ -16,7 +16,7 @@ export default function ProductForVisualizer({ item, onClick }) {
   return (
     <div className="product-card" onClick={onClick}>
       <div className='img-div'>
-      <img src={selectedFinish?.link} alt={`${item.name} - ${selectedFinish?.finish || 'Default'}`} />
+      <img loading="lazy" src={selectedFinish?.link} alt={`${item.name} - ${selectedFinish?.finish || 'Default'}`} />
       </div>
       <h3>{item.name}</h3>
     </div>

@@ -86,7 +86,7 @@ export default function OurMarkets(){
                                         onClick={() => handleCountryClick(country.code)}
                                         className={selectedCountry === country.code ? "active" : ""} // ✅ Add active class
                                     >
-                                        <img src={country.flag} alt={`${country.name} Flag`} className="country-flag" />
+                                        <img loading="lazy" src={country.flag} alt={`${country.name} Flag`} className="country-flag" />
                                         {country.name}
                                     </button>
                                 ))}

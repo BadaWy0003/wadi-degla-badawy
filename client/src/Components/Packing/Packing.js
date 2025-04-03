@@ -58,11 +58,11 @@ export default function Packing(){
                             the right and two to the left. N.B. Polished Slabs are separated by Plastic sheets to be protected against scratches.</p> 
 
                     </div>
-                    <img src={image3} alt=""/>
+                    <img loading="lazy" src={image3} alt=""/>
                 </div>  
 
                 <div className="packing-tiles">
-                    <img src={image21} alt=""/>
+                    <img loading="lazy" src={image21} alt=""/>
                     <div className="packing-tiles-content">
                     <h1>PACKING MARBLE AND GRANITE TILES</h1>
 

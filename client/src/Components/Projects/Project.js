@@ -10,7 +10,7 @@ export default function Project({ project }) {
       style={{ position: "relative", cursor: "pointer" }}
     >
       <div className="img-div">
-        <img src={project.thumbnail} alt={project.name} className="project-image" />
+        <img loading="lazy" src={project.thumbnail} alt={project.name} className="project-image" />
       </div>
 
       {/* Hover overlay */}

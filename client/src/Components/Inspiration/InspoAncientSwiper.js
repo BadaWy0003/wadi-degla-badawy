@@ -6,6 +6,8 @@ import "yet-another-react-lightbox/styles.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "./Inspiration.css";
+import "../Projects/ProjectDetails.css";
 
 export default function InspoAncientSwiper({ images }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -45,7 +47,7 @@ export default function InspoAncientSwiper({ images }) {
   <div className="swiper-slide-container"
        onMouseEnter={() => setHovered(true)}
        onMouseLeave={() => setHovered(false)}>
-    <img src={image} alt={`Slide ${index}`} className="swiper-lazy" />
+    <img loading="lazy" src={image} alt={`Slide ${index}`} className="swiper-lazy" />
     {hovered && (
       <div className="image-overlay">
         <p>Click on the image to view it in full size and swipe to navigate</p>

@@ -16,7 +16,7 @@ const MasonryGrid = ({props}) => {
       <div className="masonry-grid">
         {props.map((img, i) => (
           <div key={i} className="masonry-item" onClick={() => { setIndex(i); setOpen(true); }}>
-            <img src={img} alt={`imaage ${i + 1}`} />
+            <img loading="lazy" src={img} alt={`imaage ${i + 1}`} />
           </div>
         ))}
       </div>

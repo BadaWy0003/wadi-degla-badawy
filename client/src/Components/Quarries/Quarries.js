@@ -157,7 +157,7 @@ export default function Quarries(){
         >
         {globalFactoriesImages[0].images.map((image, i) => (
             <SwiperSlide key={i}>
-            <img src={image} alt={`${i}`} className="swiper-lazy"/>
+            <img loading="lazy" src={image} alt={`${i}`} className="swiper-lazy"/>
             <div className="swiper-lazy-preloader"></div>
             </SwiperSlide>
         ))}

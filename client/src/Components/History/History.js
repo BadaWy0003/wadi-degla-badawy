@@ -75,7 +75,7 @@ export default function History(){
                                 </p>
                         </div>
                         <div className="first-gen-section-image">
-                            <img src={history16} alt="history-7"/>
+                            <img loading="lazy" src={history16} alt="history-7"/>
                         </div>
                     </div>
 
@@ -100,7 +100,7 @@ export default function History(){
                                 </p>
                         </div>
                         <div className="second-gen-section-image">
-                            <img src={sameh_ghanam} alt="sameh-ghanam"/>
+                            <img loading="lazy" src={sameh_ghanam} alt="sameh-ghanam"/>
                         </div>
                     </div>
 
@@ -113,7 +113,7 @@ export default function History(){
                     </div>
                     <div className="third-gen-section-content">
                     <div className="third-gen-section-image">
-                            <img src={saeed_jr} alt="saeed-ghanam"/>
+                            <img loading="lazy" src={saeed_jr} alt="saeed-ghanam"/>
                         </div>
 
                         <div className="third-gen-section-text">
@@ -139,10 +139,10 @@ export default function History(){
                                 </p>
                         </div>
                         <div className="third-gen-section-gallery">
-                            <img src={saeed_jr_2} alt="saeed-ghanam"/>
-                            <img src={saeed_jr_3} alt="saeed-ghanam"/>
-                            <img src={saeed_jr_4} alt="saeed-ghanam"/>
-                            <img src={saeed_jr_5} alt="saeed-ghanam"/>
+                            <img loading="lazy" src={saeed_jr_2} alt="saeed-ghanam"/>
+                            <img loading="lazy" src={saeed_jr_3} alt="saeed-ghanam"/>
+                            <img loading="lazy" src={saeed_jr_4} alt="saeed-ghanam"/>
+                            <img loading="lazy" src={saeed_jr_5} alt="saeed-ghanam"/>
 
                         </div>
 

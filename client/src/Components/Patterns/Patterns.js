@@ -53,14 +53,14 @@ const [splitFace, setSplitFace] = useState(split_face_1);
                     <h2>Marble Pavers</h2>
                     <p>Select a material from below to appear on this scenery</p>
                     <div className="pattern-section-left-materials">
-                        <img onClick={()=>setPaver(pavers1)} src={p1} alt="Marble Pavers 1"/>
-                        <img onClick={()=>setPaver(pavers2)} src={p2} alt="Marble Pavers 2"/>
-                        <img onClick={()=>setPaver(pavers3)} src={p3} alt="Marble Pavers 3"/>
-                        <img onClick={()=>setPaver(pavers4)} src={p4} alt="Marble Pavers 4"/>
+                        <img loading="lazy" onClick={()=>setPaver(pavers1)} src={p1} alt="Marble Pavers 1"/>
+                        <img loading="lazy" onClick={()=>setPaver(pavers2)} src={p2} alt="Marble Pavers 2"/>
+                        <img loading="lazy" onClick={()=>setPaver(pavers3)} src={p3} alt="Marble Pavers 3"/>
+                        <img loading="lazy" onClick={()=>setPaver(pavers4)} src={p4} alt="Marble Pavers 4"/>
                     </div>
                 </div>
                 <div className="pattern-section-right">
-                    <img src={paver} alt="Marble Pavers"/>
+                    <img loading="lazy" src={paver} alt="Marble Pavers"/>
                     </div>
     
             </div>
@@ -70,21 +70,21 @@ const [splitFace, setSplitFace] = useState(split_face_1);
                     <h2>Marble Split Face</h2>
                     <p>Select a material from below to appear on this scenery</p>
                     <div id="pattern-section-left-materials-splitface" className="pattern-section-left-materials">
-                        <img onClick={()=>setSplitFace(split_face_1)} src={s1} alt="split face 1"/>
-                        <img onClick={()=>setSplitFace(split_face_2)} src={s2} alt="split face 2"/>
-                        <img onClick={()=>setSplitFace(split_face_3)} src={s3} alt="split face 3"/>
-                        <img onClick={()=>setSplitFace(split_face_4)} src={s4} alt="split face 4"/>
-                        <img onClick={()=>setSplitFace(split_face_5)} src={s5} alt="split face 5"/>
-                        <img onClick={()=>setSplitFace(split_face_6)} src={s6} alt="split face 6"/>
-                        <img onClick={()=>setSplitFace(split_face_7)} src={s7} alt="split face 7"/>
-                        <img onClick={()=>setSplitFace(split_face_8)} src={s8} alt="split face 8"/>
-                        <img onClick={()=>setSplitFace(split_face_9)} src={s9} alt="split face 9"/>
-                        <img onClick={()=>setSplitFace(split_face_10)} src={s10} alt="split face 10"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_1)} src={s1} alt="split face 1"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_2)} src={s2} alt="split face 2"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_3)} src={s3} alt="split face 3"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_4)} src={s4} alt="split face 4"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_5)} src={s5} alt="split face 5"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_6)} src={s6} alt="split face 6"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_7)} src={s7} alt="split face 7"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_8)} src={s8} alt="split face 8"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_9)} src={s9} alt="split face 9"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_10)} src={s10} alt="split face 10"/>
 
                     </div>
                 </div>
                 <div className="pattern-section-right">
-                    <img src={splitFace} alt="split face"/>
+                    <img loading="lazy" src={splitFace} alt="split face"/>
                     </div>
     
             </div>

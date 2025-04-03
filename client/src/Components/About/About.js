@@ -44,7 +44,7 @@ export default function About(){
                 </div>
 
                 <div className="about-intro-section-image">
-                    <img src={logo_color_stroke_notext} alt="logo-notext"/>
+                    <img loading="lazy" src={logo_color_stroke_notext} alt="logo-notext"/>
                 </div>
             </div>
 
@@ -57,7 +57,7 @@ export default function About(){
                 </div>
                 <div className="our-expertise-section-content">
                     <div className="our-expertise-section-content-image">
-                        <img src={expertise_square_image} alt="expertise-image"/>
+                        <img loading="lazy" src={expertise_square_image} alt="expertise-image"/>
                     </div>
                     <div className="our-expertise-section-content-text">
                         <p>At Wadi Degla Marble & Granite, we specialize in supplying high-quality marble and

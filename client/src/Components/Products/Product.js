@@ -23,7 +23,7 @@ export default function Product({ item }) {
       }}
     >
       <div className='img-div-2'>
-      <img src={selectedFinish.link} alt={`${item.name} - ${selectedFinish.finish}`} />
+      <img loading="lazy" src={selectedFinish.link} alt={`${item.name} - ${selectedFinish.finish}`} />
       </div>
       <h3>{item.name}</h3>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Signup.css";
+import "../Contact/Contact.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../GlobalStateContext.js";
@@ -81,7 +82,7 @@ export default function Login() {
           </h3>
         </div>
         <div className="container1-img">
-          <img src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
+          <img loading="lazy" src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
         </div>
       </div>
       <div className="container2" id="container2-login">

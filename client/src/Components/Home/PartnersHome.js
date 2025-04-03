@@ -46,7 +46,7 @@ export default function PartnersHome() {
             >
                 {partnerLogos.map((logo, index) => (
                     <SwiperSlide key={index} className="partner-slide">
-                        <img id={`Partner-logo-home-${index + 1}`} src={logo} alt={`Partner ${index + 1}`} />
+                        <img loading="lazy" id={`Partner-logo-home-${index + 1}`} src={logo} alt={`Partner ${index + 1}`} />
                     </SwiperSlide>
                 ))}
             </Swiper>

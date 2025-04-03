@@ -47,7 +47,7 @@ export default function Partners() {
 
             <div className="partners">
                 {partnerLogos.map((logo, index) => (
-                    <img
+                    <img loading="lazy"
                         id={`partner-logo-${index + 1}`}
                         key={index} // Unique key for each logo
                         src={logo}

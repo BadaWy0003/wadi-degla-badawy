@@ -20,7 +20,7 @@ export default function CounterSection() {
     <section className="about-counters-section">
       {/* Experience Counter */}
       <div id="experience-card" className="counter-card">
-        <img src={experience} alt="experience-icon" />
+        <img loading="lazy" src={experience} alt="experience-icon" />
         <h3>YEARS OF EXPERIENCE</h3>
         <CountUp start={0} end={45} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
       </div>
@@ -48,7 +48,7 @@ export default function CounterSection() {
             ].map((item, index) => (
               <SwiperSlide key={index}>
                 <div className="counter-card">
-                  <img src={item.img} alt={`${item.title}-icon`} />
+                  <img loading="lazy" src={item.img} alt={`${item.title}-icon`} />
                   <h3>{item.title}</h3>
                   <CountUp start={0} end={item.count} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
                 </div>
@@ -60,17 +60,17 @@ export default function CounterSection() {
         {/* Grid Layout for Large Screens */}
         <div className="counters-grid">
           <div className="counter-card">
-            <img src={manpower} alt="manpower-icon" />
+            <img loading="lazy" src={manpower} alt="manpower-icon" />
             <h3>MANPOWER</h3>
             <CountUp start={0} end={500} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
           </div>
           <div className="counter-card">
-            <img src={tiles} alt="tiles-icon" />
+            <img loading="lazy" src={tiles} alt="tiles-icon" />
             <h3>M<sup>2</sup> PRODUCED/DAY</h3>
             <CountUp start={0} end={3000} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
           </div>
           <div className="counter-card">
-            <img src={projects} alt="projects-icon" />
+            <img loading="lazy" src={projects} alt="projects-icon" />
             <h3>COMPLETED PROJECTS</h3>
             <CountUp start={0} end={300} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
           </div>
@@ -100,7 +100,7 @@ export default function CounterSection() {
             ].map((item, index) => (
               <SwiperSlide key={index}>
                 <div className="counter-card">
-                  <img src={item.img} alt={`${item.title}-icon`} />
+                  <img loading="lazy" src={item.img} alt={`${item.title}-icon`} />
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </div>
@@ -112,17 +112,17 @@ export default function CounterSection() {
         {/* Grid Layout for Large Screens */}
         <div className="counters-grid">
           <div className="counter-card">
-            <img src={technology} alt="technology-icon" />
+            <img loading="lazy" src={technology} alt="technology-icon" />
             <h3>ADVANCED TECHNOLOGY</h3>
             <p>State-of-the-art machinery for precision & efficiency.</p>
           </div>
           <div className="counter-card">
-            <img src={craftsmanship} alt="craftsmanship-icon" />
+            <img loading="lazy" src={craftsmanship} alt="craftsmanship-icon" />
             <h3>SKILLED CRAFTSMANSHIP</h3>
             <p>Generations of knowledge ensuring top quality.</p>
           </div>
           <div className="counter-card">
-            <img src={global_supply_chain} alt="global-supply-chain-icon" />
+            <img loading="lazy" src={global_supply_chain} alt="global-supply-chain-icon" />
             <h3>GLOBAL SUPPLY CHAIN</h3>
             <p>Strong international partnerships for steady supply.</p>
           </div>

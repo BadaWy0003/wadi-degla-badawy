@@ -50,7 +50,7 @@ export default function Exports(){
                         premier supplier of premium natural stone products.</p>    
 
                     </div>
-                    <img src={exports} alt=""/>
+                    <img loading="lazy" src={exports} alt=""/>
                 </div>   
                 <OurMarkets />
                 <div className="image-grid">

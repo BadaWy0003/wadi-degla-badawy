@@ -91,7 +91,7 @@ export default function ProductDetails() {
 
       <div className="product-details-container">
         <div className="details-left">
-          <img
+          <img loading="lazy"
             src={selectedFinish?.link}
             alt={product.name}
             className="product-image"
@@ -143,7 +143,7 @@ export default function ProductDetails() {
             <div className="applications-grid">
               {applicationIcons.map((app, index) => (
                 <div key={index} className="application-icon-wrapper">
-                  <img
+                  <img loading="lazy"
                     src={app.src}
                     alt={app.name}
                     className="application-icon"

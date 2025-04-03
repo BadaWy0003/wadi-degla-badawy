@@ -28,7 +28,7 @@ export default function Section({ title, text, images, imagePosition = "left" })
           >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                <img src={image} alt={`Slide ${index + 1}`} />
+                <img loading="lazy" src={image} alt={`Slide ${index + 1}`} />
               </SwiperSlide>
             ))}
           </Swiper>

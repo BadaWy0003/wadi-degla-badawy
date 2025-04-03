@@ -25,7 +25,7 @@ export default function Kerbstone(){
             <div className="kerbstone-section">   
                 <section className="kerb-intro"> 
                     <h2>Kerbstone – Egyptian Granite</h2>
-                    <img className="kerb-intro-img-mobile" src={kerb_intro_img} alt="kerb intro img" />
+                    <img loading="lazy" className="kerb-intro-img-mobile" src={kerb_intro_img} alt="kerb intro img" />
                     <p>Wadi Degla offers premium-quality kerbstones crafted from authentic Egyptian granite, renowned 
                         for its exceptional durability, strength, and natural beauty. Our kerbstones are ideal for 
                         infrastructure, urban planning, landscaping, and luxury developments, providing both 

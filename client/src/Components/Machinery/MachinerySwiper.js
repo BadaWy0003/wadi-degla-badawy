@@ -4,6 +4,7 @@ import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import "../Projects/ProjectDetails.css";
 
 
 export default function MachinerySwiper({ images, title }) {
@@ -26,7 +27,7 @@ export default function MachinerySwiper({ images, title }) {
       >
         {images.map((image, i) => (
           <SwiperSlide key={i}>
-            <img src={image} alt={`${title} ${i + 1}`} className="swiper-lazy" />
+            <img loading="lazy" src={image} alt={`${title} ${i + 1}`} className="swiper-lazy" />
             <div className="swiper-lazy-preloader"></div>
           </SwiperSlide>
         ))}

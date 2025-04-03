@@ -1,40 +1,44 @@
 import "./App.css";
-import React from "react";
-import Signup from "./Components/LoginSignup/Signup.js";
-import Login from "./Components/LoginSignup/Login.js";
-import Gallery from "./Components/Gallery/Gallery.js";
-import About from "./Components/About/About.js";
-import Home from "./Components/Home/Home.js";
-import Navbar from "./Components/Navbar/Navbar.js";
-import Footer from "./Components/Footer/Footer.js";
-import Products from "./Components/Products/Products.js";
-import Visualizer from "./Components/Products/Visualizer.js";
-import Kerbstone from "./Components/Kerbstone/Kerbstone.js";
-import Cobble from "./Components/Cobble/Cobble.js";
-import StoneCreation from "./Components/StoneCreation/StoneCreation.js";
-import MyAccount from "./Components/MyAccount/MyAccount.js";
-import Contact from "./Components/Contact/Contact.js";
-import ProductDetails from "./Components/Products/ProductDetails.js";
-import Exports from "./Components/Exports/Exports.js";
-import Packing from "./Components/Packing/Packing.js";
-import Partners from "./Components/Partners/Partners.js";
-import News from "./Components/News/News.js";
-import Machinery from "./Components/Machinery/Machinery.js";
-import Quarries from "./Components/Quarries/Quarries.js";
-import Inspiration from "./Components/Inspiration/Inspiration.js";
-import History from "./Components/History/History.js";
-import Projects from "./Components/Projects/Projects.js";
-import ProjectDetails from "./Components/Projects/ProjectDetails.js";
-import Fairs from "./Components/Fairs/Fairs.js";
-import Patterns from "./Components/Patterns/Patterns.js";
-import Certificates from "./Components/Certificates/Certificates.js";
-import { ToastContainer } from "react-toastify";
-
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useGlobalState } from "./Components/GlobalStateContext"; // Ensure this exists
 import { ProtectedRoute } from "./Components/ProtectedRoute"; // Create this file as described earlier
-
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+//components that arent lazy loaded
+import Home from "./Components/Home/Home.js";
+import Navbar from "./Components/Navbar/Navbar.js";
+import Footer from "./Components/Footer/Footer.js";
+import LoadingSpinner from "./Components/LoadingSpinner/LoadingSpinner.js"; // Loading component
+import ScrollToTop from "./Components/ScrollToTop.js";
+
+//components that are lazy loaded
+const Products = lazy(() => import("./Components/Products/Products.js"));
+const About = lazy(() => import("./Components/About/About.js"));
+const Contact = lazy(() => import("./Components/Contact/Contact.js"));
+const Signup = lazy(() => import("./Components/LoginSignup/Signup.js"));
+const Login = lazy(() => import("./Components/LoginSignup/Login.js"));
+const Gallery = lazy(() => import("./Components/Gallery/Gallery.js"));
+const Visualizer = lazy(() => import("./Components/Products/Visualizer.js"));
+const Kerbstone = lazy(() => import("./Components/Kerbstone/Kerbstone.js"));
+const Cobble = lazy(() => import("./Components/Cobble/Cobble.js"));
+const StoneCreation = lazy(() => import("./Components/StoneCreation/StoneCreation.js"));
+const MyAccount = lazy(() => import("./Components/MyAccount/MyAccount.js"));
+const ProductDetails = lazy(() => import("./Components/Products/ProductDetails.js"));
+const Exports = lazy(() => import("./Components/Exports/Exports.js"));
+const Packing = lazy(() => import("./Components/Packing/Packing.js"));
+const Partners = lazy(() => import("./Components/Partners/Partners.js"));
+const News = lazy(() => import("./Components/News/News.js"));
+const Machinery = lazy(() => import("./Components/Machinery/Machinery.js"));
+const Quarries = lazy(() => import("./Components/Quarries/Quarries.js"));
+const Inspiration = lazy(() => import("./Components/Inspiration/Inspiration.js"));
+const History = lazy(() => import("./Components/History/History.js"));
+const Projects = lazy(() => import("./Components/Projects/Projects.js"));
+const ProjectDetails = lazy(() => import("./Components/Projects/ProjectDetails.js"));
+const Fairs = lazy(() => import("./Components/Fairs/Fairs.js"));
+const Patterns = lazy(() => import("./Components/Patterns/Patterns.js"));
+const Certificates = lazy(() => import("./Components/Certificates/Certificates.js"));
 
 function App() {
   const { globalState } = useGlobalState();
@@ -42,52 +46,63 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop /> {/* Ensures scrolling resets on page change */}
       <div className="main">
         <Navbar />
         <ToastContainer autoClose={5000} hideProgressBar />
         <Routes>
           {/* Public routes */}
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/history" element={<History />} />
-          <Route exact path="/exports" element={<Exports />} />
-          <Route exact path="/packing" element={<Packing />} />
-          <Route exact path="/machinery" element={<Machinery />} />
-          <Route exact path="/certificates" element={<Certificates />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/gallery" element={<Gallery />} />
-          <Route exact path="/inspiration" element={<Inspiration />} />
-          <Route exact path="/quarries" element={<Quarries />} />
-          <Route exact path="/partners" element={<Partners />} />
-          <Route exact path="/news" element={<News />} />
-          <Route exact path="/products" element={<Products />} />
-          <Route path="/products/:productId" element={<ProductDetails />} />
-          <Route exact path="/visualizer" element={<Visualizer />} />
-          <Route exact path="/kerbstone" element={<Kerbstone />} />
-          <Route exact path="/Cobbles" element={<Cobble />} />
-          <Route exact path="/Stone Creations" element={<StoneCreation />} />
-          <Route exact path="/projects" element={<Projects />} />
-          <Route exact path="/projects/:projectId" element={<ProjectDetails />} />
-          <Route exact path="/fairs" element={<Fairs />} />
-          <Route exact path="/patterns" element={<Patterns />} />
-          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/history" element={<Suspense fallback={<LoadingSpinner />}><History /></Suspense>} />
+          <Route exact path="/exports" element={<Suspense fallback={<LoadingSpinner />}><Exports /></Suspense>} />
+          <Route exact path="/packing" element={<Suspense fallback={<LoadingSpinner />}><Packing /></Suspense>} />
+          <Route exact path="/machinery" element={<Suspense fallback={<LoadingSpinner />}><Machinery /></Suspense>} />
+          <Route exact path="/certificates" element={<Suspense fallback={<LoadingSpinner />}><Certificates /></Suspense>} />
+          <Route exact path="/about" element={<Suspense fallback={<LoadingSpinner />}><About /></Suspense>} />
+          <Route exact path="/gallery" element={<Suspense fallback={<LoadingSpinner />}><Gallery /></Suspense>} />
+          <Route exact path="/inspiration" element={<Suspense fallback={<LoadingSpinner />}><Inspiration /></Suspense>} />
+          <Route exact path="/quarries" element={<Suspense fallback={<LoadingSpinner />}><Quarries /></Suspense>} />
+          <Route exact path="/partners" element={<Suspense fallback={<LoadingSpinner />}><Partners /></Suspense>} />
+          <Route exact path="/news" element={<Suspense fallback={<LoadingSpinner />}><News /></Suspense>} />
+          <Route
+            exact
+            path="/products"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <Products />
+              </Suspense>
+            }
+          />
+          <Route path="/products/:productId" element={<Suspense fallback={<LoadingSpinner />}><ProductDetails /></Suspense>} />
+          <Route exact path="/visualizer" element={<Suspense fallback={<LoadingSpinner />}><Visualizer /></Suspense>} />
+          <Route exact path="/kerbstone" element={<Suspense fallback={<LoadingSpinner />}><Kerbstone /></Suspense>} />
+          <Route exact path="/Cobbles" element={<Suspense fallback={<LoadingSpinner />}><Cobble /></Suspense>} />
+          <Route exact path="/Stone Creations" element={<Suspense fallback={<LoadingSpinner />}><StoneCreation /></Suspense>} />
+          <Route exact path="/projects" element={<Suspense fallback={<LoadingSpinner />}><Projects /></Suspense>} />
+          <Route exact path="/projects/:projectId" element={<Suspense fallback={<LoadingSpinner />}><ProjectDetails /></Suspense>} />
+          <Route exact path="/fairs" element={<Suspense fallback={<LoadingSpinner />}><Fairs /></Suspense>} />
+          <Route exact path="/patterns" element={<Suspense fallback={<LoadingSpinner />}><Patterns /></Suspense>} />
+          <Route exact path="/contact" element={<Suspense fallback={<LoadingSpinner />}><Contact /></Suspense>} />
 
           {/* Protected routes for NOT logged-in users */}
           <Route
             exact
             path="/signup"
-            element={
+            element={<Suspense fallback={<LoadingSpinner />}>
               <ProtectedRoute condition={!isLoggedIn} redirectTo="/my account">
                 <Signup />
               </ProtectedRoute>
+              </Suspense>
             }
           />
           <Route
             exact
             path="/login"
-            element={
+            element={<Suspense fallback={<LoadingSpinner />}>
               <ProtectedRoute condition={!isLoggedIn} redirectTo="/my account">
                 <Login />
               </ProtectedRoute>
+              </Suspense>
             }
           />
 
@@ -95,10 +110,11 @@ function App() {
           <Route
             exact
             path="/my account"
-            element={
+            element={<Suspense fallback={<LoadingSpinner />}>
               <ProtectedRoute condition={isLoggedIn} redirectTo="/login">
                 <MyAccount />
               </ProtectedRoute>
+              </Suspense>
             }
           />
         </Routes>

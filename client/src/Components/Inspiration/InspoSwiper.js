@@ -56,7 +56,7 @@ export default function InspoSwiper({ images }) {
         onMouseLeave={() => setHoveredIndex(null)}
         >
             <div className="swiper-slide-container">
-              <img src={image} alt={`Slide ${index}`} />
+              <img loading="lazy" src={image} alt={`Slide ${index}`} />
               {hoveredIndex === index && (
                 <div className="image-overlay">
                   <p>Click on the image to view it in full size and swipe to navigate</p>

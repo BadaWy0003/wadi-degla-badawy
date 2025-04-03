@@ -95,13 +95,13 @@ export default function Visualizer() {
     <div className="products-container">
       <div className="products-hero">
         {selectedProduct ? (
-          <img
+          <img loading="lazy"
             src={selectedProduct.currentMockup}
             alt={selectedProduct.name}
             className="products-hero-image"
           />
         ) : (
-          <img
+          <img loading="lazy"
             src={hero_bg}
             alt="Hero Background"
             className="products-hero-image"

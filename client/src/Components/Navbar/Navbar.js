@@ -69,7 +69,7 @@ export default function Navbar() {
           window.scrollTo(0, 0);
         }}
       >
-        <img
+        <img loading="lazy"
           alt=""
           src={scrolled ? wadi_degla_logo_color : wadi_degla_logo_white}
           className="logo"
@@ -84,7 +84,7 @@ export default function Navbar() {
           window.scrollTo(0, 0);
         }}
       >
-        <img
+        <img loading="lazy"
           alt="Logo"
           src={wadi_degla_logo_color}
           className="nav-item-mobile"
@@ -95,7 +95,7 @@ export default function Navbar() {
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
           <p>Wadi Degla</p>
-          <img src={arrow_down} alt=""/>
+          <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
             <div className="submenu">
@@ -160,7 +160,7 @@ export default function Navbar() {
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
           <p>Products</p>
-          <img src={arrow_down} alt=""/>
+          <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
             <div className="submenu">
@@ -224,7 +224,7 @@ export default function Navbar() {
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
           <p>Resources</p>
-          <img src={arrow_down} alt=""/>
+          <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
             <div className="submenu">

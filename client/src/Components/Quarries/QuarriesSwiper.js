@@ -26,7 +26,7 @@ export default function QuarriesSwiper({images}){
             >
               {images.map((image, i) => (
                 <SwiperSlide key={i}>
-                  <img src={image} alt={`Slide ${i}`} className="swiper-lazy" />
+                  <img loading="lazy" src={image} alt={`Slide ${i}`} className="swiper-lazy" />
                   <div className="swiper-lazy-preloader"></div>
                 </SwiperSlide>
               ))}

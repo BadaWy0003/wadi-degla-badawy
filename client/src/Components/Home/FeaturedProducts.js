@@ -90,7 +90,7 @@ export default function FeaturedProducts() {
                 const selectedFinish = honedFinish || polishedFinish; // Use "Honed" if available, otherwise "Polished"
 
                 return selectedFinish ? (
-                  <img 
+                  <img loading="lazy" 
                     src={selectedFinish.link} 
                     alt={`${item.name} - ${selectedFinish.finish}`} 
                   />

@@ -9,7 +9,7 @@ export default function CertificateLightBox({ thumbnail, fullImage }) {
     return (
         <>
             {/* Thumbnail Image */}
-            <img 
+            <img loading="lazy" 
                 className="certificate-image"
                 src={thumbnail} 
                 alt="Thumbnail" 

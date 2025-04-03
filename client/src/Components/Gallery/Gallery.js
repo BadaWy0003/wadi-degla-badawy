@@ -53,7 +53,7 @@ export default function Gallery() {
         <div className="masonry-grid">
           {slides.map((slide, i) => (
             <div key={i} className="masonry-item" onClick={() => { setIndex(i); setOpen(true); }}>
-              <img src={slide.src} alt={`Gallery ${i + 1}`} loading="lazy" />
+              <img loading="lazy" src={slide.src} alt={`Gallery ${i + 1}`} />
             </div>
           ))}
         </div>

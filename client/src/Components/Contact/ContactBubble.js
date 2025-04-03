@@ -32,7 +32,7 @@ export default function ContactBubble() {
                 className={`contact-bubble ${isClicked ? 'active' : ''}`}
                 onClick={() => setIsClicked(!isClicked)}
             >
-                <img src={envelope} alt="Contact Us" />
+                <img loading="lazy" src={envelope} alt="Contact Us" />
             </div>
             <div className={`contact-bubble-clicked ${isClicked ? 'active' : ''}`}>
                 <p>We are looking forward to working with you!</p>
