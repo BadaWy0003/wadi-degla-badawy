@@ -1,5 +1,6 @@
 import React from "react";
 import './StoneCreation.css';
+import "../Inspiration/Inspiration.css";
 // import Section from "../Section/Section";
 import { architectureData, mosaicsData } from "./StoneCreationData";
 import ContactBubble from "../Contact/ContactBubble";

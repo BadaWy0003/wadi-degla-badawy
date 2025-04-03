@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import "../Projects/ProjectDetails.css";
 
 export default function Section({ title, text, images, imagePosition = "left" }) {
   return (

@@ -1,5 +1,6 @@
 import React from "react";
 import "./ImageSection.css";
+import "../Inspiration/Inspiration.css"
 
 export default function ImageSection({ sectionData }) {
   return (
