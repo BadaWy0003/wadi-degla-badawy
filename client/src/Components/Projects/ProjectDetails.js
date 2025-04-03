@@ -12,6 +12,7 @@ import Product from "../Products/Product";
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import ContactBubble from "../Contact/ContactBubble.js";
+import "../Products/Products.css";
 
 export default function ProjectDetails() {
   const { projectId } = useParams();
