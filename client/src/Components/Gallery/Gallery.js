@@ -4,6 +4,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import apiClient from "../../util/client";
 import ContactBubble from "../Contact/ContactBubble";
+import "../Exports/Exports.css";
 
 export default function Gallery() {
   const [gallery, setGallery] = useState([]);
