@@ -1,5 +1,6 @@
 import React from "react";
 import './Quarries.css';
+import '../Projects/ProjectDetails.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';

@@ -83,7 +83,7 @@ export default function CounterSection() {
         <div className="counters-swiper">
         <Swiper 
             autoplay={{
-            delay: 2000, // Delay in milliseconds (3 seconds)
+            delay: 3000, // Delay in milliseconds (3 seconds)
             disableOnInteraction: false, // Continue autoplay after user interaction
             pauseOnMouseEnter: true, // Pause autoplay when hovered
             }}          

@@ -14,6 +14,16 @@ import packing4 from '../../Public/Assets/Media/Packing/packing4.webp';
 import packing5 from '../../Public/Assets/Media/Packing/packing5.webp';
 import packing6 from '../../Public/Assets/Media/Packing/packing6.webp';
 import packing7 from '../../Public/Assets/Media/Packing/packing7.webp';
+import packing8 from '../../Public/Assets/Media/Packing/packing8.webp';
+import packing9 from '../../Public/Assets/Media/Packing/packing9.webp';
+import packing10 from '../../Public/Assets/Media/Packing/packing10.webp';
+import packing11 from '../../Public/Assets/Media/Packing/packing11.webp';
+import packing12 from '../../Public/Assets/Media/Packing/packing12.webp';
+import packing13 from '../../Public/Assets/Media/Packing/packing13.webp';
+import packing14 from '../../Public/Assets/Media/Packing/packing14.webp';
+import packing15 from '../../Public/Assets/Media/Packing/packing15.webp';
+import packing16 from '../../Public/Assets/Media/Packing/packing16.webp';
+import packing17 from '../../Public/Assets/Media/Packing/packing17.webp';
 
 
 export default function Packing(){
@@ -25,7 +35,17 @@ export default function Packing(){
         packing4,
         packing5,
         packing6,
-        packing7
+        packing7,
+        packing8,
+        packing9,
+        packing10,
+        packing11,
+        packing12,
+        packing13,
+        packing14,
+        packing15,
+        packing16,
+        packing17,
     ];
 
     

@@ -13,7 +13,8 @@ import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line
 import polishing_line_2 from '../../Public/Assets/Media/Machinery/polishing-line-2.webp';
 import polishing_line_3 from '../../Public/Assets/Media/Machinery/polishing-line-3.webp';
 // import polishing_line_4 from '../../Public/Assets/Media/Machinery/polishing-line-4.webp';
-import polishing_line_5 from '../../Public/Assets/Media/Machinery/polishing-line-5.webp';
+// import polishing_line_5 from '../../Public/Assets/Media/Machinery/polishing-line-5.webp';
+import polishing_line_6 from '../../Public/Assets/Media/Machinery/polishing-line-6.webp';
 
 import gangsaws from '../../Public/Assets/Media/Machinery/gangsaws.webp';
 import gangsaws_2 from '../../Public/Assets/Media/Machinery/gangsaws-2.webp';
@@ -22,6 +23,7 @@ import gangsaws_4 from '../../Public/Assets/Media/Machinery/gangsaws-4.webp';
 import gangsaws_5 from '../../Public/Assets/Media/Machinery/gangsaws-5.webp';
 import gangsaws_6 from '../../Public/Assets/Media/Machinery/gangsaws-6.webp';
 import gangsaws_7 from '../../Public/Assets/Media/Machinery/gangsaws-7.webp';
+import gangsaws_8 from '../../Public/Assets/Media/Machinery/gangsaws-8.webp';
 
 import big_bridge_cutter_1 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-1.webp';
 import big_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-2.webp';
@@ -42,6 +44,8 @@ import splitting_strips_3 from '../../Public/Assets/Media/Machinery/splitting-st
 import splitting_strips_4 from '../../Public/Assets/Media/Machinery/splitting-strips-4.webp';
 
 import tumble_machine from '../../Public/Assets/Media/Machinery/tumble-machine.webp';
+import tumble_machine_2 from '../../Public/Assets/Media/Machinery/tumble-machine-2.webp';
+import tumble_machine_3 from '../../Public/Assets/Media/Machinery/tumble-machine-3.webp';
 
 import fork_lift_2 from '../../Public/Assets/Media/Machinery/fork-lift-2.webp';
 import fork_lift_3 from '../../Public/Assets/Media/Machinery/fork-lift-3.webp';
@@ -90,7 +94,7 @@ export const generalUseData = [
       export const mngBlocksData = [
         {
           title: "9 Gangsaws",
-          images: [gangsaws_6, gangsaws, gangsaws_5, gangsaws_2, gangsaws_3, gangsaws_4, gangsaws_7],
+          images: [gangsaws_6, gangsaws, gangsaws_5, gangsaws_2, gangsaws_3, gangsaws_4, gangsaws_7, gangsaws_8],
         },
         {
           title: "4 Big bridge cutters",
@@ -105,7 +109,7 @@ export const generalUseData = [
       export const mngSlabsData = [
         {
           title: "3 polishing lines",
-          images: [polishing_line_1, polishing_line_3, polishing_line, polishing_line_2, polishing_line_5],
+          images: [polishing_line_1, polishing_line_3, polishing_line, polishing_line_2, polishing_line_6],
         },
         {
           title: "1 risin treating line",
@@ -120,7 +124,7 @@ export const generalUseData = [
         },
         {
           title: "1 Tumbling machine",
-          images: [tumble_machine],
+          images: [tumble_machine, tumble_machine_2, tumble_machine_3],
         },
         {
           title: "3 Splitting strips machines",

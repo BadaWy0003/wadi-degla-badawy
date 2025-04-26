@@ -14,6 +14,7 @@ import south_c_project5 from '../../Public/Assets/Media/Projects/south-c-project
 import theta_lane from '../../Public/Assets/Media/Projects/theta-lane-project.webp'
 
 import blu_terrenas from '../../Public/Assets/Media/Projects/blu-terrenas.webp'
+import blu_terrenas_2 from '../../Public/Assets/Media/Projects/blu-terrenas-2.webp'
 
 import romania_project_1 from '../../Public/Assets/Media/Projects/romania-project-1.webp'
 import romania_project_2 from '../../Public/Assets/Media/Projects/romania-project-2.webp'
@@ -28,6 +29,7 @@ import egy_embassy_kuwait_7 from '../../Public/Assets/Media/Projects/egy-embassy
 
 import wyndham from '../../Public/Assets/Media/Projects/wyndham.webp'
 import wyndham1 from '../../Public/Assets/Media/Projects/wyndham1.webp'
+import wyndham1_0 from '../../Public/Assets/Media/Projects/wyndham1-0.webp'
 import wyndham1_1 from '../../Public/Assets/Media/Projects/wyndham1-1.webp'
 import wyndham1_2 from '../../Public/Assets/Media/Projects/wyndham1-2.webp'
 import wyndham2 from '../../Public/Assets/Media/Projects/wyndham2.webp'
@@ -95,9 +97,10 @@ import murano_ain_sokhna_4 from '../../Public/Assets/Media/Projects/murano-ain-s
 const projects = [
   {
     id: "1",
-    name: "Wyndham Project",
+    name: "Viva Miches By Wyndham",
     thumbnail: wyndham1_2,
-    gallery: {wyndham,
+    gallery: {wyndham1_0,
+              wyndham,
               wyndham1,
               wyndham1_1,
               wyndham1_2,
@@ -123,13 +126,13 @@ const projects = [
               wyndham20,
               },
     city: "",
-    country: "The Carribean",
+    country: "The caribbean",
     materialsSupplied: ["Creamy White Pearl", "Triesta Beige", "Turkish Cararra", "Fantazia Sylvia", "Fantazia Sunny", "Sunny Light", "Melly Grey", "Black Aswan"],
   },
 
   {
     id: "2",
-    name: "The Carribean Palace",
+    name: "Dominiqus Palace By Wyndham (Full Remodelation)",
     thumbnail: carribean_palace,
     gallery: {
       carribean_palace,
@@ -146,16 +149,16 @@ const projects = [
       
               },
     city: "",
-    country: "The Carribean",
+    country: "The caribbean",
     materialsSupplied: ["Sunny Light"],
   },
   {
     id: "3",
     name: "Blu Terrenas",
     thumbnail: blu_terrenas,
-    gallery: {blu_terrenas},
+    gallery: {blu_terrenas, blu_terrenas_2},
     city: "",
-    country: "The Carribean",
+    country: "The caribbean",
     materialsSupplied: ["New Halayeb"],
   },
     {
@@ -187,7 +190,7 @@ const projects = [
     },
     {
       id: "7",
-      name: "Latin America Project",
+      name: "Lila Modern Cuisine (Restaurant)",
       thumbnail: latinamerica_project_1,
       gallery: {
                 latinamerica_project_1,
@@ -199,7 +202,7 @@ const projects = [
                 
               },
       city: "",
-      country: "Latin America",
+      country: "The Dominican Republic",
       materialsSupplied: ["Sunny Light"],
     },
     {

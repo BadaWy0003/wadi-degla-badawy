@@ -11,7 +11,7 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/History/history15.webp');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Hero/history-hero.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -296,9 +296,8 @@
 }
 
 .third-gen-section-image {
-    width: 200%;
-    max-width: fit-content;
     transition: all 0.3s ease;
+    max-width: 25vw;
 }
 
 .third-gen-section-image img {
@@ -570,7 +569,7 @@
     }
 
     .third-gen-section-image {
-        width: 90%;
+        max-width: unset;
     }
 
     .third-gen-section-image img {
@@ -648,15 +647,6 @@
 
     .second-gen-title h2 {
         width: 60%;
-    }
-
-    .third-gen-section-image {
-        width: 50%;
-        height: 70vh;
-    }
-
-    .third-gen-section-image img {
-        height: 100%;
     }
 
     .third-gen-section-content {

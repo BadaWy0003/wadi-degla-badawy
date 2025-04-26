@@ -11,7 +11,7 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Exports/exports4.webp');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Hero/exports-hero.webp');
     background-size: cover;
     background-position: bottom 40% left 0;
     background-attachment: fixed;
@@ -171,8 +171,13 @@
     max-width: 100%;
 }
 
+.exports-container .image-grid {
+    margin-top: 5rem;
+
+}
+
 .exports-container .masonry-grid {
-    column-count: 3 !important;
+    column-count: 4 !important;
 
 }
 

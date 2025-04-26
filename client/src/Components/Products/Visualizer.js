@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Visualizer.css";
-import hero_bg from "../../Public/Assets/Media/visualizer-hero.webp";
+import hero_bg from "../../Public/Assets/Media/Hero/visualizer-hero.webp";
 import ProductForVisualizer from "./ProductForVisualizer.js";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";

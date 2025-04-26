@@ -8,7 +8,6 @@ import { str,
         channel,
         transition } from "./KerbstoneImageData";
 import kerb_intro_img from '../../Public/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.webp';
-import Table from "./Table";
 import ContactBubble from "../Contact/ContactBubble";
 
 export default function Kerbstone(){
@@ -127,7 +126,6 @@ export default function Kerbstone(){
                         are ready to deliver bespoke designs with the necessary dimensions, finishes, and materials.
                     </p>
 
-                        <Table />
                     </section>
 
             </div>
