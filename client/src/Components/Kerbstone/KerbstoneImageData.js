@@ -1,21 +1,21 @@
-import str1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/str1.jpg";
-import str2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/str2.png";
+import str1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/str1.webp";
+import str2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/str2.webp";
 
-import full_batter1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/full-batter1.jpg";
-import full_batter2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/full-batter2.png";
+import full_batter1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/full-batter1.webp";
+import full_batter2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/full-batter2.webp";
 
-import bullnose1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/bullnose1.jpg";
-import bullnose2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/bullnose2.jpg";
+import bullnose1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/bullnose1.webp";
+import bullnose2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/bullnose2.webp";
 
-import roundtop1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/roundtop1.jpg";
-import roundtop2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/roundtop2.png";
+import roundtop1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/roundtop1.webp";
+import roundtop2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/roundtop2.webp";
 
-// import circ_corner1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/circ-corner.jpg";
+// import circ_corner1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/circ-corner.webp";
 
-import channel1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/channel1.jpg";
-import channel2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/channel2.png";
+import channel1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/channel1.webp";
+import channel2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/channel2.webp";
 
-import transition1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/transition1.jpg";
+import transition1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/transition1.webp";
 
 export const str=[
     str1,

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './SampleRequestForm.css';
+import "./Products.css";
 import { useGlobalState } from '../GlobalStateContext.js';
 
 export default function SampleRequestForm({ isOpen, onClose, productName, productFinish }) {

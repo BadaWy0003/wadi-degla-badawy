@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Products.css";
 import { useParams, useNavigate } from "react-router-dom";
 import block from "../../Public/Assets/Icons/product-icons/block.svg";
 import exterior_cladding from "../../Public/Assets/Icons/product-icons/exterior-cladding.svg";

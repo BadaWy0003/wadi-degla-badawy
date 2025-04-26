@@ -2,16 +2,16 @@ import React from "react";
 import './Exports.css';
 import 'react-multi-carousel/lib/styles.css';
 import MasonryGrid from "../MasonryGrid/MasonryGrid";
-import exports from '../../Public/Assets/Media/Exports/exports2.jpg';
+import exports from '../../Public/Assets/Media/Exports/exports2.webp';
 import OurMarkets from "./OurMarkets";
 import ContactBubble from "../Contact/ContactBubble";
 
-import exports1 from '../../Public/Assets/Media/Packing/packing3.jpeg';
-import exports2 from '../../Public/Assets/Media/Packing/packing7.jpeg';
-import exports3 from '../../Public/Assets/Media/Exports/exports3.jpg';
-import exports4 from '../../Public/Assets/Media/Exports/exports4.jpg';
-import exports5 from '../../Public/Assets/Media/Exports/exports5.jpg';
-import exports6 from '../../Public/Assets/Media/Exports/exports6.jpeg';
+import exports1 from '../../Public/Assets/Media/Packing/packing3.webp';
+import exports2 from '../../Public/Assets/Media/Packing/packing7.webp';
+import exports3 from '../../Public/Assets/Media/Exports/exports3.webp';
+import exports4 from '../../Public/Assets/Media/Exports/exports4.webp';
+import exports5 from '../../Public/Assets/Media/Exports/exports5.webp';
+import exports6 from '../../Public/Assets/Media/Exports/exports6.webp';
 
 
 export default function Exports(){

@@ -11,7 +11,7 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/History/history15.jpg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/History/history15.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -406,7 +406,7 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/History/history2.jpg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/History/history2.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

@@ -1,5 +1,6 @@
 import React from "react";
 import './Home.css';
+import "../Certificates/Certificates.css";
 import { certificatesData } from "../Certificates/CertificatesData"; // Import data
 import CertificateLightBox from "../Certificates/CertificateLightBox"; // Import Lightbox component
 

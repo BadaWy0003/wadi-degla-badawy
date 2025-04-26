@@ -7,7 +7,7 @@ import { str,
         roundtop,
         channel,
         transition } from "./KerbstoneImageData";
-import kerb_intro_img from '../../Public/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.jpg';
+import kerb_intro_img from '../../Public/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.webp';
 import Table from "./Table";
 import ContactBubble from "../Contact/ContactBubble";
 

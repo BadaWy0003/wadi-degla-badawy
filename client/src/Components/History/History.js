@@ -3,13 +3,13 @@ import './History.css';
 import MasonryGrid from '../MasonryGrid/MasonryGrid';
 import ContactBubble from '../Contact/ContactBubble';
 import CountUp from 'react-countup';
-import history16 from '../../Public/Assets/Media/History/history16.jpg'
-import sameh_ghanam from '../../Public/Assets/Media/History/sameh-ghanam.jpg'
-import saeed_jr from '../../Public/Assets/Media/History/saeed-jr.png'
-import saeed_jr_2 from '../../Public/Assets/Media/History/saeed-jr-2.jpeg'
-import saeed_jr_3 from '../../Public/Assets/Media/History/saeed-jr-3.jpeg'
-import saeed_jr_4 from '../../Public/Assets/Media/History/saeed-jr-4.jpeg'
-import saeed_jr_5 from '../../Public/Assets/Media/History/saeed-jr-5.jpeg'
+import history16 from '../../Public/Assets/Media/History/history16.webp'
+import sameh_ghanam from '../../Public/Assets/Media/History/sameh-ghanam.webp'
+import saeed_jr from '../../Public/Assets/Media/History/saeed-jr.webp'
+import saeed_jr_2 from '../../Public/Assets/Media/History/saeed-jr-2.webp'
+import saeed_jr_3 from '../../Public/Assets/Media/History/saeed-jr-3.webp'
+import saeed_jr_4 from '../../Public/Assets/Media/History/saeed-jr-4.webp'
+import saeed_jr_5 from '../../Public/Assets/Media/History/saeed-jr-5.webp'
 import { HistoryImages } from './HistoryImages';
 
 

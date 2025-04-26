@@ -4,16 +4,16 @@ import './Packing.css';
 import MasonryGrid from "../MasonryGrid/MasonryGrid";
 import ContactBubble from "../Contact/ContactBubble";
 import 'react-multi-carousel/lib/styles.css';
-import image3 from '../../Public/Assets/Media/3.jpg';
-import image21 from '../../Public/Assets/Media/21.jpg';
-// import image24 from '../../Public/Assets/Media/24.jpg';
-import packing1 from '../../Public/Assets/Media/Packing/packing1.jpeg';
-import packing2 from '../../Public/Assets/Media/Packing/packing2.jpeg';
-import packing3 from '../../Public/Assets/Media/Packing/packing3.jpeg';
-import packing4 from '../../Public/Assets/Media/Packing/packing4.jpeg';
-import packing5 from '../../Public/Assets/Media/Packing/packing5.jpeg';
-import packing6 from '../../Public/Assets/Media/Packing/packing6.jpeg';
-import packing7 from '../../Public/Assets/Media/Packing/packing7.jpeg';
+import image3 from '../../Public/Assets/Media/3.webp';
+import image21 from '../../Public/Assets/Media/21.webp';
+// import image24 from '../../Public/Assets/Media/24.webp';
+import packing1 from '../../Public/Assets/Media/Packing/packing1.webp';
+import packing2 from '../../Public/Assets/Media/Packing/packing2.webp';
+import packing3 from '../../Public/Assets/Media/Packing/packing3.webp';
+import packing4 from '../../Public/Assets/Media/Packing/packing4.webp';
+import packing5 from '../../Public/Assets/Media/Packing/packing5.webp';
+import packing6 from '../../Public/Assets/Media/Packing/packing6.webp';
+import packing7 from '../../Public/Assets/Media/Packing/packing7.webp';
 
 
 export default function Packing(){

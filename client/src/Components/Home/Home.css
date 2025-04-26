@@ -12,7 +12,7 @@
 }
 
 .homepage .hero {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-mobile-bg-1.jpeg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/home-mobile-bg-1.webp');
     background-size: cover;
     background-position: bottom 30% right 0;
     background-attachment: fixed;
@@ -87,7 +87,7 @@
 
 
 .quarries-home-section {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('../../Public/Assets/Media/Quarries/quarries-home.jpg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('../../Public/Assets/Media/Quarries/quarries-home.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -246,7 +246,7 @@
 }
 
 .visualizer-home-inner {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/visualizer-home.jpeg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/visualizer-home.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -276,7 +276,7 @@
 
 
 .inspiration-home-section {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('../../Public/Assets/Media/Inspiration/inspo-ancient/inspo-ancient-1.jpeg');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('../../Public/Assets/Media/Inspiration/inspo-ancient/inspo-ancient-1.webp');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
@@ -329,7 +329,7 @@
             /* 90 degrees = left to right */
             rgba(0, 0, 0, 1),
             rgba(0, 0, 0, 0.1)),
-        url('../../Public/Assets/Media/Projects/projects-hero-mobile-5.jpg');
+        url('../../Public/Assets/Media/Projects/projects-hero-mobile-5.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -494,7 +494,7 @@
         background: linear-gradient(180deg,
                 rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0.6)),
-            url('../../Public/Assets/Media/Projects/projects-hero-mobile-5-2.jpg') !important;
+            url('../../Public/Assets/Media/Projects/projects-hero-mobile-5-2.webp') !important;
         background-attachment: unset !important;
         background-position: center !important;
         background-size: cover !important;

@@ -1,17 +1,17 @@
 
 
-import iso_certificate from "../../Public/Assets/Media/Certificates/iso-certificate.jpg";
-import iso_logo from "../../Public/Assets/Media/Certificates/iso-logo.jpeg";
+import iso_certificate from "../../Public/Assets/Media/Certificates/iso-certificate.webp";
+import iso_logo from "../../Public/Assets/Media/Certificates/iso-logo.webp";
 
-import uaf_logo from "../../Public/Assets/Media/Certificates/uaf-logo.jpg";
+import uaf_logo from "../../Public/Assets/Media/Certificates/uaf-logo.webp";
 
-import iaf_logo from "../../Public/Assets/Media/Certificates/iaf-logo.jpg";
+import iaf_logo from "../../Public/Assets/Media/Certificates/iaf-logo.webp";
 
-import eos_certificate from "../../Public/Assets/Media/Certificates/eos-certificate.jpg";
+import eos_certificate from "../../Public/Assets/Media/Certificates/eos-certificate.webp";
 import eos_logo from "../../Public/Assets/Media/Certificates/eos-logo.svg";
 
-import cbmi_certificate from "../../Public/Assets/Media/Certificates/cbmi-certificate.jpg";
-import cbmi_logo from "../../Public/Assets/Media/Certificates/cbmi-logo.jpg";
+import cbmi_certificate from "../../Public/Assets/Media/Certificates/cbmi-certificate.webp";
+import cbmi_logo from "../../Public/Assets/Media/Certificates/cbmi-logo.webp";
 
       export const certificatesData = [
         

@@ -1,96 +1,96 @@
 
-import jm_appartments_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2.jpeg'
-import jm_appartments_2_1 from '../../Public/Assets/Media/Projects/j-m-appartments-2-1.jpeg'
-import jm_appartments_2_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2-2.jpeg'
+import jm_appartments_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2.webp'
+import jm_appartments_2_1 from '../../Public/Assets/Media/Projects/j-m-appartments-2-1.webp'
+import jm_appartments_2_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2-2.webp'
 
-import south_c_project from '../../Public/Assets/Media/Projects/south-c-project.jpeg'
+import south_c_project from '../../Public/Assets/Media/Projects/south-c-project.webp'
 // import south_c_project2 from '../../Public/Assets/Media/Projects/south-c-project.png'
-import south_c_project1 from '../../Public/Assets/Media/Projects/south-c-project-1.jpeg'
-import south_c_project2_2 from '../../Public/Assets/Media/Projects/south-c-project-2.jpg'
-import south_c_project3 from '../../Public/Assets/Media/Projects/south-c-project-3.jpg'
-import south_c_project4 from '../../Public/Assets/Media/Projects/south-c-project-4.jpg'
-import south_c_project5 from '../../Public/Assets/Media/Projects/south-c-project-5.jpg'
+import south_c_project1 from '../../Public/Assets/Media/Projects/south-c-project-1.webp'
+import south_c_project2_2 from '../../Public/Assets/Media/Projects/south-c-project-2.webp'
+import south_c_project3 from '../../Public/Assets/Media/Projects/south-c-project-3.webp'
+import south_c_project4 from '../../Public/Assets/Media/Projects/south-c-project-4.webp'
+import south_c_project5 from '../../Public/Assets/Media/Projects/south-c-project-5.webp'
 
-import theta_lane from '../../Public/Assets/Media/Projects/theta-lane-project.jpeg'
+import theta_lane from '../../Public/Assets/Media/Projects/theta-lane-project.webp'
 
-import blu_terrenas from '../../Public/Assets/Media/Projects/blu-terrenas.jpg'
+import blu_terrenas from '../../Public/Assets/Media/Projects/blu-terrenas.webp'
 
-import romania_project_1 from '../../Public/Assets/Media/Projects/romania-project-1.jpeg'
-import romania_project_2 from '../../Public/Assets/Media/Projects/romania-project-2.jpeg'
+import romania_project_1 from '../../Public/Assets/Media/Projects/romania-project-1.webp'
+import romania_project_2 from '../../Public/Assets/Media/Projects/romania-project-2.webp'
 
-import egy_embassy_kuwait_1 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-1.jpeg'
-import egy_embassy_kuwait_2 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-2.jpeg'
-import egy_embassy_kuwait_3 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-3.jpeg'
-import egy_embassy_kuwait_4 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-4.jpeg'
-import egy_embassy_kuwait_5 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-5.jpeg'
-import egy_embassy_kuwait_6 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-6.jpeg'
-import egy_embassy_kuwait_7 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-7.jpeg'
+import egy_embassy_kuwait_1 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-1.webp'
+import egy_embassy_kuwait_2 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-2.webp'
+import egy_embassy_kuwait_3 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-3.webp'
+import egy_embassy_kuwait_4 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-4.webp'
+import egy_embassy_kuwait_5 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-5.webp'
+import egy_embassy_kuwait_6 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-6.webp'
+import egy_embassy_kuwait_7 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-7.webp'
 
-import wyndham from '../../Public/Assets/Media/Projects/wyndham.jpeg'
-import wyndham1 from '../../Public/Assets/Media/Projects/wyndham1.jpeg'
-import wyndham1_1 from '../../Public/Assets/Media/Projects/wyndham1-1.jpg'
-import wyndham1_2 from '../../Public/Assets/Media/Projects/wyndham1-2.jpeg'
-import wyndham2 from '../../Public/Assets/Media/Projects/wyndham2.jpeg'
-import wyndham2_1 from '../../Public/Assets/Media/Projects/wyndham2-1.jpg'
-import wyndham2_2 from '../../Public/Assets/Media/Projects/wyndham2-2.jpeg'
-import wyndham3 from '../../Public/Assets/Media/Projects/wyndham3.jpeg'
-import wyndham3_1 from '../../Public/Assets/Media/Projects/wyndham3-1.jpeg'
-import wyndham9 from '../../Public/Assets/Media/Projects/wyndham9.jpeg'
-import wyndham10 from '../../Public/Assets/Media/Projects/wyndham10.jpeg'
-import wyndham10_1 from '../../Public/Assets/Media/Projects/wyndham10-1.jpeg'
-import wyndham10_2 from '../../Public/Assets/Media/Projects/wyndham10-2.jpg'
-import wyndham11 from '../../Public/Assets/Media/Projects/wyndham11.jpeg'
-import wyndham12 from '../../Public/Assets/Media/Projects/wyndham12.jpeg'
-import wyndham14 from '../../Public/Assets/Media/Projects/wyndham14.jpeg'
-import wyndham15 from '../../Public/Assets/Media/Projects/wyndham15.jpeg'
-import wyndham16 from '../../Public/Assets/Media/Projects/wyndham16.jpeg'
-import wyndham17 from '../../Public/Assets/Media/Projects/wyndham17.jpeg'
-import wyndham17_1 from '../../Public/Assets/Media/Projects/wyndham17-1.jpeg'
-import wyndham17_2 from '../../Public/Assets/Media/Projects/wyndham17-2.jpeg'
-import wyndham18 from '../../Public/Assets/Media/Projects/wyndham18.jpeg'
-import wyndham19 from '../../Public/Assets/Media/Projects/wyndham19.jpeg'
-import wyndham20 from '../../Public/Assets/Media/Projects/wyndham20.jpeg'
+import wyndham from '../../Public/Assets/Media/Projects/wyndham.webp'
+import wyndham1 from '../../Public/Assets/Media/Projects/wyndham1.webp'
+import wyndham1_1 from '../../Public/Assets/Media/Projects/wyndham1-1.webp'
+import wyndham1_2 from '../../Public/Assets/Media/Projects/wyndham1-2.webp'
+import wyndham2 from '../../Public/Assets/Media/Projects/wyndham2.webp'
+import wyndham2_1 from '../../Public/Assets/Media/Projects/wyndham2-1.webp'
+import wyndham2_2 from '../../Public/Assets/Media/Projects/wyndham2-2.webp'
+import wyndham3 from '../../Public/Assets/Media/Projects/wyndham3.webp'
+import wyndham3_1 from '../../Public/Assets/Media/Projects/wyndham3-1.webp'
+import wyndham9 from '../../Public/Assets/Media/Projects/wyndham9.webp'
+import wyndham10 from '../../Public/Assets/Media/Projects/wyndham10.webp'
+import wyndham10_1 from '../../Public/Assets/Media/Projects/wyndham10-1.webp'
+import wyndham10_2 from '../../Public/Assets/Media/Projects/wyndham10-2.webp'
+import wyndham11 from '../../Public/Assets/Media/Projects/wyndham11.webp'
+import wyndham12 from '../../Public/Assets/Media/Projects/wyndham12.webp'
+import wyndham14 from '../../Public/Assets/Media/Projects/wyndham14.webp'
+import wyndham15 from '../../Public/Assets/Media/Projects/wyndham15.webp'
+import wyndham16 from '../../Public/Assets/Media/Projects/wyndham16.webp'
+import wyndham17 from '../../Public/Assets/Media/Projects/wyndham17.webp'
+import wyndham17_1 from '../../Public/Assets/Media/Projects/wyndham17-1.webp'
+import wyndham17_2 from '../../Public/Assets/Media/Projects/wyndham17-2.webp'
+import wyndham18 from '../../Public/Assets/Media/Projects/wyndham18.webp'
+import wyndham19 from '../../Public/Assets/Media/Projects/wyndham19.webp'
+import wyndham20 from '../../Public/Assets/Media/Projects/wyndham20.webp'
 
-import carribean_palace from '../../Public/Assets/Media/Projects/carribean-palace.jpeg'
-import carribean_palace_2 from '../../Public/Assets/Media/Projects/carribean-palace-2.jpeg'
-import carribean_palace_3 from '../../Public/Assets/Media/Projects/carribean-palace-3.jpeg'
-import carribean_palace_4 from '../../Public/Assets/Media/Projects/carribean-palace-4.jpeg'
-import carribean_palace_6 from '../../Public/Assets/Media/Projects/carribean-palace-6.jpeg'
-import carribean_palace_7 from '../../Public/Assets/Media/Projects/carribean-palace-7.jpeg'
-import carribean_palace_8 from '../../Public/Assets/Media/Projects/carribean-palace-8.jpeg'
-import carribean_palace_9 from '../../Public/Assets/Media/Projects/carribean-palace-9.jpeg'
-import carribean_palace_10 from '../../Public/Assets/Media/Projects/carribean-palace-10.jpeg'
-import carribean_palace_11 from '../../Public/Assets/Media/Projects/carribean-palace-11.jpeg'
-import carribean_palace_12 from '../../Public/Assets/Media/Projects/carribean-palace-12.jpeg'
+import carribean_palace from '../../Public/Assets/Media/Projects/carribean-palace.webp'
+import carribean_palace_2 from '../../Public/Assets/Media/Projects/carribean-palace-2.webp'
+import carribean_palace_3 from '../../Public/Assets/Media/Projects/carribean-palace-3.webp'
+import carribean_palace_4 from '../../Public/Assets/Media/Projects/carribean-palace-4.webp'
+import carribean_palace_6 from '../../Public/Assets/Media/Projects/carribean-palace-6.webp'
+import carribean_palace_7 from '../../Public/Assets/Media/Projects/carribean-palace-7.webp'
+import carribean_palace_8 from '../../Public/Assets/Media/Projects/carribean-palace-8.webp'
+import carribean_palace_9 from '../../Public/Assets/Media/Projects/carribean-palace-9.webp'
+import carribean_palace_10 from '../../Public/Assets/Media/Projects/carribean-palace-10.webp'
+import carribean_palace_11 from '../../Public/Assets/Media/Projects/carribean-palace-11.webp'
+import carribean_palace_12 from '../../Public/Assets/Media/Projects/carribean-palace-12.webp'
 
-import latinamerica_project_1 from '../../Public/Assets/Media/Projects/latinamerica-project-1.jpeg'
-import latinamerica_project_2 from '../../Public/Assets/Media/Projects/latinamerica-project-2.jpeg'
-import latinamerica_project_3 from '../../Public/Assets/Media/Projects/latinamerica-project-3.jpeg'
-import latinamerica_project_4 from '../../Public/Assets/Media/Projects/latinamerica-project-4.jpeg'
-import latinamerica_project_5 from '../../Public/Assets/Media/Projects/latinamerica-project-5.jpeg'
-import latinamerica_project_6 from '../../Public/Assets/Media/Projects/latinamerica-project-6.jpeg'
+import latinamerica_project_1 from '../../Public/Assets/Media/Projects/latinamerica-project-1.webp'
+import latinamerica_project_2 from '../../Public/Assets/Media/Projects/latinamerica-project-2.webp'
+import latinamerica_project_3 from '../../Public/Assets/Media/Projects/latinamerica-project-3.webp'
+import latinamerica_project_4 from '../../Public/Assets/Media/Projects/latinamerica-project-4.webp'
+import latinamerica_project_5 from '../../Public/Assets/Media/Projects/latinamerica-project-5.webp'
+import latinamerica_project_6 from '../../Public/Assets/Media/Projects/latinamerica-project-6.webp'
 
-import cfc_podiums_1 from '../../Public/Assets/Media/Projects/cfc-podiums-1.jpeg';
-import cfc_podiums_2 from '../../Public/Assets/Media/Projects/cfc-podiums-2.jpeg';
-import cfc_podiums_3 from '../../Public/Assets/Media/Projects/cfc-podiums-3.jpeg';
-import cfc_podiums_4 from '../../Public/Assets/Media/Projects/cfc-podiums-4.jpeg';
+import cfc_podiums_1 from '../../Public/Assets/Media/Projects/cfc-podiums-1.webp';
+import cfc_podiums_2 from '../../Public/Assets/Media/Projects/cfc-podiums-2.webp';
+import cfc_podiums_3 from '../../Public/Assets/Media/Projects/cfc-podiums-3.webp';
+import cfc_podiums_4 from '../../Public/Assets/Media/Projects/cfc-podiums-4.webp';
 
-import mivida_business_park_1 from '../../Public/Assets/Media/Projects/mivida-business-park-1.jpg';
-import mivida_business_park_2 from '../../Public/Assets/Media/Projects/mivida-business-park-2.jpg';
-import mivida_business_park_3 from '../../Public/Assets/Media/Projects/mivida-business-park-3.jpg';
+import mivida_business_park_1 from '../../Public/Assets/Media/Projects/mivida-business-park-1.webp';
+import mivida_business_park_2 from '../../Public/Assets/Media/Projects/mivida-business-park-2.webp';
+import mivida_business_park_3 from '../../Public/Assets/Media/Projects/mivida-business-park-3.webp';
 
-import oriana_villas_1 from '../../Public/Assets/Media/Projects/oriana-villas-1.jpeg';
-import oriana_villas_2 from '../../Public/Assets/Media/Projects/oriana-villas-2.jpeg';
-import oriana_villas_3 from '../../Public/Assets/Media/Projects/oriana-villas-3.jpeg';
+import oriana_villas_1 from '../../Public/Assets/Media/Projects/oriana-villas-1.webp';
+import oriana_villas_2 from '../../Public/Assets/Media/Projects/oriana-villas-2.webp';
+import oriana_villas_3 from '../../Public/Assets/Media/Projects/oriana-villas-3.webp';
 
-import mountain_view_ras_elhekma_1 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-1.jpeg';
-import mountain_view_ras_elhekma_2 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-2.jpeg';
-import mountain_view_ras_elhekma_3 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-3.jpeg';
+import mountain_view_ras_elhekma_1 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-1.webp';
+import mountain_view_ras_elhekma_2 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-2.webp';
+import mountain_view_ras_elhekma_3 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-3.webp';
 
-import murano_ain_sokhna_1 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-1.jpeg';
-import murano_ain_sokhna_2 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-2.jpeg';
-import murano_ain_sokhna_3 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-3.jpeg';
-import murano_ain_sokhna_4 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-4.jpeg';
+import murano_ain_sokhna_1 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-1.webp';
+import murano_ain_sokhna_2 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-2.webp';
+import murano_ain_sokhna_3 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-3.webp';
+import murano_ain_sokhna_4 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-4.webp';
 
 const projects = [
   {
