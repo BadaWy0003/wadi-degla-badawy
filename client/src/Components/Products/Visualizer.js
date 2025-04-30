@@ -4,6 +4,7 @@ import hero_bg from "../../Public/Assets/Media/Hero/visualizer-hero.webp";
 import ProductForVisualizer from "./ProductForVisualizer.js";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 
 export default function Visualizer() {
   const [selectedCategory, setSelectedCategory] = useState("Imported Marble");
@@ -15,22 +16,32 @@ export default function Visualizer() {
   const indoorRef = useRef(null);
   const outdoorRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  
+  const [mockupLoading, setMockupLoading] = useState(false);
+
 
   useEffect(() => {
     setLoading(true);
     apiClient
-      .get(`/api/storage/all`)
-      .then(({ data }) => {
-        setData(data.data || []);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-        setData([]);
-        setLoading(false);
+    .get(`/api/storage/all`)
+    .then(({ data }) => {
+      const products = data.data || [];
+  
+      // ✅ preload indoor & outdoor mockups
+      const mockupLinks = products.flatMap((item) =>
+        item.finishes
+          .filter(f => f.finish === "indoorMockup" || f.finish === "outdoorMockup")
+          .map(f => f.link)
+      );
+  
+      mockupLinks.forEach((url) => {
+        const img = new Image();
+        img.src = url;
       });
-
+  
+      setData(products);
+      setLoading(false);
+    });
+      
   }, []);
 
   // Reset toggle state when the category changes
@@ -83,30 +94,42 @@ export default function Visualizer() {
     const mockupFinish = item.finishes.find(
       (f) => f.finish === (type === "indoor" ? "indoorMockup" : "outdoorMockup")
     );
-
-    setSelectedProduct({
-      ...item,
-      currentMockup: mockupFinish ? mockupFinish.link : null,
-    });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  
+    const mockupLink = mockupFinish?.link || null;
+    if (!mockupLink) return;
+  
+    setMockupLoading(true); // start loading state
+  
+    const img = new Image();
+    img.src = mockupLink;
+    img.onload = () => {
+      setSelectedProduct({
+        ...item,
+        currentMockup: mockupLink,
+      });
+      setMockupLoading(false); // done loading
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
   };
-
+  
   return (
     <div className="products-container">
       <div className="products-hero">
-        {selectedProduct ? (
-          <img loading="lazy"
-            src={selectedProduct.currentMockup}
-            alt={selectedProduct.name}
-            className="products-hero-image"
-          />
-        ) : (
-          <img loading="lazy"
-            src={hero_bg}
-            alt="Hero Background"
-            className="products-hero-image"
-          />
-        )}
+      {mockupLoading ? (
+        <LoadingSpinner />
+      ) : selectedProduct ? (
+        <img
+          src={selectedProduct.currentMockup}
+          alt={selectedProduct.name}
+          className="products-hero-image"
+        />
+      ) : (
+        <img
+          src={hero_bg}
+          alt="Hero Background"
+          className="products-hero-image"
+        />
+      )}
         <h1>{selectedProduct ? selectedProduct.name : "Visualizer"}</h1>
         {!selectedProduct && (
           <p className="hero-hint">
@@ -186,7 +209,7 @@ export default function Visualizer() {
         )}
       </div>
       {loading ? (
-        <div className="loading-message">Loading products...</div>
+        <LoadingSpinner />
       ) : (
         <>
       {filteredProducts.length > 0 ? (

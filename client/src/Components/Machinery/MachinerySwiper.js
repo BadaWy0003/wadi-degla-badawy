@@ -13,7 +13,7 @@ export default function MachinerySwiper({ images, title }) {
       <h2>{title}</h2>
       <Swiper
         autoplay={{
-        delay: 2000, // Delay in milliseconds (3 seconds)
+        delay: 4000, // Delay in milliseconds (4 seconds)
         disableOnInteraction: false, // Continue autoplay after user interaction
         pauseOnMouseEnter: true, // Pause autoplay when hovered
         }}          

@@ -1,5 +1,6 @@
 import React from "react";
 import './Quarries.css';
+import '../Fairs/Fairs.css';
 import QuarriesSwiper from "./QuarriesSwiper";
 import {galalaQuarryImages, creamyQuarryImages, firstFactoryImages, secondFactoryImages, thirdFactoryImages} from "./QuarriesImageData";
 import ContactBubble from "../Contact/ContactBubble";

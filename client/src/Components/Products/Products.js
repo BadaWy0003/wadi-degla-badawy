@@ -3,8 +3,8 @@ import "./Products.css";
 import Product from "./Product";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 
-// Remove Modal import
 
 export default function Visualizer() {
   const [selectedCategory, setSelectedCategory] = useState("Egyptian Marble");
@@ -90,7 +90,7 @@ export default function Visualizer() {
       </div>
 
       {loading ? (
-        <div className="loading-message">Loading products...</div>
+        <LoadingSpinner />
       ) : (
         <>
           {filteredProducts.length > 0 ? (

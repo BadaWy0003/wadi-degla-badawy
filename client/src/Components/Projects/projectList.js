@@ -65,6 +65,16 @@ import carribean_palace_10 from '../../Public/Assets/Media/Projects/carribean-pa
 import carribean_palace_11 from '../../Public/Assets/Media/Projects/carribean-palace-11.webp'
 import carribean_palace_12 from '../../Public/Assets/Media/Projects/carribean-palace-12.webp'
 
+import viva_tangerine_1 from '../../Public/Assets/Media/Projects/viva-tangerine-1.webp'
+import viva_tangerine_2 from '../../Public/Assets/Media/Projects/viva-tangerine-2.webp'
+import viva_tangerine_3 from '../../Public/Assets/Media/Projects/viva-tangerine-3.webp'
+import viva_tangerine_4 from '../../Public/Assets/Media/Projects/viva-tangerine-4.webp'
+import viva_tangerine_5 from '../../Public/Assets/Media/Projects/viva-tangerine-5.webp'
+import viva_tangerine_6 from '../../Public/Assets/Media/Projects/viva-tangerine-6.webp'
+import viva_tangerine_7 from '../../Public/Assets/Media/Projects/viva-tangerine-7.webp'
+import viva_tangerine_8 from '../../Public/Assets/Media/Projects/viva-tangerine-8.webp'
+import viva_tangerine_9 from '../../Public/Assets/Media/Projects/viva-tangerine-9.webp'
+
 import latinamerica_project_1 from '../../Public/Assets/Media/Projects/latinamerica-project-1.webp'
 import latinamerica_project_2 from '../../Public/Assets/Media/Projects/latinamerica-project-2.webp'
 import latinamerica_project_3 from '../../Public/Assets/Media/Projects/latinamerica-project-3.webp'
@@ -99,7 +109,7 @@ const projects = [
     id: "1",
     name: "Viva Miches By Wyndham",
     thumbnail: wyndham1_2,
-    gallery: {wyndham1_0,
+    gallery: {
               wyndham,
               wyndham1,
               wyndham1_1,
@@ -124,9 +134,10 @@ const projects = [
               wyndham18,
               wyndham19,
               wyndham20,
+              wyndham1_0
               },
     city: "",
-    country: "The caribbean",
+    country: "The Caribbean",
     materialsSupplied: ["Creamy White Pearl", "Triesta Beige", "Turkish Cararra", "Fantazia Sylvia", "Fantazia Sunny", "Sunny Light", "Melly Grey", "Black Aswan"],
   },
 
@@ -149,16 +160,37 @@ const projects = [
       
               },
     city: "",
-    country: "The caribbean",
+    country: "The Caribbean",
     materialsSupplied: ["Sunny Light"],
   },
+  {
+    id: "15",
+    name: "viva tangerine by wyndham",
+    thumbnail: viva_tangerine_9,
+    gallery: {
+      viva_tangerine_9,
+      viva_tangerine_1,
+      viva_tangerine_2,
+      viva_tangerine_3,
+      viva_tangerine_4,
+      viva_tangerine_5,
+      viva_tangerine_6,
+      viva_tangerine_7,
+      viva_tangerine_8,
+      
+              },
+    city: "",
+    country: "The Caribbean",
+    materialsSupplied: ["Sunny Light", "New Halayeb"],
+  },
+
   {
     id: "3",
     name: "Blu Terrenas",
     thumbnail: blu_terrenas,
     gallery: {blu_terrenas, blu_terrenas_2},
     city: "",
-    country: "The caribbean",
+    country: "The Caribbean",
     materialsSupplied: ["New Halayeb"],
   },
     {
@@ -280,7 +312,7 @@ const projects = [
       country: "Egypt",
       materialsSupplied: ["Sunny Light", "New Halayeb"],
     },
-
+    
   ];
   
   export default projects;

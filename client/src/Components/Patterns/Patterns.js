@@ -31,10 +31,24 @@ import split_face_8 from '../../Public/Assets/Media/Patterns/split-face-8.webp'
 import split_face_9 from '../../Public/Assets/Media/Patterns/split-face-9.webp'
 import split_face_10 from '../../Public/Assets/Media/Patterns/split-face-10.webp'
 
+import pattern1 from '../../Public/Assets/Media/Patterns/pattern1.webp'
+import pattern2 from '../../Public/Assets/Media/Patterns/pattern2.webp'
+import pattern3 from '../../Public/Assets/Media/Patterns/pattern3.webp'
+import pattern4 from '../../Public/Assets/Media/Patterns/pattern4.webp'
+
+import Section from "../Section/Section";
+
 
 export default function Patterns(){
 const [paver, setPaver] = useState(pavers1);
 const [splitFace, setSplitFace] = useState(split_face_1);
+
+const patternImages=[
+    pattern1,
+    pattern2,
+    pattern3,
+    pattern4,
+]
 
     
     
@@ -88,6 +102,17 @@ const [splitFace, setSplitFace] = useState(split_face_1);
                     </div>
     
             </div>
+            <div className="pattern-section">
+
+            <Section 
+                    title="Marble Patterns" 
+                    text={""}
+                            images={patternImages} 
+                    imagePosition="right" 
+
+                />
+            </div>
+
 
             <ContactBubble />
             </div>    

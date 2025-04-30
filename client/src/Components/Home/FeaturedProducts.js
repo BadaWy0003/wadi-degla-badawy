@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import apiClient from "../../util/client.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 
 
 
@@ -14,6 +15,7 @@ export default function FeaturedProducts() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   const featuredNames = [
     "Creamy White Pearl",
@@ -34,21 +36,46 @@ export default function FeaturedProducts() {
     try {
       const { data } = await apiClient.get('/api/storage/all');
       if (data.data) {
-        const featured = data.data.filter(product => 
+        const featured = data.data.filter(product =>
           featuredNames.includes(product.name)
         );
+  
         setFeaturedProducts(featured);
+  
+        // Wait for all images to load
+        const imageLoadPromises = featured.map((item) => {
+          const honed = item.finishes.find(f => f.finish === "Honed");
+          const polished = item.finishes.find(f => f.finish === "Polished");
+          const selected = honed || polished;
+          if (selected?.link) {
+            return new Promise((resolve) => {
+              const img = new Image();
+              img.src = selected.link;
+              img.onload = resolve;
+              img.onerror = resolve;
+            });
+          } else {
+            return Promise.resolve();
+          }
+        });
+  
+        await Promise.all(imageLoadPromises);
       }
     } catch (error) {
       console.error("Error fetching featured products:", error);
+    } finally {
+      setLoading(false);
     }
   };
+  
 
   return(
     <section className="featured-products-section">
       <h2>Featured Products</h2>
       <p>Discover our most popular selections</p>
       <div className="featured-content-wrapper">
+        {loading? ( <LoadingSpinner />
+        ):(
         <Swiper
           effect={'cube'}
           grabCursor={true}
@@ -101,7 +128,7 @@ export default function FeaturedProducts() {
             </SwiperSlide>
           ))}
         </Swiper>
-
+        )}
         <div className="product-info-panel">
           {activeProduct && (
             <>

@@ -5,6 +5,8 @@ import "yet-another-react-lightbox/styles.css";
 import apiClient from "../../util/client";
 import ContactBubble from "../Contact/ContactBubble";
 import "../Exports/Exports.css";
+import "../MasonryGrid/MasonryGrid.css";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function Gallery() {
   const [gallery, setGallery] = useState([]);
@@ -48,7 +50,7 @@ export default function Gallery() {
       {/* Masonry Grid Gallery */}
       <div className="masonry-container">
       {loading ? (
-        <div className="loading-message">Loading Images...</div>
+        <LoadingSpinner />
       ) : (
         <>
         <div className="masonry-grid">

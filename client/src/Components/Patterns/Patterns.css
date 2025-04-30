@@ -114,6 +114,15 @@
     border-radius: 10px;
 }
 
+.pattern-section .text-container {
+    border-right: 1px solid var(--goldColor);
+}
+
+.pattern-section .text-container h3 {
+    font-size: 24px;
+    color: var(--goldColor) !important;
+}
+
 @media screen and (max-width: 768px) {
 
     /* General Hero Section */
@@ -178,6 +187,11 @@
         object-fit: cover;
         border-radius: 10px;
     }
+
+    .pattern-section .text-container {
+        border-right: none;
+    }
+
 
 }
 
