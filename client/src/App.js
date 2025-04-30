@@ -39,6 +39,7 @@ const ProjectDetails = lazy(() => import("./Components/Projects/ProjectDetails.j
 const Fairs = lazy(() => import("./Components/Fairs/Fairs.js"));
 const Patterns = lazy(() => import("./Components/Patterns/Patterns.js"));
 const Certificates = lazy(() => import("./Components/Certificates/Certificates.js"));
+const NotFound404 = lazy(() => import("./Components/404/NotFound404.js")); // 404 page
 
 function App() {
   const { globalState } = useGlobalState();
@@ -64,6 +65,7 @@ function App() {
           <Route exact path="/quarries" element={<Suspense fallback={<LoadingSpinner />}><Quarries /></Suspense>} />
           <Route exact path="/partners" element={<Suspense fallback={<LoadingSpinner />}><Partners /></Suspense>} />
           <Route exact path="/news" element={<Suspense fallback={<LoadingSpinner />}><News /></Suspense>} />
+          <Route path="*" element={<NotFound404 />} /> {/* Catch-all route for 404 */}
           <Route
             exact
             path="/products"

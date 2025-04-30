@@ -16,7 +16,7 @@ import polishing_line_2 from '../../Public/Assets/Media/Machinery/polishing-line
 // import polishing_line_4 from '../../Public/Assets/Media/Machinery/polishing-line-4.webp';
 // import polishing_line_5 from '../../Public/Assets/Media/Machinery/polishing-line-5.webp';
 import polishing_line_6 from '../../Public/Assets/Media/Machinery/polishing-line-6.webp';
-import polishing_line_7 from '../../Public/Assets/Media/Machinery/polishing-line-7.webp';
+// import polishing_line_7 from '../../Public/Assets/Media/Machinery/polishing-line-7.webp';
 import polishing_line_8 from '../../Public/Assets/Media/Machinery/polishing-line-8.webp';
 
 import gangsaws from '../../Public/Assets/Media/Machinery/gangsaws.webp';

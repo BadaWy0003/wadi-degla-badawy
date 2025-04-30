@@ -2,6 +2,7 @@ import React from "react";
 import './Certificates.css';
 import { certificatesData } from "./CertificatesData"; // Import data
 import CertificateLightBox from "./CertificateLightBox"; // Import Lightbox component
+import ContactBubble from "../Contact/ContactBubble"; // Import Contact Bubble component
 
 export default function Certificates() {
     return (
@@ -22,6 +23,7 @@ export default function Certificates() {
                     <h2>{certificate.name}</h2>
                 </div>
             ))}
+            <ContactBubble />
         </div>
     );
 }
