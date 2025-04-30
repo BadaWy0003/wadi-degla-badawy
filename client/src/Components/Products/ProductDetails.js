@@ -11,6 +11,7 @@ import windowsills from "../../Public/Assets/Icons/product-icons/windowsills.svg
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import SampleRequestForm from './SampleRequestForm';
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -72,7 +73,7 @@ export default function ProductDetails() {
   ];
 
   if (loading) {
-    return <div className="loading-message">Loading product details...</div>;
+    return <LoadingSpinner />;
   }
 
   if (!product) {
