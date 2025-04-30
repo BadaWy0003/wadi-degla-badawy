@@ -5,7 +5,7 @@
 
 // import galala_quarries_1 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-1.webp';
 // import galala_quarries_2 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-2.webp';
-import galala_quarries_3 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-3.webp';
+// import galala_quarries_3 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-3.webp';
 import galala_quarries_4 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-4.webp';
 // import galala_quarries_5 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-5.webp';
 // import galala_quarries_6 from '../../Public/Assets/Media/Quarries/galala-quarries/galala-quarries-6.webp';
@@ -51,7 +51,6 @@ import third_factory_4 from '../../Public/Assets/Media/Quarries/third-factory/th
   export const galalaQuarryImages = 
     
       [galala_quarries_7,
-        galala_quarries_3,
         galala_quarries_4,
         galala_quarries_8,
         galala_quarries_9,

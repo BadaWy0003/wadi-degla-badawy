@@ -10,7 +10,7 @@ import slabs_bridge_cutter_7 from '../../Public/Assets/Media/Machinery/slabs-bri
 import slabs_bridge_cutter_9 from '../../Public/Assets/Media/Machinery/slabs-bridge-cutter-9.webp';
 
 import polishing_line from '../../Public/Assets/Media/Machinery/polishing-line.webp';
-import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line-1.webp';
+// import polishing_line_1 from '../../Public/Assets/Media/Machinery/polishing-line-1.webp';
 import polishing_line_2 from '../../Public/Assets/Media/Machinery/polishing-line-2.webp';
 // import polishing_line_3 from '../../Public/Assets/Media/Machinery/polishing-line-3.webp';
 // import polishing_line_4 from '../../Public/Assets/Media/Machinery/polishing-line-4.webp';
@@ -21,7 +21,7 @@ import polishing_line_8 from '../../Public/Assets/Media/Machinery/polishing-line
 
 import gangsaws from '../../Public/Assets/Media/Machinery/gangsaws.webp';
 // import gangsaws_2 from '../../Public/Assets/Media/Machinery/gangsaws-2.webp';
-import gangsaws_3 from '../../Public/Assets/Media/Machinery/gangsaws-3.webp';
+// import gangsaws_3 from '../../Public/Assets/Media/Machinery/gangsaws-3.webp';
 // import gangsaws_4 from '../../Public/Assets/Media/Machinery/gangsaws-4.webp';
 import gangsaws_5 from '../../Public/Assets/Media/Machinery/gangsaws-5.webp';
 import gangsaws_6 from '../../Public/Assets/Media/Machinery/gangsaws-6.webp';
@@ -101,7 +101,7 @@ export const generalUseData = [
       export const mngBlocksData = [
         {
           title: "9 Gangsaws",
-          images: [gangsaws_8, gangsaws_6, gangsaws, gangsaws_5, gangsaws_3, gangsaws_7],
+          images: [gangsaws_8, gangsaws_6, gangsaws, gangsaws_5, gangsaws_7],
         },
         {
           title: "4 Big bridge cutters",
@@ -116,7 +116,7 @@ export const generalUseData = [
       export const mngSlabsData = [
         {
           title: "3 polishing lines",
-          images: [polishing_line_7, polishing_line_8, polishing_line, polishing_line_2, polishing_line_6, polishing_line_1],
+          images: [polishing_line_7, polishing_line_8, polishing_line, polishing_line_2, polishing_line_6],
         },
         {
           title: "1 risin treating line",

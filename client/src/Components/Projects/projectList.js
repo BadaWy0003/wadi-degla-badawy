@@ -69,10 +69,10 @@ import viva_tangerine_1 from '../../Public/Assets/Media/Projects/viva-tangerine-
 import viva_tangerine_2 from '../../Public/Assets/Media/Projects/viva-tangerine-2.webp'
 import viva_tangerine_3 from '../../Public/Assets/Media/Projects/viva-tangerine-3.webp'
 import viva_tangerine_4 from '../../Public/Assets/Media/Projects/viva-tangerine-4.webp'
-import viva_tangerine_5 from '../../Public/Assets/Media/Projects/viva-tangerine-5.webp'
-import viva_tangerine_6 from '../../Public/Assets/Media/Projects/viva-tangerine-6.webp'
+// import viva_tangerine_5 from '../../Public/Assets/Media/Projects/viva-tangerine-5.webp'
+// import viva_tangerine_6 from '../../Public/Assets/Media/Projects/viva-tangerine-6.webp'
 import viva_tangerine_7 from '../../Public/Assets/Media/Projects/viva-tangerine-7.webp'
-import viva_tangerine_8 from '../../Public/Assets/Media/Projects/viva-tangerine-8.webp'
+// import viva_tangerine_8 from '../../Public/Assets/Media/Projects/viva-tangerine-8.webp'
 import viva_tangerine_9 from '../../Public/Assets/Media/Projects/viva-tangerine-9.webp'
 
 import latinamerica_project_1 from '../../Public/Assets/Media/Projects/latinamerica-project-1.webp'
@@ -165,7 +165,7 @@ const projects = [
   },
   {
     id: "15",
-    name: "viva tangerine by wyndham",
+    name: "viva tangerine by wyndham (full remodelation)",
     thumbnail: viva_tangerine_9,
     gallery: {
       viva_tangerine_9,
@@ -173,10 +173,7 @@ const projects = [
       viva_tangerine_2,
       viva_tangerine_3,
       viva_tangerine_4,
-      viva_tangerine_5,
-      viva_tangerine_6,
       viva_tangerine_7,
-      viva_tangerine_8,
       
               },
     city: "",
