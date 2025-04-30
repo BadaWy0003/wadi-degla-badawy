@@ -116,7 +116,7 @@ export const generalUseData = [
       export const mngSlabsData = [
         {
           title: "3 polishing lines",
-          images: [polishing_line_7, polishing_line_8, polishing_line, polishing_line_2, polishing_line_6],
+          images: [polishing_line_8, polishing_line, polishing_line_2, polishing_line_6],
         },
         {
           title: "1 risin treating line",
