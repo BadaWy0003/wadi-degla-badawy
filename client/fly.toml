@@ -18,6 +18,9 @@ primary_region = 'cdg'
   min_machines_running = 0
   max_machines_running = 1
   processes = ["app"]
+  
+[[http_service.domains]]
+  domain = "wadidegla-eg.com"
 
 [[vm]]
   cpu_kind = "shared"
