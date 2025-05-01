@@ -51,6 +51,7 @@ function App() {
       <div className="main">
         <Navbar />
         <ToastContainer autoClose={5000} hideProgressBar />
+        <div id="main-content">
         <Routes>
           {/* Public routes */}
           <Route exact path="/" element={<Home />} />
@@ -65,7 +66,7 @@ function App() {
           <Route exact path="/quarries" element={<Suspense fallback={<LoadingSpinner />}><Quarries /></Suspense>} />
           <Route exact path="/partners" element={<Suspense fallback={<LoadingSpinner />}><Partners /></Suspense>} />
           <Route exact path="/news" element={<Suspense fallback={<LoadingSpinner />}><News /></Suspense>} />
-          <Route path="*" element={<NotFound404 />} /> {/* Catch-all route for 404 */}
+          <Route exact path="*" element={<Suspense fallback={<LoadingSpinner />}><NotFound404 /></Suspense>} /> {/* Catch-all route for 404 */}
           <Route
             exact
             path="/products"
@@ -120,6 +121,7 @@ function App() {
             }
           />
         </Routes>
+        </div>
         <Footer />
       </div>
     </BrowserRouter>

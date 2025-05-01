@@ -231,7 +231,7 @@ const projects = [
                 
               },
       city: "",
-      country: "The Dominican Republic",
+      country: "Latin America",
       materialsSupplied: ["Sunny Light"],
     },
     {

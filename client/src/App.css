@@ -1,9 +1,15 @@
 .main {
+  min-height: 100vh;
   max-height: 100vh;
   display: flex;
   flex-direction: column;
   z-index: 1;
   background-color: var(--darkerBlackColor);
+}
+
+.main>.content {
+  flex: 1;
+  /* Fills the remaining space between navbar and footer */
 }
 
 .page-title {

@@ -164,7 +164,7 @@
     height: 80vw;
     width: 40vw;
     /* Maintain aspect ratio */
-    object-fit: cover;
+    object-fit: contain;
     /* Ensure images fit properly */
 }
 
