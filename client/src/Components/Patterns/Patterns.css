@@ -192,7 +192,9 @@
         border-right: none;
     }
 
-
+    .image-container img {
+        height: 100%;
+    }
 }
 
 @media screen and (max-height: 550px) {

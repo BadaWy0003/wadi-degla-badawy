@@ -127,6 +127,11 @@
         font-size: 18px;
     }
 
+    .kerbstone-container .image-container img {
+        aspect-ratio: unset;
+        max-height: unset;
+    }
+
     .kerbstone-container h3 {
         font-size: 16px !important;
     }
