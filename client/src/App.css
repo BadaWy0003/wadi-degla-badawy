@@ -7,7 +7,7 @@
   background-color: var(--darkerBlackColor);
 }
 
-.main>.content {
+.main>.main-content {
   flex: 1;
   /* Fills the remaining space between navbar and footer */
 }

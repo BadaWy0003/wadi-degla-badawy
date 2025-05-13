@@ -51,7 +51,7 @@ function App() {
       <div className="main">
         <Navbar />
         <ToastContainer autoClose={5000} hideProgressBar />
-        <div id="main-content">
+        <div id="main-content" className="main-content">
         <Routes>
           {/* Public routes */}
           <Route exact path="/" element={<Home />} />

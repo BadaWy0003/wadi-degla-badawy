@@ -27,8 +27,13 @@
     height: auto;
     /* Maintain aspect ratio */
     object-fit: cover;
-
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
     /* Ensures the image fills its container proportionally */
+}
+
+.products-hero-image.visible {
+    opacity: 1;
 }
 
 .products-hero h1 {

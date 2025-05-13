@@ -17,6 +17,8 @@ export default function Visualizer() {
   const outdoorRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [mockupLoading, setMockupLoading] = useState(false);
+  const [loadedImages, setLoadedImages] = useState({});
+
 
 
   useEffect(() => {
@@ -90,27 +92,32 @@ export default function Visualizer() {
   const hasIndoorProducts = indoorProducts.length > 0;
   const hasOutdoorProducts = outdoorProducts.length > 0;
 
-  const handleProductClick = (item, type) => {
-    const mockupFinish = item.finishes.find(
-      (f) => f.finish === (type === "indoor" ? "indoorMockup" : "outdoorMockup")
-    );
-  
-    const mockupLink = mockupFinish?.link || null;
-    if (!mockupLink) return;
-  
-    setMockupLoading(true); // start loading state
-  
-    const img = new Image();
-    img.src = mockupLink;
-    img.onload = () => {
-      setSelectedProduct({
-        ...item,
-        currentMockup: mockupLink,
-      });
-      setMockupLoading(false); // done loading
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+const handleProductClick = (item, type) => {
+  const mockupFinish = item.finishes.find(
+    (f) => f.finish === (type === "indoor" ? "indoorMockup" : "outdoorMockup")
+  );
+  const mockupLink = mockupFinish?.link || null;
+  if (!mockupLink) return;
+
+  // 👇 Check if image is already cached
+  if (loadedImages[mockupLink]) {
+    setSelectedProduct({ ...item, currentMockup: mockupLink });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  // 👇 Otherwise, show loading, then cache
+  setMockupLoading(true);
+
+  const img = new Image();
+  img.src = mockupLink;
+  img.onload = () => {
+    setLoadedImages(prev => ({ ...prev, [mockupLink]: true }));
+    setSelectedProduct({ ...item, currentMockup: mockupLink });
+    setMockupLoading(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
+};
   
   return (
     <div className="products-container">
@@ -121,7 +128,7 @@ export default function Visualizer() {
         <img
           src={selectedProduct.currentMockup}
           alt={selectedProduct.name}
-          className="products-hero-image"
+          className={`products-hero-image ${loadedImages[selectedProduct.currentMockup] ? "visible" : ""}`}
         />
       ) : (
         <img

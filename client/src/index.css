@@ -56,7 +56,8 @@ body {
   font-variation-settings: "slnt"0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background: var(--darkerBlackColor);
 }
 
