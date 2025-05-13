@@ -7,9 +7,22 @@
   background-color: var(--darkerBlackColor);
 }
 
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .main>.main-content {
   flex: 1;
   /* Fills the remaining space between navbar and footer */
+}
+
+.route-wrapper {
+  flex: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-title {

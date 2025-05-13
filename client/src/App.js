@@ -52,6 +52,7 @@ function App() {
         <Navbar />
         <ToastContainer autoClose={5000} hideProgressBar />
         <div id="main-content" className="main-content">
+          <div className="route-wrapper">
         <Routes>
           {/* Public routes */}
           <Route exact path="/" element={<Home />} />
@@ -121,6 +122,7 @@ function App() {
             }
           />
         </Routes>
+        </div>
         </div>
         <Footer />
       </div>

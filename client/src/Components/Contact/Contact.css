@@ -61,6 +61,8 @@
 
 .contact-inner-left h2 {
   text-align: center;
+  font-size: 2rem;
+  color: var(--blueColor);
 }
 
 .contact-inner-left p {
@@ -491,8 +493,8 @@
 
 /* Header Styling */
 .contact-inner-right h2 {
-  font-size: 2.2rem;
-  color: var(--whiteColor);
+  font-size: 2rem;
+  color: var(--blueColor);
   margin-bottom: 25px;
   text-align: center;
 }

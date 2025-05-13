@@ -5,6 +5,7 @@
 
 .homepage h2 {
     font-size: 2rem !important;
+    font-weight: 600 !important;
 }
 
 .homepage p {
@@ -33,6 +34,7 @@
     color: var(--goldColor);
     margin: 0;
     font-size: 38px;
+    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
 }
