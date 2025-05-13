@@ -17,10 +17,11 @@ export default function Product({ item }) {
   return (
     <div
       className="product-card-2"
-      onClick={() => {
-        navigate(`/products/${item.id}`);
-        window.scrollTo({top: 0});
-      }}
+onClick={() => {
+  sessionStorage.setItem("selectedCategory", item.type); // Save the current category
+  navigate(`/products/${item.id}`);
+  window.scrollTo({ top: 0 });
+}}
     >
       <div className='img-div-2'>
       <img loading="lazy" src={selectedFinish.link} alt={`${item.name} - ${selectedFinish.finish}`} />

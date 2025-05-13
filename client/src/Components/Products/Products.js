@@ -6,8 +6,10 @@ import ContactBubble from "../Contact/ContactBubble.js";
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 
 
-export default function Visualizer() {
-  const [selectedCategory, setSelectedCategory] = useState("Egyptian Marble");
+export default function Products() {
+const [selectedCategory, setSelectedCategory] = useState(() => {
+  return sessionStorage.getItem("selectedCategory") || "Egyptian Marble";
+});
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -70,8 +72,10 @@ export default function Visualizer() {
               className={`btn2 ${
                 selectedCategory === category ? "active-2" : ""
               }`}
-              onClick={() => setSelectedCategory(category)}
-            >
+              onClick={() => {
+                setSelectedCategory(category);
+                sessionStorage.setItem("selectedCategory", category);
+              }}>
               {category}
             </button>
           ))}
