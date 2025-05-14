@@ -3,6 +3,7 @@ import { Modal, Box, TextField, Button, Typography, Grid, IconButton, MenuItem }
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import apiClient from '../../util/client';
+import imageCompression from 'browser-image-compression';
 
 const PREDEFINED_CATEGORIES = ['Egyptian Marble', 'Egyptian Granite', 'Imported Marble', 'Imported Granite'];
 
@@ -17,6 +18,9 @@ const PREDEFINED_FINISHES = [
   { label: 'Rough', value: 'Rough' },
   { label: 'Sand blasted', value: 'Sand blasted' },
   { label: 'Split Face', value: 'Split Face' },
+  { label: 'Indoor Mockup', value: 'indoorMockup' },
+  { label: 'Outdoor Mockup', value: 'outdoorMockup' },
+
 ];
 
 const style = {
@@ -42,6 +46,9 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     name: '',
     category: '',
     finish: [],
+    mockup: '',
+    mockupOutdoor: '',
+    file: '',
   });
 
   const [newFinish, setNewFinish] = useState({
@@ -125,23 +132,39 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     }
   };
 
-  const handleFinishAdd = () => {
-    if (newFinish.finishName && (newFinish.imageUrl || newFinish.imageFile)) {
+const handleFinishAdd = async () => {
+  if (newFinish.finishName && newFinish.imageFile) {
+    try {
+      const options = {
+        maxWidthOrHeight: 1921,
+        initialQuality: 0.82,
+        useWebWorker: true,
+        fileType: 'image/webp',
+      };
+
+      const compressedFile = await imageCompression(newFinish.imageFile, options);
+      const optimizedPreviewUrl = URL.createObjectURL(compressedFile);
+
       setProductData(prev => ({
         ...prev,
         finish: [
           ...prev.finish,
           {
             finishName: newFinish.finishName,
-            imageUrl: newFinish.imageUrl,
-            imageFile: newFinish.imageFile,
+            imageFile: compressedFile,
+            imageUrl: optimizedPreviewUrl,
           },
         ],
       }));
+
       setNewFinish({ finishName: '', imageUrl: '', imageFile: null });
       setErrors(prev => ({ ...prev, finish: '' }));
+    } catch (error) {
+      console.error('Image compression failed:', error);
+      alert('Image compression failed. Please try again.');
     }
-  };
+  }
+};
 
   const handleFinishRemove = index => {
     setProductData(prev => ({

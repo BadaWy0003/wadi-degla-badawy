@@ -109,6 +109,7 @@ export default function Layout() {
               onClick={() => navigate(item.path)}
               sx={{
                 mb: 1,
+                cursor: 'pointer',
                 transition: 'all 0.2s ease',
                 '&:hover': {
                   transform: 'translateX(8px)',

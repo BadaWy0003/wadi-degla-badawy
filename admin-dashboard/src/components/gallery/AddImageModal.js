@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Box } from '@mui/material';
+import imageCompression from 'browser-image-compression';
 
 const AddImageModal = ({ open, onClose, onAdd }) => {
   const [formData, setFormData] = useState({
@@ -44,25 +45,39 @@ const AddImageModal = ({ open, onClose, onAdd }) => {
     }
   };
 
-  const handleSubmit = () => {
+const handleSubmit = async () => {
+  if (!formData.imageFile) {
+    alert('Please select an image file');
+    return;
+  }
+
+  try {
+    const options = {
+      maxWidthOrHeight: 1600,
+      initialQuality: 0.82,
+      useWebWorker: true,
+      fileType: 'image/webp',
+    };
+
+    const compressedFile = await imageCompression(formData.imageFile, options);
+
     const submissionData = {
       name: formData.finishName,
       finishes: [
         {
           finish: formData.finishName,
-          link: formData.imageUrl,
-          imageFile: formData.imageFile,
+          link: URL.createObjectURL(compressedFile),
+          imageFile: compressedFile,
         },
       ],
     };
 
-    if (!formData.imageFile) {
-      alert('Please select an image file');
-      return;
-    }
-
     onAdd(submissionData);
-  };
+  } catch (error) {
+    console.error('Image compression error:', error);
+    alert('Image optimization failed. Please try again.');
+  }
+};
 
   return (
     <Dialog open={open} onClose={onClose}>
