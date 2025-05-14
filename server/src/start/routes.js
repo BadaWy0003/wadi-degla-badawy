@@ -14,4 +14,5 @@ module.exports = (app) => {
   app.use('/api/admin', AdminRouter);
   app.use('/api/export-pdf', PdfExportRouter);
   app.use('/api/storage', StorageRouter);
+  app.use('/api/send-email', require('../routes/sendEmail'));
 };

@@ -24,14 +24,31 @@ export default function SampleRequestForm({ isOpen, onClose, productName, produc
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log({
-      ...formData,
-      productName,
-      productFinish,
-    });
-    setFormData({ name: '', email: '' });
-    setShowSuccessPopup(true);
-    onClose();
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    name: formData.name,
+    email: formData.email,
+    subject: `Sample Request from ${formData.name}`,
+    message: `Requesting a sample for product: ${productName} with finish: ${productFinish}`,
+    extraFields: ''
+  })
+})
+  .then((res) => res.json())
+  .then((data) => {
+    if (data.success) {
+      setFormData({ name: '', email: '' });
+      setShowSuccessPopup(true);
+      onClose();
+    } else {
+      alert('Failed to send request. Please try again.');
+    }
+  })
+  .catch(() => {
+    alert('Network error. Try again later.');
+  });
+
   };
 
   if (!isOpen) return null;
