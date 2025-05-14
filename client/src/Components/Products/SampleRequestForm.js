@@ -22,45 +22,50 @@ export default function SampleRequestForm({ isOpen, onClose, productName, produc
   }, [globalState, loading]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    name: formData.name,
-    email: formData.email,
-    subject: `Sample Request from ${formData.name}`,
-    message: `Requesting a sample for product: ${productName} with finish: ${productFinish}`,
-    extraFields: ''
-  })
-})
-  .then((res) => res.json())
-  .then((data) => {
-    if (data.success) {
-      setFormData({ name: '', email: '' });
-      setShowSuccessPopup(true);
-      onClose();
-    } else {
-      alert('Failed to send request. Please try again.');
-    }
-  })
-  .catch(() => {
-    alert('Network error. Try again later.');
-  });
+  e.preventDefault();
 
-  };
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: formData.name,
+      email: formData.email,
+      subject: `Sample Request from ${formData.name}`,
+      message: `
+        <p>Requesting a sample for:</p>
+        <ul>
+          <li>Product: <strong>${productName}</strong></li>
+          <li>Finish: <strong>${productFinish}</strong></li>
+        </ul>
+      `,
+      extraFields: '',
+    }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        setFormData({ name: '', email: '' });
+        setShowSuccessPopup(true);
+      } else {
+        alert('Failed to send request. Please try again.');
+      }
+    })
+    .catch(() => {
+      alert('Network error. Try again later.');
+    });
+};
+
 
   if (!isOpen) return null;
 
   return (
-    <div className="sample-request-overlay">
-                  {showSuccessPopup && (
-            <div className="success-popup">
-              <p>Message sent successfully!</p>
-              <button onClick={() => setShowSuccessPopup(false)} className='btn1'>Close</button>
-            </div>
-          )}
+  <div className="sample-request-overlay">
+        {showSuccessPopup && (
+          <div className="success-popup">
+            <p>Message sent successfully!</p>
+            <button onClick={() => setShowSuccessPopup(false)} className='btn1'>Close</button>
+          </div>
+        )}
       <div className="sample-request-modal">
         <button className="close-button" onClick={onClose}>&times;</button>
         <h2>Request a Sample</h2>
