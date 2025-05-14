@@ -1,7 +1,7 @@
 .spinner-container {
   height: 100vh;
   /* Prevents pushing content down */
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
