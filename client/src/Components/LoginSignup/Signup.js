@@ -35,7 +35,7 @@ export default function Signup() {
 
   // const validateUsername = (username) => /^[A-Za-z]{4,20}$/.test(username);
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const validatePhone = (phone) => /^\d{10}$/.test(phone);
+  const validatePhone = (phone) => /^\+?[1-9]\d{1,14}$/.test(phone);
   const validateWhatsapp = (whatsapp) => /^\d{10}$/.test(whatsapp);
   const validatePassword = (password) =>
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
