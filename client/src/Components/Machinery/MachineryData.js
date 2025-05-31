@@ -104,7 +104,7 @@ export const generalUseData = [
           images: [gangsaws_8, gangsaws_6, gangsaws, gangsaws_5, gangsaws_7],
         },
         {
-          title: "4 Big bridge cutters",
+          title: "4 Blocks Cutters",
           images: [big_bridge_cutter_4, big_bridge_cutter_1, big_bridge_cutter_2, big_bridge_cutter_3],
         },
         {
