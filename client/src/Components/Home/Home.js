@@ -65,7 +65,7 @@ export default function Home(){
                 className="btn2"
                 style={{marginTop: "2rem"}}
                 onClick={() => {
-                    navigate('/exports');
+                    navigate('/about');
                     window.scrollTo({top: 0});
                 }}>ABOUT WADI DEGLA</button>                     
             </div>
