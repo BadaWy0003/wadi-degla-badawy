@@ -7,6 +7,7 @@ import ContactBubble from "../Contact/ContactBubble";
 import "../Exports/Exports.css";
 import "../MasonryGrid/MasonryGrid.css";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { Helmet } from 'react-helmet-async';
 
 export default function Gallery() {
   const [gallery, setGallery] = useState([]);
@@ -42,6 +43,13 @@ export default function Gallery() {
 
 
   return (
+    <>
+    <Helmet>
+        <title>Gallery | Wadidegla</title>
+        <meta name="description" content="Gallery Description" />
+        <link rel="canonical" href="https://www.wadidegla-eg.com/gallery" />
+    </Helmet>
+    
     <div className="gallery-container">
                 <div className="breadcrumb">
           <a href="/">Home</a>
@@ -68,5 +76,6 @@ export default function Gallery() {
       <Lightbox open={open} close={() => setOpen(false)} slides={slides} index={index} />
       <ContactBubble />
     </div>
+    </>
   );
 }

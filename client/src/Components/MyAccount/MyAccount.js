@@ -4,6 +4,7 @@ import { useGlobalState } from "../GlobalStateContext.js";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
+import { Helmet } from 'react-helmet-async';
 
 export default function MyAccount() {
   const [selectedTab, setSelectedTab] = useState("Account Information");
@@ -55,6 +56,13 @@ export default function MyAccount() {
   //   };
 
   return (
+    <>
+    <Helmet>
+        <title>My Account | Wadidegla</title>
+        <meta name="description" content="My Account Description" />
+        <link rel="canonical" href="https://www.wadidegla-eg.com/my account" />
+    </Helmet>
+    
     <div className="account-container">
       {/* Breadcrumb Navigation */}
       <div className="breadcrumb">
@@ -121,5 +129,6 @@ export default function MyAccount() {
       <ContactBubble />
 
     </div>
+    </>
   );
 }

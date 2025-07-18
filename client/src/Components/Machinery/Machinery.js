@@ -3,11 +3,19 @@ import './Machinery.css';
 import { generalUseData, mngBlocksData, mngSlabsData, mngTilesData } from "./MachineryData";
 import MachinerySwiper from "./MachinerySwiper";
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 
 export default function Machinery(){
     
     return(
+        <>
+        <Helmet>
+            <title>Machinery | Wadidegla</title>
+            <meta name="description" content="Machinery Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/machinery" />
+        </Helmet>
+        
         <div className='machinery-container'>
                     {/* 🌟 Hero Section */}
                     <div className="quarries-hero">
@@ -95,5 +103,6 @@ export default function Machinery(){
 
                     <ContactBubble />
             </div>    
+            </>
             )
 }

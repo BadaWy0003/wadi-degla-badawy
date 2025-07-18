@@ -4,12 +4,20 @@ import '../Fairs/Fairs.css';
 import QuarriesSwiper from "./QuarriesSwiper";
 import {galalaQuarryImages, creamyQuarryImages, firstFactoryImages, secondFactoryImages, thirdFactoryImages} from "./QuarriesImageData";
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 
 export default function Quarries(){
   
     
     return(
+      <>
+          <Helmet>
+              <title>Quarries | Wadidegla</title>
+              <meta name="description" content="Quarries Description" />
+              <link rel="canonical" href="https://www.wadidegla-eg.com/quarries" />
+          </Helmet>
+      
         <div className="quarries-container">
 
         {/* 🌟 Hero Section */}
@@ -168,6 +176,7 @@ export default function Quarries(){
       <ContactBubble />
 
       </div>
+      </>
               
             )
 }

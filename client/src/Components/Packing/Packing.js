@@ -3,6 +3,7 @@ import './Packing.css';
 // import Carousel from 'react-multi-carousel';
 import MasonryGrid from "../MasonryGrid/MasonryGrid";
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 import 'react-multi-carousel/lib/styles.css';
 import image3 from '../../Public/Assets/Media/3.webp';
 import image21 from '../../Public/Assets/Media/21.webp';
@@ -51,6 +52,13 @@ export default function Packing(){
     
     
     return(
+        <>
+        <Helmet>
+            <title>Packing | Wadidegla</title>
+            <meta name="description" content="Packing Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/packing" />
+        </Helmet>
+        
         <div className='packing-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
@@ -108,5 +116,6 @@ export default function Packing(){
             <ContactBubble />
 
             </div>    
+            </>
             )
 }

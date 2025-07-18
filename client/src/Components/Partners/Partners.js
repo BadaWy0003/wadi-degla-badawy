@@ -2,6 +2,8 @@ import React from "react";
 import './Partners.css';
 import { useNavigate } from "react-router-dom";
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
+
 import otrovato from '../../Public/Assets/Icons/partners/otrovato.png';
 import orascom from '../../Public/Assets/Icons/partners/orascom.png';
 import emaar from '../../Public/Assets/Icons/partners/emaar.svg';
@@ -38,6 +40,13 @@ export default function Partners() {
     };
 
     return (
+        <>
+        <Helmet>
+            <title>Partners | Wadidegla</title>
+            <meta name="description" content="Partners Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/partners" />
+        </Helmet>
+        
         <div className='partners-container'>
             <h1>OUR PARTNERS & CLIENTS</h1>
             <div className="breadcrumb">
@@ -61,5 +70,6 @@ export default function Partners() {
             </button>
             <ContactBubble />
         </div>
+        </>
     );
 }

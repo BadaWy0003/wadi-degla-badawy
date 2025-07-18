@@ -3,9 +3,17 @@ import './Cobble.css';
 import Section from "../Section/Section";
 import { cobbleImages } from "./CobbleImageData";
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 export default function Cobble(){
     return(
+        <>
+        <Helmet>
+            <title>Cobbles | Wadidegla</title>
+            <meta name="description" content="Cobbles Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/cobbles" />
+        </Helmet>
+
         <div className='cobble-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
@@ -82,6 +90,7 @@ export default function Cobble(){
                 </p>
             </div>
             <ContactBubble />
-            </div>    
+            </div>   
+            </> 
             )
 }

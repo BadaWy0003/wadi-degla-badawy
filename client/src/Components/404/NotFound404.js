@@ -3,11 +3,19 @@ import './NotFound404.css';
 import ContactBubble from "../Contact/ContactBubble";
 import logo_color_stroke from "../../Public/Assets/Media/logo-color-stroke-notext.svg"
 import { useNavigate } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 export default function NotFound404() {
     const navigate = useNavigate();
     
     return (
+        <>
+        <Helmet>
+            <title>404 | Wadidegla</title>
+            <meta name="description" content="404 Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/*" />
+        </Helmet>
+
         <div className="page-404">
             <div className="container-404">
                 <img loading="lazy" 
@@ -28,5 +36,6 @@ export default function NotFound404() {
         </div>                   
             <ContactBubble />
         </div>
+        </>
     );
 }

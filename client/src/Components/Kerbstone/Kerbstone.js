@@ -9,9 +9,17 @@ import { str,
         transition } from "./KerbstoneImageData";
 import kerb_intro_img from '../../Public/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.webp';
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 export default function Kerbstone(){
     return(
+        <>
+        <Helmet>
+            <title>Kerbstone | Wadidegla</title>
+            <meta name="description" content="Kerbstone Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/kerbstone" />
+        </Helmet>
+        
         <div className='kerbstone-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
@@ -130,6 +138,7 @@ export default function Kerbstone(){
 
             </div>
             <ContactBubble />
-            </div>    
+            </div>  
+            </>  
             )
 }
