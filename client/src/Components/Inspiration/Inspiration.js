@@ -3,12 +3,20 @@ import './Inspiration.css';
 import {ancientImageData, interiorImageData, exteriorImageData} from "./InspirationImageData";
 import InspoAncientSwiper from "./InspoAncientSwiper";
 import InspoSwiper from "./InspoSwiper";
+import { Helmet } from 'react-helmet-async';
 
 import ContactBubble from "../Contact/ContactBubble";
 
 export default function Inspiration(){
     
     return(
+        <>
+        <Helmet>
+            <title>Inspiration | Wadidegla</title>
+            <meta name="description" content="Inspiration Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/inspiration" />
+        </Helmet>
+
         <div className='inspiration-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
@@ -44,6 +52,7 @@ export default function Inspiration(){
 
 
             <ContactBubble />
-            </div>    
+            </div>  
+            </>  
             )
 }

@@ -3,9 +3,17 @@ import './Certificates.css';
 import { certificatesData } from "./CertificatesData"; // Import data
 import CertificateLightBox from "./CertificateLightBox"; // Import Lightbox component
 import ContactBubble from "../Contact/ContactBubble"; // Import Contact Bubble component
+import { Helmet } from 'react-helmet-async';
 
 export default function Certificates() {
     return (
+        <>
+        <Helmet>
+            <title>Our Certificates | Wadidegla</title>
+            <meta name="description" content="Certificates Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/certificates" />
+        </Helmet>
+        
         <div className="certificates-page">
             <h1>OUR CERTIFICATES</h1>
             <div className="breadcrumb">
@@ -25,5 +33,6 @@ export default function Certificates() {
             ))}
             <ContactBubble />
         </div>
+        </>
     );
 }

@@ -13,6 +13,7 @@ import Select from "react-select"; // Import react-select
 import "react-phone-input-2/lib/style.css";
 import countryList from "react-select-country-list"; // Optional helper for countries
 import ContactBubble from "../Contact/ContactBubble.js";
+import { Helmet } from 'react-helmet-async';
 
 export default function Signup() {
   // const [username, setUsername] = useState("");
@@ -155,6 +156,13 @@ export default function Signup() {
     };
 
     return (
+      <>
+      <Helmet>
+          <title>Signup | Wadidegla</title>
+          <meta name="description" content="Signup Description" />
+          <link rel="canonical" href="https://www.wadidegla-eg.com/signup" />
+      </Helmet>
+      
       <div className="container-big">
         <div className="container1">
           <div className="container1-title">
@@ -334,6 +342,7 @@ export default function Signup() {
         <ContactBubble />
 
       </div>
+      </>
     );
   } catch (err) {
     console.log(err);

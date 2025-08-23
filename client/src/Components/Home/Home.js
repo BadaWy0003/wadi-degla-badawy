@@ -14,6 +14,7 @@ import ContactBubble from "../Contact/ContactBubble.js";
 import CertificatesHome from "./CertificatesHome.js";
 import InspirationHome from "./InspirationHome.js";
 // import { useGlobalState } from '../GlobalStateContext.js';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -33,6 +34,13 @@ export default function Home(){
     //   +" GlobalState.email: "+globalState.email+" GlobalState.phone: "+globalState.phone);
 
     return(
+        <>
+        <Helmet>
+            <title>Home | Wadidegla</title>
+            <meta name="description" content="Home Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/" />
+        </Helmet>
+        
         <div className="homepage">
             <div className="hero">
                     <h1>Wadi Degla Co.</h1>
@@ -92,6 +100,7 @@ export default function Home(){
 
             <ContactBubble />
         </div>
+        </>
     )
 }
            

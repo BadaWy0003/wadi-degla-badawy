@@ -7,11 +7,13 @@ app = 'client-rough-dawn-8020'
 primary_region = 'cdg'
 
 [build]
+  # Ensure Fly builds the app before serving
+  builder = "paketobuildpacks/builder:base"
 
 [env]
 
 [http_service]
-  internal_port = 80
+  internal_port = 8080
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true

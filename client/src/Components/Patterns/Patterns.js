@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './Patterns.css';
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 import p1 from '../../Public/Assets/Media/Patterns/p1.webp'
 import p2 from '../../Public/Assets/Media/Patterns/p2.webp'
@@ -53,6 +54,13 @@ const patternImages=[
     
     
     return(
+        <>
+        <Helmet>
+            <title>Patterns | Wadidegla</title>
+            <meta name="description" content="Patterns Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/patterns" />
+        </Helmet>
+
         <div className='patterns-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
@@ -116,5 +124,6 @@ const patternImages=[
 
             <ContactBubble />
             </div>    
+            </>
             )
 }

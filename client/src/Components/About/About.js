@@ -6,6 +6,7 @@ import expertise_square_image from '../../Public/Assets/Media/about-expertise.we
 import MissionVisionSection from "./MissionVisionSection";
 import CounterSection from "./CounterSection";
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 import 'react-multi-carousel/lib/styles.css';
 
@@ -15,6 +16,12 @@ export default function About(){
 
 
     return(
+        <>
+          <Helmet>
+                <title>About Us | Wadidegla</title>
+                <meta name="description" content="Learn more about Wadi Degla – our history, mission, and global presence in the natural stone industry." />
+                <link rel="canonical" href="https://www.wadidegla-eg.com/about" />
+            </Helmet>
         <div className='about-container'>
             {/* 🌟 Hero Section */}
             <div className="quarries-hero">
@@ -98,6 +105,7 @@ export default function About(){
             </div>
             <ContactBubble />
 
-        </div>    
+        </div>   
+        </> 
             )
 }

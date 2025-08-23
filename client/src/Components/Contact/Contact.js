@@ -3,10 +3,18 @@ import '../LoginSignup/Signup.css'
 
 import ContactForm from './ContactForm.js';
 import ContactInfo from './ContactInfo.js';
+import { Helmet } from 'react-helmet-async';
 
 export default function Contact() {
 
   return (
+    <>
+    <Helmet>
+        <title>Contact | Wadidegla</title>
+        <meta name="description" content="Contact Description" />
+        <link rel="canonical" href="https://www.wadidegla-eg.com/contact" />
+    </Helmet>
+    
     <div className='contact-container'>
       {/* 🌟 Hero Section */}
       <div className="quarries-hero">
@@ -22,5 +30,6 @@ export default function Contact() {
         <ContactInfo />
       </div>
     </div>
+    </>
   );
 }

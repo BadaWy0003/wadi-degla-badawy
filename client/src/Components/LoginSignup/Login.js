@@ -7,6 +7,7 @@ import { useGlobalState } from "../GlobalStateContext.js";
 import wadi_degla_logo_login from '../../Public/Assets/Media/logo-color-stroke-notext.svg';
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
+import { Helmet } from 'react-helmet-async';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -72,6 +73,13 @@ export default function Login() {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Login | Wadidegla</title>
+        <meta name="description" content="Login Description" />
+        <link rel="canonical" href="https://www.wadidegla-eg.com/login" />
+    </Helmet>
+    
     <div className="container-big">
       <div className="container1">
         <div className="container1-title">
@@ -143,5 +151,6 @@ export default function Login() {
       </div>
       <ContactBubble />
     </div>
+    </>
   );
 }

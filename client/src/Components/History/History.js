@@ -11,6 +11,7 @@ import saeed_jr_3 from '../../Public/Assets/Media/History/saeed-jr-3.webp'
 import saeed_jr_4 from '../../Public/Assets/Media/History/saeed-jr-4.webp'
 import saeed_jr_5 from '../../Public/Assets/Media/History/saeed-jr-5.webp'
 import { HistoryImages } from './HistoryImages';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -19,6 +20,13 @@ export default function History(){
     
 
     return(
+        <>
+        <Helmet>
+            <title>History | Wadidegla</title>
+            <meta name="description" content="History Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/history" />
+        </Helmet>
+        
         <div className='history-container'>
             {/* 🌟 Hero Section */}
             <div className="quarries-hero">
@@ -192,6 +200,7 @@ export default function History(){
 
                     <ContactBubble />
 
-        </div>    
+        </div>   
+        </> 
             )
 }

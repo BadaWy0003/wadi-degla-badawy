@@ -1,6 +1,7 @@
 import React from "react";
 import './News.css';
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 export default function News(){
 
@@ -8,6 +9,13 @@ export default function News(){
     
     
     return(
+        <>
+        <Helmet>
+            <title>News | Wadidegla</title>
+            <meta name="description" content="News Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/news" />
+        </Helmet>
+        
         <div className='news-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
@@ -21,6 +29,7 @@ export default function News(){
                 <h1>Coming Soon</h1>
             </div>
             <ContactBubble />
-            </div>    
+            </div>   
+            </> 
             )
 }

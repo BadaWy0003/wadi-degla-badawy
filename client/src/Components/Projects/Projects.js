@@ -3,6 +3,7 @@ import "./Projects.css";
 import Project from "./Project";
 import projects from "./projectList"; // Import the project list
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 export default function Projects() {
   // Group projects by country
@@ -15,6 +16,13 @@ export default function Projects() {
   }, {});
 
   return (
+    <>
+    <Helmet>
+        <title>Projects | Wadidegla</title>
+        <meta name="description" content="Projects Description" />
+        <link rel="canonical" href="https://www.wadidegla-eg.com/projects" />
+    </Helmet>
+    
     <div className="projects-page">
       {/* 🌟 Hero Section */}
       <div className="quarries-hero">
@@ -48,5 +56,6 @@ export default function Projects() {
       <ContactBubble />
 
     </div>
+    </>
   );
 }

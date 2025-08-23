@@ -5,6 +5,7 @@ import MasonryGrid from "../MasonryGrid/MasonryGrid";
 import exports from '../../Public/Assets/Media/Exports/exports2.webp';
 import OurMarkets from "./OurMarkets";
 import ContactBubble from "../Contact/ContactBubble";
+import { Helmet } from 'react-helmet-async';
 
 import exports1 from '../../Public/Assets/Media/Packing/packing3.webp';
 import exports2 from '../../Public/Assets/Media/Packing/packing7.webp';
@@ -56,6 +57,13 @@ export default function Exports(){
                     ];
     
     return(
+        <>
+        <Helmet>
+            <title>Exports | Wadidegla</title>
+            <meta name="description" content="Exports Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/exports" />
+        </Helmet>
+
         <div className='exports-container'>
         {/* 🌟 Hero Section */}
         <div className="quarries-hero">
@@ -91,6 +99,7 @@ export default function Exports(){
 
                 <ContactBubble />
 
-            </div>    
+            </div>  
+            </>  
             )
 }

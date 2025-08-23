@@ -5,9 +5,17 @@ import "../Inspiration/Inspiration.css";
 import { architectureData, mosaicsData } from "./StoneCreationData";
 import ContactBubble from "../Contact/ContactBubble";
 import ImageSection from "../Section/ImageSection";
+import { Helmet } from 'react-helmet-async';
 
 export default function StoneCreation(){
     return(
+        <>
+        <Helmet>
+            <title>Stone Creations | Wadidegla</title>
+            <meta name="description" content="Stone Creations Description" />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/stone creations" />
+        </Helmet>
+        
         <div className='stone-creation-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
@@ -37,5 +45,6 @@ export default function StoneCreation(){
             </div>
             <ContactBubble />
             </div>    
+            </>
             )
 }

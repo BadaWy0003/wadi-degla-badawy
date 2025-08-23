@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
+import { Helmet } from 'react-helmet-async';
+
 import Product from "./Product";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
@@ -42,6 +44,13 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
   });
 
   return (
+    <>
+    <Helmet>
+        <title>Products | Wadidegla</title>
+        <meta name="description" content="Products Description" />
+        <link rel="canonical" href="https://www.wadidegla-eg.com/products" />
+    </Helmet>
+    
     <div className="products-container-2">
                           {/* 🌟 Hero Section */}
                           <div className="quarries-hero">
@@ -117,5 +126,6 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
                   <ContactBubble />
 
     </div>
+    </>
   );
 }
