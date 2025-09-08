@@ -2,16 +2,9 @@
 FROM node:20 AS builder
 WORKDIR /app
 
-# Install Chrome and Puppeteer dependencies for react-snap
+# Install Chromium and Puppeteer dependencies for react-snap
 RUN apt-get update && apt-get install -y \
-    wget \
-    gnupg \
-    ca-certificates \
-    && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/googlechrome-linux-keyring.gpg \
-    && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/googlechrome-linux-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
-    && apt-get update \
-    && apt-get install -y \
-    google-chrome-stable \
+    chromium \
     fonts-liberation \
     libappindicator3-1 \
     libatk1.0-0 \
@@ -42,14 +35,11 @@ RUN apt-get update && apt-get install -y \
     libcups2 \
     && rm -rf /var/lib/apt/lists/*
 
-# Configure Puppeteer to use the installed Chrome
+# Configure Puppeteer to use the installed Chromium
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
-# Set environment variables BEFORE the build
-ENV REACT_APP_BASE_API_URL="https://server-withered-wildflower-1595.fly.dev"
-
-# Copy package files and install dependencies
+# Copy package files and install dependencies (including devDependencies for build)
 COPY package*.json ./
 RUN npm install
 
@@ -57,7 +47,8 @@ RUN npm install
 COPY . .
 
 # Set environment variables for react-snap and build
-ENV NODE_ENV=production \
+ENV REACT_APP_BASE_API_URL="https://server-withered-wildflower-1595.fly.dev" \
+    NODE_ENV=production \
     REACT_SNAP_TIMEOUT=60000
 
 # Build the application with react-snap
