@@ -44,8 +44,13 @@
   },
   "reactSnap": {
     "skipThirdPartyRequests": true,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "puppeteerExecutablePath": "/snap/bin/chromium",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--no-first-run"
+    ],
     "inlineCss": true,
     "routes": [
       "/",
