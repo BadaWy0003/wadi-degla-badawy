@@ -56,8 +56,12 @@ RUN npm install
 # Copy the rest of your application
 COPY . .
 
-# Build the application (skip react-snap for Docker stability)
-RUN npm run build:docker
+# Set environment variables for react-snap and build
+ENV NODE_ENV=production \
+    REACT_SNAP_TIMEOUT=60000
+
+# Build the application with react-snap
+RUN npm run build
 
 # Production stage
 FROM nginx:alpine

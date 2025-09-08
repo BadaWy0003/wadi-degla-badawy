@@ -57,11 +57,17 @@
       "--disable-background-timer-throttling",
       "--disable-renderer-backgrounding",
       "--disable-backgrounding-occluded-windows",
-      "--single-process"
+      "--single-process",
+      "--disable-ipc-flooding-protection",
+      "--memory-pressure-off",
+      "--max_old_space_size=4096"
     ],
     "inlineCss": false,
     "removeBlobs": true,
     "fixWebpackChunksIssue": false,
+    "crawl": false,
+    "waitFor": 1000,
+    "cacheAjaxRequests": false,
     "routes": [
       "/",
       "/certificates",
