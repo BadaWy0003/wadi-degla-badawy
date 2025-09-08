@@ -26,19 +26,29 @@
     "react-scripts": "^5.0.1",
     "react-select": "^5.8.3",
     "react-select-country-list": "^2.2.3",
-    "react-snap": "^1.23.0",
+    "react-snap": "1.23.0",
+    "puppeteer": "^19.11.1",
     "react-toastify": "^8.0.0",
     "styled-components": "^6.1.13",
     "swiper": "^11.2.2",
     "web-vitals": "^2.1.4",
-    "yet-another-react-lightbox": "^3.21.7"
+    "yet-another-react-lightbox": "^3.21.7",
+    "cross-env": "^7.0.3"
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
+    "postbuild": "cross-env NODE_ENV=production react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "reactSnap": {
+    "skipThirdPartyRequests": true,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerExecutablePath": "/snap/bin/chromium",
+    "inlineCss": true,
+    "routes": [
+      "/",
       "/certificates",
       "/about",
       "/gallery",
@@ -96,13 +106,6 @@
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.3.0",
     "process": "^0.11.10",
-    "react-refresh": "^0.17.0",
-    "stream-browserify": "^3.0.0",
-    "stream-http": "^3.2.0",
-    "style-loader": "^4.0.0",
-    "url": "^0.11.4",
-    "util": "^0.12.5",
-    "webpack": "^5.101.3",
-    "webpack-cli": "^6.0.1"
+    "react-refresh": "^0.17.0"
   }
 }
