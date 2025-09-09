@@ -77,7 +77,7 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="/products/:productId" element={<Suspense fallback={<LoadingSpinner />}><ProductDetails /></Suspense>} />
+          <Route path="/products/:productName" element={<Suspense fallback={<LoadingSpinner />}><ProductDetails /></Suspense>} />
           <Route exact path="/visualizer" element={<Suspense fallback={<LoadingSpinner />}><Visualizer /></Suspense>} />
           <Route exact path="/kerbstone" element={<Suspense fallback={<LoadingSpinner />}><Kerbstone /></Suspense>} />
           <Route exact path="/Cobbles" element={<Suspense fallback={<LoadingSpinner />}><Cobble /></Suspense>} />

@@ -14,7 +14,7 @@ import SampleRequestForm from './SampleRequestForm';
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 
 export default function ProductDetails() {
-  const { productId } = useParams();
+  const { productName } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -28,8 +28,11 @@ export default function ProductDetails() {
         const { data } = await apiClient.get(`/api/storage/all`);
 
         if (data.data) {
-          // Find the specific product by ID
-          const foundProduct = data.data.find((p) => p.id === productId);
+          // Find the specific product by name
+          const foundProduct = data.data.find((p) => {
+            const urlName = p.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            return urlName === productName;
+          });
           if (foundProduct) {
             setProduct(foundProduct);
             // Set default finish to "Polished" or the first finish if "Polished" doesn't exist
@@ -55,12 +58,12 @@ export default function ProductDetails() {
       }
     };
 
-    if (productId) {
+    if (productName) {
       fetchProductFromAll();
     } else {
       navigate("/products");
     }
-  }, [productId, navigate]);
+  }, [productName, navigate]);
 
   const applicationIcons = [
     { src: block, name: "Block" },

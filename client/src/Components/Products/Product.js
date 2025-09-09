@@ -19,7 +19,9 @@ export default function Product({ item }) {
       className="product-card-2"
 onClick={() => {
   sessionStorage.setItem("selectedCategory", item.type); // Save the current category
-  navigate(`/products/${item.id}`);
+  // Convert product name to URL-friendly format
+  const urlName = item.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  navigate(`/products/${urlName}`);
   window.scrollTo({ top: 0 });
 }}
     >
