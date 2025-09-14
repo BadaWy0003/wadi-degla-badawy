@@ -41,6 +41,9 @@ const Patterns = lazy(() => import("./Components/Patterns/Patterns.js"));
 const Certificates = lazy(() => import("./Components/Certificates/Certificates.js"));
 const NotFound404 = lazy(() => import("./Components/404/NotFound404.js")); // 404 page
 
+const RoutesList = lazy(() => import("./Components/Admin/RoutesList"));
+
+
 function App() {
   const { globalState } = useGlobalState();
   const isLoggedIn = globalState.isLoggedIn;
@@ -87,6 +90,17 @@ function App() {
           <Route exact path="/fairs" element={<Suspense fallback={<LoadingSpinner />}><Fairs /></Suspense>} />
           <Route exact path="/patterns" element={<Suspense fallback={<LoadingSpinner />}><Patterns /></Suspense>} />
           <Route exact path="/contact" element={<Suspense fallback={<LoadingSpinner />}><Contact /></Suspense>} />
+
+
+          <Route 
+            exact 
+            path="/secret-routes-list" 
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <RoutesList />
+              </Suspense>
+            }
+          />
 
           {/* Protected routes for NOT logged-in users */}
           <Route

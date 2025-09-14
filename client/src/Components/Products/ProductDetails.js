@@ -12,6 +12,8 @@ import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import SampleRequestForm from './SampleRequestForm';
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
+import { Helmet } from 'react-helmet-async';
+
 
 export default function ProductDetails() {
   const { productName } = useParams();
@@ -84,6 +86,13 @@ export default function ProductDetails() {
   }
 
   return (
+    <>
+    <Helmet>
+        <title>{product.name} | Wadidegla</title>
+        <meta name="description" content={`Discover ${product.name} in our premium collection of ${product.type}. High-quality natural stone available. View specifications and request samples from Wadi Degla, your trusted source for luxury stone materials.`} />
+        <link rel="canonical" href={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
+    </Helmet>
+    
     <div className="product-details-page">
       <div className="breadcrumb">
         <a href="/">Home</a>
@@ -178,5 +187,6 @@ export default function ProductDetails() {
       <ContactBubble />
 
     </div>
+    </>
   );
 }
