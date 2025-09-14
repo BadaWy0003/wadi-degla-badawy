@@ -35,10 +35,10 @@ export default function RoutesList() {
     }
   };
 
-  const productRoutes = data.map(product => 
-    `/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`
+const productRoutes = data.map(product => 
+    `"/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}",`
   );
-
+  
   if (loading) return <LoadingSpinner />;
 
   return (
@@ -58,7 +58,7 @@ export default function RoutesList() {
           padding: '15px',
           borderRadius: '4px'
         }}>
-          {productRoutes.map(route => `"${route}",`).join('\n')}
+          {productRoutes.join('\n')}
         </pre>
       </div>
       <div style={{ marginTop: '20px' }}>
