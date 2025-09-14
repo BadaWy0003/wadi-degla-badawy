@@ -6,6 +6,13 @@ export default function RoutesList() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const categories = [
+    "Egyptian Marble",
+    "Imported Marble",
+    "Egyptian Granite",
+    "Imported Granite"
+  ];
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -15,7 +22,11 @@ export default function RoutesList() {
     try {
       const { data } = await apiClient.get(`/api/storage/all`);
       if (data.data) {
-        setData(data.data);
+        // Filter only products from the main categories
+        const filteredProducts = data.data.filter(product => 
+          categories.includes(product.type)
+        );
+        setData(filteredProducts);
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -39,12 +50,20 @@ export default function RoutesList() {
         borderRadius: '5px',
         margin: '20px 0'
       }}>
+        <p>Copy these routes into package.json reactSnap.routes array:</p>
         <pre style={{ 
           whiteSpace: 'pre-wrap',
-          fontFamily: 'monospace'
+          fontFamily: 'monospace',
+          backgroundColor: '#fff',
+          padding: '15px',
+          borderRadius: '4px'
         }}>
-          {productRoutes.map(route => `"${route}",\n`).join('')}
+          {productRoutes.map(route => `"${route}",`).join('\n')}
         </pre>
+      </div>
+      <div style={{ marginTop: '20px' }}>
+        <p>Total products found: {productRoutes.length}</p>
+        <p>Categories included: {categories.join(', ')}</p>
       </div>
     </div>
   );
