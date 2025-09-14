@@ -87,12 +87,43 @@ export default function ProductDetails() {
 
   return (
     <>
-    <Helmet>
+    {/* <Helmet>
         <title>{product.name} | Wadidegla</title>
         <meta name="description" content={`Discover ${product.name} in our premium collection of ${product.type}. High-quality natural stone available. View specifications and request samples from Wadi Degla, your trusted source for luxury stone materials.`} />
         <link rel="canonical" href={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
-    </Helmet>
+    </Helmet> */}
+
+<Helmet>
+  <script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": product.name,
+    "image": selectedFinish?.link,
+    "description": `High-quality ${product.name} from our premium collection of ${product.type}.`,
+    "brand": {
+      "@type": "Brand",
+      "name": "Wadidegla"
+    },
+    "category": product.type
+  })}
+</script>
+
+    <title>{product.name} | Wadidegla</title>
+    <meta name="description" content={`Discover ${product.name} in our premium collection of ${product.type}. High-quality natural stone available. View specifications and request samples from Wadi Degla, your trusted source for luxury stone materials.`} />
+    <link rel="canonical" href={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
     
+    {/* Add these new meta tags */}
+    <meta property="og:title" content={`${product.name} | Wadidegla`} />
+    <meta property="og:description" content={`Discover ${product.name} in our premium collection of ${product.type}. High-quality natural stone available from Wadi Degla.`} />
+    <meta property="og:image" content={selectedFinish?.link} />
+    <meta property="og:url" content={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
+    <meta property="og:type" content="product" />
+    <meta name="robots" content="index, follow" />
+    <link rel="alternate" hrefLang="en" href={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
+</Helmet>
+
+
     <div className="product-details-page">
       <div className="breadcrumb">
         <a href="/">Home</a>

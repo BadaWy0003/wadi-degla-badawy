@@ -41,7 +41,7 @@ const Patterns = lazy(() => import("./Components/Patterns/Patterns.js"));
 const Certificates = lazy(() => import("./Components/Certificates/Certificates.js"));
 const NotFound404 = lazy(() => import("./Components/404/NotFound404.js")); // 404 page
 
-const RoutesList = lazy(() => import("./Components/Admin/RoutesList"));
+// const RoutesList = lazy(() => import("./Components/Admin/RoutesList"));
 
 
 function App() {
@@ -92,7 +92,7 @@ function App() {
           <Route exact path="/contact" element={<Suspense fallback={<LoadingSpinner />}><Contact /></Suspense>} />
 
 
-          <Route 
+          {/* <Route 
             exact 
             path="/secret-routes-list" 
             element={
@@ -100,7 +100,7 @@ function App() {
                 <RoutesList />
               </Suspense>
             }
-          />
+          /> */}
 
           {/* Protected routes for NOT logged-in users */}
           <Route
