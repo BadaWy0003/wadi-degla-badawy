@@ -351,6 +351,10 @@ nav {
     display: none;
 }
 
+
+.navbar-search{
+    margin-inline-start: 2rem;
+}
 /*===========================================================*/
 
 @media only screen and (max-width: 1024px) {

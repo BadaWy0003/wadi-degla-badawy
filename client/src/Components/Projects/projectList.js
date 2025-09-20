@@ -15,6 +15,7 @@ import theta_lane from '../../Public/Assets/Media/Projects/theta-lane-project.we
 
 import blu_terrenas from '../../Public/Assets/Media/Projects/blu-terrenas.webp'
 import blu_terrenas_2 from '../../Public/Assets/Media/Projects/blu-terrenas-2.webp'
+import blu_terrenas_3 from '../../Public/Assets/Media/Projects/blu-terrenas-3.webp'
 
 import romania_project_1 from '../../Public/Assets/Media/Projects/romania-project-1.webp'
 import romania_project_2 from '../../Public/Assets/Media/Projects/romania-project-2.webp'
@@ -185,7 +186,7 @@ const projects = [
     id: "3",
     name: "Blu Terrenas",
     thumbnail: blu_terrenas,
-    gallery: {blu_terrenas, blu_terrenas_2},
+    gallery: {blu_terrenas, blu_terrenas_2, blu_terrenas_3},
     city: "",
     country: "The Caribbean",
     materialsSupplied: ["New Halayeb"],

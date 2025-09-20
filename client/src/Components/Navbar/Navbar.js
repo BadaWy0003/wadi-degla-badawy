@@ -8,6 +8,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../../util/client.js";
 import arrow_down from "../../Public/Assets/Icons/arrow-down.svg";
+import SearchBar from "../SearchBar/SearchBar.js.js";
 
 export default function Navbar() {
   const navRef = useRef();
@@ -303,7 +304,9 @@ export default function Navbar() {
         >
           Contact
         </Link>
-
+          <div className="navbar-search">
+            <SearchBar />
+          </div>
         {/* Responsive Login/My Account Section */}
         <div className="responsive-nav-bottom nav-item-mobile">
           {globalState.isLoggedIn ? (
