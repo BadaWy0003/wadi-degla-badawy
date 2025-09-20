@@ -483,6 +483,11 @@ nav {
         max-width: 100%;
     }
 
+    .navbar-search{
+    margin-inline-start: 0;
+}
+
+
 }
 
 @media only screen and (max-height: 550px) {

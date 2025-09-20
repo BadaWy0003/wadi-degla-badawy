@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import wadi_degla_logo_color from "../../Public/Assets/Logo-Identity/wadi-degla-logo-color.svg";
 import wadi_degla_logo_white from "../../Public/Assets/Logo-Identity/wadi-degla-logo-white.svg";
 import React, { useState, useEffect, useRef } from "react";
@@ -20,9 +20,15 @@ export default function Navbar() {
   };
 
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   const { globalState, setGlobalState } = useGlobalState(); // to see if user is logged in
   const navigate = useNavigate();
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    closeNavbar();
+  }, [location.pathname]);
 
   const handleLogout = async () => {
     try {
