@@ -358,6 +358,9 @@ nav {
 /*===========================================================*/
 
 @media only screen and (max-width: 1024px) {
+    .navbar-search{
+    margin-inline-start: 0 !important;
+}
 
     header {
         top: 0;
@@ -483,9 +486,6 @@ nav {
         max-width: 100%;
     }
 
-    .navbar-search{
-    margin-inline-start: 0;
-}
 
 
 }
