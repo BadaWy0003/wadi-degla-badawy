@@ -351,7 +351,9 @@ nav {
     display: none;
 }
 
-
+.navbar-search.show-on-mobile{
+    display: none;
+}
 .navbar-search{
     margin-inline-start: 2rem;
 }
@@ -482,10 +484,21 @@ nav {
     #logo-nav-mobile {
         max-width: 100%;
     }
-
+    .navbar-search.hide-on-mobile{
+        display: none;
+    }
+    .navbar-search.show-on-mobile{
+    display: block;
+}
     .navbar-search{
     margin-inline-start: 0;
 }
+    .mob-search-and-nav-btn{
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        column-gap: 8px;
+        }
 
 
 }

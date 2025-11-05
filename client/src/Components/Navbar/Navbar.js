@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import apiClient from "../../util/client.js";
 import arrow_down from "../../Public/Assets/Icons/arrow-down.svg";
 import SearchBar from "../SearchBar/SearchBar.js.js";
+import SearchBarMobile from "../SearchBar/SearchBarMobile.js.js";
 
 export default function Navbar() {
   const navRef = useRef();
@@ -310,7 +311,7 @@ export default function Navbar() {
         >
           Contact
         </Link>
-          <div className="navbar-search">
+          <div className="navbar-search hide-on-mobile">
             <SearchBar />
           </div>
         {/* Responsive Login/My Account Section */}
@@ -399,11 +400,17 @@ export default function Navbar() {
           </Link>
         )}
       </div>
+      <div className="mob-search-and-nav-btn">
+        <div className="navbar-search show-on-mobile">
+              <SearchBarMobile />
+          </div>
 
-      {/* Hamburger Icon */}
-      <button className="nav-btn" onClick={showNavbar}>
-        <FaBars />
-      </button>
+        {/* Hamburger Icon */}
+        <button className="nav-btn" onClick={showNavbar}>
+          <FaBars />
+        </button>
+      </div>
+        
     </header>
   );
 }
