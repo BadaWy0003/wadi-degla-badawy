@@ -56,8 +56,10 @@ export default function ContactInfo() {
                 <a href='https://t.me/wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={telegram_circle_white_icon} className='social-icons-footer' /></a>
                 <a href='https://www.tiktok.com/@wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={tiktok_circle_white_icon} className='social-icons-footer' /></a>
               </div>
-              <a href='https://drive.google.com/file/d/1mrKEa0hx4pTVfL062V4Mq2yR6mYo8abZ/view?usp=sharing' target="_blank" rel="noopener noreferrer"> <button className='btn1'>
-                OUR COMPANY PROFILE & PRODUCTS</button> </a>
+              <a href='https://drive.google.com/file/d/1cr1xARl2DO_dmVo2NUaZrP6mJ0FyNHUa/view' target="_blank" rel="noopener noreferrer"> <button className='btn2'>
+                OUR COMPANY PROFILE</button> </a>
+              <a href='https://drive.google.com/file/d/1Vbmkf9-TQnuGKhvHV9JS4014vp4J1rHS/view?usp=sharing' target="_blank" rel="noopener noreferrer"> <button className='btn1'>
+                SPECIAL PRODUCTS CATALOGUE</button> </a>
               <h4>Click Or scan the QR code for all links</h4>
               <div>
               <a id="qr-code" href='https://wadideg.social/' target="_blank" rel="noopener noreferrer"> <img loading="lazy" alt='' src={qr} /> </a>
