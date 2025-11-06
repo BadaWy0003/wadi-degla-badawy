@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "wadiDegla": "Wadi Degla",
+    "history": "History",
+    "machinery": "Machinery",
+    "certificates": "Certificates",
+    "exports": "Exports",
+    "packing": "Packing",
+    "whyChooseUs": "Why Choose Us?",
+    "products": "Products",
+    "exploreProducts": "Explore Our Products",
+    "materialVisualizer": "Material Visualizer",
+    "patterns": "Patterns / Pavers",
+    "kerbstone": "Kerbstone",
+    "cobbles": "Cobbles",
+    "stoneCreations": "Stone Creations",
+    "resources": "Resources",
+    "quarries": "Quarries & Factories",
+    "inspiration": "Inspiration",
+    "gallery": "Gallery",
+    "news": "News",
+    "partners": "Our Partners & Clients",
+    "projects": "Projects",
+    "fairs": "Fairs",
+    "contact": "Contact",
+    "account": "Account",
+    "myAccount": "My Account",
+    "login": "Login",
+    "logout": "Logout",
+    "loginSignup": "Login/Signup"
+  }
+  ,
+  "footer": {
+    "getInTouch": "GET IN TOUCH",
+    "footerParagraph": "At Wadi Degla for Marble & Granite, we value our customers' inquiries and feedback. Our dedicated team is here to assist you and provide the information you need.",
+    "contactUs": "CONTACT US",
+    "welcomePrefix": "Welcome to",
+    "companyName": "Wadi Degla",
+    "welcomeSuffix": "for Marble & Granite, your trusted partner in the marble business since 1980.",
+    "explore": "EXPLORE",
+    "resources": "RESOURCES",
+    "contactHeading": "CONTACT US",
+    "copyRights": "©{{year}} Wadi Degla | Powered by PyraDev"
+  }
+}

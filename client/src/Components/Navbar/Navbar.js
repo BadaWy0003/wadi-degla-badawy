@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import wadi_degla_logo_color from "../../Public/Assets/Logo-Identity/wadi-degla-logo-color.svg";
 import wadi_degla_logo_white from "../../Public/Assets/Logo-Identity/wadi-degla-logo-white.svg";
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
 import { useGlobalState } from "../GlobalStateContext.js";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -10,9 +12,12 @@ import apiClient from "../../util/client.js";
 import arrow_down from "../../Public/Assets/Icons/arrow-down.svg";
 import SearchBar from "../SearchBar/SearchBar.js.js";
 import SearchBarMobile from "../SearchBar/SearchBarMobile.js.js";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 export default function Navbar() {
   const navRef = useRef();
+  const { t } = useTranslation();
+  
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
@@ -102,7 +107,7 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
-          <p>Wadi Degla</p>
+          <p>{t('navigation.wadiDegla')}</p>
           <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
@@ -167,7 +172,7 @@ export default function Navbar() {
         </div>
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
-          <p>Products</p>
+          <p>{t('navigation.products')}</p>
           <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
@@ -179,7 +184,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Explore Our Products
+                {t('navigation.exploreProducts')}
               </Link>
               <Link
                 to="/visualizer"
@@ -188,7 +193,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Material Visualizer
+                {t('navigation.materialVisualizer')}
               </Link>
               <Link
                 to="/patterns"
@@ -197,7 +202,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Patterns / Pavers
+                {t('navigation.patterns')}
               </Link>
               <Link
                 to="/kerbstone"
@@ -206,7 +211,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Kerbstone
+                {t('navigation.kerbstone')}
               </Link>
               <Link
                 to="/Cobbles"
@@ -215,7 +220,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Cobbles
+                {t('navigation.cobbles')}
               </Link>
               <Link
                 to="/Stone Creations"
@@ -224,14 +229,14 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Stone Creations
+                {t('navigation.stoneCreations')}
               </Link>
             </div>
           </div>
         </div>
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
-          <p>Resources</p>
+          <p>{t('navigation.resources')}</p>
           <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
@@ -243,7 +248,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Quarries & Factories
+                {t('navigation.quarries')}
               </Link>
               <Link
                 to="/inspiration"
@@ -252,7 +257,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Inspiration
+                {t('navigation.inspiration')}
               </Link>
               <Link
                 to="/gallery"
@@ -261,7 +266,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Gallery
+                {t('navigation.gallery')}
               </Link>
               <Link
                 to="/news"
@@ -270,7 +275,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                News
+                {t('navigation.news')}
               </Link>
               <Link
                 to="/partners"
@@ -279,7 +284,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Our Partners & Clients
+                {t('navigation.partners')}
               </Link>
             </div>
           </div>
@@ -291,7 +296,7 @@ export default function Navbar() {
             window.scrollTo(0, 0);
           }}
         >
-          Projects
+          {t('navigation.projects')}
         </Link>
         <Link
           to="/fairs"
@@ -300,7 +305,7 @@ export default function Navbar() {
             window.scrollTo(0, 0);
           }}
         >
-          Fairs
+          {t('navigation.fairs')}
         </Link>
         <Link
           to="/contact"
@@ -309,7 +314,7 @@ export default function Navbar() {
             window.scrollTo(0, 0);
           }}
         >
-          Contact
+          {t('navigation.contact')}
         </Link>
           <div className="navbar-search hide-on-mobile">
             <SearchBar />
@@ -318,7 +323,7 @@ export default function Navbar() {
         <div className="responsive-nav-bottom nav-item-mobile">
           {globalState.isLoggedIn ? (
             <div className="nav-item-with-submenu">
-              <p>Account ↓</p>
+              <p>{t('navigation.account')} ↓</p>
               <div className="submenu">
                 <Link
                   to="/my account"
@@ -327,7 +332,7 @@ export default function Navbar() {
                     window.scrollTo(0, 0);
                   }}
                 >
-                  My Account
+                  {t('navigation.myAccount')}
                 </Link>
                 <Link
                   to="/login"
@@ -336,7 +341,7 @@ export default function Navbar() {
                     handleLogout();
                   }}
                 >
-                  Logout
+                  {t('navigation.logout')}
                 </Link>
               </div>
             </div>
@@ -348,7 +353,7 @@ export default function Navbar() {
                 window.scrollTo(0, 0);
               }}
             >
-              Login
+              {t('navigation.login')}
             </Link>
           )}
         </div>
@@ -373,7 +378,7 @@ export default function Navbar() {
                     window.scrollTo(0, 0);
                   }}
                 >
-                  My Account
+                  {t('navigation.myAccount')}
                 </Link>
                 <Link
                   to="/login"
@@ -382,7 +387,7 @@ export default function Navbar() {
                     handleLogout();
                   }}
                 >
-                  Logout
+                  {t('navigation.logout')}
                 </Link>
               </div>
             </div>
@@ -396,7 +401,7 @@ export default function Navbar() {
               window.scrollTo(0, 0);
             }}
           >
-            Login/Signup
+            {t('navigation.loginSignup')}
           </Link>
         )}
       </div>
@@ -404,7 +409,7 @@ export default function Navbar() {
         <div className="navbar-search show-on-mobile">
               <SearchBarMobile />
           </div>
-
+        <LanguageSelector />
         {/* Hamburger Icon */}
         <button className="nav-btn" onClick={showNavbar}>
           <FaBars />

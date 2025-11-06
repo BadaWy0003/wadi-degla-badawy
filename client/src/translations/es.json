@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "wadiDegla": "Wadi Degla",
+    "history": "Historia",
+    "machinery": "Maquinaria",
+    "certificates": "Certificados",
+    "exports": "Exportaciones",
+    "packing": "Empaque",
+    "whyChooseUs": "¿Por qué elegirnos?",
+    "products": "Productos",
+    "exploreProducts": "Explorar Nuestros Productos",
+    "materialVisualizer": "Visualizador de Materiales",
+    "patterns": "Patrones / Adoquines",
+    "kerbstone": "Bordillos",
+    "cobbles": "Adoquines",
+    "stoneCreations": "Creaciones en Piedra",
+    "resources": "Recursos",
+    "quarries": "Canteras y Fábricas",
+    "inspiration": "Inspiración",
+    "gallery": "Galería",
+    "news": "Noticias",
+    "partners": "Nuestros Socios y Clientes",
+    "projects": "Proyectos",
+    "fairs": "Ferias",
+    "contact": "Contacto",
+    "account": "Cuenta",
+    "myAccount": "Mi Cuenta",
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "loginSignup": "Iniciar Sesión/Registrarse"
+  }
+  ,
+  "footer": {
+    "getInTouch": "PONTE EN CONTACTO",
+    "footerParagraph": "En Wadi Degla para Mármol y Granito valoramos las consultas y comentarios de nuestros clientes. Nuestro equipo está aquí para ayudarle y proporcionar la información que necesita.",
+    "contactUs": "CONTÁCTANOS",
+    "welcomePrefix": "Bienvenido a",
+    "companyName": "Wadi Degla",
+    "welcomeSuffix": "para Mármol y Granito, su socio de confianza en el negocio del mármol desde 1980.",
+    "explore": "EXPLORAR",
+    "resources": "RECURSOS",
+    "contactHeading": "CONTÁCTANOS",
+    "copyRights": "©{{year}} Wadi Degla | Desarrollado por PyraDev"
+  }
+}
