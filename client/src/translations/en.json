@@ -519,7 +519,17 @@
           "applications_windowsills": "Window Sills",
           "requestSample": "REQUEST A SAMPLE"
         },
-        "visualizer": {
+        "sampleRequestForm": {
+    "successMessage": "Message sent successfully!",
+    "close": "Close",
+    "title": "Request a Sample",
+    "productName": "Product Name",
+    "productFinish": "Product Finish",
+    "yourName": "Your Name*",
+    "yourEmail": "Your Email*",
+    "submit": "Submit Request"
+  },
+  "visualizer": {
           "heroTitle": "Visualizer",
           "heroHint": "Select a product from below and it will show here",
           "searchPlaceholder": "Search inside {{category}} ...",

@@ -517,7 +517,17 @@
         "applications_windowsills": "Alfeizares",
         "requestSample": "SOLICITAR UNA MUESTRA"
       },
-      "visualizer": {
+      "sampleRequestForm": {
+    "successMessage": "¡Mensaje enviado exitosamente!",
+    "close": "Cerrar",
+    "title": "Solicitar una muestra",
+    "productName": "Nombre del producto",
+    "productFinish": "Acabado del producto",
+    "yourName": "Tu nombre*",
+    "yourEmail": "Tu correo electrónico*",
+    "submit": "Enviar solicitud"
+  },
+  "visualizer": {
         "heroTitle": "Visualizador",
         "heroHint": "Selecciona un producto de abajo y se mostrará aquí",
         "searchPlaceholder": "Buscar en {{category}} ...",

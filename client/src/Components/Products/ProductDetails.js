@@ -13,9 +13,11 @@ import ContactBubble from "../Contact/ContactBubble.js";
 import SampleRequestForm from './SampleRequestForm';
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 
 export default function ProductDetails() {
+  const { t } = useTranslation();
   const { productName } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
@@ -82,7 +84,7 @@ export default function ProductDetails() {
   }
 
   if (!product) {
-    return <div className="error-message">Product not found</div>;
+    return <div className="error-message">{t('productDetails.notFound')}</div>;
   }
 
   return (
@@ -109,8 +111,8 @@ export default function ProductDetails() {
   })}
 </script>
 
-    <title>{product.name} | Wadidegla</title>
-    <meta name="description" content={`Discover ${product.name} in our premium collection of ${product.type}. High-quality natural stone available. View specifications and request samples from Wadi Degla, your trusted source for luxury stone materials.`} />
+  <title>{t('productDetails.pageTitle', { name: product.name })}</title>
+  <meta name="description" content={t('productDetails.metaDescription', { name: product.name, type: product.type })} />
     <link rel="canonical" href={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
     
     {/* Add these new meta tags */}
@@ -126,9 +128,9 @@ export default function ProductDetails() {
 
     <div className="product-details-page">
       <div className="breadcrumb">
-        <a href="/">Home</a>
-        <p>{">"} Explore</p>
-        <a href="/products">{">"} Products</a>
+        <a href="/">{t('productDetails.breadcrumbHome')}</a>
+        <p>{">"} {t('productDetails.breadcrumbExplore')}</p>
+        <a href="/products">{">"} {t('productDetails.breadcrumbProducts')}</a>
         <p>
           {">"} {product.name}
         </p>
@@ -148,11 +150,13 @@ export default function ProductDetails() {
 
           <div className="info-grid">
             <div className="info-label">Category:</div>
+            <div className="info-label">{t('productDetails.category')}</div>
             <div className="info-value" style={{ color: "var(--blueColor)" }}>
               {product.type}
             </div>
 
             <div className="info-label">Finish:</div>
+            <div className="info-label">{t('productDetails.finish')}</div>
             <div className="info-value">
               <select
                 className="modal-select"
@@ -185,6 +189,7 @@ export default function ProductDetails() {
 
           <div className="applications-section">
             <h3>Applications</h3>
+            <h3>{t('productDetails.applications')}</h3>
             <div className="applications-grid">
               {applicationIcons.map((app, index) => (
                 <div key={index} className="application-icon-wrapper">
@@ -194,6 +199,7 @@ export default function ProductDetails() {
                     className="application-icon"
                   />
                   <div className="hover-name">{app.name}</div>
+                  <div className="hover-name">{t(`productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`)}</div>
                 </div>
               ))}
             </div>
@@ -204,7 +210,7 @@ export default function ProductDetails() {
             onClick={() => setIsFormOpen(true)}
             style={{ width: "100%", marginTop: "2rem" }}
           >
-            REQUEST A SAMPLE
+            {t('productDetails.requestSample')}
           </button>
           <SampleRequestForm
         isOpen={isFormOpen}

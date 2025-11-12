@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import "./Visualizer.css";
 import hero_bg from "../../Public/Assets/Media/Hero/visualizer-hero.webp";
 import ProductForVisualizer from "./ProductForVisualizer.js";
@@ -7,6 +8,7 @@ import ContactBubble from "../Contact/ContactBubble.js";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 
 export default function Visualizer() {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("Imported Marble");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
@@ -137,10 +139,10 @@ const handleProductClick = (item, type) => {
           className="products-hero-image"
         />
       )}
-        <h1>{selectedProduct ? selectedProduct.name : "Visualizer"}</h1>
+        <h1>{selectedProduct ? selectedProduct.name : t('visualizer.heroTitle')}</h1>
         {!selectedProduct && (
           <p className="hero-hint">
-            Select a product from below and it will show here
+            {t('visualizer.heroHint')}
           </p>
         )}
       </div>
@@ -148,36 +150,28 @@ const handleProductClick = (item, type) => {
       <div className="products-categories-and-title">
         <div className="products-categories">
           <button
-            className={`btn2 ${
-              selectedCategory === "Imported Marble" ? "active" : ""
-            }`}
+            className={`btn2 ${selectedCategory === "Imported Marble" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Imported Marble")}
           >
-            Imported Marble
+            {t('visualizer.importedMarble')}
           </button>
           <button
-            className={`btn2 ${
-              selectedCategory === "Egyptian Marble" ? "active" : ""
-            }`}
+            className={`btn2 ${selectedCategory === "Egyptian Marble" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Egyptian Marble")}
           >
-            Egyptian Marble
+            {t('visualizer.egyptianMarble')}
           </button>
           <button
-            className={`btn2 ${
-              selectedCategory === "Imported Granite" ? "active" : ""
-            }`}
+            className={`btn2 ${selectedCategory === "Imported Granite" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Imported Granite")}
           >
-            Imported Granite
+            {t('visualizer.importedGranite')}
           </button>
           <button
-            className={`btn2 ${
-              selectedCategory === "Egyptian Granite" ? "active" : ""
-            }`}
+            className={`btn2 ${selectedCategory === "Egyptian Granite" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Egyptian Granite")}
           >
-            Egyptian Granite
+            {t('visualizer.egyptianGranite')}
           </button>
         </div>
 
@@ -186,7 +180,7 @@ const handleProductClick = (item, type) => {
         {/* Search Bar */}
         <input
           type="text"
-          placeholder={`Search inside ${selectedCategory} ...`}
+          placeholder={t('visualizer.searchPlaceholder', { category: selectedCategory })}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="search-bar"
@@ -201,7 +195,7 @@ const handleProductClick = (item, type) => {
                 className={`toggle-btn ${showIndoor ? "active" : ""}`}
                 onClick={() => setShowIndoor(!showIndoor)}
               >
-                {showIndoor ? "Hide Indoor" : "Show Indoor"}
+                {showIndoor ? t('visualizer.hideIndoor') : t('visualizer.showIndoor')}
               </button>
             )}
             {hasOutdoorProducts && (
@@ -209,7 +203,7 @@ const handleProductClick = (item, type) => {
                 className={`toggle-btn ${showOutdoor ? "active" : ""}`}
                 onClick={() => setShowOutdoor(!showOutdoor)}
               >
-                {showOutdoor ? "Hide Outdoor" : "Show Outdoor"}
+                {showOutdoor ? t('visualizer.hideOutdoor') : t('visualizer.showOutdoor')}
               </button>
             )}
           </div>
@@ -260,14 +254,14 @@ const handleProductClick = (item, type) => {
             showOutdoor &&
             hasOutdoorProducts && (
               <p onClick={scrollToIndoor} className="scroll-to-indoor-btn">
-                Scroll to Indoor ↑
+                {t('visualizer.scrollToIndoor')}
               </p>
             )}
 
           {/* Outdoor Section */}
           {showOutdoor && visibleOutdoorProducts.length > 0 && (
             <div className="category-title-and-product-cards" ref={outdoorRef}>
-              <h2>Outdoor</h2>
+              <h2>{t('visualizer.outdoor')}</h2>
               <div className="product-cards">
                 {visibleOutdoorProducts.map((item) => (
                   <ProductForVisualizer
@@ -284,8 +278,8 @@ const handleProductClick = (item, type) => {
         <div className="no-products-message">
           <p>
             {selectedCategory === "Imported Granite"
-              ? `${selectedCategory} Coming soon.`
-              : `No products available for your search in ${selectedCategory}.`}
+              ? t('visualizer.comingSoon', { category: selectedCategory })
+              : t('visualizer.noProducts', { category: selectedCategory })}
           </p>
         </div>
       )}

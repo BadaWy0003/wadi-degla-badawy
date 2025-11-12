@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import Product from "./Product";
 import apiClient from "../../util/client.js";
@@ -9,6 +10,7 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 
 
 export default function Products() {
+  const { t } = useTranslation();
 const [selectedCategory, setSelectedCategory] = useState(() => {
   return sessionStorage.getItem("selectedCategory") || "Egyptian Marble";
 });
@@ -46,24 +48,23 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
   return (
     <>
     <Helmet>
-        <title>Products | Wadidegla</title>
-        <meta name="description" content="Products Description" />
+  <title>{t('products.pageTitle')}</title>
+  <meta name="description" content={t('products.metaDescription')} />
         <link rel="canonical" href="https://www.wadidegla-eg.com/products" />
     </Helmet>
     
     <div className="products-container-2">
-                          {/* 🌟 Hero Section */}
-                          <div className="quarries-hero">
-                        <h1>OUR MARBLE & GRANITE</h1>
-                        <div className="breadcrumb">
-                        <a href="/">Home</a>
-                        <p>{'>'} Products</p>
-                        </div>
-                        <p className="hero-hint-2">
-          Select a product from below to view its details.
-        </p>
-
-                </div>  
+        {/* 🌟 Hero Section */}
+        <div className="quarries-hero">
+          <h1>{t('products.heroTitle')}</h1>
+          <div className="breadcrumb">
+            <a href="/">{t('products.breadcrumbHome')}</a>
+            <p>{'>'} {t('products.breadcrumbCurrent')}</p>
+          </div>
+          <p className="hero-hint-2">
+            {t('products.heroHint')}
+          </p>
+        </div>
 
 
 
@@ -91,11 +92,12 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
         </div>
 
         <h2>{selectedCategory}</h2>
+  {/* Search Bar */}
 
         {/* Search Bar */}
         <input
           type="text"
-          placeholder={`Search inside ${selectedCategory} ...`}
+          placeholder={t('products.searchPlaceholder', { category: selectedCategory })}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="search-bar-2"
@@ -117,7 +119,7 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
           ) : (
             <div className="no-products-message-2">
               <p>
-                No products available for your search in {selectedCategory}.
+                {t('products.noProducts', { category: selectedCategory })}
               </p>
             </div>
           )}
