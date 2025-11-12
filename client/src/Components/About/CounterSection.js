@@ -6,6 +6,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
 import CountUp from "react-countup";
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
 
 import projects from "../../Public/Assets/Icons/projects.svg";
 import manpower from "../../Public/Assets/Icons/manpower-stroke.svg";
@@ -16,12 +18,13 @@ import global_supply_chain from "../../Public/Assets/Icons/global-supply-chain.s
 import experience from "../../Public/Assets/Icons/experience.svg";
 
 export default function CounterSection() {
+  const { t } = useTranslation();
   return (
     <section className="about-counters-section">
       {/* Experience Counter */}
       <div id="experience-card" className="counter-card">
-        <img loading="lazy" src={experience} alt="experience-icon" />
-        <h3>YEARS OF EXPERIENCE</h3>
+        <img loading="lazy" src={experience} alt={t('about.counters.experienceIconAlt')} />
+        <h3>{t('about.counters.experienceTitle')}</h3>
         <CountUp start={0} end={45} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
       </div>
 
@@ -31,9 +34,9 @@ export default function CounterSection() {
         <div className="counters-swiper">
           <Swiper 
             autoplay={{
-            delay: 2000, // Delay in milliseconds (3 seconds)
-            disableOnInteraction: false, // Continue autoplay after user interaction
-            pauseOnMouseEnter: true, // Pause autoplay when hovered
+            delay: 2000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
             }}          
             
             loop={true}
@@ -42,13 +45,13 @@ export default function CounterSection() {
             modules={[Navigation, Autoplay]}
             >
             {[ 
-              { img: manpower, title: "MANPOWER", count: 500 },
-              { img: tiles, title: "M² PRODUCED/DAY", count: 3000 },
-              { img: projects, title: "COMPLETED PROJECTS", count: 300 }
+              { img: manpower, title: t('about.counters.manpowerTitle'), count: 500 },
+              { img: tiles, title: t('about.counters.productionTitle'), count: 3000 },
+              { img: projects, title: t('about.counters.projectsTitle'), count: 300 }
             ].map((item, index) => (
               <SwiperSlide key={index}>
                 <div className="counter-card">
-                  <img loading="lazy" src={item.img} alt={`${item.title}-icon`} />
+                  <img loading="lazy" src={item.img} alt={`${item.title.toLowerCase()}-icon`} />
                   <h3>{item.title}</h3>
                   <CountUp start={0} end={item.count} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
                 </div>
@@ -60,18 +63,18 @@ export default function CounterSection() {
         {/* Grid Layout for Large Screens */}
         <div className="counters-grid">
           <div className="counter-card">
-            <img loading="lazy" src={manpower} alt="manpower-icon" />
-            <h3>MANPOWER</h3>
+            <img loading="lazy" src={manpower} alt={t('about.counters.manpowerIconAlt')} />
+            <h3>{t('about.counters.manpowerTitle')}</h3>
             <CountUp start={0} end={500} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
           </div>
           <div className="counter-card">
-            <img loading="lazy" src={tiles} alt="tiles-icon" />
-            <h3>M<sup>2</sup> PRODUCED/DAY</h3>
+            <img loading="lazy" src={tiles} alt={t('about.counters.productionIconAlt')} />
+            <h3>{t('about.counters.productionTitle')}</h3>
             <CountUp start={0} end={3000} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
           </div>
           <div className="counter-card">
-            <img loading="lazy" src={projects} alt="projects-icon" />
-            <h3>COMPLETED PROJECTS</h3>
+            <img loading="lazy" src={projects} alt={t('about.counters.projectsIconAlt')} />
+            <h3>{t('about.counters.projectsTitle')}</h3>
             <CountUp start={0} end={300} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
           </div>
         </div>
@@ -83,9 +86,9 @@ export default function CounterSection() {
         <div className="counters-swiper">
         <Swiper 
             autoplay={{
-            delay: 3000, // Delay in milliseconds (3 seconds)
-            disableOnInteraction: false, // Continue autoplay after user interaction
-            pauseOnMouseEnter: true, // Pause autoplay when hovered
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
             }}          
             
             loop={true}
@@ -94,9 +97,9 @@ export default function CounterSection() {
             modules={[Navigation, Autoplay]}
             >
             {[ 
-              { img: technology, title: "ADVANCED TECHNOLOGY", text: "State-of-the-art machinery for precision & efficiency." },
-              { img: craftsmanship, title: "SKILLED CRAFTSMANSHIP", text: "Generations of knowledge ensuring top quality." },
-              { img: global_supply_chain, title: "GLOBAL SUPPLY CHAIN", text: "Strong international partnerships for steady supply." }
+              { img: technology, title: t('about.counters.technologyTitle'), text: t('about.counters.technologyText') },
+              { img: craftsmanship, title: t('about.counters.craftsmanshipTitle'), text: t('about.counters.craftsmanshipText') },
+              { img: global_supply_chain, title: t('about.counters.supplyChainTitle'), text: t('about.counters.supplyChainText') }
             ].map((item, index) => (
               <SwiperSlide key={index}>
                 <div className="counter-card">
@@ -112,19 +115,19 @@ export default function CounterSection() {
         {/* Grid Layout for Large Screens */}
         <div className="counters-grid">
           <div className="counter-card">
-            <img loading="lazy" src={technology} alt="technology-icon" />
-            <h3>ADVANCED TECHNOLOGY</h3>
-            <p>State-of-the-art machinery for precision & efficiency.</p>
+            <img loading="lazy" src={technology} alt={t('about.counters.technologyIconAlt')} />
+            <h3>{t('about.counters.technologyTitle')}</h3>
+            <p>{t('about.counters.technologyText')}</p>
           </div>
           <div className="counter-card">
-            <img loading="lazy" src={craftsmanship} alt="craftsmanship-icon" />
-            <h3>SKILLED CRAFTSMANSHIP</h3>
-            <p>Generations of knowledge ensuring top quality.</p>
+            <img loading="lazy" src={craftsmanship} alt={t('about.counters.craftsmanshipIconAlt')} />
+            <h3>{t('about.counters.craftsmanshipTitle')}</h3>
+            <p>{t('about.counters.craftsmanshipText')}</p>
           </div>
           <div className="counter-card">
-            <img loading="lazy" src={global_supply_chain} alt="global-supply-chain-icon" />
-            <h3>GLOBAL SUPPLY CHAIN</h3>
-            <p>Strong international partnerships for steady supply.</p>
+            <img loading="lazy" src={global_supply_chain} alt={t('about.counters.supplyChainIconAlt')} />
+            <h3>{t('about.counters.supplyChainTitle')}</h3>
+            <p>{t('about.counters.supplyChainText')}</p>
           </div>
         </div>
       </div>

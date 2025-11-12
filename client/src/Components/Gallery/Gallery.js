@@ -8,8 +8,11 @@ import "../Exports/Exports.css";
 import "../MasonryGrid/MasonryGrid.css";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
 
 export default function Gallery() {
+  const { t } = useTranslation();
   const [gallery, setGallery] = useState([]);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
@@ -45,15 +48,15 @@ export default function Gallery() {
   return (
     <>
     <Helmet>
-        <title>Gallery | Wadidegla</title>
-        <meta name="description" content="Gallery Description" />
+        <title>{t('gallery.pageTitle')}</title>
+        <meta name="description" content={t('gallery.metaDescription')} />
         <link rel="canonical" href="https://www.wadidegla-eg.com/gallery" />
     </Helmet>
     
     <div className="gallery-container">
                 <div className="breadcrumb">
-          <a href="/">Home</a>
-          <p>{'>'} Gallery</p>
+          <a href="/">{t('gallery.breadcrumbHome')}</a>
+          <p>{'>'} {t('gallery.breadcrumbCurrent')}</p>
           </div>
       {/* Masonry Grid Gallery */}
       <div className="masonry-container">
@@ -64,7 +67,7 @@ export default function Gallery() {
         <div className="masonry-grid">
           {slides.map((slide, i) => (
             <div key={i} className="masonry-item" onClick={() => { setIndex(i); setOpen(true); }}>
-              <img loading="lazy" src={slide.src} alt={`Gallery ${i + 1}`} />
+              <img loading="lazy" src={slide.src} alt={t('gallery.imageAlt', { number: i + 1 })} />
             </div>
           ))}
         </div>

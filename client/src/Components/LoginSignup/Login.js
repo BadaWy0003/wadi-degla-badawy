@@ -8,8 +8,11 @@ import wadi_degla_logo_login from '../../Public/Assets/Media/logo-color-stroke-n
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
 
 export default function Login() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({}); // State to hold field-specific errors
@@ -30,12 +33,11 @@ export default function Login() {
     let validationErrors = {};
     // Validate inputs
     if (!validateEmail(email)) {
-      validationErrors.email = "Please enter a valid email address.";
+      validationErrors.email = t('login.errorEmail');
     }
 
     if (!validatePassword(password)) {
-      validationErrors.password =
-        "Password must be at least 8 characters, including uppercase, lowercase, number, and special character.";
+      validationErrors.password = t('login.errorPassword');
     }
 
     // If there are validation errors, update state and stop submission
@@ -83,20 +85,19 @@ export default function Login() {
     <div className="container-big">
       <div className="container1">
         <div className="container1-title">
-          <h1>Wadi Degla</h1>
+          <h1>{t('login.title')}</h1>
           <h3>
-            Welcome to Wadi Degla! Feel free to create an account it only takes
-            a couple of minutes.
+            {t('login.subtitle')}
           </h3>
         </div>
         <div className="container1-img">
-          <img loading="lazy" src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
+          <img loading="lazy" src={wadi_degla_logo_login} alt={t('login.logoAlt')} />
         </div>
       </div>
       <div className="container2" id="container2-login">
         <div className="signup-form-title">
-          <h1>Login</h1>
-          <p>Welcome back!</p>
+          <h1>{t('login.loginTitle')}</h1>
+          <p>{t('login.welcomeBack')}</p>
           <div className="underline"></div>
         </div>
         <form
@@ -107,7 +108,7 @@ export default function Login() {
           }}
         >
           <div className="input-field">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">{t('login.emailAddress')}</label>
             <input
               type="email"
               value={email}
@@ -117,7 +118,7 @@ export default function Login() {
           </div>
 
           <div className="input-field">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t('login.password')}</label>
             <input
               type="password"
               value={password}
@@ -128,22 +129,22 @@ export default function Login() {
 
           {errors.general && (
             <p className="error" style={{ color: "red" }}>
-              {errors.general}
+              {t('login.errorGeneral')}
             </p>
           )}
-          {message && <p className="success">{message}</p>}
+          {message && <p className="success">{t('login.loginSuccess')}</p>}
 
           <div className="submit">
-            <button className="btn1">LOGIN</button>
+            <button className="btn1">{t('login.loginButton')}</button>
             <div className="forgot-password">
-              Don't have an account?
+              {t('login.noAccount')}
               <Link
                 to="/signup"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               >
-                <span>Register</span>
+                <span>{t('login.register')}</span>
               </Link>
             </div>
           </div>

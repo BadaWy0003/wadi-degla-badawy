@@ -71,7 +71,7 @@ import crane_5 from '../../Public/Assets/Media/Machinery/cranes-5.webp';
 
 export const generalUseData = [
         {
-          title: "6 Cranes",
+          titleKey: "machinery.generalUse.cranes",
           images: [
                     crane_2,
                     crane_1,
@@ -88,7 +88,7 @@ export const generalUseData = [
         //           ],
         // },
         {
-          title: "2 Forklifts",
+          titleKey: "machinery.generalUse.forklifts",
           images: [fork_lift_3, fork_lift_2],
         }
         // ,
@@ -100,41 +100,41 @@ export const generalUseData = [
       ];
       export const mngBlocksData = [
         {
-          title: "9 Gangsaws",
+          titleKey: "machinery.blocks.gangsaws",
           images: [gangsaws_8, gangsaws_6, gangsaws, gangsaws_5, gangsaws_7],
         },
         {
-          title: "4 Blocks Cutters",
+          titleKey: "machinery.blocks.blocksCutters",
           images: [big_bridge_cutter_4, big_bridge_cutter_1, big_bridge_cutter_2, big_bridge_cutter_3],
         },
         {
-          title: "6 Monofilos",
+          titleKey: "machinery.blocks.monofilos",
           images: [monofilos_2, monofilos_4],
         }
 
       ];
       export const mngSlabsData = [
         {
-          title: "3 polishing lines",
+          titleKey: "machinery.slabs.polishingLines",
           images: [polishing_line_8, polishing_line, polishing_line_2, polishing_line_6],
         },
         {
-          title: "1 risin treating line",
+          titleKey: "machinery.slabs.risinLine",
           images: [ risin_line_7],
         }
       ];
 
       export const mngTilesData = [
         {
-          title: "6 Slabs bridge cutters",
+          titleKey: "machinery.tiles.bridgeCutters",
           images: [slabs_bridge_cutter_9, slabs_bridge_cutter_7, slabs_bridge_cutter_2, slabs_bridge_cutter],
         },
         {
-          title: "1 Tumbling machine",
+          titleKey: "machinery.tiles.tumblingMachine",
           images: [tumble_machine_4],
         },
         {
-          title: "3 Splitting strips machines",
+          titleKey: "machinery.tiles.splittingStrips",
           images: [splitting_strips_5, splitting_strips_6],
         }
 

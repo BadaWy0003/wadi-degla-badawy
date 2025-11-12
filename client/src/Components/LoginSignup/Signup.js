@@ -5,25 +5,25 @@ import "../Contact/Contact.css";
 import { Link } from "react-router-dom";
 import apiClient from "../../util/client.js";
 import { useNavigate } from "react-router-dom";
-// import password_eye_hidden_icon from "../../Public/Assets/Icons/password-eye-hidden.svg";
 import wadi_degla_logo_login from '../../Public/Assets/Media/logo-color-stroke-notext.svg';
 import { useGlobalState } from "../GlobalStateContext.js";
-import PhoneInput from "react-phone-input-2"; // Import PhoneInput component
-import Select from "react-select"; // Import react-select
+import PhoneInput from "react-phone-input-2";
+import Select from "react-select";
 import "react-phone-input-2/lib/style.css";
-import countryList from "react-select-country-list"; // Optional helper for countries
+import countryList from "react-select-country-list";
 import ContactBubble from "../Contact/ContactBubble.js";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
 
 export default function Signup() {
-  // const [username, setUsername] = useState("");
+  const { t } = useTranslation();
   const [fullName, setfullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  // const [agreeToTerms, setAgreeToTerms] = useState(false); // New state for terms checkbox
-  const [error, setError] = useState({}); // Initialize error as an object
-  const countryOptions = countryList().getData(); // Get country list
+  const [error, setError] = useState({});
+  const countryOptions = countryList().getData();
   const [whatsapp, setWhatsapp] = useState("");
   const [companyName, setcompanyName] = useState("");
   const [country, setCountry] = useState(null);
@@ -53,41 +53,39 @@ export default function Signup() {
       // }
 
       if (!fullName) {
-        newError.fullName = "Please enter your full name.";
+        newError.fullName = t('signup.errorFullName');
       }
 
       if (!companyName) {
-        newError.companyName = "The company/project name is required";
+        newError.companyName = t('signup.errorCompanyName');
       }
 
       if (!email) {
-        newError.email = "Email is required.";
+        newError.email = t('signup.errorEmailRequired');
       } else if (!validateEmail(email)) {
-        newError.email = "Please enter a valid email.";
+        newError.email = t('signup.errorEmailInvalid');
       }
 
       if (!phone) {
-        newError.phone = "Phone number is required.";
+        newError.phone = t('signup.errorPhoneRequired');
       } else if (!validatePhone(phone)) {
-        newError.phone = "Phone number must be 10 digits.";
+        newError.phone = t('signup.errorPhoneInvalid');
       }
 
       if (whatsapp && !validateWhatsapp(whatsapp)) {
-        newError.whatsapp = "WhatsApp number must be 10 digits.";
+        newError.whatsapp = t('signup.errorWhatsapp');
       }
 
       if (!password) {
-        newError.password = "Password is required.";
+        newError.password = t('signup.errorPasswordRequired');
       } else if (!validatePassword(password)) {
-        newError.password =
-          "Password must be at least 8 characters, including an uppercase letter, lowercase letter, number, and a special character.";
+        newError.password = t('signup.errorPasswordInvalid');
       }
       if (!country) {
-        newError.country = "Please select a country.";
+        newError.country = t('signup.errorCountry');
       }
       if (!port) {
-        newError.port =
-          "Please enter the port of destination in case of shipment, if not please enter 'N/A'";
+        newError.port = t('signup.errorPort');
       }
       // if (!agreeToTerms) {
       //   newError.terms = "You must agree to the terms and conditions.";
@@ -112,7 +110,7 @@ export default function Signup() {
           password,
         });
 
-        alert("Registration successful! Please verify your email.");
+        alert(t('signup.successMessage'));
         const userData = {
           token: data.token,
           fullName: data.fullName,
@@ -146,11 +144,11 @@ export default function Signup() {
           console.error(error.response.data.error);
           alert(
             error.response.data.error ||
-              "Registration failed. Please try again."
+              t('signup.errorRegistration')
           );
         } else {
           console.error(error.message);
-          alert("Network error. Please try again.");
+          alert(t('signup.errorNetwork'));
         }
       }
     };
@@ -166,20 +164,19 @@ export default function Signup() {
       <div className="container-big">
         <div className="container1">
           <div className="container1-title">
-            <h1>Wadi Degla</h1>
+            <h1>{t('signup.title')}</h1>
             <h3>
-              Welcome to Wadi Degla! Feel free to create an account it only
-              takes a couple of minutes.
+              {t('signup.subtitle')}
             </h3>
           </div>
           <div className="container1-img">
-            <img loading="lazy" src={wadi_degla_logo_login} alt="Wadi Degla Logo" />
+            <img loading="lazy" src={wadi_degla_logo_login} alt={t('signup.logoAlt')} />
           </div>
         </div>
         <div className="container2">
           <div className="signup-form-title">
-            <h1>Sign up</h1>
-            <p>Join us by filling the following form!</p>
+            <h1>{t('signup.signupTitle')}</h1>
+            <p>{t('signup.formSubtitle')}</p>
             <div className="underline"></div>
           </div>
           <form
@@ -192,7 +189,7 @@ export default function Signup() {
           >
             <div className="double-inputs">
               <div className="input-field">
-                <label htmlFor="fullName">*Full Name</label>
+                <label htmlFor="fullName">{t('signup.fullName')}</label>
                 <input
                   type="text"
                   id="fullName"
@@ -203,7 +200,7 @@ export default function Signup() {
                 {error.fullName && <p className="error">{error.fullName}</p>}
               </div>
               <div className="input-field">
-                <label htmlFor="companyName">*Company/Project Name</label>
+                <label htmlFor="companyName">{t('signup.companyName')}</label>
                 <input
                   type="text"
                   id="companyName"
@@ -218,7 +215,7 @@ export default function Signup() {
             </div>
             <div className="double-inputs">
               <div className="input-field">
-                <label htmlFor="email">*Email Address</label>
+                <label htmlFor="email">{t('signup.email')}</label>
                 <input
                   type="email"
                   id="email"
@@ -229,7 +226,7 @@ export default function Signup() {
                 {error.email && <p className="error">{error.email}</p>}
               </div>
               <div className="input-field">
-                <label htmlFor="password">*Password</label>
+                <label htmlFor="password">{t('signup.password')}</label>
                 <input
                   type="password"
                   value={password}
@@ -240,11 +237,11 @@ export default function Signup() {
             </div>
             <div className="double-inputs">
               <div className="input-field country-phone">
-                <label htmlFor="phone">*Phone Number</label>
+                <label htmlFor="phone">{t('signup.phone')}</label>
                 <PhoneInput
                   value={phone}
                   onChange={setPhone}
-                  placeholder="Enter full number with country code"
+                  placeholder={t('signup.phonePlaceholder')}
                   inputProps={{
                     name: "phone",
                   }}
@@ -252,29 +249,29 @@ export default function Signup() {
                 {error.phone && <p className="error">{error.phone}</p>}
               </div>
               <div className="input-field country-phone">
-                <label htmlFor="whatsapp">WhatsApp Number</label>
+                <label htmlFor="whatsapp">{t('signup.whatsapp')}</label>
                 <PhoneInput
                   value={whatsapp}
                   onChange={setWhatsapp}
-                  placeholder="Enter full number with country code"
+                  placeholder={t('signup.phonePlaceholder')}
                 />
                 {error.whatsapp && <p className="error">{error.whatsapp}</p>}
               </div>
             </div>
             <div className="double-inputs">
               <div className="input-field" id="input-country">
-                <label htmlFor="country">*Country</label>
+                <label htmlFor="country">{t('signup.country')}</label>
                 <Select
                   options={countryOptions}
                   value={country}
                   onChange={setCountry}
                   classNamePrefix="react-select"
-                  placeholder="Search for a country"
+                  placeholder={t('signup.countryPlaceholder')}
                 />
                 {error.country && <p className="error">{error.country}</p>}
               </div>
               <div className="input-field">
-                <label htmlFor="rnc">Tax ID/RNC</label>
+                <label htmlFor="rnc">{t('signup.taxId')}</label>
                 <input
                   type="text"
                   id="rnc"
@@ -287,7 +284,7 @@ export default function Signup() {
 
             <div className="double-inputs">
               <div className="input-field" id="input-address">
-                <label htmlFor="address">Address</label>
+                <label htmlFor="address">{t('signup.address')}</label>
                 <input
                   type="text"
                   id="address"
@@ -298,7 +295,7 @@ export default function Signup() {
               </div>
 
               <div className="input-field">
-                <label htmlFor="port">*Port of Destination</label>
+                <label htmlFor="port">{t('signup.port')}</label>
                 <input
                   type="text"
                   id="port"
@@ -310,30 +307,19 @@ export default function Signup() {
               </div>
             </div>
 
-            {/* <div className="input-field">
-            <label>
-              <input
-                type="checkbox"
-                checked={agreeToTerms}
-                onChange={(e) => setAgreeToTerms(e.target.checked)}
-              />
-              I agree to the terms and conditions
-            </label>
-            {error.terms && <p className="error">{error.terms}</p>}
-          </div> */}
             <div className="submit">
               <button type="submit" className="btn1">
-                Sign Up
+                {t('signup.signupButton')}
               </button>
               <div className="forgot-password">
-                Already have an account?{" "}
+                {t('signup.haveAccount')}{" "}
                 <Link
                   to="/login"
                   onClick={() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                 >
-                  <span>Login</span>
+                  <span>{t('signup.loginLink')}</span>
                 </Link>
               </div>
             </div>

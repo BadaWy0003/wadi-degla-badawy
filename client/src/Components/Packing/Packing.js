@@ -5,6 +5,10 @@ import MasonryGrid from "../MasonryGrid/MasonryGrid";
 import ContactBubble from "../Contact/ContactBubble";
 import { Helmet } from 'react-helmet-async';
 import 'react-multi-carousel/lib/styles.css';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
+
+
 import image3 from '../../Public/Assets/Media/3.webp';
 import image21 from '../../Public/Assets/Media/21.webp';
 // import image24 from '../../Public/Assets/Media/24.webp';
@@ -28,6 +32,7 @@ import packing17 from '../../Public/Assets/Media/Packing/packing17.webp';
 
 
 export default function Packing(){
+    const { t } = useTranslation();
 
     const images = [
         packing1,
@@ -54,57 +59,45 @@ export default function Packing(){
     return(
         <>
         <Helmet>
-            <title>Packing | Wadidegla</title>
-            <meta name="description" content="Packing Description" />
+                <title>{t('packing.pageTitle')}</title>
+                <meta name="description" content={t('packing.metaDescription')} />
             <link rel="canonical" href="https://www.wadidegla-eg.com/packing" />
         </Helmet>
         
         <div className='packing-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
-                        <h1>PACKING</h1>
-                        <div className="breadcrumb">
-                        <a href="/">Home</a>
-                        <p>{'>'} Packing</p>
-                        </div>
+                            <h1>{t('packing.heroTitle')}</h1>
+                            <div className="breadcrumb">
+                            <a href="/">{t('packing.breadcrumbHome')}</a>
+                            <p>{'>'} {t('packing.breadcrumbCurrent')}</p>
+                            </div>
                 </div>  
      
                 <div className="packing-slabs">
                     <div className="packing-slabs-content">
-                        <h1>PACKING MARBLE AND GRANITE SLABS</h1>
+                            <h1>{t('packing.slabsTitle')}</h1>
 
-                        <h3>Wooden bundle From Wadi Degla</h3>
-                        <p>The slabs are gathered in groups each group contains form 8 to 15 slabs according to their thickness packed in wooded 
-                            bundles & Loaded either in 20 feet box container using the boom crane or in open container using the over head crane 
-                            according to the request of our customer as well as the availability of the open top containers.
-                            N.B. Polished Slabs are separated by Plastic sheets to be protected against scratches.</p>
+                            <h3>{t('packing.woodenBundleTitle')}</h3>
+                            <p>{t('packing.woodenBundleText')}</p>
 
-                        <h3>Slabs Normal Packing From Wadi Degla</h3>
-                        <p>The slabs are manually placed directly on the ground of the container lashed on two wooden bars (Coverlets) on the inner 
-                            long sides of 20 feet dry Box container, if the slabs are long in length so the container take only two groups one to 
-                            the right and the other to the left, if the slabs are short in length so the container take four group of slabs two to 
-                            the right and two to the left. N.B. Polished Slabs are separated by Plastic sheets to be protected against scratches.</p> 
+                            <h3>{t('packing.normalPackingTitle')}</h3>
+                            <p>{t('packing.normalPackingText')}</p>
 
                     </div>
-                    <img loading="lazy" src={image3} alt=""/>
+                        <img loading="lazy" src={image3} alt={t('packing.slabsImageAlt')}/>
                 </div>  
 
                 <div className="packing-tiles">
-                    <img loading="lazy" src={image21} alt=""/>
+                        <img loading="lazy" src={image21} alt={t('packing.tilesImageAlt')}/>
                     <div className="packing-tiles-content">
-                    <h1>PACKING MARBLE AND GRANITE TILES</h1>
+                        <h1>{t('packing.tilesTitle')}</h1>
 
-                    <h3>Wooden cerates From Wadi Degla</h3>
-                    <p>Tiles are packed after being highly selected according to the approved samples in wooden crates (Boxes) lined by foam for better protection.<br/>
-                    Each Wooden crate contains certain Number of tiles according to the thickness, All the crate content details are mentioned in the label paper fixed on out side of the crate.<br/>
-                    Only 12"x12" tiles (10mm +/- 0.5 thick) are packed in Styrofoam boxes before being packed inside the wooden creates, thin Plastic sheets are added between polished faces of the tiles 
-                    to avoid surface scratching.</p>
+                        <h3>{t('packing.woodenCratesTitle')}</h3>
+                        <p>{t('packing.woodenCratesText')}</p>
 
-                    <h3>Wooden pallet From Wadi Degla</h3>
-                    <p>Tiles are packed after being highly selected according to the approved samples on wooden pallets surrounded by foam for better protection, and 
-                        fasten with plastic belts with rubber pieces on the edges to avoid any damages that might happen
-                    According to the size & thickness of the tiles each Wooden pallet contains certain number of tiles, All details of the pallet contents are mentioned 
-                    in the label paper fixed on the lateral side of the pallet.</p> 
+                        <h3>{t('packing.woodenPalletTitle')}</h3>
+                        <p>{t('packing.woodenPalletText')}</p>
                     </div>
                 </div> 
             {/* Image Grid Section */}

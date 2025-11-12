@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 export default function MyAccount() {
-  const [selectedTab, setSelectedTab] = useState("Account Information");
+  const { t } = useTranslation();
+  const [selectedTab, setSelectedTab] = useState("accountInformation");
   const { globalState, setGlobalState } = useGlobalState(); // to see if user is logged in
   const navigate = useNavigate();
 
@@ -57,70 +59,69 @@ export default function MyAccount() {
 
   return (
     <>
-    <Helmet>
-        <title>My Account | Wadidegla</title>
-        <meta name="description" content="My Account Description" />
-        <link rel="canonical" href="https://www.wadidegla-eg.com/my account" />
-    </Helmet>
+  <Helmet>
+    <title>{t('myAccount.pageTitle')}</title>
+    <meta name="description" content={t('myAccount.metaDescription')} />
+    <link rel="canonical" href="https://www.wadidegla-eg.com/my account" />
+  </Helmet>
     
     <div className="account-container">
       {/* Breadcrumb Navigation */}
       <div className="breadcrumb">
-        <a href="/">Home</a> &gt; <a href="/my account">My Account</a> &gt;{" "}
-        {selectedTab}
+        <a href="/">{t('myAccount.breadcrumbHome')}</a> &gt; <a href="/my account">{t('myAccount.breadcrumbCurrent')}</a> &gt;{" "}
+        {selectedTab === 'accountInformation' ? t('myAccount.tabs.accountInformation') : t('myAccount.tabs.changePassword')}
       </div>
       <div className="my-account-container">
         <div className="my-account-container-left">
           <button
             className={`btn2 ${
-              selectedTab === "Account Information" ? "active" : ""
+              selectedTab === "accountInformation" ? "active" : ""
             }`}
-            onClick={() => setSelectedTab("Account Information")}
+            onClick={() => setSelectedTab("accountInformation")}
           >
-            Account Information
+            {t('myAccount.tabs.accountInformation')}
           </button>
 
           <button
             className={`btn2 ${
-              selectedTab === "Change Password" ? "active" : ""
+              selectedTab === "changePassword" ? "active" : ""
             }`}
-            onClick={() => setSelectedTab("Change Password")}
+            onClick={() => setSelectedTab("changePassword")}
           >
-            Change Password
+            {t('myAccount.tabs.changePassword')}
           </button>
 
           <button className="btn1" onClick={handleLogout}>
-            Logout
+            {t('myAccount.buttons.logout')}
           </button>
         </div>
 
         <div className="my-account-container-right">
-          {selectedTab === "Account Information" ? (
+          {selectedTab === "accountInformation" ? (
             <div className="tabs-content">
               <div>
-                Full Name: <p className="value"> {globalState.fullName}</p>
+                {t('myAccount.fields.fullName')}: <p className="value"> {globalState.fullName}</p>
               </div>
               <div>
-                Email: <p className="value">{globalState.email}</p>
+                {t('myAccount.fields.email')}: <p className="value">{globalState.email}</p>
               </div>
               <div>
-                Phone: <p className="value">{globalState.phone}</p>
+                {t('myAccount.fields.phone')}: <p className="value">{globalState.phone}</p>
               </div>
               <div>
-                Country: <p className="value">{globalState.country}</p>
+                {t('myAccount.fields.country')}: <p className="value">{globalState.country}</p>
               </div>
               <div>
-                Company/Project Name:{" "}
-                <p className="value">{globalState.companyName}</p>
+                {t('myAccount.fields.company')}: <p className="value">{globalState.companyName}</p>
               </div>
               <div>
-                Address: <p className="value">{globalState.address}</p>
+                {t('myAccount.fields.address')}: <p className="value">{globalState.address}</p>
               </div>
             </div>
           ) : (
             <div className="tabs-content">
               <button className="btn1" id="change-password">
-                Change Password
+                {t('myAccount.tabs.changePassword')}
               </button>
             </div>
           )}

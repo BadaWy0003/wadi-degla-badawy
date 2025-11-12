@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import './Exports.css';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
 
 import GlobeChart from "./GlobeChart"; // Import the GlobeChart component
 
@@ -7,6 +9,7 @@ import GlobeChart from "./GlobeChart"; // Import the GlobeChart component
 
 
 export default function OurMarkets(){
+        const { t } = useTranslation();
         const [selectedContinent, setSelectedContinent] = useState("Africa");
         const [selectedCountry, setSelectedCountry] = useState(null);
       
@@ -15,39 +18,39 @@ export default function OurMarkets(){
       // 🌍 Data: Continents, Countries & Flags
       const continentData = {
         "North & South America": [
-          { name: "USA", code: "US", flag: "https://flagcdn.com/us.svg" },
-          { name: "Brazil", code: "BR", flag: "https://flagcdn.com/br.svg" },
-          { name: "Panama", code: "PA", flag: "https://flagcdn.com/pa.svg" }
+          { name: "USA", code: "US", flag: "https://flagcdn.com/us.svg", translationKey: "countries.usa" },
+          { name: "Brazil", code: "BR", flag: "https://flagcdn.com/br.svg", translationKey: "countries.brazil" },
+          { name: "Panama", code: "PA", flag: "https://flagcdn.com/pa.svg", translationKey: "countries.panama" }
         ],
         Europe: [
-          { name: "Romania", code: "RO", flag: "https://flagcdn.com/ro.svg" },
-          { name: "Albania", code: "AL", flag: "https://flagcdn.com/al.svg" },
-          { name: "Bulgaria", code: "BG", flag: "https://flagcdn.com/bg.svg" },
-          { name: "Kosovo", code: "XK", flag: "https://flagcdn.com/xk.svg" },
-          { name: "Slovakia", code: "SK", flag: "https://flagcdn.com/sk.svg" },
-          { name: "Slovenia", code: "SI", flag: "https://flagcdn.com/si.svg" },
-          { name: "Germany", code: "DE", flag: "https://flagcdn.com/de.svg" },
-          { name: "Malta", code: "MT", flag: "https://flagcdn.com/mt.svg" }
+          { name: "Romania", code: "RO", flag: "https://flagcdn.com/ro.svg", translationKey: "countries.romania" },
+          { name: "Albania", code: "AL", flag: "https://flagcdn.com/al.svg", translationKey: "countries.albania" },
+          { name: "Bulgaria", code: "BG", flag: "https://flagcdn.com/bg.svg", translationKey: "countries.bulgaria" },
+          { name: "Kosovo", code: "XK", flag: "https://flagcdn.com/xk.svg", translationKey: "countries.kosovo" },
+          { name: "Slovakia", code: "SK", flag: "https://flagcdn.com/sk.svg", translationKey: "countries.slovakia" },
+          { name: "Slovenia", code: "SI", flag: "https://flagcdn.com/si.svg", translationKey: "countries.slovenia" },
+          { name: "Germany", code: "DE", flag: "https://flagcdn.com/de.svg", translationKey: "countries.germany" },
+          { name: "Malta", code: "MT", flag: "https://flagcdn.com/mt.svg", translationKey: "countries.malta" }
         ],
         Asia: [
-          { name: "China", code: "CN", flag: "https://flagcdn.com/cn.svg" },
-          { name: "South Korea", code: "KR", flag: "https://flagcdn.com/kr.svg" },
-          { name: "Russia", code: "RU", flag: "https://flagcdn.com/ru.svg" },
-          { name: "Lebanon", code: "LB", flag: "https://flagcdn.com/lb.svg" },
-          { name: "Kuwait", code: "KW", flag: "https://flagcdn.com/kw.svg" },
-          { name: "Jordan", code: "JO", flag: "https://flagcdn.com/jo.svg" },
-          { name: "Iraq", code: "IQ", flag: "https://flagcdn.com/iq.svg" },
-          { name: "Saudi Arabia", code: "SA", flag: "https://flagcdn.com/sa.svg" },
-          { name: "UAE", code: "AE", flag: "https://flagcdn.com/ae.svg" }
+          { name: "China", code: "CN", flag: "https://flagcdn.com/cn.svg", translationKey: "countries.china" },
+          { name: "South Korea", code: "KR", flag: "https://flagcdn.com/kr.svg", translationKey: "countries.southKorea" },
+          { name: "Russia", code: "RU", flag: "https://flagcdn.com/ru.svg", translationKey: "countries.russia" },
+          { name: "Lebanon", code: "LB", flag: "https://flagcdn.com/lb.svg", translationKey: "countries.lebanon" },
+          { name: "Kuwait", code: "KW", flag: "https://flagcdn.com/kw.svg", translationKey: "countries.kuwait" },
+          { name: "Jordan", code: "JO", flag: "https://flagcdn.com/jo.svg", translationKey: "countries.jordan" },
+          { name: "Iraq", code: "IQ", flag: "https://flagcdn.com/iq.svg", translationKey: "countries.iraq" },
+          { name: "Saudi Arabia", code: "SA", flag: "https://flagcdn.com/sa.svg", translationKey: "countries.saudiArabia" },
+          { name: "UAE", code: "AE", flag: "https://flagcdn.com/ae.svg", translationKey: "countries.uae" }
         ],
         Africa: [
-          { name: "Senegal", code: "SN", flag: "https://flagcdn.com/sn.svg" },
-          { name: "Kenya", code: "KE", flag: "https://flagcdn.com/ke.svg" },
-          { name: "Gambia", code: "GM", flag: "https://flagcdn.com/gm.svg" },
-          { name: "Libya", code: "LY", flag: "https://flagcdn.com/ly.svg" }
+          { name: "Senegal", code: "SN", flag: "https://flagcdn.com/sn.svg", translationKey: "countries.senegal" },
+          { name: "Kenya", code: "KE", flag: "https://flagcdn.com/ke.svg", translationKey: "countries.kenya" },
+          { name: "Gambia", code: "GM", flag: "https://flagcdn.com/gm.svg", translationKey: "countries.gambia" },
+          { name: "Libya", code: "LY", flag: "https://flagcdn.com/ly.svg", translationKey: "countries.libya" }
         ],
         Australia: [
-          { name: "Australia", code: "AU", flag: "https://flagcdn.com/au.svg" }
+          { name: "Australia", code: "AU", flag: "https://flagcdn.com/au.svg", translationKey: "countries.australia" }
         ]
       };
     
@@ -63,7 +66,7 @@ export default function OurMarkets(){
     
     return(
                         <section className="our-markets">
-                            <h2>OUR MARKETS</h2>
+                            <h2>{t('exports.marketsTitle')}</h2>
                             {/* 🌍 Continent Buttons */}
                             <div className="continent-buttons">
                                 {Object.keys(continentData).map((continent, index) => (
@@ -72,7 +75,7 @@ export default function OurMarkets(){
                                     className={selectedContinent === continent ? "active" : ""}
                                     onClick={() => handleContinentClick(continent)}
                                 >
-                                    {continent}
+                                    {t(`exports.continents.${continent}`)}
                                 </button>
                                 ))}
                             </div>
@@ -86,8 +89,8 @@ export default function OurMarkets(){
                                         onClick={() => handleCountryClick(country.code)}
                                         className={selectedCountry === country.code ? "active" : ""} // ✅ Add active class
                                     >
-                                        <img loading="lazy" src={country.flag} alt={`${country.name} Flag`} className="country-flag" />
-                                        {country.name}
+                                        <img loading="lazy" src={country.flag} alt={t(`exports.${country.translationKey}Flag`)} className="country-flag" />
+                                        {t(`exports.${country.translationKey}`)}
                                     </button>
                                 ))}
                             </div>

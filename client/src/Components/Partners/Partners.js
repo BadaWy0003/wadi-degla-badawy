@@ -3,6 +3,7 @@ import './Partners.css';
 import { useNavigate } from "react-router-dom";
 import ContactBubble from "../Contact/ContactBubble";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import otrovato from '../../Public/Assets/Icons/partners/otrovato.png';
 import orascom from '../../Public/Assets/Icons/partners/orascom.png';
@@ -33,6 +34,7 @@ import mountain_view from '../../Public/Assets/Icons/partners/mountain-view.png'
 
 export default function Partners() {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     
     const handleButtonClick = () => {
@@ -42,16 +44,16 @@ export default function Partners() {
     return (
         <>
         <Helmet>
-            <title>Partners | Wadidegla</title>
-            <meta name="description" content="Partners Description" />
+            <title>{t('partners.pageTitle')}</title>
+            <meta name="description" content={t('partners.metaDescription')} />
             <link rel="canonical" href="https://www.wadidegla-eg.com/partners" />
         </Helmet>
         
         <div className='partners-container'>
-            <h1>OUR PARTNERS & CLIENTS</h1>
+            <h1>{t('partners.heroTitle')}</h1>
             <div className="breadcrumb">
-            <a href="/">Home</a>
-            <p>{'>'} Certificates</p>
+            <a href="/">{t('partners.breadcrumbHome')}</a>
+            <p>{'>'} {t('partners.breadcrumbCurrent')}</p>
             </div>
 
             <div className="partners">
@@ -60,13 +62,13 @@ export default function Partners() {
                         id={`partner-logo-${index + 1}`}
                         key={index} // Unique key for each logo
                         src={logo}
-                        alt={`Partner Logo ${index + 1}`}
+                        alt={t('partners.imageAlt', { number: index + 1 })}
                     />
                 ))}
             </div>
 
             <button className="btn1" onClick={handleButtonClick}>
-                Become one of our partners
+                {t('partners.cta')}
             </button>
             <ContactBubble />
         </div>

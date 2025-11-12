@@ -14,35 +14,30 @@ import cbmi_certificate from "../../Public/Assets/Media/Certificates/cbmi-certif
 import cbmi_logo from "../../Public/Assets/Media/Certificates/cbmi-logo.webp";
 
       export const certificatesData = [
-        
         {
-            name: "International Accreditation Foundation - IAF",
+            name: "certificates.iafTitle",
             thumbnail: iaf_logo,
             image: iso_certificate,
-
         },
         {
-          name: "United Accreditation Foundation - UAF",
+          name: "certificates.uafTitle",
           thumbnail: uaf_logo,
           image: iso_certificate,
-
-      },
-      {
-        name: "ISO 9001:2015",
-        thumbnail: iso_logo,
-        image: iso_certificate,
-      },
-      {
-        name: "Egyptian Organization For Standardization & Quality - EOS",
-        thumbnail: eos_logo,
-        image: eos_certificate,
-
-    },
-      {
-          name: "Chamber Of Building Materials Industries - CBMI",
+        },
+        {
+          name: "certificates.isoTitle",
+          thumbnail: iso_logo,
+          image: iso_certificate,
+        },
+        {
+          name: "certificates.eosTitle",
+          thumbnail: eos_logo,
+          image: eos_certificate,
+        },
+        {
+          name: "certificates.cbmiTitle",
           thumbnail: cbmi_logo,
           image: cbmi_certificate,
-
         },
       ];
 

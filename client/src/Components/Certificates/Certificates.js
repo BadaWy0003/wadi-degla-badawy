@@ -1,24 +1,27 @@
 import React from "react";
 import './Certificates.css';
-import { certificatesData } from "./CertificatesData"; // Import data
-import CertificateLightBox from "./CertificateLightBox"; // Import Lightbox component
-import ContactBubble from "../Contact/ContactBubble"; // Import Contact Bubble component
+import { certificatesData } from "./CertificatesData";
+import CertificateLightBox from "./CertificateLightBox";
+import ContactBubble from "../Contact/ContactBubble";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
 
 export default function Certificates() {
+    const { t } = useTranslation();
     return (
         <>
         <Helmet>
-            <title>Our Certificates | Wadidegla</title>
-            <meta name="description" content="Certificates Description" />
+            <title>{t('certificates.pageTitle')}</title>
+            <meta name="description" content={t('certificates.metaDescription')} />
             <link rel="canonical" href="https://www.wadidegla-eg.com/certificates" />
         </Helmet>
         
         <div className="certificates-page">
-            <h1>OUR CERTIFICATES</h1>
+            <h1>{t('certificates.heroTitle')}</h1>
             <div className="breadcrumb">
-            <a href="/">Home</a>
-            <p>{'>'} Certificates</p>
+            <a href="/">{t('certificates.breadcrumbHome')}</a>
+            <p>{'>'} {t('certificates.breadcrumbCurrent')}</p>
             </div>
             {certificatesData.map((certificate, index) => (
                 <div className="certificate-with-title" key={index}>                    
@@ -28,7 +31,7 @@ export default function Certificates() {
                     fullImage={certificate.image} 
                     />
                     {/* Title */}
-                    <h2>{certificate.name}</h2>
+                    <h2>{t(certificate.name)}</h2>
                 </div>
             ))}
             <ContactBubble />

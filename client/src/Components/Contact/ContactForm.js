@@ -12,9 +12,13 @@ import { useGlobalState } from '../GlobalStateContext.js';
 import PhoneInput from 'react-phone-input-2'; // Import PhoneInput component
 
 import Select from 'react-select'; // Import react-select
+import { useTranslation } from 'react-i18next';
+
+import '../../i18n';
 
 export default function ContactForm() {
 
+  const { t } = useTranslation();
 
   const { globalState, loading } = useGlobalState(); // Access global state for user data and loading status
 
@@ -64,18 +68,18 @@ export default function ContactForm() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (formData.phone && !phoneRegex.test(formData.phone)) {
-      newErrors.phone = 'Phone number must be numeric and between 8 to 15 digits.';
+      newErrors.phone = t('contactForm.errorPhone');
     }
 
     if (formData.whatsapp && !phoneRegex.test(formData.whatsapp)) {
-      newErrors.whatsapp = 'Whatsapp number must be numeric and between 8 to 15 digits.';
+      newErrors.whatsapp = t('contactForm.errorWhatsapp');
     }
 
     if (formData.email && !emailRegex.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email.';
+      newErrors.email = t('contactForm.errorEmail');
     }
 
-    if (!formData.country) newErrors.country = 'Country selection is required.';
+    if (!formData.country) newErrors.country = t('contactForm.errorCountry');
 
     return newErrors;
   };
@@ -131,11 +135,11 @@ fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
         message: '',
       });
     } else {
-      alert('Failed to send message. Please try again later.');
+      alert(t('contactForm.errorGeneric'));
     }
   })
   .catch(() => {
-    alert('Something went wrong. Please check your connection or try again.');
+    alert(t('contactForm.errorConnection'));
   });
 
 };
@@ -149,18 +153,18 @@ return (
         <div className="contact-inner-left">
           {showSuccessPopup && (
             <div className="success-popup">
-              <p>Message sent successfully!</p>
+              <p>{t('contactForm.successMessage')}</p>
               <button onClick={() => setShowSuccessPopup(false)} className='btn1'>Close</button>
             </div>
           )}
           <div className='contact-form-title'>
-            <h2>Send us a message</h2>
-            <p>Our team will get back to you as soon as possible!</p>
+            <h2>{t('contactForm.title')}</h2>
+            <p>{t('contactForm.subtitle')}</p>
           </div>
           <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
             <div className='double-inputs'>
               <div className='input-field'>
-                <label htmlFor="fname">*Full Name</label>
+                <label htmlFor="fname">{t('contactForm.fullName')}</label>
                 <input
                   type="text"
                   id="fname"
@@ -171,7 +175,7 @@ return (
                 />
               </div>
               <div className='input-field'>
-                <label htmlFor="cname">*Company/Project</label>
+                <label htmlFor="cname">{t('contactForm.companyProject')}</label>
                 <input
                   type="text"
                   id="cname"
@@ -184,7 +188,7 @@ return (
             </div>
             <div className='double-inputs'>
               <div className='input-field'>
-                <label htmlFor="rnc">Tax ID/RNC</label>
+                <label htmlFor="rnc">{t('contactForm.taxId')}</label>
                 <input
                   type="text"
                   id="rnc"
@@ -194,7 +198,7 @@ return (
                 />
               </div>
               <div className='input-field'>
-                <label htmlFor="email">*Email Address</label>
+                <label htmlFor="email">{t('contactForm.email')}</label>
                 <input
                   type="email"
                   id="email"
@@ -207,7 +211,7 @@ return (
             </div>
             <div className='double-inputs'>
               <div className='input-field country-phone'>
-                <label htmlFor="phone">*Phone Number</label>
+                <label htmlFor="phone">{t('contactForm.phone')}</label>
                 <PhoneInput
                   value={formData.phone}
                   onChange={(value) => handleInputChange('phone', value)}
@@ -219,7 +223,7 @@ return (
                 />
               </div>
               <div className='input-field country-phone'>
-                <label htmlFor="whatsapp">WhatsApp Number</label>
+                <label htmlFor="whatsapp">{t('contactForm.whatsapp')}</label>
                 <PhoneInput
                   value={formData.whatsapp}
                   onChange={(value) => handleInputChange('whatsapp', value)}
@@ -229,7 +233,7 @@ return (
             </div>
             <div className='double-inputs'>
               <div className='input-field' id='input-country'>
-                <label htmlFor="country">*Country</label>
+                <label htmlFor="country">{t('contactForm.country')}</label>
                 <Select
                   options={countryOptions}
                   value={formData.country}
@@ -239,7 +243,7 @@ return (
                 />
               </div>
               <div className='input-field' id='input-address'>
-                <label htmlFor="address">Address</label>
+                <label htmlFor="address">{t('contactForm.address')}</label>
                 <input
                   type="text"
                   id="address"
@@ -250,7 +254,7 @@ return (
               </div>
             </div>
             <div className='input-field'>
-              <label htmlFor="port">*Port of Destination</label>
+              <label htmlFor="port">{t('contactForm.port')}</label>
               <input
                 type="text"
                 id="port"
@@ -261,7 +265,7 @@ return (
               />
             </div>
             <div className='input-field-message'>
-              <label htmlFor="message">*Message</label>
+              <label htmlFor="message">{t('contactForm.message')}</label>
               <textarea
                 id="message"
                 name="message"
@@ -274,7 +278,7 @@ return (
             {errors.country && <p className="error">{errors.country}</p>}
             {errors.phone && <p className="error">{errors.phone}</p>}
             {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
-            <button type="submit" className='btn1'> SEND </button>
+            <button type="submit" className='btn1'> {t('contactForm.send')} </button>
           </form>
         </div>
 

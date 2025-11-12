@@ -10,129 +10,74 @@ import { str,
 import kerb_intro_img from '../../Public/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.webp';
 import ContactBubble from "../Contact/ContactBubble";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 export default function Kerbstone(){
+    const { t } = useTranslation();
     return(
         <>
         <Helmet>
-            <title>Kerbstone | Wadidegla</title>
-            <meta name="description" content="Kerbstone Description" />
+            <title>{t('kerbstone.pageTitle')}</title>
+            <meta name="description" content={t('kerbstone.metaDescription')} />
             <link rel="canonical" href="https://www.wadidegla-eg.com/kerbstone" />
         </Helmet>
         
-        <div className='kerbstone-container'>
-                    {/* 🌟 Hero Section */}
+    <div className='kerbstone-container'>
+            {/* 🌟 Hero Section */}
         <div className="quarries-hero">
-                        <h1>KERBSTONE</h1>
+                        <h1>{t('kerbstone.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">Home</a>
-                        <p>{'>'} kerbstone</p>
+                        <a href="/">{t('kerbstone.breadcrumbHome')}</a>
+                        <p>{'>'} {t('kerbstone.breadcrumbCurrent')}</p>
                         </div>
                 </div>  
             <div className="kerbstone-section">   
                 <section className="kerb-intro"> 
-                    <h2>Kerbstone – Egyptian Granite</h2>
-                    <img loading="lazy" className="kerb-intro-img-mobile" src={kerb_intro_img} alt="kerb intro img" />
-                    <p>Wadi Degla offers premium-quality kerbstones crafted from authentic Egyptian granite, renowned 
-                        for its exceptional durability, strength, and natural beauty. Our kerbstones are ideal for 
-                        infrastructure, urban planning, landscaping, and luxury developments, providing both 
-                        functionality and a sophisticated aesthetic.
-                        <br/><br/>
-                        Manufactured in Wadi Degla’s advanced factories, our granite kerbstones are available in a 
-                        variety of surface finishes such as polished ,flamed, honed and sandblasted  can be customized 
-                        to meet any required size or project specification. With high resistance to 
-                        wear, weathering, and heavy traffic, they are the perfect choice for city streets, public 
-                        walkways, hotel driveways, and premium residential projects.
-
-                        <br/><br/>
-                        With over 45 years of expertise and a global export presence, Wadi Degla guarantees reliable 
-                        supply capacity, competitive pricing, and professional logistics support for projects across 
-                        Europe, the Caribbean, and beyond.
-
-</p>
+                    <h2>{t('kerbstone.introTitle')}</h2>
+                    <img loading="lazy" className="kerb-intro-img-mobile" src={kerb_intro_img} alt={t('kerbstone.introImageAlt')} />
+                    <p>{t('kerbstone.introText1')}<br/><br/>{t('kerbstone.introText2')}<br/><br/>{t('kerbstone.introText3')}</p>
                     </section>
             <Section 
-                    title="STR KERBSTONE" 
-                    text="Identical in design with T-kerb with an integrated drainage 
-                    system. The surface water of the road is kept away from the level 
-                    crossing and can seep into the ground. Quick installation in 
-                    combination with standard foundations from STR." 
+                    title={t('kerbstone.str.title')} 
+                    text={t('kerbstone.str.text')}
                     images={str} 
                     imagePosition="left" 
                 />
                 <Section 
-                    title="FULL BATTER KERBSTONE" 
-                    text="Used where a vehicle may need to ride up onto a verge in 
-                    an emergency, for safety reasons these are not used when a 
-                    footpath is present. Where a crossing is required for access 
-                    to a private driveway, access point or pedestrian crossing, the 
-                    appropriate tapers and crossing kerbs are used." 
+                    title={t('kerbstone.fullBatter.title')} 
+                    text={t('kerbstone.fullBatter.text')}
                     images={full_batter} 
                     imagePosition="right" 
                 />
                 <Section 
-                    title="BULLNOSE KERBSTONE" 
-                    text="We know that hard landscaping for city developments 
-                    and highway projects have to meet certain standards 
-                    and provide durable surfaces that can withstand increasing 
-                    levels of traffic – that’s where our collection of bullnose 
-                    kerbs can help. Precision-manufactured and durable, they are 
-                    used for highway schemes up and down the country. These 
-                    products meet strict guidelines." 
+                    title={t('kerbstone.bullnose.title')} 
+                    text={t('kerbstone.bullnose.text')}
                     images={bullnose} 
                     imagePosition="left" 
                 />
                 <Section 
-                    title="ROUND TOP GARDEN EDGE" 
-                    text="Wadi Degla's round top garden edging is the perfect finishing 
-                    touch to any garden or pathway, helping to create distinct areas and 
-                    guiding visitors in the direction you choose. Available in many 
-                    neutral colours, this edging will suit any paving from our 
-                    collection." 
+                    title={t('kerbstone.roundTop.title')} 
+                    text={t('kerbstone.roundTop.text')}
                     images={roundtop} 
                     imagePosition="right" 
                 />
     
                 <Section 
-                    title="CHANNEL KERBSTONE" 
-                    text="Stone Drainage Channels are often used to create a 
-                    holistic and complete expression when using granite in 
-                    outdoor facilities. The gutters are available in the head, middle 
-                    and end pieces. we are a great way to help homeowners control their 
-                    water flow and water runoff. Before you build a hardscape for your 
-                    home, it’s important to think about where your water travels and 
-                    where you can incorporate drainage." 
+                    title={t('kerbstone.channel.title')} 
+                    text={t('kerbstone.channel.text')}
                     images={channel} 
                     imagePosition="left" 
                 />
 
                 <Section 
-                    title="TRANSITION KERBSTONE" 
-                    text="A transition kerb enables vehicles to cross the public 
-                    pavement to access a private driveway, which makes it possible 
-                    to drive over them, but should clearly indicate to the driver 
-                    that they are leaving the lane with a harmless impact. Transition 
-                    kerb stones are usually used in urban areas to border traffic islands 
-                    and pedestrian crossing aids, which could add value to your property." 
+                    title={t('kerbstone.transition.title')} 
+                    text={t('kerbstone.transition.text')}
                     images={transition} 
                     imagePosition="right" 
                 />
                 <section className="kerb-final"> 
-                    <h2>Kerbstone/Curbstone Sizes, Finishes & Materials</h2>
-                    <p>To create a boundary and maintain a clean edge for your driveway, kerb stones add both 
-                        functionality and visual appeal to your outdoor space. Beyond providing a stylish finishing 
-                        touch, kerb stones and block paving edging play a vital role in the overall design of your 
-                        driveway.
-                        <br/><br/>
-                        At WADI DEGLA, we offer a wide range of high-quality kerb stones, crafted for 
-                        strength, durability, and elegance. Available in various colors, textures, sizes, and 
-                        designs, our kerb stones seamlessly complement any driveway project—whether in a modern or 
-                        traditional setting.
-                        <br/><br/>
-                        We provide standard sizes, but our factory is fully equipped to produce custom dimensions to 
-                        meet your specific requirements. As showcased above, we manufacture diverse product models and 
-                        are ready to deliver bespoke designs with the necessary dimensions, finishes, and materials.
-                    </p>
+                    <h2>{t('kerbstone.finalTitle')}</h2>
+                    <p>{t('kerbstone.finalText1')}<br/><br/>{t('kerbstone.finalText2')}<br/><br/>{t('kerbstone.finalText3')}</p>
 
                     </section>
 

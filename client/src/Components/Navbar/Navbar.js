@@ -83,7 +83,7 @@ export default function Navbar() {
         }}
       >
         <img loading="lazy"
-          alt=""
+          alt={t('navigation.wadiDegla')}
           src={scrolled ? wadi_degla_logo_color : wadi_degla_logo_white}
           className="logo"
         />
@@ -97,8 +97,8 @@ export default function Navbar() {
           window.scrollTo(0, 0);
         }}
       >
-        <img loading="lazy"
-          alt="Logo"
+            <img loading="lazy"
+          alt={t('navigation.wadiDegla')}
           src={wadi_degla_logo_color}
           className="nav-item-mobile"
           id="logo-nav-mobile"
@@ -119,7 +119,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                History
+                {t('navigation.history')}
               </Link>
               <Link
                 to="/machinery"
@@ -128,7 +128,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Machinery
+                {t('navigation.machinery')}
               </Link>
               <Link
                 to="/certificates"
@@ -137,7 +137,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Certificates
+                {t('navigation.certificates')}
               </Link>
               <Link
                 to="/exports"
@@ -146,7 +146,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Exports
+                {t('navigation.exports')}
               </Link>
               <Link
                 to="/packing"
@@ -155,7 +155,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Packing
+                {t('navigation.packing')}
               </Link>
               <Link
                 to="/about"
@@ -164,7 +164,7 @@ export default function Navbar() {
                   window.scrollTo(0, 0);
                 }}
               >
-                Why Choose Us?
+                {t('navigation.whyChooseUs')}
               </Link>
 
             </div>
@@ -368,7 +368,7 @@ export default function Navbar() {
       <div className="nav-item-desktop">
         {globalState.isLoggedIn ? (
           <div className="nav-item-with-submenu">
-            <p className="account-or-login">Account ↓</p>
+            <p className="account-or-login">{t('navigation.account')} ↓</p>
             <div className="submenu-bg">
               <div className="submenu">
                 <Link

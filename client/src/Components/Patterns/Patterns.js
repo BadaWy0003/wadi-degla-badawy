@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useTranslation } from 'react-i18next';
 import './Patterns.css';
 import ContactBubble from "../Contact/ContactBubble";
 import { Helmet } from 'react-helmet-async';
@@ -41,6 +42,7 @@ import Section from "../Section/Section";
 
 
 export default function Patterns(){
+    const { t } = useTranslation();
 const [paver, setPaver] = useState(pavers1);
 const [splitFace, setSplitFace] = useState(split_face_1);
 
@@ -56,64 +58,78 @@ const patternImages=[
     return(
         <>
         <Helmet>
-            <title>Patterns | Wadidegla</title>
-            <meta name="description" content="Patterns Description" />
+            <title>{t('patterns.pageTitle')}</title>
+            <meta name="description" content={t('patterns.metaDescription')} />
             <link rel="canonical" href="https://www.wadidegla-eg.com/patterns" />
         </Helmet>
 
         <div className='patterns-container'>
                     {/* 🌟 Hero Section */}
         <div className="quarries-hero">
-                        <h1>PATTERNS / PAVERS</h1>
+                    <h1>{t('patterns.heroTitle')}</h1>
                         <div className="breadcrumb">
                         <a href="/">Home</a>
-                        <p>{'>'} Patterns / Pavers</p>
+                    <p>{'>'} {t('patterns.breadcrumbCurrent')}</p>
                         </div>
                 </div>  
             <div className="pattern-section">
                 <div className="pattern-section-left">
-                    <h2>Marble Pavers</h2>
-                    <p>Select a material from below to appear on this scenery</p>
+                    <h2>{t('patterns.paversTitle')}</h2>
+                    <p>{t('patterns.selectMaterial')}</p>
                     <div className="pattern-section-left-materials">
                         <img loading="lazy" onClick={()=>setPaver(pavers1)} src={p1} alt="Marble Pavers 1"/>
+                        <img loading="lazy" onClick={()=>setPaver(pavers1)} src={p1} alt={t('patterns.paversAlt', { number: 1 })}/>
                         <img loading="lazy" onClick={()=>setPaver(pavers2)} src={p2} alt="Marble Pavers 2"/>
+                        <img loading="lazy" onClick={()=>setPaver(pavers2)} src={p2} alt={t('patterns.paversAlt', { number: 2 })}/>
                         <img loading="lazy" onClick={()=>setPaver(pavers3)} src={p3} alt="Marble Pavers 3"/>
+                        <img loading="lazy" onClick={()=>setPaver(pavers3)} src={p3} alt={t('patterns.paversAlt', { number: 3 })}/>
                         <img loading="lazy" onClick={()=>setPaver(pavers4)} src={p4} alt="Marble Pavers 4"/>
+                        <img loading="lazy" onClick={()=>setPaver(pavers4)} src={p4} alt={t('patterns.paversAlt', { number: 4 })}/>
                     </div>
                 </div>
                 <div className="pattern-section-right">
-                    <img loading="lazy" src={paver} alt="Marble Pavers"/>
+                    <img loading="lazy" src={paver} alt={t('patterns.paversMainAlt')}/>
                     </div>
     
             </div>
 
             <div id='pattern-section-splitface' className="pattern-section">
                 <div className="pattern-section-left">
-                    <h2>Marble Split Face</h2>
-                    <p>Select a material from below to appear on this scenery</p>
+                    <h2>{t('patterns.splitFaceTitle')}</h2>
+                    <p>{t('patterns.selectMaterial')}</p>
                     <div id="pattern-section-left-materials-splitface" className="pattern-section-left-materials">
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_1)} src={s1} alt="split face 1"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_1)} src={s1} alt={t('patterns.splitFaceAlt', { number: 1 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_2)} src={s2} alt="split face 2"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_2)} src={s2} alt={t('patterns.splitFaceAlt', { number: 2 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_3)} src={s3} alt="split face 3"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_3)} src={s3} alt={t('patterns.splitFaceAlt', { number: 3 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_4)} src={s4} alt="split face 4"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_4)} src={s4} alt={t('patterns.splitFaceAlt', { number: 4 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_5)} src={s5} alt="split face 5"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_5)} src={s5} alt={t('patterns.splitFaceAlt', { number: 5 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_6)} src={s6} alt="split face 6"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_6)} src={s6} alt={t('patterns.splitFaceAlt', { number: 6 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_7)} src={s7} alt="split face 7"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_7)} src={s7} alt={t('patterns.splitFaceAlt', { number: 7 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_8)} src={s8} alt="split face 8"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_8)} src={s8} alt={t('patterns.splitFaceAlt', { number: 8 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_9)} src={s9} alt="split face 9"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_9)} src={s9} alt={t('patterns.splitFaceAlt', { number: 9 })}/>
                         <img loading="lazy" onClick={()=>setSplitFace(split_face_10)} src={s10} alt="split face 10"/>
+                        <img loading="lazy" onClick={()=>setSplitFace(split_face_10)} src={s10} alt={t('patterns.splitFaceAlt', { number: 10 })}/>
 
                     </div>
                 </div>
                 <div className="pattern-section-right">
-                    <img loading="lazy" src={splitFace} alt="split face"/>
+                    <img loading="lazy" src={splitFace} alt={t('patterns.splitFaceMainAlt')}/>
                     </div>
     
             </div>
             <div className="pattern-section">
 
-            <Section 
-                    title="Marble Patterns" 
+        <Section 
+            title={t('patterns.patternsTitle')} 
                     text={""}
                             images={patternImages} 
                     imagePosition="right" 

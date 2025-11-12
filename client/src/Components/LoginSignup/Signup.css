@@ -62,9 +62,11 @@
   flex: 55;
   background-color: var(--whiteColor);
 }
-
+.signup-form-title{
+  margin-bottom: 2rem;
+}
 .container2 .signup-form-title h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   color: var(--blueColor);
 }
 
