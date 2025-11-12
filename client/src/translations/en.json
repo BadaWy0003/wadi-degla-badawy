@@ -547,22 +547,52 @@
           "scrollToIndoor": "Scroll to Indoor ↑",
           "comingSoon": "{{category}} Coming soon.",
           "noProducts": "No products available for your search in {{category}}."
-        }
-        ,
-        "patterns": {
-          "pageTitle": "Patterns | Wadidegla",
-          "metaDescription": "Explore our marble patterns, pavers, and split face options.",
-          "heroTitle": "PATTERNS / PAVERS",
+        },
+        "quarries": {
+          "pageTitle": "Quarries | Wadidegla",
+          "metaDescription": "Explore Wadi Degla's quarries and factories producing premium marble and granite.",
+          "heroTitle": "OUR QUARRIES & FACTORIES",
           "breadcrumbHome": "Home",
-          "breadcrumbCurrent": "Patterns / Pavers",
-          "paversTitle": "Marble Pavers",
-          "splitFaceTitle": "Marble Split Face",
-          "selectMaterial": "Select a material from below to appear on this scenery",
-          "paversAlt": "Marble Pavers {{number}}",
-          "paversMainAlt": "Selected Marble Paver",
-          "splitFaceAlt": "Split Face {{number}}",
-          "splitFaceMainAlt": "Selected Split Face",
-          "patternsTitle": "Marble Patterns"
-        }
+          "breadcrumbCurrent": "Quarries & Factories",
+          "ourQuarries": "OUR QUARRIES",
+          "galalaTitle": "Galala Quarries",
+          "galalaText": "Discovered by our pioneering grandfather, these quarries yield the iconic Galala Marble known for its elegance and durability.",
+          "creamyTitle": "Creamy White Pearl Quarry",
+          "creamyText": "Our latest exclusive discovery, this marble is known for its creamy tones and refined texture.",
+          "ourFactories": "OUR FACTORIES",
+          "factoriesDescription": "Our state-of-the-art factories span a combined area of over 27,000 square meters, ensuring top-quality production at scale.",
+          "factory2000Title": "Factory Established in 2000",
+          "factory2000Text": "Equipped with state-of-the-art technology to process high-quality marble and granite.",
+          "factory2011Title": "Factory Established in 2011",
+          "factory2011Text": "Innovative machinery and skilled craftsmanship to refine our products.",
+          "factory2015Title": "Factory Established in 2015",
+          "factory2015Text": "Our latest addition to meet growing demand for premium stone products.",
+          "globalFacilities": "OUR GLOBAL FACILITIES",
+          "comingSoon": "Coming Soon"
+        },
+        "stoneCreation": {
+          "pageTitle": "Stone Creations | Wadidegla",
+          "metaDescription": "Explore our custom stone creations including landscaping elements, architecture pieces, and mosaics.",
+          "heroTitle": "Stone Creations",
+          "breadcrumbHome": "Home",
+          "breadcrumbCurrent": "Stone Creations",
+        "landscapingTitle": "Landscaping & architecture elements",
+        "mosaicsTitle": "Mosaics"
+      },
+      "patterns": {
+        "pageTitle": "Patterns | Wadidegla",
+        "metaDescription": "Explore our marble patterns, pavers, and split face options.",
+        "heroTitle": "PATTERNS / PAVERS",
+        "breadcrumbHome": "Home",
+        "breadcrumbCurrent": "Patterns / Pavers",
+        "paversTitle": "Marble Pavers",
+        "splitFaceTitle": "Marble Split Face",
+        "selectMaterial": "Select a material from below to appear on this scenery",
+        "paversAlt": "Marble Pavers {{number}}",
+        "paversMainAlt": "Selected Marble Paver",
+        "splitFaceAlt": "Split Face {{number}}",
+        "splitFaceMainAlt": "Selected Split Face",
+        "patternsTitle": "Marble Patterns"
+      }
 
 }

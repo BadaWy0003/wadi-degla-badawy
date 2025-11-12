@@ -545,8 +545,38 @@
         "scrollToIndoor": "Ir a Interior ↑",
         "comingSoon": "{{category}} Próximamente.",
         "noProducts": "No hay productos disponibles para tu búsqueda en {{category}}."
-      }
-      ,
+      },
+      "quarries": {
+        "pageTitle": "Canteras | Wadidegla",
+        "metaDescription": "Explora las canteras y fábricas de Wadi Degla que producen mármol y granito premium.",
+        "heroTitle": "NUESTRAS CANTERAS Y FÁBRICAS",
+        "breadcrumbHome": "Inicio",
+        "breadcrumbCurrent": "Canteras y Fábricas",
+        "ourQuarries": "NUESTRAS CANTERAS",
+        "galalaTitle": "Canteras Galala",
+        "galalaText": "Descubiertas por nuestro abuelo pionero, estas canteras producen el icónico Mármol Galala conocido por su elegancia y durabilidad.",
+        "creamyTitle": "Cantera Creamy White Pearl",
+        "creamyText": "Nuestro último descubrimiento exclusivo, este mármol es conocido por sus tonos cremosos y textura refinada.",
+        "ourFactories": "NUESTRAS FÁBRICAS",
+        "factoriesDescription": "Nuestras fábricas de última generación abarcan un área combinada de más de 27,000 metros cuadrados, asegurando producción de la más alta calidad a escala.",
+        "factory2000Title": "Fábrica establecida en 2000",
+        "factory2000Text": "Equipada con tecnología de última generación para procesar mármol y granito de alta calidad.",
+        "factory2011Title": "Fábrica establecida en 2011",
+        "factory2011Text": "Maquinaria innovadora y artesanía calificada para refinar nuestros productos.",
+        "factory2015Title": "Fábrica establecida en 2015",
+        "factory2015Text": "Nuestro último complemento para satisfacer la creciente demanda de productos de piedra premium.",
+        "globalFacilities": "NUESTRAS INSTALACIONES GLOBALES",
+        "comingSoon": "Próximamente"
+      },
+      "stoneCreation": {
+        "pageTitle": "Creaciones en Piedra | Wadidegla",
+        "metaDescription": "Explora nuestras creaciones de piedra personalizadas incluyendo elementos de paisajismo, piezas arquitectónicas y mosaicos.",
+        "heroTitle": "Creaciones en Piedra",
+        "breadcrumbHome": "Inicio",
+        "breadcrumbCurrent": "Creaciones en Piedra",
+        "landscapingTitle": "Elementos de paisajismo y arquitectura",
+        "mosaicsTitle": "Mosaicos"
+      },
       "patterns": {
         "pageTitle": "Patrones | Wadidegla",
         "metaDescription": "Explora nuestros patrones de mármol, adoquines y opciones de split face.",

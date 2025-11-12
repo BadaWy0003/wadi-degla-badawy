@@ -5,16 +5,18 @@ import QuarriesSwiper from "./QuarriesSwiper";
 import {galalaQuarryImages, creamyQuarryImages, firstFactoryImages, secondFactoryImages, thirdFactoryImages} from "./QuarriesImageData";
 import ContactBubble from "../Contact/ContactBubble";
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 
 export default function Quarries(){
+  const { t } = useTranslation();
   
     
     return(
       <>
           <Helmet>
-              <title>Quarries | Wadidegla</title>
-              <meta name="description" content="Quarries Description" />
+              <title>{t('quarries.pageTitle')}</title>
+              <meta name="description" content={t('quarries.metaDescription')} />
               <link rel="canonical" href="https://www.wadidegla-eg.com/quarries" />
           </Helmet>
       
@@ -22,10 +24,10 @@ export default function Quarries(){
 
         {/* 🌟 Hero Section */}
         <div className="quarries-hero">
-                        <h1>OUR QUARRIES & FACTORIES</h1>
+                        <h1>{t('quarries.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">Home</a>
-                        <p>{'>'} Quarries & Factories</p>
+                        <a href="/">{t('quarries.breadcrumbHome')}</a>
+                        <p>{'>'} {t('quarries.breadcrumbCurrent')}</p>
                         </div>
                 </div>  
   
@@ -34,7 +36,7 @@ export default function Quarries(){
         <div
           className="quarries-title"
         >
-          <h2>OUR QUARRIES</h2>
+          <h2>{t('quarries.ourQuarries')}</h2>
           <hr />
         </div>
 
@@ -43,12 +45,10 @@ export default function Quarries(){
           <QuarriesSwiper images={galalaQuarryImages} />
           <div
             className="text"
-            
           >
-            <h3>Galala Quarries</h3>
+            <h3>{t('quarries.galalaTitle')}</h3>
             <p>
-              Discovered by our pioneering grandfather, these quarries yield the
-              iconic Galala Marble known for its elegance and durability.
+              {t('quarries.galalaText')}
             </p>
           </div>
         </div>
@@ -57,12 +57,10 @@ export default function Quarries(){
         <div className="quarry-card right">
           <div
             className="text"
-            
           >
-            <h3>Creamy White Pearl Quarry</h3>
+            <h3>{t('quarries.creamyTitle')}</h3>
             <p>
-            Our latest exclusive discovery, this marble is known for its
-            creamy tones and refined texture.
+            {t('quarries.creamyText')}
             </p>
           </div>
           <QuarriesSwiper images={creamyQuarryImages} />
@@ -74,26 +72,21 @@ export default function Quarries(){
       <section className="factories">
         <div
           className="quarries-title"
-          
         >
-          <h2>OUR FACTORIES</h2>
+          <h2>{t('quarries.ourFactories')}</h2>
           <hr />
         </div>
-        <p className="machinery-captions">Our state-of-the-art factories span a combined area of over 
-          27,000 square meters, ensuring top-quality production 
-          at scale.</p>
+        <p className="machinery-captions">{t('quarries.factoriesDescription')}</p>
 
         {/* Factory 2000 */}
         <div className="factory-card left">
         <QuarriesSwiper images={firstFactoryImages} />
         <div
             className="text"
-            
           >
-            <h3>Factory Established in 2000</h3>
+            <h3>{t('quarries.factory2000Title')}</h3>
             <p>
-              Equipped with state-of-the-art technology to process high-quality
-              marble and granite.
+              {t('quarries.factory2000Text')}
             </p>
           </div>
         </div>
@@ -102,12 +95,10 @@ export default function Quarries(){
         <div className="factory-card right">
           <div
             className="text"
-            
           >
-            <h3>Factory Established in 2011</h3>
+            <h3>{t('quarries.factory2011Title')}</h3>
             <p>
-              Innovative machinery and skilled craftsmanship to refine our
-              products.
+              {t('quarries.factory2011Text')}
             </p>
           </div>
           <QuarriesSwiper images={secondFactoryImages} />
@@ -118,12 +109,10 @@ export default function Quarries(){
         <QuarriesSwiper images={thirdFactoryImages} />
         <div
             className="text"
-            
           >
-            <h3>Factory Established in 2015</h3>
+            <h3>{t('quarries.factory2015Title')}</h3>
             <p>
-              Our latest addition to meet growing demand for premium stone
-              products.
+              {t('quarries.factory2015Text')}
             </p>
           </div>
         </div>
@@ -136,13 +125,12 @@ export default function Quarries(){
         <div className="global-text">
           <div
             className="quarries-title"
-            
           >
-            <h2>OUR GLOBAL FACILITIES</h2>
+            <h2>{t('quarries.globalFacilities')}</h2>
             <hr />
           </div>
           <div className="coming-soon">
-        <h1>Coming Soon</h1>
+        <h1>{t('quarries.comingSoon')}</h1>
         </div>
 
           {/* <p>
