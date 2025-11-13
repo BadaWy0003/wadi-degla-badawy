@@ -21,8 +21,6 @@
 }
 
 .exports-container .quarries-hero h1 {
-    position: absolute;
-    top: 50%;
     color: var(--whiteColor);
     z-index: 1;
 }

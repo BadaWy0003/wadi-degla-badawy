@@ -18,6 +18,8 @@ const LanguageSelector = () => {
       >
         <option value="en">English</option>
         <option value="es">Español</option>
+        <option value="ro">Română</option>
+        <option value="fr">Français</option>
       </select>
     </div>
   );
