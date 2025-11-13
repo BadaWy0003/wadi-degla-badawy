@@ -2,6 +2,7 @@ import React from "react";
 import './Home.css';
 import { Link, useNavigate } from "react-router-dom";
 import 'react-multi-carousel/lib/styles.css';
+import { useTranslation } from 'react-i18next';
 import MissionVisionSection from "../About/MissionVisionSection.js";
 import QuarriesHome from "./QuarriesHome.js";
 import FeaturedProducts from "./FeaturedProducts.js";
@@ -21,6 +22,7 @@ import { Helmet } from 'react-helmet-async';
 
 export default function Home(){
       const navigate = useNavigate();
+      const { t } = useTranslation();
     
 //   const globalState = useGlobalState(); // Access global state for user data
 
@@ -36,36 +38,25 @@ export default function Home(){
     return(
         <>
         <Helmet>
-            <title>Home | Wadidegla</title>
-            <meta name="description" content="Home Description" />
+            <title>{t('home.pageTitle')}</title>
+            <meta name="description" content={t('home.metaDescription')} />
             <link rel="canonical" href="https://www.wadidegla-eg.com/" />
         </Helmet>
         
         <div className="homepage">
             <div className="hero">
-                    <h1>Wadi Degla Co.</h1>
-                    <p>Welcome to Wadi Degla for Marble & Granite, your trusted partner in the marble business since 1980.</p>
+                    <h1>{t('home.companyName')}</h1>
+                    <p>{t('home.heroWelcome')}</p>
                         <div className="place4btns">
-                            <Link to='/history' onClick={() => {window.scrollTo(0, 0);}}><button className="btn2">OUR HISTORY</button></Link>
+                            <Link to='/history' onClick={() => {window.scrollTo(0, 0);}}><button className="btn2">{t('home.ourHistory')}</button></Link>
 
-                            <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><button className="btn1">OUR PRODUCTS</button></Link>
+                            <Link to='/products' onClick={() => {window.scrollTo(0, 0);}}><button className="btn1">{t('home.ourProducts')}</button></Link>
 
                         </div>
             </div>
-            <section className="intro-home-section">
-                <h2>45 Years shaping the future of stone</h2>
-                <p>With a legacy spanning 45 years, Wadi Degla for Marble & 
-                    Granite has been at the forefront of quarrying, crafting, and 
-                    exporting the finest natural stone. Passed down through three 
-                    generations, our passion for excellence and innovation has cemented 
-                    our reputation as a global leader in the industry. From 
-                    Egypt’s legendary quarries to landmark projects across the 
-                    world, we continue to shape architectural masterpieces, honoring 
-                    our heritage while embracing the future. With every slab we extract 
-                    and every stone we refine, we uphold a tradition of 
-                    quality, expertise, and trust—bringing visions to life, one stone at 
-                    a time.
-                </p>
+                        <section className="intro-home-section">
+                <h2>{t('home.legacy45Years')}</h2>
+                <p>{t('home.legacyDescription')}</p>
             </section>
             <MissionVisionSection />
             <div id="home-about-button" className="home-button-section">
@@ -75,7 +66,7 @@ export default function Home(){
                 onClick={() => {
                     navigate('/about');
                     window.scrollTo({top: 0});
-                }}>ABOUT WADI DEGLA</button>                     
+                }}>{t('home.aboutWadiDegla')}</button>                     
             </div>
 
             <QuarriesHome />
@@ -94,7 +85,7 @@ export default function Home(){
                 onClick={() => {
                     navigate('/exports');
                     window.scrollTo({top: 0});
-                }}>LEARN MORE</button>                     
+                }}>{t('home.learnMore')}</button>                     
             </div>
             <ProjectsHome />
 

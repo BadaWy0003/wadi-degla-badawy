@@ -4,6 +4,7 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import "./FeaturedProducts.css"
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import apiClient from "../../util/client.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -15,6 +16,7 @@ export default function FeaturedProducts() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null);
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
 
   const featuredNames = [
@@ -71,8 +73,8 @@ export default function FeaturedProducts() {
 
   return(
     <section className="featured-products-section">
-      <h2>Featured Products</h2>
-      <p>Discover our most popular selections</p>
+      <h2>{t('home.featuredProducts')}</h2>
+      <p>{t('home.featuredProductsDesc')}</p>
       <div className="featured-content-wrapper">
         {loading? ( <LoadingSpinner />
         ):(
@@ -141,7 +143,7 @@ export default function FeaturedProducts() {
                   window.scrollTo({top: 0});
                 }}
               >
-                More Details
+                {t('home.moreDetails')}
               </button>
             </>
           )}
@@ -162,7 +164,7 @@ export default function FeaturedProducts() {
           window.scrollTo({top: 0});
         }}
       >
-        EXPLORE ALL OF OUR PRODUCTS
+        {t('home.exploreAllProducts')}
       </button>                     
     </section>
   );

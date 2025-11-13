@@ -1,24 +1,24 @@
 import React from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 
 export default function ProjectsHome() {
       const navigate = useNavigate();
+      const { t } = useTranslation();
 
     return(
         <section className="projects-home-section">
-            <h2>Experience Our Work in Action</h2>
-            <p>Explore our completed <strong>projects</strong> across stunning locations and 
-                see our materials in real-world applications.
-                </p>
+            <h2>{t('home.experienceWork')}</h2>
+            <p>{t('home.experienceWorkDesc')}</p>
                 <button
                 className="btn2"
                 style={{marginTop: "2rem"}}
                 onClick={() => {
                     navigate('/projects');
                     window.scrollTo({top: 0});
-                }}>VIEW PROJECTS</button>                     
+                }}>{t('home.viewProjects')}</button>                     
 
 
         </section>

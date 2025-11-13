@@ -4,15 +4,17 @@ import "./Home.css";
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+import { useTranslation } from 'react-i18next';
 import { FreeMode, Autoplay } from 'swiper/modules';
 
 import { partnerLogos } from "../Partners/Partners.js";
 
 export default function PartnersHome() {
+    const { t } = useTranslation();
 
     return(
         <section className="partners-home-section">
-            <h2>Partners & Clients</h2>
+            <h2>{t('home.partnersClients')}</h2>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}

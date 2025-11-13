@@ -1,15 +1,17 @@
 import React from "react";
 import './Home.css';
 import "../Certificates/Certificates.css";
+import { useTranslation } from 'react-i18next';
 import { certificatesData } from "../Certificates/CertificatesData"; // Import data
 import CertificateLightBox from "../Certificates/CertificateLightBox"; // Import Lightbox component
 
 export default function CertificatesHome() {
+    const { t } = useTranslation();
     return (
         <section className="certificates-home">
-            <h2>Certificates</h2>
-            <p className="certificates-hint-pc">click on logo to view certificate</p>
-            <p className="certificates-hint-mobile">tap on logo to view certificate</p>
+            <h2>{t('home.certificates')}</h2>
+            <p className="certificates-hint-pc">{t('home.certificatesHintPc')}</p>
+            <p className="certificates-hint-mobile">{t('home.certificatesHintMobile')}</p>
             <div className="certificates-home-grid">
             {certificatesData.map((certificate, index) => (
                 <div  key={index}>                    
