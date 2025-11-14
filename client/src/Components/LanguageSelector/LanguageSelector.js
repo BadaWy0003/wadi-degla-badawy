@@ -20,6 +20,12 @@ const LanguageSelector = () => {
         <option value="es">Español</option>
         <option value="ro">Română</option>
         <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="ko">한국어</option>
+        <option value="sq">Shqip</option>
+        <option value="ru">Русский</option>
+        <option value="ja">日本語</option>
       </select>
     </div>
   );

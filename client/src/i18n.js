@@ -5,6 +5,12 @@ import translationEN from './translations/en.json';
 import translationES from './translations/es.json';
 import translationRO from './translations/ro.json';
 import translationFR from './translations/fr.json';
+import translationDE from './translations/de.json';
+import translationIT from './translations/it.json';
+import translationKO from './translations/ko.json';
+import translationSQ from './translations/sq.json';
+import translationRU from './translations/ru.json';
+import translationJA from './translations/ja.json';
 
 const resources = {
   en: {
@@ -18,6 +24,24 @@ const resources = {
   },
   fr: {
     translation: translationFR
+  },
+  de: {
+    translation: translationDE
+  },
+  it: {
+    translation: translationIT
+  },
+  ko: {
+    translation: translationKO
+  },
+  sq: {
+    translation: translationSQ
+  },
+  ru: {
+    translation: translationRU
+  },
+  ja: {
+    translation: translationJA
   }
 };
 
