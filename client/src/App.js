@@ -1,8 +1,9 @@
 import "./App.css";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useGlobalState } from "./Components/GlobalStateContext"; // Ensure this exists
 import { ProtectedRoute } from "./Components/ProtectedRoute"; // Create this file as described earlier
+import { useTranslation } from "react-i18next";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -46,7 +47,20 @@ const NotFound404 = lazy(() => import("./Components/404/NotFound404.js")); // 40
 
 function App() {
   const { globalState } = useGlobalState();
+  const { i18n } = useTranslation();
   const isLoggedIn = globalState.isLoggedIn;
+
+  // Update the html lang attribute and direction whenever the language changes
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+    document.body.lang = i18n.language;
+    
+    if (i18n.language === 'ar') {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }
+  }, [i18n.language]);
 
   return (
     <BrowserRouter>

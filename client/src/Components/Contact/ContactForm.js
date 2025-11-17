@@ -215,7 +215,7 @@ return (
                 <PhoneInput
                   value={formData.phone}
                   onChange={(value) => handleInputChange('phone', value)}
-                  placeholder="Enter full number with country code"
+                  placeholder={t('signup.phonePlaceholder')}
                   inputProps={{
                     name: 'phone',
                     required: true,
@@ -227,7 +227,7 @@ return (
                 <PhoneInput
                   value={formData.whatsapp}
                   onChange={(value) => handleInputChange('whatsapp', value)}
-                  placeholder="Enter full number with country code"
+                  placeholder={t('signup.phonePlaceholder')}
                 />
               </div>
             </div>

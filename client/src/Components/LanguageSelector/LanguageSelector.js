@@ -26,6 +26,7 @@ const LanguageSelector = () => {
         <option value="sq">Shqip</option>
         <option value="ru">Русский</option>
         <option value="ja">日本語</option>
+        <option value="ar">العربية</option>
       </select>
     </div>
   );

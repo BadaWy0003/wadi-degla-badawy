@@ -9,7 +9,7 @@ import instagram_circle_white_icon from '../../Public/Assets/Icons/Social/instag
 import linkedin_circle_white_icon from '../../Public/Assets/Icons/Social/linkedin-circle-white-icon.svg'
 import whatsapp_circle_white_icon from '../../Public/Assets/Icons/Social/whatsapp-circle-white-icon.svg'
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../../i18n';
@@ -17,6 +17,37 @@ import '../../i18n';
 function Footer() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const footerMainRef = useRef(null);
+  const footerRightRef = useRef(null);
+
+  // Dynamically set CSS variable for footer height ratio
+  useEffect(() => {
+    const updateFooterHeight = () => {
+      if (footerRightRef.current && footerMainRef.current) {
+        const footerRightHeight = footerRightRef.current.offsetHeight;
+        if (footerMainRef.current) {
+          footerMainRef.current.style.setProperty('--footer-right-height', `${footerRightHeight}px`);
+        }
+      }
+    };
+
+    // Update on mount
+    updateFooterHeight();
+
+    // Update on window resize
+    window.addEventListener('resize', updateFooterHeight);
+
+    // Update on content change (with a small delay to ensure DOM is updated)
+    const observer = new MutationObserver(updateFooterHeight);
+    if (footerMainRef.current) {
+      observer.observe(footerMainRef.current, { childList: true, subtree: true });
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateFooterHeight);
+      observer.disconnect();
+    };
+  }, []);
 
   function OnClick(){
     navigate('/contact'); 
@@ -24,7 +55,7 @@ function Footer() {
   }
 
   return (
-    <footer className='footer-main'>
+    <footer className='footer-main' ref={footerMainRef}>
       <div className='footer-left'>
         <div className='footer-left-bg'>
           <h2>{t('footer.getInTouch')}</h2>
@@ -39,7 +70,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className='footer-right'>
+      <div className='footer-right' ref={footerRightRef}>
         <div className='footer-right-content'>
           <div className='footer-about'>
             <Link to='/' onClick={() => {window.scrollTo(0, 0);}}>

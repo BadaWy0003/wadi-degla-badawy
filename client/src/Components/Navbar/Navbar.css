@@ -529,3 +529,8 @@ nav {
         padding: 10px;
     }
 }
+
+/* RTL styles for Arabic */
+html[dir="rtl"] .nav-item-with-submenu-title {
+    flex-direction: row-reverse;
+}

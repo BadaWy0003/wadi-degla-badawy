@@ -11,6 +11,7 @@ import translationKO from './translations/ko.json';
 import translationSQ from './translations/sq.json';
 import translationRU from './translations/ru.json';
 import translationJA from './translations/ja.json';
+import translationAR from './translations/ar.json';
 
 const resources = {
   en: {
@@ -42,6 +43,9 @@ const resources = {
   },
   ja: {
     translation: translationJA
+  },
+  ar: {
+    translation: translationAR
   }
 };
 

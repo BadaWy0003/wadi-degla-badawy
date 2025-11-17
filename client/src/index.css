@@ -46,6 +46,54 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Cairo';
+  src: url('./Public/Assets/fonts/Cairo-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('./Public/Assets/fonts/Cairo-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('./Public/Assets/fonts/Cairo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('./Public/Assets/fonts/Cairo-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('./Public/Assets/fonts/Cairo-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('./Public/Assets/fonts/Cairo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
 
   margin: 0;
@@ -59,6 +107,10 @@ body {
   min-height: 100vh;
   height: auto;
   background: var(--darkerBlackColor);
+}
+
+body[lang="ar"] {
+  font-family: "Cairo", "Clash Display", "inter", sans-serif;
 }
 
 code {
@@ -153,3 +205,12 @@ h2 {
     box-shadow: none !important;
   }
 }
+
+/* Keep GlobeChart in LTR even when Arabic is selected */
+#chartdiv {
+  direction: ltr !important;
+}
+
+.react-tel-input{
+  direction: ltr !important;
+} 
