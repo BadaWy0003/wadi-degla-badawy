@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Gallery.css";
 import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom"; // Import Zoom plugin
 import "yet-another-react-lightbox/styles.css";
 import apiClient from "../../util/client";
 import ContactBubble from "../Contact/ContactBubble";
@@ -76,7 +77,13 @@ export default function Gallery() {
       </div>
       
       {/* Lightbox Component */}
-      <Lightbox open={open} close={() => setOpen(false)} slides={slides} index={index} />
+      <Lightbox 
+        open={open} 
+        close={() => setOpen(false)} 
+        slides={slides} index={index} 
+        plugins={[Zoom]} 
+        zoom={{ maxZoomPixelRatio: 3 }} 
+        />
       <ContactBubble />
     </div>
     </>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom"; // Import Zoom plugin
 import "yet-another-react-lightbox/styles.css";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -64,6 +65,9 @@ export default function InspoAncientSwiper({ images }) {
         close={() => setLightboxOpen(false)}
         slides={images.map((img) => ({ src: img }))}
         index={lightboxIndex}
+        plugins={[Zoom]}
+        zoom={{ maxZoomPixelRatio: 3 }} // Allows zooming up to 3x
+
       />
     </div>
   );

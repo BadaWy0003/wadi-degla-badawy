@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./MasonryGrid.css"; // Import the CSS file
 import Lightbox from 'yet-another-react-lightbox';
+import Zoom from "yet-another-react-lightbox/plugins/zoom"; // Import Zoom plugin
 import 'yet-another-react-lightbox/styles.css';
 
 
@@ -22,7 +23,14 @@ const MasonryGrid = ({props}) => {
       </div>
 
       {/* Lightbox Component */}
-      <Lightbox open={open} close={() => setOpen(false)} slides={slides} index={index} />
+      <Lightbox 
+      open={open} 
+      close={() => setOpen(false)} 
+      slides={slides} 
+      index={index} 
+      plugins={[Zoom]} 
+      zoom={{ maxZoomPixelRatio: 3 }} 
+      />
     </div>
   );
 };

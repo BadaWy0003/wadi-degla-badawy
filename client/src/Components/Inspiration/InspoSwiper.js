@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom"; // Import Zoom plugin
 import "yet-another-react-lightbox/styles.css";
 
 // Import Swiper styles
@@ -72,6 +73,9 @@ export default function InspoSwiper({ images }) {
         close={() => setLightboxOpen(false)}
         slides={images.map((img) => ({ src: img }))}
         index={lightboxIndex}
+        plugins={[Zoom]}
+        zoom={{ maxZoomPixelRatio: 3 }} // Allows zooming up to 3x
+
       />
 
     </div>
