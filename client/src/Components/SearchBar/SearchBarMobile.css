@@ -68,3 +68,7 @@
 
 .mobile-search-result-item .result-title{font-weight:600;font-size:14px;color:var(--darkGrayColor)}
 .mobile-search-result-item .result-content{font-size:12px;color:var(--darkGrayColor)}
+
+.scrolled .navbar-search .mobile-search-icon{
+  color: var(--goldColor);
+} 

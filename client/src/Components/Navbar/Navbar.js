@@ -108,7 +108,6 @@ export default function Navbar() {
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
           <p>{t('navigation.wadiDegla')}</p>
-          <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
             <div className="submenu">
@@ -173,7 +172,6 @@ export default function Navbar() {
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
           <p>{t('navigation.products')}</p>
-          <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
             <div className="submenu">
@@ -237,7 +235,6 @@ export default function Navbar() {
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
           <p>{t('navigation.resources')}</p>
-          <img loading="lazy" src={arrow_down} alt=""/>
           </div>
           <div className="submenu-bg">
             <div className="submenu">
@@ -362,6 +359,9 @@ export default function Navbar() {
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>
+
+        {/* Language Selector - Mobile */}
+        <LanguageSelector />
       </nav>
 
       {/* Desktop Login/My Account Section */}
@@ -405,11 +405,16 @@ export default function Navbar() {
           </Link>
         )}
       </div>
+
+      {/* Desktop Language Selector */}
+      <div className="language-selector-desktop">
+        <LanguageSelector />
+      </div>
+
       <div className="mob-search-and-nav-btn">
         <div className="navbar-search show-on-mobile">
               <SearchBarMobile />
           </div>
-        <LanguageSelector />
         {/* Hamburger Icon */}
         <button className="nav-btn" onClick={showNavbar}>
           <FaBars />
