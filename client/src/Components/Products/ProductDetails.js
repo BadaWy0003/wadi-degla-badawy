@@ -149,7 +149,6 @@ export default function ProductDetails() {
           <h1 className="details-title">{product.name}</h1>
 
           <div className="info-grid">
-            <div className="info-label">Category:</div>
             <div className="info-label">{t('productDetails.category')}</div>
             <div className="info-value" style={{ color: "var(--blueColor)" }}>
               {product.type}
@@ -188,7 +187,6 @@ export default function ProductDetails() {
           </div>
 
           <div className="applications-section">
-            <h3>Applications</h3>
             <h3>{t('productDetails.applications')}</h3>
             <div className="applications-grid">
               {applicationIcons.map((app, index) => (
