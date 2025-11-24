@@ -76,8 +76,6 @@ const SearchBar = () => {
         onClick={toggleSearch}
       >
         <i className="fas fa-search"></i>
-                {/* <p>Search</p> */}
-
       </div>
       <div className={`search-input-container ${isSearchOpen ? 'open' : ''}`}>
         <input
