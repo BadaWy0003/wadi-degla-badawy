@@ -154,7 +154,6 @@ export default function ProductDetails() {
               {product.type}
             </div>
 
-            <div className="info-label">Finish:</div>
             <div className="info-label">{t('productDetails.finish')}</div>
             <div className="info-value">
               <select

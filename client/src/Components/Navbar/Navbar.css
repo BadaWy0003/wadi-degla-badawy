@@ -407,7 +407,7 @@ nav .language-selector {
 
 /*===========================================================*/
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1230px) {
     .navbar-search{
     margin-inline-start: 0 !important;
 }
