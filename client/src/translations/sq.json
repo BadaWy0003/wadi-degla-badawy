@@ -620,5 +620,8 @@
     "bringVisionToLife": "Sjell Vizionin Tënd në Jetë",
     "bringVisionToLifeDesc": "Shikoni materialet tona premium në ambiente realiste të brendshme dhe të jashtme përpara se të bëni zgjedhjen tuaj duke përdorur mjetin tonë vizualizues.",
     "tryNow": "PROVO TANI"
+  },
+  "common": {
+    "search": "Kërko..."
   }
 }

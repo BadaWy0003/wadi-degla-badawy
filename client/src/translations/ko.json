@@ -620,5 +620,8 @@
     "bringVisionToLife": "귀하의 비전을 현실로 만드십시오",
     "bringVisionToLifeDesc": "우리의 시각화 도구를 사용하여 선택하기 전에 현실적인 실내 및 실외 설정에서 우리의 프리미엄 재료를 확인하십시오.",
     "tryNow": "지금 시도하기"
+  },
+  "common": {
+    "search": "검색..."
   }
 }

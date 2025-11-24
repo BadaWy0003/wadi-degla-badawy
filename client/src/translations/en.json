@@ -626,5 +626,8 @@
     "bringVisionToLife": "Bring Your Vision to Life",
     "bringVisionToLifeDesc": "View our premium materials in realistic indoor and outdoor settings before making your choice using our visualizer tool.",
     "tryNow": "TRY IT NOW"
+  },
+  "common": {
+    "search": "Search..."
   }
 }

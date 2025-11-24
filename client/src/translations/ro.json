@@ -620,5 +620,8 @@
     "bringVisionToLife": "Dați Viață Viziunii Dumneavoastră",
     "bringVisionToLifeDesc": "Vizualizați materialele noastre premium în setări realiste de interior și exterior înainte de a face alegerea, utilizând instrumentul nostru de vizualizare.",
     "tryNow": "ÎNCERCAȚI ACUM"
+  },
+  "common": {
+    "search": "Căutare..."
   }
 }

@@ -620,5 +620,8 @@
     "bringVisionToLife": "Donnez Vie à Votre Vision",
     "bringVisionToLifeDesc": "Visualisez nos matériaux premium dans des décors réalistes d'intérieur et d'extérieur avant de faire votre choix à l'aide de notre outil de visualisation.",
     "tryNow": "ESSAYEZ MAINTENANT"
+  },
+  "common": {
+    "search": "Rechercher..."
   }
 }
