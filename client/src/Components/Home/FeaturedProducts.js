@@ -139,7 +139,7 @@ export default function FeaturedProducts() {
               <button 
                 className="btn2"
                 onClick={() => {
-                  navigate(`/products/${activeProduct.id}`);
+                  navigate(`/products/${activeProduct.name}`);
                   window.scrollTo({top: 0});
                 }}
               >
