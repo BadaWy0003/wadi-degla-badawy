@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "./Home.css";
 import 'swiper/css';
@@ -10,25 +10,34 @@ import { FreeMode, Autoplay } from 'swiper/modules';
 import { partnerLogos } from "../Partners/Partners.js";
 
 export default function PartnersHome() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.language === 'ar';
+
+    useEffect(() => {
+        // Force document direction update
+        document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    }, [isRTL]);
 
     return(
         <section className="partners-home-section">
             <h2>{t('home.partnersClients')}</h2>
             <Swiper
+                key={`partners-swiper-${isRTL}`}
                 slidesPerView={1}
                 spaceBetween={0}
                 loop={true}
                 speed={2000}
+                dir={isRTL ? 'rtl' : 'ltr'}
                 autoplay={{
                     delay: 1000,
                     disableOnInteraction: false,
+                    reverseDirection: isRTL,
                 }}
                 breakpoints={{
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 0, // Remove space for better centering
-                        centeredSlides: true, // Center the single slide
+                        spaceBetween: 0,
+                        centeredSlides: true,
                     },
                     768: {
                         slidesPerView: 3, 
