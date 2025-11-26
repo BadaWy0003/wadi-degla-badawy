@@ -623,5 +623,22 @@
   },
   "common": {
     "search": "بحث..."
+  },
+  "projects": {
+    "pageTitle": "مشاريعنا | وادي دجلة",
+    "metaDescription": "استكشف مشاريع وادي دجلة المنجزة حول العالم التي تضم تركيبات رخام وجرانيت عالية الجودة.",
+    "heroHeading": "بعض من مشاريعنا",
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbCurrent": "المشاريع",
+    "viewButton": "عرض",
+    "projectNotFound": "لم يتم العثور على المشروع",
+    "breadcrumbExplore": "استكشاف",
+    "tapToView": "اضغط على الصورة لعرضها بالحجم الكامل واسحب للتنقل",
+    "location": "الموقع:",
+    "materialSupplied": "المواد المستخدمة:",
+    "loadingMaterials": "جاري تحميل المواد...",
+    "noMaterials": "لا توجد مواد متاحة.",
+    "learnMore": "تعرف على المزيد",
+    "clickToView": "انقر على الصورة لعرضها بالحجم الكامل واسحب للتنقل"
   }
 }

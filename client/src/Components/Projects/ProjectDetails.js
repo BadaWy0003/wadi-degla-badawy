@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import "./ProjectDetails.css"
 import { useParams, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,6 +19,7 @@ import "../Products/Products.css";
 export default function ProjectDetails() {
   const { projectId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
@@ -44,7 +46,7 @@ export default function ProjectDetails() {
   const project = projects?.find((p) => p.id.toString() === projectId);
 
   if (!projects || !project) {
-    return <div className="error-message">Project not found</div>;
+    return <div className="error-message">{t('projects.projectNotFound')}</div>;
   }
 
   const materialProducts = project?.materialsSupplied?.map((material) => {
@@ -56,12 +58,12 @@ export default function ProjectDetails() {
   return (
     <div className="project-details-page">
       <div className="breadcrumb">
-        <a href="/">Home</a>
-        <p>{">"} Explore</p>
-        <a href="/projects">{">"} Projects</a>
+        <a href="/">{t('projects.breadcrumbHome')}</a>
+        <p>{">"} {t('projects.breadcrumbExplore')}</p>
+        <a href="/projects">{">"} {t('projects.breadcrumbCurrent')}</a>
         <p>{">"} {project.name}</p>
       </div>
-      <p className="project-hint">Tap on the image to view it in full size and swipe to navigate</p>
+      <p className="project-hint">{t('projects.tapToView')}</p>
       <div className="project-details-container">
         <div className="project-details-left">
           {project?.gallery && Object.keys(project?.gallery)?.length > 0 ? (
@@ -88,7 +90,7 @@ export default function ProjectDetails() {
                   <img loading="lazy" src={image} alt={`Slide ${index}`} className="project-image" />
                   {hovered && (
                     <div className="image-overlay">
-                      <p>Click on the image to view it in full size and swipe to navigate</p>
+                      <p>{t('projects.clickToView')}</p>
                     </div>
                   )}
                 </SwiperSlide>
@@ -101,11 +103,11 @@ export default function ProjectDetails() {
 
         <div className="project-details-right">
           <h1 className="project-details-title">{project.name}</h1>
-          <p className="project-details-description">Location: <strong>{project.city}{project.city?" - ":""}{project.country}</strong></p>
+          <p className="project-details-description">{t('projects.location')} <strong>{project.city}{project.city?" - ":""}{project.country}</strong></p>
 
-          <p>Materials Supplied:</p>
+          <p>{t('projects.materialSupplied')}</p>
           {loading ? (
-            <p>Loading materials...</p>
+            <p>{t('projects.loadingMaterials')}</p>
           ) : materialProducts.length > 0 ? (
             <div className="materials-supplied-container">
               {materialProducts.map((product) => (
@@ -113,11 +115,11 @@ export default function ProjectDetails() {
               ))}
             </div>
           ) : (
-            <p id="no-materials">No materials available.</p>
+            <p id="no-materials">{t('projects.noMaterials')}</p>
           )}
 
           <button className="btn1" onClick={() => navigate("/contact")} style={{ width: "100%", marginTop: "2rem" }}>
-            Learn More
+            {t('projects.learnMore')}
           </button>
         </div>
       </div>

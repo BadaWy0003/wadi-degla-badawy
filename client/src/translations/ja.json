@@ -623,5 +623,22 @@
   },
   "common": {
     "search": "検索..."
+  },
+  "projects": {
+    "pageTitle": "当社のプロジェクト | ワディ デグラ",
+    "metaDescription": "高品質の大理石とグラニットの設置を備えたワディ デグラの世界中の完成したプロジェクトを探索してください。",
+    "heroHeading": "私たちのプロジェクトのいくつか",
+    "breadcrumbHome": "ホーム",
+    "breadcrumbCurrent": "プロジェクト",
+    "viewButton": "表示",
+    "projectNotFound": "プロジェクトが見つかりません",
+    "breadcrumbExplore": "探索",
+    "tapToView": "画像をタップしてフルサイズで表示し、スワイプして移動します",
+    "location": "位置:",
+    "materialSupplied": "供給材料:",
+    "loadingMaterials": "材料を読み込み中...",
+    "noMaterials": "利用可能な材料はありません。",
+    "learnMore": "詳細を知る",
+    "clickToView": "画像をクリックしてフルサイズで表示し、スワイプして移動します"
   }
 }

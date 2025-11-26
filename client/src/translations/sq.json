@@ -623,5 +623,22 @@
   },
   "common": {
     "search": "Kërko..."
+  },
+  "projects": {
+    "pageTitle": "Projektet Tona | Wadi Degla",
+    "metaDescription": "Eksploroni projektet e përfunduara të Wadi Degla në të gjithë botën me instalime mermeri dhe graniti të cilësisë së lartë.",
+    "heroHeading": "DISA NG AMING PROYEKTO",
+    "breadcrumbHome": "Shtëpi",
+    "breadcrumbCurrent": "Projektet",
+    "viewButton": "Shikoni",
+    "projectNotFound": "Projekti nuk u gjet",
+    "breadcrumbExplore": "Eksplorimi",
+    "tapToView": "Prekni imazhin për ta parë në madhësi të plotë dhe sviço për të naviguar",
+    "location": "Lokacioni:",
+    "materialSupplied": "Materialet e Furnizuara:",
+    "loadingMaterials": "Po ngarkohen materialet...",
+    "noMaterials": "Nuk ka materiale të disponueshme.",
+    "learnMore": "Mësoni Më Shumë",
+    "clickToView": "Kliko në imazhin për ta parë në madhësi të plotë dhe sviço për të naviguar"
   }
 }

@@ -629,5 +629,22 @@
   },
   "common": {
     "search": "Search..."
+  },
+  "projects": {
+    "pageTitle": "Our Projects | Wadi Degla",
+    "metaDescription": "Explore Wadi Degla's completed projects across the world featuring premium marble and granite installations.",
+    "heroHeading": "SOME OF OUR PROJECTS",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Projects",
+    "viewButton": "View",
+    "projectNotFound": "Project not found",
+    "breadcrumbExplore": "Explore",
+    "tapToView": "Tap on the image to view it in full size and swipe to navigate",
+    "location": "Location:",
+    "materialSupplied": "Materials Supplied:",
+    "loadingMaterials": "Loading materials...",
+    "noMaterials": "No materials available.",
+    "learnMore": "Learn More",
+    "clickToView": "Click on the image to view it in full size and swipe to navigate"
   }
 }

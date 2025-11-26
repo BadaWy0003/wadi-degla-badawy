@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import "./Projects.css";
 import Project from "./Project";
 import projects from "./projectList"; // Import the project list
@@ -6,6 +7,8 @@ import ContactBubble from "../Contact/ContactBubble";
 import { Helmet } from 'react-helmet-async';
 
 export default function Projects() {
+  const { t } = useTranslation();
+
   // Group projects by country
   const groupedProjects = projects.reduce((acc, project) => {
     if (!acc[project.country]) {
@@ -18,18 +21,18 @@ export default function Projects() {
   return (
     <>
     <Helmet>
-        <title>Projects | Wadidegla</title>
-        <meta name="description" content="Projects Description" />
+        <title>{t('projects.pageTitle')}</title>
+        <meta name="description" content={t('projects.metaDescription')} />
         <link rel="canonical" href="https://www.wadidegla-eg.com/projects" />
     </Helmet>
     
     <div className="projects-page">
       {/* 🌟 Hero Section */}
       <div className="quarries-hero">
-        <h1>SOME OF OUR PROJECTS</h1>
+        <h1>{t('projects.heroHeading')}</h1>
         <div className="breadcrumb">
-          <a href="/">Home</a>
-          <p>{">"} Projects</p>
+          <a href="/">{t('projects.breadcrumbHome')}</a>
+          <p>{">"} {t('projects.breadcrumbCurrent')}</p>
         </div>
       </div>
 

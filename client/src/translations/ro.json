@@ -623,5 +623,22 @@
   },
   "common": {
     "search": "Căutare..."
+  },
+  "projects": {
+    "pageTitle": "Proiectele Noastre | Wadi Degla",
+    "metaDescription": "Explorați proiectele finalizate de Wadi Degla din întreaga lume cu instalații de marmură și granit de calitate superioară.",
+    "heroHeading": "UNELE DINTRE PROIECTELE NOASTRE",
+    "breadcrumbHome": "Acasă",
+    "breadcrumbCurrent": "Proiecte",
+    "viewButton": "Vizualizare",
+    "projectNotFound": "Proiectul nu a fost găsit",
+    "breadcrumbExplore": "Explorați",
+    "tapToView": "Atingeți imaginea pentru a o vizualiza în dimensiune completă și glisați pentru a naviga",
+    "location": "Locația:",
+    "materialSupplied": "Materialuri Furnizate:",
+    "loadingMaterials": "Se încarcă materialele...",
+    "noMaterials": "Nu sunt disponibile materiale.",
+    "learnMore": "Aflați Mai Multe",
+    "clickToView": "Faceți clic pe imagine pentru a o vizualiza în dimensiune completă și glisați pentru a naviga"
   }
 }

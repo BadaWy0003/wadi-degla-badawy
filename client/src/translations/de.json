@@ -623,5 +623,22 @@
   },
   "common": {
     "search": "Suchen..."
+  },
+  "projects": {
+    "pageTitle": "Unsere Projekte | Wadi Degla",
+    "metaDescription": "Erkunden Sie die abgeschlossenen Projekte von Wadi Degla auf der ganzen Welt mit hochwertigen Marmor- und Granitinstallationen.",
+    "heroHeading": "EINIGE UNSERER PROJEKTE",
+    "breadcrumbHome": "Startseite",
+    "breadcrumbCurrent": "Projekte",
+    "viewButton": "Ansicht",
+    "projectNotFound": "Projekt nicht gefunden",
+    "breadcrumbExplore": "Erkunden",
+    "tapToView": "Tippen Sie auf das Bild, um es in voller Größe anzuzeigen, und wischen Sie zum Navigieren",
+    "location": "Standort:",
+    "materialSupplied": "Verwendete Materialien:",
+    "loadingMaterials": "Materialien werden geladen...",
+    "noMaterials": "Keine Materialien verfügbar.",
+    "learnMore": "Mehr erfahren",
+    "clickToView": "Klicken Sie auf das Bild, um es in voller Größe anzuzeigen, und wischen Sie zum Navigieren"
   }
 }

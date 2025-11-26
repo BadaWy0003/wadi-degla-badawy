@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 export default function Project({ project }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div
@@ -23,7 +25,7 @@ export default function Project({ project }) {
                 navigate(`/projects/${project.id}`);
                 window.scrollTo({ top: 0 });
             }}
-            >View</button>
+            >{t('projects.viewButton')}</button>
         </div>
     </div>
   );
