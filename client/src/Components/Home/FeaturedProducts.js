@@ -139,7 +139,8 @@ export default function FeaturedProducts() {
               <button 
                 className="btn2"
                 onClick={() => {
-                  navigate(`/products/${activeProduct.name}`);
+                  const urlName = activeProduct.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                  navigate(`/products/${urlName}`);
                   window.scrollTo({top: 0});
                 }}
               >
