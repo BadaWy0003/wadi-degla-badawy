@@ -185,10 +185,15 @@ const SearchBar = () => {
         if (product.name.toLowerCase().includes(searchTerm) || 
             product.type.toLowerCase().includes(searchTerm)) {
           seenPaths.add(productPath);
+          // Get product image (honed or polished finish)
+          const productImage = product.finishes?.find(f => f.finish === 'Honed' || f.finish === 'Polished')?.link || null;
+          
           filteredResults.push({
             title: product.name,
             path: productPath,
-            content: `${product.type} | ${t('common.product') || 'Product'}`
+            content: `${product.type} | ${t('common.product') || 'Product'}`,
+            image: productImage,
+            isProduct: true
           });
         }
       }
@@ -230,12 +235,17 @@ const SearchBar = () => {
             {results.map((result, index) => (
               <div
                 key={index}
-                className="search-result-item"
+                className={`search-result-item ${result.isProduct ? 'product-result' : ''}`}
                 onClick={() => {
                   handleResultClick(result.path);
                 }}>
-                <div className="result-title">{result.title}</div>
-                <div className="result-content">{result.content}</div>
+                {result.image && (
+                  <img src={result.image} alt={result.title} className="result-image" />
+                )}
+                <div className="result-text-content">
+                  <div className="result-title">{result.title}</div>
+                  <div className="result-content">{result.content}</div>
+                </div>
               </div>
             ))}
           </div>
