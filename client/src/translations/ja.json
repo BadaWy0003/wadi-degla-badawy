@@ -622,7 +622,8 @@
     "tryNow": "今すぐ試す"
   },
   "common": {
-    "search": "検索..."
+    "search": "検索...",
+    "product": "製品"
   },
   "projects": {
     "pageTitle": "当社のプロジェクト | ワディ デグラ",

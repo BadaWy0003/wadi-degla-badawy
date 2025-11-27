@@ -622,7 +622,8 @@
     "tryNow": "PROVO TANI"
   },
   "common": {
-    "search": "Kërko..."
+    "search": "Kërko...",
+    "product": "Produkti"
   },
   "projects": {
     "pageTitle": "Projektet Tona | Wadi Degla",

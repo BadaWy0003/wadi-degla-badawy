@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import apiClient from '../../util/client.js';
 import './SearchBar.css';
 
 const SearchBar = () => {
@@ -8,9 +9,25 @@ const SearchBar = () => {
   const [results, setResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [products, setProducts] = useState([]);
   const searchRef = useRef(null);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+
+  // Fetch products on mount
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data } = await apiClient.get('/api/storage/all');
+        if (data.data) {
+          setProducts(data.data);
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   // Handle click outside to close results and search bar
   useEffect(() => {
@@ -144,6 +161,7 @@ const SearchBar = () => {
     const filteredResults = [];
     const seenPaths = new Set(); // Prevent duplicates
 
+    // Search in page content
     allContent.forEach(({ text, key }) => {
       if (text.toLowerCase().includes(searchTerm)) {
         const pageInfo = getPageFromKey(key);
@@ -154,6 +172,23 @@ const SearchBar = () => {
             title: getPageTitle(pageInfo.page),
             path: pageInfo.path,
             content: text.substring(0, 150) + (text.length > 150 ? '...' : '')
+          });
+        }
+      }
+    });
+
+    // Search in products
+    products.forEach((product) => {
+      const productPath = `/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+      
+      if (!seenPaths.has(productPath)) {
+        if (product.name.toLowerCase().includes(searchTerm) || 
+            product.type.toLowerCase().includes(searchTerm)) {
+          seenPaths.add(productPath);
+          filteredResults.push({
+            title: product.name,
+            path: productPath,
+            content: `${product.type} | ${t('common.product') || 'Product'}`
           });
         }
       }

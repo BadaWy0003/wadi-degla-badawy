@@ -626,7 +626,8 @@
     "tryNow": "INTENTA AHORA"
   },
   "common": {
-    "search": "Buscar..."
+    "search": "Buscar...",
+    "product": "Producto"
   },
   "projects": {
     "pageTitle": "Nuestros Proyectos | Wadi Degla",

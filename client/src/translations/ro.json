@@ -622,7 +622,8 @@
     "tryNow": "ÎNCERCAȚI ACUM"
   },
   "common": {
-    "search": "Căutare..."
+    "search": "Căutare...",
+    "product": "Produs"
   },
   "projects": {
     "pageTitle": "Proiectele Noastre | Wadi Degla",

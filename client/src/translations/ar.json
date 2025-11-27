@@ -622,7 +622,8 @@
     "tryNow": "جرب الآن"
   },
   "common": {
-    "search": "بحث..."
+    "search": "بحث...",
+    "product": "منتج"
   },
   "projects": {
     "pageTitle": "مشاريعنا | وادي دجلة",
