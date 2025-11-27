@@ -50,6 +50,14 @@
   visibility: visible;
   transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+  .search-input-container {
+    width: calc(100vw - 40px);
+    right: 20px;
+    max-width: none;
+  }
+}
 .search-input {
   border: 1px solid #ddd;
   width: 100%;
@@ -82,6 +90,8 @@
   max-height: 350px;
   overflow-y: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  width: 100%;
 }
 
 @keyframes fadeIn {
@@ -92,6 +102,19 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .search-results {
+    max-height: 250px;
+    position: fixed;
+    top: auto;
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100vw - 40px);
   }
 }
 
