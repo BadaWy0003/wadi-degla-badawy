@@ -116,7 +116,8 @@ export default function History() {
                     <MasonryGrid props={HistoryImages}/>
                 </div>
             </div>
-            <div className='history-final-section'>
+            <div className='history-final-section' alt={t('history.finalSectionAlt')}>
+                <h2>{t('history.finalSectionTitle')}</h2>
                 <p>{t('history.finalText1')}</p>
                 <p>{t('history.finalText2')}</p>
             </div>
