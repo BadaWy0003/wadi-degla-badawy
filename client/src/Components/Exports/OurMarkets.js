@@ -65,8 +65,9 @@ export default function OurMarkets(){
       };
     
     return(
-                        <section className="our-markets">
+                        <section className="our-markets" aria-label={t('exports.marketsAlt')}>
                             <h2>{t('exports.marketsTitle')}</h2>
+                            <p className="our-markets-sub-1">{t('exports.marketsDescription1')}</p>
                             {/* 🌍 Continent Buttons */}
                             <div className="continent-buttons">
                                 {Object.keys(continentData).map((continent, index) => (
@@ -95,7 +96,8 @@ export default function OurMarkets(){
                                 ))}
                             </div>
                         )}
-        
+                                    <p className="our-markets-sub-2">{t('exports.marketsDescription2')}</p>
+
                         {/* 🌐 Interactive Globe */}
                         <GlobeChart selectedCountry={selectedCountry} />
                         </section>

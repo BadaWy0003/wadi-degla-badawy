@@ -9,7 +9,7 @@ export default function VisualizerHome() {
       const { t } = useTranslation();
 
     return(
-        <section className="visualizer-home-section">
+        <section className="visualizer-home-section" aria-label={t('home.visualizerAlt')}>
             <div className="visualizer-home-inner">
             <h2>{t('home.bringVisionToLife')}</h2>
             <p>{t('home.bringVisionToLifeDesc')}</p>

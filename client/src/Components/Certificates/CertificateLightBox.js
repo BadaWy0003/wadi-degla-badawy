@@ -3,7 +3,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom"; // Import Zoom plugin
 
-export default function CertificateLightBox({ thumbnail, fullImage }) {
+export default function CertificateLightBox({ thumbnail, fullImage, altText }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -12,7 +12,7 @@ export default function CertificateLightBox({ thumbnail, fullImage }) {
             <img loading="lazy" 
                 className="certificate-image"
                 src={thumbnail} 
-                alt="Thumbnail" 
+                alt={altText || "Certificate"} 
                 onClick={() => setIsOpen(true)} 
             />
 

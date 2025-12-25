@@ -11,14 +11,15 @@ export default function CertificatesHome() {
         <section className="certificates-home">
             <h2>{t('home.certificates')}</h2>
             <p className="certificates-hint-pc">{t('home.certificatesHintPc')}</p>
-            <p className="certificates-hint-mobile">{t('home.certificatesHintMobile')}</p>
+            {/* <p className="certificates-hint-mobile">{t('home.certificatesHintMobile')}</p> */}
             <div className="certificates-home-grid">
             {certificatesData.map((certificate, index) => (
                 <div  key={index}>                    
                     {/* Lightbox Component (Thumbnail & Full Image) */}
                     <CertificateLightBox 
                     thumbnail={certificate.thumbnail} 
-                    fullImage={certificate.image} 
+                    fullImage={certificate.image}
+                    altText={t('home.certificatesAlt')}
                     />
                 </div>
             ))}

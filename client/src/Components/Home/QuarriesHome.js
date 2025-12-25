@@ -14,6 +14,7 @@ export default function QuarriesHome() {
             <h4>{t('home.globalQuarriesTitle')}</h4>
             <p>{t('home.globalQuarriesDesc')}</p>
                 <button
+                alt={t('home.globalQuarriesAlt')}
                 className="btn2"
                 style={{marginTop: "2rem"}}
                 onClick={() => {

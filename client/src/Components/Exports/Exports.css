@@ -68,9 +68,17 @@
 
 .our-markets h2 {
     color: var(--goldColor);
-    margin-bottom: 5rem;
+    margin-bottom: 0;
 }
 
+.our-markets p{
+    color: var(--whiteColor);
+    text-align: center;
+}
+
+.our-markets-sub-2{
+    margin-bottom: 3rem;
+}
 .markets {
     display: flex;
     justify-content: center;
@@ -95,6 +103,7 @@
     justify-content: center;
     gap: 1rem;
     margin-bottom: 1rem;
+    margin-top: 2rem;
     width: 100%;
     flex-wrap: wrap;
 }

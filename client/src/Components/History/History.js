@@ -38,7 +38,7 @@ export default function History() {
             {/* Intro Section */}
             <div className="history-intro-section">
                 <div className="history-intro-section-title">
-                <h1>{t('history.foundedTitle')}</h1>
+                <h2>{t('history.foundedTitle')}</h2>
                 <CountUp start={2025}
                             end={1980}
                             duration={3}
@@ -49,19 +49,23 @@ export default function History() {
                             style={{ fontSize: '100px', fontWeight: 900, color: 'var(--goldColor)'}}
                 />
                 </div>
+                
                 <p className="first-gen-intro">{t('history.firstGenIntro')}</p>
             </div>
             <div className="first-gen-section">
                 <div className="first-gen-title">
                     <hr/>
-                    <h2>{t('history.visionaryBeginningsTitle')}</h2>
+                    <h2>{t('history.visionTitle')}</h2>
                 </div>
                 <div className="first-gen-section-content">
                     <div className="first-gen-section-text">
-                        <p>{t('history.visionaryBeginningsText')}</p>
+                        <h3>{t('history.firstBreakthroughTitle')}</h3>
+                        <p>{t('history.firstBreakthroughText')}</p>
+                        <h3>{t('history.familyExpansionTitle')}</h3>
+                        <p>{t('history.familyExpansionText')}</p>
                     </div>
                     <div className="first-gen-section-image">
-                        <img loading="lazy" src={history16} alt="history-7"/>
+                        <img loading="lazy" src={history16} alt={t('history.firstGenAlt')}/>
                     </div>
                 </div>
             </div>
@@ -73,9 +77,10 @@ export default function History() {
                 <div className="second-gen-section-content">
                     <div className="second-gen-section-text">
                         <p>{t('history.secondGenText')}</p>
+                        <p>{t('history.secondGenPartnershipText')}</p>
                     </div>
                     <div className="second-gen-section-image">
-                        <img loading="lazy" src={sameh_ghanam} alt="sameh-ghanam"/>
+                        <img loading="lazy" src={sameh_ghanam} alt={t('history.secondGenAlt')}/>
                     </div>
                 </div>
             </div>
@@ -86,16 +91,16 @@ export default function History() {
                 </div>
                 <div className="third-gen-section-content">
                     <div className="third-gen-section-image">
-                        <img loading="lazy" src={saeed_jr} alt="saeed-ghanam"/>
+                        <img loading="lazy" src={saeed_jr} alt={t('history.thirdGenAlt')}/>
                     </div>
                     <div className="third-gen-section-text">
                         <p>{t('history.thirdGenText')}</p>
                     </div>
                     <div className="third-gen-section-gallery">
-                        <img loading="lazy" src={saeed_jr_2} alt="saeed-ghanam"/>
-                        <img loading="lazy" src={saeed_jr_3} alt="saeed-ghanam"/>
-                        <img loading="lazy" src={saeed_jr_4} alt="saeed-ghanam"/>
-                        <img loading="lazy" src={saeed_jr_5} alt="saeed-ghanam"/>
+                        <img loading="lazy" src={saeed_jr_2} alt={t('history.thirdGenGalleryAlt1')}/>
+                        <img loading="lazy" src={saeed_jr_3} alt={t('history.thirdGenGalleryAlt2')}/>
+                        <img loading="lazy" src={saeed_jr_4} alt={t('history.thirdGenGalleryAlt3')}/>
+                        <img loading="lazy" src={saeed_jr_5} alt={t('history.thirdGenGalleryAlt4')}/>
                     </div>
                 </div>
             </div>
@@ -106,9 +111,7 @@ export default function History() {
                 </div>
                 <div className="legacy-section-content">
                     <div className="legacy-section-text">
-                        <p>{t('history.legacyText1')}</p>
-                        <br/>
-                        <p>{t('history.legacyText2')}</p>
+                        <p>{t('history.legacyIntroText')}</p>
                     </div>
                     <MasonryGrid props={HistoryImages}/>
                 </div>

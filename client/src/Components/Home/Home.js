@@ -14,6 +14,7 @@ import ProjectsHome from "./ProjectsHome.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import CertificatesHome from "./CertificatesHome.js";
 import InspirationHome from "./InspirationHome.js";
+import FaqHome from "./FaqHome.js";
 // import { useGlobalState } from '../GlobalStateContext.js';
 import { Helmet } from 'react-helmet-async';
 
@@ -88,6 +89,7 @@ export default function Home(){
                 }}>{t('home.learnMore')}</button>                     
             </div>
             <ProjectsHome />
+            <FaqHome />
 
             <ContactBubble />
         </div>

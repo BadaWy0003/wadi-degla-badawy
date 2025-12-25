@@ -21,6 +21,7 @@ export default function PartnersHome() {
     return(
         <section className="partners-home-section">
             <h2>{t('home.partnersClients')}</h2>
+            <p>{t('home.partnersDescription')}</p>
             <Swiper
                 key={`partners-swiper-${isRTL}`}
                 slidesPerView={1}
@@ -54,6 +55,7 @@ export default function PartnersHome() {
                 }}
                 modules={[FreeMode, Autoplay]}
                 className="partners-swiper"
+                alt={t('home.partnersAlt')}
             >
                 {partnerLogos.map((logo, index) => (
                     <SwiperSlide key={index} className="partner-slide">
