@@ -425,12 +425,12 @@
         "finalText3": "Ne ofrojmë madhësi standarde, por fabrika jonë është plotësisht e pajisur për të prodhuar dimensione të personalizuara për të përmbushur kërkesat tuaja specifike. Ne prodhojmë modele të larmishme produktesh dhe jemi gati të ofrojmë dizajne të bëra me porosi me dimensionet, përfundimet dhe materialet e nevojshme."
     },
     "machinery": {
-        "pageTitle": "Makineri | Wadidegla",
-        "metaDescription": "Makineritë dhe linjat e prodhimit të avancuara të Wadi Degla për përpunimin e mermerit dhe granitit.",
+        "pageTitle": "Makina Wadi Degla | Pajisjet Avansuar të Prodhimit të Marmorit dhe Granitit në Egjipt",
+        "metaDescription": "Eksploroni makinerinë e shtatzakanshme të marmorit dhe granitit të Wadi Degla, duke përfshirë sorrurat në grup, prerësit e blloqeve, linjat e pastrimit, monofili, prerësit e urave, makinat e rrotullimit dhe më shumë. Prodhimi i inxhinerisë me saktësi për pllaka, pllaka dhe blloqe—i besuar nga importuesit globalë dhe meqaprojektet.",
         "heroTitle": "MAKINERIA JONË",
         "breadcrumbHome": "Ballina",
         "breadcrumbCurrent": "Makineri",
-        "intro": "Në Wadi Degla Marble & Granite, ne besojmë se zejtarinë e jashtëzakonshme fillon me teknologjinë e fundit. Makineria jonë moderne është shtylla kurrizore e operacioneve tona, duke na mundësuar të ofrojmë precizion, efikasitet dhe cilësi të pakrahasueshme në gjithçka që prodhojmë.",
+        "intro": "Në Wadi Degla Marmor dhe Granit, zejtaria e jashtëzakonshme fillon me teknologji të avancuar.\nMakineria jonë është shpina kurrizore e prodhimit tonë—e hartuar për të dhënë saktësi, konsistencë dhe efikasitet nga karriera në përfundimin përfundimtar.\nNe operojmë njërën nga instalimet më moderne dhe të integruara të përpunimit të gurëve në Egjipt, duke na lejuar të plotësojmë standardet globale të cilësisë në blloqe, pllaka dhe pllaka.",
         "sections": {
             "generalUse": "PËRDORIMI I PËRGJITHSHËM",
             "blocks": "BLOCET E MERMERIT DHE GRANITIT",
@@ -443,19 +443,19 @@
             "forklifts": "2 Karroca Ngarkuese"
         },
         "blocks": {
-            "caption1": "Prerja dhe rregullimi i blloqeve, katrorizimi i blloqeve para prerjes me sharrë kornizë (gang saw), vinça të sipërm të aftë të mbajnë blloqe të mëdha deri në 50 ton",
+            "caption1": "Makineria jonë siguron prerje të saktë të blloqeve, shesimin dhe përgatitjen para prodhimit të pllakave.\nKjo na lejon të mbajmë dimensionet konsistente, të reduktojmë mbetjet dhe të arrijmë finishe të cilësisë premium.",
             "caption2": "Prerja dhe transformimi i blloqeve në pllaka të mëdha (slabs) me trashësi të ndryshme (p.sh. 2cm në 8cm)",
             "gangsaws": "9 Sharra Kornizë (Gangsaws)",
             "blocksCutters": "4 Prerëse Bllokësh",
             "monofilos": "6 Monofila (Monofilos)"
         },
         "slabs": {
-            "caption": "Linjat e lustrimit mund të prodhojnë çdo lloj përfundimi deri në trashësi 8 cm, përveç atyre me acid dhe të flakura",
+            "caption": "Linjat e pastrimit dhe përpunimit të dizajnuara për të dhënë finishe premium me shkëlqim, teksturë dhe qëndrueshmëri konsistente.",
             "polishingLines": "3 linja lustrimi",
             "risinLine": "1 linjë trajtimi me rrëshirë"
         },
         "tiles": {
-            "caption": "Prerëse me urë (Bridge cutters) që presin pllakat e mëdha në pllaka të vogla (tiles) në çdo madhësi",
+            "caption": "Sistemet e prerjes së pllakave me saktësi të lartë që transformojnë pllakat në pllaka të çdo madhësie për projekte në shkallë të gjerë.",
             "bridgeCutters": "6 Prerëse me urë për Pllaka të Mëdha",
             "tumblingMachine": "1 Makineri Burratimi (Tumbling machine)",
             "splittingStrips": "3 Makineri Spërkatëse Shiritash"

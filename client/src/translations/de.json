@@ -425,12 +425,12 @@
         "finalText3": "Wir liefern Standardgrößen, aber unsere Fabrik ist vollständig ausgestattet, um kundenspezifische Abmessungen zu produzieren, um Ihre spezifischen Anforderungen zu erfüllen. Wir fertigen verschiedene Produktmodelle und sind bereit, maßgeschneiderte Designs mit den notwendigen Abmessungen, Finishes und Materialien zu liefern."
     },
     "machinery": {
-        "pageTitle": "Maschinen | Wadidegla",
-        "metaDescription": "Die fortschrittlichen Maschinen und Produktionslinien von Wadi Degla für die Marmor- und Granitverarbeitung.",
+        "pageTitle": "Wadi Degla Maschinen | Fortgeschrittene Marmor- und Granitproduktionsausrüstung in Ägypten",
+        "metaDescription": "Entdecken Sie die hochmoderne Marmor- und Granitmaschinen von Wadi Degla, einschließlich Gattersägen, Blockschneider, Polierlinien, Monofils, Brückenschneider, Tumbler und mehr. Präzisions-Engineering-Produktion für Platten, Fliesen und Blöcke—vertraut von globalen Importeuren und Megaprojekten.",
         "heroTitle": "UNSERE MASCHINEN",
         "breadcrumbHome": "Startseite",
         "breadcrumbCurrent": "Maschinen",
-        "intro": "Bei Wadi Degla Marble & Granite glauben wir, dass außergewöhnliche Handwerkskunst mit modernster Technologie beginnt. Unsere hochmodernen Maschinen sind das Rückgrat unserer Geschäftstätigkeit und ermöglichen es uns, unvergleichliche Präzision, Effizienz und Qualität bei allem, was wir produzieren, zu liefern.",
+        "intro": "Bei Wadi Degla Marmor & Granit beginnt außergewöhnliche Handwerkskunst mit fortschrittlicher Technologie.\nUnsere Maschinen sind das Rückgrat unserer Produktion – entwickelt, um Präzision, Konsistenz und Effizienz vom Steinbruch bis zur Endbearbeitung zu liefern.\nWir betreiben eine der modernsten und integriertesten Steinbearbeitungsanlagen in Ägypten, die es uns ermöglicht, globale Qualitätsstandards für Blöcke, Platten und Fliesen zu erfüllen.",
         "sections": {
             "generalUse": "ALLGEMEINE VERWENDUNG",
             "blocks": "MARMOR- UND GRANITBLÖCKE",
@@ -443,19 +443,19 @@
             "forklifts": "2 Gabelstapler"
         },
         "blocks": {
-            "caption1": "Schneiden und Richten von Blöcken, Quadrieren von Blöcken vor dem Schneiden mit der Gattersäge (gang saw), Überkopfkräne, die große Blöcke bis zu 50 Tonnen halten können",
+            "caption1": "Unsere Maschinen gewährleisten genaue Blockschnitte, Quadrierung und Vorbereitung vor der Plattenproduktion.\nDies ermöglicht uns, konsistente Abmessungen beizubehalten, Verschwendung zu reduzieren und hochwertige Oberflächen zu erzielen.",
             "caption2": "Schneiden und Umwandeln von Blöcken in Platten (slabs) mit unterschiedlicher Dicke (z. B. 2 cm bis 8 cm)",
             "gangsaws": "9 Gattersägen (Gangsaws)",
             "blocksCutters": "4 Blocksägen",
             "monofilos": "6 Monofil-Sägen (Monofilos)"
         },
         "slabs": {
-            "caption": "Polierlinien können jede Art von Finish bis zu 8 cm Dicke herstellen, außer Säure- und Geflammt",
+            "caption": "Polier- und Behandlungslinien, die so konstruiert sind, dass sie hochwertige Oberflächen mit konsistenter Glanz, Textur und Haltbarkeit liefern.",
             "polishingLines": "3 Polierlinien",
             "risinLine": "1 Harzbehandlungslinie"
         },
         "tiles": {
-            "caption": "Brückenschneider (Bridge cutters), die Platten in Fliesen jeder Größe schneiden",
+            "caption": "Hochpräzisions-Fliesenschneidesysteme, die Platten in beliebige Größen für großflächige Projekte umwandeln.",
             "bridgeCutters": "6 Platten-Brückenschneider",
             "tumblingMachine": "1 Trommelmaschine (Tumbling machine)",
             "splittingStrips": "3 Spaltbandmaschinen (Splitting strips machines)"

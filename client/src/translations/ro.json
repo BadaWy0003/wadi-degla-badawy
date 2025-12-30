@@ -425,12 +425,12 @@
         "finalText3": "Oferim dimensiuni standard, dar fabrica noastră este complet echipată pentru a produce dimensiuni personalizate pentru a satisface cerințele dumneavoastră specifice. Fabricăm diverse modele de produse și suntem gata să livrăm designuri la comandă cu dimensiunile, finisajele și materialele necesare."
     },
     "machinery": {
-        "pageTitle": "Utilaje | Wadidegla",
-        "metaDescription": "Utilajele avansate și liniile de producție ale Wadi Degla pentru prelucrarea marmurei și granitului.",
+        "pageTitle": "Mașini Wadi Degla | Echipamente Avansate de Producție Marmură și Granit în Egipt",
+        "metaDescription": "Explorați mașinile de vârf pentru marmură și granit ale Wadi Degla, inclusiv ferăstrăi cu lanț, tăietoare de blocuri, linii de polisare, monofile, tăietoare de poduri, mașini de turbionare și mai mult. Producție cu inginerie de precizie pentru plăci, gresii și blocuri—de încredere de importatori globali și megaproiecte.",
         "heroTitle": "UTILAJUL NOSTRU",
         "breadcrumbHome": "Acasă",
         "breadcrumbCurrent": "Utilaje",
-        "intro": "La Wadi Degla Marble & Granite, credem că măiestria excepțională începe cu tehnologia de vârf. Utilajele noastre de ultimă generație reprezintă coloana vertebrală a operațiunilor noastre, permițându-ne să livrăm precizie, eficiență și calitate de neegalat în tot ceea ce producem.",
+        "intro": "La Wadi Degla Marmură și Granit, meseriasul excepțional începe cu tehnologie avansată.\nMaşinăria noastră este coloana vertebrală a producției noastre—proiectată pentru a oferi precizie, consistență și eficiență de la carieră la finisare finală.\nOperez una dintre cele mai moderne și integrate facilități de prelucrare a pietrei din Egipt, permițând-ne să respectăm standardele globale de calitate pe blocuri, plăci și gresii.",
         "sections": {
             "generalUse": "UTILIZARE GENERALĂ",
             "blocks": "BLOCURI DE MARMURĂ ȘI GRANIT",
@@ -443,19 +443,19 @@
             "forklifts": "2 Motostivuitoare"
         },
         "blocks": {
-            "caption1": "Tăierea și fasonarea blocurilor, echerizarea blocurilor înainte de tăierea cu ferăstrău-cadru (gang saw), poduri rulante capabile să susțină blocuri mari de până la 50 de tone",
+            "caption1": "Maşinăria noastră asigură tăiere precisă a blocurilor, pătratare și pregătire înainte de producția plăcilor.\nAceasta ne permite să menținem dimensiuni consistente, să reducem risipa și să realizez finisaje de calitate superioară.",
             "caption2": "Tăierea și transformarea blocurilor în plăci mari (slabs) cu grosimi diferite (de exemplu, 2cm la 8cm)",
             "gangsaws": "9 Ferăstraie-cadru (Gangsaws)",
             "blocksCutters": "4 Mașini de Tăiat Blocuri",
             "monofilos": "6 Monofilare (Monofilos)"
         },
         "slabs": {
-            "caption": "Liniile de lustruire pot produce orice fel de finisaje de până la 8 cm grosime, cu excepția celor cu acid și flamed",
+            "caption": "Linii de polisare și tratament proiectate pentru a oferi finisaje premium cu luciu, textură și durabilitate consistente.",
             "polishingLines": "3 linii de lustruire",
             "risinLine": "1 linie de tratare cu rășină"
         },
         "tiles": {
-            "caption": "Mașini de tăiat cu punte (Bridge cutters) care taie plăcile mari în plăci mici (tiles) de orice dimensiune",
+            "caption": "Sisteme de tăiere a gresiilor cu precizie ridicată care transformă plăcile în gresii de orice dimensiune pentru proiecte la scară largă.",
             "bridgeCutters": "6 Mașini de tăiat cu punte pentru plăci mari",
             "tumblingMachine": "1 Mașină de Tumbuire (Tumbling machine)",
             "splittingStrips": "3 Mașini de Despicat Fâșii (Splitting strips machines)"

@@ -425,12 +425,12 @@
         "finalText3": "We provide standard sizes, but our factory is fully equipped to produce custom dimensions to meet your specific requirements. We manufacture diverse product models and are ready to deliver bespoke designs with the necessary dimensions, finishes, and materials."
     },
     "machinery": {
-        "pageTitle": "Machinery | Wadidegla",
-        "metaDescription": "Wadi Degla's advanced machinery and production lines for marble and granite processing.",
+        "pageTitle": "Wadi Degla Machinery | Advanced Marble & Granite Production Equipment in Egypt",
+        "metaDescription": "Explore Wadi Degla's state-of-the-art marble and granite machinery, including gangsaws, block cutters, polishing lines, monofilos, bridge cutters, tumbling machines, and more. Precision-engineered production for slabs, tiles, and blocks—trusted by global importers and mega-projects.",
         "heroTitle": "OUR MACHINERY",
         "breadcrumbHome": "Home",
         "breadcrumbCurrent": "Machinery",
-        "intro": "At Wadi Degla Marble & Granite, we believe that exceptional craftsmanship begins with cutting-edge technology. Our state-of-the-art machinery is the backbone of our operations, enabling us to deliver unparalleled precision, efficiency, and quality in everything we produce.",
+        "intro": "At Wadi Degla Marble & Granite, exceptional craftsmanship begins with advanced technology.\nOur machinery is the backbone of our production—designed to deliver accuracy, consistency, and efficiency from quarry to final finish.\nWe operate one of the most modern and integrated stone-processing facilities in Egypt, enabling us to meet global quality standards across blocks, slabs, and tiles.",
         "sections": {
             "generalUse": "GENERAL USE",
             "blocks": "MARBLE & GRANITE BLOCKS",
@@ -443,19 +443,19 @@
             "forklifts": "2 Forklifts"
         },
         "blocks": {
-            "caption1": "Cutting and dressing blocks, squaring blocks before cutting by gang saw overhead cranes able to hold big blocks up to 50 ton",
+            "caption1": "Our machinery ensures accurate block cutting, squaring, and preparation prior to slab production.\nThis allows us to maintain consistent dimensions, reduce waste, and achieve premium-quality finishes.",
             "caption2": "Cutting and transforming blocks to slabs with different thickness (e.g. 2cm to 8cm)",
             "gangsaws": "9 Gangsaws",
             "blocksCutters": "4 Blocks Cutters",
             "monofilos": "6 Monofilos"
         },
         "slabs": {
-            "caption": "Polishing lines can produce any kind of finishes up to 8cm thicknesses except acid and flamed",
+            "caption": "Polishing and treatment lines engineered to deliver premium finishes with consistent gloss, texture, and durability.",
             "polishingLines": "3 polishing lines",
             "risinLine": "1 risin treating line"
         },
         "tiles": {
-            "caption": "Bridge cutters cutting slabs to tiles in any size",
+            "caption": "High-precision tile-cutting systems that transform slabs into tiles of any size for large-scale projects.",
             "bridgeCutters": "6 Slabs bridge cutters",
             "tumblingMachine": "1 Tumbling machine",
             "splittingStrips": "3 Splitting strips machines"

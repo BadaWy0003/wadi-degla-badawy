@@ -425,12 +425,12 @@
         "finalText3": "Nous fournissons des tailles standard, mais notre usine est entièrement équipée pour produire des dimensions personnalisées afin de répondre à vos exigences spécifiques. Nous fabriquons divers modèles de produits et sommes prêts à livrer des designs sur mesure avec les dimensions, les finitions et les matériaux nécessaires."
     },
     "machinery": {
-        "pageTitle": "Machines | Wadidegla",
-        "metaDescription": "Machines et lignes de production avancées de Wadi Degla pour le traitement du marbre et du granit.",
+        "pageTitle": "Machinerie Wadi Degla | Équipements de Production Avancés de Marbre et Granite en Égypte",
+        "metaDescription": "Explorez les machines de marbre et de granit de pointe de Wadi Degla, y compris les scies à grappins, les découpeuses de blocs, les lignes de polissage, les monofils, les découpeuses de ponts, les machines de culbutage et bien d'autres. Production d'ingénierie de précision pour les dalles, les carreaux et les blocs—approuvée par les importateurs mondiaux et les mégaprojets.",
         "heroTitle": "NOS MACHINES",
         "breadcrumbHome": "Accueil",
         "breadcrumbCurrent": "Machines",
-        "intro": "Chez Wadi Degla Marble & Granite, nous croyons que l'artisanat exceptionnel commence par une technologie de pointe. Nos machines de pointe sont l'épine dorsale de nos opérations, nous permettant d'offrir une précision, une efficacité et une qualité inégalées dans tout ce que nous produisons.",
+        "intro": "Chez Wadi Degla Marbre et Granit, l'artisanat exceptionnel commence par une technologie avancée.\nNos machines sont l'épine dorsale de notre production—conçues pour offrir précision, cohérence et efficacité de la carrière jusqu'à la finition finale.\nNous exploitons l'une des installations de traitement de la pierre les plus modernes et intégrées d'Égypte, ce qui nous permet de répondre aux normes de qualité mondiales en matière de blocs, de dalles et de carreaux.",
         "sections": {
             "generalUse": "USAGE GÉNÉRAL",
             "blocks": "BLOCS DE MARBRE ET DE GRANIT",
@@ -443,19 +443,19 @@
             "forklifts": "2 Chariots Élévateurs"
         },
         "blocks": {
-            "caption1": "Coupe et dressage des blocs, équarrissage des blocs avant la coupe par scie à châssis (gang saw), ponts roulants capables de supporter de gros blocs jusqu'à 50 tonnes",
+            "caption1": "Nos machines assurent une découpe précise des blocs, un équarrissage et une préparation avant la production de dalles.\nCela nous permet de maintenir des dimensions cohérentes, de réduire les déchets et d'obtenir des finitions de qualité supérieure.",
             "caption2": "Coupe et transformation des blocs en dalles (slabs) avec différentes épaisseurs (par exemple 2 cm à 8 cm)",
             "gangsaws": "9 Scies à Châssis (Gangsaws)",
             "blocksCutters": "4 Coupes-Blocs",
             "monofilos": "6 Monofils (Monofilos)"
         },
         "slabs": {
-            "caption": "Les lignes de polissage peuvent produire tout type de finitions jusqu'à 8 cm d'épaisseur, à l'exception de l'acide et du flammé",
+            "caption": "Lignes de polissage et de traitement conçues pour offrir des finitions haut de gamme avec brillance, texture et durabilité cohérentes.",
             "polishingLines": "3 lignes de polissage",
             "risinLine": "1 ligne de traitement à la résine"
         },
         "tiles": {
-            "caption": "Coupes-ponts (Bridge cutters) coupant les dalles en carreaux (tiles) de toute taille",
+            "caption": "Systèmes de découpe de carreaux de haute précision qui transforment les dalles en carreaux de n'importe quelle taille pour les projets à grande échelle.",
             "bridgeCutters": "6 Coupes-ponts pour Dalles",
             "tumblingMachine": "1 Machine de Vieillissement (Tumbling machine)",
             "splittingStrips": "3 Machines de Fendage de Bandes (Splitting strips machines)"

@@ -425,12 +425,12 @@
         "finalText3": "Forniamo dimensioni standard, ma la nostra fabbrica è completamente attrezzata per produrre dimensioni personalizzate per soddisfare le tue esigenze specifiche. Produciamo diversi modelli di prodotto e siamo pronti a fornire design su misura con le dimensioni, le finiture e i materiali necessari."
     },
     "machinery": {
-        "pageTitle": "Macchinari | Wadidegla",
-        "metaDescription": "I macchinari e le linee di produzione avanzate di Wadi Degla per la lavorazione del marmo e del granito.",
+        "pageTitle": "Macchinari Wadi Degla | Attrezzature Avanzate di Produzione di Marmo e Granito in Egitto",
+        "metaDescription": "Esplora i macchinari all'avanguardia di Wadi Degla per marmo e granito, inclusi telai a catena, tagliapietre, linee di lucidatura, monofili, tagliapietre a ponte, macchine a tamburo e altro ancora. Produzione di ingegneria di precisione per lastre, piastrelle e blocchi—affidabile dai principali importatori e megaprogetti.",
         "heroTitle": "I NOSTRI MACCHINARI",
         "breadcrumbHome": "Home",
         "breadcrumbCurrent": "Macchinari",
-        "intro": "A Wadi Degla Marble & Granite, crediamo che l'artigianato eccezionale inizi con una tecnologia all'avanguardia. I nostri macchinari all'avanguardia sono la spina dorsale delle nostre operazioni, consentendoci di fornire precisione, efficienza e qualità ineguagliabili in tutto ciò che produciamo.",
+        "intro": "A Wadi Degla Marmo e Granito, l'artigianato eccezionale inizia con la tecnologia avanzata.\nI nostri macchinari sono la spina dorsale della nostra produzione—progettati per fornire precisione, coerenza ed efficienza dalla cava alla finitura finale.\nGerisciamo uno dei più moderni e integrati impianti di lavorazione della pietra in Egitto, consentendoci di soddisfare gli standard di qualità globali su blocchi, lastre e piastrelle.",
         "sections": {
             "generalUse": "USO GENERALE",
             "blocks": "BLOCCHI DI MARMO E GRANITO",
@@ -443,19 +443,19 @@
             "forklifts": "2 Carrelli Elevatori"
         },
         "blocks": {
-            "caption1": "Taglio e squadratura di blocchi, squadratura di blocchi prima del taglio con sega a telaio (gang saw), gru a ponte in grado di sostenere grandi blocchi fino a 50 tonnellate",
+            "caption1": "I nostri macchinari garantiscono tagli precisi dei blocchi, squadratura e preparazione prima della produzione di lastre.\nQuesto ci consente di mantenere dimensioni coerenti, ridurre gli sprechi e ottenere finiture di qualità superiore.",
             "caption2": "Taglio e trasformazione di blocchi in lastre (slabs) con spessori diversi (ad esempio da 2 cm a 8 cm)",
             "gangsaws": "9 Seghe a Telaio (Gangsaws)",
             "blocksCutters": "4 Taglia Blocchi",
             "monofilos": "6 Monofili"
         },
         "slabs": {
-            "caption": "Le linee di lucidatura possono produrre qualsiasi tipo di finitura fino a 8 cm di spessore, ad eccezione di acido e fiammato",
+            "caption": "Linee di lucidatura e trattamento progettate per fornire finiture di alta qualità con lucentezza, texture e durabilità coerenti.",
             "polishingLines": "3 linee di lucidatura",
             "risinLine": "1 linea di trattamento con resina"
         },
         "tiles": {
-            "caption": "Taglia-ponti (Bridge cutters) che tagliano le lastre in piastrelle di qualsiasi dimensione",
+            "caption": "Sistemi di taglio piastrelle ad alta precisione che trasformano le lastre in piastrelle di qualsiasi dimensione per progetti su larga scala.",
             "bridgeCutters": "6 Taglia-ponti per Lastre",
             "tumblingMachine": "1 Macchina Burattatrice (Tumbling machine)",
             "splittingStrips": "3 Macchine per la Spaccatura di Strisce"

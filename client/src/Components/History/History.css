@@ -376,6 +376,15 @@
     padding: 0 1rem;
 }
 
+.history-final-section h2{
+        color: var(--goldColor);
+    text-transform: uppercase;
+    text-align: center;
+    width: fit-content;
+    padding: 0 1rem;
+   
+}
+
 .legacy-section-content {
     display: flex;
     flex-direction: column;
