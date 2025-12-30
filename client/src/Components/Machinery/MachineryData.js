@@ -72,6 +72,7 @@ import crane_5 from '../../Public/Assets/Media/Machinery/cranes-5.webp';
 export const generalUseData = [
         {
           titleKey: "machinery.generalUse.cranes",
+          descriptionKey: "machinery.generalUse.cranesDesc",
           images: [
                     crane_2,
                     crane_1,
@@ -89,6 +90,7 @@ export const generalUseData = [
         // },
         {
           titleKey: "machinery.generalUse.forklifts",
+          descriptionKey: "machinery.generalUse.forklift sDesc",
           images: [fork_lift_3, fork_lift_2],
         }
         // ,
@@ -101,14 +103,17 @@ export const generalUseData = [
       export const mngBlocksData = [
         {
           titleKey: "machinery.blocks.gangsaws",
+          descriptionKey: "machinery.blocks.gangsawsDesc",
           images: [gangsaws_8, gangsaws_6, gangsaws, gangsaws_5, gangsaws_7],
         },
         {
           titleKey: "machinery.blocks.blocksCutters",
+          descriptionKey: "machinery.blocks.blocksCuttersDesc",
           images: [big_bridge_cutter_4, big_bridge_cutter_1, big_bridge_cutter_2, big_bridge_cutter_3],
         },
         {
           titleKey: "machinery.blocks.monofilos",
+          descriptionKey: "machinery.blocks.monofilosDesc",
           images: [monofilos_2, monofilos_4],
         }
 
@@ -116,10 +121,12 @@ export const generalUseData = [
       export const mngSlabsData = [
         {
           titleKey: "machinery.slabs.polishingLines",
+          descriptionKey: "machinery.slabs.polishingLinesDesc",
           images: [polishing_line_8, polishing_line, polishing_line_2, polishing_line_6],
         },
         {
           titleKey: "machinery.slabs.risinLine",
+          descriptionKey: "machinery.slabs.risinLineDesc",
           images: [ risin_line_7],
         }
       ];
@@ -127,14 +134,17 @@ export const generalUseData = [
       export const mngTilesData = [
         {
           titleKey: "machinery.tiles.bridgeCutters",
+          descriptionKey: "machinery.tiles.bridgeCuttersDesc",
           images: [slabs_bridge_cutter_9, slabs_bridge_cutter_7, slabs_bridge_cutter_2, slabs_bridge_cutter],
         },
         {
           titleKey: "machinery.tiles.tumblingMachine",
+          descriptionKey: "machinery.tiles.tumblingMachineDesc",
           images: [tumble_machine_4],
         },
         {
           titleKey: "machinery.tiles.splittingStrips",
+          descriptionKey: "machinery.tiles.splittingStripsDesc",
           images: [splitting_strips_5, splitting_strips_6],
         }
 

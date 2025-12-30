@@ -440,25 +440,35 @@
         "generalUse": {
             "caption": "6 grúas aéreas de alta calidad capaces de levantar bloques desde nuestra zona de almacenamiento",
             "cranes": "6 Grúas",
-            "forklifts": "2 Carretillas elevadoras"
+            "forklifts": "2 Carretillas elevadoras",
+            "cranesDesc": "Las grúas de alta capacidad están diseñadas para manejar bloques de mármol y granito grandes de forma segura y eficiente. Construidas para soportar levantamientos pesados desde nuestro patio de depósito y garantizar una logística interna fluida.",
+            "forkliftDesc": "Carretillas elevadoras industriales optimizadas para transportar losas, baldosas y bloques crudos en el piso de la fábrica con precisión y seguridad."
         },
         "blocks": {
             "caption1": "Nuestra maquinaria garantiza cortes precisos de bloques, escuadrado y preparación antes de la producción de losas.\nEsto nos permite mantener dimensiones consistentes, reducir el desperdicio y lograr acabados de calidad superior.",
             "caption2": "Corte y transformación de bloques en losas de diferentes espesores (p. ej., 2cm a 8cm)",
             "gangsaws": "9 Sierras múltiples",
             "blocksCutters": "4 Cortadoras de Bloques",
-            "monofilos": "6 Monofilos"
+            "monofilos": "6 Monofilos",
+            "gangsawsDesc": "Sierras de gancho de servicio pesado capaces de cortar bloques de mármol y granito grandes con alta precisión. Diseñadas para máxima estabilidad y corte suave para garantizar un espesor de losa uniforme.",
+            "blocksCuttersDesc": "Máquinas avanzadas de corte de bloques diseñadas para rendimiento de alta velocidad y consistencia en varios tipos de piedra.",
+            "monofilosDesc": "Máquinas de monofilamento de precisión utilizadas para corte preciso, minimizando la pérdida de material mientras se mejora la planicidad de la superficie."
         },
         "slabs": {
             "caption": "Líneas de pulido y tratamiento diseñadas para entregar acabados premium con brillo, textura y durabilidad consistentes.",
             "polishingLines": "3 líneas de pulido",
-            "risinLine": "1 línea de tratamiento risin"
+            "risinLine": "1 línea de tratamiento risin",
+            "polishingLinesDesc": "Capaz de producir una amplia gama de acabados—pulido, abrillantado, cepillado, cuero, etc.—con espesores de hasta 8 cm.",
+            "risinLineDesc": "Una línea de resina especializada que mejora la resistencia superficial, durabilidad y apariencia visual de las losas, especialmente piedras premium."
         },
         "tiles": {
             "caption": "Sistemas de corte de baldosas de alta precisión que transforman losas en baldosas de cualquier tamaño para proyectos a gran escala.",
             "bridgeCutters": "6 Cortadoras puente de losas",
             "tumblingMachine": "1 Máquina de tumbing",
-            "splittingStrips": "3 Máquinas de tiras divisoras"
+            "splittingStrips": "3 Máquinas de tiras divisoras",
+            "bridgeCuttersDesc": "Los cortadores de puentes están diseñados para la precisión en la producción de baldosas, escalones y formatos de piedra personalizados.",
+            "tumblingMachineDesc": "Una línea dedicada para acabados antiguos, pulidos y texturizados utilizados en diseño de paisaje y arquitectura rústica.",
+            "splittingStripsDesc": "Máquinas de división de tiras para baldosas delgadas, piezas de revestimiento y elementos de piedra decorativa."
         }
     },
     "myAccount": {

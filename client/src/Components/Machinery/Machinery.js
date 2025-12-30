@@ -40,7 +40,7 @@ export default function Machinery(){
                     <p className="machinery-captions">{t('machinery.generalUse.caption')}</p>
                     <div className="machinery-grid">
                     {generalUseData.map((item, index) => (
-                        <MachinerySwiper key={index} images={item.images} title={t(item.titleKey)} />
+                        <MachinerySwiper key={index} images={item.images} title={t(item.titleKey)} description={t(item.descriptionKey)} />
                         ))}
                     </div>
                     </div>
@@ -52,10 +52,9 @@ export default function Machinery(){
                         <hr/>
                     </div>
                     <p className="machinery-captions">{t('machinery.blocks.caption1')}</p>
-                    <p className="machinery-captions">{t('machinery.blocks.caption2')}</p>
                     <div className="machinery-grid">
                     {mngBlocksData.map((item, index) => (
-                        <MachinerySwiper key={index} images={item.images} title={t(item.titleKey)} />
+                        <MachinerySwiper key={index} images={item.images} title={t(item.titleKey)} description={t(item.descriptionKey)} />
                         ))}
                     </div>
                     </div>
@@ -70,7 +69,7 @@ export default function Machinery(){
 
                     <div className="machinery-grid">
                     {mngSlabsData.map((item, index) => (
-                        <MachinerySwiper key={index} images={item.images} title={t(item.titleKey)} />
+                        <MachinerySwiper key={index} images={item.images} title={t(item.titleKey)} description={t(item.descriptionKey)} />
                         ))}
                     </div>
                     </div>
@@ -85,7 +84,7 @@ export default function Machinery(){
 
                     <div className="machinery-grid">
                     {mngTilesData.map((item, index) => (
-                        <MachinerySwiper key={index} images={item.images} title={t(item.titleKey)} />
+                        <MachinerySwiper key={index} images={item.images} title={t(item.titleKey)} description={t(item.descriptionKey)} />
                         ))}
                     </div>
                     </div>

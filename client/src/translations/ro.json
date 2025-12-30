@@ -440,25 +440,35 @@
         "generalUse": {
             "caption": "6 Poduri rulante (Overhead cranes) de înaltă calitate capabile să susțină blocuri din zona noastră de stocare",
             "cranes": "6 Macarale",
-            "forklifts": "2 Motostivuitoare"
+            "forklifts": "2 Motostivuitoare",
+            "cranesDesc": "Macaralele cu capacitate mare sunt proiectate pentru manipularea sigură și eficientă a blocurilor mari de marmură și granit. Construite pentru a suporta ridicarea grea din curtea noastră de depozitare și pentru a asigura logistica internă liniștit.",
+            "forkliftDesc": "Stivuitoarele industriale optimizate pentru transportul plăcilor, gresiilor și blocurilor brute pe podeaua fabricii cu precizie și siguranță."
         },
         "blocks": {
             "caption1": "Maşinăria noastră asigură tăiere precisă a blocurilor, pătratare și pregătire înainte de producția plăcilor.\nAceasta ne permite să menținem dimensiuni consistente, să reducem risipa și să realizez finisaje de calitate superioară.",
             "caption2": "Tăierea și transformarea blocurilor în plăci mari (slabs) cu grosimi diferite (de exemplu, 2cm la 8cm)",
             "gangsaws": "9 Ferăstraie-cadru (Gangsaws)",
             "blocksCutters": "4 Mașini de Tăiat Blocuri",
-            "monofilos": "6 Monofilare (Monofilos)"
+            "monofilos": "6 Monofilare (Monofilos)",
+            "gangsawsDesc": "Ferăstrul cu lanț rezistent pentru a tăia blocurile mari de marmură și granit cu precizie ridicată. Proiectate pentru stabilitate maximă și secționare liniștit pentru a asigura grosime uniformă a plăcilor.",
+            "blocksCuttersDesc": "Mașini avansate de tăiere a blocurilor proiectate pentru performanță la viteză mare și consistență pe mai multe tipuri de piatră.",
+            "monofilosDesc": "Mașini de monofilament de precizie utilizate pentru tăiere precisă, minimizând pierderile de material, în timp ce se îmbunătățește planitatea suprafeței."
         },
         "slabs": {
             "caption": "Linii de polisare și tratament proiectate pentru a oferi finisaje premium cu luciu, textură și durabilitate consistente.",
             "polishingLines": "3 linii de lustruire",
-            "risinLine": "1 linie de tratare cu rășină"
+            "risinLine": "1 linie de tratare cu rășină",
+            "polishingLinesDesc": "Capabil de a produce o gamă largă de finisaje—lustruite, lefuite, perie, piele, etc.—cu grosimi de până la 8 cm.",
+            "risinLineDesc": "O linie de rășină specializată care îmbunătățește rezistența la suprafață, durabilitate și aspect vizual al plăcilor, mai ales pietre premium."
         },
         "tiles": {
             "caption": "Sisteme de tăiere a gresiilor cu precizie ridicată care transformă plăcile în gresii de orice dimensiune pentru proiecte la scară largă.",
             "bridgeCutters": "6 Mașini de tăiat cu punte pentru plăci mari",
             "tumblingMachine": "1 Mașină de Tumbuire (Tumbling machine)",
-            "splittingStrips": "3 Mașini de Despicat Fâșii (Splitting strips machines)"
+            "splittingStrips": "3 Mașini de Despicat Fâșii (Splitting strips machines)",
+            "bridgeCuttersDesc": "Cutter-ele de poduri sunt proiectate pentru precizie în producerea gresiei, trepte și formate de piatră personalizate.",
+            "tumblingMachineDesc": "O linie dedicată pentru finisaje antice, tobogane și texturate utilizate în proiectarea peisajului și arhitectura rustică.",
+            "splittingStripsDesc": "Mașini de divizare de benzi pentru gresie subțiri, piese de placare și elemente decorative din piatră."
         }
     },
     "myAccount": {

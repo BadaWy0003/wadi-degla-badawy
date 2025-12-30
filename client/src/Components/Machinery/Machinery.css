@@ -114,11 +114,21 @@
 }
 
 
-.machinery-grid h2 {
+.machinery-grid h3 {
     font-size: 1rem;
     margin-bottom: 10px;
     font-weight: 500;
     color: var(--whiteColor);
+}
+
+.machinery-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--lightGrayColor);
+    margin: 0 0 15px 0;
+    padding: 0 5px;
+    text-align: left;
+    letter-spacing: 0.5px;
 }
 
 .machinery-slider {

@@ -440,25 +440,35 @@
         "generalUse": {
             "caption": "6 Vinça të sipërm (Overhead cranes) me cilësi të lartë për të qenë në gjendje të mbajnë blloqe nga zona jonë e stokut",
             "cranes": "6 Vinça",
-            "forklifts": "2 Karroca Ngarkuese"
+            "forklifts": "2 Karroca Ngarkuese",
+            "cranesDesc": "Makinat e ngritjes me kapacitet të lartë janë të dizajnuara për trajtimin e sigurt dhe efikas të blloqeve të mëdha të marmorit dhe granitit. Ndërtuar për të mbështetur ngritje të rëndë nga zona e magazinimit tonë dhe për të siguruar logjistika të brendshme të qetë.",
+            "forkliftDesc": "Ngritësit me drejtim industrial të optimizuar për transportimin e pllakave, pllakave dhe blloqeve të papërpunuara në dyshemenë e fabrikës me saktësi dhe siguri."
         },
         "blocks": {
             "caption1": "Makineria jonë siguron prerje të saktë të blloqeve, shesimin dhe përgatitjen para prodhimit të pllakave.\nKjo na lejon të mbajmë dimensionet konsistente, të reduktojmë mbetjet dhe të arrijmë finishe të cilësisë premium.",
             "caption2": "Prerja dhe transformimi i blloqeve në pllaka të mëdha (slabs) me trashësi të ndryshme (p.sh. 2cm në 8cm)",
             "gangsaws": "9 Sharra Kornizë (Gangsaws)",
             "blocksCutters": "4 Prerëse Bllokësh",
-            "monofilos": "6 Monofila (Monofilos)"
+            "monofilos": "6 Monofila (Monofilos)",
+            "gangsawsDesc": "Sharrëza të rënda të kapaces për prerje të blloqeve të mëdha të marmorit dhe granitit me saktësi të lartë. Të dizajnuara për stabilitet maksimal dhe seksionim të qetë për të siguruar trashësinë uniforme të pllakës.",
+            "blocksCuttersDesc": "Makinat e avancuara të prerjes së blloqeve të dizajnuara për performancë me shpejtësi të lartë dhe konsistencë në shumë lloje guri.",
+            "monofilosDesc": "Makinat e monofilit me saktësi të përdorura për prerje të saktë, minimizimi i humbjes së materialit ndërsa përmirësohet planimiteti i sipërfaqes."
         },
         "slabs": {
             "caption": "Linjat e pastrimit dhe përpunimit të dizajnuara për të dhënë finishe premium me shkëlqim, teksturë dhe qëndrueshmëri konsistente.",
             "polishingLines": "3 linja lustrimi",
-            "risinLine": "1 linjë trajtimi me rrëshirë"
+            "risinLine": "1 linjë trajtimi me rrëshirë",
+            "polishingLinesDesc": "E aftë të prodhojë një gamë të gjerë të përfundimesh—të lëmuara, të slotara, të pincelmë, lëkure, etj.—me trashësi deri 8 cm.",
+            "risinLineDesc": "Një linjë e specializuar e shartës që përmirëson forcën e sipërfaqes, qëndrueshmërinë dhe pamjen vizuale të pllakave, veçanërisht gurëve premium."
         },
         "tiles": {
             "caption": "Sistemet e prerjes së pllakave me saktësi të lartë që transformojnë pllakat në pllaka të çdo madhësie për projekte në shkallë të gjerë.",
             "bridgeCutters": "6 Prerëse me urë për Pllaka të Mëdha",
             "tumblingMachine": "1 Makineri Burratimi (Tumbling machine)",
-            "splittingStrips": "3 Makineri Spërkatëse Shiritash"
+            "splittingStrips": "3 Makineri Spërkatëse Shiritash",
+            "bridgeCuttersDesc": "Prerësit e urave janë të dizajnuara për saktësinë në prodhimin e pllakave, shkallëve dhe formateve të gurëve të personalizuara.",
+            "tumblingMachineDesc": "Një linjë e dedikuar për përfundime antike, tumbled dhe të strukturuara të përdorura në dizajn peizazh dhe arkitekturë rusike.",
+            "splittingStripsDesc": "Makinat e ndarjes së shiritave për pllaka të hollë, copëza mbulimi dhe elemente dekorative guri."
         }
     },
     "myAccount": {

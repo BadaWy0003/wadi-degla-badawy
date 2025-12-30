@@ -440,25 +440,35 @@
         "generalUse": {
             "caption": "6 Overhead cranes with high quality to be able to hold blocks from our stock area",
             "cranes": "6 Cranes",
-            "forklifts": "2 Forklifts"
+            "forklifts": "2 Forklifts",
+            "cranesDesc": "High-capacity cranes are designed for handling large marble and granite blocks safely and efficiently. Built to support heavy-duty lifting from our stockyard and ensure smooth internal logistics.",
+            "forkliftDesc": "Industrial forklifts optimized for transporting slabs, tiles, and raw blocks across the factory floor with precision and safety."
         },
         "blocks": {
             "caption1": "Our machinery ensures accurate block cutting, squaring, and preparation prior to slab production.\nThis allows us to maintain consistent dimensions, reduce waste, and achieve premium-quality finishes.",
             "caption2": "Cutting and transforming blocks to slabs with different thickness (e.g. 2cm to 8cm)",
             "gangsaws": "9 Gangsaws",
             "blocksCutters": "4 Blocks Cutters",
-            "monofilos": "6 Monofilos"
+            "monofilos": "6 Monofilos",
+            "gangsawsDesc": "Heavy-duty gangsaws capable of cutting large marble and granite blocks with high precision. Designed for maximum stability and smooth sectioning to ensure uniform slab thickness.",
+            "blocksCuttersDesc": "Advanced block-cutting machines engineered for high-speed performance and consistency across multiple stone types.",
+            "monofilosDesc": "Precision monofilament machines used for accurate slicing, minimizing material loss while improving surface flatness."
         },
         "slabs": {
             "caption": "Polishing and treatment lines engineered to deliver premium finishes with consistent gloss, texture, and durability.",
             "polishingLines": "3 polishing lines",
-            "risinLine": "1 risin treating line"
+            "risinLine": "1 risin treating line",
+            "polishingLinesDesc": "Capable of producing a wide range of finishes—polished, honed, brushed, leather, etc.—with thicknesses up to 8 cm.",
+            "risinLineDesc": "A specialized resin line improving surface strength, durability, and visual appearance of slabs—especially premium stones."
         },
         "tiles": {
             "caption": "High-precision tile-cutting systems that transform slabs into tiles of any size for large-scale projects.",
             "bridgeCutters": "6 Slabs bridge cutters",
             "tumblingMachine": "1 Tumbling machine",
-            "splittingStrips": "3 Splitting strips machines"
+            "splittingStrips": "3 Splitting strips machines",
+            "bridgeCuttersDesc": "Bridge cutters are engineered for accuracy in producing tiles, steps, and customized stone formats.",
+            "tumblingMachineDesc": "A dedicated line for antique, tumbled, and textured finishes used in landscaping and rustic architectural designs.",
+            "splittingStripsDesc": "Strip-splitting machines for thin tiles, cladding pieces, and decorative stone elements."
         }
     },
     "myAccount": {

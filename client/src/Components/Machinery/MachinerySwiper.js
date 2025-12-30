@@ -10,7 +10,7 @@ import 'yet-another-react-lightbox/styles.css';
 import "../Projects/ProjectDetails.css";
 
 
-export default function MachinerySwiper({ images, title }) {
+export default function MachinerySwiper({ images, title, description }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -19,7 +19,8 @@ export default function MachinerySwiper({ images, title }) {
 
   return (
     <div className="machinery-item">
-      <h2>{title}</h2>
+      <h3>{title}</h3>
+      {description && <p className="machinery-description">{description}</p>}
       <Swiper
         autoplay={{
         delay: 4000, // Delay in milliseconds (4 seconds)

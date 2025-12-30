@@ -440,25 +440,35 @@
         "generalUse": {
             "caption": "6 Gru a ponte (Overhead cranes) di alta qualità in grado di sostenere blocchi dalla nostra area di stoccaggio",
             "cranes": "6 Gru",
-            "forklifts": "2 Carrelli Elevatori"
+            "forklifts": "2 Carrelli Elevatori",
+            "cranesDesc": "Le gru ad alta capacità sono progettate per movimentare in sicurezza ed efficientemente grandi blocchi di marmo e granito. Costruite per sostenere sollevamenti pesanti dal nostro magazzino e garantire una logistica interna fluida.",
+            "forkliftDesc": "Carrelli elevatori industriali ottimizzati per il trasporto di lastre, piastrelle e blocchi grezzi sul pavimento dello stabilimento con precisione e sicurezza."
         },
         "blocks": {
             "caption1": "I nostri macchinari garantiscono tagli precisi dei blocchi, squadratura e preparazione prima della produzione di lastre.\nQuesto ci consente di mantenere dimensioni coerenti, ridurre gli sprechi e ottenere finiture di qualità superiore.",
             "caption2": "Taglio e trasformazione di blocchi in lastre (slabs) con spessori diversi (ad esempio da 2 cm a 8 cm)",
             "gangsaws": "9 Seghe a Telaio (Gangsaws)",
             "blocksCutters": "4 Taglia Blocchi",
-            "monofilos": "6 Monofili"
+            "monofilos": "6 Monofili",
+            "gangsawsDesc": "Seghe a catena pesanti in grado di tagliare grandi blocchi di marmo e granito con alta precisione. Progettate per la massima stabilità e un taglio uniforme per garantire uno spessore della lastra uniforme.",
+            "blocksCuttersDesc": "Macchine avanzate di taglio dei blocchi progettate per prestazioni ad alta velocità e coerenza su più tipi di pietra.",
+            "monofilosDesc": "Macchine di monofilamento di precisione utilizzate per il taglio accurato, riducendo al minimo la perdita di materiale migliorando la planarità della superficie."
         },
         "slabs": {
             "caption": "Linee di lucidatura e trattamento progettate per fornire finiture di alta qualità con lucentezza, texture e durabilità coerenti.",
             "polishingLines": "3 linee di lucidatura",
-            "risinLine": "1 linea di trattamento con resina"
+            "risinLine": "1 linea di trattamento con resina",
+            "polishingLinesDesc": "In grado di produrre una vasta gamma di finiture—lucide, levigate, spazzolate, pelle, ecc.—con spessori fino a 8 cm.",
+            "risinLineDesc": "Una linea di resina specializzata che migliora la resistenza superficiale, la durabilità e l'aspetto visivo delle lastre, soprattutto pietre premium."
         },
         "tiles": {
             "caption": "Sistemi di taglio piastrelle ad alta precisione che trasformano le lastre in piastrelle di qualsiasi dimensione per progetti su larga scala.",
             "bridgeCutters": "6 Taglia-ponti per Lastre",
             "tumblingMachine": "1 Macchina Burattatrice (Tumbling machine)",
-            "splittingStrips": "3 Macchine per la Spaccatura di Strisce"
+            "splittingStrips": "3 Macchine per la Spaccatura di Strisce",
+            "bridgeCuttersDesc": "I taglierini a ponte sono progettati per la precisione nella produzione di piastrelle, gradini e formati di pietra personalizzati.",
+            "tumblingMachineDesc": "Una linea dedicata a finiture antiche, levigate e strutturate utilizzate nella progettazione paesaggistica e nell'architettura rustica.",
+            "splittingStripsDesc": "Macchine di divisione a strisce per piastrelle sottili, pezzi di rivestimento e elementi decorativi in pietra."
         }
     },
     "myAccount": {

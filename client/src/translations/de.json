@@ -440,25 +440,35 @@
         "generalUse": {
             "caption": "6 Überkopfkräne mit hoher Qualität, um Blöcke aus unserem Lagerbereich halten zu können",
             "cranes": "6 Kräne",
-            "forklifts": "2 Gabelstapler"
+            "forklifts": "2 Gabelstapler",
+            "cranesDesc": "Hochkapazitäts-Krane sind für die sichere und effiziente Bearbeitung großer Marmor- und Granitblöcke ausgelegt. Entwickelt zur Unterstützung von Schwerlasthebern aus unserem Lagerbestand und zur Gewährleistung reibungsloser Innenlogistik.",
+            "forkliftDesc": "Industriegabelstapler, optimiert für den Transport von Platten, Fliesen und Rohblöcken über den Fabrikflur mit Präzision und Sicherheit."
         },
         "blocks": {
             "caption1": "Unsere Maschinen gewährleisten genaue Blockschnitte, Quadrierung und Vorbereitung vor der Plattenproduktion.\nDies ermöglicht uns, konsistente Abmessungen beizubehalten, Verschwendung zu reduzieren und hochwertige Oberflächen zu erzielen.",
             "caption2": "Schneiden und Umwandeln von Blöcken in Platten (slabs) mit unterschiedlicher Dicke (z. B. 2 cm bis 8 cm)",
             "gangsaws": "9 Gattersägen (Gangsaws)",
             "blocksCutters": "4 Blocksägen",
-            "monofilos": "6 Monofil-Sägen (Monofilos)"
+            "monofilos": "6 Monofil-Sägen (Monofilos)",
+            "gangsawsDesc": "Heavy-Duty-Gattersägen, die in der Lage sind, große Marmor- und Granitblöcke mit hoher Präzision zu schneiden. Konzipiert für maximale Stabilität und sanfte Schnitte, um eine einheitliche Plattendicke zu gewährleisten.",
+            "blocksCuttersDesc": "Advanced Block-Schneidemaschinen, die für Hochleistung und Konsistenz über mehrere Steintypen hinweg entwickelt wurden.",
+            "monofilosDesc": "Präzisions-Monofilament-Maschinen für präzise Schnitte, die Materialverluste minimieren und die Oberflächenebenheit verbessern."
         },
         "slabs": {
             "caption": "Polier- und Behandlungslinien, die so konstruiert sind, dass sie hochwertige Oberflächen mit konsistenter Glanz, Textur und Haltbarkeit liefern.",
             "polishingLines": "3 Polierlinien",
-            "risinLine": "1 Harzbehandlungslinie"
+            "risinLine": "1 Harzbehandlungslinie",
+            "polishingLinesDesc": "Fähig, eine breite Palette von Oberflächen zu produzieren – poliert, gehärtet, gebürstet, Leder, etc. – mit Stärken bis zu 8 cm.",
+            "risinLineDesc": "Eine spezialisierte Harzlinie, die die Oberflächenfestigkeit, Haltbarkeit und das Aussehen von Platten verbessert – besonders hochwertige Steine."
         },
         "tiles": {
             "caption": "Hochpräzisions-Fliesenschneidesysteme, die Platten in beliebige Größen für großflächige Projekte umwandeln.",
             "bridgeCutters": "6 Platten-Brückenschneider",
             "tumblingMachine": "1 Trommelmaschine (Tumbling machine)",
-            "splittingStrips": "3 Spaltbandmaschinen (Splitting strips machines)"
+            "splittingStrips": "3 Spaltbandmaschinen (Splitting strips machines)",
+            "bridgeCuttersDesc": "Brückenschneider sind für Genauigkeit bei der Herstellung von Fliesen, Stufen und maßgeschneiderten Steinformaten entwickelt.",
+            "tumblingMachineDesc": "Eine spezielle Linie für antike, polierte und strukturierte Oberflächen, die in Landschafts- und rustikalen Architekturdesigns verwendet werden.",
+            "splittingStripsDesc": "Strip-Splitting-Maschinen für dünne Fliesen, Verkleidungsteile und dekorative Steinelemente."
         }
     },
     "myAccount": {
