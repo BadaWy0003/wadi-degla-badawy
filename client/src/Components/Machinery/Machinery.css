@@ -91,6 +91,13 @@
     z-index: -1;
 }
 
+.machinery-item{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .machinery-captions {
     color: var(--blueColor) !important;
     font-weight: 600 !important;

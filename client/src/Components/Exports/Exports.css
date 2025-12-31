@@ -53,6 +53,41 @@
 
 }
 
+.export-ensures-title {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem !important;
+}
+
+.export-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    color: var(--whiteColor);
+}
+
+.export-bullet-list li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.export-bullet-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--goldColor);
+    font-weight: bold;
+}
+
+.export-mission {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem !important;
+}
+
 .export-department img {
     max-width: 30%;
     flex: 1;

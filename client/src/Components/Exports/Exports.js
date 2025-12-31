@@ -79,7 +79,18 @@ export default function Exports(){
                 <div className="export-department">
                     <div className="export-department-content">
                         <h2>{t('exports.departmentTitle')}</h2>
-                        <p>{t('exports.departmentText')}</p>    
+                        <p>{t('exports.departmentIntro')}</p>
+                        <p>{t('exports.departmentSupport')}</p>
+                        <p className="export-ensures-title">{t('exports.exportEnsures')}</p>
+                        <ul className="export-bullet-list">
+                            <li>{t('exports.bulletPoint1')}</li>
+                            <li>{t('exports.bulletPoint2')}</li>
+                            <li>{t('exports.bulletPoint3')}</li>
+                            <li>{t('exports.bulletPoint4')}</li>
+                            <li>{t('exports.bulletPoint5')}</li>
+                        </ul>
+                        <p className="export-mission">{t('exports.missionText')}</p>
+                        <p>{t('exports.missionGoal')}</p>
                     </div>
                     <img loading="lazy" src={exports} alt={t('exports.departmentImageAlt')}/>
                 </div>   
