@@ -311,7 +311,30 @@
     "bulletPoint4": "Sprijin pentru expansiunea pieței în noi teritorii din GCC, Europa, Africa și Americi",
     "bulletPoint5": "Relații puternice cu distribuitori și importatori din întreaga lume",
     "missionText": "Misiunea noastră:",
-    "missionGoal": "Să fim cel mai de încredere exportator de marmură și var egiptean, livrând produse din piatră de calitate premium cu integritate, asigurând satisfacția clienților pe toate continentele."
+    "missionGoal": "Să fim cel mai de încredere exportator de marmură și var egiptean, livrând produse din piatră de calitate premium cu integritate, asigurând satisfacția clienților pe toate continentele.",
+    "gallery": {
+      "galleryAlt1": "Container de export gol deschis gata pentru incarcare de marmura",
+      "galleryAlt2": "Placi de marmura in lazi aranjate pentru incarcare container",
+      "galleryAlt3": "Placi de marmura ambalate sigur in interiorul containerului",
+      "galleryAlt4": "Lazi de placi var incarcare si asigurate pentru export",
+      "galleryAlt5": "Lazi de lemn cu blocuri de marmura in curtea de export",
+      "galleryAlt6": "Containere de export stivuite cu incarcaturi de piatra naturala",
+      "galleryAlt7": "Macara de ridicare incarcare placi marmura ambalate in container",
+      "galleryAlt8": "Placi marmura impaletate si legature pe palete din lemn",
+      "galleryAlt9": "Placi var ambalate in lazi pregatite pentru transport international",
+      "galleryAlt10": "Zona de depozitare placi marmura in interiorul containerului export",
+      "galleryAlt11": "Randuri de lazi marmura ambalate gata pentru export",
+      "galleryAlt12": "Container deschis cu placi asigurate cu deschizaturi din lemn",
+      "galleryAlt13": "Placi var ambalate in palete impachetate cu folie retractabila",
+      "galleryAlt14": "Placi marmura stivuite in depozit gata pentru incarcare",
+      "galleryAlt15": "Lazi placi marmura organizate in interiorul containerului",
+      "galleryAlt16": "Lazi export stivuite cu marcaj Wadi Degla",
+      "galleryAlt17": "Operatie incarcare marmura la terminalul export",
+      "galleryAlt18": "Container deschis pozitionat pentru incarcare blocuri",
+      "galleryAlt19": "Blocuri marmura grele aliniate pentru transport export",
+      "galleryAlt20": "Placi piatra stivuite in lazi lemn in aer liber",
+      "galleryAlt21": "Linie ambalare marmura in zona export fabrica"
+    }
   },
   "contactInfo": {
     "title": "Informații de contact",

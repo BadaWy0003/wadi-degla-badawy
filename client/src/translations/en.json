@@ -311,7 +311,30 @@
     "bulletPoint4": "Market expansion support to new territories in GCC, Europe, Africa, and the Americas",
     "bulletPoint5": "Strong relationships with distributors and importers worldwide",
     "missionText": "Our Mission:",
-    "missionGoal": "To be the most reliable Egyptian marble and limestone exporter, delivering premium quality stone products with integrity, ensuring customer satisfaction across continents."
+    "missionGoal": "To be the most reliable Egyptian marble and limestone exporter, delivering premium quality stone products with integrity, ensuring customer satisfaction across continents.",
+    "gallery": {
+      "galleryAlt1": "Open empty export container ready for marble loading",
+      "galleryAlt2": "Crated marble tiles arranged for container loading",
+      "galleryAlt3": "Marble slabs securely packed inside container",
+      "galleryAlt4": "Crates of limestone tiles loaded and secured for export",
+      "galleryAlt5": "Wooden crates of marble blocks in export yard",
+      "galleryAlt6": "Export containers stacked with natural stone shipments",
+      "galleryAlt7": "Forklift loading crated marble tiles into container",
+      "galleryAlt8": "Marble slabs wrapped and strapped on wooden pallets",
+      "galleryAlt9": "Crated limestone tiles prepared for international shipping",
+      "galleryAlt10": "Marble slabs storage area inside export container",
+      "galleryAlt11": "Rows of packed marble crates ready for export",
+      "galleryAlt12": "Open container with slabs secured by wooden braces",
+      "galleryAlt13": "Limestone tiles packed in shrink-wrapped pallets",
+      "galleryAlt14": "Warehouse palletized marble slabs ready for loading",
+      "galleryAlt15": "Marble tile crates being arranged inside container",
+      "galleryAlt16": "Stacked export crates with Wadi Degla branding",
+      "galleryAlt17": "Marble loading operation in export terminal",
+      "galleryAlt18": "Open container positioned for block loading",
+      "galleryAlt19": "Heavy marble blocks aligned for export shipment",
+      "galleryAlt20": "Stone tiles stacked in wooden crates outdoors",
+      "galleryAlt21": "Marble packaging line inside factory export zone"
+    }
   },
   "contactInfo": {
     "title": "Contact information",

@@ -311,7 +311,30 @@
     "bulletPoint4": "Mbështetje për zgjerimin e tregut në territoret e reja në GCC, Europë, Afrikë dhe Amerikë",
     "bulletPoint5": "Marrëdhënie të forta me distributorët dhe importerët në të gjithë botën",
     "missionText": "Misioni Ynë:",
-    "missionGoal": "Të jemi eksportuesit më të besueshëm të marmorit dhe gurit gëlqeri egjiptian, duke ofruar produkte guri me cilësi premium me integritet, duke garantuar kënaqësinë e klientit në të gjitha kontinentet."
+    "missionGoal": "Të jemi eksportuesit më të besueshëm të marmorit dhe gurit gëlqeri egjiptian, duke ofruar produkte guri me cilësi premium me integritet, duke garantuar kënaqësinë e klientit në të gjitha kontinentet.",
+    "gallery": {
+      "galleryAlt1": "Kontejner eksporti i zbrazet i hapur gati për ngarkimin e marmorit",
+      "galleryAlt2": "Pllaka marmori në kuti të rregulluara për ngarkimin e kontejnerit",
+      "galleryAlt3": "Pllaka marmori të siguruar nën paketim brenda kontejnerit",
+      "galleryAlt4": "Kutitë pllakash var të ngarkuara dhe të siguruar për eksport",
+      "galleryAlt5": "Kutitë drusore të blloqeve marmori në oborrin e eksportit",
+      "galleryAlt6": "Kontejnerë eksporti të grumbulluar me ngarkesa guri natyral",
+      "galleryAlt7": "Vinç me forcetë ngarkon pllaka marmori në kuti në kontejner",
+      "galleryAlt8": "Pllaka marmori të mbështjellë dhe të rripur në palet druri",
+      "galleryAlt9": "Pllaka var në kuti të përpunuara për dërgim ndërkombëtar",
+      "galleryAlt10": "Zona ruajtjeje pllakash marmori brenda kontejnerit eksporti",
+      "galleryAlt11": "Radhë kutish marmori të paketuar gati për eksport",
+      "galleryAlt12": "Kontejner i hapur me pllaka të siguruar nga kurrja druri",
+      "galleryAlt13": "Pllaka var të paketuara në palet të mbështjellë me film kryenguese",
+      "galleryAlt14": "Pllaka marmori të palletizuara në magazinë gati për ngarkimin",
+      "galleryAlt15": "Kutitë pllakash marmori të organizuara brenda kontejnerit",
+      "galleryAlt16": "Kutitë eksporti të grumbulluar me markën Wadi Degla",
+      "galleryAlt17": "Operacioni ngarkues i marmorit në terminalin eksporti",
+      "galleryAlt18": "Kontejner i hapur i pozicionuar për ngarkimin e blloqeve",
+      "galleryAlt19": "Blloqe marmori të rënda të rregulluar për dërgim eksporti",
+      "galleryAlt20": "Pllaka guri të grumbulluar në kuti druri në ajër të lirë",
+      "galleryAlt21": "Linja paketimi marmori brenda zonës eksporti të fabrikës"
+    }
   },
   "contactInfo": {
     "title": "Informacione kontakti",

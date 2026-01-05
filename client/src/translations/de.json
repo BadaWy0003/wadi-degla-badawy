@@ -311,7 +311,30 @@
     "bulletPoint4": "Unterstützung bei der Marktexpansion in neue Gebiete in GCC, Europa, Afrika und Amerika",
     "bulletPoint5": "Starke Beziehungen zu Vertriebspartnern und Importeuren weltweit",
     "missionText": "Unsere Mission:",
-    "missionGoal": "Der zuverlässigste ägyptische Marmor- und Kalksteinexporteur zu sein, hochwertige Steinprodukte mit Integrität zu liefern und die Kundenzufriedenheit auf allen Kontinenten zu gewährleisten."
+    "missionGoal": "Der zuverlässigste ägyptische Marmor- und Kalksteinexporteur zu sein, hochwertige Steinprodukte mit Integrität zu liefern und die Kundenzufriedenheit auf allen Kontinenten zu gewährleisten.",
+    "gallery": {
+      "galleryAlt1": "Offener leerer Exportcontainer zum Marmorbeladen bereit",
+      "galleryAlt2": "Marmorplatten in Kisten für Containerbeladung angeordnet",
+      "galleryAlt3": "Marmorplatten sicher im Container verpackt",
+      "galleryAlt4": "Kisten mit Kalksteinplatten geladen und zur Ausfuhr gesichert",
+      "galleryAlt5": "Holzkisten mit Marmorblöcken im Exportgelände",
+      "galleryAlt6": "Exportcontainer mit Natursteinladungen gestapelt",
+      "galleryAlt7": "Gabelstapler lädt verpackte Marmorplatten in Container",
+      "galleryAlt8": "Marmorplatten gewickelt und auf Holzpaletten verschnürt",
+      "galleryAlt9": "Verpackte Kalksteinplatten zum internationalen Versand bereit",
+      "galleryAlt10": "Marmorplattenlagerbereich im Exportcontainer",
+      "galleryAlt11": "Reihen verpackter Marmorkisten zum Exportieren bereit",
+      "galleryAlt12": "Offener Container mit durch Holzstreben gesicherten Platten",
+      "galleryAlt13": "Kalksteinplatten in schrumpffolienbundeln verpackt",
+      "galleryAlt14": "Lagerpalletten aus Marmorplatten zum Beladen bereit",
+      "galleryAlt15": "Marmorplattenkisten werden im Container angeordnet",
+      "galleryAlt16": "Gestapelte Exportkisten mit Wadi-Degla-Branding",
+      "galleryAlt17": "Marmorbeladeoperation am Exportterminall",
+      "galleryAlt18": "Offener Container zum Blockbeladen positioniert",
+      "galleryAlt19": "Schwere Marmorblöcke für Exportshipment ausgerichtet",
+      "galleryAlt20": "Steine in Holzkisten im Freien gestapelt",
+      "galleryAlt21": "Marmorverpackungslinie in der Fabrikexportzone"
+    }
   },
   "contactInfo": {
     "title": "Kontaktinformationen",

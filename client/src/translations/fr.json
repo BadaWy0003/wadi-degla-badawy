@@ -311,7 +311,30 @@
     "bulletPoint4": "Support d'expansion vers de nouveaux territoires au CCG, en Europe, en Afrique et en Amérique",
     "bulletPoint5": "Relations solides avec les distributeurs et importateurs mondiaux",
     "missionText": "Notre Mission:",
-    "missionGoal": "Être l'exportateur égyptien le plus fiable de marbre et calcaire, livrant des produits de pierre de qualité premium avec intégrité, garantissant la satisfaction client sur tous les continents."
+    "missionGoal": "Être l'exportateur égyptien le plus fiable de marbre et calcaire, livrant des produits de pierre de qualité premium avec intégrité, garantissant la satisfaction client sur tous les continents.",
+    "gallery": {
+      "galleryAlt1": "Conteneur d'exportation vide ouvert prêt pour chargement de marbre",
+      "galleryAlt2": "Carreaux de marbre en caissettes disposés pour chargement de conteneur",
+      "galleryAlt3": "Plaques de marbre sécurisées à l'intérieur du conteneur",
+      "galleryAlt4": "Boîtes de carreaux de calcaire chargées et sécurisées pour l'exportation",
+      "galleryAlt5": "Caisses en bois de blocs de marbre dans la cour d'exportation",
+      "galleryAlt6": "Conteneurs d'exportation empilés avec envois de pierre naturelle",
+      "galleryAlt7": "Chariot élévateur chargeant des carreaux de marbre en caissettes dans le conteneur",
+      "galleryAlt8": "Plaques de marbre enveloppées et arrimées sur palettes en bois",
+      "galleryAlt9": "Carreaux de calcaire en caissettes préparés pour expédition internationale",
+      "galleryAlt10": "Zone de stockage des plaques de marbre à l'intérieur du conteneur d'exportation",
+      "galleryAlt11": "Rangées de caisses de marbre emballées prêtes pour l'exportation",
+      "galleryAlt12": "Conteneur ouvert avec plaques sécurisées par des entretoises en bois",
+      "galleryAlt13": "Carreaux de calcaire emballés dans des palettes sous film rétractable",
+      "galleryAlt14": "Plaques de marbre palettisées en entrepôt prêtes pour chargement",
+      "galleryAlt15": "Caisses de carreaux de marbre organisées à l'intérieur du conteneur",
+      "galleryAlt16": "Caisses d'exportation empilées avec marque Wadi Degla",
+      "galleryAlt17": "Opération de chargement de marbre au terminal d'exportation",
+      "galleryAlt18": "Conteneur ouvert positionné pour chargement de blocs",
+      "galleryAlt19": "Blocs de marbre lourds alignés pour envoi d'exportation",
+      "galleryAlt20": "Carreaux de pierre empilés dans des caisses en bois en plein air",
+      "galleryAlt21": "Ligne d'emballage de marbre à l'intérieur de la zone d'exportation de l'usine"
+    }
   },
   "contactInfo": {
     "title": "Informations de contact",

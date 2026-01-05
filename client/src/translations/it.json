@@ -311,7 +311,30 @@
     "bulletPoint4": "Supporto per l'espansione in nuovi territori nei paesi del GCC, Europa, Africa e Americhe",
     "bulletPoint5": "Forti relazioni con distributori e importatori in tutto il mondo",
     "missionText": "La Nostra Missione:",
-    "missionGoal": "Essere l'esportatore egiziano più affidabile di marmo e calcare, consegnando prodotti in pietra di qualità premium con integrità, garantendo la soddisfazione dei clienti su tutti i continenti."
+    "missionGoal": "Essere l'esportatore egiziano più affidabile di marmo e calcare, consegnando prodotti in pietra di qualità premium con integrità, garantendo la soddisfazione dei clienti su tutti i continenti.",
+    "gallery": {
+      "galleryAlt1": "Contenitore di esportazione vuoto aperto pronto per carico di marmo",
+      "galleryAlt2": "Piastrelle di marmo in casse disposte per carico contenitore",
+      "galleryAlt3": "Lastre di marmo correttamente imballate all'interno del contenitore",
+      "galleryAlt4": "Casse di piastrelle di calcare caricate e fissate per l'esportazione",
+      "galleryAlt5": "Casse di legno di blocchi di marmo nel cantiere di esportazione",
+      "galleryAlt6": "Contenitori di esportazione impilati con spedizioni di pietra naturale",
+      "galleryAlt7": "Carrello elevatore che carica piastrelle di marmo in casse nel contenitore",
+      "galleryAlt8": "Lastre di marmo avvolte e assicurate su pallet di legno",
+      "galleryAlt9": "Piastrelle di calcare in casse preparate per spedizione internazionale",
+      "galleryAlt10": "Area di stoccaggio lastre di marmo all'interno del contenitore di esportazione",
+      "galleryAlt11": "File di casse di marmo imballate pronte per l'esportazione",
+      "galleryAlt12": "Contenitore aperto con lastre fissate da travetti di legno",
+      "galleryAlt13": "Piastrelle di calcare imballate in pallet avvolti da film retrattile",
+      "galleryAlt14": "Lastre di marmo palettizzate in magazzino pronte per il carico",
+      "galleryAlt15": "Casse di piastrelle di marmo ordinate all'interno del contenitore",
+      "galleryAlt16": "Casse di esportazione impilate con branding Wadi Degla",
+      "galleryAlt17": "Operazione di carico del marmo al terminal di esportazione",
+      "galleryAlt18": "Contenitore aperto posizionato per carico di blocchi",
+      "galleryAlt19": "Blocchi di marmo pesanti allineati per spedizione di esportazione",
+      "galleryAlt20": "Piastrelle di pietra impilate in casse di legno all'aperto",
+      "galleryAlt21": "Linea di imballaggio del marmo all'interno della zona di esportazione della fabbrica"
+    }
   },
   "contactInfo": {
     "title": "Informazioni di contatto",

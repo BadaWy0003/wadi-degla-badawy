@@ -311,7 +311,30 @@
     "bulletPoint4": "Apoyo de expansión a nuevos territorios en GCC, Europa, África y América",
     "bulletPoint5": "Relaciones sólidas con distribuidores e importadores en todo el mundo",
     "missionText": "Nuestra Misión:",
-    "missionGoal": "Ser el exportador más confiable de mármol y piedra caliza egipcia, entregando productos pétreos de calidad premium con integridad, garantizando la satisfacción del cliente en todos los continentes."
+    "missionGoal": "Ser el exportador más confiable de mármol y piedra caliza egipcia, entregando productos pétreos de calidad premium con integridad, garantizando la satisfacción del cliente en todos los continentes.",
+    "gallery": {
+      "galleryAlt1": "Contenedor de exportación vacío abierto listo para cargar mármol",
+      "galleryAlt2": "Baldosas de mármol en cajas arregladas para carga de contenedor",
+      "galleryAlt3": "Losas de mármol empaquetadas de forma segura dentro del contenedor",
+      "galleryAlt4": "Cajas de baldosas de piedra caliza cargadas y aseguradas para exportación",
+      "galleryAlt5": "Cajas de madera de bloques de mármol en patio de exportación",
+      "galleryAlt6": "Contenedores de exportación apilados con envíos de piedra natural",
+      "galleryAlt7": "Montacargas cargando baldosas de mármol en cajas en contenedor",
+      "galleryAlt8": "Losas de mármol envueltas y aseguradas en paletas de madera",
+      "galleryAlt9": "Baldosas de piedra caliza en cajas preparadas para envío internacional",
+      "galleryAlt10": "Área de almacenamiento de losas de mármol dentro del contenedor de exportación",
+      "galleryAlt11": "Filas de cajas de mármol empaquetadas listas para exportación",
+      "galleryAlt12": "Contenedor abierto con losas aseguradas por refuerzos de madera",
+      "galleryAlt13": "Baldosas de piedra caliza embaladas en paletas envueltas en plástico",
+      "galleryAlt14": "Losas de mármol paletizadas en almacén listas para cargar",
+      "galleryAlt15": "Cajas de baldosas de mármol siendo arregladas dentro del contenedor",
+      "galleryAlt16": "Cajas de exportación apiladas con marca de Wadi Degla",
+      "galleryAlt17": "Operación de carga de mármol en terminal de exportación",
+      "galleryAlt18": "Contenedor abierto posicionado para carga de bloques",
+      "galleryAlt19": "Bloques de mármol pesados alineados para envío de exportación",
+      "galleryAlt20": "Baldosas de piedra apiladas en cajas de madera al aire libre",
+      "galleryAlt21": "Línea de empaque de mármol dentro de la zona de exportación de la fábrica"
+    }
   },
   "contactInfo": {
     "title": "Información de contacto",
