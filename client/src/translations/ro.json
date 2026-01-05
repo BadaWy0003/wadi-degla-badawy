@@ -364,11 +364,11 @@
     "normalPackingTitle": "Ambalare Standard de Plăci",
     "normalPackingText": "Pentru încărcarea manuală, plăcile sunt plasate direct în interiorul containerului pe bare de lemn pentru stabilizare.\nPlăcile lungi sunt aranjate în două grupe mari, în timp ce plăcile mai scurte sunt aranjate în patru grupe compacte pentru a asigura greutatea echilibrată a containerului.\nFoile de plastic sunt adăugate între suprafețele lustruite pentru a preveni daunele de frecare.",
     "slabsImageAlt": "Ambalarea plăcilor mari de marmură și granit",
-    "tilesTitle": "AMBALARE PLĂCI MICI (TILES) DE MARMURĂ ȘI GRANIT",
-    "woodenCratesTitle": "Lăzi de lemn De la Wadi Degla",
-    "woodenCratesText": "Plăcile mici sunt ambalate după o selecție riguroasă, conform mostrelor aprobate, în lăzi de lemn (cutii) căptușite cu spumă pentru o protecție sporită. Fiecare ladă de lemn conține un anumit număr de plăci mici în funcție de grosime. Toate detaliile conținutului lăzii sunt menționate pe eticheta de hârtie fixată pe exteriorul lăzii. Doar plăcile de 12\"x12\" (10mm +/- 0.5 grosime) sunt ambalate în cutii de polistiren înainte de a fi ambalate în lăzile de lemn. Se adaugă folii subțiri de plastic între fețele lustruite ale plăcilor mici pentru a evita zgârieturile de suprafață.",
-    "woodenPalletTitle": "Palet de lemn De la Wadi Degla",
-    "woodenPalletText": "Plăcile mici sunt ambalate după o selecție riguroasă, conform mostrelor aprobate, pe paleți de lemn înconjurați de spumă pentru o protecție sporită și fixate cu curele de plastic cu bucăți de cauciuc pe margini pentru a evita eventualele deteriorări. În funcție de mărimea și grosimea plăcilor mici, fiecare palet de lemn conține un anumit număr de plăci. Toate detaliile conținutului paletului sunt menționate pe eticheta de hârtie fixată pe partea laterală a paletului.",
+    "tilesTitle": "Ambalare Gresie Marmură și Granit",
+    "woodenCratesTitle": "Lăzi din Lemn",
+    "woodenCratesText": "Gresiile sunt selectate, sortate și plasate în lăzi de lemn căptușite cu spumă pentru absorbția șocurilor.\nFiecare ladă este etichetată cu dimensiunea gresiei, grosimea și detaliile comenzii.\nGresia mică și delicată (cum ar fi 12\"x12\") este suplimentar ambalată în cutii din polistiren.",
+    "woodenPalletTitle": "Palete din Lemn",
+    "woodenPalletText": "Gresiile mari sunt ambalate pe palete de lemn de înaltă rezistență învelite cu plastic și strânse cu centuri protejate cu cauciuc pentru a evita zdrobituri.\nFiecare paletă include o etichetă detaliată care conține numărul de gresii, dimensiunile și grosimea.",
     "tilesImageAlt": "Ambalarea plăcilor mici de marmură și granit"
   },
   "history": {

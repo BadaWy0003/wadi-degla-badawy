@@ -364,11 +364,11 @@
     "normalPackingTitle": "Standardplattenbeschaffung",
     "normalPackingText": "Beim manuellen Laden werden die Platten direkt auf Holzstangen im Container für Stabilität platziert.\nLange Platten sind in zwei großen Gruppen angeordnet, während kürzere Platten in vier kompakten Gruppen angeordnet sind, um gleichmäßige Containergewichte zu gewährleisten.\nKunststofffolien werden zwischen polierten Oberflächen eingelegt, um Reibungsschäden zu vermeiden.",
     "slabsImageAlt": "Verpackung von Marmor- und Granitplatten",
-    "tilesTitle": "VERPACKUNG VON MARMOR- UND GRANITFLIESEN (TILES)",
-    "woodenCratesTitle": "Holzkisten von Wadi Degla",
-    "woodenCratesText": "Fliesen werden nach sorgfältiger Auswahl gemäß den genehmigten Mustern in Holzkisten (Boxes) verpackt, die mit Schaumstoff ausgekleidet sind, um einen besseren Schutz zu gewährleisten. Jede Holzkiste enthält eine bestimmte Anzahl von Fliesen entsprechend der Dicke. Alle Details zum Kisteninhalt sind auf dem Etikett vermerkt, das außen an der Kiste angebracht ist. Nur 12\"x12\" Fliesen (10 mm +/- 0,5 dick) werden in Styroporboxen verpackt, bevor sie in die Holzkisten verpackt werden. Dünne Plastikfolien werden zwischen polierte Flächen der Fliesen gelegt, um Oberflächenkratzer zu vermeiden.",
-    "woodenPalletTitle": "Holzpalette von Wadi Degla",
-    "woodenPalletText": "Fliesen werden nach sorgfältiger Auswahl gemäß den genehmigten Mustern auf Holzpaletten verpackt, die mit Schaumstoff umgeben sind, um einen besseren Schutz zu gewährleisten, und mit Kunststoffbändern und Gummistücken an den Kanten befestigt, um Schäden zu vermeiden. Je nach Größe und Dicke der Fliesen enthält jede Holzpalette eine bestimmte Anzahl von Fliesen. Alle Details zum Inhalt der Palette sind auf dem Etikett vermerkt, das an der Seite der Palette angebracht ist.",
+    "tilesTitle": "Verpackung von Marmor- und Granit-Fliesen",
+    "woodenCratesTitle": "Holzkisten",
+    "woodenCratesText": "Die Fliesen werden ausgewählt, sortiert und in mit Schaumstoff ausgekleidete Holzkisten gelegt, um Stoßabsorption zu ermöglichen.\nJede Kiste wird mit der Fliesengröße, Dicke und Bestelldetails gekennzeichnet.\nKleine und zarte Fliesen (wie 12\"x12\") werden zusätzlich in Styroporboxen verpackt.",
+    "woodenPalletTitle": "Holzpaletten",
+    "woodenPalletText": "Große Fliesen werden auf hochfesten Holzpaletten verpackt, mit Kunststoff umwickelt und mit gummigeschützten Gurten straff gespannt, um Ausbruchschäden zu vermeiden.\nJede Palette enthält ein detailliertes Etikett mit der Fliesenzahl, Abmessungen und Dicke.",
     "tilesImageAlt": "Verpackung von Marmor- und Granitfliesen"
   },
   "history": {

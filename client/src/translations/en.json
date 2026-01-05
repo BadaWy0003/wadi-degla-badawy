@@ -364,11 +364,11 @@
     "normalPackingTitle": "Standard Slab Packing",
     "normalPackingText": "For manual loading, slabs are placed directly inside the container on wooden bars for stabilization.\nLong slabs are arranged in two large groups, while shorter slabs are arranged in four compact groups to ensure balanced container weight.\nPlastic sheets are added between polished faces to prevent friction damage.",
     "slabsImageAlt": "Packing marble and granite slabs",
-    "tilesTitle": "PACKING MARBLE AND GRANITE TILES",
-    "woodenCratesTitle": "Wooden crates From Wadi Degla",
-    "woodenCratesText": "Tiles are packed after being highly selected according to the approved samples in wooden crates (boxes) lined by foam for better protection. Each wooden crate contains a certain number of tiles according to the thickness. All the crate content details are mentioned in the label paper fixed on the outside of the crate. Only 12\"x12\" tiles (10mm +/- 0.5 thick) are packed in Styrofoam boxes before being packed inside the wooden crates. Thin plastic sheets are added between polished faces of the tiles to avoid surface scratching.",
-    "woodenPalletTitle": "Wooden pallet From Wadi Degla",
-    "woodenPalletText": "Tiles are packed after being highly selected according to the approved samples on wooden pallets surrounded by foam for better protection, and fastened with plastic belts with rubber pieces on the edges to avoid any damages that might happen. According to the size & thickness of the tiles, each wooden pallet contains a certain number of tiles. All details of the pallet contents are mentioned in the label paper fixed on the lateral side of the pallet.",
+    "tilesTitle": "Packing Marble & Granite Tiles",
+    "woodenCratesTitle": "Wooden Crates",
+    "woodenCratesText": "Tiles are selected, sorted, and placed inside wooden crates lined with foam for shock absorption.\nEach crate is labeled with the tile size, thickness, and order details.\nSmall and delicate tiles (such as 12\"x12\") are additionally packed inside Styrofoam boxes.",
+    "woodenPalletTitle": "Wooden Pallets",
+    "woodenPalletText": "Large tiles are packed on high-strength wooden pallets wrapped with plastic and strapped with rubber-protected belts to avoid chipping.\nEach pallet includes a detailed label containing the tile count, dimensions, and thickness.",
     "tilesImageAlt": "Packing marble and granite tiles"
   },
   "history": {

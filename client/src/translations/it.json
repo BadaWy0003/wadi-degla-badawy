@@ -364,11 +364,11 @@
     "normalPackingTitle": "Imballaggio Standard delle Lastre",
     "normalPackingText": "Per il carico manuale, le lastre sono posizionate direttamente all'interno del contenitore su barre di legno per la stabilizzazione.\nLe lastre lunghe sono disposte in due grandi gruppi, mentre le lastre più corte sono disposte in quattro gruppi compatti per garantire il peso equilibrato del contenitore.\nI fogli di plastica vengono aggiunti tra le facce lucidate per evitare danni da attrito.",
     "slabsImageAlt": "Imballaggio di lastre di marmo e granito",
-    "tilesTitle": "IMBALLAGGIO DI PIASTRELLE (TILES) DI MARMO E GRANITO",
-    "woodenCratesTitle": "Casse di legno da Wadi Degla",
-    "woodenCratesText": "Le piastrelle vengono imballate dopo essere state altamente selezionate secondo i campioni approvati in casse di legno (scatole) foderate di schiuma per una migliore protezione. Ogni cassa di legno contiene un certo numero di piastrelle a seconda dello spessore. Tutti i dettagli del contenuto della cassa sono menzionati sull'etichetta di carta fissata all'esterno della cassa. Solo le piastrelle da 12\"x12\" (10 mm +/- 0,5 di spessore) vengono imballate in scatole di polistirolo prima di essere imballate all'interno delle casse di legno. Sottili fogli di plastica vengono aggiunti tra le facce lucidate delle piastrelle per evitare graffi superficiali.",
-    "woodenPalletTitle": "Pallet di legno da Wadi Degla",
-    "woodenPalletText": "Le piastrelle vengono imballate dopo essere state altamente selezionate secondo i campioni approvati su pallet di legno circondati da schiuma per una migliore protezione e fissate con cinghie di plastica con pezzi di gomma sui bordi per evitare eventuali danni. A seconda delle dimensioni e dello spessore delle piastrelle, ogni pallet di legno contiene un certo numero di piastrelle. Tutti i dettagli del contenuto del pallet sono menzionati sull'etichetta di carta fissata sul lato laterale del pallet.",
+    "tilesTitle": "Imballaggio di Piastrelle di Marmo e Granito",
+    "woodenCratesTitle": "Casse di Legno",
+    "woodenCratesText": "Le piastrelle vengono selezionate, ordinate e posizionate all'interno di casse di legno rivestite di schiuma per l'assorbimento degli urti.\nOgni cassa è etichettata con le dimensioni della piastrella, lo spessore e i dettagli dell'ordine.\nLe piastrelle piccole e delicate (come 12\"x12\") vengono ulteriormente imballate in scatole di polistirolo.",
+    "woodenPalletTitle": "Pallet di Legno",
+    "woodenPalletText": "Le piastrelle grandi vengono imballate su pallet di legno ad alta resistenza avvolti con plastica e cinture protette in gomma per evitare scheggiature.\nOgni pallet include un'etichetta dettagliata contenente il numero di piastrelle, le dimensioni e lo spessore.",
     "tilesImageAlt": "Imballaggio di piastrelle di marmo e granito"
   },
   "history": {

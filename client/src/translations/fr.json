@@ -364,11 +364,11 @@
     "normalPackingTitle": "Emballage Standard des Dalles",
     "normalPackingText": "Pour le chargement manuel, les dalles sont placées directement dans le conteneur sur des barres de bois pour la stabilisation.\nLes longues dalles sont disposées en deux grands groupes, tandis que les dalles plus courtes sont disposées en quatre groupes compacts pour assurer l'équilibre du poids du conteneur.\nDes feuilles de plastique sont ajoutées entre les faces polies pour éviter les dommages dus au frottement.",
     "slabsImageAlt": "Emballage des dalles de marbre et de granit",
-    "tilesTitle": "EMBALLAGE DES CARREAUX (TILES) DE MARBRE ET DE GRANIT",
-    "woodenCratesTitle": "Caisses en Bois de Wadi Degla",
-    "woodenCratesText": "Les carreaux sont emballés après avoir été hautement sélectionnés selon les échantillons approuvés dans des caisses en bois (boîtes) doublées de mousse pour une meilleure protection. Chaque caisse en bois contient un certain nombre de carreaux en fonction de l'épaisseur. Tous les détails du contenu de la caisse sont mentionnés sur l'étiquette en papier fixée à l'extérieur de la caisse. Seuls les carreaux de 12\"x12\" (10 mm +/- 0,5 d'épaisseur) sont emballés dans des boîtes en Styrofoam avant d'être emballés à l'intérieur des caisses en bois. De fines feuilles de plastique sont ajoutées entre les faces polies des carreaux pour éviter les rayures de surface.",
-    "woodenPalletTitle": "Palette en Bois de Wadi Degla",
-    "woodenPalletText": "Les carreaux sont emballés après avoir été hautement sélectionnés selon les échantillons approuvés sur des palettes en bois entourées de mousse pour une meilleure protection, et fixés avec des sangles en plastique avec des morceaux de caoutchouc sur les bords pour éviter tout dommage potentiel. Selon la taille et l'épaisseur des carreaux, chaque palette en bois contient un certain nombre de carreaux. Tous les détails du contenu de la palette sont mentionnés sur l'étiquette en papier fixée sur le côté latéral de la palette.",
+    "tilesTitle": "Emballage des Carrelages de Marbre et de Granit",
+    "woodenCratesTitle": "Caisses en Bois",
+    "woodenCratesText": "Les carrelages sont sélectionnés, triés et placés dans des caisses en bois doublées de mousse pour l'absorption des chocs.\nChaque caisse est étiquetée avec la taille, l'épaisseur et les détails de la commande du carrelage.\nLes petits et délicats carrelages (comme 12\"x12\") sont emballés supplémentairement dans des boîtes en polystyrène.",
+    "woodenPalletTitle": "Palettes en Bois",
+    "woodenPalletText": "Les grands carrelages sont emballés sur des palettes en bois haute résistance enveloppées de plastique et attachées avec des sangles protégées par du caoutchouc pour éviter les éclats.\nChaque palette comprend une étiquette détaillée contenant le nombre de carrelages, les dimensions et l'épaisseur.",
     "tilesImageAlt": "Emballage des carreaux de marbre et de granit"
   },
   "history": {

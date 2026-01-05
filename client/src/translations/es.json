@@ -364,11 +364,11 @@
     "normalPackingTitle": "Empaque de Losas Estándar",
     "normalPackingText": "Para la carga manual, las losas se colocan directamente dentro del contenedor en barras de madera para estabilización.\nLas losas largas se arreglan en dos grupos grandes, mientras que las losas más cortas se arreglan en cuatro grupos compactos para asegurar el peso equilibrado del contenedor.\nLos plásticos se agregan entre las caras pulidas para evitar daño por fricción.",
     "slabsImageAlt": "Empaque de losas de mármol y granito",
-    "tilesTitle": "EMPAQUE DE BALDOSAS DE MÁRMOL Y GRANITO",
-    "woodenCratesTitle": "Cajas de madera de Wadi Degla",
-    "woodenCratesText": "Las baldosas se empacan después de ser seleccionadas cuidadosamente según las muestras aprobadas en cajas de madera forradas con espuma para una mejor protección. Cada caja de madera contiene un número determinado de baldosas según el grosor. Todos los detalles del contenido de la caja se mencionan en la etiqueta fijada en el exterior de la caja. Solo las baldosas de 12\"x12\" (10mm +/- 0.5 de grosor) se empacan en cajas de poliestireno antes de ser empacadas dentro de las cajas de madera. Se agregan láminas delgadas de plástico entre las caras pulidas de las baldosas para evitar rayaduras en la superficie.",
-    "woodenPalletTitle": "Palet de madera de Wadi Degla",
-    "woodenPalletText": "Las baldosas se empacan después de ser seleccionadas cuidadosamente según las muestras aprobadas en palets de madera rodeados de espuma para una mejor protección y sujetas con cintas plásticas con piezas de goma en los bordes para evitar daños. Según el tamaño y grosor de las baldosas, cada palet de madera contiene un número determinado de baldosas. Todos los detalles del contenido del palet se mencionan en la etiqueta fijada en el lateral del palet.",
+    "tilesTitle": "Empaque de Mosaicos de Mármol y Granito",
+    "woodenCratesTitle": "Cajas de Madera",
+    "woodenCratesText": "Los mosaicos se seleccionan, clasifican y se colocan dentro de cajas de madera revestidas con espuma para absorber golpes.\nCada caja está etiquetada con el tamaño del mosaico, grosor y detalles del pedido.\nLos mosaicos pequeños y delicados (como 12\"x12\") se empacan adicionalmente dentro de cajas de poliestireno.",
+    "woodenPalletTitle": "Paletas de Madera",
+    "woodenPalletText": "Los mosaicos grandes se empacan en paletas de madera de alta resistencia envueltas con plástico y aseguradas con cintas protegidas con caucho para evitar daños.\nCada paleta incluye una etiqueta detallada que contiene el número de mosaicos, dimensiones y grosor.",
     "tilesImageAlt": "Empaque de baldosas de mármol y granito"
   },
   "history": {
