@@ -76,7 +76,7 @@ export default function Packing(){
      
                 <div className="packing-slabs">
                     <div className="packing-slabs-content">
-                            <h1>{t('packing.slabsTitle')}</h1>
+                            <h2>{t('packing.slabsTitle')}</h2>
 
                             <h3>{t('packing.woodenBundleTitle')}</h3>
                             <p>{t('packing.woodenBundleText')}</p>

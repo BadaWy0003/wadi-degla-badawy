@@ -38,8 +38,9 @@
 }
 
 
-.packing-container h1 {
+.packing-container h2 {
     color: var(--goldColor);
+    font-size: 2rem;
 }
 
 .packing-container h3 {
