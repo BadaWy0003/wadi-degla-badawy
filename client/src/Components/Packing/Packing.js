@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 import 'react-multi-carousel/lib/styles.css';
 import { useTranslation } from 'react-i18next';
 import '../../i18n';
+import { useNavigate } from 'react-router-dom';
 
 
 import image3 from '../../Public/Assets/Media/3.webp';
@@ -35,26 +36,32 @@ export default function Packing(){
     const { t } = useTranslation();
 
     const images = [
-        packing1,
-        packing2,
-        packing3,
-        packing4,
-        packing5,
-        packing6,
-        packing7,
-        packing8,
-        packing9,
-        packing10,
-        packing11,
-        packing12,
-        packing13,
-        packing14,
-        packing15,
-        packing16,
-        packing17,
+        { src: packing1, alt: t('packing.packingAlt1') },
+        { src: packing2, alt: t('packing.packingAlt2') },
+        { src: packing3, alt: t('packing.packingAlt3') },
+        { src: packing4, alt: t('packing.packingAlt4') },
+        { src: packing5, alt: t('packing.packingAlt5') },
+        { src: packing6, alt: t('packing.packingAlt6') },
+        { src: packing7, alt: t('packing.packingAlt7') },
+        { src: packing8, alt: t('packing.packingAlt8') },
+        { src: packing9, alt: t('packing.packingAlt9') },
+        { src: packing10, alt: t('packing.packingAlt10') },
+        { src: packing11, alt: t('packing.packingAlt11') },
+        { src: packing12, alt: t('packing.packingAlt12') },
+        { src: packing13, alt: t('packing.packingAlt13') },
+        { src: packing14, alt: t('packing.packingAlt14') },
+        { src: packing15, alt: t('packing.packingAlt15') },
+        { src: packing16, alt: t('packing.packingAlt16') },
+        { src: packing17, alt: t('packing.packingAlt17') },
     ];
-
     
+  const navigate = useNavigate();
+
+      function OnClick(){
+    navigate('/contact'); 
+    window.scrollTo({top: 0});
+  }
+
     
     return(
         <>
@@ -91,7 +98,7 @@ export default function Packing(){
                 <div className="packing-tiles">
                         <img loading="lazy" src={image21} alt={t('packing.tilesImageAlt')}/>
                     <div className="packing-tiles-content">
-                        <h1>{t('packing.tilesTitle')}</h1>
+                        <h2>{t('packing.tilesTitle')}</h2>
 
                         <h3>{t('packing.woodenCratesTitle')}</h3>
                         <p>{t('packing.woodenCratesText')}</p>
@@ -100,12 +107,49 @@ export default function Packing(){
                         <p>{t('packing.woodenPalletText')}</p>
                     </div>
                 </div> 
+
+            {/* Why Our Packing Matters Section */}
+            <div className="packing-benefits">
+                <h2>{t('packing.whyMatterTitle')}</h2>
+                <div className="benefits-grid">
+                    <div className="benefit-item">
+                        <p>{t('packing.benefit1')}</p>
+                    </div>
+                    <div className="benefit-item">
+                        <p>{t('packing.benefit2')}</p>
+                    </div>
+                    <div className="benefit-item">
+                        <p>{t('packing.benefit3')}</p>
+                    </div>
+                    <div className="benefit-item">
+                        <p>{t('packing.benefit4')}</p>
+                    </div>
+                    <div className="benefit-item">
+                        <p>{t('packing.benefit5')}</p>
+                    </div>
+                    <div className="benefit-item">
+                        <p>{t('packing.benefit6')}</p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Professional Packing Request Section */}
+            <div className="packing-cta-section">
+                <h2>{t('packing.ctaTitle')}</h2>
+                <p>{t('packing.ctaDescription')}</p>
+                <p className="cta-contact">{t('packing.ctaContact')}</p>
+                <div className="cta-buttons">
+                    <button className="btn2" onClick={OnClick}>{t('packing.ctaButton1')}</button>
+                    <button className="btn1" onClick={OnClick}>{t('packing.ctaButton2')}</button>
+                </div>
+            </div>
             {/* Image Grid Section */}
 
             <div className="image-grid">
             <MasonryGrid props={images}/>
 
             </div>
+
             <ContactBubble />
 
             </div>    

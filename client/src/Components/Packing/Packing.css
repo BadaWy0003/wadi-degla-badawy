@@ -103,6 +103,102 @@
     column-gap: 15px;
 }
 
+/* Why Our Packing Matters Section */
+.packing-benefits {
+    padding: 5rem;
+    margin: 5rem 0;
+    background-color: var(--darkerBlackColor);
+}
+
+.packing-benefits h2 {
+    color: var(--goldColor);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.benefit-item::before {
+    content: '■';
+    color: var(--goldColor);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.benefit-item p {
+    color: var(--whiteColor);
+    text-align: start;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Professional Packing CTA Section */
+.packing-cta-section {
+    padding: 5rem;
+    margin: 5rem 0;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+    border-top: 2px solid var(--goldColor);
+    border-bottom: 2px solid var(--goldColor);
+    text-align: center;
+}
+
+.packing-cta-section h2 {
+    color: var(--goldColor);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.packing-cta-section p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.cta-contact {
+    margin-bottom: 2rem !important;
+    color: var(--blueColor) !important;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    padding: 0.8rem 2rem;
+    background-color: var(--goldColor);
+    color: var(--darkColor);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #c9a835;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
 
 .grid-item {
     width: 100%;
@@ -124,8 +220,6 @@
     .packing-container p {
         font-size: 14px;
     }
-
-
 
     /* General Hero Section */
     .packing-container .quarries-hero {
@@ -184,7 +278,37 @@
         column-gap: 15px;
     }
 
+    .packing-benefits {
+        padding: 2rem;
+        margin: 3rem 0;
+    }
 
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .packing-cta-section {
+        padding: 2rem;
+        margin: 3rem 0;
+    }
+
+    .packing-cta-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .packing-cta-section p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
 }
 
 
