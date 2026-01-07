@@ -25,7 +25,7 @@ export default function About(){
             </Helmet>
         <div className='about-container'>
             {/* 🌟 Hero Section */}
-            <div className="quarries-hero">
+            <div className="quarries-hero" role="img" aria-label={t('about.heroImageAlt')}>
                 <h1>{t('about.heroTitle')}</h1>
                 <div className="breadcrumb">
                 <a href="/">{t('about.breadcrumbHome')}</a>
