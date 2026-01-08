@@ -62,7 +62,19 @@ export default function About(){
                         <p>{t('about.expertiseIntro')}</p>
                         <li><strong>{t('about.globalReachTitle')}</strong> <br/>{t('about.globalReachText')}</li>
                         <li><strong>{t('about.resourcesTitle')}</strong> <br/>{t('about.resourcesText')}</li>
-                        <li><strong>{t('about.graniteTitle')}</strong> <br/>{t('about.graniteText')}</li>
+                        <li>
+                            <strong>{t('about.graniteTitle')}</strong> <br/>
+                            {t('about.graniteText').split('\n').map((line, index) => {
+                                const trimmedLine = line.trim();
+                                if (!trimmedLine) return null;
+                                return (
+                                    <React.Fragment key={index}>
+                                        {trimmedLine.startsWith('-') ? trimmedLine : trimmedLine}
+                                        {index < t('about.graniteText').split('\n').length - 1 && trimmedLine !== '' && <br/>}
+                                    </React.Fragment>
+                                );
+                            })}
+                        </li>
                         <li><strong>{t('about.partnershipsTitle')}</strong> <br/>{t('about.partnershipsText')}</li>
                         <li><strong>{t('about.solutionsTitle')}</strong> <br/>{t('about.solutionsText')}</li>
                     </div>
