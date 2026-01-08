@@ -82,6 +82,8 @@ export default function CounterSection() {
         </div>
       </div>
 
+      <h2>{t('about.counters.sectionTitle2')}</h2>
+
       {/* Counters Section (Second 3) */}
       <div className="about-counters-section-inner">
         {/* Swiper for Small Screens */}
