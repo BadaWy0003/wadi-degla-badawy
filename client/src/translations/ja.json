@@ -22,7 +22,7 @@
       "experienceIconAlt": "経験アイコン",
       "experienceTitle": "経験年数",
       "manpowerIconAlt": "人員アイコン",
-      "manpowerTitle": "人員",
+      "manpowerTitle": "熟練した労働力",
       "productionIconAlt": "生産アイコン",
       "productionTitle": "日産面積 (M²)",
       "projectsIconAlt": "プロジェクトアイコン",
@@ -35,7 +35,8 @@
       "craftsmanshipText": "最高品質を保証する何世代にもわたる知識。",
       "supplyChainIconAlt": "サプライチェーンアイコン",
       "supplyChainTitle": "グローバルサプライチェーン",
-      "supplyChainText": "安定した供給のための強力な国際パートナーシップ。"
+      "supplyChainText": "安定した供給のための強力な国際パートナーシップ。",
+      "sectionTitle": "数字で見る私たちの成果"
     },
     "pageTitle": "ワディ・デグラ大理石&花崗岩を選ぶ理由 | 45年以上の卓越性",
     "metaDescription": "グローバル開発者がワディ・デグラ大理石&花崗岩を信頼する理由をご覧ください。45年以上の専門知識、プレミアム天然石、最先端技術、比類のないグローバルサプライ機能。",

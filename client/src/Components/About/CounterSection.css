@@ -1,10 +1,22 @@
 /*COUNTER SECTION_____________________________________________________________*/
 .about-counters-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: var(--whiteColor);
     margin: 5rem 0;
 
 }
+.about-counters-section h2{
+    background-color: var(--darkerBlackColor);
+    color: var(--goldColor);
+    font-size: 32px;
+    margin-bottom: 5rem;
+    width: fit-content;
+    text-align: center;
 
+}
 #experience-card {
     margin-bottom: 5rem;
 }

@@ -21,6 +21,8 @@ export default function CounterSection() {
   const { t } = useTranslation();
   return (
     <section className="about-counters-section">
+      <h2>{t('about.counters.sectionTitle')}</h2>
+      
       {/* Experience Counter */}
       <div id="experience-card" className="counter-card">
         <img loading="lazy" src={experience} alt={t('about.counters.experienceIconAlt')} />
