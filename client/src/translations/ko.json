@@ -670,19 +670,19 @@
     "mosaicsTitle": "모자이크"
   },
   "patterns": {
-    "pageTitle": "패턴 | 와디 데글라",
-    "metaDescription": "우리의 대리석 패턴, 포장재 및 스플릿 페이스(split face) 옵션을 살펴보십시오.",
-    "heroTitle": "패턴 / 포장재",
+    "pageTitle": "대리석 패턴 & 석재 포장 | 실외 바닥재 | Wadi Degla 대리석 이집트",
+    "metaDescription": "실외 및 실내 바닥재용 프리미엄 대리석 포장 타일 및 천연석 패턴을 발견하세요. 수영장 데크, 파티오, 통로, 파사드 및 조경에 이상적입니다. 이집트에서 전 세계로 수출합니다.",
+    "heroTitle": "대리석 포장 타일 & 석재 패턴",
     "breadcrumbHome": "홈",
     "breadcrumbCurrent": "패턴 / 포장재",
-    "paversTitle": "대리석 포장재",
-    "splitFaceTitle": "대리석 스플릿 페이스(Split Face)",
+    "paversTitle": "대리석 포장 타일 컬렉션",
+    "splitFaceTitle": "쪼개진 면 대리석",
     "selectMaterial": "아래에서 재료를 선택하면 이 장면에 나타납니다",
     "paversAlt": "대리석 포장재 {{number}}",
     "paversMainAlt": "선택된 대리석 포장재",
     "splitFaceAlt": "스플릿 페이스 {{number}}",
     "splitFaceMainAlt": "선택된 스플릿 페이스",
-    "patternsTitle": "대리석 패턴"
+    "patternsTitle": "석재 패턴"
   },
   "home": {
     "pageTitle": "홈 | 와디 데글라",

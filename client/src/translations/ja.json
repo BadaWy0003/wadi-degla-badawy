@@ -670,19 +670,19 @@
     "mosaicsTitle": "モザイク"
   },
   "patterns": {
-    "pageTitle": "パターン | ワディ・デグラ",
-    "metaDescription": "当社のマーブルパターン、舗装材、およびスプリットフェイス（split face）オプションをご覧ください。",
-    "heroTitle": "パターン / 舗装材",
+    "pageTitle": "大理石パターン & 石張り舗装 | 屋外床材 | Wadi Degla大理石エジプト",
+    "metaDescription": "屋内外の床材用のプレミアム大理石舗装タイルと天然石パターンを発見してください。プールデッキ、パティオ、小道、ファサード、造園に最適です。エジプトからの世界中への輸出。",
+    "heroTitle": "大理石舗装タイルと石のパターン",
     "breadcrumbHome": "ホーム",
     "breadcrumbCurrent": "パターン / 舗装材",
-    "paversTitle": "マーブル舗装材",
-    "splitFaceTitle": "マーブル・スプリットフェイス",
+    "paversTitle": "大理石舗装タイル コレクション",
+    "splitFaceTitle": "スプリットフェース大理石",
     "selectMaterial": "以下からマテリアルを選択すると、このシーンに表示されます",
     "paversAlt": "マーブル舗装材 {{number}}",
     "paversMainAlt": "選択されたマーブル舗装材",
     "splitFaceAlt": "スプリットフェイス {{number}}",
     "splitFaceMainAlt": "選択されたスプリットフェイス",
-    "patternsTitle": "マーブルパターン"
+    "patternsTitle": "石のパターン"
   },
   "home": {
     "pageTitle": "ホーム | ワディ・デグラ",

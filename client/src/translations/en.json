@@ -670,19 +670,19 @@
     "mosaicsTitle": "Mosaics"
   },
   "patterns": {
-    "pageTitle": "Patterns | Wadidegla",
-    "metaDescription": "Explore our marble patterns, pavers, and split face options.",
-    "heroTitle": "PATTERNS / PAVERS",
+    "pageTitle": "Marble Patterns & Stone Pavers | Outdoor Flooring | Wadi Degla Marble Egypt",
+    "metaDescription": "Discover premium marble paving tiles and natural stone patterns for outdoor and indoor flooring. Ideal for pool decks, patios, pathways, façades, and landscaping. Exporting worldwide from Egypt.",
+    "heroTitle": "Marble Paving Tiles & Stone Patterns",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Patterns / Pavers",
-    "paversTitle": "Marble Pavers",
-    "splitFaceTitle": "Marble Split Face",
+    "paversTitle": "Marble Paving Tiles Collection",
+    "splitFaceTitle": "Split Face Marble",
     "selectMaterial": "Select a material from below to appear on this scenery",
     "paversAlt": "Marble Pavers {{number}}",
     "paversMainAlt": "Selected Marble Paver",
     "splitFaceAlt": "Split Face {{number}}",
     "splitFaceMainAlt": "Selected Split Face",
-    "patternsTitle": "Marble Patterns"
+    "patternsTitle": "Stone Patterns"
   },
   "home": {
     "pageTitle": "Home | Wadidegla",

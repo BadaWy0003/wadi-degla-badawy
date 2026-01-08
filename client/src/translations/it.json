@@ -670,19 +670,19 @@
     "mosaicsTitle": "Mosaici"
   },
   "patterns": {
-    "pageTitle": "Motivi | Wadidegla",
-    "metaDescription": "Esplora i nostri motivi in marmo, pavimentazioni e opzioni a faccia spaccata (split face).",
-    "heroTitle": "MOTIVI / PAVIMENTI",
+    "pageTitle": "Motivi in Marmo e Pavimentazioni in Pietra | Pavimentazione Esterna | Marmo Wadi Degla Egitto",
+    "metaDescription": "Scopri piastrelle per pavimentazione in marmo premium e motivi in pietra naturale per pavimentazioni interne ed esterne. Ideale per bordi piscina, terrazze, sentieri, facciate e paesaggistica. Esportazione mondiale dall'Egitto.",
+    "heroTitle": "Piastrelle per Pavimentazione in Marmo e Motivi in Pietra",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Motivi / Pavimenti",
-    "paversTitle": "Pavimenti in Marmo",
-    "splitFaceTitle": "Faccia Spaccata (Split Face) in Marmo",
+    "paversTitle": "Collezione di Pavimentazioni in Marmo",
+    "splitFaceTitle": "Marmo a Faccia Spaccata",
     "selectMaterial": "Seleziona un materiale qui sotto per farlo apparire in questo scenario",
     "paversAlt": "Pavimento in Marmo {{number}}",
     "paversMainAlt": "Pavimento in Marmo Selezionato",
     "splitFaceAlt": "Faccia Spaccata {{number}}",
     "splitFaceMainAlt": "Faccia Spaccata Selezionata",
-    "patternsTitle": "Motivi in Marmo"
+    "patternsTitle": "Motivi in Pietra"
   },
   "home": {
     "pageTitle": "Home | Wadidegla",

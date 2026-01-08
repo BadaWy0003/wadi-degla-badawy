@@ -670,19 +670,19 @@
     "mosaicsTitle": "Mozaikë"
   },
   "patterns": {
-    "pageTitle": "Modele | Wadidegla",
-    "metaDescription": "Eksploro modelet tona të mermerit, pllakat e shtrimit dhe opsionet me faqe të ndarë (split face).",
-    "heroTitle": "MODELE / PLLAKA SHTRIMI",
+    "pageTitle": "Modele Mermeri & Rrethje Guri | Dysheme të Jashtme | Mermer Wadi Degla Egjipt",
+    "metaDescription": "Zbuloni pllaka përshtrese mermer premium dhe modele guri natyror për dysheme të brendshme dhe të jashtme. Ideal për skajet e pishinës, terasa, shtigje, fasada dhe peizazhe. Eksport botëror nga Egjipta.",
+    "heroTitle": "Pllaka Përshtrese Mermer & Modele Guri",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Modele / Pllaka Shtrimi",
-    "paversTitle": "Pllaka Shtrimi Mermeri",
-    "splitFaceTitle": "Faqe e Ndarë (Split Face) Mermeri",
+    "paversTitle": "Koleksioni i Pllakave Përshtrese të Marmoreve",
+    "splitFaceTitle": "Mermer me Faqe të Ndarë",
     "selectMaterial": "Zgjidhni një material më poshtë për t'u shfaqur në këtë skenë",
     "paversAlt": "Pllaka Shtrimi Mermeri {{number}}",
     "paversMainAlt": "Pllakë Shtrimi Mermeri e Zgjedhur",
     "splitFaceAlt": "Faqe e Ndarë {{number}}",
     "splitFaceMainAlt": "Faqe e Ndarë e Zgjedhur",
-    "patternsTitle": "Modele Mermeri"
+    "patternsTitle": "Modele Guri"
   },
   "home": {
     "pageTitle": "Ballina | Wadidegla",

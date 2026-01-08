@@ -670,19 +670,19 @@
     "mosaicsTitle": "Mosaiken"
   },
   "patterns": {
-    "pageTitle": "Muster | Wadidegla",
-    "metaDescription": "Entdecken Sie unsere Marmormuster, Pflastersteine und Spaltflächenoptionen (Split Face).",
-    "heroTitle": "MUSTER / PFLASTER",
+    "pageTitle": "Marmorplatten & Steinplatten | Außenbodenbelag | Wadi Degla Marmor Ägypten",
+    "metaDescription": "Entdecken Sie hochwertige Marmorplatten und natürliche Steinmuster für Außen- und Innenbodenbeläge. Ideal für Pools, Terrassen, Wege, Fassaden und Landschaftsbau. Weltweiter Export aus Ägypten.",
+    "heroTitle": "Marmorplatten & Steinmuster",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Muster / Pflaster",
-    "paversTitle": "Marmor-Pflastersteine",
-    "splitFaceTitle": "Marmor-Spaltfläche (Split Face)",
+    "paversTitle": "Marmorplatten-Kollektion",
+    "splitFaceTitle": "Gespaltener Marmor",
     "selectMaterial": "Wählen Sie unten ein Material aus, damit es in dieser Szene erscheint",
     "paversAlt": "Marmor-Pflasterstein {{number}}",
     "paversMainAlt": "Ausgewählter Marmor-Pflasterstein",
     "splitFaceAlt": "Spaltfläche {{number}}",
     "splitFaceMainAlt": "Ausgewählte Spaltfläche",
-    "patternsTitle": "Marmormuster"
+    "patternsTitle": "Steinmuster"
   },
   "home": {
     "pageTitle": "Startseite | Wadidegla",
