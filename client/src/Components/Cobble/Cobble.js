@@ -64,6 +64,71 @@ export default function Cobble(){
                     {t('cobbles.benefitsText4')}
                     </p>
                 </div>
+
+                {/* Ideal Applications Section */}
+                <div className="cobble-applications">
+                    <h2>{t('cobbles.applicationsTitle')}</h2>
+                    <p>{t('cobbles.applicationsIntro')}</p>
+                    <ul>
+                        {t('cobbles.applicationsList').split('\n').map((item, index) => {
+                            const trimmedItem = item.trim();
+                            return trimmedItem ? <li key={index}>{trimmedItem.replace(/^- /, '')}</li> : null;
+                        })}
+                    </ul>
+                </div>
+
+                {/* Flamed Granite Paving Section */}
+                <div className="cobble-flamed">
+                    <h2>{t('cobbles.flamedTitle')}</h2>
+                    <p>{t('cobbles.flamedIntro')}</p>
+
+                    <h3>{t('cobbles.flamedProcessTitle')}</h3>
+                    <p>{t('cobbles.flamedProcessIntro')}</p>
+                    <ul>
+                        {t('cobbles.flamedProcessList').split('\n').map((item, index) => {
+                            const trimmedItem = item.trim();
+                            return trimmedItem ? <li key={index}>{trimmedItem.replace(/^- /, '')}</li> : null;
+                        })}
+                    </ul>
+
+                    <h3>{t('cobbles.flamedBenefitsTitle')}</h3>
+                    <ul>
+                        {t('cobbles.flamedBenefitsList').split('\n').map((item, index) => {
+                            const trimmedItem = item.trim();
+                            return trimmedItem ? <li key={index}>{trimmedItem.replace(/^- /, '')}</li> : null;
+                        })}
+                    </ul>
+                </div>
+
+                {/* Where Flamed Paving Works Best */}
+                <div className="cobble-best-applications">
+                    <h2>{t('cobbles.bestApplicationsTitle')}</h2>
+                    <ul>
+                        {t('cobbles.bestApplicationsList').split('\n').map((item, index) => {
+                            const trimmedItem = item.trim();
+                            return trimmedItem ? <li key={index}>{trimmedItem.replace(/^- /, '')}</li> : null;
+                        })}
+                    </ul>
+                </div>
+
+                {/* Technical & Custom Options */}
+                <div className="cobble-technical">
+                    <h2>{t('cobbles.technicalTitle')}</h2>
+                    <p>{t('cobbles.technicalIntro')}</p>
+                    <ul>
+                        {t('cobbles.technicalOptions').split('\n').map((item, index) => {
+                            const trimmedItem = item.trim();
+                            return trimmedItem ? <li key={index}>{trimmedItem.replace(/^- /, '')}</li> : null;
+                        })}
+                    </ul>
+                    <p className="technical-compliance">{t('cobbles.technicalCompliance')}</p>
+                </div>
+
+                {/* Final CTA Section */}
+                <div className="cobble-cta">
+                    <h2>{t('cobbles.ctaTitle')}</h2>
+                    <p>{t('cobbles.ctaText')}</p>
+                </div>
             </div>
             <ContactBubble />
             </div>   
