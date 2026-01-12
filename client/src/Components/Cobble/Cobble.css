@@ -41,7 +41,12 @@
     margin-top: 5rem;
     padding: 0 5rem;
 }
+.cobble-benefits h2{
+    text-transform: uppercase;
+    color: var(--goldColor);
+    margin-top: 5rem;
 
+}
 .cobble-description {
     margin-top: 5rem;
     color: var(--whiteColor);

@@ -35,27 +35,35 @@ export default function Cobble(){
                         {t('cobbles.graniteText1')}
                         <br/><br/>
                         {t('cobbles.graniteText2')}
-                        <br/><br/>
-                        {t('cobbles.graniteText3')}
                         </>
                     }
                             images={cobbleImages} 
                     imagePosition="left" 
 
                 />
-                <p className="cobble-description">
-                {t('cobbles.flamedPavingText1')}
-                <br/><br/>
-                {t('cobbles.flamedPavingText2')}
-                <br/><br/>
-                {t('cobbles.flamedPavingText3')}
-                <br/><br/>
-                {t('cobbles.flamedPavingText4')}
-                <br/><br/>
-                {t('cobbles.flamedPavingText5')}
-                <br/><br/>
-                {t('cobbles.flamedPavingText6')}
-                </p>
+                <div className="cobble-benefits">
+                    <h2>{t('cobbles.benefitsMainTitle')}</h2>
+
+                    <h3>{t('cobbles.benefitsTitle1')}</h3>
+                    <p className="cobble-description">
+                    {t('cobbles.benefitsText1')}
+                    </p>
+
+                    <h3>{t('cobbles.benefitsTitle2')}</h3>
+                    <p className="cobble-description">
+                    {t('cobbles.benefitsText2')}
+                    </p>
+
+                    <h3>{t('cobbles.benefitsTitle3')}</h3>
+                    <p className="cobble-description">
+                    {t('cobbles.benefitsText3')}
+                    </p>
+
+                    <h3>{t('cobbles.benefitsTitle4')}</h3>
+                    <p className="cobble-description">
+                    {t('cobbles.benefitsText4')}
+                    </p>
+                </div>
             </div>
             <ContactBubble />
             </div>   

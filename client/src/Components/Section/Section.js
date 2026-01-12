@@ -57,7 +57,7 @@ export default function Section({ title, text, images, imagePosition = "left" })
 
           {/* Text Content */}
           <div className="text-container">
-            <h3>{title}</h3>
+            <h2>{title}</h2>
             <p>{text}</p>
           </div>
         </div>
