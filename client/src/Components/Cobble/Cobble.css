@@ -45,12 +45,62 @@
     text-transform: uppercase;
     color: var(--goldColor);
     margin-top: 5rem;
+    margin-bottom: 3rem;
+}
 
+.cobble-benefits h3,
+.cobble-flamed h3{
+    color: var(--blueColor);
 }
 .cobble-description {
-    margin-top: 5rem;
     color: var(--whiteColor);
     text-align: justify;
+    margin-bottom: 2rem;
+}
+
+.cobble-applications h2,
+.cobble-flamed h2,
+.cobble-best-applications h2,
+.cobble-technical h2,
+.cobble-cta h2{
+    text-transform: uppercase;
+    color: var(--goldColor);
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+
+}
+.cobble-applications, 
+.cobble-flamed,
+.cobble-best-applications,
+.cobble-technical,
+.cobble-cta{
+    color: var(--whiteColor);
+    text-align: justify;
+    margin-bottom: 2rem;
+}
+.cobble-applications li,
+.cobble-flamed li,
+.cobble-best-applications li,
+.cobble-technical li{
+    list-style: square;
+    margin-bottom: 1rem;
+}
+
+.cobble-applications li::marker,
+.cobble-flamed li::marker,
+.cobble-best-applications li::marker,
+.cobble-technical li::marker{
+    color: var(--goldColor);
+}
+
+.cobble-flamed-section{
+    display: flex;
+    gap: 10rem;
+}
+
+.cobble-flamed-section > div {
+    flex: 1;
+    width: 50%;
 }
 
 @media screen and (max-width: 768px) {
