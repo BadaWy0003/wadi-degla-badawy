@@ -35,7 +35,7 @@ export default function Kerbstone(){
                 <section className="kerb-intro"> 
                     <h2>{t('kerbstone.introTitle')}</h2>
                     <img loading="lazy" className="kerb-intro-img-mobile" src={kerb_intro_img} alt={t('kerbstone.introImageAlt')} />
-                    <p>{t('kerbstone.introText1')}<br/><br/>{t('kerbstone.introText2')}<br/><br/>{t('kerbstone.introText3')}</p>
+                    <p>{t('kerbstone.introText1')}<br/><br/>{t('kerbstone.introText2')}</p>
                     </section>
             <Section 
                     title={t('kerbstone.str.title')} 
