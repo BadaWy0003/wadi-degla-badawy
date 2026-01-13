@@ -33,6 +33,7 @@ export default function StoneCreation(){
                         <h2>{t('stoneCreation.landscapingTitle')}</h2>
                         <hr/>
                     </div>
+            <p>{t('stoneCreation.landscapingDescription')}</p>
             <ImageSection sectionData={architectureData} />
             </div>
             
@@ -42,6 +43,7 @@ export default function StoneCreation(){
                         <h2>{t('stoneCreation.mosaicsTitle')}</h2>
                         <hr/>
                     </div>
+            <p>{t('stoneCreation.mosaicsDescription')}</p>
             <ImageSection sectionData={mosaicsData} />
 
             </div>

@@ -46,6 +46,7 @@
     color: var(--goldColor);
     margin-top: 5rem;
     margin-bottom: 3rem;
+    text-align: start;
 }
 
 .cobble-benefits h3,
@@ -67,6 +68,7 @@
     color: var(--goldColor);
     margin-top: 5rem;
     margin-bottom: 3rem;
+    text-align: start;
 
 }
 .cobble-applications, 
@@ -103,6 +105,14 @@
     width: 50%;
 }
 
+.cobble-cta-section {
+    border-top: 2px solid var(--goldColor);
+    margin-top: 5rem;
+}
+.cobble-cta-section h2 {
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+}
 @media screen and (max-width: 768px) {
 
     /* General Hero Section */
@@ -139,7 +149,7 @@
     .cobble-best-applications h2,
     .cobble-technical h2,
     .cobble-cta h2 {
-        text-align: left;
+        text-align: start;
     }
 
     /* Make button full width on small screens */
