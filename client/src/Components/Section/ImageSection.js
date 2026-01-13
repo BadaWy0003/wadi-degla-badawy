@@ -4,8 +4,10 @@ import "../Inspiration/Inspiration.css";
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import 'yet-another-react-lightbox/styles.css';
+import { useTranslation } from 'react-i18next';
 
 export default function ImageSection({ sectionData }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(null);
@@ -34,7 +36,7 @@ export default function ImageSection({ sectionData }) {
             </div>
             <div className="image-section-text-wrapper">
               <h3>{slide.title}</h3>
-              <p>{slide.text}</p>
+              <p>{slide.textKey ? t(slide.textKey) : slide.text}</p>
             </div>
           </div>
         ))}

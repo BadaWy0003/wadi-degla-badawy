@@ -23,52 +23,52 @@ export const architectureData=[
     {
         image: cobble_stone,
         title: "Cobble Stone",
-        text: "",
+        textKey: "stoneCreation.cobbleStoneMasonryText",
       },
       {
         image: crown,
         title: "crown",
-        text: "",
+        textKey: "stoneCreation.crownText",
       },
       {
         image: handrail,
         title: "handrail",
-        text: "",
+        textKey: "stoneCreation.handrailText",
       },
       {
         image: key,
         title: "key",
-        text: "",
+        textKey: "stoneCreation.keyText",
       },
       {
         image: massive_steps,
         title: "massive steps",
-        text: "",
+        textKey: "stoneCreation.massiveStepsText",
       },
       {
         image: planter,
         title: "planter",
-        text: "",
+        textKey: "stoneCreation.planterText",
       },
       {
         image: pool_coping_set,
         title: "pool coping set",
-        text: "",
+        textKey: "stoneCreation.poolCopingSetText",
       },
       {
         image: squared_crown,
         title: "squared crown",
-        text: "",
+        textKey: "stoneCreation.squaredCrownText",
       },
       {
         image: stone_seat,
         title: "stone seat",
-        text: "",
+        textKey: "stoneCreation.stoneSeatText",
       },
       {
         image: wallstone,
         title: "wallstone",
-        text: "",
+        textKey: "stoneCreation.wallstoneText",
       },
 ]
 
@@ -76,42 +76,42 @@ export const mosaicsData=[
   {
       image: mosaics_2x2_cm,
       title: "mosaics 2*2 cm",
-      text: "",
+      textKey: "stoneCreation.mosaics2x2Text",
     },
     {
       image: mosaics_5x5_cm,
       title: "mosaics 5*5 cm",
-      text: "",
+      textKey: "stoneCreation.mosaics5x5Text",
     },
     {
       image: mosaics_10x10_cm,
       title: "mosaics 10*10 cm",
-      text: "",
+      textKey: "stoneCreation.mosaics10x10Text",
     },
     {
       image: mosaics_hexagon_5x5_cm,
       title: "mosaics hexagon 5*5 cm",
-      text: "",
+      textKey: "stoneCreation.mosaicsHexagon5x5Text",
     },
     {
       image: mosaics_trapezoidal_5x5_cm,
       title: "mosaics trapezoidal 5x5 cm",
-      text: "",
+      textKey: "stoneCreation.mosaicsTrapezoid5x5Text",
     },
     {
       image: mosaics_10x3_cm,
       title: "mosaics 10*3 cm",
-      text: "",
+      textKey: "stoneCreation.mosaics10x3Text",
     },
     {
       image: mosaics_circular_5x5_cm,
       title: "mosaics circular 5*5 cm",
-      text: "",
+      textKey: "stoneCreation.mosaicsCircular5x5Text",
     },
     {
       image: mosaics_ups_and_down_10x10_cm,
       title: "mosaics ups & down 10*10 cm",
-      text: "",
+      textKey: "stoneCreation.mosaicsUpsAndDown10x10Text",
     },
     
 ]
