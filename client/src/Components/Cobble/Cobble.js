@@ -128,9 +128,14 @@ export default function Cobble(){
                 </div>
 
                 {/* Final CTA Section */}
-                <div className="cobble-cta">
-                    <h2>{t('cobbles.ctaTitle')}</h2>
-                    <p>{t('cobbles.ctaText')}</p>
+                <div className="cobble-cta-section">
+                    <div className="cobble-cta">
+                        <h2>{t('cobbles.ctaTitle')}</h2>
+                        <p>{t('cobbles.ctaText')}</p>
+                    </div>
+                    <button className="btn1" onClick={() => window.location.href = '/contact'}>
+                        {t('cobbles.ctaButton')}
+                    </button>
                 </div>
             </div>
             <ContactBubble />

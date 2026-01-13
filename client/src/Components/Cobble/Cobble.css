@@ -123,9 +123,15 @@
         padding: 0 1rem;
     }
 
+    /* Responsive Flamed Section */
+    .cobble-flamed-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
 
-
-
+    .cobble-flamed-section > div {
+        width: 100%;
+    }
 
 }
 
