@@ -48,7 +48,12 @@ export default function Quarries(){
           >
             <h3>{t('quarries.galalaTitle')}</h3>
             <p>
-              {t('quarries.galalaText')}
+              {t('quarries.galalaText').split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index < t('quarries.galalaText').split('\n').length - 1 && <br />}
+                </React.Fragment>
+              ))}
             </p>
           </div>
         </div>
@@ -60,7 +65,12 @@ export default function Quarries(){
           >
             <h3>{t('quarries.creamyTitle')}</h3>
             <p>
-            {t('quarries.creamyText')}
+            {t('quarries.creamyText').split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < t('quarries.creamyText').split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}
             </p>
           </div>
           <QuarriesSwiper images={creamyQuarryImages} />
@@ -86,7 +96,12 @@ export default function Quarries(){
           >
             <h3>{t('quarries.factory2000Title')}</h3>
             <p>
-              {t('quarries.factory2000Text')}
+              {t('quarries.factory2000Text').split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index < t('quarries.factory2000Text').split('\n').length - 1 && <br />}
+                </React.Fragment>
+              ))}
             </p>
           </div>
         </div>
@@ -98,7 +113,12 @@ export default function Quarries(){
           >
             <h3>{t('quarries.factory2011Title')}</h3>
             <p>
-              {t('quarries.factory2011Text')}
+              {t('quarries.factory2011Text').split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index < t('quarries.factory2011Text').split('\n').length - 1 && <br />}
+                </React.Fragment>
+              ))}
             </p>
           </div>
           <QuarriesSwiper images={secondFactoryImages} />
@@ -112,7 +132,12 @@ export default function Quarries(){
           >
             <h3>{t('quarries.factory2015Title')}</h3>
             <p>
-              {t('quarries.factory2015Text')}
+              {t('quarries.factory2015Text').split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index < t('quarries.factory2015Text').split('\n').length - 1 && <br />}
+                </React.Fragment>
+              ))}
             </p>
           </div>
         </div>
@@ -129,6 +154,7 @@ export default function Quarries(){
             <h2>{t('quarries.globalFacilities')}</h2>
             <hr />
           </div>
+          <p>{t('quarries.globalDescription')}</p>
           <div className="coming-soon">
         <h1>{t('quarries.comingSoon')}</h1>
         </div>
