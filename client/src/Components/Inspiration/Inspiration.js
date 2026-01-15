@@ -76,8 +76,42 @@ export default function Inspiration(){
                     <h2>{t('inspiration.exteriorTitle')}</h2>
                     <hr/>
                 </div>
+                <h3>{t('inspiration.exteriorSubtitle')}</h3>
+                <p>
+                    {t('inspiration.exteriorDescription').split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {line}
+                            {index < t('inspiration.exteriorDescription').split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
+                </p>
+                <h3>{t('inspiration.exteriorApplicationsTitle')}</h3>
+                <p>
+                    {t('inspiration.exteriorApplicationsList').split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {line}
+                            {index < t('inspiration.exteriorApplicationsList').split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
+                </p>
             </div>
             <InspoSwiper images={exteriorImageData} />
+
+            <div className="inspo-ancient-section">
+                <div className="inspo-section-title">
+                    <h2>{t('inspiration.whyChooseTitle')}</h2>
+                    <hr/>
+                </div>
+                <h3>{t('inspiration.whyChooseSubtitle')}</h3>
+                <p>
+                    {t('inspiration.whyChooseList').split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {line}
+                            {index < t('inspiration.whyChooseList').split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
+                </p>
+            </div>
 
             <ContactBubble />
         </div>
