@@ -462,14 +462,20 @@
     "finalSectionAlt": "エジプト大理石採石場チーム — ワディ・デグラ歴史写真"
   },
   "inspiration": {
-    "pageTitle": "インスピレーション | ワディ・デグラ",
-    "metaDescription": "ワディ・デグラによる古代、インテリア、エクステリアのマーブルおよびグラナイトプロジェクトからデザインのインスピレーションを発見してください。",
-    "heroTitle": "インスピレーション",
+    "pageTitle": "天然石デザインインスピレーション | 大理石および花崗岩のインテリア＆エクステリアアイデア | ワディデグラ",
+    "metaDescription": "プレミアム大理石と花崗岩を使用した天然石デザインインスピレーションを探索してください。ワディデグラによる、世界中のヴィラ、ホテル、建築プロジェクト向けの室内外の石材応用。",
+    "heroTitle": "天然石デザインインスピレーション",
     "breadcrumbHome": "ホーム",
     "breadcrumbCurrent": "インスピレーション",
-    "ancientTitle": "古代",
-    "interiorTitle": "インテリア",
-    "exteriorTitle": "エクステリア"
+    "ancientTitle": "古代インスピレーション",
+    "interiorTitle": "インテリアインスピレーション",
+    "exteriorTitle": "エクステリア",
+    "ancientSubtitle": "古代および古典的な石造建築のインスピレーション",
+    "ancientDescription": "歴史的建築に触発された時代を超えたデザイン概念であり、天然石は永遠の美、強さ、文化的アイデンティティの基礎でした。",
+    "interiorSubtitle": "大理石と天然石を使用したインテリアデザインインスピレーション",
+    "interiorDescription": "大理石と花崗岩を使用した洗練されたインテリア応用であり、豪華で機能的で時代を超えた空間を作成します。",
+    "interiorApplicationsTitle": "インテリアストーンアプリケーション",
+    "interiorApplicationsList": "大理石の床と壁の装板\n\n天然石を使用した豪華なバスルーム\n\nキッチンのカウンタートップと島\n\nフィーチャーウォールと建築的アクセント"
   },
   "kerbstone": {
     "pageTitle": "エジプト縁石供給業者 | 花崗岩と石灰岩の縁石 | Wadi Degla大理石",

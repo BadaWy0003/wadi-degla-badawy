@@ -33,6 +33,15 @@ export default function Inspiration(){
                     <h2>{t('inspiration.ancientTitle')}</h2>
                     <hr/>
                 </div>
+                <h3>{t('inspiration.ancientSubtitle')}</h3>
+                <p>
+                    {t('inspiration.ancientDescription').split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {line}
+                            {index < t('inspiration.ancientDescription').split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
+                </p>
             </div>
             <InspoAncientSwiper images={ancientImageData} />
 
@@ -41,6 +50,24 @@ export default function Inspiration(){
                     <h2>{t('inspiration.interiorTitle')}</h2>
                     <hr/>
                 </div>
+                <h3>{t('inspiration.interiorSubtitle')}</h3>
+                <p>
+                    {t('inspiration.interiorDescription').split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {line}
+                            {index < t('inspiration.interiorDescription').split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
+                </p>
+                <h3>{t('inspiration.interiorApplicationsTitle')}</h3>
+                <p>
+                    {t('inspiration.interiorApplicationsList').split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {line}
+                            {index < t('inspiration.interiorApplicationsList').split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
+                </p>
             </div>
             <InspoSwiper images={interiorImageData} />
 
