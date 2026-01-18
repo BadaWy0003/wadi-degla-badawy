@@ -614,14 +614,18 @@
     "comingSoon": "În curând"
   },
   "products": {
-    "pageTitle": "Produse | Wadidegla",
-    "metaDescription": "Răsfoiți produsele noastre din marmură și granit.",
-    "heroTitle": "MARMURA ȘI GRANITUL NOSTRU",
+    "pageTitle": "Marmoră și Granit Egiptean | Plăci și Gresie Premium | Wadi Degla",
+    "metaDescription": "Explorați marmoră egipteană de înaltă calitate, marmoră importată, granit egiptean și granit importat. Plăci, gresie și blocuri premium de la Wadi Degla pentru proiecte rezidențiale, comerciale și internaționale.",
+    "heroTitle": "Produsele Noastre din Marmoră și Granit",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Produse",
-    "heroHint": "Selectați un produs de mai jos pentru a-i vizualiza detaliile.",
+    "heroHint": "Wadi Degla oferă o gamă selectă de marmoră și granit egipteni și importați, fabricați cu precizie și proveniți din cariere de încredere pentru vile, spații comerciale, resurse și proiecte globale.",
     "searchPlaceholder": "Căutați în interiorul {{category}} ...",
-    "noProducts": "Nu sunt disponibile produse pentru căutarea dumneavoastră în {{category}}."
+    "noProducts": "Nu sunt disponibile produse pentru căutarea dumneavoastră în {{category}}.",
+    "egyptianMarbleDescription": "Marmoră egipteană premium cunoscută pentru tonuri calde, durabilitate și finisaje versatile—ideală pentru pardoseli, placare perete, scări și interioare de lux.",
+    "importedMarbleDescription": "Varietăți de marmoră internațională selectate cu grijă care oferă finisaje premium și grame de culori unice pentru interioare de lux.",
+    "egyptianGraniteDescription": "Piatră puternică, elegantă și rezistentă la căldură ideală pentru aplicații externe, blate, pardoseli cu trafic intens și proiecte urbane.",
+    "importedGraniteDescription": "Granit de înaltă performanță provenit din întreaga lume—perfect pentru fațade, pardoseli externe și aplicații arhitecturale de lungă durată."
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

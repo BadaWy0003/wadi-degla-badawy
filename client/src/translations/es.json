@@ -614,14 +614,18 @@
     "comingSoon": "Próximamente"
   },
   "products": {
-    "pageTitle": "Productos | Wadidegla",
-    "metaDescription": "Explora nuestros productos de mármol y granito.",
-    "heroTitle": "NUESTRO MÁRMOL Y GRANITO",
+    "pageTitle": "Mármol y Granito Egipcio | Losas y Azulejos Premium | Wadi Degla",
+    "metaDescription": "Explore mármol egipcio de alta calidad, mármol importado, granito egipcio y granito importado. Losas, azulejos y bloques premium de Wadi Degla para proyectos residenciales, comerciales e internacionales.",
+    "heroTitle": "Nuestros Productos de Mármol y Granito",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Productos",
-    "heroHint": "Selecciona un producto de abajo para ver sus detalles.",
+    "heroHint": "Wadi Degla ofrece una selección curada de mármol y granito egipcio e importado, fabricados con precisión y procedentes de canteras de confianza para villas, espacios comerciales, resorts y proyectos globales.",
     "searchPlaceholder": "Buscar en {{category}} ...",
-    "noProducts": "No hay productos disponibles para tu búsqueda en {{category}}."
+    "noProducts": "No hay productos disponibles para tu búsqueda en {{category}}.",
+    "egyptianMarbleDescription": "Mármol egipcio premium conocido por tonos cálidos, durabilidad y acabados versátiles—ideal para pisos, revestimiento de paredes, escaleras e interiores de lujo.",
+    "importedMarbleDescription": "Variedades de mármol internacional cuidadosamente seleccionadas que ofrecen acabados premium y rangos de color únicos para interiores de lujo.",
+    "egyptianGraniteDescription": "Piedra fuerte, elegante y resistente al calor ideal para aplicaciones exteriores, encimeras, pisos de alto tráfico y proyectos urbanos.",
+    "importedGraniteDescription": "Granito de alto rendimiento procedente del mundo—perfecto para fachadas, pisos exteriores y aplicaciones arquitectónicas de larga vida."
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

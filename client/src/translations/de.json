@@ -614,14 +614,18 @@
     "comingSoon": "Demnächst"
   },
   "products": {
-    "pageTitle": "Produkte | Wadidegla",
-    "metaDescription": "Durchsuchen Sie unsere Marmor- und Granitprodukte.",
-    "heroTitle": "UNSER MARMOR & GRANIT",
+    "pageTitle": "Ägyptischer Marmor & Granit | Premium-Platten & Fliesen | Wadi Degla",
+    "metaDescription": "Erkunden Sie hochwertigen ägyptischen Marmor, importierten Marmor, ägyptischen Granit und importierten Granit. Premium-Platten, Fliesen und Blöcke von Wadi Degla für Wohn-, Gewerbe- und internationale Projekte.",
+    "heroTitle": "Unsere Marmor- und Granitprodukte",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Produkte",
-    "heroHint": "Wählen Sie unten ein Produkt aus, um dessen Details anzuzeigen.",
+    "heroHint": "Wadi Degla bietet eine kuratierte Auswahl an ägyptischen und importierten Marmor und Granit, präzisionsgefertigt und von vertrauenswürdigen Steinbrüchen für Villen, Gewerbeflächen, Resorts und globale Projekte.",
     "searchPlaceholder": "Suchen Sie in {{category}} ...",
-    "noProducts": "Keine Produkte für Ihre Suche in {{category}} verfügbar."
+    "noProducts": "Keine Produkte für Ihre Suche in {{category}} verfügbar.",
+    "egyptianMarbleDescription": "Hochwertiger ägyptischer Marmor, bekannt für warme Töne, Haltbarkeit und vielseitige Oberflächen – ideal für Böden, Wandverkleidungen, Treppen und Luxusinterieur.",
+    "importedMarbleDescription": "Sorgfältig ausgewählte internationale Marmorsorten mit Premium-Oberflächen und einzigartigen Farbvariationen für Luxusinterieur.",
+    "egyptianGraniteDescription": "Starker, eleganter, hitzebeständiger Stein ideal für Außenanwendungen, Arbeitsplatten, stark frequentierte Böden und urbane Projekte.",
+    "importedGraniteDescription": "Hochleistungsgranit aus aller Welt – perfekt für Fassaden, Außenböden und langlebige architektonische Anwendungen."
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

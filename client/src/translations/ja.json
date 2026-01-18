@@ -614,14 +614,18 @@
     "comingSoon": "近日公開"
   },
   "products": {
-    "pageTitle": "製品 | ワディ・デグラ",
-    "metaDescription": "当社のマーブルおよびグラナイト製品をご覧ください。",
-    "heroTitle": "当社のマーブルとグラナイト",
+    "pageTitle": "エジプト産大理石と花崗岩 | プレミアムスラブとタイル | ワディデグラ",
+    "metaDescription": "高品質のエジプト産大理石、輸入大理石、エジプト産花崗岩、輸入花崗岩を探索してください。ワディデグラからの住宅、商業、および国際プロジェクト向けのプレミアムスラブ、タイル、ブロック。",
+    "heroTitle": "当社の大理石と花崗岩製品",
     "breadcrumbHome": "ホーム",
     "breadcrumbCurrent": "製品",
-    "heroHint": "以下から製品を選択して詳細をご覧ください。",
+    "heroHint": "ワディデグラは、エジプト産および輸入大理石および花崗岩の厳選された範囲を提供し、信頼できる採石場から精密加工され、ヴィラ、商業スペース、リゾート、およびグローバルプロジェクト向けに調達されています。",
     "searchPlaceholder": "{{category}}内を検索...",
-    "noProducts": "{{category}}の検索で利用可能な製品はありません。"
+    "noProducts": "{{category}}の検索で利用可能な製品はありません。",
+    "egyptianMarbleDescription": "温かみのある色合い、耐久性、多目的仕上げで知られるプレミアム・エジプト産大理石—床材、壁クラッディング、階段、豪華インテリアに最適。",
+    "importedMarbleDescription": "厳選された国際的な大理石品種で、豪華インテリア向けのプレミアム仕上げと独特の色範囲を提供。",
+    "egyptianGraniteDescription": "屋外アプリケーション、カウンタートップ、交通量の多い床、都市プロジェクト向けに最適な強く、優雅で耐熱性の石。",
+    "importedGraniteDescription": "世界中から調達された高性能花崗岩—ファサード、屋外床、長寿命の建築アプリケーションに最適。"
   },
   "productDetails": {
     "pageTitle": "{{name}} | ワディ・デグラ",

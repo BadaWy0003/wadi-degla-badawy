@@ -614,14 +614,18 @@
     "comingSoon": "Bientôt Disponible"
   },
   "products": {
-    "pageTitle": "Produits | Wadidegla",
-    "metaDescription": "Parcourez nos produits en marbre et granit.",
-    "heroTitle": "NOTRE MARBRE ET GRANIT",
+    "pageTitle": "Marbre et Granit Égyptiens | Dalles et Carreaux Premium | Wadi Degla",
+    "metaDescription": "Explorez le marbre égyptien de haute qualité, le marbre importé, le granit égyptien et le granit importé. Dalles, carreaux et blocs premium de Wadi Degla pour les projets résidentiels, commerciaux et internationaux.",
+    "heroTitle": "Nos Produits en Marbre et Granit",
     "breadcrumbHome": "Accueil",
     "breadcrumbCurrent": "Produits",
-    "heroHint": "Sélectionnez un produit ci-dessous pour voir ses détails.",
+    "heroHint": "Wadi Degla offre une gamme soignée de marbre et granit égyptiens et importés, fabriqués avec précision et provenant de carrières de confiance pour villas, espaces commerciaux, resorts et projets mondiaux.",
     "searchPlaceholder": "Rechercher dans {{category}} ...",
-    "noProducts": "Aucun produit disponible pour votre recherche dans {{category}}."
+    "noProducts": "Aucun produit disponible pour votre recherche dans {{category}}.",
+    "egyptianMarbleDescription": "Marbre égyptien premium connu pour ses tons chauds, sa durabilité et ses finitions polyvalentes—idéal pour les revêtements de sol, revêtements muraux, escaliers et intérieurs de luxe.",
+    "importedMarbleDescription": "Variétés de marbre international soigneusement sélectionnées offrant des finitions premium et des gammes de couleurs uniques pour les intérieurs de luxe.",
+    "egyptianGraniteDescription": "Pierre robuste, élégante et résistante à la chaleur idéale pour les applications extérieures, les comptoirs, les revêtements de sol à fort trafic et les projets urbains.",
+    "importedGraniteDescription": "Granit haute performance provenant du monde entier—parfait pour les façades, les revêtements de sol extérieurs et les applications architecturales durables."
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

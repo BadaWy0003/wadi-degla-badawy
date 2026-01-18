@@ -614,14 +614,18 @@
     "comingSoon": "Vjen Së Shpejti"
   },
   "products": {
-    "pageTitle": "Produktet | Wadidegla",
-    "metaDescription": "Shfletoni produktet tona të mermerit dhe granitit.",
-    "heroTitle": "MERMERI DHE GRANITI YNË",
+    "pageTitle": "Mermer Egjiptian dhe Granit | Pllaka dhe Pllaka Premium | Wadi Degla",
+    "metaDescription": "Eksploroni mermer egjiptian të cilësisë së lartë, mermer të importuar, granit egjiptian dhe granit të importuar. Pllaka, pllaka dhe blloqe premium nga Wadi Degla për projektet rezidenciale, tregtare dhe ndërkombëtare.",
+    "heroTitle": "Produktet Tona nga Mermer dhe Granit",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Produktet",
-    "heroHint": "Zgjidhni një produkt më poshtë për të parë detajet e tij.",
+    "heroHint": "Wadi Degla ofron një gamë të zgjedhur me kujdes të mermerit dhe granitit egjiptian dhe të importuar, të prodhuara me saktësi dhe të marrë nga miniera të besueshme për vila, hapësira tregtare, kurore dhe projekte globale.",
     "searchPlaceholder": "Kërko brenda {{category}} ...",
-    "noProducts": "Nuk ka produkte të disponueshme për kërkimin tuaj në {{category}}."
+    "noProducts": "Nuk ka produkte të disponueshme për kërkimin tuaj në {{category}}.",
+    "egyptianMarbleDescription": "Mermer egjiptian premium i njohur për tonat e ngrohtë, qëndrueshmërinë dhe përfundimet e ndryshme—ideal për dysheme, plakim muri, shkallë dhe interiore luksoze.",
+    "importedMarbleDescription": "Varietete mermer ndërkombëtare të zgjedhura me kujdes që ofrojnë përfundimet premium dhe diapazoni i ngjyrave unik për interiore luksoze.",
+    "egyptianGraniteDescription": "Gur i fortë, i elegantë, rezistent ndaj nxehtësisë ideal për aplikacione të jashtme, blat, dysheme me trafik të lartë dhe projekte urbane.",
+    "importedGraniteDescription": "Granit me performancë të lartë i marrë në mbarë botën—perfekt për fasada, dysheme të jashtme dhe aplikacione arkitektonike me jetëgjatësi të gjatë."
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

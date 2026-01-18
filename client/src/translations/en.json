@@ -614,14 +614,18 @@
     "comingSoon": "Coming Soon"
   },
   "products": {
-    "pageTitle": "Products | Wadidegla",
-    "metaDescription": "Browse our marble and granite products.",
-    "heroTitle": "OUR MARBLE & GRANITE",
+    "pageTitle": "Egyptian Marble & Granite | Premium Slabs & Tiles | Wadi Degla",
+    "metaDescription": "Explore top-quality Egyptian marble, imported marble, Egyptian granite, and imported granite. Premium slabs, tiles, and blocks from Wadi Degla for residential, commercial, and international projects.",
+    "heroTitle": "Our Marble & Granite Products",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Products",
-    "heroHint": "Select a product from below to view its details.",
+    "heroHint": "Wadi Degla offers a curated range of Egyptian and imported marble and granite, precision-crafted and sourced from trusted quarries for villas, commercial spaces, resorts, and global projects.",
     "searchPlaceholder": "Search inside {{category}} ...",
-    "noProducts": "No products available for your search in {{category}}."
+    "noProducts": "No products available for your search in {{category}}.",
+    "egyptianMarbleDescription": "Premium Egyptian marble known for warm tones, durability, and versatile finishes—ideal for flooring, wall cladding, staircases, and luxury interiors.",
+    "importedMarbleDescription": "Carefully selected international marble varieties offering premium finishes and unique color ranges for luxury interiors.",
+    "egyptianGraniteDescription": "Strong, elegant, heat-resistant stone ideal for outdoor applications, countertops, heavy-traffic flooring, and urban projects.",
+    "importedGraniteDescription": "High-performance granite sourced globally—perfect for facades, outdoor flooring, and long-life architectural applications."
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

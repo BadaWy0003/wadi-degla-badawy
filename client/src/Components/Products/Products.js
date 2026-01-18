@@ -104,6 +104,16 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
         />
       </div>
 
+      {/* Dynamic Category Description */}
+      <div className="category-description-2">
+        <p>
+          {selectedCategory === "Egyptian Marble" && t('products.egyptianMarbleDescription')}
+          {selectedCategory === "Imported Marble" && t('products.importedMarbleDescription')}
+          {selectedCategory === "Egyptian Granite" && t('products.egyptianGraniteDescription')}
+          {selectedCategory === "Imported Granite" && t('products.importedGraniteDescription')}
+        </p>
+      </div>
+
       {loading ? (
         <LoadingSpinner />
       ) : (

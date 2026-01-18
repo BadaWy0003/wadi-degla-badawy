@@ -614,14 +614,18 @@
     "comingSoon": "출시 예정"
   },
   "products": {
-    "pageTitle": "제품 | 와디 데글라",
-    "metaDescription": "우리의 대리석 및 화강암 제품을 탐색하십시오.",
-    "heroTitle": "우리의 대리석 및 화강암",
+    "pageTitle": "이집트 대리석 및 화강암 | 프리미엄 슬래브 및 타일 | Wadi Degla",
+    "metaDescription": "고품질 이집트 대리석, 수입 대리석, 이집트 화강암, 수입 화강암을 탐색하세요. 주거, 상업 및 국제 프로젝트를 위한 Wadi Degla의 프리미엄 슬래브, 타일 및 블록.",
+    "heroTitle": "당사의 대리석 및 화강암 제품",
     "breadcrumbHome": "홈",
     "breadcrumbCurrent": "제품",
-    "heroHint": "아래에서 제품을 선택하여 세부 정보를 확인하십시오.",
+    "heroHint": "Wadi Degla는 정밀 제작되고 신뢰할 수 있는 채석장에서 조달한 이집트산 및 수입 대리석 및 화강암의 엄선된 범위를 제공하며, 빌라, 상업 공간, 리조트 및 글로벌 프로젝트용입니다.",
     "searchPlaceholder": "{{category}} 내에서 검색...",
-    "noProducts": "{{category}} 검색에 사용할 수 있는 제품이 없습니다."
+    "noProducts": "{{category}} 검색에 사용할 수 있는 제품이 없습니다.",
+    "egyptianMarbleDescription": "따뜻한 톤, 내구성, 다목적 마감으로 알려진 프리미엄 이집트 대리석—바닥재, 벽 클래딩, 계단, 럭셀 인테리어에 이상적입니다.",
+    "importedMarbleDescription": "럭셀 인테리어를 위한 프리미염 마감과 독특한 색상 범위를 제공하는 정교하게 선택된 국제 대리석 품종.",
+    "egyptianGraniteDescription": "야외 응용, 조리대, 고트래픽 바닥재, 도시 프로젝트에 이상적인 강하고 우아하며 내열 석재입니다.",
+    "importedGraniteDescription": "전 세계에서 조달한 고성능 화강암—파사드, 야외 바닥재, 장수명 건축 응용에 이상적입니다."
   },
   "productDetails": {
     "pageTitle": "{{name}} | 와디 데글라",
