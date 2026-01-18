@@ -541,7 +541,8 @@
       "cranes": "6 Vinça",
       "forklifts": "2 Karroca Ngarkuese",
       "cranesDesc": "Makinat e ngritjes me kapacitet të lartë janë të dizajnuara për trajtimin e sigurt dhe efikas të blloqeve të mëdha të marmorit dhe granitit. Ndërtuar për të mbështetur ngritje të rëndë nga zona e magazinimit tonë dhe për të siguruar logjistika të brendshme të qetë.",
-      "forkliftDesc": "Ngritësit me drejtim industrial të optimizuar për transportimin e pllakave, pllakave dhe blloqeve të papërpunuara në dyshemenë e fabrikës me saktësi dhe siguri."
+      "forkliftDesc": "Ngritësit me drejtim industrial të optimizuar për transportimin e pllakave, pllakave dhe blloqeve të papërpunuara në dyshemenë e fabrikës me saktësi dhe siguri.",
+      "forkliftsDesc": "Ngritëset industriale të optimizuara për transportimin e pllakave, pllakave dhe blloqeve të papërpunuara nëpër dyshemenë e fabrikës me saktësi dhe siguri."
     },
     "blocks": {
       "caption1": "Makineria jonë siguron prerje të saktë të blloqeve, shesimin dhe përgatitjen para prodhimit të pllakave.\nKjo na lejon të mbajmë dimensionet konsistente, të reduktojmë mbetjet dhe të arrijmë finishe të cilësisë premium.",

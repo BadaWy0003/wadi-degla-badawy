@@ -541,7 +541,8 @@
       "cranes": "6 Grues",
       "forklifts": "2 Chariots Élévateurs",
       "cranesDesc": "Les grues haute capacité sont conçues pour manipuler les gros blocs de marbre et de granit en toute sécurité et efficacité. Construites pour supporter le levage lourd de notre cour de stockage et assurer une logistique interne fluide.",
-      "forkliftDesc": "Les chariots élévateurs industriels optimisés pour transporter les dalles, carreaux et blocs bruts sur le sol de l'usine avec précision et sécurité."
+      "forkliftDesc": "Les chariots élévateurs industriels optimisés pour transporter les dalles, carreaux et blocs bruts sur le sol de l'usine avec précision et sécurité.",
+      "forkliftsDesc": "Chariots élévateurs industriels optimisés pour transporter des dalles, des carreaux et des blocs bruts dans l'atelier avec précision et sécurité."
     },
     "blocks": {
       "caption1": "Nos machines assurent une découpe précise des blocs, un équarrissage et une préparation avant la production de dalles.\nCela nous permet de maintenir des dimensions cohérentes, de réduire les déchets et d'obtenir des finitions de qualité supérieure.",

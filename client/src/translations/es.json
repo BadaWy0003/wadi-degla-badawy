@@ -541,7 +541,8 @@
       "cranes": "6 Grúas",
       "forklifts": "2 Carretillas elevadoras",
       "cranesDesc": "Las grúas de alta capacidad están diseñadas para manejar bloques de mármol y granito grandes de forma segura y eficiente. Construidas para soportar levantamientos pesados desde nuestro patio de depósito y garantizar una logística interna fluida.",
-      "forkliftDesc": "Carretillas elevadoras industriales optimizadas para transportar losas, baldosas y bloques crudos en el piso de la fábrica con precisión y seguridad."
+      "forkliftDesc": "Carretillas elevadoras industriales optimizadas para transportar losas, baldosas y bloques crudos en el piso de la fábrica con precisión y seguridad.",
+      "forkliftsDesc": "Carretillas elevadoras industriales optimizadas para transportar losas, azulejos y bloques crudos por el piso de la fábrica con precisión y seguridad."
     },
     "blocks": {
       "caption1": "Nuestra maquinaria garantiza cortes precisos de bloques, escuadrado y preparación antes de la producción de losas.\nEsto nos permite mantener dimensiones consistentes, reducir el desperdicio y lograr acabados de calidad superior.",

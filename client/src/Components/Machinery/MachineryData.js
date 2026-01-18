@@ -90,7 +90,7 @@ export const generalUseData = [
         // },
         {
           titleKey: "machinery.generalUse.forklifts",
-          descriptionKey: "machinery.generalUse.forklift sDesc",
+          descriptionKey: "machinery.generalUse.forkliftsDesc",
           images: [fork_lift_3, fork_lift_2],
         }
         // ,

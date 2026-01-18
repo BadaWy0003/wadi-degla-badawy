@@ -167,8 +167,13 @@
 
 .products-categories-and-title-2 h2 {
   font-size: 32px;
+  margin-bottom: 0;
 }
-
+.products-categories-and-title-2 p {
+  color: var(--blueColor);
+  margin-bottom: 3rem;
+  text-align: center;
+}
 .products-categories-2 {
   display: flex;
   justify-content: center;

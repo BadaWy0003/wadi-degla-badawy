@@ -541,7 +541,8 @@
       "cranes": "6 Macarale",
       "forklifts": "2 Motostivuitoare",
       "cranesDesc": "Macaralele cu capacitate mare sunt proiectate pentru manipularea sigură și eficientă a blocurilor mari de marmură și granit. Construite pentru a suporta ridicarea grea din curtea noastră de depozitare și pentru a asigura logistica internă liniștit.",
-      "forkliftDesc": "Stivuitoarele industriale optimizate pentru transportul plăcilor, gresiilor și blocurilor brute pe podeaua fabricii cu precizie și siguranță."
+      "forkliftDesc": "Stivuitoarele industriale optimizate pentru transportul plăcilor, gresiilor și blocurilor brute pe podeaua fabricii cu precizie și siguranță.",
+      "forkliftsDesc": "Motocultoare industriale optimizate pentru transportul plăcilor, gresiei și blocurilor brute pe podeaua fabricii cu precizie și siguranță."
     },
     "blocks": {
       "caption1": "Maşinăria noastră asigură tăiere precisă a blocurilor, pătratare și pregătire înainte de producția plăcilor.\nAceasta ne permite să menținem dimensiuni consistente, să reducem risipa și să realizez finisaje de calitate superioară.",

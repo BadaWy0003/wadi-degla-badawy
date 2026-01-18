@@ -541,7 +541,8 @@
       "cranes": "6 Cranes",
       "forklifts": "2 Forklifts",
       "cranesDesc": "High-capacity cranes are designed for handling large marble and granite blocks safely and efficiently. Built to support heavy-duty lifting from our stockyard and ensure smooth internal logistics.",
-      "forkliftDesc": "Industrial forklifts optimized for transporting slabs, tiles, and raw blocks across the factory floor with precision and safety."
+      "forkliftDesc": "Industrial forklifts optimized for transporting slabs, tiles, and raw blocks across the factory floor with precision and safety.",
+      "forkliftsDesc": "Industrial forklifts optimized for transporting slabs, tiles, and raw blocks across the factory floor with precision and safety."
     },
     "blocks": {
       "caption1": "Our machinery ensures accurate block cutting, squaring, and preparation prior to slab production.\nThis allows us to maintain consistent dimensions, reduce waste, and achieve premium-quality finishes.",

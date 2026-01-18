@@ -541,7 +541,8 @@
       "cranes": "6 Kräne",
       "forklifts": "2 Gabelstapler",
       "cranesDesc": "Hochkapazitäts-Krane sind für die sichere und effiziente Bearbeitung großer Marmor- und Granitblöcke ausgelegt. Entwickelt zur Unterstützung von Schwerlasthebern aus unserem Lagerbestand und zur Gewährleistung reibungsloser Innenlogistik.",
-      "forkliftDesc": "Industriegabelstapler, optimiert für den Transport von Platten, Fliesen und Rohblöcken über den Fabrikflur mit Präzision und Sicherheit."
+      "forkliftDesc": "Industriegabelstapler, optimiert für den Transport von Platten, Fliesen und Rohblöcken über den Fabrikflur mit Präzision und Sicherheit.",
+      "forkliftsDesc": "Industriegabelstapler optimiert für den Transport von Platten, Fliesen und Rohblöcken über den Fabrikboden mit Präzision und Sicherheit."
     },
     "blocks": {
       "caption1": "Unsere Maschinen gewährleisten genaue Blockschnitte, Quadrierung und Vorbereitung vor der Plattenproduktion.\nDies ermöglicht uns, konsistente Abmessungen beizubehalten, Verschwendung zu reduzieren und hochwertige Oberflächen zu erzielen.",

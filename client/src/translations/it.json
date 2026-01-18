@@ -541,7 +541,8 @@
       "cranes": "6 Gru",
       "forklifts": "2 Carrelli Elevatori",
       "cranesDesc": "Le gru ad alta capacità sono progettate per movimentare in sicurezza ed efficientemente grandi blocchi di marmo e granito. Costruite per sostenere sollevamenti pesanti dal nostro magazzino e garantire una logistica interna fluida.",
-      "forkliftDesc": "Carrelli elevatori industriali ottimizzati per il trasporto di lastre, piastrelle e blocchi grezzi sul pavimento dello stabilimento con precisione e sicurezza."
+      "forkliftDesc": "Carrelli elevatori industriali ottimizzati per il trasporto di lastre, piastrelle e blocchi grezzi sul pavimento dello stabilimento con precisione e sicurezza.",
+      "forkliftsDesc": "Carrelli elevatori industriali ottimizzati per il trasporto di lastre, piastrelle e blocchi grezzi sulla superficie della fabbrica con precisione e sicurezza."
     },
     "blocks": {
       "caption1": "I nostri macchinari garantiscono tagli precisi dei blocchi, squadratura e preparazione prima della produzione di lastre.\nQuesto ci consente di mantenere dimensioni coerenti, ridurre gli sprechi e ottenere finiture di qualità superiore.",
