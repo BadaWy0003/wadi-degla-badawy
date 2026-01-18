@@ -42,6 +42,7 @@
 .inspo-ancient-section {
     padding: 0 5rem;
     margin-top: 5rem;
+    text-align: center;
 }
 
 .inspo-section-title {
@@ -67,6 +68,15 @@
     z-index: 1;
 }
 
+.inspo-ancient-section h3{
+    color: var(--blueColor);
+    margin-top: 0;
+}
+
+.inspo-ancient-section p{
+    color: var(--whiteColor);
+    margin-bottom: 5rem;
+}
 /* ANCIENT SWIPER _____________________________ */
 /* Container for Swiper */
 .inspo-swiper-container {
@@ -178,6 +188,10 @@
     .image-overlay {
         display: none;
     }
+    .inspo-ancient-section{
+    padding: 0 1rem;
+}
+
 }
 
 
@@ -229,12 +243,14 @@
     }
 
 
-
 }
 
 @media screen and (max-height: 550px) {
 
     .inspiration-container .quarries-hero {
         background-attachment: unset;
+    }
+    .inspo-ancient-section{
+        padding: 0 1rem;
     }
 }
