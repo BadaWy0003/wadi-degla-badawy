@@ -658,8 +658,8 @@
     "submit": "Enviar solicitud"
   },
   "visualizer": {
-    "heroTitle": "Visualizador",
-    "heroHint": "Selecciona un producto de abajo y se mostrará aquí",
+    "heroTitle": "Visualizador de Mármol y Granito",
+    "heroHint": "Visualice acabados de mármol y granito en cocinas, baños y espacios al aire libre con el Visualizador de Wadi Degla. Haga clic en cualquier producto a continuación para verlo aplicado en tiempo real.",
     "searchPlaceholder": "Buscar en {{category}} ...",
     "importedMarble": "Mármol Importado",
     "egyptianMarble": "Mármol Egipcio",
@@ -674,7 +674,13 @@
     "scrollToOutdoor": "Ir a Exterior ↓",
     "scrollToIndoor": "Ir a Interior ↑",
     "comingSoon": "{{category}} Próximamente.",
-    "noProducts": "No hay productos disponibles para tu búsqueda en {{category}}."
+    "noProducts": "No hay productos disponibles para tu búsqueda en {{category}}.",
+    "pageTitle": "Visualizador de Mármol y Granito | Herramienta de Vista Previa de Cocina, Baño y Piso | Wadi Degla",
+    "metaDescription": "Obtenga una vista previa de mármol y granito al instante con el Visualizador en línea de Wadi Degla. Pruebe piedra egipcia e importada en encimeras de cocina, paredes de baños, pisos y salas de estar. Acceso gratuito, rápido y global.",
+    "egyptianMarbleDescription": "Mármol egipcio premium conocido por tonos cálidos, durabilidad y acabados versátiles—ideal para pisos, revestimiento de paredes, escaleras e interiores de lujo.",
+    "importedMarbleDescription": "Variedades de mármol internacional cuidadosamente seleccionadas que ofrecen acabados premium y rangos de color únicos para interiores de lujo.",
+    "egyptianGraniteDescription": "Piedra fuerte, elegante y resistente al calor ideal para aplicaciones exteriores, encimeras, pisos de alto tráfico y proyectos urbanos.",
+    "importedGraniteDescription": "Granito de alto rendimiento procedente del mundo—perfecto para fachadas, pisos exteriores y aplicaciones arquitectónicas de larga vida."
   },
   "quarries": {
     "pageTitle": "Canteras de Mármol Egipcias y Fábricas | Proveedor de Mármol Galala | Wadi Degla",

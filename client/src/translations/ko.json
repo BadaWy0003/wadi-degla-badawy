@@ -658,8 +658,8 @@
     "submit": "요청 제출"
   },
   "visualizer": {
-    "heroTitle": "시각화 도구",
-    "heroHint": "아래에서 제품을 선택하면 여기에 표시됩니다",
+    "heroTitle": "대리석 및 화강암 시각화 도구",
+    "heroHint": "Wadi Degla 시각화 도구로 주방, 욕실 및 실외 공간의 대리석 및 화강암 마감을 시각화하세요. 아래의 모든 제품을 클릭하여 실시간으로 적용되는 것을 확인하세요.",
     "searchPlaceholder": "{{category}} 내에서 검색...",
     "importedMarble": "수입 대리석",
     "egyptianMarble": "이집트 대리석",
@@ -674,7 +674,13 @@
     "scrollToOutdoor": "실외로 스크롤 ↓",
     "scrollToIndoor": "실내로 스크롤 ↑",
     "comingSoon": "{{category}} 곧 출시됩니다.",
-    "noProducts": "{{category}} 검색에 사용할 수 있는 제품이 없습니다."
+    "noProducts": "{{category}} 검색에 사용할 수 있는 제품이 없습니다.",
+    "pageTitle": "대리석 및 화강암 시각화 도구 | 주방, 욕실 및 바닥 미리보기 도구 | Wadi Degla",
+    "metaDescription": "Wadi Degla의 온라인 시각화 도구로 즉시 대리석 및 화강암을 미리보세요. 주방 카운터탑, 욕실 벽, 바닥재 및 거실에서 이집트산 및 수입 석재를 시도하세요. 무료, 빠름, 글로벌 액세스.",
+    "egyptianMarbleDescription": "따뜻한 톤, 내구성, 다목적 마감으로 알려진 프리미엄 이집트 대리석—바닥재, 벽 클래딩, 계단, 럭셀 인테리어에 이상적입니다.",
+    "importedMarbleDescription": "럭셀 인테리어를 위한 프리미염 마감과 독특한 색상 범위를 제공하는 정교하게 선택된 국제 대리석 품종.",
+    "egyptianGraniteDescription": "야외 응용, 조리대, 고트래픽 바닥재, 도시 프로젝트에 이상적인 강하고 우아하며 내열 석재입니다.",
+    "importedGraniteDescription": "전 세계에서 조달한 고성능 화강암—파사드, 야외 바닥재, 장수명 건축 응용에 이상적입니다."
   },
   "quarries": {
     "pageTitle": "이집트 대리석 채석장 및 공장 | Galala 대리석 공급업체 | Wadi Degla",

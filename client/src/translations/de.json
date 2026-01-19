@@ -658,8 +658,8 @@
     "submit": "Anfrage Senden"
   },
   "visualizer": {
-    "heroTitle": "Visualisierer",
-    "heroHint": "Wählen Sie unten ein Produkt aus, und es wird hier angezeigt",
+    "heroTitle": "Marmor- und Granit-Visualisierer",
+    "heroHint": "Visualisieren Sie Marmor- und Granitoberflächen in Küchen, Badezimmern und Außenbereichen mit dem Wadi Degla Visualisierer. Klicken Sie auf ein beliebiges Produkt unten, um es in Echtzeit angewendet zu sehen.",
     "searchPlaceholder": "Suchen Sie in {{category}} ...",
     "importedMarble": "Importierter Marmor",
     "egyptianMarble": "Ägyptischer Marmor",
@@ -674,7 +674,13 @@
     "scrollToOutdoor": "Zu Außenbereich scrollen ↓",
     "scrollToIndoor": "Zu Innenbereich scrollen ↑",
     "comingSoon": "{{category}} Demnächst.",
-    "noProducts": "Keine Produkte für Ihre Suche in {{category}} verfügbar."
+    "noProducts": "Keine Produkte für Ihre Suche in {{category}} verfügbar.",
+    "pageTitle": "Marmor- und Granit-Visualisierer | Küchen-, Bad- und Bodenvorschau-Tool | Wadi Degla",
+    "metaDescription": "Vorschau Marmor und Granit sofort mit Wadi Degla's Online-Visualisierer. Testen Sie ägyptischen und importierten Stein auf Küchenarbeitsplatten, Badezimmerwänden, Böden und Wohnzimmern. Kostenlos, schnell, globaler Zugang.",
+    "egyptianMarbleDescription": "Hochwertiger ägyptischer Marmor, bekannt für warme Töne, Haltbarkeit und vielseitige Oberflächen – ideal für Böden, Wandverkleidungen, Treppen und Luxusinterieur.",
+    "importedMarbleDescription": "Sorgfältig ausgewählte internationale Marmorsorten mit Premium-Oberflächen und einzigartigen Farbvariationen für Luxusinterieur.",
+    "egyptianGraniteDescription": "Starker, eleganter, hitzebeständiger Stein ideal für Außenanwendungen, Arbeitsplatten, stark frequentierte Böden und urbane Projekte.",
+    "importedGraniteDescription": "Hochleistungsgranit aus aller Welt – perfekt für Fassaden, Außenböden und langlebige architektonische Anwendungen."
   },
   "quarries": {
     "pageTitle": "Ägyptische Marmorbuchten und Fabriken | Galala-Marmor-Lieferant | Wadi Degla",

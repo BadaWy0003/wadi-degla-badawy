@@ -658,8 +658,8 @@
     "submit": "Trimiteți Solicitarea"
   },
   "visualizer": {
-    "heroTitle": "Vizualizator",
-    "heroHint": "Selectați un produs de mai jos și va apărea aici",
+    "heroTitle": "Vizualizator de Marmoră și Granit",
+    "heroHint": "Vizualizați finisajele din marmoră și granit în bucătării, băi și spații exterioare cu Vizualizatorul Wadi Degla. Faceți clic pe orice produs de mai jos pentru a-l vedea aplicat în timp real.",
     "searchPlaceholder": "Căutați în interiorul {{category}} ...",
     "importedMarble": "Marmură Importată",
     "egyptianMarble": "Marmură Egipteană",
@@ -674,7 +674,13 @@
     "scrollToOutdoor": "Derulați la Exterior ↓",
     "scrollToIndoor": "Derulați la Interior ↑",
     "comingSoon": "{{category}} În curând.",
-    "noProducts": "Nu sunt disponibile produse pentru căutarea dumneavoastră în {{category}}."
+    "noProducts": "Nu sunt disponibile produse pentru căutarea dumneavoastră în {{category}}.",
+    "pageTitle": "Vizualizator de Marmoră și Granit | Instrument de Previzualizare Bucătărie, Baie și Podea | Wadi Degla",
+    "metaDescription": "Previzualizare marmoră și granit instant cu Vizualizatorul online al Wadi Degla. Încercați piatră egipteană și importată pe blate de bucătărie, pereți de baie, podele și sufragerii. Acces gratuit, rapid și global.",
+    "egyptianMarbleDescription": "Marmoră egipteană premium cunoscută pentru tonuri calde, durabilitate și finisaje versatile—ideală pentru pardoseli, placare perete, scări și interioare de lux.",
+    "importedMarbleDescription": "Varietăți de marmoră internațională selectate cu grijă care oferă finisaje premium și grame de culori unice pentru interioare de lux.",
+    "egyptianGraniteDescription": "Piatră puternică, elegantă și rezistentă la căldură ideală pentru aplicații externe, blate, pardoseli cu trafic intens și proiecte urbane.",
+    "importedGraniteDescription": "Granit de înaltă performanță provenit din întreaga lume—perfect pentru fațade, pardoseli externe și aplicații arhitecturale de lungă durată."
   },
   "quarries": {
     "pageTitle": "Cariere de Marmură Egipteană și Fabrici | Furnizor de Marmură Galala | Wadi Degla",

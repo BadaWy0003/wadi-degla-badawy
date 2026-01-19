@@ -658,8 +658,8 @@
     "submit": "Submit Request"
   },
   "visualizer": {
-    "heroTitle": "Visualizer",
-    "heroHint": "Select a product from below and it will show here",
+    "heroTitle": "Marble & Granite Visualizer",
+    "heroHint": "Visualize marble and granite finishes in kitchens, bathrooms, and outdoor spaces with the Wadi Degla Visualizer. Click any product below to see it applied in real time.",
     "searchPlaceholder": "Search inside {{category}} ...",
     "importedMarble": "Imported Marble",
     "egyptianMarble": "Egyptian Marble",
@@ -674,7 +674,13 @@
     "scrollToOutdoor": "Scroll to Outdoor ↓",
     "scrollToIndoor": "Scroll to Indoor ↑",
     "comingSoon": "{{category}} Coming soon.",
-    "noProducts": "No products available for your search in {{category}}."
+    "noProducts": "No products available for your search in {{category}}.",
+    "pageTitle": "Marble & Granite Visualizer | Kitchen, Bathroom & Flooring Preview Tool | Wadi Degla",
+    "metaDescription": "Preview marble and granite instantly with Wadi Degla's online Visualizer. Try Egyptian and imported stone on kitchen countertops, bathroom walls, flooring, and living rooms. Free, fast, global access.",
+    "egyptianMarbleDescription": "Premium Egyptian marble known for warm tones, durability, and versatile finishes—ideal for flooring, wall cladding, staircases, and luxury interiors.",
+    "importedMarbleDescription": "Carefully selected international marble varieties offering premium finishes and unique color ranges for luxury interiors.",
+    "egyptianGraniteDescription": "Strong, elegant, heat-resistant stone ideal for outdoor applications, countertops, heavy-traffic flooring, and urban projects.",
+    "importedGraniteDescription": "High-performance granite sourced globally—perfect for facades, outdoor flooring, and long-life architectural applications."
   },
   "quarries": {
     "pageTitle": "Egyptian Marble Quarries & Factories | Galala Marble Supplier | Wadi Degla",

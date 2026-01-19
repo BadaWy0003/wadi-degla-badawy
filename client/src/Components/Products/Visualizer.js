@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import "./Visualizer.css";
+import { Helmet } from 'react-helmet-async';
 import hero_bg from "../../Public/Assets/Media/Hero/visualizer-hero.webp";
 import ProductForVisualizer from "./ProductForVisualizer.js";
 import apiClient from "../../util/client.js";
@@ -122,6 +123,13 @@ const handleProductClick = (item, type) => {
 };
   
   return (
+    <>
+        <Helmet>
+      <title>{t('visualizer.pageTitle')}</title>
+      <meta name="description" content={t('visualizer.metaDescription')} />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/visualizer" />
+        </Helmet>
+    
     <div className="products-container">
       <div className="products-hero">
       {mockupLoading ? (
@@ -176,6 +184,16 @@ const handleProductClick = (item, type) => {
         </div>
 
         <h2>{selectedCategory}</h2>
+
+        {/* Dynamic Category Description */}
+        <div className="category-description-2">
+          <p>
+            {selectedCategory === "Egyptian Marble" && t('visualizer.egyptianMarbleDescription')}
+            {selectedCategory === "Imported Marble" && t('visualizer.importedMarbleDescription')}
+            {selectedCategory === "Egyptian Granite" && t('visualizer.egyptianGraniteDescription')}
+            {selectedCategory === "Imported Granite" && t('visualizer.importedGraniteDescription')}
+          </p>
+        </div>
 
         {/* Search Bar */}
         <input
@@ -288,5 +306,6 @@ const handleProductClick = (item, type) => {
             <ContactBubble />
 
     </div>
+    </>
   );
 }

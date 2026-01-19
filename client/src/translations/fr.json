@@ -658,8 +658,8 @@
     "submit": "Soumettre la Demande"
   },
   "visualizer": {
-    "heroTitle": "Visualiseur",
-    "heroHint": "Sélectionnez un produit ci-dessous et il apparaîtra ici",
+    "heroTitle": "Visualiseur de Marbre et Granit",
+    "heroHint": "Visualisez les finitions de marbre et de granit dans les cuisines, les salles de bain et les espaces extérieurs avec le Visualiseur Wadi Degla. Cliquez sur n'importe quel produit ci-dessous pour le voir appliqué en temps réel.",
     "searchPlaceholder": "Rechercher dans {{category}} ...",
     "importedMarble": "Marbre Importé",
     "egyptianMarble": "Marbre Égyptien",
@@ -674,7 +674,13 @@
     "scrollToOutdoor": "Faire défiler vers Extérieur ↓",
     "scrollToIndoor": "Faire défiler vers Intérieur ↑",
     "comingSoon": "{{category}} Bientôt disponible.",
-    "noProducts": "Aucun produit disponible pour votre recherche dans {{category}}."
+    "noProducts": "Aucun produit disponible pour votre recherche dans {{category}}.",
+    "pageTitle": "Visualiseur de Marbre et Granit | Outil d'Aperçu Cuisine, Salle de Bain et Revêtement | Wadi Degla",
+    "metaDescription": "Aperçu du marbre et du granit instantanément avec le Visualiseur en ligne de Wadi Degla. Essayez la pierre égyptienne et importée sur les comptoirs de cuisine, les murs de salle de bain, les revêtements de sol et les salons. Accès gratuit, rapide et mondial.",
+    "egyptianMarbleDescription": "Marbre égyptien premium connu pour ses tons chauds, sa durabilité et ses finitions polyvalentes—idéal pour les revêtements de sol, revêtements muraux, escaliers et intérieurs de luxe.",
+    "importedMarbleDescription": "Variétés de marbre international soigneusement sélectionnées offrant des finitions premium et des gammes de couleurs uniques pour les intérieurs de luxe.",
+    "egyptianGraniteDescription": "Pierre robuste, élégante et résistante à la chaleur idéale pour les applications extérieures, les comptoirs, les revêtements de sol à fort trafic et les projets urbains.",
+    "importedGraniteDescription": "Granit haute performance provenant du monde entier—parfait pour les façades, les revêtements de sol extérieurs et les applications architecturales durables."
   },
   "quarries": {
     "pageTitle": "Carrières de Marbre Égyptiennes et Usines | Fournisseur de Marbre Galala | Wadi Degla",

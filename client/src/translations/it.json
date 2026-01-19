@@ -658,8 +658,8 @@
     "submit": "Invia Richiesta"
   },
   "visualizer": {
-    "heroTitle": "Visualizzatore",
-    "heroHint": "Seleziona un prodotto qui sotto e apparirà qui",
+    "heroTitle": "Visualizzatore di Marmo e Granito",
+    "heroHint": "Visualizza le finiture di marmo e granito in cucine, bagni e spazi esterni con il Visualizzatore Wadi Degla. Fai clic su qualsiasi prodotto di seguito per vederlo applicato in tempo reale.",
     "searchPlaceholder": "Cerca all'interno di {{category}} ...",
     "importedMarble": "Marmo Importato",
     "egyptianMarble": "Marmo Egiziano",
@@ -674,7 +674,13 @@
     "scrollToOutdoor": "Scorri a Esterno ↓",
     "scrollToIndoor": "Scorri a Interno ↑",
     "comingSoon": "{{category}} Prossimamente.",
-    "noProducts": "Nessun prodotto disponibile per la tua ricerca in {{category}}."
+    "noProducts": "Nessun prodotto disponibile per la tua ricerca in {{category}}.",
+    "pageTitle": "Visualizzatore di Marmo e Granito | Strumento di Anteprima Cucina, Bagno e Pavimento | Wadi Degla",
+    "metaDescription": "Anteprima di marmo e granito istantaneamente con il Visualizzatore online di Wadi Degla. Prova la pietra egiziana e importata sui piani cottura della cucina, sulle pareti del bagno, sui pavimenti e nei soggiorni. Accesso gratuito, veloce e globale.",
+    "egyptianMarbleDescription": "Marmo egiziano premium noto per i toni caldi, la durabilità e le finiture versatili—ideale per pavimenti, rivestimenti murali, scale e interni lussuosi.",
+    "importedMarbleDescription": "Varietà di marmo internazionale selezionate con cura che offrono finiture premium e gamme di colori uniche per interni lussuosi.",
+    "egyptianGraniteDescription": "Pietra forte, elegante e resistente al calore ideale per applicazioni esterne, piani di lavoro, pavimenti ad alto traffico e progetti urbani.",
+    "importedGraniteDescription": "Granito ad alte prestazioni proveniente dal mondo intero—perfetto per facciate, pavimenti esterni e applicazioni architettoniche longeve."
   },
   "quarries": {
     "pageTitle": "Cave di Marmo Egiziane e Fabbriche | Fornitore di Marmo Galala | Wadi Degla",

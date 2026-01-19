@@ -658,8 +658,8 @@
     "submit": "リクエストを送信"
   },
   "visualizer": {
-    "heroTitle": "ビジュアライザー",
-    "heroHint": "以下から製品を選択するとここに表示されます",
+    "heroTitle": "大理石と花崗岩ビジュアライザー",
+    "heroHint": "Wadi Deglaビジュアライザーでキッチン、バスルーム、屋外スペースの大理石と花崗岩の仕上げを可視化してください。下の任意の製品をクリックして、リアルタイムで適用されているのを確認してください。",
     "searchPlaceholder": "{{category}}内を検索...",
     "importedMarble": "輸入マーブル",
     "egyptianMarble": "エジプトマーブル",
@@ -674,7 +674,13 @@
     "scrollToOutdoor": "屋外へスクロール ↓",
     "scrollToIndoor": "屋内へスクロール ↑",
     "comingSoon": "{{category}}は近日公開です。",
-    "noProducts": "{{category}}の検索で利用可能な製品はありません。"
+    "noProducts": "{{category}}の検索で利用可能な製品はありません。",
+    "pageTitle": "大理石と花崗岩ビジュアライザー | キッチン、バスルーム、床のプレビューツール | ワディデグラ",
+    "metaDescription": "Wadi Deglaのオンラインビジュアライザーで大理石と花崗岩をインスタント見積もり。キッチンカウンタートップ、バスルーム壁、床、リビングルームでエジプト産および輸入石を試してください。無料、高速、グローバルアクセス。",
+    "egyptianMarbleDescription": "温かみのある色合い、耐久性、多目的仕上げで知られるプレミアム・エジプト産大理石—床材、壁クラッディング、階段、豪華インテリアに最適。",
+    "importedMarbleDescription": "厳選された国際的な大理石品種で、豪華インテリア向けのプレミアム仕上げと独特の色範囲を提供。",
+    "egyptianGraniteDescription": "屋外アプリケーション、カウンタートップ、交通量の多い床、都市プロジェクト向けに最適な強く、優雅で耐熱性の石。",
+    "importedGraniteDescription": "世界中から調達された高性能花崗岩—ファサード、屋外床、長寿命の建築アプリケーションに最適。"
   },
   "quarries": {
     "pageTitle": "エジプト大理石採石場と工場 | ガラーラ大理石サプライヤー | ワディデグラ",
