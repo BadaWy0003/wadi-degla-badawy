@@ -246,12 +246,13 @@
     "imageAlt": "Immagine Galleria {{number}}"
   },
   "fairs": {
-    "pageTitle": "Fiere | Wadidegla",
-    "metaDescription": "Rimani aggiornato sulla partecipazione di Wadi Degla a fiere e mostre internazionali nel settore della pietra naturale.",
-    "heroTitle": "FIERE",
+    "pageTitle": "Mostre di Pietra e Marmo | Pietra Naturale Wadi Degla",
+    "metaDescription": "Scopri la partecipazione di Wadi Degla alle principali mostre di marmo, pietra naturale e costruzione in Medio Oriente e sui mercati internazionali, mostrando soluzioni di pietra egiziana premium.",
+    "heroTitle": "Fiere e Mostre",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Fiere",
-    "comingSoon": "Prossimamente"
+    "comingSoon": "Prossimamente",
+    "heroAlt": "Partecipazione di Wadi Degla alle esposizioni internazionali di marmo, pietra naturale e costruzione"
   },
   "exports": {
     "pageTitle": "Esportatore di Marmo e Calcare Egiziano | Wadi Degla Esportazioni Globali",

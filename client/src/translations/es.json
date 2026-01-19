@@ -246,12 +246,13 @@
     "imageAlt": "Imagen de Galería {{number}}"
   },
   "fairs": {
-    "pageTitle": "Ferias | Wadidegla",
-    "metaDescription": "Manténgase actualizado con la participación de Wadi Degla en ferias y exposiciones internacionales de la industria de la piedra natural.",
-    "heroTitle": "FERIAS",
+    "pageTitle": "Exposiciones de Piedra y Mármol | Wadi Degla Piedra Natural",
+    "metaDescription": "Descubra la participación de Wadi Degla en ferias de mármol, piedra natural y construcción líderes en Oriente Medio y mercados internacionales, mostrando soluciones de piedra egipcia premium.",
+    "heroTitle": "Ferias y Exposiciones",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Ferias",
-    "comingSoon": "Próximamente"
+    "comingSoon": "Próximamente",
+    "heroAlt": "Participación de Wadi Degla en ferias internacionales de mármol, piedra natural y construcción"
   },
   "exports": {
     "pageTitle": "Exportador de Mármol y Piedra Caliza Egipcia | Exportaciones Globales Wadi Degla",

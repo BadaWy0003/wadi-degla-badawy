@@ -246,12 +246,13 @@
     "imageAlt": "ギャラリー画像 {{number}}"
   },
   "fairs": {
-    "pageTitle": "見本市 | ワディ・デグラ",
-    "metaDescription": "天然石業界におけるワディ・デグラの国際見本市および展示会への参加について最新情報を入手してください。",
-    "heroTitle": "見本市",
+    "pageTitle": "石とアセ展示 | ワディデグラ天然石",
+    "metaDescription": "中東と国際市場のマイリング、天然石、建設展覧会での Wadi Degla の参加を発見してください。プレミアムエジプト石ソリューションを展示しています。",
+    "heroTitle": "フェアと展示会",
     "breadcrumbHome": "ホーム",
     "breadcrumbCurrent": "見本市",
-    "comingSoon": "近日公開"
+    "comingSoon": "近日公開",
+    "heroAlt": "国際的な大理石、天然石、建設展示会へのWadi Deglaの参加"
   },
   "exports": {
     "pageTitle": "エジプト大理石・石灰岩輸出業者 | ワディデグラ グローバル輸出",

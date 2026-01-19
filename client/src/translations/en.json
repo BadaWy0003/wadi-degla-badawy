@@ -246,12 +246,13 @@
     "imageAlt": "Gallery Image {{number}}"
   },
   "fairs": {
-    "pageTitle": "Fairs | Wadidegla",
-    "metaDescription": "Stay updated with Wadi Degla's participation in international trade fairs and exhibitions in the natural stone industry.",
-    "heroTitle": "FAIRS",
+    "pageTitle": "Stone & Marble Exhibitions | Wadi Degla Natural Stone",
+    "metaDescription": "Discover Wadi Degla's participation in leading marble, natural stone, and construction exhibitions across the Middle East and international markets, showcasing premium Egyptian stone solutions.",
+    "heroTitle": "Fairs & Exhibitions",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Fairs",
-    "comingSoon": "Coming Soon"
+    "comingSoon": "Coming Soon",
+    "heroAlt": "Wadi Degla participation in international marble, natural stone, and construction exhibitions"
   },
   "exports": {
     "pageTitle": "Egyptian Marble & Limestone Exporter | Wadi Degla Global Exports",

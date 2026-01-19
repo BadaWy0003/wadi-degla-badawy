@@ -246,12 +246,13 @@
     "imageAlt": "Imagine Galerie {{number}}"
   },
   "fairs": {
-    "pageTitle": "Târguri | Wadidegla",
-    "metaDescription": "Fiți la curent cu participarea Wadi Degla la târgurile și expozițiile internaționale din industria pietrei naturale.",
-    "heroTitle": "TÂRGURI",
+    "pageTitle": "Expoziții de Piatră și Marmură | Piatră Naturală Wadi Degla",
+    "metaDescription": "Descoperă participarea Wadi Degla la principale expoziții de marmură, piatră naturală și construcție în Orientul Mijlociu și piețele internaționale, prezentând soluții de piatră egipteană premium.",
+    "heroTitle": "Târguri și Expoziții",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Târguri",
-    "comingSoon": "În curând"
+    "comingSoon": "În curând",
+    "heroAlt": "Participarea Wadi Degla la expozițiile internaționale de marmură, piatră naturală și construcție"
   },
   "exports": {
     "pageTitle": "Exportator de Marmură și Var Egiptean | Wadi Degla Exporturi Globale",

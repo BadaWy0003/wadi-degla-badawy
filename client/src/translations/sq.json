@@ -246,12 +246,13 @@
     "imageAlt": "Imazhi i Galerisë {{number}}"
   },
   "fairs": {
-    "pageTitle": "Panairet | Wadidegla",
-    "metaDescription": "Qëndroni të përditësuar me pjesëmarrjen e Wadi Degla në panairet dhe ekspozitat ndërkombëtare në industrinë e gurit natyror.",
-    "heroTitle": "PANAJRET",
+    "pageTitle": "Ekspozita të Gunit dhe Marmorit | Guri Natyral Wadi Degla",
+    "metaDescription": "Zbuloni pjesëmarrjen e Wadi Degla në ekspozitat kryesore të marmorit, gurit natyral dhe ndërtimit në Lindjen e Mesme dhe në tregjet ndërkombëtare, duke prezantuar zgjidhje premium të gurit egjiptian.",
+    "heroTitle": "Panaira dhe Ekspozita",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Panairet",
-    "comingSoon": "Vjen Së Shpejti"
+    "comingSoon": "Vjen Së Shpejti",
+    "heroAlt": "Pjesëmarrja e Wadi Degla në ekspozitat ndërkombëtare të marmorit, gurit natyral dhe ndërtimit"
   },
   "exports": {
     "pageTitle": "Eksportues i Marmorit dhe Gurit të Gëlqerit Egjiptian | Wadi Degla Eksporte Globale",

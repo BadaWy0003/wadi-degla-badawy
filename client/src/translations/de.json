@@ -246,12 +246,13 @@
     "imageAlt": "Galerie Bild {{number}}"
   },
   "fairs": {
-    "pageTitle": "Messen | Wadidegla",
-    "metaDescription": "Bleiben Sie auf dem Laufenden über die Teilnahme von Wadi Degla an internationalen Fachmessen und Ausstellungen in der Natursteinindustrie.",
-    "heroTitle": "MESSEN",
+    "pageTitle": "Stein- und Marmorausstellungen | Wadi Degla Naturstein",
+    "metaDescription": "Entdecken Sie die Teilnahme von Wadi Degla an führenden Marmor-, Naturstein- und Baumesse im Nahen Osten und auf internationalen Märkten, auf denen hochwertige ägyptische Steinlösungen präsentiert werden.",
+    "heroTitle": "Messen & Ausstellungen",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Messen",
-    "comingSoon": "Demnächst"
+    "comingSoon": "Demnächst",
+    "heroAlt": "Teilnahme von Wadi Degla an internationalen Marmor-, Naturstein- und Baummessen"
   },
   "exports": {
     "pageTitle": "Ägyptischer Marmor- und Kalksteinexporteur | Wadi Degla Global Exports",

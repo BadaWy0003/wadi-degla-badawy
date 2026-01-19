@@ -246,12 +246,13 @@
     "imageAlt": "갤러리 이미지 {{number}}"
   },
   "fairs": {
-    "pageTitle": "박람회 | 와디 데글라",
-    "metaDescription": "천연석 산업 분야의 국제 무역 박람회 및 전시회에서 와디 데글라의 참여에 대한 최신 정보를 확인하십시오.",
-    "heroTitle": "박람회",
+    "pageTitle": "석재 및 대리석 전시 | Wadi Degla 천연석",
+    "metaDescription": "중동 및 국제 시장의 주요 대리석, 천연석 및 건설 박람회에서 Wadi Degla의 참여를 발견하세요. 프리미엄 이집트 석재 솔루션을 전시합니다.",
+    "heroTitle": "박람회 및 전시",
     "breadcrumbHome": "홈",
     "breadcrumbCurrent": "박람회",
-    "comingSoon": "출시 예정"
+    "comingSoon": "출시 예정",
+    "heroAlt": "국제 대리석, 천연석 및 건설 박람회에서의 Wadi Degla 참여"
   },
   "exports": {
     "pageTitle": "이집트 대리석 및 석회암 수출업체 | 와디 데글라 글로벌 수출",

@@ -246,12 +246,13 @@
     "imageAlt": "Image Galerie {{number}}"
   },
   "fairs": {
-    "pageTitle": "Salons | Wadidegla",
-    "metaDescription": "Restez informé de la participation de Wadi Degla aux foires commerciales et expositions internationales dans l'industrie de la pierre naturelle.",
-    "heroTitle": "SALONS",
+    "pageTitle": "Expositions de Pierre et de Marbre | Pierre Naturelle Wadi Degla",
+    "metaDescription": "Découvrez la participation de Wadi Degla aux principales expositions de marbre, pierre naturelle et construction au Moyen-Orient et sur les marchés internationaux, présentant des solutions de pierre égyptienne premium.",
+    "heroTitle": "Foires et Expositions",
     "breadcrumbHome": "Accueil",
     "breadcrumbCurrent": "Salons",
-    "comingSoon": "Bientôt Disponible"
+    "comingSoon": "Bientôt Disponible",
+    "heroAlt": "Participation de Wadi Degla aux expositions internationales de marbre, pierre naturelle et construction"
   },
   "exports": {
     "pageTitle": "Exportateur de Marbre et Calcaire Égyptiens | Exportations Mondiales Wadi Degla",

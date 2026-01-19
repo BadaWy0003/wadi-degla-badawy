@@ -18,7 +18,7 @@ export default function Fairs(){
         
         <div className='fairs-container'>
                     {/* 🌟 Hero Section */}
-        <div className="quarries-hero">
+        <div className="quarries-hero" title={t('fairs.heroAlt')} aria-label={t('fairs.heroAlt')}>
                         <h1>{t('fairs.heroTitle')}</h1>
                         <div className="breadcrumb">
                         <a href="/">{t('fairs.breadcrumbHome')}</a>
