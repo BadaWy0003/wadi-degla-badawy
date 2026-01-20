@@ -124,7 +124,9 @@
     "loginSuccess": "ログインに成功しました！",
     "loginButton": "ログイン",
     "noAccount": "アカウントをお持ちではありませんか？",
-    "register": "登録"
+    "register": "登録",
+    "pageTitle": "ログイン | Wadi Deglaアカウント",
+    "metaDescription": "Wadi Deglaアカウントにログインして、大理石および天然石ソリューションのプロジェクト、注文、および製品お問い合わせを管理してください。"
   },
   "navigation": {
     "wadiDegla": "ワディ・デグラ",

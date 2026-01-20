@@ -124,7 +124,9 @@
     "loginSuccess": "Connexion réussie !",
     "loginButton": "SE CONNECTER",
     "noAccount": "Vous n'avez pas de compte ?",
-    "register": "S'inscrire"
+    "register": "S'inscrire",
+    "pageTitle": "Connexion | Compte Wadi Degla",
+    "metaDescription": "Connectez-vous à votre compte Wadi Degla pour gérer vos projets, commandes et demandes de produits pour les solutions de marbre et de pierre naturelle."
   },
   "navigation": {
     "wadiDegla": "Wadi Degla",

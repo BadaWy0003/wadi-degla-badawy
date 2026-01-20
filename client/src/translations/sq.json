@@ -124,7 +124,9 @@
     "loginSuccess": "Hyrja e suksesshme!",
     "loginButton": "HYR",
     "noAccount": "Nuk keni llogari?",
-    "register": "Regjistrohu"
+    "register": "Regjistrohu",
+    "pageTitle": "Hyrje | Llogaria Wadi Degla",
+    "metaDescription": "Hyni në llogarinë tuaj Wadi Degla për të menaxhuar projektet, porositë dhe pyetjet e produkteve për zgjidhjet e marmorit dhe gurit natyral."
   },
   "navigation": {
     "wadiDegla": "Wadi Degla",

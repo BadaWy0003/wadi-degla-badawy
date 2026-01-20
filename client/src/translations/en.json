@@ -124,7 +124,9 @@
     "loginSuccess": "Login successful!",
     "loginButton": "LOGIN",
     "noAccount": "Don't have an account?",
-    "register": "Register"
+    "register": "Register",
+    "pageTitle": "Login | Wadi Degla Account",
+    "metaDescription": "Log in to your Wadi Degla account to manage your projects, orders, and product inquiries for marble and natural stone solutions."
   },
   "navigation": {
     "wadiDegla": "Wadi Degla",

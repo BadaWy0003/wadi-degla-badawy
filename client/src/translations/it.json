@@ -124,7 +124,9 @@
     "loginSuccess": "Accesso effettuato con successo!",
     "loginButton": "ACCEDI",
     "noAccount": "Non hai un account?",
-    "register": "Registrati"
+    "register": "Registrati",
+    "pageTitle": "Accedi | Account Wadi Degla",
+    "metaDescription": "Accedi al tuo account Wadi Degla per gestire i tuoi progetti, ordini e richieste di prodotti per soluzioni di marmo e pietra naturale."
   },
   "navigation": {
     "wadiDegla": "Wadi Degla",

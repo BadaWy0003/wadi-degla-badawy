@@ -124,7 +124,9 @@
     "loginSuccess": "¡Inicio de sesión exitoso!",
     "loginButton": "INICIAR SESIÓN",
     "noAccount": "¿No tienes una cuenta?",
-    "register": "Registrarse"
+    "register": "Registrarse",
+    "pageTitle": "Iniciar Sesión | Cuenta Wadi Degla",
+    "metaDescription": "Inicie sesión en su cuenta de Wadi Degla para administrar sus proyectos, pedidos e consultas de productos para soluciones de mármol y piedra natural."
   },
   "navigation": {
     "wadiDegla": "Wadi Degla",

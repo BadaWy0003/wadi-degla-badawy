@@ -124,7 +124,9 @@
     "loginSuccess": "Anmeldung erfolgreich!",
     "loginButton": "ANMELDEN",
     "noAccount": "Sie haben kein Konto?",
-    "register": "Registrieren"
+    "register": "Registrieren",
+    "pageTitle": "Anmelden | Wadi Degla Konto",
+    "metaDescription": "Melden Sie sich in Ihrem Wadi Degla-Konto an, um Ihre Projekte, Bestellungen und Produktanfragen für Marmor- und Natursteinlösungen zu verwalten."
   },
   "navigation": {
     "wadiDegla": "Wadi Degla",

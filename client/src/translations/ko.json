@@ -124,7 +124,9 @@
     "loginSuccess": "로그인 성공!",
     "loginButton": "로그인",
     "noAccount": "계정이 없으십니까?",
-    "register": "가입"
+    "register": "가입",
+    "pageTitle": "로그인 | Wadi Degla 계정",
+    "metaDescription": "Wadi Degla 계정에 로그인하여 대리석 및 천연석 솔루션에 대한 프로젝트, 주문 및 제품 문의를 관리하세요."
   },
   "navigation": {
     "wadiDegla": "와디 데글라",

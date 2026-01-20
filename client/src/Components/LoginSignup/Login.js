@@ -77,9 +77,9 @@ export default function Login() {
   return (
     <>
     <Helmet>
-        <title>Login | Wadidegla</title>
-        <meta name="description" content="Login Description" />
-        <link rel="canonical" href="https://www.wadidegla-eg.com/login" />
+            <title>{t('login.pageTitle')}</title>
+            <meta name="description" content={t('login.metaDescription')} />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/login" />
     </Helmet>
     
     <div className="container-big">

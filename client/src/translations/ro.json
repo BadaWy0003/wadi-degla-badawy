@@ -124,7 +124,9 @@
     "loginSuccess": "Autentificare reușită!",
     "loginButton": "AUTENTIFICARE",
     "noAccount": "Nu aveți un cont?",
-    "register": "Înregistrați-vă"
+    "register": "Înregistrați-vă",
+    "pageTitle": "Autentificare | Contul Wadi Degla",
+    "metaDescription": "Conectați-vă la contul dvs. Wadi Degla pentru a gestiona proiectele, comenzile și întrebările de produse pentru soluții de marmură și piatră naturală."
   },
   "navigation": {
     "wadiDegla": "Wadi Degla",
