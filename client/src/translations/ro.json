@@ -108,7 +108,9 @@
     "errorPort": "Vă rugăm să introduceți portul de destinație în cazul expedierii, dacă nu, vă rugăm să introduceți 'N/A'",
     "successMessage": "Înregistrare reușită! Vă rugăm să vă verificați emailul.",
     "errorRegistration": "Înregistrarea a eșuat. Vă rugăm să încercați din nou.",
-    "errorNetwork": "Eroare de rețea. Vă rugăm să încercați din nou."
+    "errorNetwork": "Eroare de rețea. Vă rugăm să încercați din nou.",
+    "pageTitle": "Înregistrare | Crează cont Wadi Degla",
+    "metaDescription": "Creați un cont Wadi Degla pentru a vă informa despre produse din marmură, granit și piatră naturală. Alăturați-vă arhitecților, dezvoltatorilor și importatorilor care acces la soluții de piatră premium global."
   },
   "login": {
     "title": "Wadi Degla",

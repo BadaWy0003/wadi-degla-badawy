@@ -108,7 +108,9 @@
     "errorPort": "Bitte geben Sie den Zielhafen im Falle einer Sendung ein, andernfalls geben Sie bitte 'N/A' ein",
     "successMessage": "Registrierung erfolgreich! Bitte bestätigen Sie Ihre E-Mail-Adresse.",
     "errorRegistration": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
-    "errorNetwork": "Netzwerkfehler. Bitte versuchen Sie es erneut."
+    "errorNetwork": "Netzwerkfehler. Bitte versuchen Sie es erneut.",
+    "pageTitle": "Registrieren | Wadi Degla Konto erstellen",
+    "metaDescription": "Erstellen Sie ein Wadi Degla-Konto, um nach Marmor-, Granit- und Natursteinprodukten zu fragen. Treten Sie Architekten, Entwicklern und Importeuren bei, die weltweit auf Premium-Steinlösungen zugreifen."
   },
   "login": {
     "title": "Wadi Degla",

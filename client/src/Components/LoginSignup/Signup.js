@@ -156,9 +156,9 @@ export default function Signup() {
     return (
       <>
       <Helmet>
-          <title>Signup | Wadidegla</title>
-          <meta name="description" content="Signup Description" />
-          <link rel="canonical" href="https://www.wadidegla-eg.com/signup" />
+            <title>{t('signup.pageTitle')}</title>
+            <meta name="description" content={t('signup.metaDescription')} />
+            <link rel="canonical" href="https://www.wadidegla-eg.com/signup" />
       </Helmet>
       
       <div className="container-big">

@@ -108,7 +108,9 @@
     "errorPort": "Inserisci il porto di destinazione in caso di spedizione, altrimenti inserisci 'N/A'",
     "successMessage": "Registrazione completata con successo! Verifica la tua email.",
     "errorRegistration": "Registrazione fallita. Riprova.",
-    "errorNetwork": "Errore di rete. Riprova."
+    "errorNetwork": "Errore di rete. Riprova.",
+    "pageTitle": "Registrati | Crea account Wadi Degla",
+    "metaDescription": "Crea un account Wadi Degla per informarti su prodotti in marmo, granito e pietra naturale. Unisciti ad architetti, sviluppatori e importatori che accedono a soluzioni di pietra premium a livello mondiale."
   },
   "login": {
     "title": "Wadi Degla",

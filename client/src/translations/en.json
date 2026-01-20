@@ -108,7 +108,9 @@
     "errorPort": "Please enter the port of destination in case of shipment, if not please enter 'N/A'",
     "successMessage": "Registration successful! Please verify your email.",
     "errorRegistration": "Registration failed. Please try again.",
-    "errorNetwork": "Network error. Please try again."
+    "errorNetwork": "Network error. Please try again.",
+    "pageTitle": "Sign Up | Create Wadi Degla Account",
+    "metaDescription": "Create a Wadi Degla account to inquire about marble, granite, and natural stone products. Join architects, developers, and importers accessing premium stone solutions globally."
   },
   "login": {
     "title": "Wadi Degla",

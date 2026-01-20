@@ -108,7 +108,9 @@
     "errorPort": "Ju lutemi shkruani portin e destinacionit në rast dërgese, nëse jo, ju lutemi shkruani 'N/A'",
     "successMessage": "Regjistrimi i suksesshëm! Ju lutemi verifikoni email-in tuaj.",
     "errorRegistration": "Regjistrimi dështoi. Ju lutemi provoni përsëri.",
-    "errorNetwork": "Gabim në rrjet. Ju lutemi provoni përsëri."
+    "errorNetwork": "Gabim në rrjet. Ju lutemi provoni përsëri.",
+    "pageTitle": "Regjistrohu | Krijo llogari Wadi Degla",
+    "metaDescription": "Krijo një llogari Wadi Degla për të pyetur për produktet e marmorit, granitit dhe gurit natyral. Bashkohu me arkitektët, zhvilluesit dhe importatorët që qasje në zgjidhje të gurit premium në të gjithë botën."
   },
   "login": {
     "title": "Wadi Degla",
