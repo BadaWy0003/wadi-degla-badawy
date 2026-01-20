@@ -608,12 +608,13 @@
     "cta": "Diventa uno dei nostri partner"
   },
   "news": {
-    "pageTitle": "Notizie | Wadidegla",
-    "metaDescription": "Ultime notizie e aggiornamenti da Wadi Degla Marble & Granite.",
-    "heroTitle": "NOTIZIE",
+    "pageTitle": "Notizie Wadi Degla | Aggiornamenti dell'industria del marmo e della pietra naturale",
+    "metaDescription": "Rimani aggiornato con le notizie di Wadi Degla che coprono espansioni di cave di marmo, fabbriche di pietra, progetti internazionali, mostre e sviluppi dell'industria della pietra naturale in tutto il mondo.",
+    "heroTitle": "Notizie Wadi Degla",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Notizie",
-    "comingSoon": "Prossimamente"
+    "comingSoon": "Prossimamente",
+    "newsDescription": "Gli ultimi aggiornamenti da Wadi Degla che coprono cave di marmo, lavorazione della pietra, progetti architettonici, mostre e sviluppi nell'industria mondiale della pietra naturale."
   },
   "products": {
     "pageTitle": "Marmo e Granito Egiziani | Lastre e Piastrelle Premium | Wadi Degla",

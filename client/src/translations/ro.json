@@ -608,12 +608,13 @@
     "cta": "Deveniți unul dintre partenerii noștri"
   },
   "news": {
-    "pageTitle": "Știri | Wadidegla",
-    "metaDescription": "Cele mai recente știri și actualizări de la Wadi Degla Marble & Granite.",
-    "heroTitle": "ȘTIRI",
+    "pageTitle": "Știri Wadi Degla | Actualizări ale industriei marmurii și pietrei naturale",
+    "metaDescription": "Rămâineți actualizat cu știrile Wadi Degla care acoperă expansiuni ale carierelor de marmură, fabrici de piatră, proiecte internaționale, expoziții și dezvoltări ale industriei pietrei naturale în întreaga lume.",
+    "heroTitle": "Știri Wadi Degla",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Știri",
-    "comingSoon": "În curând"
+    "comingSoon": "În curând",
+    "newsDescription": "Ultimele actualizări de la Wadi Degla acoperind cariere de marmură, prelucrare de piatră, proiecte arhitecturale, expoziții și dezvoltări în industria mondială a pietrei naturale."
   },
   "products": {
     "pageTitle": "Marmoră și Granit Egiptean | Plăci și Gresie Premium | Wadi Degla",

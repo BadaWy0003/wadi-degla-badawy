@@ -608,12 +608,13 @@
     "cta": "우리의 파트너가 되십시오"
   },
   "news": {
-    "pageTitle": "뉴스 | 와디 데글라",
-    "metaDescription": "와디 데글라 마블 & 그라나이트의 최신 뉴스와 업데이트.",
-    "heroTitle": "뉴스",
+    "pageTitle": "Wadi Degla 뉴스 | 대리석 및 천연석 산업 업데이트",
+    "metaDescription": "Wadi Degla 뉴스로 최신 정보를 유지하십시오. 대리석 채석장 확장, 석재 공장, 국제 프로젝트, 전시 및 전 세계 천연석 산업 개발을 포함합니다.",
+    "heroTitle": "Wadi Degla 뉴스",
     "breadcrumbHome": "홈",
     "breadcrumbCurrent": "뉴스",
-    "comingSoon": "출시 예정"
+    "comingSoon": "출시 예정",
+    "newsDescription": "Wadi Degla의 최신 업데이트. 대리석 채석장, 석재 처리, 건축 프로젝트, 전시 및 전 세계 천연석 산업 개발을 포함합니다."
   },
   "products": {
     "pageTitle": "이집트 대리석 및 화강암 | 프리미엄 슬래브 및 타일 | Wadi Degla",

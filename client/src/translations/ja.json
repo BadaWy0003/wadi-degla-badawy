@@ -608,12 +608,13 @@
     "cta": "当社のパートナーになる"
   },
   "news": {
-    "pageTitle": "ニュース | ワディ・デグラ",
-    "metaDescription": "ワディ・デグラ・マーブル＆グラナイトの最新ニュースと更新情報。",
-    "heroTitle": "ニュース",
+    "pageTitle": "ワディデグラニュース | 大理石および天然石産業の更新",
+    "metaDescription": "Wadi Deglaニュースで最新情報を入手してください。大理石採石場の拡張、石工場、国際プロジェクト、展示会、および世界的な天然石産業の開発をカバーしています。",
+    "heroTitle": "ワディデグラニュース",
     "breadcrumbHome": "ホーム",
     "breadcrumbCurrent": "ニュース",
-    "comingSoon": "近日公開"
+    "comingSoon": "近日公開",
+    "newsDescription": "Wadi Deglaからの最新アップデート。大理石採石場、石処理、建築プロジェクト、展示会、および世界的な天然石産業の開発をカバーしています。"
   },
   "products": {
     "pageTitle": "エジプト産大理石と花崗岩 | プレミアムスラブとタイル | ワディデグラ",

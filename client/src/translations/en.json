@@ -608,12 +608,13 @@
     "cta": "Become one of our partners"
   },
   "news": {
-    "pageTitle": "News | Wadidegla",
-    "metaDescription": "Latest news and updates from Wadi Degla Marble & Granite.",
-    "heroTitle": "NEWS",
+    "pageTitle": "Wadi Degla News | Marble & Natural Stone Industry Updates",
+    "metaDescription": "Stay updated with Wadi Degla news covering marble quarry expansions, stone factories, international projects, exhibitions, and natural stone industry developments worldwide.",
+    "heroTitle": "Wadi Degla News",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "News",
-    "comingSoon": "Coming Soon"
+    "comingSoon": "Coming Soon",
+    "newsDescription": "Latest updates from Wadi Degla covering marble quarries, stone manufacturing, architectural projects, exhibitions, and developments in the global natural stone industry."
   },
   "products": {
     "pageTitle": "Egyptian Marble & Granite | Premium Slabs & Tiles | Wadi Degla",

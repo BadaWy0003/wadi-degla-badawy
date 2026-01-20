@@ -608,12 +608,13 @@
     "cta": "Bëhuni një nga partnerët tanë"
   },
   "news": {
-    "pageTitle": "Lajme | Wadidegla",
-    "metaDescription": "Lajmet dhe përditësimet më të fundit nga Wadi Degla Marble & Granite.",
-    "heroTitle": "LAJME",
+    "pageTitle": "Lajmet Wadi Degla | Përditesimet e industrisë së marmorit dhe gurit natyral",
+    "metaDescription": "Qëndroni të përditësuar me lajmet e Wadi Degla që mbulojnë zgjerime të minierës së marmorit, fabrika guri, projekte ndërkombëtare, ekspozita dhe zhvillimet e industrisë mondiale të gurit natyral.",
+    "heroTitle": "Lajmet Wadi Degla",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Lajme",
-    "comingSoon": "Vjen Së Shpejti"
+    "comingSoon": "Vjen Së Shpejti",
+    "newsDescription": "Përditesimet më të fundit nga Wadi Degla që mbulojnë miniera marmori, përpunimin e gurit, projektet arkitekturore, ekspozitat dhe zhvillimet në industrinë mondiale të gurit natyral."
   },
   "products": {
     "pageTitle": "Mermer Egjiptian dhe Granit | Pllaka dhe Pllaka Premium | Wadi Degla",

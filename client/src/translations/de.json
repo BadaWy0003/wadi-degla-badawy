@@ -608,12 +608,13 @@
     "cta": "Werden Sie einer unserer Partner"
   },
   "news": {
-    "pageTitle": "Neuigkeiten | Wadidegla",
-    "metaDescription": "Neueste Nachrichten und Updates von Wadi Degla Marble & Granite.",
-    "heroTitle": "NEUIGKEITEN",
+    "pageTitle": "Wadi Degla Nachrichten | Marmor- und Naturstein-Branchenupdates",
+    "metaDescription": "Bleiben Sie mit Wadi Degla Nachrichten über Marmorbruch-Erweiterungen, Steinfabriken, internationale Projekte, Ausstellungen und Natursteinbranchentwicklungen weltweit auf dem Laufenden.",
+    "heroTitle": "Wadi Degla Nachrichten",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Neuigkeiten",
-    "comingSoon": "Demnächst"
+    "comingSoon": "Demnächst",
+    "newsDescription": "Aktuelle Updates von Wadi Degla mit Marmorbrechern, Steinverarbeitung, architektonischen Projekten, Ausstellungen und Entwicklungen in der globalen Natursteinindustrie."
   },
   "products": {
     "pageTitle": "Ägyptischer Marmor & Granit | Premium-Platten & Fliesen | Wadi Degla",

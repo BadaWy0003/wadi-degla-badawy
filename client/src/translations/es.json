@@ -608,12 +608,13 @@
     "cta": "Conviértete en uno de nuestros socios"
   },
   "news": {
-    "pageTitle": "Noticias | Wadidegla",
-    "metaDescription": "Últimas noticias y actualizaciones de Wadi Degla Mármol y Granito.",
-    "heroTitle": "NOTICIAS",
+    "pageTitle": "Noticias de Wadi Degla | Actualizaciones de la Industria de Mármol y Piedra Natural",
+    "metaDescription": "Manténgase actualizado con las noticias de Wadi Degla que cubren expansiones de canteras de mármol, fábricas de piedra, proyectos internacionales, exposiciones y desarrollos de la industria de la piedra natural en todo el mundo.",
+    "heroTitle": "Noticias de Wadi Degla",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Noticias",
-    "comingSoon": "Próximamente"
+    "comingSoon": "Próximamente",
+    "newsDescription": "Últimas actualizaciones de Wadi Degla cubriendo canteras de mármol, fabricación de piedra, proyectos arquitectónicos, exposiciones y desarrollos en la industria global de la piedra natural."
   },
   "products": {
     "pageTitle": "Mármol y Granito Egipcio | Losas y Azulejos Premium | Wadi Degla",

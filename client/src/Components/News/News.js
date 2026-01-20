@@ -28,6 +28,7 @@ export default function News(){
                         </div>
                 </div>  
             <div className="coming-soon">
+                <p>{t('news.newsDescription')}</p>
                 <h1>{t('news.comingSoon')}</h1>
             </div>
             <ContactBubble />
