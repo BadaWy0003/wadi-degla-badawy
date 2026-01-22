@@ -55,13 +55,16 @@ export default function Gallery() {
     </Helmet>
     
     <div className="gallery-container">
-                <div className="breadcrumb">
+          <div className="gallery-intro">
+            <h1>{t('gallery.heroTitle')}</h1>
+          </div>
+
+          <div className="breadcrumb">
           <a href="/">{t('gallery.breadcrumbHome')}</a>
           <p>{'>'} {t('gallery.breadcrumbCurrent')}</p>
           </div>
 
           <div className="gallery-intro">
-            <h1>{t('gallery.heroTitle')}</h1>
             <p>{t('gallery.heroSubtitle')}</p>
           </div>
       {/* Masonry Grid Gallery */}
