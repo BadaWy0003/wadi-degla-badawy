@@ -243,11 +243,13 @@
     "errorConnection": "Algo salió mal. Verifique su conexión o intente nuevamente."
   },
   "gallery": {
-    "pageTitle": "Galería | Wadidegla",
-    "metaDescription": "Explore la galería de Wadi Degla que muestra nuestros mejores productos de mármol y granito, instalaciones y proyectos en todo el mundo.",
+    "pageTitle": "Galería de Fábrica y Patio de Wadi Degla | Producción de Mármol, Almacenamiento y Operaciones de Exportación",
+    "metaDescription": "Explore las fábricas de mármol y piedra caliza de Wadi Degla, patios de almacenamiento, maquinaria y operaciones de exportación. Imágenes reales que muestran la capacidad de producción, estándares de embalaje y logística de piedra a gran escala.",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Galería",
-    "imageAlt": "Imagen de Galería {{number}}"
+    "imageAlt": "Imagen de Galería {{number}}",
+    "heroTitle": "Galería de Fábrica, Patio y Operaciones",
+    "heroSubtitle": "Esta galería ofrece una visión transparente dentro de las operaciones de mármol y piedra caliza de Wadi Degla. Desde maquinaria avanzada y producción de losas a gran escala hasta patios de almacenamiento organizados, áreas de embalaje y contenedores listos para exportación, estas imágenes reflejan la escala, precisión y profesionalismo detrás de cada envío que entregamos en todo el mundo."
   },
   "fairs": {
     "pageTitle": "Exposiciones de Piedra y Mármol | Wadi Degla Piedra Natural",

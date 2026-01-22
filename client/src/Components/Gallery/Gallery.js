@@ -59,6 +59,11 @@ export default function Gallery() {
           <a href="/">{t('gallery.breadcrumbHome')}</a>
           <p>{'>'} {t('gallery.breadcrumbCurrent')}</p>
           </div>
+
+          <div className="gallery-intro">
+            <h1>{t('gallery.heroTitle')}</h1>
+            <p>{t('gallery.heroSubtitle')}</p>
+          </div>
       {/* Masonry Grid Gallery */}
       <div className="masonry-container">
       {loading ? (

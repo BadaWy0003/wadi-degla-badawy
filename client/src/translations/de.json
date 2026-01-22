@@ -243,11 +243,13 @@
     "errorConnection": "Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Verbindung oder versuchen Sie es erneut."
   },
   "gallery": {
-    "pageTitle": "Galerie | Wadidegla",
-    "metaDescription": "Durchsuchen Sie die Galerie von Wadi Degla mit unseren feinsten Marmor- und Granitprodukten, Installationen und Projekten auf der ganzen Welt.",
+    "pageTitle": "Wadi Degla Fabrik- und Lagergalerie | Marmorproduktion, Lagerung und Exportoperationen",
+    "metaDescription": "Erkunden Sie Wadi Degla's Marmor- und Kalksteinfabriken, Lagerhöfe, Maschinen und Exportoperationen. Echte Bilder, die Produktionskapazität, Verpackungsstandards und großmaßstäbliche Steinlogistik zeigen.",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Galerie",
-    "imageAlt": "Galerie Bild {{number}}"
+    "imageAlt": "Galerie Bild {{number}}",
+    "heroTitle": "Fabrik-, Hof- und Betriebsgalerie",
+    "heroSubtitle": "Diese Galerie bietet einen transparenten Blick in Wadi Degla's Marmor- und Kalksteinbetriebe. Von fortschrittlichen Maschinen und großmaßstäblicher Plattenproduktion bis hin zu organisierten Lagerhöfen, Verpackungsbereichen und exportfertigen Containern spiegeln diese Bilder den Umfang, die Präzision und den Professionalismus hinter jedem Versand wider, den wir weltweit liefern."
   },
   "fairs": {
     "pageTitle": "Stein- und Marmorausstellungen | Wadi Degla Naturstein",

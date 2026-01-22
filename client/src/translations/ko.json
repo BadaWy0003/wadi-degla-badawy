@@ -243,11 +243,13 @@
     "errorConnection": "문제가 발생했습니다. 연결을 확인하거나 다시 시도하십시오."
   },
   "gallery": {
-    "pageTitle": "갤러리 | 와디 데글라",
-    "metaDescription": "전 세계에 걸쳐 우리의 최고의 대리석 및 화강암 제품, 설치물 및 프로젝트를 보여주는 와디 데글라의 갤러리를 탐색하십시오.",
+    "pageTitle": "Wadi Degla 공장 및 야드 갤러리 | 대리석 생산, 저장 및 수출 작업",
+    "metaDescription": "Wadi Degla의 대리석 및 석회암 공장, 저장소, 기계 및 수출 작업을 탐색하십시오. 생산 용량, 포장 기준 및 대규모 석재 물류를 보여주는 실제 이미지입니다.",
     "breadcrumbHome": "홈",
     "breadcrumbCurrent": "갤러리",
-    "imageAlt": "갤러리 이미지 {{number}}"
+    "imageAlt": "갤러리 이미지 {{number}}",
+    "heroTitle": "공장, 야드 및 운영 갤러리",
+    "heroSubtitle": "이 갤러리는 Wadi Degla의 대리석 및 석회암 운영 내부를 투명하게 보여줍니다. 고급 기계 및 대규모 슬래브 생산부터 조직된 저장소, 포장 영역 및 수출 준비 완료된 컨테이너에 이르기까지, 이 이미지들은 우리가 전 세계에 배송하는 모든 출하물 뒤의 규모, 정밀도 및 전문성을 반영합니다."
   },
   "fairs": {
     "pageTitle": "석재 및 대리석 전시 | Wadi Degla 천연석",

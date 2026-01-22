@@ -243,11 +243,13 @@
     "errorConnection": "Une erreur s'est produite. Veuillez vérifier votre connexion ou réessayer."
   },
   "gallery": {
-    "pageTitle": "Galerie | Wadidegla",
-    "metaDescription": "Parcourez la galerie de Wadi Degla présentant nos meilleurs produits, installations et projets en marbre et granit à travers le monde.",
+    "pageTitle": "Galerie d'Usine et de Cour Wadi Degla | Production de Marbre, Stockage et Opérations d'Exportation",
+    "metaDescription": "Explorez les usines de marbre et de calcaire, les cours de stockage, les machines et les opérations d'exportation de Wadi Degla. Des images réelles montrant la capacité de production, les normes d'emballage et la logistique de pierre à grande échelle.",
     "breadcrumbHome": "Accueil",
     "breadcrumbCurrent": "Galerie",
-    "imageAlt": "Image Galerie {{number}}"
+    "imageAlt": "Image Galerie {{number}}",
+    "heroTitle": "Galerie d'Usine, de Cour et d'Opérations",
+    "heroSubtitle": "Cette galerie offre un aperçu transparent des opérations de marbre et de calcaire de Wadi Degla. Des machines avancées et de la production de dalles à grande échelle aux cours de stockage organisées, aux zones d'emballage et aux conteneurs prêts pour l'exportation, ces images reflètent l'ampleur, la précision et le professionnalisme derrière chaque envoi que nous livrons dans le monde entier."
   },
   "fairs": {
     "pageTitle": "Expositions de Pierre et de Marbre | Pierre Naturelle Wadi Degla",

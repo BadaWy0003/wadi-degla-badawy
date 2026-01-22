@@ -243,11 +243,13 @@
     "errorConnection": "Diçka shkoi keq. Ju lutemi kontrolloni lidhjen tuaj ose provoni përsëri."
   },
   "gallery": {
-    "pageTitle": "Galeria | Wadidegla",
-    "metaDescription": "Shfletoni galerinë e Wadi Degla që shfaq produktet tona më të mira të mermerit dhe granitit, instalimet dhe projektet në të gjithë globin.",
+    "pageTitle": "Galeria e Fabrikës dhe Oborrit Wadi Degla | Prodhim Marmori, Depozitim dhe Operacione Eksporti",
+    "metaDescription": "Eksploroni fabrikat e marmorit dhe gëlqeres, oborre deponimi, makinerinë dhe operacionet e eksportit të Wadi Degla. Imazhe reale që tregojnë kapacitetin e prodhimit, standardet e paketimit dhe logjistikën e gurit në shkallë të gjerë.",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Galeria",
-    "imageAlt": "Imazhi i Galerisë {{number}}"
+    "imageAlt": "Imazhi i Galerisë {{number}}",
+    "heroTitle": "Galeria e Fabrikës, Oborrit dhe Operacioneve",
+    "heroSubtitle": "Kjo galeri ofron një pamje transparente brenda operacioneve të marmorit dhe gëlqeres të Wadi Degla. Nga makineritë e përparuara dhe prodhimi i pllakave në shkallë të gjerë deri te obore deponimi të organizuar, zona paketimi dhe kontejner të gatshme për eksport, këto imazhe pasqyrojnë shkallën, saktësinë dhe profesionalizmin prapa çdo dërgese që ne dëllumt në të gjithë botën."
   },
   "fairs": {
     "pageTitle": "Ekspozita të Gunit dhe Marmorit | Guri Natyral Wadi Degla",

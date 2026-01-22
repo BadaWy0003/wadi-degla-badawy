@@ -243,11 +243,13 @@
     "errorConnection": "A apărut o eroare de conexiune. Vă rugăm să vă verificați conexiunea sau să încercați din nou."
   },
   "gallery": {
-    "pageTitle": "Galerie | Wadidegla",
-    "metaDescription": "Răsfoiți galeria Wadi Degla care prezintă cele mai bune produse, instalații și proiecte din marmură și granit la nivel global.",
+    "pageTitle": "Galeria Fabrica și Curte Wadi Degla | Producție Marmoră, Depozitare și Operații de Export",
+    "metaDescription": "Explorați fabricile de marmoră și calcar, curțile de depozitare, mașinaria și operațiile de export ale Wadi Degla. Imagini reale care arată capacitatea de producție, standardele de ambalare și logistica pietrei la scară mare.",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Galerie",
-    "imageAlt": "Imagine Galerie {{number}}"
+    "imageAlt": "Imagine Galerie {{number}}",
+    "heroTitle": "Galeria Fabrica, Curte și Operații",
+    "heroSubtitle": "Această galerie oferă o privire transparentă în interiorul operațiilor de marmoră și calcar ale Wadi Degla. De la mașinaria avansată și producția de plăci la scară mare la curțile de depozitare organizate, zonele de ambalare și containerele gata pentru export, aceste imagini reflectă amploarea, precizia și profesionalismul din spatele fiecărei expediții pe care o livrăm în întreaga lume."
   },
   "fairs": {
     "pageTitle": "Expoziții de Piatră și Marmură | Piatră Naturală Wadi Degla",

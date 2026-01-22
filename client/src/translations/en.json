@@ -243,11 +243,13 @@
     "errorConnection": "Something went wrong. Please check your connection or try again."
   },
   "gallery": {
-    "pageTitle": "Gallery | Wadidegla",
-    "metaDescription": "Browse Wadi Degla's gallery showcasing our finest marble and granite products, installations, and projects across the globe.",
+    "pageTitle": "Wadi Degla Factory & Yard Gallery | Marble Production, Storage & Export Operations",
+    "metaDescription": "Explore Wadi Degla's marble and limestone factories, stockyards, machinery, and export operations. Real images showcasing production capacity, packing standards, and large-scale stone logistics.",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Gallery",
-    "imageAlt": "Gallery Image {{number}}"
+    "imageAlt": "Gallery Image {{number}}",
+    "heroTitle": "Factory, Yard & Operations Gallery",
+    "heroSubtitle": "This gallery offers a transparent look inside Wadi Degla's marble and limestone operations. From advanced machinery and large-scale slab production to organized stockyards, packing areas, and export-ready containers, these images reflect the scale, precision, and professionalism behind every shipment we deliver worldwide."
   },
   "fairs": {
     "pageTitle": "Stone & Marble Exhibitions | Wadi Degla Natural Stone",
