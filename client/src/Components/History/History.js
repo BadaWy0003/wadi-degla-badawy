@@ -94,7 +94,12 @@ export default function History() {
                         <img loading="lazy" src={saeed_jr} alt={t('history.thirdGenAlt')}/>
                     </div>
                     <div className="third-gen-section-text">
-                        <p>{t('history.thirdGenText')}</p>
+                        {t('history.thirdGenText').split('\n').map((line, idx) => (
+                            <React.Fragment key={idx}>
+                                {line}
+                                <br />
+                            </React.Fragment>
+                        ))}
                     </div>
                     <div className="third-gen-section-gallery">
                         <img loading="lazy" src={saeed_jr_2} alt={t('history.thirdGenGalleryAlt1')}/>
