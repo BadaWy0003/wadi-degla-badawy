@@ -76,34 +76,22 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
             "Imported Marble",
             "Egyptian Granite",
             "Imported Granite",
-          ].map((category) => {
-            const categoryTranslationKey = category
-              .toLowerCase()
-              .replace(/\s+/g, '')
-              .replace('egyptian', 'egyptyan')
-              .replace('imported', 'imported');
-            const displayName = t(`products.category_${category.toLowerCase().replace(/\s+/g, '_')}`, category);
-            
-            return (
-              <button
-                key={category}
-                className={`btn2 ${
-                  selectedCategory === category ? "active-2" : ""
-                }`}
-                onClick={() => {
-                  setSelectedCategory(category);
-                  sessionStorage.setItem("selectedCategory", category);
-                }}>
-                {displayName}
-              </button>
-            );
-          })}
+          ].map((category) => (
+            <button
+              key={category}
+              className={`btn2 ${
+                selectedCategory === category ? "active-2" : ""
+              }`}
+              onClick={() => {
+                setSelectedCategory(category);
+                sessionStorage.setItem("selectedCategory", category);
+              }}>
+              {category}
+            </button>
+          ))}
         </div>
 
-        <h2>{selectedCategory === "Egyptian Marble" && t('products.category_egyptian_marble')}
-          {selectedCategory === "Imported Marble" && t('products.category_imported_marble')}
-          {selectedCategory === "Egyptian Granite" && t('products.category_egyptian_granite')}
-          {selectedCategory === "Imported Granite" && t('products.category_imported_granite')}</H2>
+        <h2>{selectedCategory}</h2>
 
               {/* Dynamic Category Description */}
       <div className="category-description-2">
