@@ -634,7 +634,11 @@
     "egyptianMarbleDescription": "Marmoră egipteană premium cunoscută pentru tonuri calde, durabilitate și finisaje versatile—ideală pentru pardoseli, placare perete, scări și interioare de lux.",
     "importedMarbleDescription": "Varietăți de marmoră internațională selectate cu grijă care oferă finisaje premium și grame de culori unice pentru interioare de lux.",
     "egyptianGraniteDescription": "Piatră puternică, elegantă și rezistentă la căldură ideală pentru aplicații externe, blate, pardoseli cu trafic intens și proiecte urbane.",
-    "importedGraniteDescription": "Granit de înaltă performanță provenit din întreaga lume—perfect pentru fațade, pardoseli externe și aplicații arhitecturale de lungă durată."
+    "importedGraniteDescription": "Granit de înaltă performanță provenit din întreaga lume—perfect pentru fațade, pardoseli externe și aplicații arhitecturale de lungă durată.",
+    "egyptianMarbleDisplay": "Marmură Egipteană",
+    "importedMarbleDisplay": "Marmură Importată",
+    "egyptianGraniteDisplay": "Granit Egiptean",
+    "importedGraniteDisplay": "Granit Importat"
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

@@ -634,7 +634,11 @@
     "egyptianMarbleDescription": "Premium Egyptian marble known for warm tones, durability, and versatile finishes—ideal for flooring, wall cladding, staircases, and luxury interiors.",
     "importedMarbleDescription": "Carefully selected international marble varieties offering premium finishes and unique color ranges for luxury interiors.",
     "egyptianGraniteDescription": "Strong, elegant, heat-resistant stone ideal for outdoor applications, countertops, heavy-traffic flooring, and urban projects.",
-    "importedGraniteDescription": "High-performance granite sourced globally—perfect for facades, outdoor flooring, and long-life architectural applications."
+    "importedGraniteDescription": "High-performance granite sourced globally—perfect for facades, outdoor flooring, and long-life architectural applications.",
+    "egyptianMarbleDisplay": "Egyptian Marble",
+    "importedMarbleDisplay": "Imported Marble",
+    "egyptianGraniteDisplay": "Egyptian Granite",
+    "importedGraniteDisplay": "Imported Granite"
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

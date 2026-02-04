@@ -634,7 +634,11 @@
     "egyptianMarbleDescription": "Marmo egiziano premium noto per i toni caldi, la durabilità e le finiture versatili—ideale per pavimenti, rivestimenti murali, scale e interni lussuosi.",
     "importedMarbleDescription": "Varietà di marmo internazionale selezionate con cura che offrono finiture premium e gamme di colori uniche per interni lussuosi.",
     "egyptianGraniteDescription": "Pietra forte, elegante e resistente al calore ideale per applicazioni esterne, piani di lavoro, pavimenti ad alto traffico e progetti urbani.",
-    "importedGraniteDescription": "Granito ad alte prestazioni proveniente dal mondo intero—perfetto per facciate, pavimenti esterni e applicazioni architettoniche longeve."
+    "importedGraniteDescription": "Granito ad alte prestazioni proveniente dal mondo intero—perfetto per facciate, pavimenti esterni e applicazioni architettoniche longeve.",
+    "egyptianMarbleDisplay": "Marmo Egiziano",
+    "importedMarbleDisplay": "Marmo Importato",
+    "egyptianGraniteDisplay": "Granito Egiziano",
+    "importedGraniteDisplay": "Granito Importato"
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

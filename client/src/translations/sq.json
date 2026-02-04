@@ -634,7 +634,11 @@
     "egyptianMarbleDescription": "Mermer egjiptian premium i njohur për tonat e ngrohtë, qëndrueshmërinë dhe përfundimet e ndryshme—ideal për dysheme, plakim muri, shkallë dhe interiore luksoze.",
     "importedMarbleDescription": "Varietete mermer ndërkombëtare të zgjedhura me kujdes që ofrojnë përfundimet premium dhe diapazoni i ngjyrave unik për interiore luksoze.",
     "egyptianGraniteDescription": "Gur i fortë, i elegantë, rezistent ndaj nxehtësisë ideal për aplikacione të jashtme, blat, dysheme me trafik të lartë dhe projekte urbane.",
-    "importedGraniteDescription": "Granit me performancë të lartë i marrë në mbarë botën—perfekt për fasada, dysheme të jashtme dhe aplikacione arkitektonike me jetëgjatësi të gjatë."
+    "importedGraniteDescription": "Granit me performancë të lartë i marrë në mbarë botën—perfekt për fasada, dysheme të jashtme dhe aplikacione arkitektonike me jetëgjatësi të gjatë.",
+    "egyptianMarbleDisplay": "Mermeri Egjiptian",
+    "importedMarbleDisplay": "Mermeri i Importuar",
+    "egyptianGraniteDisplay": "Graniti Egjiptian",
+    "importedGraniteDisplay": "Graniti i Importuar"
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

@@ -634,7 +634,11 @@
     "egyptianMarbleDescription": "Hochwertiger ägyptischer Marmor, bekannt für warme Töne, Haltbarkeit und vielseitige Oberflächen – ideal für Böden, Wandverkleidungen, Treppen und Luxusinterieur.",
     "importedMarbleDescription": "Sorgfältig ausgewählte internationale Marmorsorten mit Premium-Oberflächen und einzigartigen Farbvariationen für Luxusinterieur.",
     "egyptianGraniteDescription": "Starker, eleganter, hitzebeständiger Stein ideal für Außenanwendungen, Arbeitsplatten, stark frequentierte Böden und urbane Projekte.",
-    "importedGraniteDescription": "Hochleistungsgranit aus aller Welt – perfekt für Fassaden, Außenböden und langlebige architektonische Anwendungen."
+    "importedGraniteDescription": "Hochleistungsgranit aus aller Welt – perfekt für Fassaden, Außenböden und langlebige architektonische Anwendungen.",
+    "egyptianMarbleDisplay": "Ägyptischer Marmor",
+    "importedMarbleDisplay": "Importierter Marmor",
+    "egyptianGraniteDisplay": "Ägyptischer Granit",
+    "importedGraniteDisplay": "Importierter Granit"
   },
   "productDetails": {
     "pageTitle": "{{name}} | Wadidegla",

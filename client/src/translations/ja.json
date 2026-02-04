@@ -634,7 +634,11 @@
     "egyptianMarbleDescription": "温かみのある色合い、耐久性、多目的仕上げで知られるプレミアム・エジプト産大理石—床材、壁クラッディング、階段、豪華インテリアに最適。",
     "importedMarbleDescription": "厳選された国際的な大理石品種で、豪華インテリア向けのプレミアム仕上げと独特の色範囲を提供。",
     "egyptianGraniteDescription": "屋外アプリケーション、カウンタートップ、交通量の多い床、都市プロジェクト向けに最適な強く、優雅で耐熱性の石。",
-    "importedGraniteDescription": "世界中から調達された高性能花崗岩—ファサード、屋外床、長寿命の建築アプリケーションに最適。"
+    "importedGraniteDescription": "世界中から調達された高性能花崗岩—ファサード、屋外床、長寿命の建築アプリケーションに最適。",
+    "egyptianMarbleDisplay": "エジプト大理石",
+    "importedMarbleDisplay": "輸入大理石",
+    "egyptianGraniteDisplay": "エジプト花崗岩",
+    "importedGraniteDisplay": "輸入花崗岩"
   },
   "productDetails": {
     "pageTitle": "{{name}} | ワディ・デグラ",
