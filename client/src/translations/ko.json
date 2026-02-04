@@ -832,5 +832,9 @@
     "noMaterials": "사용 가능한 재료가 없습니다.",
     "learnMore": "자세히 알아보기",
     "clickToView": "이미지를 클릭하여 전체 크기로 보고 스와이프하여 이동합니다"
-  }
+  },
+  "visualizer.importedMarbleDisplay": "수입 대리석",
+  "visualizer.egyptianMarbleDisplay": "이집트 대리석",
+  "visualizer.importedGraniteDisplay": "수입 화강암",
+  "visualizer.egyptianGraniteDisplay": "이집트 화강암"
 }

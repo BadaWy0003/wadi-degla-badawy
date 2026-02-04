@@ -832,5 +832,9 @@
     "noMaterials": "Keine Materialien verfügbar.",
     "learnMore": "Mehr erfahren",
     "clickToView": "Klicken Sie auf das Bild, um es in voller Größe anzuzeigen, und wischen Sie zum Navigieren"
-  }
+  },
+  "visualizer.importedMarbleDisplay": "Importierter Marmor",
+  "visualizer.egyptianMarbleDisplay": "Ägyptischer Marmor",
+  "visualizer.importedGraniteDisplay": "Importierter Granit",
+  "visualizer.egyptianGraniteDisplay": "Ägyptischer Granit"
 }

@@ -161,25 +161,25 @@ const handleProductClick = (item, type) => {
             className={`btn2 ${selectedCategory === "Imported Marble" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Imported Marble")}
           >
-            {t('visualizer.importedMarble')}
+            {t('visualizer.importedMarbleDisplay', "Imported Marble")}
           </button>
           <button
             className={`btn2 ${selectedCategory === "Egyptian Marble" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Egyptian Marble")}
           >
-            {t('visualizer.egyptianMarble')}
+            {t('visualizer.egyptianMarbleDisplay', "Egyptian Marble")}
           </button>
           <button
             className={`btn2 ${selectedCategory === "Imported Granite" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Imported Granite")}
           >
-            {t('visualizer.importedGranite')}
+            {t('visualizer.importedGraniteDisplay', "Imported Granite")}
           </button>
           <button
             className={`btn2 ${selectedCategory === "Egyptian Granite" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Egyptian Granite")}
           >
-            {t('visualizer.egyptianGranite')}
+            {t('visualizer.egyptianGraniteDisplay', "Egyptian Granite")}
           </button>
         </div>
 

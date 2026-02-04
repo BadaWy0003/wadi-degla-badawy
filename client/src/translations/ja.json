@@ -832,5 +832,9 @@
     "noMaterials": "利用可能な材料はありません。",
     "learnMore": "詳細を知る",
     "clickToView": "画像をクリックしてフルサイズで表示し、スワイプして移動します"
-  }
+  },
+  "visualizer.importedMarbleDisplay": "輸入大理石",
+  "visualizer.egyptianMarbleDisplay": "エジプト大理石",
+  "visualizer.importedGraniteDisplay": "輸入花崗岩",
+  "visualizer.egyptianGraniteDisplay": "エジプト花崗岩"
 }

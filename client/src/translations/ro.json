@@ -832,5 +832,9 @@
     "noMaterials": "Nu sunt disponibile materiale.",
     "learnMore": "Aflați Mai Multe",
     "clickToView": "Faceți clic pe imagine pentru a o vizualiza în dimensiune completă și glisați pentru a naviga"
-  }
+  },
+  "visualizer.importedMarbleDisplay": "Marmură Importată",
+  "visualizer.egyptianMarbleDisplay": "Marmură Egipteană",
+  "visualizer.importedGraniteDisplay": "Granit Importat",
+  "visualizer.egyptianGraniteDisplay": "Granit Egiptean"
 }

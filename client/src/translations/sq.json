@@ -832,5 +832,9 @@
     "noMaterials": "Nuk ka materiale të disponueshme.",
     "learnMore": "Mësoni Më Shumë",
     "clickToView": "Kliko në imazhin për ta parë në madhësi të plotë dhe sviço për të naviguar"
-  }
+  },
+  "visualizer.importedMarbleDisplay": "Mermer i Importuar",
+  "visualizer.egyptianMarbleDisplay": "Mermer Egjiptian",
+  "visualizer.importedGraniteDisplay": "Granit i Importuar",
+  "visualizer.egyptianGraniteDisplay": "Granit Egjiptian"
 }

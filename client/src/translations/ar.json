@@ -832,5 +832,9 @@
     "noMaterials": "لا توجد مواد متاحة.",
     "learnMore": "تعرف على المزيد",
     "clickToView": "انقر على الصورة لعرضها بالحجم الكامل واسحب للتنقل"
-  }
+  },
+  "visualizer.importedMarbleDisplay": "الرخام المستورد",
+  "visualizer.egyptianMarbleDisplay": "الرخام المصري",
+  "visualizer.importedGraniteDisplay": "الجرانيت المستورد",
+  "visualizer.egyptianGraniteDisplay": "الجرانيت المصري"
 }

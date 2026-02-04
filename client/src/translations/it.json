@@ -832,5 +832,9 @@
     "noMaterials": "Nessun materiale disponibile.",
     "learnMore": "Scopri di Più",
     "clickToView": "Fai clic sull'immagine per visualizzarla a schermo intero e scorri per navigare"
-  }
+  },
+  "visualizer.importedMarbleDisplay": "Marmo Importato",
+  "visualizer.egyptianMarbleDisplay": "Marmo Egiziano",
+  "visualizer.importedGraniteDisplay": "Granito Importato",
+  "visualizer.egyptianGraniteDisplay": "Granito Egiziano"
 }
