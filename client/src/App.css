@@ -55,3 +55,17 @@
 .breadcrumb p {
   color: var(--whiteColor);
 }
+
+
+@media only screen and (max-width: 1024px) {
+     .hero, 
+     .quarries-hero, 
+     .quarries-home-section, 
+     .inspiration-home-section,
+     .visualizer-home-inner,
+     .projects-home-section{
+        background-attachment: unset !important;
+
+    }
+
+  }

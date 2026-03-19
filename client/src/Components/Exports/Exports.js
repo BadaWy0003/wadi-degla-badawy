@@ -4,7 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import { useTranslation } from 'react-i18next';
 import '../../i18n';
 import MasonryGrid from "../MasonryGrid/MasonryGrid";
-import exports from '../../Public/Assets/Media/Exports/exports2.webp';
+// import exports from '../../Public/Assets/Media/Exports/exports2.webp';
 import OurMarkets from "./OurMarkets";
 import ContactBubble from "../Contact/ContactBubble";
 import { Helmet } from 'react-helmet-async';
@@ -31,11 +31,36 @@ import exports19 from '../../Public/Assets/Media/Exports/exports19.webp';
 import exports20 from '../../Public/Assets/Media/Exports/exports20.webp';
 import exports21 from '../../Public/Assets/Media/Exports/exports21.webp';
 import exports22 from '../../Public/Assets/Media/Exports/exports22.webp';
+import exports23 from '../../Public/Assets/Media/Exports/exports23.webp';
+import exports24 from '../../Public/Assets/Media/Exports/exports24.webp';
+import exports25 from '../../Public/Assets/Media/Exports/exports25.webp';
+import exports26 from '../../Public/Assets/Media/Exports/exports26.webp';
+import exports27 from '../../Public/Assets/Media/Exports/exports27.webp';
+import exports28 from '../../Public/Assets/Media/Exports/exports28.webp';
+import exports29 from '../../Public/Assets/Media/Exports/exports29.webp';
+import exports30 from '../../Public/Assets/Media/Exports/exports30.webp';
+import exports31 from '../../Public/Assets/Media/Exports/exports31.webp';
+import exports32 from '../../Public/Assets/Media/Exports/exports32.webp';
+import exports33 from '../../Public/Assets/Media/Exports/exports33.webp';
+import exports34 from '../../Public/Assets/Media/Exports/exports34.webp';
+import exports35 from '../../Public/Assets/Media/Exports/exports35.webp';
 
 
 export default function Exports(){
         const { t } = useTranslation();
         const images = [
+            { src: exports24, alt: t('exports.gallery.galleryAlt23') },
+            { src: exports25, alt: t('exports.gallery.galleryAlt24') },
+            { src: exports26, alt: t('exports.gallery.galleryAlt25') },
+            { src: exports27, alt: t('exports.gallery.galleryAlt26') },
+            { src: exports28, alt: t('exports.gallery.galleryAlt27') },
+            { src: exports29, alt: t('exports.gallery.galleryAlt28') },
+            { src: exports30, alt: t('exports.gallery.galleryAlt29') },
+            { src: exports31, alt: t('exports.gallery.galleryAlt30') },
+            { src: exports32, alt: t('exports.gallery.galleryAlt31') },
+            { src: exports33, alt: t('exports.gallery.galleryAlt32') },
+            { src: exports34, alt: t('exports.gallery.galleryAlt33') },
+            { src: exports35, alt: t('exports.gallery.galleryAlt34') },
             { src: exports1, alt: t('exports.gallery.galleryAlt1') },
             { src: exports2, alt: t('exports.gallery.galleryAlt2') },
             { src: exports3, alt: t('exports.gallery.galleryAlt3') },
@@ -57,6 +82,7 @@ export default function Exports(){
             { src: exports20, alt: t('exports.gallery.galleryAlt19') },
             { src: exports21, alt: t('exports.gallery.galleryAlt20') },
             { src: exports22, alt: t('exports.gallery.galleryAlt21') },
+            { src: exports23, alt: t('exports.gallery.galleryAlt22') },
                     ];
     
     return(
@@ -92,7 +118,7 @@ export default function Exports(){
                         <p className="export-mission">{t('exports.missionText')}</p>
                         <p>{t('exports.missionGoal')}</p>
                     </div>
-                    <img loading="lazy" src={exports} alt={t('exports.departmentImageAlt')}/>
+                    <img loading="lazy" src={exports26} alt={t('exports.departmentImageAlt')}/>
                 </div>   
                 <OurMarkets />
                 <div className="image-grid">

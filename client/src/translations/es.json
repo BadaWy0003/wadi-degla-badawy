@@ -240,7 +240,8 @@
     "errorPhone": "El número debe ser numérico y tener entre 8 y 15 dígitos.",
     "errorWhatsapp": "El número de WhatsApp debe ser numérico y tener entre 8 y 15 dígitos.",
     "errorGeneric": "No se pudo enviar el mensaje. Por favor intente más tarde.",
-    "errorConnection": "Algo salió mal. Verifique su conexión o intente nuevamente."
+    "errorConnection": "Algo salió mal. Verifique su conexión o intente nuevamente.",
+    "attachFile": "Adjuntar un archivo"
   },
   "gallery": {
     "pageTitle": "Galería de Fábrica y Patio de Wadi Degla | Producción de Mármol, Almacenamiento y Operaciones de Exportación",
@@ -620,7 +621,12 @@
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Noticias",
     "comingSoon": "Próximamente",
-    "newsDescription": "Últimas actualizaciones de Wadi Degla cubriendo canteras de mármol, fabricación de piedra, proyectos arquitectónicos, exposiciones y desarrollos en la industria global de la piedra natural."
+    "readMore": "Leer más",
+    "newsDescription": "Últimas actualizaciones de Wadi Degla cubriendo canteras de mármol, fabricación de piedra, proyectos arquitectónicos, exposiciones y desarrollos en la industria global de la piedra natural.",
+    "searchPlaceholder": "Buscar artículos...",
+    "articleNotFound": "Artículo no encontrado.",
+    "backToNews": "Volver a las noticias",
+    "noResults": "No se encontraron artículos para \"%s\"."
   },
   "products": {
     "pageTitle": "Mármol y Granito Egipcio | Losas y Azulejos Premium | Wadi Degla",
@@ -804,7 +810,7 @@
     "faqQ1": "¿Qué productos suministra Wadi Degla?",
     "faqA1": "Losas de mármol y piedra caliza, baldosas, bloques y acabados personalizados.",
     "faqQ2": "¿Exportan a nivel mundial?",
-    "faqA2": "Sí. Exportamos a Europa, América del Norte, CCG, África y Asia.",
+    "faqA2": "Sí. Exportamos a Europa, América del Norte, CCG, África, Asia y a todo el mundo.",
     "faqQ3": "¿Pueden apoyar proyectos a gran escala?",
     "faqA3": "Nuestra propiedad de canteras y capacidad de producción garantizan un suministro consistente para mega proyectos.",
     "faqQ4": "¿Qué acabados están disponibles?",

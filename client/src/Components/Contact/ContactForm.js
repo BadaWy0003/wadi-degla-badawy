@@ -39,7 +39,13 @@ export default function ContactForm() {
     address: '',
     port: '',
     message: '',
+    attachment: null,
   });
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0] || null;
+    setFormData((prev) => ({ ...prev, attachment: file }));
+  };
 
   // Pre-fill form for logged-in users
   useEffect(() => {
@@ -99,15 +105,13 @@ export default function ContactForm() {
     }
 
     setErrors({}); // Clear errors if validation passes
-fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    name: formData.fname,
-    email: formData.email,
-    subject: `Contact Form Submission from ${formData.fname}`,
-    message: formData.message,
-    extraFields: `
+
+    const payload = new FormData();
+    payload.append('name', formData.fname);
+    payload.append('email', formData.email);
+    payload.append('subject', `Contact Form Submission from ${formData.fname}`);
+    payload.append('message', formData.message);
+    payload.append('extraFields', `
       <p><strong>Company/Project:</strong> ${formData.cname}</p>
       <p><strong>Tax ID (RNC):</strong> ${formData.rnc}</p>
       <p><strong>Phone:</strong> ${formData.phone}</p>
@@ -115,8 +119,14 @@ fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
       <p><strong>Country:</strong> ${formData.country?.label}</p>
       <p><strong>Address:</strong> ${formData.address}</p>
       <p><strong>Port of Destination:</strong> ${formData.port}</p>
-    `
-  })
+    `);
+    if (formData.attachment) {
+      payload.append('attachment', formData.attachment);
+    }
+
+fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
+  method: 'POST',
+  body: payload,
 })
   .then((res) => res.json())
   .then((data) => {
@@ -133,7 +143,11 @@ fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
         address: '',
         port: '',
         message: '',
+        attachment: null,
       });
+      // Reset the file input element
+      const fileInput = document.getElementById('attachment');
+      if (fileInput) fileInput.value = '';
     } else {
       alert(t('contactForm.errorGeneric'));
     }
@@ -273,6 +287,21 @@ return (
                 onChange={(e) => handleInputChange('message', e.target.value)}
                 required
               />
+            </div>
+            <div className='input-field input-field-file'>
+              <label htmlFor="attachment">{t('contactForm.attachFile')}</label>
+              <div className="file-input-wrapper">
+                <input
+                  type="file"
+                  id="attachment"
+                  name="attachment"
+                  onChange={handleFileChange}
+                  accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.webp"
+                />
+                {formData.attachment && (
+                  <span className="file-name-display">{formData.attachment.name}</span>
+                )}
+              </div>
             </div>
             {errors.email && <p className="error">{errors.email}</p>}
             {errors.country && <p className="error">{errors.country}</p>}

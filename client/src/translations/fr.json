@@ -240,7 +240,8 @@
     "errorPhone": "Le numéro de téléphone doit être numérique et comporter entre 8 et 15 chiffres.",
     "errorWhatsapp": "Le numéro Whatsapp doit être numérique et comporter entre 8 et 15 chiffres.",
     "errorGeneric": "Échec de l'envoi du message. Veuillez réessayer ultérieurement.",
-    "errorConnection": "Une erreur s'est produite. Veuillez vérifier votre connexion ou réessayer."
+    "errorConnection": "Une erreur s'est produite. Veuillez vérifier votre connexion ou réessayer.",
+    "attachFile": "Joindre un fichier"
   },
   "gallery": {
     "pageTitle": "Galerie d'Usine et de Cour Wadi Degla | Production de Marbre, Stockage et Opérations d'Exportation",
@@ -620,7 +621,12 @@
     "breadcrumbHome": "Accueil",
     "breadcrumbCurrent": "Actualités",
     "comingSoon": "Bientôt Disponible",
-    "newsDescription": "Les dernières mises à jour de Wadi Degla couvrant les carrières de marbre, la fabrication de pierre, les projets architecturaux, les expositions et les développements de l'industrie mondiale de la pierre naturelle."
+    "newsDescription": "Les dernières mises à jour de Wadi Degla couvrant les carrières de marbre, la fabrication de pierre, les projets architecturaux, les expositions et les développements de l'industrie mondiale de la pierre naturelle.",
+    "readMore": "Lire la suite",
+    "searchPlaceholder": "Rechercher des articles...",
+    "articleNotFound": "Article introuvable.",
+    "backToNews": "Retour aux actualités",
+    "noResults": "Aucun article trouvé pour \"%s\"."
   },
   "products": {
     "pageTitle": "Marbre et Granit Égyptiens | Dalles et Carreaux Premium | Wadi Degla",
@@ -804,7 +810,7 @@
     "faqQ1": "Quels produits Wadi Degla fournit-elle?",
     "faqA1": "Dalles de marbre et pierre calcaire, carreaux, blocs et finitions personnalisées.",
     "faqQ2": "Exportez-vous dans le monde entier?",
-    "faqA2": "Oui. Nous exportons vers l'Europe, l'Amérique du Nord, le CCG, l'Afrique et l'Asie.",
+    "faqA2": "Oui. Nous exportons vers l'Europe, l'Amérique du Nord, le CCG, l'Afrique, l'Asie et partout dans le monde.",
     "faqQ3": "Pouvez-vous soutenir les projets à grande échelle?",
     "faqA3": "Notre propriété de carrières et notre capacité de production assurent un approvisionnement constant pour les mégaprojets.",
     "faqQ4": "Quelles finitions sont disponibles?",

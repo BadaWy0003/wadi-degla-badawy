@@ -22,6 +22,7 @@ const LanguageSelector = () => {
     { code: 'sq', label: 'SQ' },
     { code: 'ru', label: 'RU' },
     { code: 'ja', label: 'JA' },
+    { code: 'zh', label: 'ZH' },
     { code: 'ar', label: 'عر' },
   ];
 

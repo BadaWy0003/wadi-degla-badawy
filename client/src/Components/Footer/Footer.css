@@ -184,9 +184,10 @@
 }
 
 /* For screens wider than 1024px: make footer-left 5% more in height than footer-right */
+/* + 3rem compensates for the margin-top: -3rem upward shift so the bottom reaches the footer end */
 @media (min-width: 1025px) {
   .footer-left {
-    height: calc(var(--footer-right-height, 622px) * 1.05);
+    height: calc(var(--footer-right-height, 622px) * 1.05 + 3rem);
   }
 }
 

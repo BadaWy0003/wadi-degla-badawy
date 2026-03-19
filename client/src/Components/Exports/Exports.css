@@ -11,9 +11,9 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Hero/exports-hero.webp');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Exports/exports23.webp');
     background-size: cover;
-    background-position: bottom 40% left 0;
+    background-position: bottom 0% left 0;
     background-attachment: fixed;
 
 
@@ -23,6 +23,7 @@
 .exports-container .quarries-hero h1 {
     color: var(--whiteColor);
     z-index: 1;
+    text-align: center;
 }
 
 .export-department {
@@ -229,13 +230,15 @@
     }
 
     .exports-container .quarries-hero {
+        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Exports/exports23.webp');
         background-attachment: unset;
-        background-position: center;
+        background-position: top 0% center;
 
     }
 
     .exports-container .quarries-hero h1 {
         top: 50%;
+        text-align: center;
     }
 
 

@@ -240,7 +240,8 @@
     "errorPhone": "Il numero di telefono deve essere numerico e compreso tra 8 e 15 cifre.",
     "errorWhatsapp": "Il numero Whatsapp deve essere numerico e compreso tra 8 e 15 cifre.",
     "errorGeneric": "Impossibile inviare il messaggio. Riprova più tardi.",
-    "errorConnection": "Qualcosa è andato storto. Controlla la tua connessione o riprova."
+    "errorConnection": "Qualcosa è andato storto. Controlla la tua connessione o riprova.",
+    "attachFile": "Allega un file"
   },
   "gallery": {
     "pageTitle": "Galleria di Fabbrica e Cantiere Wadi Degla | Produzione di Marmo, Stoccaggio e Operazioni di Esportazione",
@@ -620,7 +621,12 @@
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Notizie",
     "comingSoon": "Prossimamente",
-    "newsDescription": "Gli ultimi aggiornamenti da Wadi Degla che coprono cave di marmo, lavorazione della pietra, progetti architettonici, mostre e sviluppi nell'industria mondiale della pietra naturale."
+    "readMore": "Leggi di più",
+    "newsDescription": "Gli ultimi aggiornamenti da Wadi Degla che coprono cave di marmo, lavorazione della pietra, progetti architettonici, mostre e sviluppi nell'industria mondiale della pietra naturale.",
+    "searchPlaceholder": "Cerca articoli...",
+    "articleNotFound": "Articolo non trovato.",
+    "backToNews": "Torna alle notizie",
+    "noResults": "Nessun articolo trovato per \"%s\"."
   },
   "products": {
     "pageTitle": "Marmo e Granito Egiziani | Lastre e Piastrelle Premium | Wadi Degla",
@@ -804,7 +810,7 @@
     "faqQ1": "Quali prodotti fornisce Wadi Degla?",
     "faqA1": "Lastre di marmo e calcare, piastrelle, blocchi e finiture personalizzate.",
     "faqQ2": "Esportate a livello mondiale?",
-    "faqA2": "Sì. Esportiamo in Europa, Nord America, CCG, Africa e Asia.",
+    "faqA2": "Sì. Esportiamo in Europa, Nord America, CCG, Africa, Asia e in tutto il mondo.",
     "faqQ3": "Potete supportare progetti su larga scala?",
     "faqA3": "La nostra proprietà delle cave e la capacità produttiva garantiscono un approvvigionamento costante per megaprogetti.",
     "faqQ4": "Quali finiture sono disponibili?",

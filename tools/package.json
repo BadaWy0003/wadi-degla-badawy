@@ -1,0 +1,11 @@
+{
+  "name": "wadi-degla-image-optimizer",
+  "version": "1.0.0",
+  "description": "Standalone batch image optimizer — converts images to WebP matching admin dashboard settings",
+  "scripts": {
+    "optimize": "node optimize-images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.4"
+  }
+}

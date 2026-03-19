@@ -240,7 +240,8 @@
     "errorPhone": "Phone number must be numeric and between 8 to 15 digits.",
     "errorWhatsapp": "Whatsapp number must be numeric and between 8 to 15 digits.",
     "errorGeneric": "Failed to send message. Please try again later.",
-    "errorConnection": "Something went wrong. Please check your connection or try again."
+    "errorConnection": "Something went wrong. Please check your connection or try again.",
+    "attachFile": "Attach a File"
   },
   "gallery": {
     "pageTitle": "Wadi Degla Factory & Yard Gallery | Marble Production, Storage & Export Operations",
@@ -620,7 +621,12 @@
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "News",
     "comingSoon": "Coming Soon",
-    "newsDescription": "Latest updates from Wadi Degla covering marble quarries, stone manufacturing, architectural projects, exhibitions, and developments in the global natural stone industry."
+    "newsDescription": "Latest updates from Wadi Degla covering marble quarries, stone manufacturing, architectural projects, exhibitions, and developments in the global natural stone industry.",
+    "readMore": "Read More",
+    "searchPlaceholder": "Search articles...",
+    "articleNotFound": "Article not found.",
+    "backToNews": "Back to News",
+    "noResults": "No articles found for \"%s\"."
   },
   "products": {
     "pageTitle": "Egyptian Marble & Granite | Premium Slabs & Tiles | Wadi Degla",
@@ -764,11 +770,11 @@
   "home": {
     "pageTitle": "Home | Wadidegla",
     "metaDescription": "Discover premium Egyptian marble and limestone from Wadi Degla. Quarry ownership, advanced manufacturing, and global export of slabs, tiles, and blocks for residential, commercial, and landmark projects worldwide.",
-    "companyName": "Global Supplier of Egyptian Marble & Limestone",
+    "companyName": "Wadi Degla Co.",
     "heroWelcome": "Exporting slabs, tiles, and blocks from Egyptian quarries to projects across Europe, GCC, Africa, and worldwide markets.",
     "ourHistory": "OUR HISTORY",
     "ourProducts": "EXPLORE PRODUCTS",
-    "legacy45Years": "45 Years of Stone Expertise",
+    "legacy45Years": "45 Years Shaping the Future of Stone",
     "legacyDescription": "For more than four decades, Wadi Degla has combined traditional stone craftsmanship with modern production technology to deliver consistent quality, durability, and timeless aesthetics for projects of all scales.",
     "aboutWadiDegla": "ABOUT WADI DEGLA",
     "learnMore": "LEARN MORE",
@@ -804,7 +810,7 @@
     "faqQ1": "What products does Wadi Degla supply?",
     "faqA1": "Marble and limestone slabs, tiles, blocks, and custom finishes.",
     "faqQ2": "Do you export worldwide?",
-    "faqA2": "Yes. We export to Europe, North America, GCC, Africa, and Asia.",
+    "faqA2": "Yes. We export to Europe, North America, GCC, Africa, Asia and Worldwide.",
     "faqQ3": "Can you support large-scale projects?",
     "faqA3": "Our quarry ownership and production capacity ensure consistent supply for mega projects.",
     "faqQ4": "What finishes are available?",

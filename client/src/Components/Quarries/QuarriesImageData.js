@@ -39,10 +39,13 @@ import secondfactory9 from '../../Public/Assets/Media/Quarries/second-factory/se
 import secondfactory10 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory10.webp';
 import secondfactory11 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory11.webp';
 import secondfactory12 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory12.webp';
+// import secondfactory13 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory13.webp';
+import secondfactory14 from '../../Public/Assets/Media/Quarries/second-factory/secondfactory14.webp';
 
 import third_factory_2 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory2.webp';
 import third_factory_3 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory3.webp';
 import third_factory_4 from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory4.webp';
+import third_factory from '../../Public/Assets/Media/Quarries/third-factory/thirdfactory.webp';
 
   // export const globalFactoriesImages = 
   //            [image03, image21, image24]
@@ -86,6 +89,7 @@ import third_factory_4 from '../../Public/Assets/Media/Quarries/third-factory/th
 
   export const secondFactoryImages = 
   [
+              secondfactory14,
               secondfactory6,
               secondfactory1,
               secondfactory2,
@@ -100,8 +104,7 @@ import third_factory_4 from '../../Public/Assets/Media/Quarries/third-factory/th
   export const thirdFactoryImages = 
   [
                 
-        third_factory_3,
+        third_factory,
         third_factory_2,
-        third_factory_4,
 
     ]

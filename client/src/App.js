@@ -31,6 +31,7 @@ const Exports = lazy(() => import("./Components/Exports/Exports.js"));
 const Packing = lazy(() => import("./Components/Packing/Packing.js"));
 const Partners = lazy(() => import("./Components/Partners/Partners.js"));
 const News = lazy(() => import("./Components/News/News.js"));
+const NewsDetail = lazy(() => import("./Components/News/NewsDetail.js"));
 const Machinery = lazy(() => import("./Components/Machinery/Machinery.js"));
 const Quarries = lazy(() => import("./Components/Quarries/Quarries.js"));
 const Inspiration = lazy(() => import("./Components/Inspiration/Inspiration.js"));
@@ -84,6 +85,7 @@ function App() {
           <Route exact path="/quarries" element={<Suspense fallback={<LoadingSpinner />}><Quarries /></Suspense>} />
           <Route exact path="/partners" element={<Suspense fallback={<LoadingSpinner />}><Partners /></Suspense>} />
           <Route exact path="/news" element={<Suspense fallback={<LoadingSpinner />}><News /></Suspense>} />
+          <Route exact path="/news/:slug" element={<Suspense fallback={<LoadingSpinner />}><NewsDetail /></Suspense>} />
           <Route exact path="*" element={<Suspense fallback={<LoadingSpinner />}><NotFound404 /></Suspense>} /> {/* Catch-all route for 404 */}
           <Route
             exact

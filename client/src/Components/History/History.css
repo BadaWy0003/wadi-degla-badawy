@@ -494,6 +494,9 @@
 
     /* Intro Section */
 
+    .history-intro-section-title h2 {
+        font-size: 40px;
+    }
     .first-gen-intro {
         padding: 0;
     }

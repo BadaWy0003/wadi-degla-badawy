@@ -26,7 +26,9 @@ import gangsaws from '../../Public/Assets/Media/Machinery/gangsaws.webp';
 import gangsaws_5 from '../../Public/Assets/Media/Machinery/gangsaws-5.webp';
 import gangsaws_6 from '../../Public/Assets/Media/Machinery/gangsaws-6.webp';
 import gangsaws_7 from '../../Public/Assets/Media/Machinery/gangsaws-7.webp';
-import gangsaws_8 from '../../Public/Assets/Media/Machinery/gangsaws-8.webp';
+// import gangsaws_8 from '../../Public/Assets/Media/Machinery/gangsaws-8.webp';
+import gangsaws_9 from '../../Public/Assets/Media/Machinery/gangsaws-9.webp';
+import gangsaws_10 from '../../Public/Assets/Media/Machinery/gangsaws-10.webp';
 
 import big_bridge_cutter_1 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-1.webp';
 import big_bridge_cutter_2 from '../../Public/Assets/Media/Machinery/big-bridge-cutter-2.webp';
@@ -104,7 +106,7 @@ export const generalUseData = [
         {
           titleKey: "machinery.blocks.gangsaws",
           descriptionKey: "machinery.blocks.gangsawsDesc",
-          images: [gangsaws_8, gangsaws_6, gangsaws, gangsaws_5, gangsaws_7],
+          images: [gangsaws_10, gangsaws_6, gangsaws, gangsaws_5, gangsaws_7, gangsaws_9],
         },
         {
           titleKey: "machinery.blocks.blocksCutters",

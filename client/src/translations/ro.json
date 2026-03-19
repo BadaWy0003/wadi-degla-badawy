@@ -240,7 +240,8 @@
     "errorPhone": "Numărul de telefon trebuie să fie numeric și să aibă între 8 și 15 cifre.",
     "errorWhatsapp": "Numărul Whatsapp trebuie să fie numeric și să aibă între 8 și 15 cifre.",
     "errorGeneric": "Trimiterea mesajului a eșuat. Vă rugăm să încercați din nou mai târziu.",
-    "errorConnection": "A apărut o eroare de conexiune. Vă rugăm să vă verificați conexiunea sau să încercați din nou."
+    "errorConnection": "A apărut o eroare de conexiune. Vă rugăm să vă verificați conexiunea sau să încercați din nou.",
+    "attachFile": "Atașați un fișier"
   },
   "gallery": {
     "pageTitle": "Galeria Fabrica și Curte Wadi Degla | Producție Marmoră, Depozitare și Operații de Export",
@@ -620,7 +621,12 @@
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Știri",
     "comingSoon": "În curând",
-    "newsDescription": "Ultimele actualizări de la Wadi Degla acoperind cariere de marmură, prelucrare de piatră, proiecte arhitecturale, expoziții și dezvoltări în industria mondială a pietrei naturale."
+    "readMore": "Citește mai mult",
+    "newsDescription": "Ultimele actualizări de la Wadi Degla acoperind cariere de marmură, prelucrare de piatră, proiecte arhitecturale, expoziții și dezvoltări în industria mondială a pietrei naturale.",
+    "searchPlaceholder": "Caută articole...",
+    "articleNotFound": "Articolul nu a fost găsit.",
+    "backToNews": "Înapoi la știri",
+    "noResults": "Niciun articol găsit pentru \"%s\"."
   },
   "products": {
     "pageTitle": "Marmoră și Granit Egiptean | Plăci și Gresie Premium | Wadi Degla",
@@ -804,7 +810,7 @@
     "faqQ1": "Ce produse furnizează Wadi Degla?",
     "faqA1": "Plăci de marmură și calcar, plăci, blocuri și finisaje personalizate.",
     "faqQ2": "Exportați în întreaga lume?",
-    "faqA2": "Da. Exportăm în Europa, America de Nord, GCC, Africa și Asia.",
+    "faqA2": "Da. Exportăm în Europa, America de Nord, GCC, Africa, Asia și în întreaga lume.",
     "faqQ3": "Puteți sprijini proiecte la scară largă?",
     "faqA3": "Proprietatea noastră de cariere și capacitatea de producție asigură aprovizionare constantă pentru megaproiecte.",
     "faqQ4": "Ce finisaje sunt disponibile?",

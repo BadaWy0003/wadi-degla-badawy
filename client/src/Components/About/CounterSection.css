@@ -80,14 +80,30 @@
 @media screen and (max-width: 768px) {
 
     /*COUNTER SECTION_____________________________________________________________*/
+    .about-counters-section {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
     .about-counters-section-inner {
         display: block;
         padding: 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
     }
 
     /* Show Swiper only on smaller screens */
     .counters-swiper {
         display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        /* Force LTR so Swiper slide positioning is consistent regardless of page direction */
+        direction: ltr;
     }
 
     /* Hide grid layout for small screens */

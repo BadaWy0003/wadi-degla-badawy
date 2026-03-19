@@ -53,6 +53,15 @@ import wyndham17_2 from '../../Public/Assets/Media/Projects/wyndham17-2.webp'
 import wyndham18 from '../../Public/Assets/Media/Projects/wyndham18.webp'
 import wyndham19 from '../../Public/Assets/Media/Projects/wyndham19.webp'
 import wyndham20 from '../../Public/Assets/Media/Projects/wyndham20.webp'
+import wyndham21 from '../../Public/Assets/Media/Projects/wyndham-21.webp'
+import wyndham22 from '../../Public/Assets/Media/Projects/wyndham-22.webp'
+import wyndham23 from '../../Public/Assets/Media/Projects/wyndham-23.webp'
+import wyndham24 from '../../Public/Assets/Media/Projects/wyndham-24.webp'
+import wyndham25 from '../../Public/Assets/Media/Projects/wyndham-25.webp'
+import wyndham26 from '../../Public/Assets/Media/Projects/wyndham-26.webp'
+import wyndham27 from '../../Public/Assets/Media/Projects/wyndham-27.webp'
+import wyndham28 from '../../Public/Assets/Media/Projects/wyndham-28.webp'
+import wyndham29 from '../../Public/Assets/Media/Projects/wyndham-29.webp'
 
 import carribean_palace from '../../Public/Assets/Media/Projects/carribean-palace.webp'
 import carribean_palace_2 from '../../Public/Assets/Media/Projects/carribean-palace-2.webp'
@@ -105,6 +114,13 @@ import murano_ain_sokhna_2 from '../../Public/Assets/Media/Projects/murano-ain-s
 import murano_ain_sokhna_3 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-3.webp';
 import murano_ain_sokhna_4 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-4.webp';
 
+import australia_project_1 from '../../Public/Assets/Media/Projects/australia-project-1.webp';
+import australia_project_2 from '../../Public/Assets/Media/Projects/australia-project-2.webp';
+import australia_project_3 from '../../Public/Assets/Media/Projects/australia-project-3.webp';
+import australia_project_4 from '../../Public/Assets/Media/Projects/australia-project-4.webp';
+import australia_project_5 from '../../Public/Assets/Media/Projects/australia-project-5.webp';
+
+
 const projects = [
   {
     id: "1",
@@ -135,7 +151,16 @@ const projects = [
               wyndham18,
               wyndham19,
               wyndham20,
-              wyndham1_0
+              wyndham1_0,
+              wyndham21,
+              wyndham22,
+              wyndham23,
+              wyndham24,
+              wyndham25,
+              wyndham26,
+              wyndham27,
+              wyndham28,
+              wyndham29
               },
     city: "",
     country: "The Caribbean",
@@ -309,6 +334,19 @@ const projects = [
       city: "Red Sea",
       country: "Egypt",
       materialsSupplied: ["Sunny Light", "New Halayeb"],
+    },
+    {
+      id: "16",
+      name: "Australia Project",
+      thumbnail: australia_project_1,
+      gallery: {australia_project_2,
+                australia_project_1,
+                australia_project_3,
+                australia_project_4,
+                australia_project_5},
+      city: "Sydney",
+      country: "Australia",
+      materialsSupplied: ["Galala", "Creamy White Pearl"],
     },
     
   ];

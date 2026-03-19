@@ -240,7 +240,8 @@
     "errorPhone": "Die Telefonnummer muss numerisch und zwischen 8 und 15 Ziffern lang sein.",
     "errorWhatsapp": "Die WhatsApp-Nummer muss numerisch und zwischen 8 und 15 Ziffern lang sein.",
     "errorGeneric": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
-    "errorConnection": "Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Verbindung oder versuchen Sie es erneut."
+    "errorConnection": "Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Verbindung oder versuchen Sie es erneut.",
+    "attachFile": "Datei anhängen"
   },
   "gallery": {
     "pageTitle": "Wadi Degla Fabrik- und Lagergalerie | Marmorproduktion, Lagerung und Exportoperationen",
@@ -620,7 +621,12 @@
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Neuigkeiten",
     "comingSoon": "Demnächst",
-    "newsDescription": "Aktuelle Updates von Wadi Degla mit Marmorbrechern, Steinverarbeitung, architektonischen Projekten, Ausstellungen und Entwicklungen in der globalen Natursteinindustrie."
+    "newsDescription": "Aktuelle Updates von Wadi Degla mit Marmorbrechern, Steinverarbeitung, architektonischen Projekten, Ausstellungen und Entwicklungen in der globalen Natursteinindustrie.",
+    "readMore": "Mehr lesen",
+    "searchPlaceholder": "Artikel suchen...",
+    "articleNotFound": "Artikel nicht gefunden.",
+    "backToNews": "Zurück zu den Nachrichten",
+    "noResults": "Keine Artikel gefunden für \"%s\"."
   },
   "products": {
     "pageTitle": "Ägyptischer Marmor & Granit | Premium-Platten & Fliesen | Wadi Degla",
@@ -804,7 +810,7 @@
     "faqQ1": "Welche Produkte liefert Wadi Degla?",
     "faqA1": "Marmor- und Kalkstein-Platten, Fliesen, Blöcke und maßgeschneiderte Veredelungen.",
     "faqQ2": "Exportieren Sie weltweit?",
-    "faqA2": "Ja. Wir exportieren nach Europa, Nordamerika, GCC, Afrika und Asien.",
+    "faqA2": "Ja. Wir exportieren nach Europa, Nordamerika, GCC, Afrika, Asien und weltweit.",
     "faqQ3": "Können Sie großflächige Projekte unterstützen?",
     "faqA3": "Unser Steinbruchbesitz und unsere Produktionskapazität gewährleisten eine konstante Versorgung für Großprojekte.",
     "faqQ4": "Welche Veredelungen sind verfügbar?",

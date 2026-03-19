@@ -240,7 +240,8 @@
     "errorPhone": "Numri i telefonit duhet të jetë numerik dhe midis 8 dhe 15 shifrave.",
     "errorWhatsapp": "Numri Whatsapp duhet të jetë numerik dhe midis 8 dhe 15 shifrave.",
     "errorGeneric": "Dështoi dërgimi i mesazhit. Ju lutemi provoni përsëri më vonë.",
-    "errorConnection": "Diçka shkoi keq. Ju lutemi kontrolloni lidhjen tuaj ose provoni përsëri."
+    "errorConnection": "Diçka shkoi keq. Ju lutemi kontrolloni lidhjen tuaj ose provoni përsëri.",
+    "attachFile": "Bashkëngjit një skedar"
   },
   "gallery": {
     "pageTitle": "Galeria e Fabrikës dhe Oborrit Wadi Degla | Prodhim Marmori, Depozitim dhe Operacione Eksporti",
@@ -620,7 +621,12 @@
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Lajme",
     "comingSoon": "Vjen Së Shpejti",
-    "newsDescription": "Përditesimet më të fundit nga Wadi Degla që mbulojnë miniera marmori, përpunimin e gurit, projektet arkitekturore, ekspozitat dhe zhvillimet në industrinë mondiale të gurit natyral."
+    "newsDescription": "Përditesimet më të fundit nga Wadi Degla që mbulojnë miniera marmori, përpunimin e gurit, projektet arkitekturore, ekspozitat dhe zhvillimet në industrinë mondiale të gurit natyral.",
+    "readMore": "Lexo më shumë",
+    "searchPlaceholder": "Kërko artikuj...",
+    "articleNotFound": "Artikulli nuk u gjet.",
+    "backToNews": "Kthehu te lajmet",
+    "noResults": "Nuk u gjetën artikuj për \"%s\"."
   },
   "products": {
     "pageTitle": "Mermer Egjiptian dhe Granit | Pllaka dhe Pllaka Premium | Wadi Degla",
@@ -804,7 +810,7 @@
     "faqQ1": "Cilat produkte furnizon Wadi Degla?",
     "faqA1": "Pllaka mermeri dhe guri i var, pllaka, blloqe dhe përfundime të personalizuara.",
     "faqQ2": "A eksportoni në të gjithë botën?",
-    "faqA2": "Po. Ne eksportojmë në Evropë, Amerikën e Veriut, GCC, Afrikën dhe Azinë.",
+    "faqA2": "Po. Ne eksportojmë në Evropë, Amerikën e Veriut, GCC, Afrikën, Azinë dhe në mbarë botën.",
     "faqQ3": "A mund të mbështesni projekte në shkallë të madhe?",
     "faqA3": "Pronësia e karrierave dhe kapaciteti i prodhimit tonë sigurojnë furnizim të qëndrueshëm për megaprojektet.",
     "faqQ4": "Cilat përfundime janë në dispozicion?",

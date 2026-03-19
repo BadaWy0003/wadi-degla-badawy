@@ -240,7 +240,8 @@
     "errorPhone": "전화번호는 숫자여야 하며 8~15자리 사이여야 합니다.",
     "errorWhatsapp": "Whatsapp 번호는 숫자여야 하며 8~15자리 사이여야 합니다.",
     "errorGeneric": "메시지 전송 실패. 나중에 다시 시도하십시오.",
-    "errorConnection": "문제가 발생했습니다. 연결을 확인하거나 다시 시도하십시오."
+    "errorConnection": "문제가 발생했습니다. 연결을 확인하거나 다시 시도하십시오.",
+    "attachFile": "파일 첨부"
   },
   "gallery": {
     "pageTitle": "Wadi Degla 공장 및 야드 갤러리 | 대리석 생산, 저장 및 수출 작업",
@@ -620,7 +621,12 @@
     "breadcrumbHome": "홈",
     "breadcrumbCurrent": "뉴스",
     "comingSoon": "출시 예정",
-    "newsDescription": "Wadi Degla의 최신 업데이트. 대리석 채석장, 석재 처리, 건축 프로젝트, 전시 및 전 세계 천연석 산업 개발을 포함합니다."
+    "newsDescription": "Wadi Degla의 최신 업데이트. 대리석 채석장, 석재 처리, 건축 프로젝트, 전시 및 전 세계 천연석 산업 개발을 포함합니다.",
+    "readMore": "더 읽기",
+    "searchPlaceholder": "기사 검색...",
+    "articleNotFound": "기사를 찾을 수 없습니다.",
+    "backToNews": "뉴스로 돌아가기",
+    "noResults": "\"%s\" 검색 결과가 없습니다."
   },
   "products": {
     "pageTitle": "이집트 대리석 및 화강암 | 프리미엄 슬래브 및 타일 | Wadi Degla",
@@ -764,7 +770,7 @@
   "home": {
     "pageTitle": "홈 | 와디 데글라",
     "metaDescription": "와디 데글라(Wadi Degla)에 오신 것을 환영합니다 - 1980년부터 대리석 및 화강암 분야에서 신뢰할 수 있는 귀하의 파트너입니다. 프리미엄 천연석 제품 및 건축 솔루션을 살펴보십시오.",
-    "companyName": "와디 데글라 Co.",
+    "companyName": "Wadi Degla Co.",
     "heroWelcome": "1980년부터 대리석 사업에서 신뢰할 수 있는 파트너인 와디 데글라 마블 & 그라나이트(Wadi Degla for Marble & Granite)에 오신 것을 환영합니다.",
     "ourHistory": "우리의 역사",
     "ourProducts": "우리의 제품",
@@ -804,7 +810,7 @@
     "faqQ1": "Wadi Degla에서 공급하는 제품은 무엇입니까?",
     "faqA1": "대리석 및 석회암 슬래브, 타일, 블록 및 맞춤형 마감.",
     "faqQ2": "전 세계로 수출합니까?",
-    "faqA2": "예. 유럽, 북미, GCC, 아프리카 및 아시아로 수출합니다.",
+    "faqA2": "예. 유럽, 북미, GCC, 아프리카, 아시아 및 전 세계로 수출합니다.",
     "faqQ3": "대규모 프로젝트를 지원할 수 있습니까?",
     "faqA3": "당사의 채석장 소유 및 생산 능력으로 대형 프로젝트에 대한 일정한 공급을 보장합니다.",
     "faqQ4": "어떤 마감이 가능합니까?",

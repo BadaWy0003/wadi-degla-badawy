@@ -12,6 +12,7 @@ import translationSQ from './translations/sq.json';
 import translationRU from './translations/ru.json';
 import translationJA from './translations/ja.json';
 import translationAR from './translations/ar.json';
+import translationZH from './translations/zh.json';
 
 const resources = {
   en: {
@@ -46,6 +47,9 @@ const resources = {
   },
   ar: {
     translation: translationAR
+  },
+  zh: {
+    translation: translationZH
   }
 };
 

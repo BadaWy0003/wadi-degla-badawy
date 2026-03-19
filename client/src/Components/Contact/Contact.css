@@ -468,6 +468,65 @@
   resize: none;
 }
 
+/* File attachment input */
+.input-field-file {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.file-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input-field-file input[type="file"] {
+  border: 2px solid var(--whiteColor);
+  border-radius: 2px;
+  padding: 0 1rem 0 0;
+  background-color: transparent;
+  color: transparent; /* hide native filename display — shown via .file-name-display instead */
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+  overflow: hidden;
+}
+
+.input-field-file input[type="file"]:focus {
+  outline: none;
+  border-color: var(--whiteColor);
+}
+
+/* Style the "Choose File" button inside the native input — matches .btn2 */
+.input-field-file input[type="file"]::file-selector-button {
+  background-color: transparent;
+  color: var(--whiteColor);
+  border: none;
+  border-right: solid 2px var(--whiteColor);
+  padding: 0.6rem 1.2rem;
+  margin-right: 0.8rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: unset;
+  transition: all 0.5s;
+  height: 100%;
+}
+
+.input-field-file input[type="file"]:hover::file-selector-button {
+  background-color: var(--whiteColor);
+  color: var(--goldColor);
+  scale: 98%;
+}
+
+.file-name-display {
+  font-size: 0.78rem;
+  color: var(--blueColor);
+  word-break: break-all;
+}
+
 .contact-form .btn1 {
   margin-top: 2rem;
 }
@@ -796,6 +855,17 @@
     padding: 0.7rem;
     /* Adjust padding */
     height: 20pt;
+  }
+
+  /* File input mobile fix — override the height reset above and keep button flush */
+  .input-field-file input[type="file"] {
+    height: auto;
+    padding: 0 0.5rem 0 0;
+  }
+
+  .input-field-file input[type="file"]::file-selector-button {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.75rem;
   }
 
   .double-inputs {
