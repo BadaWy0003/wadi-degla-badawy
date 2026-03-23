@@ -60,7 +60,7 @@ export default function ContactInfo() {
           </div>
           <a href='https://drive.google.com/file/d/1cr1xARl2DO_dmVo2NUaZrP6mJ0FyNHUa/view' target="_blank" rel="noopener noreferrer"> <button className='btn2'>
             {t('contactInfo.companyProfile')}</button> </a>
-          <a href='https://drive.google.com/file/d/1Vbmkf9-TQnuGKhvHV9JS4014vp4J1rHS/view?usp=sharing' target="_blank" rel="noopener noreferrer"> <button className='btn1'>
+          <a href='https://drive.google.com/file/d/17sczDrWJN8pWQ4EPHMdIeh30TLbXYh-l/view?usp=sharing' target="_blank" rel="noopener noreferrer"> <button className='btn1'>
             {t('contactInfo.specialCatalogue')}</button> </a>
           <h4>{t('contactInfo.qrInstruction')}</h4>
           <div>

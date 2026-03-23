@@ -199,7 +199,7 @@
 
     /* General Hero Section */
     .inspiration-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
     .inspiration-container .quarries-hero h1 {
@@ -248,7 +248,7 @@
 @media screen and (max-height: 550px) {
 
     .inspiration-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
     .inspo-ancient-section{
         padding: 0 1rem;

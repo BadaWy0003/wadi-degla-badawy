@@ -60,7 +60,7 @@
 
     /* General Hero Section */
     .fairs-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
     .fairs-container .quarries-hero h1 {
@@ -81,6 +81,6 @@
 @media screen and (max-height: 550px) {
 
     .fairs-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 }

@@ -480,7 +480,7 @@
 
     /* General Hero Section */
     .history-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
 
     }
 
@@ -612,7 +612,7 @@
 
     .history-final-section {
         height: unset;
-        background-attachment: unset;
+        /* background-attachment: unset; */
         padding: 5rem 1rem;
     }
 
@@ -629,7 +629,7 @@
     }
 
     .history-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
 
     }
 
@@ -670,7 +670,7 @@
     }
 
     .history-final-section {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
 }

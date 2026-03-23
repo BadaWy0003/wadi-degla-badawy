@@ -117,7 +117,7 @@
 
     /* General Hero Section */
     .cobble-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
     .cobble-container .quarries-hero h1 {
@@ -162,7 +162,7 @@
 @media screen and (max-height: 550px) {
 
     .cobble-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
 

@@ -57,15 +57,23 @@
 }
 
 
-@media only screen and (max-width: 1024px) {
-     .hero, 
-     .quarries-hero, 
-     .quarries-home-section, 
-     .inspiration-home-section,
-     .visualizer-home-inner,
-     .projects-home-section{
-        background-attachment: unset !important;
+/* Disable parallax on touch screens (any size), enable only for real pointer/mouse devices */
+.hero,
+.quarries-hero,
+.quarries-home-section,
+.inspiration-home-section,
+.visualizer-home-inner,
+.projects-home-section {
+    background-attachment: scroll !important;
+}
 
+@media (hover: hover) and (pointer: fine) {
+    .hero,
+    .quarries-hero,
+    .quarries-home-section,
+    .inspiration-home-section,
+    .visualizer-home-inner,
+    .projects-home-section {
+        background-attachment: fixed !important;
     }
-
-  }
+}

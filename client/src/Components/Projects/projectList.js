@@ -346,7 +346,7 @@ const projects = [
                 australia_project_5},
       city: "Sydney",
       country: "Australia",
-      materialsSupplied: ["Galala", "Creamy White Pearl"],
+      materialsSupplied: ["Galala", "Triesta Beige"],
     },
     
   ];

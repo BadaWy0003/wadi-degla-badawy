@@ -11,7 +11,7 @@
     align-items: center;
     height: 80vh;
     margin-bottom: 0rem;
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Exports/exports23.webp');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Exports/exports25.webp');
     background-size: cover;
     background-position: bottom 0% left 0;
     background-attachment: fixed;
@@ -230,8 +230,8 @@
     }
 
     .exports-container .quarries-hero {
-        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Exports/exports23.webp');
-        background-attachment: unset;
+        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../Public/Assets/Media/Exports/exports25.webp');
+        /* background-attachment: unset; */
         background-position: top 0% center;
 
     }
@@ -304,7 +304,7 @@
     }
 
     .exports-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
         background-position: center;
 
     }

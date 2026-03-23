@@ -13,7 +13,7 @@
 }
 
 .homepage .hero {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/Hero/home-hero-2.webp');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../Public/Assets/Media/Hero/home-hero-3.webp');
     background-size: cover;
     background-position: bottom 0% right 0;
     background-attachment: fixed;
@@ -475,7 +475,7 @@
     .homepage .hero {
         padding: 10rem 1rem 1rem 1rem;
         background-position: top 0 right 30%;
-        background-attachment: unset !important;
+        /* background-attachment: unset !important; */
 
     }
 
@@ -501,7 +501,7 @@
     }
 
     .homepage .hero {
-        background-attachment: unset !important;
+        /* background-attachment: unset !important; */
         background-position: bottom 0 left 45% !important;
     }
 
@@ -520,7 +520,7 @@
     }
 
     .quarries-home-section {
-        background-attachment: unset !important;
+        /* background-attachment: unset !important; */
         height: 50vh !important;
         padding: 1rem !important;
 
@@ -583,14 +583,14 @@
     }
 
     .visualizer-home-inner {
-        background-attachment: unset !important;
+        /* background-attachment: unset !important; */
         border-radius: 0 !important;
         height: 50vh !important;
         padding: 1rem !important;
     }
 
     .inspiration-home-section {
-        background-attachment: unset !important;
+        /* background-attachment: unset !important; */
         height: 50vh !important;
         padding: 1rem !important;
 
@@ -608,7 +608,7 @@
                 rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0.6)),
             url('../../Public/Assets/Media/Hero/projects-hero-mobile.webp') !important;
-        background-attachment: unset !important;
+        /* background-attachment: unset !important; */
         background-position: center !important;
         background-size: cover !important;
 
@@ -687,7 +687,7 @@
 
     .homepage .hero {
         background-position: center;
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
     .place4btns {
@@ -695,7 +695,7 @@
     }
 
     .quarries-home-section {
-        background-attachment: unset;
+        /* background-attachment: unset; */
         border-top: 2px solid var(--darkerBlackColor);
         height: 100vh;
         padding: 3rem 5rem;
@@ -710,7 +710,7 @@
     }
 
     .inspiration-home-section {
-        background-attachment: unset;
+        /* background-attachment: unset; */
         background-position: top 15% left 0;
         border-top: 2px solid var(--darkerBlackColor);
         height: 100vh;
@@ -718,19 +718,19 @@
     }
 
     .visualizer-home-inner {
-        background-attachment: unset;
+        /* background-attachment: unset; */
         height: 100vh;
 
     }
 
     .visualizer-home-inner {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
 
     .projects-home-section {
         padding: 3rem 5rem;
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
 }

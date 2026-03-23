@@ -93,8 +93,6 @@ import third_factory from '../../Public/Assets/Media/Quarries/third-factory/thir
               secondfactory6,
               secondfactory1,
               secondfactory2,
-              secondfactory9,
-              secondfactory8,
               secondfactory10,
               secondfactory11,
               secondfactory12,

@@ -51,7 +51,7 @@
 
     /* General Hero Section */
     .stone-creation-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
     .stone-creation-container .quarries-hero h1 {
@@ -76,7 +76,7 @@
 @media screen and (max-height: 550px) {
 
     .stone-creation-container .quarries-hero {
-        background-attachment: unset;
+        /* background-attachment: unset; */
     }
 
 
