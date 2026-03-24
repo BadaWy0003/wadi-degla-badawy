@@ -1,0 +1,299 @@
+.quarries-container {
+    margin-top: -7rem;
+    padding-bottom: 10rem;
+}
+
+
+.quarries-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 0rem;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Assets/Media/Hero/quarries-hero.webp');
+    background-size: cover;
+    background-position: top 60% right 0;
+    background-attachment: fixed;
+
+
+
+}
+
+.quarries-hero h1 {
+    position: absolute;
+    top: 50%;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+.quarries-hero .breadcrumb {
+    position: absolute;
+    top: 60%;
+    padding: 1rem;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+
+
+
+
+
+
+/* Quarry & Factory Sections */
+.quarries, .factories {
+    padding: 0 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.quarries-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.quarries-title h2 {
+    background-color: var(--darkerBlackColor);
+    color: var(--goldColor);
+    padding: 0 1rem;
+    z-index: 2;
+
+}
+
+.quarries-title hr {
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    border: 1px solid var(--whiteColor);
+    z-index: 1;
+}
+
+.quarries h1, .factories h1 {
+    color: var(--goldColor);
+}
+
+.quarries h3, .factories h3 {
+    color: var(--blueColor);
+    text-transform: uppercase !important;
+
+}
+
+.quarries p, .factories p {
+    color: var(--whiteColor);
+}
+
+.quarry-card, .factory-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.factories h2 {
+    margin-bottom: 0;
+}
+
+.factories .machinery-captions {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5rem;
+
+}
+
+/* .left img, .right img {
+    min-width: 50%;
+    height: 300px;
+    object-fit: cover;
+} */
+
+.quarries-slider {
+    height: 20rem !important;
+    max-width: 530px;
+
+}
+
+.swiper-lazy {
+    width: 100% !important;
+    height: 100%;
+}
+
+
+/* Custom pagination bullets */
+.quarries-slider .swiper-pagination-bullet {
+    background-color: var(--whiteColor);
+    opacity: 100%;
+    margin: 8px !important;
+    transition: all 0.1 ease;
+}
+
+/* Active bullet */
+.quarries-slider .swiper-pagination-bullet-active {
+    background-color: var(--goldColor);
+}
+
+.swiper-lazy-preloader {
+    border-color: var(--goldColor);
+    border-top-color: transparent;
+}
+
+.text {
+    padding: 0 5rem;
+    width: 50%;
+
+}
+
+.global {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 0 5rem;
+
+}
+
+.global img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.global p {
+    color: var(--whiteColor);
+}
+
+/* Custom pagination bullets */
+.global-facilities-slider .swiper-pagination-bullet {
+    background-color: var(--whiteColor);
+    opacity: 50%;
+    margin: 0 8px !important;
+    transition: all 0.1 ease;
+}
+
+/* Active bullet */
+.global-facilities-slider .swiper-pagination-bullet-active {
+    opacity: 100%;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* General Hero Section */
+    .quarries-container p {
+        font-size: 14px;
+    }
+
+    .quarries-hero {
+        background-attachment: unset;
+    }
+
+    .quarries-hero h1 {
+        text-align: center;
+    }
+
+    .quarries-title {
+        justify-content: unset;
+    }
+
+    .quarries-title hr {
+        display: none;
+    }
+
+    .quarries-title h2 {
+        padding: 0;
+    }
+
+    .factories .machinery-captions {
+        text-align: justify;
+    }
+
+
+    .quarries-hero .breadcrumb {
+        display: none;
+    }
+
+    /* Quarry & Factory Sections */
+    .quarries, .factories {
+        padding: 1rem;
+        overflow-x: hidden;
+    }
+
+    .quarries h3, .factories h3 {
+        font-size: 16px;
+    }
+
+    .quarry-card, .factory-card {
+        margin-bottom: 3rem;
+    }
+
+    .left {
+        flex-direction: column;
+    }
+
+    .right {
+        flex-direction: column-reverse;
+    }
+
+    .quarries-slider {
+        width: 100% !important;
+        height: 15rem !important;
+    }
+
+
+    .left img, .right img {
+        width: 100%;
+    }
+
+
+    .text {
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .global {
+        padding: 1rem;
+
+    }
+
+    .global img {
+        height: unset;
+    }
+}
+
+@media screen and (max-height: 550px) {
+    .quarries-container p {
+        font-size: 14px;
+    }
+
+    .quarries-hero {
+        background-attachment: unset;
+    }
+
+    .quarries-slider {
+        width: unset;
+    }
+
+    .quarries, .factories {
+        padding: 0 1rem;
+    }
+
+    .quarry-card, .factory-card {
+        margin-bottom: 2rem;
+    }
+
+    .quarries .text, .factories .text {
+        padding: 0 1rem;
+    }
+
+    .global {
+        padding: 0 1rem;
+    }
+}

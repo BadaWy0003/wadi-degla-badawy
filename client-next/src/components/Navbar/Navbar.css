@@ -1,0 +1,622 @@
+.scrolled {
+    background-color: black;
+    top: 0;
+    margin: 0;
+    /* Remove margin when scrolled */
+    border-radius: 0;
+    transition: all 0.5s;
+    border: none;
+}
+
+
+header {
+    position: fixed;
+    /* Change from sticky to fixed */
+    top: 2rem;
+    left: 0;
+    /* Add this */
+    right: 0;
+    /* Add this */
+    margin: 0 2rem;
+    /* Change margin to be more specific */
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--whiteColor);
+    z-index: 9999;
+    transition: all 0.5s;
+
+}
+
+.header a, .header p {
+    font-size: 0.9rem;
+}
+
+.logo-div {
+    width: 7rem;
+    justify-content: center;
+}
+
+.logo {
+    max-width: 7rem;
+    transition: all 0.5s;
+    max-height: 3rem;
+
+}
+
+.logo:hover {
+    scale: 98%;
+    transition: all 0.5s;
+}
+
+
+
+.header a {
+    transition: all 0.1s;
+}
+
+
+.header a:hover {
+
+    transition: all 0.1s;
+    color: var(--lightGrayColor);
+}
+
+.scrolled a:hover {
+    color: var(--goldColor);
+}
+
+
+nav a {
+    margin: 0 1rem;
+    color: var(--textColor);
+    text-decoration: none;
+}
+
+nav a:hover {
+    scale: 98%;
+}
+
+/* Submenu container */
+
+.submenu-bg {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    padding: 0.5rem 0;
+    z-index: 99999;
+    min-width: 180px;
+    /* Slightly wider submenu */
+    border-radius: 0;
+    /* Rounded corners */
+    top: 100%;
+    /* Place submenu directly beneath the parent */
+    left: -10px;
+    /* Align submenu with the parent */
+    transition: all 0.3s ease;
+    /* Smooth transition for better feel */
+}
+
+/* submenu if page scrolled ________________________*/
+
+.scrolled .submenu {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    /* Matches the dark theme */
+    border-bottom: 1px solid var(--goldColor);
+    /* Adds a subtle border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    padding: 1rem 0 1rem 0;
+    z-index: 99999;
+    min-width: 175px;
+    /* Slightly wider submenu */
+    border-radius: 0;
+    /* Rounded corners */
+    top: 100%;
+    /* Place submenu directly beneath the parent */
+    left: -10px;
+    /* Align submenu with the parent */
+    transition: all 0.3s ease;
+    /* Smooth transition for better feel */
+}
+
+/* Submenu links */
+.scrolled .submenu a {
+    display: block;
+    padding: 10px 15px;
+    /* Adds space around text for better clickability */
+    text-decoration: none;
+    font-size: 0.9rem;
+    /* Slightly smaller text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transitions */
+    border-left: solid 2px transparent;
+    margin: 0;
+
+}
+
+/* Hover effect for submenu links */
+.scrolled .submenu a:hover {
+    color: var(--goldColor);
+    /* Invert text color for better contrast */
+    border-left: 2px solid var(--goldColor);
+}
+
+/* Display submenu on hover */
+.scrolled .nav-item-with-submenu:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    /* Smooth dropdown effect */
+}
+
+.scrolled .nav-item-with-submenu:hover .submenu-bg {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    /* Smooth dropdown effect */
+
+}
+
+.nav-item-with-submenu-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    column-gap: 0.5rem;
+    margin-right: 0.5rem;
+    position: relative;
+}
+
+.nav-item-with-submenu-title p {
+    white-space: nowrap
+}
+
+.nav-item-with-submenu-title::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--whiteColor);
+    transition: border-top-color 0.3s ease;
+}
+
+.scrolled .nav-item-with-submenu-title::after {
+    border-top-color: var(--goldColor);
+}
+
+/* RTL support for arrow */
+html[dir="rtl"] .nav-item-with-submenu-title::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid var(--whiteColor) !important;
+    border-top: 0 !important;
+    transition: border-bottom-color 0.3s ease;
+    /* position: absolute; */
+    right: 0;
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    transform: rotate(180deg);
+}
+
+html[dir="rtl"] .scrolled .nav-item-with-submenu-title::after {
+    border-bottom-color: var(--goldColor) !important;
+}
+
+
+/* Optional: Subtle animation for submenu dropdown */
+.scrolled .submenu {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Adjust spacing and alignment of parent menu item */
+.scrolled .nav-item-with-submenu {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.scrolled .nav-item-with-submenu p {
+    margin: 0;
+    padding: 1rem 0;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.scrolled .nav-item-with-submenu p:hover {
+    color: var(--goldColor);
+    /* Match hover effect with submenu */
+}
+
+
+
+/* submenu if page not scrolled ________________________*/
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid var(--goldColor);
+    /* Adds a subtle border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    padding: 1rem 0 1rem 0;
+    z-index: 99999;
+    min-width: 175px;
+    /* Slightly wider submenu */
+    border-radius: 0;
+    /* Rounded corners */
+    top: 100%;
+    /* Place submenu directly beneath the parent */
+    left: 0;
+    /* Align submenu with the parent */
+    transition: all 0.3s ease;
+    /* Smooth transition for better feel */
+}
+
+/* Submenu links */
+.submenu a {
+    display: block;
+    padding: 10px 15px;
+    /* Adds space around text for better clickability */
+    text-decoration: none;
+    color: var(--whiteColor);
+    /* Subtle contrast for the links */
+    font-size: 0.9rem;
+    /* Slightly smaller text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transitions */
+    border-left: solid 2px transparent;
+    margin: 0;
+}
+
+/* Hover effect for submenu links */
+.submenu a:hover {
+    /* Highlight the item with gold */
+    color: var(--lightGrayColor);
+    /* Invert text color for better contrast */
+    border-left: solid 2px var(--whiteColor);
+}
+
+.nav-item-with-submenu:hover .submenu-bg {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    /* Smooth dropdown effect */
+
+}
+
+
+/* Display submenu on hover */
+.nav-item-with-submenu:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    /* Smooth dropdown effect */
+}
+
+/* Optional: Subtle animation for submenu dropdown */
+.submenu {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Adjust spacing and alignment of parent menu item */
+.nav-item-with-submenu {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.nav-item-with-submenu p {
+    margin: 0;
+    padding: 1rem 0;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.nav-item-with-submenu p:hover {
+    transition: all 0.1s;
+    color: var(--lightGrayColor);
+}
+
+.account-or-login {
+    color: var(--whiteColor);
+    text-decoration: none;
+}
+
+.account-or-login:hover {
+    color: var(--darkGrayColor);
+    text-decoration: none;
+}
+
+.scrolled .account-or-login {
+    color: var(--goldColor);
+    text-decoration: none;
+}
+
+.scrolled .account-or-login:hover {
+    color: var(--blueColor);
+    text-decoration: none;
+}
+
+header .nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--textColor);
+    display: none;
+    opacity: 0;
+    font-size: 1.8rem;
+}
+
+.scrolled .nav-btn {
+    color: var(--goldColor);
+}
+
+header div,
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive-specific styles */
+.nav-item-desktop {
+    display: block;
+}
+
+.nav-item-mobile {
+    display: none;
+}
+
+/* Desktop Language Selector */
+.language-selector-desktop {
+    display: block;
+}
+
+/* Hide mobile language selector on desktop */
+nav .language-selector {
+    display: none;
+}
+
+.navbar-search.show-on-mobile{
+    display: none;
+}
+.navbar-search{
+    margin-inline-start: 2rem;
+}
+
+/* Search icon color on scroll */
+.scrolled .navbar-search .search-icon {
+    color: var(--goldColor);
+}
+
+/*===========================================================*/
+
+@media only screen and (max-width: 1230px) {
+    .navbar-search{
+    margin-inline-start: 0 !important;
+}
+
+    header {
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 5rem;
+        background-color: rgb(0, 0, 0, 0.3);
+        color: var(--whiteColor);
+        z-index: 99;
+        margin: 0;
+        border-radius: 0;
+
+    }
+
+    .header a:hover {
+        color: var(--whiteColor);
+        font-weight: 700;
+    }
+
+
+    header .nav-btn {
+        display: block;
+        opacity: 1;
+    }
+
+    header nav {
+        position: fixed;
+        top: -150vh;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3em;
+        background-color: var(--darkerBlackColor);
+        transition: 1s;
+        z-index: 999999;
+    }
+
+    header .responsive_nav {
+        transform: translateY(150vh);
+        justify-content: center;
+    }
+
+
+    nav .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        color: var(--goldColor);
+    }
+
+    /* Mobile Language Selector */
+    nav .language-selector {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        margin-left: 0;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    .nav-item-with-submenu-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        column-gap: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .nav-item-with-submenu-title p {
+        white-space: nowrap;
+        margin-right: 1rem;
+        padding: 0;
+        padding-left: 1rem;
+    }
+
+    .nav-item-with-submenu-title img {
+        max-width: 0.5rem;
+        position: absolute;
+        right: 0;
+        top: 40%;
+    }
+
+    .scrolled .nav-item-with-submenu p {
+        margin-right: 1rem;
+        padding: 0;
+        padding-left: 1rem;
+
+    }
+
+
+    /* .nav-item-with-submenu:hover{
+	} */
+
+    .submenu {
+        background-color: var(--darkerBlackColor);
+        border: 1px solid var(--goldColor);
+        border-radius: 8px;
+    }
+
+    header nav img {
+        max-width: 5rem;
+        margin-bottom: 2rem;
+    }
+
+    .responsive-nav-bottom {
+        text-align: center;
+    }
+
+    /* .responsive-nav-bottom a,
+    .responsive-nav-bottom button {
+        font-size: 1.5rem;
+    } */
+
+    .nav-item-desktop {
+        display: none;
+    }
+
+    .nav-item-mobile {
+        display: block;
+    }
+
+    /* Show mobile language selector, hide desktop one */
+    nav .language-selector {
+        display: block;
+    }
+
+    .language-selector-desktop {
+        display: none;
+    }
+
+    #logo-nav-mobile {
+        max-width: 100%;
+    }
+    .navbar-search.hide-on-mobile{
+        display: none;
+    }
+    .navbar-search.show-on-mobile{
+    display: block;
+}
+    .navbar-search{
+    margin-inline-start: 0;
+}
+
+    /* Mobile search icon color */
+    .navbar-search .search-icon {
+        color: var(--goldColor);
+    }
+    .mob-search-and-nav-btn{
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        column-gap: 8px;
+        }
+
+    /* Mobile arrow always gold */
+    .nav-item-with-submenu-title::after {
+        border-top-color: var(--goldColor);
+    }
+
+}
+
+@media only screen and (max-height: 550px) {
+    header {
+        position: sticky;
+    }
+
+    #logo-nav-mobile {
+        max-width: 10rem;
+        margin: 0;
+    }
+
+    header nav {
+        gap: 0.5rem;
+    }
+
+    .submenu {
+        padding: 0 !important;
+        top: 0 !important;
+    }
+
+    .submenu a {
+        padding: 10px;
+    }
+}
+
+/* RTL styles for Arabic */
+html[dir="rtl"] .nav-item-with-submenu-title {
+    flex-direction: row-reverse;
+}
+html[dir="rtl"] .submenu a {
+    border-left: none;
+    border-right: solid 2px transparent;
+    padding-right: 15px;
+    padding-left: 0;
+}
+
+html[dir="rtl"] .submenu a:hover {
+    border-right: 2px solid var(--goldColor);
+    border-left: none;
+}
+

@@ -1,0 +1,328 @@
+.exports-container {
+    margin-top: -7rem;
+    padding-bottom: 10rem;
+}
+
+.exports-container .quarries-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 0rem;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Assets/Media/Exports/exports25.webp');
+    background-size: cover;
+    background-position: bottom 0% left 0;
+    background-attachment: fixed;
+
+
+
+}
+
+.exports-container .quarries-hero h1 {
+    color: var(--whiteColor);
+    z-index: 1;
+    text-align: center;
+}
+
+.export-department {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    column-gap: 5rem;
+}
+
+.export-department-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    max-width: 50%
+}
+
+.export-department-content h2 {
+    color: var(--goldColor);
+
+}
+
+.export-department-content p {
+    color: var(--whiteColor);
+    text-align: justify;
+
+}
+
+.export-ensures-title {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem !important;
+}
+
+.export-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    color: var(--whiteColor);
+}
+
+.export-bullet-list li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.export-bullet-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--goldColor);
+    font-weight: bold;
+}
+
+.export-mission {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem !important;
+}
+
+.export-department img {
+    max-width: 30%;
+    flex: 1;
+}
+
+.our-markets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem;
+}
+
+.our-markets h2 {
+    color: var(--goldColor);
+    margin-bottom: 0;
+}
+
+.our-markets p{
+    color: var(--whiteColor);
+    text-align: center;
+}
+
+.our-markets-sub-2{
+    margin-bottom: 3rem;
+}
+.markets {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: var(--darkerBlackColor);
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-bottom: 5rem;
+}
+
+
+
+
+
+
+
+
+/* Continent Buttons */
+.continent-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.continent-buttons button {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--whiteColor);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 15%;
+    padding-bottom: 1rem;
+}
+
+.continent-buttons button:hover {
+    color: var(--goldColor);
+    border-bottom: 2px solid var(--whiteColor);
+}
+
+.continent-buttons button.active {
+    color: var(--goldColor);
+    border-bottom: 2px solid var(--goldColor);
+
+}
+
+/* Country List */
+.country-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.country-list button {
+    background-color: transparent;
+    border: solid 1px var(--whiteColor);
+    border-radius: 10px;
+    color: var(--whiteColor);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.country-list button:hover {
+    color: var(--goldColor);
+    border-color: var(--goldColor);
+}
+
+.country-list button.active {
+    color: var(--whiteColor);
+    border-color: var(--goldColor);
+    background-color: var(--goldColor);
+
+}
+
+.country-flag {
+    width: 20px;
+    height: 15px;
+}
+
+#chartdiv {
+    width: 50vw;
+    height: 50vh;
+    max-width: 100%;
+}
+
+.exports-container .image-grid {
+    margin-top: 5rem;
+
+}
+
+.exports-container .masonry-grid {
+    column-count: 4 !important;
+
+}
+
+@media screen and (max-width: 768px) {
+    .exports-container p {
+        font-size: 14px;
+    }
+
+    .exports-container .quarries-hero {
+        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Assets/Media/Exports/exports25.webp');
+        /* background-attachment: unset; */
+        background-position: top 0% center;
+
+    }
+
+    .exports-container .quarries-hero h1 {
+        top: 50%;
+        text-align: center;
+    }
+
+
+    .export-department {
+        flex-direction: column;
+        padding: 1rem;
+        margin-bottom: 5rem;
+    }
+
+    .export-department-content h2 {
+        text-align: center;
+    }
+
+    .export-department-content p {
+        text-align: justify;
+    }
+
+    .export-department img {
+        max-width: unset;
+        width: 100%;
+    }
+
+    .export-department-content {
+        max-width: 100%;
+    }
+
+    .markets {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        background-color: var(--darkerBlackColor);
+        width: 100%;
+        padding: 0;
+        margin-bottom: 5rem;
+    }
+
+    .our-markets {
+        padding: 1rem;
+    }
+
+    .our-markets h2 {
+        margin-bottom: 2rem !important;
+    }
+
+    .continent-buttons button {
+        font-size: 16px;
+    }
+
+    #chartdiv {
+        width: 100vw;
+    }
+
+    .exports-container .masonry-grid {
+        column-count: 2 !important;
+
+    }
+
+}
+
+@media screen and (max-height: 550px) {
+    .exports-container p {
+        font-size: 14px;
+    }
+
+    .exports-container .quarries-hero {
+        /* background-attachment: unset; */
+        background-position: center;
+
+    }
+
+    .export-department {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .export-department-content {
+        max-width: 60%;
+    }
+
+    .export-department img {
+        max-width: 40%;
+    }
+
+    .our-markets h2 {
+        margin-bottom: 1rem;
+    }
+}

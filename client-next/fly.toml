@@ -1,0 +1,38 @@
+# fly.toml for client-next (Next.js static export)
+# IMPORTANT: Update `app` value to match your Fly.io app name before deploying.
+# For testing on a new app: fly apps create <your-app-name> --region cdg
+# For replacing the live site: use app = 'client-rough-dawn-8020'
+
+app = 'client-next-wadi-degla'
+primary_region = 'cdg'
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+
+[http_service]
+  internal_port = 80
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  max_machines_running = 1
+  processes = ["app"]
+
+# Custom domain config
+[[http_service.redirects]]
+  from = "wadidegla-eg.com"
+  to = "https://www.wadidegla-eg.com"
+  status_code = 301
+
+[[http_service.domains]]
+  domain = "wadidegla-eg.com"
+
+[[http_service.domains]]
+  domain = "www.wadidegla-eg.com"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "512mb"

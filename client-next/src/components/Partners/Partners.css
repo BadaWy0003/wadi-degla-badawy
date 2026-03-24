@@ -1,0 +1,95 @@
+/* Partners.css */
+.partners-container {
+    background-color: var(--whiteColor);
+    text-align: center;
+    margin-top: -7rem;
+    padding: 15rem 5rem 10rem 5rem;
+}
+
+.partners {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 logos per row */
+    /* Responsive grid */
+    gap: 1rem;
+    row-gap: 2rem;
+    /* Space between logos */
+    padding: 2rem;
+}
+
+.partners-container h1 {
+    color: var(--goldColor);
+}
+
+.partners-container .breadcrumb p {
+    color: var(--darkGrayColor);
+}
+
+.partners img {
+    width: 15rem;
+    /* Make logos fill their grid cells */
+    margin: auto;
+    filter: grayscale(100%);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#partner-logo-3,
+#partner-logo-4 {
+    max-width: 10rem;
+}
+
+
+#partner-logo-7,
+#partner-logo-9 {
+    max-width: 7rem;
+}
+
+
+
+.partners img:hover {
+    scale: 110%;
+    filter: grayscale(0);
+    transition: all 0.5s;
+}
+
+.partners-container button {
+    margin-top: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .partners-container {
+        padding: 15rem 1rem 10rem 1rem;
+    }
+
+    .partners {
+        grid-template-columns: repeat(2, 1fr);
+        /* 1 logo per row */
+    }
+
+    .partners img {
+        width: 100%;
+        max-width: 10rem;
+
+    }
+
+}
+
+@media screen and (max-height: 550px) {
+    .partners-container {
+        padding: 10rem 1rem 10rem 1rem;
+    }
+
+    .partners {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0;
+        /* 1 logo per row */
+    }
+
+    .partners img {
+        width: 100%;
+        max-width: 10rem;
+
+    }
+
+}
