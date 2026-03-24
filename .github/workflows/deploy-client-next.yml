@@ -3,7 +3,7 @@ name: Deploy client-next to Fly.io
 on:
   push:
     branches:
-      - nextjs-migration
+      - main
     paths:
       - 'client-next/**'
   workflow_dispatch:
