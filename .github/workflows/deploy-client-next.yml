@@ -23,7 +23,7 @@ jobs:
       - name: Deploy
         working-directory: client-next
         env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_API_TOKEN: ${{ secrets.FLY_NEXT_API_TOKEN }}
         run: |
           # Create app if it doesn't exist yet (safe to run on every deploy)
           flyctl apps create client-next-wadi-degla --region cdg 2>/dev/null || true
