@@ -20,17 +20,17 @@ primary_region = 'cdg'
   max_machines_running = 1
   processes = ["app"]
 
-# Custom domain config — uncomment when ready to cut over from old app:
-# [[http_service.redirects]]
-#   from = "wadidegla-eg.com"
-#   to = "https://www.wadidegla-eg.com"
-#   status_code = 301
-#
-# [[http_service.domains]]
-#   domain = "wadidegla-eg.com"
-#
-# [[http_service.domains]]
-#   domain = "www.wadidegla-eg.com"
+# Custom domain config
+[[http_service.redirects]]
+  from = "wadidegla-eg.com"
+  to = "https://www.wadidegla-eg.com"
+  status_code = 301
+
+[[http_service.domains]]
+  domain = "wadidegla-eg.com"
+
+[[http_service.domains]]
+  domain = "www.wadidegla-eg.com"
 
 [[vm]]
   cpu_kind = "shared"
