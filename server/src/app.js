@@ -14,6 +14,7 @@ const allowedOrigins = [
   'http://localhost:3001',
   'https://admin-dashboard-withered-waterfall-6127.fly.dev',
   'https://client-rough-dawn-8020.fly.dev',
+  'https://client-next-wadi-degla.fly.dev',
 ];
 app.use(
   cors({
