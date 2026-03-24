@@ -13,7 +13,7 @@
 }
 
 .homepage .hero {
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Assets/Media/Hero/home-hero-3.webp');
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Assets/Media/Hero/home-hero-4.webp');
     background-size: cover;
     background-position: bottom 0% right 0;
     background-attachment: fixed;
@@ -502,7 +502,7 @@
 
     .homepage .hero {
         /* background-attachment: unset !important; */
-        background-position: bottom 0 left 45% !important;
+        background-position: bottom 0 left 40% !important;
     }
 
     /* INTRO SECTION ////////////////////////////////////////////////////////////////////////////////////////////////*/

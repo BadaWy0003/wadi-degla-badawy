@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import "./NewsDetail.css";
 import articles from "./newsList";
 import ContactBubble from "../Contact/ContactBubble";
+import LangLink from '../LangLink';
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
@@ -49,7 +50,7 @@ export default function NewsDetail() {
           <div className="breadcrumb">
             <a href="/">{t("news.breadcrumbHome")}</a>
             <p>{">"}</p>
-            <a href="/news">{t("news.breadcrumbCurrent")}</a>
+            <LangLink href="/news">{t("news.breadcrumbCurrent")}</LangLink>
             <p>{">"} {article.title}</p>
           </div>
         </div>

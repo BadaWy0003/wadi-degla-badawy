@@ -97,3 +97,10 @@
     }
 
 }
+
+@media screen and (max-height: 550px) {
+    .gallery-container .quarries-hero {
+        /* background-attachment: unset; */
+    }
+}
+}

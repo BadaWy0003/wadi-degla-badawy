@@ -5,6 +5,7 @@ import Section from "../Section/Section";
 import { cobbleImages } from "./CobbleImageData";
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 export default function Cobble(){
     const { t } = useTranslation();
@@ -127,9 +128,7 @@ export default function Cobble(){
                         <h2>{t('cobbles.ctaTitle')}</h2>
                         <p>{t('cobbles.ctaText')}</p>
                     </div>
-                    <button className="btn1" onClick={() => window.location.href = '/contact'}>
-                        {t('cobbles.ctaButton')}
-                    </button>
+                    <LangLink href="/contact"><button className="btn1">{t('cobbles.ctaButton')}</button></LangLink>
                 </div>
             </div>
             <ContactBubble />

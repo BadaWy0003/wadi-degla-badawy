@@ -63,7 +63,8 @@
 .quarries-home-section,
 .inspiration-home-section,
 .visualizer-home-inner,
-.projects-home-section {
+.projects-home-section,
+.history-final-section {
     background-attachment: scroll !important;
 }
 
@@ -73,7 +74,8 @@
     .quarries-home-section,
     .inspiration-home-section,
     .visualizer-home-inner,
-    .projects-home-section {
+    .projects-home-section,
+    .history-final-section {
         background-attachment: fixed !important;
     }
 }

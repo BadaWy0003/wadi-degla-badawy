@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import "./Products.css";
+import LangLink from '../LangLink';
 const block = '/Assets/Icons/product-icons/block.svg';
 const exterior_cladding = '/Assets/Icons/product-icons/exterior-cladding.svg';
 const landscaping = '/Assets/Icons/product-icons/landscaping.svg';
@@ -99,7 +100,7 @@ export default function ProductDetails() {
       <div className="breadcrumb">
         <a href="/">{t('productDetails.breadcrumbHome')}</a>
         <p>{">"} {t('productDetails.breadcrumbExplore')}</p>
-        <a href="/products">{">"} {t('productDetails.breadcrumbProducts')}</a>
+        <LangLink href="/products">{">"}  {t('productDetails.breadcrumbProducts')}</LangLink>
         <p>
           {">"} {product.name}
         </p>
