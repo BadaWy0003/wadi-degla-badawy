@@ -6,6 +6,11 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
+
+# Receive API URL as build arg so NEXT_PUBLIC_ vars are baked in at build time
+ARG NEXT_PUBLIC_BASE_API_URL
+ENV NEXT_PUBLIC_BASE_API_URL=$NEXT_PUBLIC_BASE_API_URL
+
 RUN npm run build
 
 # ---- Serve stage ----
