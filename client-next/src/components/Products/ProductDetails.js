@@ -70,7 +70,7 @@ export default function ProductDetails() {
     } else {
       router.push(`/${lang}/products`);
     }
-  }, [productName, navigate]);
+  }, [productName, router, lang]);
 
   const applicationIcons = [
     { src: block, name: "Block" },
