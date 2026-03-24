@@ -1,0 +1,37 @@
+name: Deploy client-next to Fly.io
+
+on:
+  push:
+    branches:
+      - nextjs-migration
+    paths:
+      - 'client-next/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy client-next
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-client-next
+      cancel-in-progress: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy
+        working-directory: client-next
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_NEXT_API_TOKEN }}
+        run: |
+          # Create app if it doesn't exist yet (safe to run on every deploy)
+          flyctl apps create client-next-wadi-degla --region cdg 2>/dev/null || true
+
+          # Set the API URL secret
+          flyctl secrets set \
+            NEXT_PUBLIC_BASE_API_URL=https://server-withered-wildflower-1595.fly.dev \
+            -a client-next-wadi-degla
+
+          flyctl deploy --remote-only -a client-next-wadi-degla
