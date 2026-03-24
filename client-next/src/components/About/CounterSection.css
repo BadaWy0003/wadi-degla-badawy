@@ -1,0 +1,182 @@
+/*COUNTER SECTION_____________________________________________________________*/
+.about-counters-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--whiteColor);
+    margin: 5rem 0;
+
+}
+.about-counters-section h2{
+    background-color: var(--darkerBlackColor);
+    color: var(--goldColor);
+    font-size: 32px;
+    margin-bottom: 5rem;
+    width: fit-content;
+    text-align: center;
+
+}
+#experience-card {
+    margin-bottom: 5rem;
+}
+
+
+#experience-card img {
+    width: 10rem;
+}
+
+/* Default: Grid Layout for Large Screens */
+.counters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 0 5rem;
+    margin-bottom: 5rem;
+}
+
+
+.counters-swiper {
+    display: none;
+}
+
+.counter-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.counter-card img {
+    width: 5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.counter-card:hover img {
+    rotate: 10deg;
+}
+
+.counter-card h3 {
+    color: var(--blueColor);
+    margin-top: 0;
+    text-align: center;
+
+}
+
+.counter-text {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.counter-card p {
+    text-align: center;
+    color: var(--whiteColor);
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+    /*COUNTER SECTION_____________________________________________________________*/
+    .about-counters-section {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .about-counters-section-inner {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    /* Show Swiper only on smaller screens */
+    .counters-swiper {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        /* Force LTR so Swiper slide positioning is consistent regardless of page direction */
+        direction: ltr;
+    }
+
+    /* Hide grid layout for small screens */
+    .counters-grid {
+        display: none;
+    }
+
+    .counter-card {
+        max-width: 100%;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .counter-card h3 {
+        font-size: 16px;
+    }
+
+    .counter-text {
+        font-size: 16px;
+        font-weight: 900;
+    }
+
+
+    #experience-card img {
+        width: 10rem;
+    }
+
+
+}
+
+@media screen and (max-width: 550px) {
+    /* .about-counters-section-inner {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding: 1rem;
+    } */
+
+    .counters-swiper .swiper-slide {
+        display: flex;
+        justify-content: center;
+    }
+
+    .counter-card {
+        max-width: 80%;
+        margin: auto;
+        /* Adjust width to make each card wider */
+        /* scroll-snap-align: start; */
+    }
+
+    #experience-card {
+        margin-bottom: 2rem;
+    }
+
+    .counter-card img {
+        width: 5rem;
+        /* Keep icon size consistent */
+    }
+
+}
+
+@media screen and (max-height: 550px) {
+    .about-counters-section-inner {
+        padding: 0 1rem;
+    }
+
+    .counter-card h3 {
+        font-size: 16px;
+    }
+
+    .counter-text {
+        font-size: 24px;
+    }
+}

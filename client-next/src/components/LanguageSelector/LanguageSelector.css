@@ -1,0 +1,206 @@
+.language-selector {
+  margin-left: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.language-selector-header {
+  padding: 8px 36px 8px 12px;
+  border-radius: 2px;
+  background-color: transparent;
+  color: var(--whiteColor);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-family: "Clash Display", "inter", sans-serif;
+  transition: all 0.3s ease;
+  user-select: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 36px;
+  padding: 0;
+}
+
+.globe-icon {
+  font-size: 18px;
+  color: var(--whiteColor);
+  transition: color 0.3s ease;
+}
+
+.language-selector-header::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--whiteColor);
+  pointer-events: none;
+  transition: border-top-color 0.3s ease;
+}
+
+.language-selector-header:focus {
+  outline: none;
+  border-color: var(--goldColor);
+}
+
+/* Custom dropdown container */
+.language-selector-dropdown {
+  position: absolute;
+  top: 170%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: all 0.3s ease;
+  margin-top: -2px;
+}
+
+/* Individual language options */
+.language-option {
+  padding: 10px 15px;
+  color: var(--whiteColor);
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
+  border-left: solid 2px transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.language-option:hover {
+  border-left: 2px solid var(--whiteColor);
+  color: var(--lightGrayColor);
+}
+
+.language-option.active {
+  border-left: 2px solid var(--goldColor);
+  color: var(--goldColor);
+}
+
+/* Scrolled state - matches .scrolled .submenu styling */
+.scrolled .language-selector-dropdown {
+  background-color: #000;
+  border-bottom: 1px solid var(--goldColor);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0 1rem 0;
+}
+
+.scrolled .language-selector-header {
+  border-color: var(--goldColor);
+  color: var(--whiteColor);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scrolled .globe-icon {
+  color: var(--goldColor);
+}
+
+.scrolled .language-selector-header::after {
+  border-top-color: var(--goldColor);
+}
+
+.scrolled .language-option {
+  background-color: #000;
+  color: var(--whiteColor);
+  border-left: solid 2px transparent;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: 400;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.scrolled .language-option:hover {
+  /* background-color: rgba(173, 149, 113, 0.2); */
+  border-left: 2px solid var(--goldColor);
+  color: var(--goldColor);
+}
+
+.scrolled .language-option.active {
+  background-color: var(--goldColor);
+  color: #000;
+  border-left: 2px solid var(--goldColor);
+}
+
+/* align for RTL */
+html[dir="rtl"] .language-selector {
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+html[dir="rtl"] .language-selector-header::after {
+  /* right: 100%;
+  border-left: 8px solid var(--whiteColor);
+  border-right: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  transform: rotate(90deg); */
+  right: 80%;
+}
+
+html[dir="rtl"] .scrolled .language-selector-header::after {
+  border-left-color: var(--goldColor);
+}
+
+html[dir="rtl"] .language-selector-dropdown {
+  left: 0;
+  right: 0;
+}
+
+html[dir="rtl"] .language-option {
+  text-align: right;
+  border-left: none;
+  border-right: solid 2px transparent;
+  padding: 10px 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+html[dir="rtl"] .language-option:hover,
+html[dir="rtl"] .language-option.active {
+  border-right: 2px solid var(--goldColor);
+  border-left: none;
+}
+
+html[dir="rtl"] .scrolled .language-option {
+  border-left: none;
+  border-right: solid 2px transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .language-selector {
+    margin: 10px 0;
+  }
+  .language-selector-header::after {
+    border-top-color: var(--goldColor);
+  }
+  .globe-icon {
+    color: var(--goldColor);
+  }
+  .language-selector-dropdown{
+    border: 1px solid var(--goldColor);
+    padding: 0 !important;
+    top: 100%;
+  }
+  .language-option.active{
+    background-color: var(--goldColor);
+    color: #000;;
+  }
+}
