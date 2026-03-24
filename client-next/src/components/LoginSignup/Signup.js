@@ -4,7 +4,7 @@ import "./Signup.css";
 import "../Contact/Contact.css";
 
 import apiClient from "../../util/client.js";
-import wadi_degla_logo_login from '../../Public/Assets/Media/logo-color-stroke-notext.svg';
+const wadi_degla_logo_login = '/Assets/Media/logo-color-stroke-notext.svg';
 import { useGlobalState } from "../GlobalStateContext.js";
 import PhoneInput from "react-phone-input-2";
 import Select from "react-select";
@@ -156,11 +156,6 @@ export default function Signup() {
 
     return (
       <>
-      <Helmet>
-            <title>{t('signup.pageTitle')}</title>
-            <meta name="description" content={t('signup.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/signup" />
-      </Helmet>
       
       <div className="container-big">
         <div className="container1">

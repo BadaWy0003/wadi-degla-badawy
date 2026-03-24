@@ -61,11 +61,6 @@ export default function MyAccount() {
 
   return (
     <>
-  <Helmet>
-    <title>{t('myAccount.pageTitle')}</title>
-    <meta name="description" content={t('myAccount.metaDescription')} />
-    <link rel="canonical" href="https://www.wadidegla-eg.com/my account" />
-  </Helmet>
     
     <div className="account-container">
       {/* Breadcrumb Navigation */}

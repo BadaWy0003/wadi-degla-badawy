@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import "./Visualizer.css";
-import hero_bg from "../../Public/Assets/Media/Hero/visualizer-hero.webp";
+const hero_bg = '/Assets/Media/Hero/visualizer-hero.webp';
 import ProductForVisualizer from "./ProductForVisualizer.js";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
@@ -124,11 +124,6 @@ const handleProductClick = (item, type) => {
   
   return (
     <>
-        <Helmet>
-      <title>{t('visualizer.pageTitle')}</title>
-      <meta name="description" content={t('visualizer.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/visualizer" />
-        </Helmet>
     
     <div className="products-container">
       <div className="products-hero">

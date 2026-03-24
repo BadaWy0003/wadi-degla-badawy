@@ -12,11 +12,6 @@ export default function Machinery(){
     
     return(
         <>
-        <Helmet>
-            <title>{t('machinery.pageTitle')}</title>
-            <meta name="description" content={t('machinery.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/machinery" />
-        </Helmet>
         
         <div className='machinery-container'>
                     {/* 🌟 Hero Section */}

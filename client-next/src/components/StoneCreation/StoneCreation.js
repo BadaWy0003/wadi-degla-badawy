@@ -12,11 +12,6 @@ export default function StoneCreation(){
     const { t } = useTranslation();
     return(
         <>
-        <Helmet>
-            <title>{t('stoneCreation.pageTitle')}</title>
-            <meta name="description" content={t('stoneCreation.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/stone creations" />
-        </Helmet>
         
         <div className='stone-creation-container'>
                     {/* 🌟 Hero Section */}

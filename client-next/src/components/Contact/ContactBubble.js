@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from "react";
 import "./ContactBubble.css";
-import envelope from "../../Public/Assets/Icons/envelope.svg";
+const envelope = '/Assets/Icons/envelope.svg';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';

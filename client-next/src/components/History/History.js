@@ -5,13 +5,13 @@ import './History.css';
 import MasonryGrid from '../MasonryGrid/MasonryGrid';
 import ContactBubble from '../Contact/ContactBubble';
 import CountUp from 'react-countup';
-import history16 from '../../Public/Assets/Media/History/history16.webp'
-import sameh_ghanam from '../../Public/Assets/Media/History/sameh-ghanam.webp'
-import saeed_jr from '../../Public/Assets/Media/History/saeed-jr.webp'
-import saeed_jr_2 from '../../Public/Assets/Media/History/saeed-jr-2.webp'
-import saeed_jr_3 from '../../Public/Assets/Media/History/saeed-jr-3.webp'
-import saeed_jr_4 from '../../Public/Assets/Media/History/saeed-jr-4.webp'
-import saeed_jr_5 from '../../Public/Assets/Media/History/saeed-jr-5.webp'
+const history16 = '/Assets/Media/History/history16.webp'
+const sameh_ghanam = '/Assets/Media/History/sameh-ghanam.webp'
+const saeed_jr = '/Assets/Media/History/saeed-jr.webp'
+const saeed_jr_2 = '/Assets/Media/History/saeed-jr-2.webp'
+const saeed_jr_3 = '/Assets/Media/History/saeed-jr-3.webp'
+const saeed_jr_4 = '/Assets/Media/History/saeed-jr-4.webp'
+const saeed_jr_5 = '/Assets/Media/History/saeed-jr-5.webp'
 import { HistoryImages } from './HistoryImages';
 
 
@@ -20,11 +20,6 @@ export default function History() {
     const { t } = useTranslation();
     return (
         <>
-        <Helmet>
-            <title>{t('history.pageTitle')}</title>
-            <meta name="description" content={t('history.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/history" />
-        </Helmet>
         <div className='history-container'>
             {/* 🌟 Hero Section */}
             <div className="quarries-hero">

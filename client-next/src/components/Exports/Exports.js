@@ -4,45 +4,45 @@ import './Exports.css';
 import 'react-multi-carousel/lib/styles.css';
 import { useTranslation } from 'react-i18next';
 import MasonryGrid from "../MasonryGrid/MasonryGrid";
-// import exports from '../../Public/Assets/Media/Exports/exports2.webp';
+// const exports = '/Assets/Media/Exports/exports2.webp';
 import OurMarkets from "./OurMarkets";
 import ContactBubble from "../Contact/ContactBubble";
 
-import exports1 from '../../Public/Assets/Media/Packing/packing3.webp';
-import exports2 from '../../Public/Assets/Media/Packing/packing7.webp';
-import exports3 from '../../Public/Assets/Media/Exports/exports3.webp';
-import exports4 from '../../Public/Assets/Media/Exports/exports4.webp';
-import exports5 from '../../Public/Assets/Media/Exports/exports5.webp';
-import exports6 from '../../Public/Assets/Media/Exports/exports6.webp';
-// import exports7 from '../../Public/Assets/Media/Exports/exports7.webp';
-import exports8 from '../../Public/Assets/Media/Exports/exports8.webp';
-import exports9 from '../../Public/Assets/Media/Exports/exports9.webp';
-import exports10 from '../../Public/Assets/Media/Exports/exports10.webp';
-import exports11 from '../../Public/Assets/Media/Exports/exports11.webp';
-import exports12 from '../../Public/Assets/Media/Exports/exports12.webp';
-import exports13 from '../../Public/Assets/Media/Exports/exports13.webp';
-import exports14 from '../../Public/Assets/Media/Exports/exports14.webp';
-import exports15 from '../../Public/Assets/Media/Exports/exports15.webp';
-import exports16 from '../../Public/Assets/Media/Exports/exports16.webp';
-import exports17 from '../../Public/Assets/Media/Exports/exports17.webp';
-import exports18 from '../../Public/Assets/Media/Exports/exports18.webp';
-import exports19 from '../../Public/Assets/Media/Exports/exports19.webp';
-import exports20 from '../../Public/Assets/Media/Exports/exports20.webp';
-import exports21 from '../../Public/Assets/Media/Exports/exports21.webp';
-import exports22 from '../../Public/Assets/Media/Exports/exports22.webp';
-import exports23 from '../../Public/Assets/Media/Exports/exports23.webp';
-import exports24 from '../../Public/Assets/Media/Exports/exports24.webp';
-import exports25 from '../../Public/Assets/Media/Exports/exports25.webp';
-import exports26 from '../../Public/Assets/Media/Exports/exports26.webp';
-import exports27 from '../../Public/Assets/Media/Exports/exports27.webp';
-import exports28 from '../../Public/Assets/Media/Exports/exports28.webp';
-import exports29 from '../../Public/Assets/Media/Exports/exports29.webp';
-import exports30 from '../../Public/Assets/Media/Exports/exports30.webp';
-import exports31 from '../../Public/Assets/Media/Exports/exports31.webp';
-import exports32 from '../../Public/Assets/Media/Exports/exports32.webp';
-import exports33 from '../../Public/Assets/Media/Exports/exports33.webp';
-import exports34 from '../../Public/Assets/Media/Exports/exports34.webp';
-import exports35 from '../../Public/Assets/Media/Exports/exports35.webp';
+const exports1 = '/Assets/Media/Packing/packing3.webp';
+const exports2 = '/Assets/Media/Packing/packing7.webp';
+const exports3 = '/Assets/Media/Exports/exports3.webp';
+const exports4 = '/Assets/Media/Exports/exports4.webp';
+const exports5 = '/Assets/Media/Exports/exports5.webp';
+const exports6 = '/Assets/Media/Exports/exports6.webp';
+// const exports7 = '/Assets/Media/Exports/exports7.webp';
+const exports8 = '/Assets/Media/Exports/exports8.webp';
+const exports9 = '/Assets/Media/Exports/exports9.webp';
+const exports10 = '/Assets/Media/Exports/exports10.webp';
+const exports11 = '/Assets/Media/Exports/exports11.webp';
+const exports12 = '/Assets/Media/Exports/exports12.webp';
+const exports13 = '/Assets/Media/Exports/exports13.webp';
+const exports14 = '/Assets/Media/Exports/exports14.webp';
+const exports15 = '/Assets/Media/Exports/exports15.webp';
+const exports16 = '/Assets/Media/Exports/exports16.webp';
+const exports17 = '/Assets/Media/Exports/exports17.webp';
+const exports18 = '/Assets/Media/Exports/exports18.webp';
+const exports19 = '/Assets/Media/Exports/exports19.webp';
+const exports20 = '/Assets/Media/Exports/exports20.webp';
+const exports21 = '/Assets/Media/Exports/exports21.webp';
+const exports22 = '/Assets/Media/Exports/exports22.webp';
+const exports23 = '/Assets/Media/Exports/exports23.webp';
+const exports24 = '/Assets/Media/Exports/exports24.webp';
+const exports25 = '/Assets/Media/Exports/exports25.webp';
+const exports26 = '/Assets/Media/Exports/exports26.webp';
+const exports27 = '/Assets/Media/Exports/exports27.webp';
+const exports28 = '/Assets/Media/Exports/exports28.webp';
+const exports29 = '/Assets/Media/Exports/exports29.webp';
+const exports30 = '/Assets/Media/Exports/exports30.webp';
+const exports31 = '/Assets/Media/Exports/exports31.webp';
+const exports32 = '/Assets/Media/Exports/exports32.webp';
+const exports33 = '/Assets/Media/Exports/exports33.webp';
+const exports34 = '/Assets/Media/Exports/exports34.webp';
+const exports35 = '/Assets/Media/Exports/exports35.webp';
 
 
 export default function Exports(){
@@ -86,11 +86,6 @@ export default function Exports(){
     
     return(
         <>
-        <Helmet>
-            <title>{t('exports.pageTitle')}</title>
-            <meta name="description" content={t('exports.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/exports" />
-        </Helmet>
 
         <div className='exports-container'>
         {/* 🌟 Hero Section */}

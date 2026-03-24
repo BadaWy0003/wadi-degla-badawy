@@ -17,58 +17,58 @@
  */
 
 // Article carribean-openning
-import carribean_openning_1 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-1.webp';
-import carribean_openning_2 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-2.webp';
-import carribean_openning_3 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-3.webp';
-import carribean_openning_4 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-4.webp';
-import carribean_openning_5 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-5.webp';
-import carribean_openning_6 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-6.webp';
-import carribean_openning_7 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-7.webp';
-import carribean_openning_8 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-8.webp';
-import carribean_openning_9 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-9.webp';
-import carribean_openning_10 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-10.webp';
-import carribean_openning_11 from '../../Public/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-11.webp';
+const carribean_openning_1 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-1.webp';
+const carribean_openning_2 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-2.webp';
+const carribean_openning_3 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-3.webp';
+const carribean_openning_4 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-4.webp';
+const carribean_openning_5 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-5.webp';
+const carribean_openning_6 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-6.webp';
+const carribean_openning_7 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-7.webp';
+const carribean_openning_8 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-8.webp';
+const carribean_openning_9 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-9.webp';
+const carribean_openning_10 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-10.webp';
+const carribean_openning_11 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-11.webp';
 
 // Article our-australian-partners-visit 
-import australian_partners_visit_1 from '../../Public/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-1.webp';
-import australian_partners_visit_2 from '../../Public/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-2.webp';
-import australian_partners_visit_3 from '../../Public/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-3.webp';
-import australian_partners_visit_4 from '../../Public/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-4.webp';
-import australian_partners_visit_5 from '../../Public/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-5.webp';
-import australian_partners_visit_6 from '../../Public/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-6.webp';
-import australian_partners_visit_7 from '../../Public/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-7.webp';
+const australian_partners_visit_1 = '/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-1.webp';
+const australian_partners_visit_2 = '/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-2.webp';
+const australian_partners_visit_3 = '/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-3.webp';
+const australian_partners_visit_4 = '/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-4.webp';
+const australian_partners_visit_5 = '/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-5.webp';
+const australian_partners_visit_6 = '/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-6.webp';
+const australian_partners_visit_7 = '/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-7.webp';
 
 // Article our-romania-client-visit
-import our_romania_client_visit_1 from '../../Public/Assets/Media/News/our-romania-client-visit/our-romania-client-visit-1.webp';
-import our_romania_client_visit_2 from '../../Public/Assets/Media/News/our-romania-client-visit/our-romania-client-visit-2.webp';
-import our_romania_client_visit_3 from '../../Public/Assets/Media/News/our-romania-client-visit/our-romania-client-visit-3.webp';
-import our_romania_client_visit_4 from '../../Public/Assets/Media/News/our-romania-client-visit/our-romania-client-visit-4.webp';
+const our_romania_client_visit_1 = '/Assets/Media/News/our-romania-client-visit/our-romania-client-visit-1.webp';
+const our_romania_client_visit_2 = '/Assets/Media/News/our-romania-client-visit/our-romania-client-visit-2.webp';
+const our_romania_client_visit_3 = '/Assets/Media/News/our-romania-client-visit/our-romania-client-visit-3.webp';
+const our_romania_client_visit_4 = '/Assets/Media/News/our-romania-client-visit/our-romania-client-visit-4.webp';
 
 // Article our-turkish-partner-visit
-import our_turkish_partner_visit_1 from '../../Public/Assets/Media/News/our-turkish-partner-visit/our-turkish-partner-visit-1.webp';
-import our_turkish_partner_visit_2 from '../../Public/Assets/Media/News/our-turkish-partner-visit/our-turkish-partner-visit-2.webp';
-import our_turkish_partner_visit_3 from '../../Public/Assets/Media/News/our-turkish-partner-visit/our-turkish-partner-visit-3.webp';
+const our_turkish_partner_visit_1 = '/Assets/Media/News/our-turkish-partner-visit/our-turkish-partner-visit-1.webp';
+const our_turkish_partner_visit_2 = '/Assets/Media/News/our-turkish-partner-visit/our-turkish-partner-visit-2.webp';
+const our_turkish_partner_visit_3 = '/Assets/Media/News/our-turkish-partner-visit/our-turkish-partner-visit-3.webp';
 
 // Article uk-client-visit
-import uk_client_visit_1 from '../../Public/Assets/Media/News/uk-client-visit/uk-client-visit-1.webp';
-import uk_client_visit_2 from '../../Public/Assets/Media/News/uk-client-visit/uk-client-visit-2.webp';
+const uk_client_visit_1 = '/Assets/Media/News/uk-client-visit/uk-client-visit-1.webp';
+const uk_client_visit_2 = '/Assets/Media/News/uk-client-visit/uk-client-visit-2.webp';
 
 // Article usa-client-visit
-import usa_client_visit_1 from '../../Public/Assets/Media/News/usa-client-visit/usa-client-visit-1.webp';
+const usa_client_visit_1 = '/Assets/Media/News/usa-client-visit/usa-client-visit-1.webp';
 
 // Article on-site-project-inspection-in-the-caribbean
-import on_site_project_inspection_in_the_caribbean_1 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-1.webp';
-import on_site_project_inspection_in_the_caribbean_2 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-2.webp';
-import on_site_project_inspection_in_the_caribbean_3 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-3.webp';
-import on_site_project_inspection_in_the_caribbean_4 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-4.webp';
-import on_site_project_inspection_in_the_caribbean_5 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-5.webp';
-import on_site_project_inspection_in_the_caribbean_6 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-6.webp';
-import on_site_project_inspection_in_the_caribbean_7 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-7.webp';
-import on_site_project_inspection_in_the_caribbean_8 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-8.webp';
-import on_site_project_inspection_in_the_caribbean_9 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-9.webp';
-import on_site_project_inspection_in_the_caribbean_10 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-10.webp';
-import on_site_project_inspection_in_the_caribbean_11 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-11.webp';
-import on_site_project_inspection_in_the_caribbean_12 from '../../Public/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-12.webp';
+const on_site_project_inspection_in_the_caribbean_1 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-1.webp';
+const on_site_project_inspection_in_the_caribbean_2 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-2.webp';
+const on_site_project_inspection_in_the_caribbean_3 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-3.webp';
+const on_site_project_inspection_in_the_caribbean_4 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-4.webp';
+const on_site_project_inspection_in_the_caribbean_5 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-5.webp';
+const on_site_project_inspection_in_the_caribbean_6 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-6.webp';
+const on_site_project_inspection_in_the_caribbean_7 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-7.webp';
+const on_site_project_inspection_in_the_caribbean_8 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-8.webp';
+const on_site_project_inspection_in_the_caribbean_9 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-9.webp';
+const on_site_project_inspection_in_the_caribbean_10 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-10.webp';
+const on_site_project_inspection_in_the_caribbean_11 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-11.webp';
+const on_site_project_inspection_in_the_caribbean_12 = '/Assets/Media/News/on-site-project-inspection-in-the-caribbean/on-site-project-inspection-in-the-caribbean-12.webp';
 
 
 const articles = [

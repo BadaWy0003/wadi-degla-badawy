@@ -1,13 +1,13 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import "./Products.css";
-import block from "../../Public/Assets/Icons/product-icons/block.svg";
-import exterior_cladding from "../../Public/Assets/Icons/product-icons/exterior-cladding.svg";
-import landscaping from "../../Public/Assets/Icons/product-icons/landscaping.svg";
-import slabs from "../../Public/Assets/Icons/product-icons/slabs.svg";
-import staircase from "../../Public/Assets/Icons/product-icons/staircase.svg";
-import wall_cladding from "../../Public/Assets/Icons/product-icons/wall-cladding.svg";
-import windowsills from "../../Public/Assets/Icons/product-icons/windowsills.svg";
+const block = '/Assets/Icons/product-icons/block.svg';
+const exterior_cladding = '/Assets/Icons/product-icons/exterior-cladding.svg';
+const landscaping = '/Assets/Icons/product-icons/landscaping.svg';
+const slabs = '/Assets/Icons/product-icons/slabs.svg';
+const staircase = '/Assets/Icons/product-icons/staircase.svg';
+const wall_cladding = '/Assets/Icons/product-icons/wall-cladding.svg';
+const windowsills = '/Assets/Icons/product-icons/windowsills.svg';
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import SampleRequestForm from './SampleRequestForm';
@@ -92,41 +92,7 @@ export default function ProductDetails() {
 
   return (
     <>
-    {/* <Helmet>
-        <title>{product.name} | Wadidegla</title>
-        <meta name="description" content={`Discover ${product.name} in our premium collection of ${product.type}. High-quality natural stone available. View specifications and request samples from Wadi Degla, your trusted source for luxury stone materials.`} />
-        <link rel="canonical" href={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
-    </Helmet> */}
-
-<Helmet>
-  <script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": product.name,
-    "image": selectedFinish?.link,
-    "description": `High-quality ${product.name} from our premium collection of ${product.type}.`,
-    "brand": {
-      "@type": "Brand",
-      "name": "Wadidegla"
-    },
-    "category": product.type
-  })}
-</script>
-
-  <title>{t('productDetails.pageTitle', { name: product.name })}</title>
-  <meta name="description" content={t('productDetails.metaDescription', { name: product.name, type: product.type })} />
-    <link rel="canonical" href={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
-    
-    {/* Add these new meta tags */}
-    <meta property="og:title" content={`${product.name} | Wadidegla`} />
-    <meta property="og:description" content={`Discover ${product.name} in our premium collection of ${product.type}. High-quality natural stone available from Wadi Degla.`} />
-    <meta property="og:image" content={selectedFinish?.link} />
-    <meta property="og:url" content={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
-    <meta property="og:type" content="product" />
-    <meta name="robots" content="index, follow" />
-    <link rel="alternate" hrefLang="en" href={`https://www.wadidegla-eg.com/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} />
-</Helmet>
+    {/* */}
 
 
     <div className="product-details-page">

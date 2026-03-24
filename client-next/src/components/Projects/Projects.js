@@ -20,11 +20,6 @@ export default function Projects() {
 
   return (
     <>
-    <Helmet>
-        <title>{t('projects.pageTitle')}</title>
-        <meta name="description" content={t('projects.metaDescription')} />
-        <link rel="canonical" href="https://www.wadidegla-eg.com/projects" />
-    </Helmet>
     
     <div className="projects-page">
       {/* 🌟 Hero Section */}

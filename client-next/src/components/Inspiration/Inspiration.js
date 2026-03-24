@@ -12,11 +12,6 @@ export default function Inspiration(){
     const { t } = useTranslation();
     return(
         <>
-        <Helmet>
-            <title>{t('inspiration.pageTitle')}</title>
-            <meta name="description" content={t('inspiration.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/inspiration" />
-        </Helmet>
 
         <div className='inspiration-container'>
             {/* 🌟 Hero Section */}

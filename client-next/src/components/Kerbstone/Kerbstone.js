@@ -8,7 +8,7 @@ import { str,
         roundtop,
         channel,
         transition } from "./KerbstoneImageData";
-import kerb_intro_img from '../../Public/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.webp';
+const kerb_intro_img = '/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.webp';
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
 
@@ -16,11 +16,6 @@ export default function Kerbstone(){
     const { t } = useTranslation();
     return(
         <>
-        <Helmet>
-            <title>{t('kerbstone.pageTitle')}</title>
-            <meta name="description" content={t('kerbstone.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/kerbstone" />
-        </Helmet>
         
     <div className='kerbstone-container'>
             {/* 🌟 Hero Section */}

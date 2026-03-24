@@ -11,11 +11,6 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>{t('contact.title')}</title>
-        <meta name="description" content={t('contact.metaDescription')} />
-        <link rel="canonical" href="https://www.wadidegla-eg.com/contact" />
-      </Helmet>
 
       <div className='contact-container'>
         {/* 🌟 Hero Section */}

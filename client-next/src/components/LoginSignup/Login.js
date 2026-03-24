@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import "../Contact/Contact.css";
 import { useGlobalState } from "../GlobalStateContext.js";
-import wadi_degla_logo_login from '../../Public/Assets/Media/logo-color-stroke-notext.svg';
+const wadi_degla_logo_login = '/Assets/Media/logo-color-stroke-notext.svg';
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import { useTranslation } from 'react-i18next';
@@ -77,11 +77,6 @@ export default function Login() {
 
   return (
     <>
-    <Helmet>
-            <title>{t('login.pageTitle')}</title>
-            <meta name="description" content={t('login.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/login" />
-    </Helmet>
     
     <div className="container-big">
       <div className="container1">

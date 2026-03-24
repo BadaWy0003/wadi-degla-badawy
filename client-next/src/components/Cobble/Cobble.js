@@ -10,11 +10,6 @@ export default function Cobble(){
     const { t } = useTranslation();
     return(
         <>
-        <Helmet>
-            <title>{t('cobbles.pageTitle')}</title>
-            <meta name="description" content={t('cobbles.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/cobbles" />
-        </Helmet>
 
         <div className='cobble-container'>
                     {/* 🌟 Hero Section */}

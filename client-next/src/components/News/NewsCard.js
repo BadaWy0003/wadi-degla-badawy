@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-import newsPlaceholder from "../../Public/Assets/Media/Hero/news-hero.webp";
+const newsPlaceholder = '/Assets/Media/Hero/news-hero.webp';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 

@@ -19,11 +19,6 @@ export default function News(){
 
     return(
         <>
-        <Helmet>
-            <title>{t('news.pageTitle')}</title>
-            <meta name="description" content={t('news.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/news" />
-        </Helmet>
         
         <div className='news-container'>
             {/* 🌟 Hero Section */}

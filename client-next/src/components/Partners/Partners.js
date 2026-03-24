@@ -4,17 +4,17 @@ import './Partners.css';
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
 
-import otrovato from '../../Public/Assets/Icons/partners/otrovato.png';
-import orascom from '../../Public/Assets/Icons/partners/orascom.png';
-import emaar from '../../Public/Assets/Icons/partners/emaar.svg';
-import hydepark from '../../Public/Assets/Icons/partners/hydepark.png';
-import wyndham from '../../Public/Assets/Icons/partners/wyndham.png';
-import majid_alfuttaim from '../../Public/Assets/Icons/partners/majid-alfuttaim.png';
-import trade_logistics from '../../Public/Assets/Icons/partners/trade-logistics.png';
-import egy_consulate_kuwait from '../../Public/Assets/Icons/partners/egy-consulate-kuwait.jpeg';
-import ckpc from '../../Public/Assets/Icons/partners/ckpc.jpeg';
-import wd_developments from '../../Public/Assets/Icons/partners/wd-developments.jpeg';
-import mountain_view from '../../Public/Assets/Icons/partners/mountain-view.png';
+const otrovato = '/Assets/Icons/partners/otrovato.png';
+const orascom = '/Assets/Icons/partners/orascom.png';
+const emaar = '/Assets/Icons/partners/emaar.svg';
+const hydepark = '/Assets/Icons/partners/hydepark.png';
+const wyndham = '/Assets/Icons/partners/wyndham.png';
+const majid_alfuttaim = '/Assets/Icons/partners/majid-alfuttaim.png';
+const trade_logistics = '/Assets/Icons/partners/trade-logistics.png';
+const egy_consulate_kuwait = '/Assets/Icons/partners/egy-consulate-kuwait.jpeg';
+const ckpc = '/Assets/Icons/partners/ckpc.jpeg';
+const wd_developments = '/Assets/Icons/partners/wd-developments.jpeg';
+const mountain_view = '/Assets/Icons/partners/mountain-view.png';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 
@@ -45,11 +45,6 @@ export default function Partners() {
 
     return (
         <>
-        <Helmet>
-            <title>{t('partners.pageTitle')}</title>
-            <meta name="description" content={t('partners.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/partners" />
-        </Helmet>
         
         <div className='partners-container'>
             <h1>{t('partners.heroTitle')}</h1>

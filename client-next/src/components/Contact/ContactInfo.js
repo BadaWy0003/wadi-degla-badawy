@@ -1,14 +1,14 @@
 'use client';
 import './Contact.css';
 import '../LoginSignup/Signup.css'
-import facebook_circle_white_icon from '../../Public/Assets/Icons/Social/facebook-circle-white-icon.svg';
-import instagram_circle_white_icon from '../../Public/Assets/Icons/Social/instagram-circle-white-icon.svg';
-// import x_circle_white_icon from '../../Public/Assets/Icons/Social/x-circle-white-icon.svg';
-import linkedin_circle_white_icon from '../../Public/Assets/Icons/Social/linkedin-circle-white-icon.svg';
-import whatsapp_circle_white_icon from '../../Public/Assets/Icons/Social/whatsapp-circle-white-icon.svg';
-import telegram_circle_white_icon from '../../Public/Assets/Icons/Social/telegram-circle-white-icon.svg';
-import tiktok_circle_white_icon from '../../Public/Assets/Icons/Social/tiktok-circle-white-icon.svg';
-import qr from '../../Public/Assets/Icons/Social/QR.png';
+const facebook_circle_white_icon = '/Assets/Icons/Social/facebook-circle-white-icon.svg';
+const instagram_circle_white_icon = '/Assets/Icons/Social/instagram-circle-white-icon.svg';
+// const x_circle_white_icon = '/Assets/Icons/Social/x-circle-white-icon.svg';
+const linkedin_circle_white_icon = '/Assets/Icons/Social/linkedin-circle-white-icon.svg';
+const whatsapp_circle_white_icon = '/Assets/Icons/Social/whatsapp-circle-white-icon.svg';
+const telegram_circle_white_icon = '/Assets/Icons/Social/telegram-circle-white-icon.svg';
+const tiktok_circle_white_icon = '/Assets/Icons/Social/tiktok-circle-white-icon.svg';
+const qr = '/Assets/Icons/Social/QR.png';
 import AddressMap from './AddressMap.js';
 import { useTranslation } from 'react-i18next';
 

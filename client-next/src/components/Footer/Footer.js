@@ -2,12 +2,12 @@
 import './Footer.css'
 import "../Contact/Contact.css";
 
-import wadi_degla_logo_color from '../../Public/Assets/Logo-Identity/wadi-degla-logo-color.svg'
-import facebook_circle_white_icon from '../../Public/Assets/Icons/Social/facebook-circle-white-icon.svg'
-import instagram_circle_white_icon from '../../Public/Assets/Icons/Social/instagram-circle-white-icon.svg'
-// import x_circle_white_icon from '../../Public/Assets/Icons/Social/x-circle-white-icon.svg'
-import linkedin_circle_white_icon from '../../Public/Assets/Icons/Social/linkedin-circle-white-icon.svg'
-import whatsapp_circle_white_icon from '../../Public/Assets/Icons/Social/whatsapp-circle-white-icon.svg'
+const wadi_degla_logo_color = '/Assets/Logo-Identity/wadi-degla-logo-color.svg'
+const facebook_circle_white_icon = '/Assets/Icons/Social/facebook-circle-white-icon.svg'
+const instagram_circle_white_icon = '/Assets/Icons/Social/instagram-circle-white-icon.svg'
+// const x_circle_white_icon = '/Assets/Icons/Social/x-circle-white-icon.svg'
+const linkedin_circle_white_icon = '/Assets/Icons/Social/linkedin-circle-white-icon.svg'
+const whatsapp_circle_white_icon = '/Assets/Icons/Social/whatsapp-circle-white-icon.svg'
 
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';

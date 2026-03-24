@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import bullseye_gold from '../../Public/Assets/Icons/bullseye-gold.svg'
-import paper_plane_gold from '../../Public/Assets/Icons/paper-plane-gold.svg'
+const bullseye_gold = '/Assets/Icons/bullseye-gold.svg'
+const paper_plane_gold = '/Assets/Icons/paper-plane-gold.svg'
 import "./About.css"
 import { useTranslation } from 'react-i18next';
 export default function MissionVisionSection() {

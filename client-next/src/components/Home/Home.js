@@ -41,11 +41,6 @@ export default function Home(){
 
     return(
         <>
-        <Helmet>
-            <title>{t('home.pageTitle')}</title>
-            <meta name="description" content={t('home.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/" />
-        </Helmet>
         
         <div className="homepage">
             <div className="hero">

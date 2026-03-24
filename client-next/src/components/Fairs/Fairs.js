@@ -9,11 +9,6 @@ export default function Fairs(){
     
     return(
         <>
-        <Helmet>
-            <title>{t('fairs.pageTitle')}</title>
-            <meta name="description" content={t('fairs.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/fairs" />
-        </Helmet>
         
         <div className='fairs-container'>
                     {/* 🌟 Hero Section */}

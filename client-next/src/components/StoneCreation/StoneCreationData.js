@@ -1,22 +1,22 @@
-import cobble_stone from "../../Public/Assets/Media/stone-creation/architecture/cobble-stone.webp";
-import crown from "../../Public/Assets/Media/stone-creation/architecture/crown.webp";
-import handrail from "../../Public/Assets/Media/stone-creation/architecture/handrail.webp";
-import key from "../../Public/Assets/Media/stone-creation/architecture/key.webp";
-import massive_steps from "../../Public/Assets/Media/stone-creation/architecture/massive-steps.webp";
-import planter from "../../Public/Assets/Media/stone-creation/architecture/planter.webp";
-import pool_coping_set from "../../Public/Assets/Media/stone-creation/architecture/pool-coping-set.webp";
-import squared_crown from "../../Public/Assets/Media/stone-creation/architecture/squared-crown.webp";
-import stone_seat from "../../Public/Assets/Media/stone-creation/architecture/stone-seat.webp";
-import wallstone from "../../Public/Assets/Media/stone-creation/architecture/wallstone.webp";
+const cobble_stone = '/Assets/Media/stone-creation/architecture/cobble-stone.webp';
+const crown = '/Assets/Media/stone-creation/architecture/crown.webp';
+const handrail = '/Assets/Media/stone-creation/architecture/handrail.webp';
+const key = '/Assets/Media/stone-creation/architecture/key.webp';
+const massive_steps = '/Assets/Media/stone-creation/architecture/massive-steps.webp';
+const planter = '/Assets/Media/stone-creation/architecture/planter.webp';
+const pool_coping_set = '/Assets/Media/stone-creation/architecture/pool-coping-set.webp';
+const squared_crown = '/Assets/Media/stone-creation/architecture/squared-crown.webp';
+const stone_seat = '/Assets/Media/stone-creation/architecture/stone-seat.webp';
+const wallstone = '/Assets/Media/stone-creation/architecture/wallstone.webp';
 
-import mosaics_2x2_cm from "../../Public/Assets/Media/stone-creation/mosaics/mosaics-2x2-cm.webp";
-import mosaics_5x5_cm from "../../Public/Assets/Media/stone-creation/mosaics/mosaics-5x5-cm.webp";
-import mosaics_10x10_cm from "../../Public/Assets/Media/stone-creation/mosaics/mosaics-10x10-cm.webp";
-import mosaics_hexagon_5x5_cm from "../../Public/Assets/Media/stone-creation/mosaics/mosaics-hexagon-5x5-cm.webp";
-import mosaics_trapezoidal_5x5_cm from "../../Public/Assets/Media/stone-creation/mosaics/mosaics-trapezoidal-5x5-cm.webp";
-import mosaics_10x3_cm from "../../Public/Assets/Media/stone-creation/mosaics/mosaics-10x3-cm.webp";
-import mosaics_circular_5x5_cm from "../../Public/Assets/Media/stone-creation/mosaics/mosaics-circular-5x5-cm.webp";
-import mosaics_ups_and_down_10x10_cm from "../../Public/Assets/Media/stone-creation/mosaics/mosaics-ups-and-down-10x10-cm.webp";
+const mosaics_2x2_cm = '/Assets/Media/stone-creation/mosaics/mosaics-2x2-cm.webp';
+const mosaics_5x5_cm = '/Assets/Media/stone-creation/mosaics/mosaics-5x5-cm.webp';
+const mosaics_10x10_cm = '/Assets/Media/stone-creation/mosaics/mosaics-10x10-cm.webp';
+const mosaics_hexagon_5x5_cm = '/Assets/Media/stone-creation/mosaics/mosaics-hexagon-5x5-cm.webp';
+const mosaics_trapezoidal_5x5_cm = '/Assets/Media/stone-creation/mosaics/mosaics-trapezoidal-5x5-cm.webp';
+const mosaics_10x3_cm = '/Assets/Media/stone-creation/mosaics/mosaics-10x3-cm.webp';
+const mosaics_circular_5x5_cm = '/Assets/Media/stone-creation/mosaics/mosaics-circular-5x5-cm.webp';
+const mosaics_ups_and_down_10x10_cm = '/Assets/Media/stone-creation/mosaics/mosaics-ups-and-down-10x10-cm.webp';
 
 
 export const architectureData=[

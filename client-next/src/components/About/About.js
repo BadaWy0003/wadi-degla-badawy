@@ -1,8 +1,8 @@
 'use client';
 import React from "react";
 import './About.css';
-import logo_color_stroke_notext from '../../Public/Assets/Media/logo-color-stroke-notext.svg'
-import expertise_square_image from '../../Public/Assets/Media/about-expertise.webp'
+const logo_color_stroke_notext = '/Assets/Media/logo-color-stroke-notext.svg'
+const expertise_square_image = '/Assets/Media/about-expertise.webp'
 import MissionVisionSection from "./MissionVisionSection";
 import CounterSection from "./CounterSection";
 import ContactBubble from "../Contact/ContactBubble";
@@ -17,11 +17,6 @@ export default function About(){
 
     return(
         <>
-          <Helmet>
-                <title>{t('about.pageTitle')}</title>
-                <meta name="description" content={t('about.metaDescription')} />
-                <link rel="canonical" href="https://www.wadidegla-eg.com/about" />
-            </Helmet>
         <div className='about-container'>
             {/* 🌟 Hero Section */}
             <div className="quarries-hero" role="img" aria-label={t('about.heroImageAlt')}>

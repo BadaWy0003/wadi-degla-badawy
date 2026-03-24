@@ -1,21 +1,21 @@
-import str1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/str1.webp";
-import str2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/str2.webp";
+const str1 = '/Assets/Media/Kerb-and-Cobbles/kerb/str1.webp';
+const str2 = '/Assets/Media/Kerb-and-Cobbles/kerb/str2.webp';
 
-import full_batter1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/full-batter1.webp";
-import full_batter2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/full-batter2.webp";
+const full_batter1 = '/Assets/Media/Kerb-and-Cobbles/kerb/full-batter1.webp';
+const full_batter2 = '/Assets/Media/Kerb-and-Cobbles/kerb/full-batter2.webp';
 
-import bullnose1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/bullnose1.webp";
-import bullnose2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/bullnose2.webp";
+const bullnose1 = '/Assets/Media/Kerb-and-Cobbles/kerb/bullnose1.webp';
+const bullnose2 = '/Assets/Media/Kerb-and-Cobbles/kerb/bullnose2.webp';
 
-import roundtop1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/roundtop1.webp";
-import roundtop2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/roundtop2.webp";
+const roundtop1 = '/Assets/Media/Kerb-and-Cobbles/kerb/roundtop1.webp';
+const roundtop2 = '/Assets/Media/Kerb-and-Cobbles/kerb/roundtop2.webp';
 
-// import circ_corner1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/circ-corner.webp";
+// const circ_corner1 = '/Assets/Media/Kerb-and-Cobbles/kerb/circ-corner.webp';
 
-import channel1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/channel1.webp";
-import channel2 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/channel2.webp";
+const channel1 = '/Assets/Media/Kerb-and-Cobbles/kerb/channel1.webp';
+const channel2 = '/Assets/Media/Kerb-and-Cobbles/kerb/channel2.webp';
 
-import transition1 from "../../Public/Assets/Media/Kerb-and-Cobbles/kerb/transition1.webp";
+const transition1 = '/Assets/Media/Kerb-and-Cobbles/kerb/transition1.webp';
 
 export const str=[
     str1,

@@ -9,13 +9,13 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import CountUp from "react-countup";
 import { useTranslation } from 'react-i18next';
 
-import projects from "../../Public/Assets/Icons/projects.svg";
-import manpower from "../../Public/Assets/Icons/manpower-stroke.svg";
-import tiles from "../../Public/Assets/Icons/tiles.svg";
-import technology from "../../Public/Assets/Icons/technology.svg";
-import craftsmanship from "../../Public/Assets/Icons/craftsmanship.png";
-import global_supply_chain from "../../Public/Assets/Icons/global-supply-chain.svg";
-import experience from "../../Public/Assets/Icons/experience.svg";
+const projects = '/Assets/Icons/projects.svg';
+const manpower = '/Assets/Icons/manpower-stroke.svg';
+const tiles = '/Assets/Icons/tiles.svg';
+const technology = '/Assets/Icons/technology.svg';
+const craftsmanship = '/Assets/Icons/craftsmanship.png';
+const global_supply_chain = '/Assets/Icons/global-supply-chain.svg';
+const experience = '/Assets/Icons/experience.svg';
 
 export default function CounterSection() {
   const { t } = useTranslation();

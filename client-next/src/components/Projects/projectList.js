@@ -1,124 +1,124 @@
 
-import jm_appartments_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2.webp'
-import jm_appartments_2_1 from '../../Public/Assets/Media/Projects/j-m-appartments-2-1.webp'
-import jm_appartments_2_2 from '../../Public/Assets/Media/Projects/j-m-appartments-2-2.webp'
+const jm_appartments_2 = '/Assets/Media/Projects/j-m-appartments-2.webp'
+const jm_appartments_2_1 = '/Assets/Media/Projects/j-m-appartments-2-1.webp'
+const jm_appartments_2_2 = '/Assets/Media/Projects/j-m-appartments-2-2.webp'
 
-import south_c_project from '../../Public/Assets/Media/Projects/south-c-project.webp'
-// import south_c_project2 from '../../Public/Assets/Media/Projects/south-c-project.png'
-import south_c_project1 from '../../Public/Assets/Media/Projects/south-c-project-1.webp'
-import south_c_project2_2 from '../../Public/Assets/Media/Projects/south-c-project-2.webp'
-import south_c_project3 from '../../Public/Assets/Media/Projects/south-c-project-3.webp'
-import south_c_project4 from '../../Public/Assets/Media/Projects/south-c-project-4.webp'
-import south_c_project5 from '../../Public/Assets/Media/Projects/south-c-project-5.webp'
+const south_c_project = '/Assets/Media/Projects/south-c-project.webp'
+// const south_c_project2 = '/Assets/Media/Projects/south-c-project.png'
+const south_c_project1 = '/Assets/Media/Projects/south-c-project-1.webp'
+const south_c_project2_2 = '/Assets/Media/Projects/south-c-project-2.webp'
+const south_c_project3 = '/Assets/Media/Projects/south-c-project-3.webp'
+const south_c_project4 = '/Assets/Media/Projects/south-c-project-4.webp'
+const south_c_project5 = '/Assets/Media/Projects/south-c-project-5.webp'
 
-import theta_lane from '../../Public/Assets/Media/Projects/theta-lane-project.webp'
+const theta_lane = '/Assets/Media/Projects/theta-lane-project.webp'
 
-import blu_terrenas from '../../Public/Assets/Media/Projects/blu-terrenas.webp'
-import blu_terrenas_2 from '../../Public/Assets/Media/Projects/blu-terrenas-2.webp'
-import blu_terrenas_3 from '../../Public/Assets/Media/Projects/blu-terrenas-3.webp'
+const blu_terrenas = '/Assets/Media/Projects/blu-terrenas.webp'
+const blu_terrenas_2 = '/Assets/Media/Projects/blu-terrenas-2.webp'
+const blu_terrenas_3 = '/Assets/Media/Projects/blu-terrenas-3.webp'
 
-import romania_project_1 from '../../Public/Assets/Media/Projects/romania-project-1.webp'
-import romania_project_2 from '../../Public/Assets/Media/Projects/romania-project-2.webp'
+const romania_project_1 = '/Assets/Media/Projects/romania-project-1.webp'
+const romania_project_2 = '/Assets/Media/Projects/romania-project-2.webp'
 
-import egy_embassy_kuwait_1 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-1.webp'
-import egy_embassy_kuwait_2 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-2.webp'
-import egy_embassy_kuwait_3 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-3.webp'
-import egy_embassy_kuwait_4 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-4.webp'
-import egy_embassy_kuwait_5 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-5.webp'
-import egy_embassy_kuwait_6 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-6.webp'
-import egy_embassy_kuwait_7 from '../../Public/Assets/Media/Projects/egy-embassy-kuwait-7.webp'
+const egy_embassy_kuwait_1 = '/Assets/Media/Projects/egy-embassy-kuwait-1.webp'
+const egy_embassy_kuwait_2 = '/Assets/Media/Projects/egy-embassy-kuwait-2.webp'
+const egy_embassy_kuwait_3 = '/Assets/Media/Projects/egy-embassy-kuwait-3.webp'
+const egy_embassy_kuwait_4 = '/Assets/Media/Projects/egy-embassy-kuwait-4.webp'
+const egy_embassy_kuwait_5 = '/Assets/Media/Projects/egy-embassy-kuwait-5.webp'
+const egy_embassy_kuwait_6 = '/Assets/Media/Projects/egy-embassy-kuwait-6.webp'
+const egy_embassy_kuwait_7 = '/Assets/Media/Projects/egy-embassy-kuwait-7.webp'
 
-import wyndham from '../../Public/Assets/Media/Projects/wyndham.webp'
-import wyndham1 from '../../Public/Assets/Media/Projects/wyndham1.webp'
-import wyndham1_0 from '../../Public/Assets/Media/Projects/wyndham1-0.webp'
-import wyndham1_1 from '../../Public/Assets/Media/Projects/wyndham1-1.webp'
-import wyndham1_2 from '../../Public/Assets/Media/Projects/wyndham1-2.webp'
-import wyndham2 from '../../Public/Assets/Media/Projects/wyndham2.webp'
-import wyndham2_1 from '../../Public/Assets/Media/Projects/wyndham2-1.webp'
-import wyndham2_2 from '../../Public/Assets/Media/Projects/wyndham2-2.webp'
-import wyndham3 from '../../Public/Assets/Media/Projects/wyndham3.webp'
-import wyndham3_1 from '../../Public/Assets/Media/Projects/wyndham3-1.webp'
-import wyndham9 from '../../Public/Assets/Media/Projects/wyndham9.webp'
-import wyndham10 from '../../Public/Assets/Media/Projects/wyndham10.webp'
-import wyndham10_1 from '../../Public/Assets/Media/Projects/wyndham10-1.webp'
-import wyndham10_2 from '../../Public/Assets/Media/Projects/wyndham10-2.webp'
-import wyndham11 from '../../Public/Assets/Media/Projects/wyndham11.webp'
-import wyndham12 from '../../Public/Assets/Media/Projects/wyndham12.webp'
-import wyndham14 from '../../Public/Assets/Media/Projects/wyndham14.webp'
-import wyndham15 from '../../Public/Assets/Media/Projects/wyndham15.webp'
-import wyndham16 from '../../Public/Assets/Media/Projects/wyndham16.webp'
-import wyndham17 from '../../Public/Assets/Media/Projects/wyndham17.webp'
-import wyndham17_1 from '../../Public/Assets/Media/Projects/wyndham17-1.webp'
-import wyndham17_2 from '../../Public/Assets/Media/Projects/wyndham17-2.webp'
-import wyndham18 from '../../Public/Assets/Media/Projects/wyndham18.webp'
-import wyndham19 from '../../Public/Assets/Media/Projects/wyndham19.webp'
-import wyndham20 from '../../Public/Assets/Media/Projects/wyndham20.webp'
-import wyndham21 from '../../Public/Assets/Media/Projects/wyndham-21.webp'
-import wyndham22 from '../../Public/Assets/Media/Projects/wyndham-22.webp'
-import wyndham23 from '../../Public/Assets/Media/Projects/wyndham-23.webp'
-import wyndham24 from '../../Public/Assets/Media/Projects/wyndham-24.webp'
-import wyndham25 from '../../Public/Assets/Media/Projects/wyndham-25.webp'
-import wyndham26 from '../../Public/Assets/Media/Projects/wyndham-26.webp'
-import wyndham27 from '../../Public/Assets/Media/Projects/wyndham-27.webp'
-import wyndham28 from '../../Public/Assets/Media/Projects/wyndham-28.webp'
-import wyndham29 from '../../Public/Assets/Media/Projects/wyndham-29.webp'
+const wyndham = '/Assets/Media/Projects/wyndham.webp'
+const wyndham1 = '/Assets/Media/Projects/wyndham1.webp'
+const wyndham1_0 = '/Assets/Media/Projects/wyndham1-0.webp'
+const wyndham1_1 = '/Assets/Media/Projects/wyndham1-1.webp'
+const wyndham1_2 = '/Assets/Media/Projects/wyndham1-2.webp'
+const wyndham2 = '/Assets/Media/Projects/wyndham2.webp'
+const wyndham2_1 = '/Assets/Media/Projects/wyndham2-1.webp'
+const wyndham2_2 = '/Assets/Media/Projects/wyndham2-2.webp'
+const wyndham3 = '/Assets/Media/Projects/wyndham3.webp'
+const wyndham3_1 = '/Assets/Media/Projects/wyndham3-1.webp'
+const wyndham9 = '/Assets/Media/Projects/wyndham9.webp'
+const wyndham10 = '/Assets/Media/Projects/wyndham10.webp'
+const wyndham10_1 = '/Assets/Media/Projects/wyndham10-1.webp'
+const wyndham10_2 = '/Assets/Media/Projects/wyndham10-2.webp'
+const wyndham11 = '/Assets/Media/Projects/wyndham11.webp'
+const wyndham12 = '/Assets/Media/Projects/wyndham12.webp'
+const wyndham14 = '/Assets/Media/Projects/wyndham14.webp'
+const wyndham15 = '/Assets/Media/Projects/wyndham15.webp'
+const wyndham16 = '/Assets/Media/Projects/wyndham16.webp'
+const wyndham17 = '/Assets/Media/Projects/wyndham17.webp'
+const wyndham17_1 = '/Assets/Media/Projects/wyndham17-1.webp'
+const wyndham17_2 = '/Assets/Media/Projects/wyndham17-2.webp'
+const wyndham18 = '/Assets/Media/Projects/wyndham18.webp'
+const wyndham19 = '/Assets/Media/Projects/wyndham19.webp'
+const wyndham20 = '/Assets/Media/Projects/wyndham20.webp'
+const wyndham21 = '/Assets/Media/Projects/wyndham-21.webp'
+const wyndham22 = '/Assets/Media/Projects/wyndham-22.webp'
+const wyndham23 = '/Assets/Media/Projects/wyndham-23.webp'
+const wyndham24 = '/Assets/Media/Projects/wyndham-24.webp'
+const wyndham25 = '/Assets/Media/Projects/wyndham-25.webp'
+const wyndham26 = '/Assets/Media/Projects/wyndham-26.webp'
+const wyndham27 = '/Assets/Media/Projects/wyndham-27.webp'
+const wyndham28 = '/Assets/Media/Projects/wyndham-28.webp'
+const wyndham29 = '/Assets/Media/Projects/wyndham-29.webp'
 
-import carribean_palace from '../../Public/Assets/Media/Projects/carribean-palace.webp'
-import carribean_palace_2 from '../../Public/Assets/Media/Projects/carribean-palace-2.webp'
-import carribean_palace_3 from '../../Public/Assets/Media/Projects/carribean-palace-3.webp'
-import carribean_palace_4 from '../../Public/Assets/Media/Projects/carribean-palace-4.webp'
-import carribean_palace_6 from '../../Public/Assets/Media/Projects/carribean-palace-6.webp'
-import carribean_palace_7 from '../../Public/Assets/Media/Projects/carribean-palace-7.webp'
-import carribean_palace_8 from '../../Public/Assets/Media/Projects/carribean-palace-8.webp'
-import carribean_palace_9 from '../../Public/Assets/Media/Projects/carribean-palace-9.webp'
-import carribean_palace_10 from '../../Public/Assets/Media/Projects/carribean-palace-10.webp'
-import carribean_palace_11 from '../../Public/Assets/Media/Projects/carribean-palace-11.webp'
-import carribean_palace_12 from '../../Public/Assets/Media/Projects/carribean-palace-12.webp'
+const carribean_palace = '/Assets/Media/Projects/carribean-palace.webp'
+const carribean_palace_2 = '/Assets/Media/Projects/carribean-palace-2.webp'
+const carribean_palace_3 = '/Assets/Media/Projects/carribean-palace-3.webp'
+const carribean_palace_4 = '/Assets/Media/Projects/carribean-palace-4.webp'
+const carribean_palace_6 = '/Assets/Media/Projects/carribean-palace-6.webp'
+const carribean_palace_7 = '/Assets/Media/Projects/carribean-palace-7.webp'
+const carribean_palace_8 = '/Assets/Media/Projects/carribean-palace-8.webp'
+const carribean_palace_9 = '/Assets/Media/Projects/carribean-palace-9.webp'
+const carribean_palace_10 = '/Assets/Media/Projects/carribean-palace-10.webp'
+const carribean_palace_11 = '/Assets/Media/Projects/carribean-palace-11.webp'
+const carribean_palace_12 = '/Assets/Media/Projects/carribean-palace-12.webp'
 
-import viva_tangerine_1 from '../../Public/Assets/Media/Projects/viva-tangerine-1.webp'
-import viva_tangerine_2 from '../../Public/Assets/Media/Projects/viva-tangerine-2.webp'
-import viva_tangerine_3 from '../../Public/Assets/Media/Projects/viva-tangerine-3.webp'
-import viva_tangerine_4 from '../../Public/Assets/Media/Projects/viva-tangerine-4.webp'
-// import viva_tangerine_5 from '../../Public/Assets/Media/Projects/viva-tangerine-5.webp'
-// import viva_tangerine_6 from '../../Public/Assets/Media/Projects/viva-tangerine-6.webp'
-import viva_tangerine_7 from '../../Public/Assets/Media/Projects/viva-tangerine-7.webp'
-// import viva_tangerine_8 from '../../Public/Assets/Media/Projects/viva-tangerine-8.webp'
-import viva_tangerine_9 from '../../Public/Assets/Media/Projects/viva-tangerine-9.webp'
+const viva_tangerine_1 = '/Assets/Media/Projects/viva-tangerine-1.webp'
+const viva_tangerine_2 = '/Assets/Media/Projects/viva-tangerine-2.webp'
+const viva_tangerine_3 = '/Assets/Media/Projects/viva-tangerine-3.webp'
+const viva_tangerine_4 = '/Assets/Media/Projects/viva-tangerine-4.webp'
+// const viva_tangerine_5 = '/Assets/Media/Projects/viva-tangerine-5.webp'
+// const viva_tangerine_6 = '/Assets/Media/Projects/viva-tangerine-6.webp'
+const viva_tangerine_7 = '/Assets/Media/Projects/viva-tangerine-7.webp'
+// const viva_tangerine_8 = '/Assets/Media/Projects/viva-tangerine-8.webp'
+const viva_tangerine_9 = '/Assets/Media/Projects/viva-tangerine-9.webp'
 
-import latinamerica_project_1 from '../../Public/Assets/Media/Projects/latinamerica-project-1.webp'
-import latinamerica_project_2 from '../../Public/Assets/Media/Projects/latinamerica-project-2.webp'
-import latinamerica_project_3 from '../../Public/Assets/Media/Projects/latinamerica-project-3.webp'
-import latinamerica_project_4 from '../../Public/Assets/Media/Projects/latinamerica-project-4.webp'
-import latinamerica_project_5 from '../../Public/Assets/Media/Projects/latinamerica-project-5.webp'
-import latinamerica_project_6 from '../../Public/Assets/Media/Projects/latinamerica-project-6.webp'
+const latinamerica_project_1 = '/Assets/Media/Projects/latinamerica-project-1.webp'
+const latinamerica_project_2 = '/Assets/Media/Projects/latinamerica-project-2.webp'
+const latinamerica_project_3 = '/Assets/Media/Projects/latinamerica-project-3.webp'
+const latinamerica_project_4 = '/Assets/Media/Projects/latinamerica-project-4.webp'
+const latinamerica_project_5 = '/Assets/Media/Projects/latinamerica-project-5.webp'
+const latinamerica_project_6 = '/Assets/Media/Projects/latinamerica-project-6.webp'
 
-import cfc_podiums_1 from '../../Public/Assets/Media/Projects/cfc-podiums-1.webp';
-import cfc_podiums_2 from '../../Public/Assets/Media/Projects/cfc-podiums-2.webp';
-import cfc_podiums_3 from '../../Public/Assets/Media/Projects/cfc-podiums-3.webp';
-import cfc_podiums_4 from '../../Public/Assets/Media/Projects/cfc-podiums-4.webp';
+const cfc_podiums_1 = '/Assets/Media/Projects/cfc-podiums-1.webp';
+const cfc_podiums_2 = '/Assets/Media/Projects/cfc-podiums-2.webp';
+const cfc_podiums_3 = '/Assets/Media/Projects/cfc-podiums-3.webp';
+const cfc_podiums_4 = '/Assets/Media/Projects/cfc-podiums-4.webp';
 
-import mivida_business_park_1 from '../../Public/Assets/Media/Projects/mivida-business-park-1.webp';
-import mivida_business_park_2 from '../../Public/Assets/Media/Projects/mivida-business-park-2.webp';
-import mivida_business_park_3 from '../../Public/Assets/Media/Projects/mivida-business-park-3.webp';
+const mivida_business_park_1 = '/Assets/Media/Projects/mivida-business-park-1.webp';
+const mivida_business_park_2 = '/Assets/Media/Projects/mivida-business-park-2.webp';
+const mivida_business_park_3 = '/Assets/Media/Projects/mivida-business-park-3.webp';
 
-import oriana_villas_1 from '../../Public/Assets/Media/Projects/oriana-villas-1.webp';
-import oriana_villas_2 from '../../Public/Assets/Media/Projects/oriana-villas-2.webp';
-import oriana_villas_3 from '../../Public/Assets/Media/Projects/oriana-villas-3.webp';
+const oriana_villas_1 = '/Assets/Media/Projects/oriana-villas-1.webp';
+const oriana_villas_2 = '/Assets/Media/Projects/oriana-villas-2.webp';
+const oriana_villas_3 = '/Assets/Media/Projects/oriana-villas-3.webp';
 
-import mountain_view_ras_elhekma_1 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-1.webp';
-import mountain_view_ras_elhekma_2 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-2.webp';
-import mountain_view_ras_elhekma_3 from '../../Public/Assets/Media/Projects/mountain-view-ras-elhekma-3.webp';
+const mountain_view_ras_elhekma_1 = '/Assets/Media/Projects/mountain-view-ras-elhekma-1.webp';
+const mountain_view_ras_elhekma_2 = '/Assets/Media/Projects/mountain-view-ras-elhekma-2.webp';
+const mountain_view_ras_elhekma_3 = '/Assets/Media/Projects/mountain-view-ras-elhekma-3.webp';
 
-import murano_ain_sokhna_1 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-1.webp';
-import murano_ain_sokhna_2 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-2.webp';
-import murano_ain_sokhna_3 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-3.webp';
-import murano_ain_sokhna_4 from '../../Public/Assets/Media/Projects/murano-ain-sokhna-4.webp';
+const murano_ain_sokhna_1 = '/Assets/Media/Projects/murano-ain-sokhna-1.webp';
+const murano_ain_sokhna_2 = '/Assets/Media/Projects/murano-ain-sokhna-2.webp';
+const murano_ain_sokhna_3 = '/Assets/Media/Projects/murano-ain-sokhna-3.webp';
+const murano_ain_sokhna_4 = '/Assets/Media/Projects/murano-ain-sokhna-4.webp';
 
-import australia_project_1 from '../../Public/Assets/Media/Projects/australia-project-1.webp';
-import australia_project_2 from '../../Public/Assets/Media/Projects/australia-project-2.webp';
-import australia_project_3 from '../../Public/Assets/Media/Projects/australia-project-3.webp';
-import australia_project_4 from '../../Public/Assets/Media/Projects/australia-project-4.webp';
-import australia_project_5 from '../../Public/Assets/Media/Projects/australia-project-5.webp';
+const australia_project_1 = '/Assets/Media/Projects/australia-project-1.webp';
+const australia_project_2 = '/Assets/Media/Projects/australia-project-2.webp';
+const australia_project_3 = '/Assets/Media/Projects/australia-project-3.webp';
+const australia_project_4 = '/Assets/Media/Projects/australia-project-4.webp';
+const australia_project_5 = '/Assets/Media/Projects/australia-project-5.webp';
 
 
 const projects = [

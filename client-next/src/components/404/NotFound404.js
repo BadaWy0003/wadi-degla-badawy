@@ -2,7 +2,7 @@
 import React from "react";
 import './NotFound404.css';
 import ContactBubble from "../Contact/ContactBubble";
-import logo_color_stroke from "../../Public/Assets/Media/logo-color-stroke-notext.svg"
+const logo_color_stroke = '/Assets/Media/logo-color-stroke-notext.svg'
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
@@ -14,11 +14,6 @@ export default function NotFound404() {
     
     return (
         <>
-        <Helmet>
-            <title>{t('notFound.pageTitle')}</title>
-            <meta name="description" content={t('notFound.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/*" />
-        </Helmet>
 
         <div className="page-404">
             <div className="container-404">

@@ -14,11 +14,6 @@ export default function Quarries(){
     
     return(
       <>
-          <Helmet>
-              <title>{t('quarries.pageTitle')}</title>
-              <meta name="description" content={t('quarries.metaDescription')} />
-              <link rel="canonical" href="https://www.wadidegla-eg.com/quarries" />
-          </Helmet>
       
         <div className="quarries-container">
 

@@ -47,11 +47,6 @@ export default function Gallery() {
 
   return (
     <>
-    <Helmet>
-        <title>{t('gallery.pageTitle')}</title>
-        <meta name="description" content={t('gallery.metaDescription')} />
-        <link rel="canonical" href="https://www.wadidegla-eg.com/gallery" />
-    </Helmet>
     
     <div className="gallery-container">
           <div className="gallery-intro">

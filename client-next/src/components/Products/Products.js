@@ -47,11 +47,6 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
 
   return (
     <>
-    <Helmet>
-  <title>{t('products.pageTitle')}</title>
-  <meta name="description" content={t('products.metaDescription')} />
-        <link rel="canonical" href="https://www.wadidegla-eg.com/products" />
-    </Helmet>
     
     <div className="products-container-2">
         {/* 🌟 Hero Section */}

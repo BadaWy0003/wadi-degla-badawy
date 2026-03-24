@@ -2,15 +2,15 @@
 import "./Navbar.css";
 import { usePathname, useRouter } from "next/navigation";
 import LangLink from "../LangLink";
-import wadi_degla_logo_color from "../../Public/Assets/Logo-Identity/wadi-degla-logo-color.svg";
-import wadi_degla_logo_white from "../../Public/Assets/Logo-Identity/wadi-degla-logo-white.svg";
+const wadi_degla_logo_color = '/Assets/Logo-Identity/wadi-degla-logo-color.svg';
+const wadi_degla_logo_white = '/Assets/Logo-Identity/wadi-degla-logo-white.svg';
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 import { useGlobalState } from "../GlobalStateContext.js";
 import { useLang } from "../../context/LangContext";
 import { FaBars, FaTimes } from "react-icons/fa";
 import apiClient from "../../util/client.js";
-import arrow_down from "../../Public/Assets/Icons/arrow-down.svg";
+const arrow_down = '/Assets/Icons/arrow-down.svg';
 import SearchBar from "../SearchBar/SearchBar.js.js";
 import SearchBarMobile from "../SearchBar/SearchBarMobile.js.js";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";

@@ -4,39 +4,39 @@ import { useTranslation } from 'react-i18next';
 import './Patterns.css';
 import ContactBubble from "../Contact/ContactBubble";
 
-import p1 from '../../Public/Assets/Media/Patterns/p1.webp'
-import p2 from '../../Public/Assets/Media/Patterns/p2.webp'
-import p3 from '../../Public/Assets/Media/Patterns/p3.webp'
-import p4 from '../../Public/Assets/Media/Patterns/p4.webp'
-import pavers1 from '../../Public/Assets/Media/Patterns/pavers1.webp'
-import pavers2 from '../../Public/Assets/Media/Patterns/pavers2.webp'
-import pavers3 from '../../Public/Assets/Media/Patterns/pavers3.webp'
-import pavers4 from '../../Public/Assets/Media/Patterns/pavers4.webp'
-import s1 from '../../Public/Assets/Media/Patterns/1.webp'
-import s2 from '../../Public/Assets/Media/Patterns/2.webp'
-import s3 from '../../Public/Assets/Media/Patterns/3.webp'
-import s4 from '../../Public/Assets/Media/Patterns/4.webp'
-import s5 from '../../Public/Assets/Media/Patterns/5.webp'
-import s6 from '../../Public/Assets/Media/Patterns/6.webp'
-import s7 from '../../Public/Assets/Media/Patterns/7.webp'
-import s8 from '../../Public/Assets/Media/Patterns/8.webp'
-import s9 from '../../Public/Assets/Media/Patterns/9.webp'
-import s10 from '../../Public/Assets/Media/Patterns/10.webp'
-import split_face_1 from '../../Public/Assets/Media/Patterns/split-face-1.webp'
-import split_face_2 from '../../Public/Assets/Media/Patterns/split-face-2.webp'
-import split_face_3 from '../../Public/Assets/Media/Patterns/split-face-3.webp'
-import split_face_4 from '../../Public/Assets/Media/Patterns/split-face-4.webp'
-import split_face_5 from '../../Public/Assets/Media/Patterns/split-face-5.webp'
-import split_face_6 from '../../Public/Assets/Media/Patterns/split-face-6.webp'
-import split_face_7 from '../../Public/Assets/Media/Patterns/split-face-7.webp'
-import split_face_8 from '../../Public/Assets/Media/Patterns/split-face-8.webp'
-import split_face_9 from '../../Public/Assets/Media/Patterns/split-face-9.webp'
-import split_face_10 from '../../Public/Assets/Media/Patterns/split-face-10.webp'
+const p1 = '/Assets/Media/Patterns/p1.webp'
+const p2 = '/Assets/Media/Patterns/p2.webp'
+const p3 = '/Assets/Media/Patterns/p3.webp'
+const p4 = '/Assets/Media/Patterns/p4.webp'
+const pavers1 = '/Assets/Media/Patterns/pavers1.webp'
+const pavers2 = '/Assets/Media/Patterns/pavers2.webp'
+const pavers3 = '/Assets/Media/Patterns/pavers3.webp'
+const pavers4 = '/Assets/Media/Patterns/pavers4.webp'
+const s1 = '/Assets/Media/Patterns/1.webp'
+const s2 = '/Assets/Media/Patterns/2.webp'
+const s3 = '/Assets/Media/Patterns/3.webp'
+const s4 = '/Assets/Media/Patterns/4.webp'
+const s5 = '/Assets/Media/Patterns/5.webp'
+const s6 = '/Assets/Media/Patterns/6.webp'
+const s7 = '/Assets/Media/Patterns/7.webp'
+const s8 = '/Assets/Media/Patterns/8.webp'
+const s9 = '/Assets/Media/Patterns/9.webp'
+const s10 = '/Assets/Media/Patterns/10.webp'
+const split_face_1 = '/Assets/Media/Patterns/split-face-1.webp'
+const split_face_2 = '/Assets/Media/Patterns/split-face-2.webp'
+const split_face_3 = '/Assets/Media/Patterns/split-face-3.webp'
+const split_face_4 = '/Assets/Media/Patterns/split-face-4.webp'
+const split_face_5 = '/Assets/Media/Patterns/split-face-5.webp'
+const split_face_6 = '/Assets/Media/Patterns/split-face-6.webp'
+const split_face_7 = '/Assets/Media/Patterns/split-face-7.webp'
+const split_face_8 = '/Assets/Media/Patterns/split-face-8.webp'
+const split_face_9 = '/Assets/Media/Patterns/split-face-9.webp'
+const split_face_10 = '/Assets/Media/Patterns/split-face-10.webp'
 
-import pattern1 from '../../Public/Assets/Media/Patterns/pattern1.webp'
-import pattern2 from '../../Public/Assets/Media/Patterns/pattern2.webp'
-import pattern3 from '../../Public/Assets/Media/Patterns/pattern3.webp'
-import pattern4 from '../../Public/Assets/Media/Patterns/pattern4.webp'
+const pattern1 = '/Assets/Media/Patterns/pattern1.webp'
+const pattern2 = '/Assets/Media/Patterns/pattern2.webp'
+const pattern3 = '/Assets/Media/Patterns/pattern3.webp'
+const pattern4 = '/Assets/Media/Patterns/pattern4.webp'
 
 import Section from "../Section/Section";
 
@@ -57,11 +57,6 @@ const patternImages=[
     
     return(
         <>
-        <Helmet>
-            <title>{t('patterns.pageTitle')}</title>
-            <meta name="description" content={t('patterns.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/patterns" />
-        </Helmet>
 
         <div className='patterns-container'>
                     {/* 🌟 Hero Section */}

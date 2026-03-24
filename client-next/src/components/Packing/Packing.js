@@ -8,26 +8,26 @@ import 'react-multi-carousel/lib/styles.css';
 import { useTranslation } from 'react-i18next';
 
 
-import image3 from '../../Public/Assets/Media/3.webp';
-import image21 from '../../Public/Assets/Media/21.webp';
-// import image24 from '../../Public/Assets/Media/24.webp';
-import packing1 from '../../Public/Assets/Media/Packing/packing1.webp';
-import packing2 from '../../Public/Assets/Media/Packing/packing2.webp';
-import packing3 from '../../Public/Assets/Media/Packing/packing3.webp';
-import packing4 from '../../Public/Assets/Media/Packing/packing4.webp';
-import packing5 from '../../Public/Assets/Media/Packing/packing5.webp';
-import packing6 from '../../Public/Assets/Media/Packing/packing6.webp';
-import packing7 from '../../Public/Assets/Media/Packing/packing7.webp';
-import packing8 from '../../Public/Assets/Media/Packing/packing8.webp';
-import packing9 from '../../Public/Assets/Media/Packing/packing9.webp';
-import packing10 from '../../Public/Assets/Media/Packing/packing10.webp';
-import packing11 from '../../Public/Assets/Media/Packing/packing11.webp';
-import packing12 from '../../Public/Assets/Media/Packing/packing12.webp';
-import packing13 from '../../Public/Assets/Media/Packing/packing13.webp';
-import packing14 from '../../Public/Assets/Media/Packing/packing14.webp';
-import packing15 from '../../Public/Assets/Media/Packing/packing15.webp';
-import packing16 from '../../Public/Assets/Media/Packing/packing16.webp';
-import packing17 from '../../Public/Assets/Media/Packing/packing17.webp';
+const image3 = '/Assets/Media/3.webp';
+const image21 = '/Assets/Media/21.webp';
+// const image24 = '/Assets/Media/24.webp';
+const packing1 = '/Assets/Media/Packing/packing1.webp';
+const packing2 = '/Assets/Media/Packing/packing2.webp';
+const packing3 = '/Assets/Media/Packing/packing3.webp';
+const packing4 = '/Assets/Media/Packing/packing4.webp';
+const packing5 = '/Assets/Media/Packing/packing5.webp';
+const packing6 = '/Assets/Media/Packing/packing6.webp';
+const packing7 = '/Assets/Media/Packing/packing7.webp';
+const packing8 = '/Assets/Media/Packing/packing8.webp';
+const packing9 = '/Assets/Media/Packing/packing9.webp';
+const packing10 = '/Assets/Media/Packing/packing10.webp';
+const packing11 = '/Assets/Media/Packing/packing11.webp';
+const packing12 = '/Assets/Media/Packing/packing12.webp';
+const packing13 = '/Assets/Media/Packing/packing13.webp';
+const packing14 = '/Assets/Media/Packing/packing14.webp';
+const packing15 = '/Assets/Media/Packing/packing15.webp';
+const packing16 = '/Assets/Media/Packing/packing16.webp';
+const packing17 = '/Assets/Media/Packing/packing17.webp';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 
@@ -66,11 +66,6 @@ export default function Packing(){
     
     return(
         <>
-        <Helmet>
-                <title>{t('packing.pageTitle')}</title>
-                <meta name="description" content={t('packing.metaDescription')} />
-            <link rel="canonical" href="https://www.wadidegla-eg.com/packing" />
-        </Helmet>
         
         <div className='packing-container'>
                     {/* 🌟 Hero Section */}
