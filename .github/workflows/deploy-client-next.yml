@@ -30,9 +30,6 @@ jobs:
           flyctl apps list | grep -q "client-next-wadi-degla" || \
             flyctl apps create --name client-next-wadi-degla
 
-          # Set the API URL secret
-          flyctl secrets set \
-            NEXT_PUBLIC_BASE_API_URL=https://server-withered-wildflower-1595.fly.dev \
-            -a client-next-wadi-degla
-
-          flyctl deploy --remote-only -a client-next-wadi-degla
+          # NEXT_PUBLIC_ vars must be passed at build time (they are baked into the JS bundle)
+          flyctl deploy --remote-only -a client-next-wadi-degla \
+            --build-arg NEXT_PUBLIC_BASE_API_URL=https://server-withered-wildflower-1595.fly.dev
