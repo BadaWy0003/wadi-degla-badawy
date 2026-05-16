@@ -1,5 +1,6 @@
 import '../src/index.css';
 import '../src/App.css';
+import Script from 'next/script';
 
 export const metadata = {
   metadataBase: new URL('https://www.wadidegla-eg.com'),
@@ -40,7 +41,16 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-R2Y9CCM4YC" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-R2Y9CCM4YC');
+        `}</Script>
+      </body>
     </html>
   );
 }
