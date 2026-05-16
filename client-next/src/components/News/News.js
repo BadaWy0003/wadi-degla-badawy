@@ -10,9 +10,13 @@ export default function News(){
     const { t } = useTranslation();
     const [searchQuery, setSearchQuery] = useState("");
 
-    // Sort articles by dateOrder descending (newest first), then filter by search
+    // Pin article id=1 first, then sort the rest by dateOrder descending (newest first)
     const sortedArticles = [...articles]
-        .sort((a, b) => b.dateOrder - a.dateOrder)
+        .sort((a, b) => {
+            if (a.id === 1) return -1;
+            if (b.id === 1) return 1;
+            return b.dateOrder - a.dateOrder;
+        })
         .filter((article) =>
             article.title.toLowerCase().includes(searchQuery.toLowerCase())
         );

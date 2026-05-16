@@ -15,9 +15,10 @@ const polishing_line_2 = '/Assets/Media/Machinery/polishing-line-2.webp';
 // const polishing_line_3 = '/Assets/Media/Machinery/polishing-line-3.webp';
 // const polishing_line_4 = '/Assets/Media/Machinery/polishing-line-4.webp';
 // const polishing_line_5 = '/Assets/Media/Machinery/polishing-line-5.webp';
-const polishing_line_6 = '/Assets/Media/Machinery/polishing-line-6.webp';
+// const polishing_line_6 = '/Assets/Media/Machinery/polishing-line-6.webp';
 // const polishing_line_7 = '/Assets/Media/Machinery/polishing-line-7.webp';
 const polishing_line_8 = '/Assets/Media/Machinery/polishing-line-8.webp';
+const polishing_line_9 = '/Assets/Media/Machinery/polishing-line-9.webp';
 
 const gangsaws = '/Assets/Media/Machinery/gangsaws.webp';
 // const gangsaws_2 = '/Assets/Media/Machinery/gangsaws-2.webp';
@@ -124,7 +125,7 @@ export const generalUseData = [
         {
           titleKey: "machinery.slabs.polishingLines",
           descriptionKey: "machinery.slabs.polishingLinesDesc",
-          images: [polishing_line_8, polishing_line, polishing_line_2, polishing_line_6],
+          images: [polishing_line_8, polishing_line, polishing_line_2, polishing_line_9],
         },
         {
           titleKey: "machinery.slabs.risinLine",

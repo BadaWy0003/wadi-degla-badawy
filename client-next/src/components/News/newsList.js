@@ -28,6 +28,7 @@ const carribean_openning_8 = '/Assets/Media/News/grand-opening-of-viva-miches-re
 const carribean_openning_9 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-9.webp';
 const carribean_openning_10 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-10.webp';
 const carribean_openning_11 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-11.webp';
+const carribean_openning_12 = '/Assets/Media/News/grand-opening-of-viva-miches-resort-by-wyndham-in-the-caribbean/carribean-openning-12.webp';
 
 // Article our-australian-partners-visit 
 const australian_partners_visit_1 = '/Assets/Media/News/our-australian-partners-visit/our-australian-partners-visit-1.webp';
@@ -113,11 +114,12 @@ const articles = [
       { src: carribean_openning_8,  alt: "The prestigious grand opening of Viva Miches image 8" },
       { src: carribean_openning_9,  alt: "The prestigious grand opening of Viva Miches image 9" },
       { src: carribean_openning_10,  alt: "The prestigious grand opening of Viva Miches image 10" },
+      { src: carribean_openning_12,  alt: "The prestigious grand opening of Viva Miches image 12" },
       { src: carribean_openning_11,  alt: "The prestigious grand opening of Viva Miches image 11" },
     ],
   },
   {
-    id: 2,
+    id: 2, 
     slug: "our-australian-partners-visit",
     title: "Our Australian Partners Visit",
     date: "October 2025",

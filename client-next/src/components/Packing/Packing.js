@@ -28,6 +28,21 @@ const packing14 = '/Assets/Media/Packing/packing14.webp';
 const packing15 = '/Assets/Media/Packing/packing15.webp';
 const packing16 = '/Assets/Media/Packing/packing16.webp';
 const packing17 = '/Assets/Media/Packing/packing17.webp';
+const exports22 = '/Assets/Media/Exports/exports22.webp';
+const exports23 = '/Assets/Media/Exports/exports23.webp';
+const exports24 = '/Assets/Media/Exports/exports24.webp';
+const exports25 = '/Assets/Media/Exports/exports25.webp';
+const exports26 = '/Assets/Media/Exports/exports26.webp';
+const exports27 = '/Assets/Media/Exports/exports27.webp';
+const exports28 = '/Assets/Media/Exports/exports28.webp';
+const exports29 = '/Assets/Media/Exports/exports29.webp';
+const exports30 = '/Assets/Media/Exports/exports30.webp';
+const exports31 = '/Assets/Media/Exports/exports31.webp';
+const exports32 = '/Assets/Media/Exports/exports32.webp';
+const exports33 = '/Assets/Media/Exports/exports33.webp';
+const exports34 = '/Assets/Media/Exports/exports34.webp';
+const exports35 = '/Assets/Media/Exports/exports35.webp';
+
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 
@@ -53,6 +68,20 @@ export default function Packing(){
         { src: packing15, alt: t('packing.packingAlt15') },
         { src: packing16, alt: t('packing.packingAlt16') },
         { src: packing17, alt: t('packing.packingAlt17') },
+        { src: exports22, alt: t('packing.packingAlt18') },
+        { src: exports23, alt: t('packing.packingAlt19') },
+        { src: exports24, alt: t('packing.packingAlt20') },
+        { src: exports25, alt: t('packing.packingAlt21') },
+        { src: exports26, alt: t('packing.packingAlt22') },
+        { src: exports27, alt: t('packing.packingAlt23') },
+        { src: exports28, alt: t('packing.packingAlt24') },
+        { src: exports29, alt: t('packing.packingAlt25') },
+        { src: exports30, alt: t('packing.packingAlt26') },
+        { src: exports31, alt: t('packing.packingAlt27') },
+        { src: exports32, alt: t('packing.packingAlt28') },
+        { src: exports33, alt: t('packing.packingAlt29') },
+        { src: exports34, alt: t('packing.packingAlt30') },
+        { src: exports35, alt: t('packing.packingAlt31') },
     ];
     
   const router = useRouter();

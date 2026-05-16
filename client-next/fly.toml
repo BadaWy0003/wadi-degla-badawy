@@ -9,14 +9,17 @@ primary_region = 'cdg'
 [build]
   dockerfile = "Dockerfile"
 
+  [build.args]
+    NEXT_PUBLIC_BASE_API_URL = "https://server-withered-wildflower-1595.fly.dev"
+
 [env]
 
 [http_service]
   internal_port = 80
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = false
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 1
   max_machines_running = 1
   processes = ["app"]
 
