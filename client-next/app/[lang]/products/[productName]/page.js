@@ -43,11 +43,17 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({ params }) {
-  const { lang } = params;
+  const { lang, productName } = params;
+  const displayName = productName
+    .split('-')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+  const titleTemplate = t(lang, 'productDetails.pageTitle', '{{name}} | Wadi Degla');
+  const descTemplate = t(lang, 'productDetails.metaDescription', '');
   return {
-    title: t(lang, 'productDetails.pageTitle', 'ProductDetails | Wadi Degla'),
-    description: t(lang, 'productDetails.metaDescription', ''),
-    alternates: buildAlternates('/products'),
+    title: titleTemplate.replace('{{name}}', displayName),
+    description: descTemplate.replace(/\{\{name\}\}/g, displayName).replace(/\{\{type\}\}/g, 'natural stone'),
+    alternates: buildAlternates(`/products/${productName}`),
   };
 }
 
