@@ -124,7 +124,7 @@ export default function ContactForm() {
       payload.append('attachment', formData.attachment);
     }
 
-fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
+fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/send-email`, {
   method: 'POST',
   body: payload,
 })

@@ -27,7 +27,7 @@ export default function SampleRequestForm({ isOpen, onClose, productName, produc
   const handleSubmit = (e) => {
   e.preventDefault();
 
-  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-email`, {
+  fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/send-email`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
