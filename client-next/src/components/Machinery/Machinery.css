@@ -217,6 +217,16 @@
 
 }
 
+@media screen and (max-width: 1024px) {
+    .machinery-intro {
+        padding: 0 4rem;
+    }
+
+    .machinery-section {
+        padding: 0 4rem;
+    }
+}
+
 @media screen and (max-width: 822px) {
     .machinery-grid {
         display: grid;

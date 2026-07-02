@@ -52,25 +52,50 @@
 }
 
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .certificates-page {
-        padding: 15rem 1rem 5rem 1rem;
-
+        padding: 15rem 4rem 5rem 4rem;
     }
-
 
     .certificate-with-title {
         flex-direction: column;
-        margin-bottom: 5rem;
+        column-gap: 0;
+        row-gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .certificate-image {
+        width: 12rem;
     }
 
     .certificate-with-title h2 {
         text-align: center;
-        font-size: 16px;
-        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .certificates-page {
+        padding: 15rem 1rem 5rem 1rem;
     }
 
+    .certificates-page h1 {
+        font-size: 1.6rem;
+    }
 
+    .certificate-with-title {
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
+    .certificate-image {
+        width: 10rem;
+    }
+
+    .certificate-with-title h2 {
+        text-align: center;
+        font-size: 15px;
+        font-weight: 600;
+    }
 }
 
 @media (max-height: 550px) {

@@ -4,9 +4,11 @@ const Home = dynamic(() => import('../../src/components/Home/Home'), { ssr: fals
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const pageTitle = t(lang, 'home.pageTitle', 'Wadi Degla | Egyptian Natural Stone');
   return {
-    title: t(lang, 'home.pageTitle', 'Wadi Degla | Egyptian Natural Stone'),
+    title: pageTitle,
     description: t(lang, 'home.metaDescription', ''),
+    openGraph: { title: pageTitle },
     alternates: buildAlternates(''),
   };
 }

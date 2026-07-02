@@ -79,3 +79,16 @@
         background-attachment: fixed !important;
     }
 }
+
+/* Force scroll on tablet/iPad even if pointer: fine is detected (e.g. iPad + keyboard) */
+@media screen and (max-width: 1024px) {
+    .hero,
+    .quarries-hero,
+    .quarries-home-section,
+    .inspiration-home-section,
+    .visualizer-home-inner,
+    .projects-home-section,
+    .history-final-section {
+        background-attachment: scroll !important;
+    }
+}
