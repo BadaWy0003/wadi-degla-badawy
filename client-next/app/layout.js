@@ -32,6 +32,50 @@ export const metadata = {
   },
 };
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Wadi Degla Co.',
+  alternateName: 'Wadi Degla',
+  url: 'https://www.wadidegla-eg.com',
+  logo: 'https://www.wadidegla-eg.com/favicon.svg',
+  image: 'https://www.wadidegla-eg.com/preview.webp',
+  description:
+    'Wadi Degla Co. is an Egyptian natural stone company specializing in quarrying, manufacturing, and exporting premium marble, limestone, granite, and travertine. Products include Galala marble, Silvia marble, Shelly limestone, Rosa marble, and more — available as slabs, tiles, blocks, cobbles, kerbstones, and custom finishes for global residential, commercial, and landmark projects.',
+  foundingLocation: {
+    '@type': 'Place',
+    name: 'Egypt',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'EG',
+    addressRegion: 'Cairo',
+    addressLocality: 'Cairo',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      availableLanguage: ['English', 'Arabic'],
+    },
+  ],
+  areaServed: 'Worldwide',
+  knowsAbout: [
+    'Egyptian marble',
+    'Galala marble',
+    'Silvia marble',
+    'Rosa marble',
+    'Shelly limestone',
+    'Egyptian limestone',
+    'natural stone export',
+    'marble slabs',
+    'limestone tiles',
+    'granite blocks',
+    'travertine',
+    'marble quarrying',
+  ],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html>
@@ -39,6 +83,10 @@ export default function RootLayout({ children }) {
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
       <body>
