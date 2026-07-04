@@ -58,7 +58,9 @@ export default function NewsDetail() {
             <a href="/">{t("news.breadcrumbHome")}</a>
             <p>{">"}</p>
             <a href="/news">{t("news.breadcrumbCurrent")}</a>
-            <p>{">"} {article.title}</p>
+            <p>
+              {">"} {article.title}
+            </p>
           </div>
         </div>
 
@@ -89,7 +91,10 @@ export default function NewsDetail() {
               <div
                 key={i}
                 className="news-gallery-item"
-                onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
+                onClick={() => {
+                  setLightboxIndex(i);
+                  setLightboxOpen(true);
+                }}
               >
                 <img loading="lazy" src={img.src} alt={img.alt} />
               </div>

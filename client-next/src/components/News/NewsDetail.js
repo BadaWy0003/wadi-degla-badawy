@@ -1,15 +1,15 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 // Helmet removed - metadata handled by generateMetadata() in page.js
 import "./NewsDetail.css";
 import articles from "./newsList";
 import ContactBubble from "../Contact/ContactBubble";
-import LangLink from '../LangLink';
+import LangLink from "../LangLink";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
-import { useParams } from 'next/navigation';
+import { useParams } from "next/navigation";
 
 export default function NewsDetail() {
   const { slug } = useParams();
@@ -51,7 +51,9 @@ export default function NewsDetail() {
             <a href="/">{t("news.breadcrumbHome")}</a>
             <p>{">"}</p>
             <LangLink href="/news">{t("news.breadcrumbCurrent")}</LangLink>
-            <p>{">"} {article.title}</p>
+            <p>
+              {">"} {article.title}
+            </p>
           </div>
         </div>
 
@@ -82,7 +84,10 @@ export default function NewsDetail() {
               <div
                 key={i}
                 className="news-gallery-item"
-                onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
+                onClick={() => {
+                  setLightboxIndex(i);
+                  setLightboxOpen(true);
+                }}
               >
                 <img loading="lazy" src={img.src} alt={img.alt} />
               </div>
