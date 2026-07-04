@@ -69,7 +69,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function HomePage() {
+export default function HomePage({ params }) {
+  const lang = params?.lang || 'en';
+  const pageTitle = t(lang, 'home.pageTitle', 'Wadi Degla | Egyptian Natural Stone');
   return (
     <>
       <Script
@@ -77,6 +79,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <h1 className="sr-only">{pageTitle}</h1>
       <Home />
     </>
   );

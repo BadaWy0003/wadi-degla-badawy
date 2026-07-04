@@ -44,7 +44,7 @@ export default function Home(){
         
         <div className="homepage">
             <div className="hero">
-                    <h1>{t('home.companyName')}</h1>
+                    <p className="hero-heading">{t('home.companyName')}</p>
                     <p>{t('home.heroWelcome')}</p>
                         <div className="place4btns">
                             <LangLink href='/history' onClick={() => {window.scrollTo(0, 0);}}><button className="btn2">{t('home.ourHistory')}</button></LangLink>

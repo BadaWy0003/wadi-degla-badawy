@@ -30,7 +30,8 @@
 }
 
 
-.homepage .hero h1 {
+.homepage .hero h1,
+.homepage .hero .hero-heading {
     color: var(--goldColor);
     margin: 0;
     font-size: 38px;
