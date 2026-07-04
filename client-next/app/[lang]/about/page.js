@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'navigation.about', 'About | Wadi Degla'),
     description: t(lang, 'home.metaDescription', ''),
-    alternates: buildAlternates('/about'),
+    alternates: buildAlternates('/about', lang),
   };
 }
 

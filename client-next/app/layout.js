@@ -7,6 +7,7 @@ export const metadata = {
   title: {
     default: 'Wadi Degla Co.',
   },
+  robots: { index: true, follow: true },
   description:
     'Discover premium Egyptian marble and limestone from Wadi Degla. Quarry ownership, advanced manufacturing, and global export of slabs, tiles, and blocks for residential, commercial, and landmark projects worldwide.',
   openGraph: {
@@ -94,7 +95,7 @@ const organizationSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html>
+    <html lang="en">
       <head>
         <link
           rel="stylesheet"

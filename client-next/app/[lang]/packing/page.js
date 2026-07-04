@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'packing.pageTitle', 'Packing | Wadi Degla'),
     description: t(lang, 'packing.metaDescription', ''),
-    alternates: buildAlternates('/packing'),
+    alternates: buildAlternates('/packing', lang),
   };
 }
 

@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'gallery.pageTitle', 'Gallery | Wadi Degla'),
     description: t(lang, 'gallery.metaDescription', ''),
-    alternates: buildAlternates('/gallery'),
+    alternates: buildAlternates('/gallery', lang),
   };
 }
 

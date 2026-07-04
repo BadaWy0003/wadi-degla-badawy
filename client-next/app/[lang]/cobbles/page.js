@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'cobbles.pageTitle', 'Cobble | Wadi Degla'),
     description: t(lang, 'cobbles.metaDescription', ''),
-    alternates: buildAlternates('/cobbles'),
+    alternates: buildAlternates('/cobbles', lang),
   };
 }
 

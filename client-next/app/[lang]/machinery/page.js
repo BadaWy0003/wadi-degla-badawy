@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'machinery.pageTitle', 'Machinery | Wadi Degla'),
     description: t(lang, 'machinery.metaDescription', ''),
-    alternates: buildAlternates('/machinery'),
+    alternates: buildAlternates('/machinery', lang),
   };
 }
 

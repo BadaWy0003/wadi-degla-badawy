@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'inspiration.pageTitle', 'Inspiration | Wadi Degla'),
     description: t(lang, 'inspiration.metaDescription', ''),
-    alternates: buildAlternates('/inspiration'),
+    alternates: buildAlternates('/inspiration', lang),
   };
 }
 

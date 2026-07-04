@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'signup.title', 'Signup | Wadi Degla'),
     description: t(lang, 'home.metaDescription', ''),
-    alternates: buildAlternates('/signup'),
+    alternates: buildAlternates('/signup', lang),
   };
 }
 

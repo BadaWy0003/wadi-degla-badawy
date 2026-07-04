@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'kerbstone.pageTitle', 'Kerbstone | Wadi Degla'),
     description: t(lang, 'kerbstone.metaDescription', ''),
-    alternates: buildAlternates('/kerbstone'),
+    alternates: buildAlternates('/kerbstone', lang),
   };
 }
 

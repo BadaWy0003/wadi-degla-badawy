@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'fairs.pageTitle', 'Fairs | Wadi Degla'),
     description: t(lang, 'fairs.metaDescription', ''),
-    alternates: buildAlternates('/fairs'),
+    alternates: buildAlternates('/fairs', lang),
   };
 }
 

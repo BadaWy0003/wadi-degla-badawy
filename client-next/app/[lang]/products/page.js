@@ -126,7 +126,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'products.pageTitle', 'Egyptian Marble & Granite | Wadi Degla'),
     description: t(lang, 'products.metaDescription', ''),
-    alternates: buildAlternates('/products'),
+    alternates: buildAlternates('/products', lang),
   };
 }
 

@@ -48,13 +48,16 @@ export function t(lang, key, fallback = '') {
 }
 
 /**
- * Build hreflang alternates for a given path (e.g. "/products")
+ * Build hreflang alternates and canonical URL for a given path (e.g. "/products")
  */
-export function buildAlternates(path = '') {
+export function buildAlternates(path = '', lang = 'en') {
   const languages = {};
-  for (const lang of SUPPORTED_LANGS) {
-    languages[lang] = `${BASE_URL}/${lang}${path}/`;
+  for (const l of SUPPORTED_LANGS) {
+    languages[l] = `${BASE_URL}/${l}${path}/`;
   }
   languages['x-default'] = `${BASE_URL}/en${path}/`;
-  return { languages };
+  return {
+    canonical: `${BASE_URL}/${lang}${path}/`,
+    languages,
+  };
 }

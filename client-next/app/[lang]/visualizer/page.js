@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'products.pageTitle', 'Visualizer | Wadi Degla'),
     description: t(lang, 'products.metaDescription', ''),
-    alternates: buildAlternates('/visualizer'),
+    alternates: buildAlternates('/visualizer', lang),
   };
 }
 

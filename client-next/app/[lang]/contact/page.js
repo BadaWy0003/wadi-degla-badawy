@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'contact.title', 'Contact | Wadi Degla'),
     description: t(lang, 'contact.metaDescription', ''),
-    alternates: buildAlternates('/contact'),
+    alternates: buildAlternates('/contact', lang),
   };
 }
 

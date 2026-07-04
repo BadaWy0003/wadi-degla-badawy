@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'certificates.pageTitle', 'Certificates | Wadi Degla'),
     description: t(lang, 'certificates.metaDescription', ''),
-    alternates: buildAlternates('/certificates'),
+    alternates: buildAlternates('/certificates', lang),
   };
 }
 

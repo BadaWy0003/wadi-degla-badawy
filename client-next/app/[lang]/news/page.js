@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'news.pageTitle', 'News | Wadi Degla'),
     description: t(lang, 'news.metaDescription', ''),
-    alternates: buildAlternates('/news'),
+    alternates: buildAlternates('/news', lang),
   };
 }
 

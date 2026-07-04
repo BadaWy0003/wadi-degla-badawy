@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'quarries.pageTitle', 'Quarries | Wadi Degla'),
     description: t(lang, 'quarries.metaDescription', ''),
-    alternates: buildAlternates('/quarries'),
+    alternates: buildAlternates('/quarries', lang),
   };
 }
 

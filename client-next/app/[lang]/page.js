@@ -53,11 +53,19 @@ const faqSchema = {
 export function generateMetadata({ params }) {
   const { lang } = params;
   const pageTitle = t(lang, 'home.pageTitle', 'Wadi Degla | Egyptian Natural Stone');
+  const description = t(lang, 'home.metaDescription', '');
   return {
     title: pageTitle,
-    description: t(lang, 'home.metaDescription', ''),
-    openGraph: { title: pageTitle },
-    alternates: buildAlternates(''),
+    description,
+    openGraph: {
+      title: pageTitle,
+      description,
+      url: `https://www.wadidegla-eg.com/${lang}/`,
+      siteName: 'Wadi Degla',
+      images: [{ url: '/preview.webp' }],
+      type: 'website',
+    },
+    alternates: buildAlternates('', lang),
   };
 }
 

@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'stoneCreation.pageTitle', 'StoneCreation | Wadi Degla'),
     description: t(lang, 'stoneCreation.metaDescription', ''),
-    alternates: buildAlternates('/stone-creations'),
+    alternates: buildAlternates('/stone-creations', lang),
   };
 }
 

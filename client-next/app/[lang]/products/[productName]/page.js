@@ -53,7 +53,7 @@ export function generateMetadata({ params }) {
   return {
     title: titleTemplate.replace('{{name}}', displayName),
     description: descTemplate.replace(/\{\{name\}\}/g, displayName).replace(/\{\{type\}\}/g, 'natural stone'),
-    alternates: buildAlternates(`/products/${productName}`),
+    alternates: buildAlternates(`/products/${productName}`, lang),
   };
 }
 

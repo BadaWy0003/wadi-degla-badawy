@@ -7,7 +7,7 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'patterns.pageTitle', 'Patterns | Wadi Degla'),
     description: t(lang, 'patterns.metaDescription', ''),
-    alternates: buildAlternates('/patterns'),
+    alternates: buildAlternates('/patterns', lang),
   };
 }
 
