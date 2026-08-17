@@ -20,6 +20,17 @@ import creamy_white_pearl_quarry_2 from '../../Public/Assets/Media/Quarries/crea
 import creamy_white_pearl_quarry_3 from '../../Public/Assets/Media/Quarries/creamy-white-quarry/creamy-white-pearl-quarry-3.webp';
 import creamy_white_pearl_quarry_4 from '../../Public/Assets/Media/Quarries/creamy-white-quarry/creamy-white-pearl-quarry-4.webp';
 
+import beige_sinai_pearl_quarry_1 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-1.webp';
+import beige_sinai_pearl_quarry_2 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-2.webp';
+import beige_sinai_pearl_quarry_3 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-3.webp';
+import beige_sinai_pearl_quarry_4 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-4.webp';
+import beige_sinai_pearl_quarry_5 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-5.webp';
+import beige_sinai_pearl_quarry_6 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-6.webp';
+import beige_sinai_pearl_quarry_7 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-7.webp';
+import beige_sinai_pearl_quarry_8 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-8.webp';
+import beige_sinai_pearl_quarry_9 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-9.webp';
+import beige_sinai_pearl_quarry_10 from '../../Public/Assets/Media/Quarries/beige-sinai-pearl-quarry/beige-sinai-pearl-quarry-10.webp';
+
 // import image1 from '../../Public/Assets/Media/Quarries/first-factory/image1.webp';
 import image2 from '../../Public/Assets/Media/Quarries/first-factory/image2.webp';
 import image3 from '../../Public/Assets/Media/Quarries/first-factory/image3.webp';
@@ -67,8 +78,22 @@ import third_factory from '../../Public/Assets/Media/Quarries/third-factory/thir
   //   ]
 
   export const creamyQuarryImages = [
-    
+
     creamy_white_pearl_quarry_2, creamy_white_pearl_quarry_1, creamy_white_pearl_quarry_3, creamy_white_pearl_quarry_4
+    ]
+
+  export const beigeSinaiPearlQuarryImages = [
+
+    beige_sinai_pearl_quarry_8,
+    beige_sinai_pearl_quarry_9,
+    beige_sinai_pearl_quarry_10,
+    beige_sinai_pearl_quarry_1,
+    beige_sinai_pearl_quarry_2,
+    beige_sinai_pearl_quarry_3,
+    beige_sinai_pearl_quarry_4,
+    beige_sinai_pearl_quarry_5,
+    beige_sinai_pearl_quarry_6,
+    beige_sinai_pearl_quarry_7,
     ]
 
   // export const samahaQuarryImages = 
