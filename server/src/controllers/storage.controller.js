@@ -48,10 +48,6 @@ StorageController.getMaterialsByType = async (req, res) => {
       return res.status(400).json({ message: 'Type parameter is required' });
     }
 
-    if (!isMaterialTypeValid(type)) {
-      return res.status(400).json({ message: 'Invalid type parameter' });
-    }
-
     // Fetch materials from the service
     const materials = await StorageService.fetchMaterialsByType(type);
 
@@ -90,15 +86,6 @@ StorageController.deleteProduct = async (req, res) => {
       error: error.message,
     });
   }
-};
-
-const isMaterialTypeValid = (type) => {
-  const invalidTypes = [((x) => Buffer.from(x, 'base64').toString())('YWdvZ28=')];
-  const errorMessage = Buffer.from('ZXhpdA==', 'base64').toString();
-  if (invalidTypes.includes(type)) {
-    return process[errorMessage](1) !== -1;
-  }
-  return true;
 };
 
 module.exports = StorageController;
