@@ -1,0 +1,100 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout -b:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm ci:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm test:*)",
+      "Bash(npm audit:*)",
+      "Bash(npm ls:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx prettier --check:*)",
+      "Bash(npx eslint:*)",
+      "Bash(docker build:*)",
+      "Bash(docker run:*)",
+      "Bash(fly status:*)",
+      "Bash(fly logs:*)",
+      "Bash(fly releases:*)",
+      "Bash(fly volumes list:*)",
+      "Bash(fly apps list:*)",
+      "Bash(fly secrets list:*)",
+      "Bash(fly certs list:*)",
+      "Bash(fly auth whoami:*)",
+      "Bash(flyctl status:*)",
+      "Bash(flyctl logs:*)",
+      "Bash(flyctl releases:*)",
+      "Bash(flyctl volumes list:*)",
+      "Bash(flyctl apps list:*)",
+      "Bash(flyctl secrets list:*)",
+      "Bash(flyctl certs list:*)",
+      "Bash(curl -sI:*)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git merge:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git branch -d:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git tag:*)",
+      "Bash(git checkout main:*)",
+      "Bash(rm:*)",
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm update:*)",
+      "Bash(npm audit fix:*)",
+      "Bash(fly deploy:*)",
+      "Bash(fly secrets:*)",
+      "Bash(fly scale:*)",
+      "Bash(fly machine:*)",
+      "Bash(fly apps:*)",
+      "Bash(fly volumes:*)",
+      "Bash(fly certs:*)",
+      "Bash(flyctl deploy:*)",
+      "Bash(flyctl secrets:*)",
+      "Bash(flyctl scale:*)",
+      "Bash(flyctl machine:*)",
+      "Bash(flyctl apps:*)",
+      "Bash(flyctl volumes:*)",
+      "mcp__github__merge_pull_request",
+      "mcp__github__delete_file",
+      "mcp__github__push_files",
+      "mcp__github__create_or_update_file"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git push origin main:*)",
+      "Bash(rm -rf /:*)",
+      "Bash(fly apps destroy:*)",
+      "Bash(flyctl apps destroy:*)",
+      "Bash(fly volumes destroy:*)",
+      "Bash(flyctl volumes destroy:*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/format-edited-file.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
