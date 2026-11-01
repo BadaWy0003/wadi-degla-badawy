@@ -20,7 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
-    'linebreak-style': ['always', 'windows'],
+    'linebreak-style': ['error', 'unix'],
     'implicit-arrow-linebreak': ['error', 'beside'],
     'object-curly-newline': [
       'error',

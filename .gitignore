@@ -14,7 +14,10 @@ node_modules/
 /client/build/
 /admin-dashboard/build/
 
-# Env files
+# Env files (never commit real env files; *.example is fine)
+.env
+.env.*
+!.env.example
 .env*.local
 .env.local
 .env.development.local
