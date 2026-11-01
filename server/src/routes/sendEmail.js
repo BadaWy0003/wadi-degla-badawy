@@ -2,11 +2,26 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const multer = require('multer');
+const path = require('path');
+const { rateLimit } = require('../middlewares/rate-limit.middleware');
+
+// Contact + sample-request forms: max 5 messages per visitor per 15 minutes.
+const emailRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 5 });
+
+// Same file types the contact form offers (client-next ContactForm `accept` attribute).
+const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.png', '.jpg', '.jpeg', '.webp'];
 
 // Store file in memory so we can pass the buffer directly to nodemailer
 const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10 MB limit
+  limits: { fileSize: 10 * 1024 * 1024, files: 1 }, // 10 MB, one file
+  fileFilter: (req, file, cb) => {
+    const ext = path.extname(file.originalname || '').toLowerCase();
+    if (!ALLOWED_EXTENSIONS.includes(ext)) {
+      return cb(new multer.MulterError('LIMIT_UNEXPECTED_FILE', 'attachment'));
+    }
+    return cb(null, true);
+  },
 });
 
 // Email credentials should be added to your .env file
@@ -20,20 +35,63 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Use multer middleware to accept an optional file field named "attachment"
-router.post('/', upload.single('attachment'), async (req, res) => {
-  const { name, email, subject, message, extraFields } = req.body;
+// Close to the website's own check (ContactForm.js), so real visitors are never rejected.
+const EMAIL_RE = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]{2,}$/;
+
+const escapeHtml = (value) =>
+  String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+// The website forms send small HTML snippets (<p>, <strong>, <ul>, <li>).
+// Escape everything, then restore only those tags WITHOUT attributes,
+// so visitors can't inject links, images, styles or scripts into the inbox.
+const sanitizeFormHtml = (value) => escapeHtml(value).replace(/&lt;(\/?)(p|strong|ul|li|br)\s*\/?&gt;/gi, '<$1$2>');
+
+const cleanText = (value, maxLength) => (typeof value === 'string' ? value.trim().slice(0, maxLength) : '');
+
+const safeFilename = (name) =>
+  path
+    .basename(String(name || 'attachment'))
+    .replace(/[^\w.\- ]+/g, '_')
+    .slice(0, 100) || 'attachment';
+
+// Run multer and turn its errors into a JSON 400 instead of Express' HTML 500.
+const handleUpload = (req, res, next) => {
+  upload.single('attachment')(req, res, (err) => {
+    if (!err) return next();
+    const message = err.code === 'LIMIT_FILE_SIZE' ? 'File is too large (max 10 MB).' : 'This file type is not allowed.';
+    return res.status(400).json({ success: false, error: message });
+  });
+};
+
+router.post('/', emailRateLimit, handleUpload, async (req, res) => {
+  const body = req.body || {};
+
+  // Honeypot: real visitors never fill the hidden "website" field. Pretend success for bots.
+  if (cleanText(body.website, 200)) {
+    return res.status(200).json({ success: true });
+  }
+
+  const name = cleanText(body.name, 100);
+  const email = cleanText(body.email, 254);
+  const message = cleanText(body.message, 5000);
+  const extraFields = cleanText(body.extraFields, 3000);
+  const subject = cleanText(body.subject, 150).replace(/[\r\n]+/g, ' ') || `Website message from ${name}`;
+
+  if (!name || !EMAIL_RE.test(email)) {
+    return res.status(400).json({ success: false, error: 'Please provide a valid name and email address.' });
+  }
 
   const mailOptions = {
     from: `"Wadi Degla Website" <${process.env.ZOHO_EMAIL}>`,
     to: process.env.ZOHO_EMAIL,
+    replyTo: email,
     subject,
     html: `
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      ${extraFields}
+      <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+      ${sanitizeFormHtml(extraFields)}
       <p><strong>Message:</strong></p>
-      <p>${message}</p>
+      <p>${sanitizeFormHtml(message)}</p>
     `,
   };
 
@@ -41,7 +99,7 @@ router.post('/', upload.single('attachment'), async (req, res) => {
   if (req.file) {
     mailOptions.attachments = [
       {
-        filename: req.file.originalname,
+        filename: safeFilename(req.file.originalname),
         content: req.file.buffer,
         contentType: req.file.mimetype,
       },
@@ -50,10 +108,10 @@ router.post('/', upload.single('attachment'), async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true });
+    return res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Email error:', error);
-    res.status(500).json({ success: false, error: error.message });
+    console.error('Email error:', error.message);
+    return res.status(500).json({ success: false, error: 'Could not send the message. Please try again later.' });
   }
 });
 

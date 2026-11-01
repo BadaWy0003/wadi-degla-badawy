@@ -5,7 +5,7 @@ const authorize = require('../middlewares/authorize.middleware');
 
 const router = express.Router();
 
-router.post('/invoice', PdfExportController.exportPdf);
+router.post('/invoice', adminAuth, authorize('MODERATOR'), PdfExportController.exportPdf);
 router.post('/generate-upload-pdf', adminAuth, PdfExportController.generateAndUploadPdf);
 
 router.get('/all', adminAuth, authorize('MODERATOR'), PdfExportController.getAllInvoices);

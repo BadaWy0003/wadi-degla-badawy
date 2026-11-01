@@ -85,7 +85,11 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - `server/.dockerignore` excludes `src/common`, so the PDF upload folder doesn't exist in the image.
 - The Fly API token in cloud sessions is **read-only**: it can't deploy or change anything.
 - In cloud sessions the Docker daemon isn't started by default (`dockerd &`), and Docker builds can't reach Debian mirrors through the proxy, so the server image can't be built there.
-- The Fly dashboard shows a "merge new files" banner on the server app (Fly Launch GitHub link, Feb 2025). Ignore it; deploys go through GitHub Actions.
+- Fly's own GitHub integration used to deploy the server and old client on **every** push to `main`, in parallel with our Actions (two releases per merge, lease conflicts). It was disconnected on 2026-11-01. If a merge creates two releases again, check the app's Settings > GitHub in the Fly dashboard. Ignore the "merge new files" banner.
+- Release image tags: `deployment-01…` come from GitHub Actions (flyctl); `deployment-<32 hex>` came from Fly's GitHub integration.
+- `nginx.conf`: the first `server` block (the non-www redirect) is the default for unknown hosts, so locally `http://localhost` redirects to the live site. For local tests, add `localhost` to the second block's `server_name` in a **copy** of the config.
+- `nginx.conf`: `add_header` in a `location` drops all server-level headers, so the security headers are repeated in every location that sets its own headers. Keep the copies in sync.
+- `/api/send-email`: rate limited to 5 per 15 minutes per IP (`Fly-Client-IP`), in memory per machine. It has a honeypot field `website`, and visitor HTML is reduced to `p/strong/ul/li/br` with no attributes.
 - Merging a PR that touches several app folders redeploys **each** of those apps (including the suspended `client/` and admin apps).
 
 ## Decisions log
@@ -93,4 +97,5 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - 2026-10-31: the admin dashboard will be revived. `client/` is considered retired.
 - PR descriptions must **not** include the "Generated with Claude Code" line.
 - Staging (separate Fly apps + a separate free Firebase project) will be set up when the admin-dashboard revival starts.
-- Formatting: format-on-edit only (no repo-wide reformat).
+- Formatting: format-on-edit only (no repo-wide reformat). When the hook reformats a whole file, commit the pure formatting separately first.
+- 2026-11-01: security hardening of the email endpoint, PDF export (admin only) and nginx headers/HSTS.
