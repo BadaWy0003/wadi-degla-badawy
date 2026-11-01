@@ -87,7 +87,9 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 ## Gotchas
 - `client/` duplicates most of client-next. Edit **client-next only**.
 - Product pages are generated at build time from the live API (fallback: `FALLBACK_PRODUCT_SLUGS`). A product added in the admin panel only gets its own page after the next client-next deploy.
-- nginx caches `/Assets/*` images for 1 year (`immutable`). **Replace an image under a new filename**, not the same one.
+- nginx caching: `/_next/static/` (hashed build files) 1 year `immutable`; other static files (photos under `/Assets`, icons, fonts) 30 days + ETag revalidation, so a replaced photo reaches everyone within 30 days (use a new filename if it must change immediately). HTML, `sitemap.xml`, `robots.txt`: no-cache.
+- Site photos: WebP quality 75, max 1600 px (banners in `Hero/` max 2000 px). Use `tools/optimize-images.js` (same settings) for new photos.
+- `LangLink` has `prefetch={false}` by default: each page's data carries its language's texts (~22 KB gz), so automatic prefetching of visible links cost 160-270 KB per page view.
 - Visualizer: mockup photos load on hover/touch/click of a product (never preload them all: ~36 MB). The home/exports globe (amCharts, ~300 KB) loads via `Exports/LazyGlobeChart.js` when scrolled into view.
 - Static HTML has no body content (`ssr: false`). Keep that in mind for SEO work.
 - `server/.dockerignore` excludes `src/common`, so the PDF upload folder doesn't exist in the image.
