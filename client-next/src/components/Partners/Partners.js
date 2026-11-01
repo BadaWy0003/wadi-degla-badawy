@@ -17,6 +17,7 @@ const wd_developments = '/Assets/Icons/partners/wd-developments.jpeg';
 const mountain_view = '/Assets/Icons/partners/mountain-view.png';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
+import LangLink from '../LangLink';
 
     // Array of partner logo image URLs
     export const partnerLogos = [
@@ -49,7 +50,7 @@ export default function Partners() {
         <div className='partners-container'>
             <h1>{t('partners.heroTitle')}</h1>
             <div className="breadcrumb">
-            <a href="/">{t('partners.breadcrumbHome')}</a>
+            <LangLink href="/">{t('partners.breadcrumbHome')}</LangLink>
             <p>{'>'} {t('partners.breadcrumbCurrent')}</p>
             </div>
 

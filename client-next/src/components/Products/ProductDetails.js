@@ -98,7 +98,7 @@ export default function ProductDetails() {
 
     <div className="product-details-page">
       <div className="breadcrumb">
-        <a href="/">{t('productDetails.breadcrumbHome')}</a>
+        <LangLink href="/">{t('productDetails.breadcrumbHome')}</LangLink>
         <p>{">"} {t('productDetails.breadcrumbExplore')}</p>
         <LangLink href="/products">{">"}  {t('productDetails.breadcrumbProducts')}</LangLink>
         <p>

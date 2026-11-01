@@ -5,6 +5,7 @@ import '../LoginSignup/Signup.css'
 import ContactForm from './ContactForm.js';
 import ContactInfo from './ContactInfo.js';
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 export default function Contact() {
   const { t } = useTranslation();
@@ -17,7 +18,7 @@ export default function Contact() {
         <div className="quarries-hero">
           <h1>{t('contact.heroHeading')}</h1>
           <div className="breadcrumb">
-            <a href="/">{t('contact.breadcrumbHome')}</a>
+            <LangLink href="/">{t('contact.breadcrumbHome')}</LangLink>
             <p>{'>'} {t('contact.breadcrumbContact')}</p>
           </div>
         </div>

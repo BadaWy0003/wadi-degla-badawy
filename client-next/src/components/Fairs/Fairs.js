@@ -3,6 +3,7 @@ import React from "react";
 import './Fairs.css';
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 export default function Fairs(){
     const { t } = useTranslation();
@@ -15,7 +16,7 @@ export default function Fairs(){
         <div className="quarries-hero" title={t('fairs.heroAlt')} aria-label={t('fairs.heroAlt')}>
                         <h1>{t('fairs.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">{t('fairs.breadcrumbHome')}</a>
+                        <LangLink href="/">{t('fairs.breadcrumbHome')}</LangLink>
                         <p>{'>'} {t('fairs.breadcrumbCurrent')}</p>
                         </div>
                 </div>  

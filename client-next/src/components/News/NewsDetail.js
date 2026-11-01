@@ -48,7 +48,7 @@ export default function NewsDetail() {
         >
           <h1 className="news-detail-hero-title">{article.title}</h1>
           <div className="breadcrumb">
-            <a href="/">{t("news.breadcrumbHome")}</a>
+            <LangLink href="/">{t("news.breadcrumbHome")}</LangLink>
             <p>{">"}</p>
             <LangLink href="/news">{t("news.breadcrumbCurrent")}</LangLink>
             <p>

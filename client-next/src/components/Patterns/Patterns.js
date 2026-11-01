@@ -39,6 +39,7 @@ const pattern3 = '/Assets/Media/Patterns/pattern3.webp'
 const pattern4 = '/Assets/Media/Patterns/pattern4.webp'
 
 import Section from "../Section/Section";
+import LangLink from '../LangLink';
 
 
 export default function Patterns(){
@@ -63,7 +64,7 @@ const patternImages=[
         <div className="quarries-hero">
                     <h1>{t('patterns.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">Home</a>
+                        <LangLink href="/">{t('patterns.breadcrumbHome')}</LangLink>
                     <p>{'>'} {t('patterns.breadcrumbCurrent')}</p>
                         </div>
                 </div>  

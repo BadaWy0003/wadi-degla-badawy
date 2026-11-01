@@ -7,6 +7,7 @@ import { architectureData, mosaicsData } from "./StoneCreationData";
 import ContactBubble from "../Contact/ContactBubble";
 import ImageSection from "../Section/ImageSection";
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 export default function StoneCreation(){
     const { t } = useTranslation();
@@ -18,7 +19,7 @@ export default function StoneCreation(){
         <div className="quarries-hero">
                         <h1>{t('stoneCreation.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">{t('stoneCreation.breadcrumbHome')}</a>
+                        <LangLink href="/">{t('stoneCreation.breadcrumbHome')}</LangLink>
                         <p>{'>'} {t('stoneCreation.breadcrumbCurrent')}</p>
                         </div>
                 </div>  

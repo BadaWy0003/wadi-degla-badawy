@@ -5,6 +5,7 @@ import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
 import NewsCard from "./NewsCard";
 import articles from "./newsList";
+import LangLink from '../LangLink';
 
 export default function News(){
     const { t } = useTranslation();
@@ -29,7 +30,7 @@ export default function News(){
             <div className="quarries-hero">
                 <h1>{t('news.heroTitle')}</h1>
                 <div className="breadcrumb">
-                    <a href="/">{t('news.breadcrumbHome')}</a>
+                    <LangLink href="/">{t('news.breadcrumbHome')}</LangLink>
                     <p>{'>'} {t('news.breadcrumbCurrent')}</p>
                 </div>
             </div>
