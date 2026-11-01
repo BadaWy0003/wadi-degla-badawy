@@ -2,7 +2,7 @@
 import React from 'react';
 import '../Home/Home.css';
 
-export default function ProductForVisualizer({ item, onClick }) {
+export default function ProductForVisualizer({ item, onClick, onWarm }) {
   // Prioritize "Honed", fallback to "Polished", and default to the first available finish
   const honedFinish = item.finishes?.find(finish => finish.finish === 'Honed');
   const polishedFinish = item.finishes?.find(finish => finish.finish === 'Polished');
@@ -15,7 +15,7 @@ export default function ProductForVisualizer({ item, onClick }) {
   
   
   return (
-    <div className="product-card" onClick={onClick}>
+    <div className="product-card" onClick={onClick} onMouseEnter={onWarm} onTouchStart={onWarm}>
       <div className='img-div'>
       <img loading="lazy" src={selectedFinish?.link} alt={`${item.name} - ${selectedFinish?.finish || 'Default'}`} />
       </div>

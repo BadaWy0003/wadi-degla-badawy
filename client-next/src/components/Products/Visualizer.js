@@ -31,18 +31,8 @@ export default function Visualizer() {
     .then(({ data }) => {
       const products = data.data || [];
   
-      // ✅ preload indoor & outdoor mockups
-      const mockupLinks = products.flatMap((item) =>
-        item.finishes
-          .filter(f => f.finish === "indoorMockup" || f.finish === "outdoorMockup")
-          .map(f => f.link)
-      );
-  
-      mockupLinks.forEach((url) => {
-        const img = new Image();
-        img.src = url;
-      });
-  
+      // Mockups are no longer preloaded all at once (that downloaded ~36 MB on open).
+      // Each one loads when its product is hovered/touched (preloadMockup) or clicked.
       setData(products);
       setLoading(false);
     });
@@ -95,6 +85,18 @@ export default function Visualizer() {
   const hasIndoorProducts = indoorProducts.length > 0;
   const hasOutdoorProducts = outdoorProducts.length > 0;
 
+// Start downloading one product's mockup ahead of the click (hover / touch).
+const preloadedMockups = useRef(new Set());
+const preloadMockup = (item, type) => {
+  const link = item.finishes?.find(
+    (f) => f.finish === (type === "indoor" ? "indoorMockup" : "outdoorMockup")
+  )?.link;
+  if (!link || preloadedMockups.current.has(link)) return;
+  preloadedMockups.current.add(link);
+  const img = new Image();
+  img.src = link;
+};
+
 const handleProductClick = (item, type) => {
   const mockupFinish = item.finishes.find(
     (f) => f.finish === (type === "indoor" ? "indoorMockup" : "outdoorMockup")
@@ -120,6 +122,7 @@ const handleProductClick = (item, type) => {
     setMockupLoading(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  img.onerror = () => setMockupLoading(false); // don't leave the spinner up forever
 };
   
   return (
@@ -255,6 +258,7 @@ const handleProductClick = (item, type) => {
                     key={item.id}
                     item={item}
                     onClick={() => handleProductClick(item, "indoor")}
+                    onWarm={() => preloadMockup(item, "indoor")}
                   />
                 ))}
               </div>
@@ -281,6 +285,7 @@ const handleProductClick = (item, type) => {
                     key={item.id}
                     item={item}
                     onClick={() => handleProductClick(item, "outdoor")}
+                    onWarm={() => preloadMockup(item, "outdoor")}
                   />
                 ))}
               </div>
