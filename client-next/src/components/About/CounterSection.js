@@ -55,7 +55,9 @@ export default function CounterSection() {
                 <div className="counter-card">
                   <img loading="lazy" src={item.img} alt={`${item.title.toLowerCase()}-icon`} />
                   <h3>{item.title}</h3>
-                  <CountUp start={0} end={item.count} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
+                  {/* No scrollSpy here: slides come into view by sliding, not scrolling,
+                      so scrollSpy never fired and these stayed at "0 +" on mobile. */}
+                  <CountUp start={0} end={item.count} duration={3} suffix=" +" className="counter-text" />
                 </div>
               </SwiperSlide>
             ))}
