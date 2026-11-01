@@ -95,6 +95,8 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - `nginx.conf`: the first `server` block (the non-www redirect) is the default for unknown hosts, so locally `http://localhost` redirects to the live site. For local tests, add `localhost` to the second block's `server_name` in a **copy** of the config.
 - `nginx.conf`: `add_header` in a `location` drops all server-level headers, so the security headers are repeated in every location that sets its own headers. Keep the copies in sync.
 - `/api/send-email`: rate limited to 5 per 15 minutes per IP (`Fly-Client-IP`), in memory per machine. It has a honeypot field `website`, and visitor HTML is reduced to `p/strong/ul/li/br` with no attributes.
+- Customer auth on the website is **token-only**: the JWT is stored in `localStorage.auth_token` (raw, no quotes) and sent as `Bearer` by `src/util/client.js`. The server's auth cookie is never sent cross-site. `GlobalStateContext` only calls `check-auth` when a token exists.
+- Internal links in components: use `LangLink` (never `<a href="/...">`). A bulk mechanical change across many files is done with a script, not the Edit tool, to avoid the format hook reformatting every file.
 - Merging a PR that touches several app folders redeploys **each** of those apps (including the admin app; `client/` no longer deploys automatically).
 - Admin dashboard: CRA treats lint warnings as errors when `CI=true` (GitHub sets it), so CI builds it with `CI=false`.
 
