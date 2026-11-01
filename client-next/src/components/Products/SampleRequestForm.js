@@ -42,6 +42,8 @@ export default function SampleRequestForm({ isOpen, onClose, productName, produc
         </ul>
       `,
         extraFields: '',
+        // Spam trap: hidden field that only bots fill in
+        website: e.target.elements.website?.value || '',
       }),
     })
       .then((res) => res.json())
@@ -76,6 +78,16 @@ export default function SampleRequestForm({ isOpen, onClose, productName, produc
         </button>
         <h2>{t('sampleRequestForm.title')}</h2>
         <form onSubmit={handleSubmit}>
+          {/* Spam trap: hidden from people, bots tend to fill it in */}
+          <input
+            type="text"
+            name="website"
+            className="sr-only"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            defaultValue=""
+          />
           <div className="form-group">
             <label>{t('sampleRequestForm.productName')}</label>
             <input type="text" value={productName} disabled />

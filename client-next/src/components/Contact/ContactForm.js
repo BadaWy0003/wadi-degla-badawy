@@ -107,6 +107,8 @@ export default function ContactForm() {
     payload.append('email', formData.email);
     payload.append('subject', `Contact Form Submission from ${formData.fname}`);
     payload.append('message', formData.message);
+    // Spam trap: hidden field that only bots fill in
+    payload.append('website', e.target.elements.website?.value || '');
     payload.append(
       'extraFields',
       `
@@ -171,6 +173,16 @@ export default function ContactForm() {
         <p>{t('contactForm.subtitle')}</p>
       </div>
       <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
+        {/* Spam trap: hidden from people, bots tend to fill it in */}
+        <input
+          type="text"
+          name="website"
+          className="sr-only"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          defaultValue=""
+        />
         <div className="double-inputs">
           <div className="input-field">
             <label htmlFor="fname">{t('contactForm.fullName')}</label>
