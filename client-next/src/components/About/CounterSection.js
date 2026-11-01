@@ -55,9 +55,10 @@ export default function CounterSection() {
                 <div className="counter-card">
                   <img loading="lazy" src={item.img} alt={`${item.title.toLowerCase()}-icon`} />
                   <h3>{item.title}</h3>
-                  {/* No scrollSpy here: slides come into view by sliding, not scrolling,
-                      so scrollSpy never fired and these stayed at "0 +" on mobile. */}
-                  <CountUp start={0} end={item.count} duration={3} suffix=" +" className="counter-text" />
+                  {/* Static number on the mobile slider: the looping slider re-creates its
+                      slides, which restarted (or never started) the CountUp animation, so
+                      the live site showed "0 +". Same format as CountUp ("3,000 +"). */}
+                  <span className="counter-text">{item.count.toLocaleString('en-US')} +</span>
                 </div>
               </SwiperSlide>
             ))}
