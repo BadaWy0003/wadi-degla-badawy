@@ -105,13 +105,25 @@ export const productSlug = (name) =>
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '');
 
-export async function getProductSlugs() {
+// All products (no gallery items) from the live API, or null if it can't be reached.
+// Next.js caches this fetch during the build, so ~1,100 pages share one request.
+export async function getProducts() {
   try {
     const res = await fetch(PRODUCTS_API_URL);
     const json = await res.json();
-    const products = (json?.data || []).filter((p) => p.type !== 'Gallery');
-    return products.map((p) => productSlug(p.name));
+    return (json?.data || []).filter((p) => p.type !== 'Gallery');
   } catch {
-    return FALLBACK_PRODUCT_SLUGS;
+    return null;
   }
+}
+
+export async function getProductSlugs() {
+  const products = await getProducts();
+  return products ? products.map((p) => productSlug(p.name)) : FALLBACK_PRODUCT_SLUGS;
+}
+
+// The product for a URL slug (first match, like the product page), or null.
+export async function getProductBySlug(slug) {
+  const products = await getProducts();
+  return products?.find((p) => productSlug(p.name) === slug) || null;
 }
