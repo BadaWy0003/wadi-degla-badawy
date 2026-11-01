@@ -1,6 +1,5 @@
-import dynamic from 'next/dynamic';
 import { t, buildAlternates } from '../../../src/components/../util/meta';
-const Patterns = dynamic(() => import('../../../src/components/Patterns/Patterns'), { ssr: false });
+import Patterns from '../../../src/components/Patterns/Patterns';
 
 export function generateMetadata({ params }) {
   const { lang } = params;

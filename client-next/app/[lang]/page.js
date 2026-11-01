@@ -1,7 +1,6 @@
-import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import { t, buildAlternates } from '../../src/util/meta';
-const Home = dynamic(() => import('../../src/components/Home/Home'), { ssr: false });
+import Home from '../../src/components/Home/Home';
 
 const faqSchema = {
   '@context': 'https://schema.org',

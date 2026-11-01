@@ -1,6 +1,5 @@
-import dynamic from 'next/dynamic';
 import { t, buildAlternates } from '../../../src/components/../util/meta';
-const Cobble = dynamic(() => import('../../../src/components/Cobble/Cobble'), { ssr: false });
+import Cobble from '../../../src/components/Cobble/Cobble';
 
 export function generateMetadata({ params }) {
   const { lang } = params;

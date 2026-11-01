@@ -24,7 +24,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - There is **no** `app/layout.js`. `app/[lang]/layout.js` is the root layout for all language pages and renders `<html lang dir>` + `<body lang>` per language at build time. `app/(root)/` holds the `/` redirect page with its own small root layout.
 - `src/components/RootHtml.js`: the shared `<html>`/head for both root layouts (metadata `rootMetadata`, Organization/WebSite JSON-LD, GA4, Font Awesome). Edit site-wide head content there.
 - `app/sitemap.js`: generates `/sitemap.xml` at build time (all public pages × 12 languages with hreflang, products from the live API via `src/util/product-slugs.js`, projects, news). **Add new public pages to its `STATIC_PAGES` list.**
-- `app/[lang]/<page>/page.js`: thin wrappers that export `generateMetadata` (via `t()` / `buildAlternates()` from `src/util/meta.js`). They render the component with `dynamic(..., { ssr: false })`.
+- `app/[lang]/<page>/page.js`: thin wrappers that export `generateMetadata` (via `t()` / `buildAlternates()` from `src/util/meta.js`) and render the page component. Home and the content pages render at build time (their text is in the static HTML for Google). Still client-only (`dynamic(..., { ssr: false })`): login, signup, my-account (private) and products, product details, gallery, visualizer (their data comes from the API at runtime).
 - `src/components/<Section>/<Section>.js` + `<Section>.css`: the page UI (client components).
 - `src/util/supported-langs.js`: the language list.
 - `src/util/client.js`: axios instance using `NEXT_PUBLIC_BASE_API_URL`.
@@ -91,7 +91,8 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - Site photos: WebP quality 75, max 1600 px (banners in `Hero/` max 2000 px). Use `tools/optimize-images.js` (same settings) for new photos.
 - `LangLink` has `prefetch={false}` by default: each page's data carries its language's texts (~22 KB gz), so automatic prefetching of visible links cost 160-270 KB per page view.
 - Visualizer: mockup photos load on hover/touch/click of a product (never preload them all: ~36 MB). The home/exports globe (amCharts, ~300 KB) loads via `Exports/LazyGlobeChart.js` when scrolled into view.
-- Static HTML has no body content (`ssr: false`). Keep that in mind for SEO work.
+- Components that render at build time must not touch `window`/`document`/`localStorage` during render (only in effects or event handlers), or the build fails / hydration breaks.
+- Mobile counter slider (`About/CounterSection.js`) shows static numbers: CountUp inside the looping Swiper restarts or never starts (it showed "0 +").
 - `server/.dockerignore` excludes `src/common`, so the PDF upload folder doesn't exist in the image.
 - The Fly API token in cloud sessions is **read-only**: it can't deploy or change anything.
 - In cloud sessions the Docker daemon isn't started by default (`dockerd &`), and Docker builds can't reach Debian mirrors through the proxy, so the server image can't be built there.
@@ -107,7 +108,6 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 
 ## To do (agreed, not started)
 - Serve the admin panel on `admin.wadidegla-eg.com` (DNS + Fly certificate; the domain is already in the server's CORS list).
-- Back up Firebase Storage (product/gallery photos).
 - Rotate the server's Firebase service-account key (created by the previous developer).
 - Staging environment (separate Fly apps + separate Firebase project) before larger admin/server changes.
 
@@ -117,5 +117,6 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - PR descriptions must **not** include the "Generated with Claude Code" line.
 - Staging (separate Fly apps + a separate free Firebase project) will be set up when the admin-dashboard revival starts.
 - 2026-11-01: Firestore backups enabled by the owner (daily kept 7 days, weekly kept 98 days). The owner now has Firebase and Zoho access. Not covered yet: Storage (photo) backups; the Firebase service-account key created by the previous developer was not rotated (owner chose to skip for now).
+- 2026-11-01: owner chose no Firebase Storage (photo) backups and asked to avoid any extra cost; soft delete was turned on then off. Firestore backup status is the owner's call (they may disable it too).
 - Formatting: format-on-edit only (no repo-wide reformat). When the hook reformats a whole file, commit the pure formatting separately first.
 - 2026-11-01: security hardening of the email endpoint, PDF export (admin only) and nginx headers/HSTS.

@@ -1,6 +1,5 @@
-import dynamic from 'next/dynamic';
 import { t, buildAlternates } from '../../../src/components/../util/meta';
-const Fairs = dynamic(() => import('../../../src/components/Fairs/Fairs'), { ssr: false });
+import Fairs from '../../../src/components/Fairs/Fairs';
 
 export function generateMetadata({ params }) {
   const { lang } = params;

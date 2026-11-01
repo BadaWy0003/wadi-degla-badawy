@@ -1,10 +1,7 @@
-import dynamic from 'next/dynamic';
 import { t, buildAlternates } from '../../../../src/util/meta';
 import { SUPPORTED_LANGS } from '../../../../src/util/supported-langs';
 import projects from '../../../../src/components/Projects/projectList';
-const ProjectDetails = dynamic(() => import('../../../../src/components/Projects/ProjectDetails'), {
-  ssr: false,
-});
+import ProjectDetails from '../../../../src/components/Projects/ProjectDetails';
 
 export function generateStaticParams() {
   return SUPPORTED_LANGS.flatMap((lang) =>
