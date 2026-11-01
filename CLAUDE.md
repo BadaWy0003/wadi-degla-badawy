@@ -59,6 +59,9 @@ docker run -p 8080:80 wd-site
 
 ## Deployment (Fly.io via GitHub Actions)
 - `.github/workflows/deploy-*.yml` run `flyctl deploy --remote-only` on push to `main` when files in that app's folder change. Secret: `FLY_API_TOKEN`.
+- Each deploy first runs `.github/workflows/checks.yml` for its app and only deploys if that passes. The same checks run on **every pull request**: client-next `npm run build` (includes ESLint), server `node --check` on every file, admin CRA build with `CI=false`. Deploys are queued, never cancelled halfway.
+- `deploy-client.yml` (old site) is manual-only (`workflow_dispatch`).
+- Third-party actions are pinned to a commit SHA (`superfly/flyctl-actions/setup-flyctl@ed8efb3…  # 1.6`).
 - **Merging to main = going live.** Never push to `main` directly. Use a branch + PR, and merge only after the owner says "merge".
 - Before a deploy, note the current release: `fly releases -a <app>`.
 - After a deploy: `fly status -a <app>`, `fly logs -a <app> --no-tail`, then check the affected pages in EN + AR.
@@ -92,7 +95,8 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - `nginx.conf`: the first `server` block (the non-www redirect) is the default for unknown hosts, so locally `http://localhost` redirects to the live site. For local tests, add `localhost` to the second block's `server_name` in a **copy** of the config.
 - `nginx.conf`: `add_header` in a `location` drops all server-level headers, so the security headers are repeated in every location that sets its own headers. Keep the copies in sync.
 - `/api/send-email`: rate limited to 5 per 15 minutes per IP (`Fly-Client-IP`), in memory per machine. It has a honeypot field `website`, and visitor HTML is reduced to `p/strong/ul/li/br` with no attributes.
-- Merging a PR that touches several app folders redeploys **each** of those apps (including the suspended `client/` and admin apps).
+- Merging a PR that touches several app folders redeploys **each** of those apps (including the admin app; `client/` no longer deploys automatically).
+- Admin dashboard: CRA treats lint warnings as errors when `CI=true` (GitHub sets it), so CI builds it with `CI=false`.
 
 ## To do (agreed, not started)
 - Serve the admin panel on `admin.wadidegla-eg.com` (DNS + Fly certificate; the domain is already in the server's CORS list).
