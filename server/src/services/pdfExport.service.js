@@ -10,8 +10,18 @@ const firestore = new Firestore();
 
 const PdfExportService = {};
 
+// Only these templates exist in src/templates; never build a path from raw input.
+const ALLOWED_TEMPLATES = ['invoice', 'packing-list', 'pricing-list'];
+
 // Compile Handlebars template
-async function compileTemplate(templateName, data) {
+async function compileTemplate(documentType, data) {
+  // The admin panel sends e.g. 'INVOICE'; template files are lower-case ('invoice.hbs').
+  const templateName = String(documentType || '')
+    .trim()
+    .toLowerCase();
+  if (!ALLOWED_TEMPLATES.includes(templateName)) {
+    throw new Error(`Unknown document type: ${documentType}`);
+  }
   const templatePath = path.join(__dirname, '../templates', `${templateName}.hbs`);
   const templateContent = await fs.promises.readFile(templatePath, 'utf-8');
   return hbs.compile(templateContent)(data);
@@ -19,16 +29,18 @@ async function compileTemplate(templateName, data) {
 
 // Generate PDF buffer
 PdfExportService.generatePdfBuffer = async (data) => {
-  const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], headless: true });
-  const page = await browser.newPage();
-
+  // Compile first so an invalid document type never starts a browser.
   const htmlContent = await compileTemplate(data.documentType, data);
-  await page.setContent(htmlContent, { timeout: 60000 });
 
-  const pdfBuffer = await page.pdf({ format: 'A4', printBackground: true });
-  await browser.close();
-
-  return pdfBuffer;
+  const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], headless: true });
+  try {
+    const page = await browser.newPage();
+    await page.setContent(htmlContent, { timeout: 60000 });
+    return await page.pdf({ format: 'A4', printBackground: true });
+  } finally {
+    // Always close Chromium, even on errors, so memory isn't leaked.
+    await browser.close();
+  }
 };
 
 // Generate PDF and save to local file system
@@ -50,7 +62,6 @@ PdfExportService.fetchAllInvoices = async () => {
 
   // Map through the query snapshot and extract invoice data
   const invoices = querySnapshot.docs.map((doc) => {
-
     const data = doc.data();
 
     return {
@@ -86,7 +97,6 @@ PdfExportService.fetchAllInvoices = async () => {
     };
   });
 
-
   return invoices;
 };
 
@@ -106,7 +116,6 @@ PdfExportService.fetchInvoicesByType = async (type) => {
 
   return invoices;
 };
-
 
 PdfExportService.deleteInvoice = async (invoiceId) => {
   const materialsRef = firestore.collection('documents');
