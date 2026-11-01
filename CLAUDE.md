@@ -24,7 +24,8 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - There is **no** `app/layout.js`. `app/[lang]/layout.js` is the root layout for all language pages and renders `<html lang dir>` + `<body lang>` per language at build time. `app/(root)/` holds the `/` redirect page with its own small root layout.
 - `src/components/RootHtml.js`: the shared `<html>`/head for both root layouts (metadata `rootMetadata`, Organization/WebSite JSON-LD, GA4, Font Awesome). Edit site-wide head content there.
 - `app/sitemap.js`: generates `/sitemap.xml` at build time (all public pages × 12 languages with hreflang, products from the live API via `src/util/product-slugs.js`, projects, news). **Add new public pages to its `STATIC_PAGES` list.**
-- `app/[lang]/<page>/page.js`: thin wrappers that export `generateMetadata` (via `t()` / `buildAlternates()` from `src/util/meta.js`) and render the page component. Home and the content pages render at build time (their text is in the static HTML for Google). Still client-only (`dynamic(..., { ssr: false })`): login, signup, my-account (private) and products, product details, gallery, visualizer (their data comes from the API at runtime).
+- `app/[lang]/<page>/page.js`: thin wrappers that export `generateMetadata` (via `t()` / `buildAlternates()` from `src/util/meta.js`) and render the page component. Home and the content pages render at build time (their text is in the static HTML for Google). Product detail pages also render at build time: `app/[lang]/products/[productName]/page.js` fetches the product (`getProductBySlug` in `src/util/product-slugs.js`) and passes it to `ProductDetails` as `initialProduct`; the component refreshes it from the API in the browser. Still client-only (`dynamic(..., { ssr: false })`): login, signup, my-account (private) and the products list, gallery, visualizer (data from the API at runtime).
+- `src/util/product-types.js`: Firestore product categories -> translation keys (shown translated on product pages and in their meta description).
 - `src/components/<Section>/<Section>.js` + `<Section>.css`: the page UI (client components).
 - `src/util/supported-langs.js`: the language list.
 - `src/util/client.js`: axios instance using `NEXT_PUBLIC_BASE_API_URL`.
@@ -86,7 +87,8 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 
 ## Gotchas
 - `client/` duplicates most of client-next. Edit **client-next only**.
-- Product pages are generated at build time from the live API (fallback: `FALLBACK_PRODUCT_SLUGS`). A product added in the admin panel only gets its own page after the next client-next deploy.
+- Product pages are generated at build time from the live API (fallback: `FALLBACK_PRODUCT_SLUGS`). If the API can't be reached, the build prints `[product-slugs] Products API unreachable…` and product pages are built **without content**: check for that line in the build log.
+- In cloud sessions Node's `fetch` ignores the HTTPS proxy, so local builds can't reach the API (silent fallback). Build with `NODE_USE_ENV_PROXY=1` there. GitHub Actions and Fly builders have direct access. A product added in the admin panel only gets its own page after the next client-next deploy.
 - nginx caching: `/_next/static/` (hashed build files) 1 year `immutable`; other static files (photos under `/Assets`, icons, fonts) 30 days + ETag revalidation, so a replaced photo reaches everyone within 30 days (use a new filename if it must change immediately). HTML, `sitemap.xml`, `robots.txt`: no-cache.
 - Site photos: WebP quality 75, max 1600 px (banners in `Hero/` max 2000 px). Use `tools/optimize-images.js` (same settings) for new photos.
 - `LangLink` has `prefetch={false}` by default: each page's data carries its language's texts (~22 KB gz), so automatic prefetching of visible links cost 160-270 KB per page view.
