@@ -3,7 +3,9 @@
  * optimize-images.js
  *
  * Batch-converts and compresses images to WebP, mirroring the same settings
- * used in the admin dashboard's AddImageModal (maxWidthOrHeight: 1600, quality: 82%).
+ * used for the website's photos in public/Assets/Media (maxWidthOrHeight: 1600, quality: 75%;
+ * banners in Hero/ were done at 2000px). The admin dashboard's AddImageModal still uses quality 82%
+ * for product/gallery uploads to Firebase.
  *
  * Usage:
  *   node optimize-images.js <input-folder> [output-folder]
@@ -25,10 +27,10 @@ const sharp = require("sharp");
 const fs = require("fs");
 const path = require("path");
 
-// ─── Config (matches AddImageModal.js) ──────────────────────────────────────
+// ─── Config (website photos; see header) ────────────────────────────────────
 const CONFIG = {
   maxWidthOrHeight: 1600,
-  quality: 82,           // 0–100
+  quality: 75,           // 0–100 (approved after a visual before/after check, Nov 2026)
   outputFormat: "webp",
 };
 
