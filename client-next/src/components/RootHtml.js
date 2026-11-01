@@ -1,8 +1,6 @@
-import '../src/index.css';
-import '../src/App.css';
 import Script from 'next/script';
 
-export const metadata = {
+export const rootMetadata = {
   metadataBase: new URL('https://www.wadidegla-eg.com'),
   title: {
     default: 'Wadi Degla Co.',
@@ -93,9 +91,12 @@ const organizationSchema = {
   ],
 };
 
-export default function RootLayout({ children }) {
+// The <html> element for every page. Rendered by the root layouts with the page's language,
+// so the static HTML already says e.g. lang="ar" dir="rtl" (before any JavaScript runs).
+export default function RootHtml({ lang = 'en', children }) {
+  const dir = lang === 'ar' ? 'rtl' : 'ltr';
   return (
-    <html lang="en">
+    <html lang={lang} dir={dir}>
       <head>
         <link
           rel="stylesheet"
@@ -110,7 +111,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body>
+      <body lang={lang}>
         {children}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-R2Y9CCM4YC" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">{`
