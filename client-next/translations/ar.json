@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "الرخام المستورد",
   "visualizer.egyptianMarbleDisplay": "الرخام المصري",
   "visualizer.importedGraniteDisplay": "الجرانيت المستورد",
-  "visualizer.egyptianGraniteDisplay": "الجرانيت المصري"
+  "visualizer.egyptianGraniteDisplay": "الجرانيت المصري",
+  "finishes": {
+    "polished": "مصقول",
+    "honed": "مطفي",
+    "antique": "أنتيك",
+    "brushed": "مفرّش",
+    "flamed": "محروق",
+    "bushHammered": "مطرّق",
+    "leather": "جلدي",
+    "rough": "خشن",
+    "sandblasted": "ساند بلاست",
+    "splitFace": "مشقوق"
+  }
 }

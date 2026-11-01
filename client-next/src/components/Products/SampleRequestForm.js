@@ -5,7 +5,15 @@ import './Products.css';
 import { useGlobalState } from '../GlobalStateContext.js';
 import { useTranslation } from 'react-i18next';
 
-export default function SampleRequestForm({ isOpen, onClose, productName, productFinish }) {
+// productFinish (English) goes into the email to the company; productFinishLabel is the
+// visitor's translated label shown in the form.
+export default function SampleRequestForm({
+  isOpen,
+  onClose,
+  productName,
+  productFinish,
+  productFinishLabel,
+}) {
   const { globalState, loading } = useGlobalState(); // Access global state for user data and loading status
   const { t } = useTranslation();
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -94,7 +102,7 @@ export default function SampleRequestForm({ isOpen, onClose, productName, produc
           </div>
           <div className="form-group">
             <label>{t('sampleRequestForm.productFinish')}</label>
-            <input type="text" value={productFinish} disabled />
+            <input type="text" value={productFinishLabel || productFinish} disabled />
           </div>
           <div className="form-group">
             <label>{t('sampleRequestForm.yourName')}</label>

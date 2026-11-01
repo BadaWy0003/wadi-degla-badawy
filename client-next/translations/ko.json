@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "수입 대리석",
   "visualizer.egyptianMarbleDisplay": "이집트 대리석",
   "visualizer.importedGraniteDisplay": "수입 화강암",
-  "visualizer.egyptianGraniteDisplay": "이집트 화강암"
+  "visualizer.egyptianGraniteDisplay": "이집트 화강암",
+  "finishes": {
+    "polished": "폴리싱",
+    "honed": "혼드",
+    "antique": "앤티크",
+    "brushed": "브러시드",
+    "flamed": "버너 마감",
+    "bushHammered": "잔다듬",
+    "leather": "레더",
+    "rough": "러프",
+    "sandblasted": "샌드블라스트",
+    "splitFace": "할석"
+  }
 }

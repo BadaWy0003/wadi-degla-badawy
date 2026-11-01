@@ -18,6 +18,7 @@ import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 import { useParams } from 'next/navigation';
 import { PRODUCT_TYPE_KEYS } from "../../util/product-types";
+import { finishLabel } from "../../util/finishes";
 
 // Default finish: "Polished" if available, else the first one.
 const defaultFinish = (product) =>
@@ -164,7 +165,7 @@ export default function ProductDetails({ initialProduct = null }) {
                   )
                   .map((finish) => (
                     <option key={finish.finish} value={finish.finish}>
-                      {finish.finish}
+                      {finishLabel(t, finish.finish)}
                     </option>
                   ))}
               </select>
@@ -200,6 +201,7 @@ export default function ProductDetails({ initialProduct = null }) {
         onClose={() => setIsFormOpen(false)}
         productName={product.name}
         productFinish={selectedFinish?.finish}
+        productFinishLabel={finishLabel(t, selectedFinish?.finish)}
       />
 
         </div>

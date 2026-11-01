@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "Importierter Marmor",
   "visualizer.egyptianMarbleDisplay": "Ägyptischer Marmor",
   "visualizer.importedGraniteDisplay": "Importierter Granit",
-  "visualizer.egyptianGraniteDisplay": "Ägyptischer Granit"
+  "visualizer.egyptianGraniteDisplay": "Ägyptischer Granit",
+  "finishes": {
+    "polished": "Poliert",
+    "honed": "Geschliffen",
+    "antique": "Antik",
+    "brushed": "Gebürstet",
+    "flamed": "Geflammt",
+    "bushHammered": "Gestockt",
+    "leather": "Lederoptik",
+    "rough": "Roh",
+    "sandblasted": "Sandgestrahlt",
+    "splitFace": "Spaltrau"
+  }
 }

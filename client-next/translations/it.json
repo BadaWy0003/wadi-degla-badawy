@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "Marmo Importato",
   "visualizer.egyptianMarbleDisplay": "Marmo Egiziano",
   "visualizer.importedGraniteDisplay": "Granito Importato",
-  "visualizer.egyptianGraniteDisplay": "Granito Egiziano"
+  "visualizer.egyptianGraniteDisplay": "Granito Egiziano",
+  "finishes": {
+    "polished": "Lucidato",
+    "honed": "Levigato",
+    "antique": "Anticato",
+    "brushed": "Spazzolato",
+    "flamed": "Fiammato",
+    "bushHammered": "Bocciardato",
+    "leather": "Effetto pelle",
+    "rough": "Grezzo",
+    "sandblasted": "Sabbiato",
+    "splitFace": "Spaccato"
+  }
 }

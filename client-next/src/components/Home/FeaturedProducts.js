@@ -5,6 +5,7 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import "./FeaturedProducts.css"
 import { useTranslation } from 'react-i18next';
+import { finishLabel } from '../../util/finishes';
 import apiClient from "../../util/client.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -124,7 +125,7 @@ export default function FeaturedProducts() {
                 return selectedFinish ? (
                   <img loading="lazy" 
                     src={selectedFinish.link} 
-                    alt={`${item.name} - ${selectedFinish.finish}`} 
+                    alt={`${item.name} - ${finishLabel(t, selectedFinish.finish)}`} 
                   />
                 ) : null;
               })()}

@@ -2,8 +2,11 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
+import { useTranslation } from 'react-i18next';
+import { finishLabel } from '../../util/finishes';
 
 export default function Product({ item }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const lang = useLang();
   // Find the "Honed" finish or fallback to "Polished"
@@ -29,7 +32,7 @@ onClick={() => {
 }}
     >
       <div className='img-div-2'>
-      <img loading="lazy" src={selectedFinish.link} alt={`${item.name} - ${selectedFinish.finish}`} />
+      <img loading="lazy" src={selectedFinish.link} alt={`${item.name} - ${finishLabel(t, selectedFinish.finish)}`} />
       </div>
       <h3>{item.name}</h3>
     </div>
