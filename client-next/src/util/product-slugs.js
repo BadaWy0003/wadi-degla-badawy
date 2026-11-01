@@ -105,13 +105,36 @@ export const productSlug = (name) =>
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '');
 
-export async function getProductSlugs() {
+let warnedApiDown = false;
+
+// All products (no gallery items) from the live API, or null if it can't be reached.
+// Next.js caches this fetch during the build, so ~1,100 pages share one request.
+export async function getProducts() {
   try {
     const res = await fetch(PRODUCTS_API_URL);
     const json = await res.json();
-    const products = (json?.data || []).filter((p) => p.type !== 'Gallery');
-    return products.map((p) => productSlug(p.name));
-  } catch {
-    return FALLBACK_PRODUCT_SLUGS;
+    return (json?.data || []).filter((p) => p.type !== 'Gallery');
+  } catch (e) {
+    // Never fail silently: without the API, product pages fall back to the slug list
+    // below and are built WITHOUT their content. Printed once per build process.
+    if (!warnedApiDown) {
+      warnedApiDown = true;
+      console.warn(
+        `[product-slugs] Products API unreachable at build time (${e?.cause?.code || e?.message}); ` +
+          'using FALLBACK_PRODUCT_SLUGS, product pages will have no content in their HTML.',
+      );
+    }
+    return null;
   }
+}
+
+export async function getProductSlugs() {
+  const products = await getProducts();
+  return products ? products.map((p) => productSlug(p.name)) : FALLBACK_PRODUCT_SLUGS;
+}
+
+// The product for a URL slug (first match, like the product page), or null.
+export async function getProductBySlug(slug) {
+  const products = await getProducts();
+  return products?.find((p) => productSlug(p.name) === slug) || null;
 }

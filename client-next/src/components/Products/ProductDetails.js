@@ -17,16 +17,23 @@ import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 import { useParams } from 'next/navigation';
+import { PRODUCT_TYPE_KEYS } from "../../util/product-types";
+
+// Default finish: "Polished" if available, else the first one.
+const defaultFinish = (product) =>
+  product?.finishes?.find((f) => f.finish === "Polished") || product?.finishes?.[0] || null;
 
 
-export default function ProductDetails() {
+// initialProduct comes from the server at build time (so the page HTML has the product for
+// Google); it is refreshed from the API below so admin-panel changes still show up.
+export default function ProductDetails({ initialProduct = null }) {
   const { t } = useTranslation();
   const { productName } = useParams();
   const router = useRouter();
   const lang = useLang();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedFinish, setSelectedFinish] = useState(null);
+  const [product, setProduct] = useState(initialProduct);
+  const [loading, setLoading] = useState(!initialProduct);
+  const [selectedFinish, setSelectedFinish] = useState(() => defaultFinish(initialProduct));
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   useEffect(() => {
@@ -43,6 +50,13 @@ export default function ProductDetails() {
           });
           if (foundProduct) {
             setProduct(foundProduct);
+            if (initialProduct) {
+              // Keep the finish already shown, if it still exists in the fresh data.
+              setSelectedFinish((current) =>
+                foundProduct.finishes.find((f) => f.finish === current?.finish) || defaultFinish(foundProduct)
+              );
+              return;
+            }
             // Set default finish to "Polished" or the first finish if "Polished" doesn't exist
             const polishedFinish = foundProduct.finishes.find(
               (f) => f.finish === "Polished"
@@ -60,6 +74,8 @@ export default function ProductDetails() {
         }
       } catch (error) {
         console.error("Error:", error);
+        // If the API is unreachable but we already have the product from the build, keep showing it.
+        if (initialProduct && error.message !== "Product not found") return;
         router.push(`/${lang}/products`);
       } finally {
         setLoading(false);
@@ -71,7 +87,7 @@ export default function ProductDetails() {
     } else {
       router.push(`/${lang}/products`);
     }
-  }, [productName, router, lang]);
+  }, [productName, router, lang, initialProduct]);
 
   const applicationIcons = [
     { src: block, name: "Block" },
@@ -121,7 +137,7 @@ export default function ProductDetails() {
           <div className="info-grid">
             <div className="info-label">{t('productDetails.category')}</div>
             <div className="info-value" style={{ color: "var(--blueColor)" }}>
-              {product.type}
+              {PRODUCT_TYPE_KEYS[product.type] ? t(PRODUCT_TYPE_KEYS[product.type]) : product.type}
             </div>
 
             <div className="info-label">{t('productDetails.finish')}</div>
