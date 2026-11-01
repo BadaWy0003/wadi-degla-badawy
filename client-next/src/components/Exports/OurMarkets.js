@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import './Exports.css';
 import { useTranslation } from 'react-i18next';
 
-import GlobeChart from "./GlobeChart"; // Import the GlobeChart component
+import GlobeChart from "./LazyGlobeChart"; // amCharts globe, loaded when scrolled into view
 
 
 
