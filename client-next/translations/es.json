@@ -365,7 +365,20 @@
       "galleryAlt18": "Contenedor abierto posicionado para carga de bloques",
       "galleryAlt19": "Bloques de mármol pesados alineados para envío de exportación",
       "galleryAlt20": "Baldosas de piedra apiladas en cajas de madera al aire libre",
-      "galleryAlt21": "Línea de empaque de mármol dentro de la zona de exportación de la fábrica"
+      "galleryAlt21": "Línea de empaque de mármol dentro de la zona de exportación de la fábrica",
+      "galleryAlt22": "Contenedores abiertos cargados con cajas de baldosas de mármol en la fábrica",
+      "galleryAlt23": "Fila de contenedores abiertos cargados con cajas de madera de baldosas de piedra",
+      "galleryAlt24": "Carga de piedra natural embalada en cajas en la zona de carga",
+      "galleryAlt25": "Mármol en cajas embalado dentro de un contenedor abierto",
+      "galleryAlt26": "Cajas de madera de baldosas de piedra apiladas en contenedores abiertos",
+      "galleryAlt27": "Operario envolviendo con film una caja de baldosas de mármol para exportación",
+      "galleryAlt28": "Cajas de piedra caliza embaladas en el patio de la fábrica",
+      "galleryAlt29": "Filas de cajas de exportación alineadas en el patio de piedra",
+      "galleryAlt30": "Cajas de exportación de Wadi Degla listas junto a los contenedores",
+      "galleryAlt31": "Caja etiquetada de baldosas de piedra natural lista para el envío",
+      "galleryAlt32": "Cajas de baldosas de mármol envueltas y flejadas en el patio de exportación",
+      "galleryAlt33": "Cajas de Wadi Degla con etiquetas de exportación en el patio de la fábrica",
+      "galleryAlt34": "Operario de Wadi Degla revisando cajas de exportación en el patio"
     }
   },
   "contactInfo": {
@@ -431,7 +444,20 @@
     "packingAlt15": "Grúa aérea cargando losas en contenedor de exportación",
     "packingAlt16": "Paquete de mármol de madera con losas envueltas en plástico",
     "packingAlt17": "Caja de madera pesada asegurando losas de mármol gruesas",
-    "packingAlt18": "Envío de mármol para exportación preparado en el patio de carga de Wadi Degla"
+    "packingAlt18": "Envío de mármol para exportación preparado en el patio de carga de Wadi Degla",
+    "packingAlt19": "Contenedores abiertos cargados con cajas de baldosas de mármol en la fábrica",
+    "packingAlt20": "Fila de contenedores abiertos cargados con cajas de madera de baldosas de piedra",
+    "packingAlt21": "Carga de piedra natural embalada en cajas en la zona de carga",
+    "packingAlt22": "Mármol en cajas embalado dentro de un contenedor abierto",
+    "packingAlt23": "Cajas de madera de baldosas de piedra apiladas en contenedores abiertos",
+    "packingAlt24": "Operario envolviendo con film una caja de baldosas de mármol para exportación",
+    "packingAlt25": "Cajas de piedra caliza embaladas en el patio de la fábrica",
+    "packingAlt26": "Filas de cajas de exportación alineadas en el patio de piedra",
+    "packingAlt27": "Cajas de exportación de Wadi Degla listas junto a los contenedores",
+    "packingAlt28": "Caja etiquetada de baldosas de piedra natural lista para el envío",
+    "packingAlt29": "Cajas de baldosas de mármol envueltas y flejadas en el patio de exportación",
+    "packingAlt30": "Cajas de Wadi Degla con etiquetas de exportación en el patio de la fábrica",
+    "packingAlt31": "Operario de Wadi Degla revisando cajas de exportación en el patio"
   },
   "history": {
     "pageTitle": "Historia de Wadi Degla — Tres Generaciones de Excelencia en Mármol Egipcio",
@@ -674,7 +700,9 @@
     "productFinish": "Acabado del producto",
     "yourName": "Tu nombre*",
     "yourEmail": "Tu correo electrónico*",
-    "submit": "Enviar solicitud"
+    "submit": "Enviar solicitud",
+    "errorGeneric": "No se pudo enviar la solicitud. Inténtalo de nuevo.",
+    "errorNetwork": "Error de conexión. Inténtalo más tarde."
   },
   "visualizer": {
     "heroTitle": "Visualizador de Mármol y Granito",
@@ -823,7 +851,8 @@
   },
   "common": {
     "search": "Buscar...",
-    "product": "Producto"
+    "product": "Producto",
+    "imageHint": "Haz clic en la imagen para verla a tamaño completo y desliza para navegar"
   },
   "projects": {
     "pageTitle": "Nuestros Proyectos | Wadi Degla",

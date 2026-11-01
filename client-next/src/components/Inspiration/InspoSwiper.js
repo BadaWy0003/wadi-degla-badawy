@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom"; // Import Zoom plugin
@@ -16,6 +17,7 @@ import './Inspiration.css';
 import { EffectCoverflow, Navigation, Autoplay } from 'swiper/modules';
 
 export default function InspoSwiper({ images }) {
+  const { t } = useTranslation();
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -61,7 +63,7 @@ export default function InspoSwiper({ images }) {
               <img loading="lazy" src={image} alt={`Slide ${index}`} />
               {hoveredIndex === index && (
                 <div className="image-overlay">
-                  <p>Click on the image to view it in full size and swipe to navigate</p>
+                  <p>{t('common.imageHint')}</p>
                 </div>
               )}
             </div>

@@ -365,7 +365,20 @@
       "galleryAlt18": "Open container positioned for block loading",
       "galleryAlt19": "Heavy marble blocks aligned for export shipment",
       "galleryAlt20": "Stone tiles stacked in wooden crates outdoors",
-      "galleryAlt21": "Marble packaging line inside factory export zone"
+      "galleryAlt21": "Marble packaging line inside factory export zone",
+      "galleryAlt22": "Open containers loaded with crated marble tiles in the factory",
+      "galleryAlt23": "Row of open containers loaded with wooden crates of stone tiles",
+      "galleryAlt24": "Containers being loaded with crated natural stone in the loading bay",
+      "galleryAlt25": "Crated marble packed inside an open shipping container",
+      "galleryAlt26": "Stacked wooden crates of stone tiles inside open containers",
+      "galleryAlt27": "Worker shrink-wrapping a crate of marble tiles for export",
+      "galleryAlt28": "Packed crates of limestone in the open-air factory yard",
+      "galleryAlt29": "Rows of export crates lined up in the stone yard",
+      "galleryAlt30": "Wadi Degla export crates ready next to shipping containers",
+      "galleryAlt31": "Labelled crate of natural stone tiles ready for shipment",
+      "galleryAlt32": "Wrapped and strapped crates of marble tiles in the export yard",
+      "galleryAlt33": "Wadi Degla crates with export labels in the factory yard",
+      "galleryAlt34": "Wadi Degla worker inspecting export crates in the yard"
     }
   },
   "contactInfo": {
@@ -431,7 +444,20 @@
     "packingAlt15": "Overhead crane loading slabs into export container",
     "packingAlt16": "Wooden marble bundle with plastic-wrapped slabs",
     "packingAlt17": "Heavy wooden crate securing thick marble slabs",
-    "packingAlt18": "Marble export shipment prepared at Wadi Degla loading yard"
+    "packingAlt18": "Marble export shipment prepared at Wadi Degla loading yard",
+    "packingAlt19": "Open containers loaded with crated marble tiles in the factory",
+    "packingAlt20": "Row of open containers loaded with wooden crates of stone tiles",
+    "packingAlt21": "Containers being loaded with crated natural stone in the loading bay",
+    "packingAlt22": "Crated marble packed inside an open shipping container",
+    "packingAlt23": "Stacked wooden crates of stone tiles inside open containers",
+    "packingAlt24": "Worker shrink-wrapping a crate of marble tiles for export",
+    "packingAlt25": "Packed crates of limestone in the open-air factory yard",
+    "packingAlt26": "Rows of export crates lined up in the stone yard",
+    "packingAlt27": "Wadi Degla export crates ready next to shipping containers",
+    "packingAlt28": "Labelled crate of natural stone tiles ready for shipment",
+    "packingAlt29": "Wrapped and strapped crates of marble tiles in the export yard",
+    "packingAlt30": "Wadi Degla crates with export labels in the factory yard",
+    "packingAlt31": "Wadi Degla worker inspecting export crates in the yard"
   },
   "history": {
     "pageTitle": "Wadi Degla History — Three Generations of Egyptian Marble Excellence",
@@ -674,7 +700,9 @@
     "productFinish": "Product Finish",
     "yourName": "Your Name*",
     "yourEmail": "Your Email*",
-    "submit": "Submit Request"
+    "submit": "Submit Request",
+    "errorGeneric": "Failed to send request. Please try again.",
+    "errorNetwork": "Network error. Please try again later."
   },
   "visualizer": {
     "heroTitle": "Marble & Granite Visualizer",
@@ -823,7 +851,8 @@
   },
   "common": {
     "search": "Search...",
-    "product": "Product"
+    "product": "Product",
+    "imageHint": "Click on the image to view it in full size and swipe to navigate"
   },
   "projects": {
     "pageTitle": "Marble & Stone Projects Worldwide | Wadi Degla",

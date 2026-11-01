@@ -365,7 +365,20 @@
       "galleryAlt18": "Kontejner i hapur i pozicionuar për ngarkimin e blloqeve",
       "galleryAlt19": "Blloqe marmori të rënda të rregulluar për dërgim eksporti",
       "galleryAlt20": "Pllaka guri të grumbulluar në kuti druri në ajër të lirë",
-      "galleryAlt21": "Linja paketimi marmori brenda zonës eksporti të fabrikës"
+      "galleryAlt21": "Linja paketimi marmori brenda zonës eksporti të fabrikës",
+      "galleryAlt22": "Kontejnerë të hapur të ngarkuar me arka pllakash mermeri në fabrikë",
+      "galleryAlt23": "Rresht kontejnerësh të hapur me arka druri me pllaka guri",
+      "galleryAlt24": "Ngarkimi i gurit natyror në arka në zonën e ngarkimit",
+      "galleryAlt25": "Mermer i paketuar në arka brenda një kontejneri të hapur",
+      "galleryAlt26": "Arka druri me pllaka guri të stivuara në kontejnerë të hapur",
+      "galleryAlt27": "Punëtor duke mbështjellë me film një arkë pllakash mermeri për eksport",
+      "galleryAlt28": "Arka gëlqerori të paketuara në oborrin e fabrikës",
+      "galleryAlt29": "Rreshta arkash eksporti në oborrin e gurit",
+      "galleryAlt30": "Arka eksporti Wadi Degla gati pranë kontejnerëve",
+      "galleryAlt31": "Arkë me etiketë me pllaka guri natyror gati për dërgesë",
+      "galleryAlt32": "Arka pllakash mermeri të mbështjella dhe të lidhura në zonën e eksportit",
+      "galleryAlt33": "Arka Wadi Degla me etiketa eksporti në oborrin e fabrikës",
+      "galleryAlt34": "Punonjës i Wadi Degla duke kontrolluar arkat e eksportit"
     }
   },
   "contactInfo": {
@@ -431,7 +444,20 @@
     "packingAlt15": "Kran sipër ngarkimit i pllakave në kontejnerin e eksportit",
     "packingAlt16": "Tufa mermeri druri me pllaka të mbuluar me plastikë",
     "packingAlt17": "Kuti druri e rëndë që fikson pllaka mermer të trasha",
-    "packingAlt18": "Dërgesa e eksportit të mermerit e përgatitur në oborrin e ngarkimit të Wadi Degla"
+    "packingAlt18": "Dërgesa e eksportit të mermerit e përgatitur në oborrin e ngarkimit të Wadi Degla",
+    "packingAlt19": "Kontejnerë të hapur të ngarkuar me arka pllakash mermeri në fabrikë",
+    "packingAlt20": "Rresht kontejnerësh të hapur me arka druri me pllaka guri",
+    "packingAlt21": "Ngarkimi i gurit natyror në arka në zonën e ngarkimit",
+    "packingAlt22": "Mermer i paketuar në arka brenda një kontejneri të hapur",
+    "packingAlt23": "Arka druri me pllaka guri të stivuara në kontejnerë të hapur",
+    "packingAlt24": "Punëtor duke mbështjellë me film një arkë pllakash mermeri për eksport",
+    "packingAlt25": "Arka gëlqerori të paketuara në oborrin e fabrikës",
+    "packingAlt26": "Rreshta arkash eksporti në oborrin e gurit",
+    "packingAlt27": "Arka eksporti Wadi Degla gati pranë kontejnerëve",
+    "packingAlt28": "Arkë me etiketë me pllaka guri natyror gati për dërgesë",
+    "packingAlt29": "Arka pllakash mermeri të mbështjella dhe të lidhura në zonën e eksportit",
+    "packingAlt30": "Arka Wadi Degla me etiketa eksporti në oborrin e fabrikës",
+    "packingAlt31": "Punonjës i Wadi Degla duke kontrolluar arkat e eksportit"
   },
   "history": {
     "pageTitle": "Historia e Wadi Degla — Tre Gjenerata të Përsosmërisë në Mermer Egjiptian",
@@ -674,7 +700,9 @@
     "productFinish": "Përfundimi i Produktit",
     "yourName": "Emri Juaj*",
     "yourEmail": "Email-i Juaj*",
-    "submit": "Dërgo Kërkesën"
+    "submit": "Dërgo Kërkesën",
+    "errorGeneric": "Kërkesa nuk u dërgua. Ju lutemi provoni përsëri.",
+    "errorNetwork": "Gabim rrjeti. Ju lutemi provoni më vonë."
   },
   "visualizer": {
     "heroTitle": "Vizualizatori i Marmorit dhe Granitit",
@@ -823,7 +851,8 @@
   },
   "common": {
     "search": "Kërko...",
-    "product": "Produkti"
+    "product": "Produkti",
+    "imageHint": "Klikoni mbi imazh për ta parë në madhësi të plotë dhe rrëshqitni për të lëvizur"
   },
   "projects": {
     "pageTitle": "Projektet Tona | Wadi Degla",

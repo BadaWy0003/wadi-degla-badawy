@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import './Quarries.css';
 import '../Projects/ProjectDetails.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,6 +14,7 @@ import 'yet-another-react-lightbox/styles.css';
 
 
 export default function QuarriesSwiper({images}){
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -46,7 +48,7 @@ export default function QuarriesSwiper({images}){
             <div className="swiper-lazy-preloader"></div>
             {hovered && (
               <div className="image-overlay">
-                <p>Click on the image to view it in full size and swipe to navigate</p>
+                <p>{t('common.imageHint')}</p>
               </div>
             )}
           </SwiperSlide>

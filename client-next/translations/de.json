@@ -365,7 +365,20 @@
       "galleryAlt18": "Offener Container zum Blockbeladen positioniert",
       "galleryAlt19": "Schwere Marmorblöcke für Exportshipment ausgerichtet",
       "galleryAlt20": "Steine in Holzkisten im Freien gestapelt",
-      "galleryAlt21": "Marmorverpackungslinie in der Fabrikexportzone"
+      "galleryAlt21": "Marmorverpackungslinie in der Fabrikexportzone",
+      "galleryAlt22": "Offene Container, beladen mit Kisten voller Marmorfliesen im Werk",
+      "galleryAlt23": "Reihe offener Container mit Holzkisten voller Natursteinfliesen",
+      "galleryAlt24": "Container werden im Ladebereich mit Natursteinkisten beladen",
+      "galleryAlt25": "In Kisten verpackter Marmor in einem offenen Seecontainer",
+      "galleryAlt26": "Gestapelte Holzkisten mit Steinfliesen in offenen Containern",
+      "galleryAlt27": "Mitarbeiter umwickelt eine Kiste Marmorfliesen für den Export mit Folie",
+      "galleryAlt28": "Verpackte Kalksteinkisten auf dem Werksgelände",
+      "galleryAlt29": "Reihen von Exportkisten auf dem Steinlagerplatz",
+      "galleryAlt30": "Wadi-Degla-Exportkisten bereit neben den Versandcontainern",
+      "galleryAlt31": "Beschriftete Kiste mit Natursteinfliesen, versandbereit",
+      "galleryAlt32": "Folierte und umreifte Kisten mit Marmorfliesen im Exportbereich",
+      "galleryAlt33": "Wadi-Degla-Kisten mit Exportetiketten auf dem Werksgelände",
+      "galleryAlt34": "Wadi-Degla-Mitarbeiter prüft Exportkisten auf dem Gelände"
     }
   },
   "contactInfo": {
@@ -431,7 +444,20 @@
     "packingAlt15": "Oberrahmen lädt Platten in Exportcontainer",
     "packingAlt16": "Holzmarmorbündel mit kunststoffumwickelten Platten",
     "packingAlt17": "Schwerer Holzkasten mit dicken Marmorplatten",
-    "packingAlt18": "Marmorexportsendung im Ladehof von Wadi Degla vorbereitet"
+    "packingAlt18": "Marmorexportsendung im Ladehof von Wadi Degla vorbereitet",
+    "packingAlt19": "Offene Container, beladen mit Kisten voller Marmorfliesen im Werk",
+    "packingAlt20": "Reihe offener Container mit Holzkisten voller Natursteinfliesen",
+    "packingAlt21": "Container werden im Ladebereich mit Natursteinkisten beladen",
+    "packingAlt22": "In Kisten verpackter Marmor in einem offenen Seecontainer",
+    "packingAlt23": "Gestapelte Holzkisten mit Steinfliesen in offenen Containern",
+    "packingAlt24": "Mitarbeiter umwickelt eine Kiste Marmorfliesen für den Export mit Folie",
+    "packingAlt25": "Verpackte Kalksteinkisten auf dem Werksgelände",
+    "packingAlt26": "Reihen von Exportkisten auf dem Steinlagerplatz",
+    "packingAlt27": "Wadi-Degla-Exportkisten bereit neben den Versandcontainern",
+    "packingAlt28": "Beschriftete Kiste mit Natursteinfliesen, versandbereit",
+    "packingAlt29": "Folierte und umreifte Kisten mit Marmorfliesen im Exportbereich",
+    "packingAlt30": "Wadi-Degla-Kisten mit Exportetiketten auf dem Werksgelände",
+    "packingAlt31": "Wadi-Degla-Mitarbeiter prüft Exportkisten auf dem Gelände"
   },
   "history": {
     "pageTitle": "Wadi Degla Geschichte — Drei Generationen ägyptischer Marmorexzellenz",
@@ -674,7 +700,9 @@
     "productFinish": "Produkt-Finish",
     "yourName": "Ihr Name*",
     "yourEmail": "Ihre E-Mail*",
-    "submit": "Anfrage Senden"
+    "submit": "Anfrage Senden",
+    "errorGeneric": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+    "errorNetwork": "Netzwerkfehler. Bitte versuchen Sie es später erneut."
   },
   "visualizer": {
     "heroTitle": "Marmor- und Granit-Visualisierer",
@@ -823,7 +851,8 @@
   },
   "common": {
     "search": "Suchen...",
-    "product": "Produkt"
+    "product": "Produkt",
+    "imageHint": "Klicken Sie auf das Bild, um es in voller Größe zu sehen, und wischen Sie zum Blättern"
   },
   "projects": {
     "pageTitle": "Unsere Projekte | Wadi Degla",

@@ -164,7 +164,7 @@ export default function ContactForm() {
         <div className="success-popup">
           <p>{t('contactForm.successMessage')}</p>
           <button onClick={() => setShowSuccessPopup(false)} className="btn1">
-            Close
+            {t('contactForm.close')}
           </button>
         </div>
       )}
@@ -260,7 +260,7 @@ export default function ContactForm() {
               value={formData.country}
               classNamePrefix="react-select"
               onChange={(value) => handleInputChange('country', value)}
-              placeholder="Search for a country"
+              placeholder={t('contactForm.searchCountry')}
             />
           </div>
           <div className="input-field" id="input-address">
