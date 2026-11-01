@@ -1,6 +1,6 @@
 'use client';
-import React, { createContext, useContext, useEffect, useState } from "react";
-import apiClient from "../util/client";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import apiClient from '../util/client';
 
 const GlobalStateContext = createContext();
 
@@ -9,16 +9,16 @@ export const useGlobalState = () => useContext(GlobalStateContext);
 export const GlobalStateProvider = ({ children }) => {
   const [globalState, setGlobalState] = useState({
     isLoggedIn: false,
-    id: "",
-    fullName: "",
-    companyName: "",
-    rnc: "",
-    email: "",
-    phone: "",
-    whatsapp: "",
-    country: "",
-    address: "",
-    port: "",
+    id: '',
+    fullName: '',
+    companyName: '',
+    rnc: '',
+    email: '',
+    phone: '',
+    whatsapp: '',
+    country: '',
+    address: '',
+    port: '',
   });
 
   const [loading, setLoading] = useState(true);
@@ -33,12 +33,9 @@ export const GlobalStateProvider = ({ children }) => {
           ...data,
         });
       } catch (err) {
-        console.error(
-          "Failed to fetch user data:",
-          err.response?.data || err.message
-        );
+        console.error('Failed to fetch user data:', err.response?.data || err.message);
         setGlobalState({ isLoggedIn: false });
-        localStorage.removeItem("auth_token");
+        localStorage.removeItem('auth_token');
       } finally {
         setLoading(false);
       }
@@ -48,9 +45,7 @@ export const GlobalStateProvider = ({ children }) => {
   }, []);
 
   return (
-    <GlobalStateContext.Provider
-      value={{ globalState, setGlobalState, loading }}
-    >
+    <GlobalStateContext.Provider value={{ globalState, setGlobalState, loading }}>
       {children}
     </GlobalStateContext.Provider>
   );
