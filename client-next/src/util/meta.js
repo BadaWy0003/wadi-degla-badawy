@@ -61,3 +61,24 @@ export function buildAlternates(path = '', lang = 'en') {
     languages,
   };
 }
+
+// Deep-merge `override` onto `base` (objects only; strings/arrays from `override` win).
+function mergeMessages(base, override) {
+  const out = { ...base };
+  for (const [key, value] of Object.entries(override || {})) {
+    out[key] =
+      value && typeof value === 'object' && !Array.isArray(value) && base?.[key] && typeof base[key] === 'object'
+        ? mergeMessages(base[key], value)
+        : value;
+  }
+  return out;
+}
+
+/**
+ * All UI texts for one language, with English filling any missing keys.
+ * Passed from the [lang] root layout to the client, so each page ships only
+ * its own language instead of all 12 translation files.
+ */
+export function getMessages(lang) {
+  return lang === 'en' ? translations.en : mergeMessages(translations.en, translations[lang] || {});
+}

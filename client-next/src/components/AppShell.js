@@ -5,24 +5,22 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { I18nextProvider } from 'react-i18next';
-import i18n from '../../i18n';
+import i18n, { setLanguageMessages } from '../../i18n';
 import { LangContext } from '../context/LangContext';
 import { GlobalStateProvider } from './GlobalStateContext';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 import ScrollToTop from './ScrollToTop';
 
-export default function AppShell({ children, lang }) {
+export default function AppShell({ children, lang, messages }) {
   // Initialize i18n language from URL param
   useEffect(() => {
-    if (i18n.language !== lang) {
-      i18n.changeLanguage(lang);
-    }
+    setLanguageMessages(lang, messages);
     // Persist to localStorage for non-SSG pages
     if (typeof window !== 'undefined') {
       localStorage.setItem('language', lang);
     }
-  }, [lang]);
+  }, [lang, messages]);
 
   // Set html lang + dir
   useEffect(() => {
@@ -32,9 +30,8 @@ export default function AppShell({ children, lang }) {
   }, [lang]);
 
   // Initialise i18n synchronously for the current page
-  if (i18n.language !== lang) {
-    i18n.changeLanguage(lang);
-  }
+  // (messages = this language's texts, passed from the [lang] root layout)
+  setLanguageMessages(lang, messages);
 
   return (
     <LangContext.Provider value={lang}>

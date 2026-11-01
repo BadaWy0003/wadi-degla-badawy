@@ -1,45 +1,30 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import translationEN from './translations/en.json';
-import translationAR from './translations/ar.json';
-import translationFR from './translations/fr.json';
-import translationES from './translations/es.json';
-import translationDE from './translations/de.json';
-import translationIT from './translations/it.json';
-import translationRO from './translations/ro.json';
-import translationKO from './translations/ko.json';
-import translationSQ from './translations/sq.json';
-import translationRU from './translations/ru.json';
-import translationJA from './translations/ja.json';
-import translationZH from './translations/zh.json';
-
 export const SUPPORTED_LANGS = ['en', 'ar', 'fr', 'es', 'de', 'it', 'ro', 'ko', 'sq', 'ru', 'ja', 'zh'];
 export const DEFAULT_LANG = 'en';
 
-const resources = {
-  en: { translation: translationEN },
-  ar: { translation: translationAR },
-  fr: { translation: translationFR },
-  es: { translation: translationES },
-  de: { translation: translationDE },
-  it: { translation: translationIT },
-  ro: { translation: translationRO },
-  ko: { translation: translationKO },
-  sq: { translation: translationSQ },
-  ru: { translation: translationRU },
-  ja: { translation: translationJA },
-  zh: { translation: translationZH },
-};
+// Texts are NOT bundled here (that shipped all 12 languages to every page).
+// The [lang] root layout passes the current language's texts to AppShell,
+// which registers them with setLanguageMessages() below.
 
 // Only initialize once
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
-    resources,
+    resources: {},
     lng: DEFAULT_LANG,
     fallbackLng: DEFAULT_LANG,
     interpolation: { escapeValue: false },
   });
+}
+
+export function setLanguageMessages(lang, messages) {
+  if (messages && !i18n.hasResourceBundle(lang, 'translation')) {
+    i18n.addResourceBundle(lang, 'translation', messages, true, true);
+  }
+  if (i18n.language !== lang) {
+    i18n.changeLanguage(lang);
+  }
 }
 
 export default i18n;
