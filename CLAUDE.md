@@ -10,7 +10,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 | `server/` | Express 4 API on Node 22: email, products/gallery, auth, PDF export | `server-withered-wildflower-1595` (fra) | live |
 | `admin-dashboard/` | CRA + React 19 + MUI admin panel (products, gallery, users, PDFs) | `admin-dashboard-withered-waterfall-6127` | works; machines sleep and auto-start on visit (https://admin-dashboard-withered-waterfall-6127.fly.dev/login) |
 | `client/` | OLD CRA website, replaced by client-next in March 2026 | `client-rough-dawn-8020` | suspended. Do not edit |
-| `tools/` | `optimize-images.js`: sharp batch converter to WebP (max 1600 px, q82) | n/a | n/a |
+| `tools/` | `optimize-images.js`: sharp batch converter to WebP (max 1600 px, q75) | n/a | n/a |
 
 ## Data
 - **Products + gallery**: Firestore collection `materials`, with images in Firebase Storage (`uploads/<type>/...`). They're read at runtime through `GET /api/storage/all` and `GET /api/storage/type/:type`, and edited through the admin dashboard.
