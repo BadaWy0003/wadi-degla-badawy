@@ -13,6 +13,7 @@ import {
 } from "./QuarriesImageData";
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from "react-i18next";
+import LangLink from "../LangLink";
 
 export default function Quarries() {
   const { t } = useTranslation();
@@ -24,7 +25,7 @@ export default function Quarries() {
         <div className="quarries-hero">
           <h1>{t("quarries.heroTitle")}</h1>
           <div className="breadcrumb">
-            <a href="/">{t("quarries.breadcrumbHome")}</a>
+            <LangLink href="/">{t("quarries.breadcrumbHome")}</LangLink>
             <p>
               {">"} {t("quarries.breadcrumbCurrent")}
             </p>

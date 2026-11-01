@@ -9,6 +9,7 @@ import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
 
 import 'react-multi-carousel/lib/styles.css';
+import LangLink from '../LangLink';
 
 
 
@@ -22,7 +23,7 @@ export default function About(){
             <div className="quarries-hero" role="img" aria-label={t('about.heroImageAlt')}>
                 <h1>{t('about.heroTitle')}</h1>
                 <div className="breadcrumb">
-                <a href="/">{t('about.breadcrumbHome')}</a>
+                <LangLink href="/">{t('about.breadcrumbHome')}</LangLink>
                 <p>{'>'} {t('about.breadcrumbCurrent')}</p>
                 </div>
             </div>  

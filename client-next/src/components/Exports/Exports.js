@@ -7,6 +7,7 @@ import MasonryGrid from "../MasonryGrid/MasonryGrid";
 // const exports = '/Assets/Media/Exports/exports2.webp';
 import OurMarkets from "./OurMarkets";
 import ContactBubble from "../Contact/ContactBubble";
+import LangLink from '../LangLink';
 
 const exports1 = '/Assets/Media/Packing/packing3.webp';
 const exports2 = '/Assets/Media/Packing/packing7.webp';
@@ -92,7 +93,7 @@ export default function Exports(){
         <div className="quarries-hero">
                         <h1>{t('exports.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">{t('exports.breadcrumbHome')}</a>
+                        <LangLink href="/">{t('exports.breadcrumbHome')}</LangLink>
                         <p>{'>'} {t('exports.breadcrumbCurrent')}</p>
                         </div>
                 </div>  

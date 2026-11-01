@@ -17,7 +17,7 @@ export default function Cobble(){
         <div className="quarries-hero">
                         <h1>{t('cobbles.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">{t('cobbles.breadcrumbHome')}</a>
+                        <LangLink href="/">{t('cobbles.breadcrumbHome')}</LangLink>
                         <p>{'>'} {t('cobbles.breadcrumbCurrent')}</p>
                         </div>
                 </div>  

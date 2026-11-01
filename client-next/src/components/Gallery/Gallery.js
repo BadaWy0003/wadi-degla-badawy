@@ -10,6 +10,7 @@ import "../Exports/Exports.css";
 import "../MasonryGrid/MasonryGrid.css";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 export default function Gallery() {
   const { t } = useTranslation();
@@ -54,7 +55,7 @@ export default function Gallery() {
           </div>
 
           <div className="breadcrumb">
-          <a href="/">{t('gallery.breadcrumbHome')}</a>
+          <LangLink href="/">{t('gallery.breadcrumbHome')}</LangLink>
           <p>{'>'} {t('gallery.breadcrumbCurrent')}</p>
           </div>
 

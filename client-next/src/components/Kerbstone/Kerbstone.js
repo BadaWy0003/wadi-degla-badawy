@@ -11,6 +11,7 @@ import { str,
 const kerb_intro_img = '/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.webp';
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 export default function Kerbstone(){
     const { t } = useTranslation();
@@ -22,7 +23,7 @@ export default function Kerbstone(){
         <div className="quarries-hero">
                         <h1>{t('kerbstone.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">{t('kerbstone.breadcrumbHome')}</a>
+                        <LangLink href="/">{t('kerbstone.breadcrumbHome')}</LangLink>
                         <p>{'>'} {t('kerbstone.breadcrumbCurrent')}</p>
                         </div>
                 </div>  

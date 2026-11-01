@@ -7,6 +7,7 @@ import Product from "./Product";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
+import LangLink from '../LangLink';
 
 
 export default function Products() {
@@ -53,7 +54,7 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
         <div className="quarries-hero">
           <h1>{t('products.heroTitle')}</h1>
           <div className="breadcrumb">
-            <a href="/">{t('products.breadcrumbHome')}</a>
+            <LangLink href="/">{t('products.breadcrumbHome')}</LangLink>
             <p>{'>'} {t('products.breadcrumbCurrent')}</p>
           </div>
           <p className="hero-hint-2">

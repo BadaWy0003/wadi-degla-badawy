@@ -7,6 +7,7 @@ import InspoSwiper from "./InspoSwiper";
 import { useTranslation } from 'react-i18next';
 
 import ContactBubble from "../Contact/ContactBubble";
+import LangLink from '../LangLink';
 
 export default function Inspiration(){
     const { t } = useTranslation();
@@ -18,7 +19,7 @@ export default function Inspiration(){
             <div className="quarries-hero">
                 <h1>{t('inspiration.heroTitle')}</h1>
                 <div className="breadcrumb">
-                    <a href="/">{t('inspiration.breadcrumbHome')}</a>
+                    <LangLink href="/">{t('inspiration.breadcrumbHome')}</LangLink>
                     <p>{'>'} {t('inspiration.breadcrumbCurrent')}</p>
                 </div>
             </div>

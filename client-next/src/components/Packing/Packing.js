@@ -45,6 +45,7 @@ const exports35 = '/Assets/Media/Exports/exports35.webp';
 
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
+import LangLink from '../LangLink';
 
 
 export default function Packing(){
@@ -101,7 +102,7 @@ export default function Packing(){
         <div className="quarries-hero">
                             <h1>{t('packing.heroTitle')}</h1>
                             <div className="breadcrumb">
-                            <a href="/">{t('packing.breadcrumbHome')}</a>
+                            <LangLink href="/">{t('packing.breadcrumbHome')}</LangLink>
                             <p>{'>'} {t('packing.breadcrumbCurrent')}</p>
                             </div>
                 </div>  

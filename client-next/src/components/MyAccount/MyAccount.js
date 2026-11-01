@@ -7,6 +7,7 @@ import ContactBubble from "../Contact/ContactBubble.js";
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
+import LangLink from '../LangLink';
 
 export default function MyAccount() {
   const { t } = useTranslation();
@@ -65,7 +66,7 @@ export default function MyAccount() {
     <div className="account-container">
       {/* Breadcrumb Navigation */}
       <div className="breadcrumb">
-        <a href="/">{t('myAccount.breadcrumbHome')}</a> &gt; <a href="/my account">{t('myAccount.breadcrumbCurrent')}</a> &gt;{" "}
+        <LangLink href="/">{t('myAccount.breadcrumbHome')}</LangLink> &gt; <LangLink href="/my-account/">{t('myAccount.breadcrumbCurrent')}</LangLink> &gt;{" "}
         {selectedTab === 'accountInformation' ? t('myAccount.tabs.accountInformation') : t('myAccount.tabs.changePassword')}
       </div>
       <div className="my-account-container">

@@ -5,6 +5,7 @@ import "./Projects.css";
 import Project from "./Project";
 import projects from "./projectList"; // Import the project list
 import ContactBubble from "../Contact/ContactBubble";
+import LangLink from '../LangLink';
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ export default function Projects() {
       <div className="quarries-hero">
         <h1>{t('projects.heroHeading')}</h1>
         <div className="breadcrumb">
-          <a href="/">{t('projects.breadcrumbHome')}</a>
+          <LangLink href="/">{t('projects.breadcrumbHome')}</LangLink>
           <p>{">"} {t('projects.breadcrumbCurrent')}</p>
         </div>
       </div>

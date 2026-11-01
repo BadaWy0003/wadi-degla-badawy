@@ -5,6 +5,7 @@ import { certificatesData } from "./CertificatesData";
 import CertificateLightBox from "./CertificateLightBox";
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 export default function Certificates() {
     const { t } = useTranslation();
@@ -14,7 +15,7 @@ export default function Certificates() {
         <div className="certificates-page">
             <h1>{t('certificates.heroTitle')}</h1>
             <div className="breadcrumb">
-            <a href="/">{t('certificates.breadcrumbHome')}</a>
+            <LangLink href="/">{t('certificates.breadcrumbHome')}</LangLink>
             <p>{'>'} {t('certificates.breadcrumbCurrent')}</p>
             </div>
             {certificatesData.map((certificate, index) => (

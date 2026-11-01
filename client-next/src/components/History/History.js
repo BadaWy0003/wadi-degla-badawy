@@ -13,6 +13,7 @@ const saeed_jr_3 = '/Assets/Media/History/saeed-jr-3.webp'
 const saeed_jr_4 = '/Assets/Media/History/saeed-jr-4.webp'
 const saeed_jr_5 = '/Assets/Media/History/saeed-jr-5.webp'
 import { HistoryImages } from './HistoryImages';
+import LangLink from '../LangLink';
 
 
 
@@ -25,7 +26,7 @@ export default function History() {
             <div className="quarries-hero">
                 <h1>{t('history.heroTitle')}</h1>
                 <div className="breadcrumb">
-                <a href="/">{t('history.breadcrumbHome')}</a>
+                <LangLink href="/">{t('history.breadcrumbHome')}</LangLink>
                 <p>{'>'} {t('history.breadcrumbCurrent')}</p>
                 </div>
             </div>

@@ -18,6 +18,7 @@ import "../Products/Products.css";
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 import { useParams } from 'next/navigation';
+import LangLink from '../LangLink';
 
 export default function ProjectDetails() {
   const { projectId } = useParams();
@@ -62,9 +63,9 @@ export default function ProjectDetails() {
   return (
     <div className="project-details-page">
       <div className="breadcrumb">
-        <a href="/">{t('projects.breadcrumbHome')}</a>
+        <LangLink href="/">{t('projects.breadcrumbHome')}</LangLink>
         <p>{">"} {t('projects.breadcrumbExplore')}</p>
-        <a href="/projects">{">"} {t('projects.breadcrumbCurrent')}</a>
+        <LangLink href="/projects/">{">"} {t('projects.breadcrumbCurrent')}</LangLink>
         <p>{">"} {project.name}</p>
       </div>
       <p className="project-hint">{t('projects.tapToView')}</p>

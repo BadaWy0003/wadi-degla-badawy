@@ -5,6 +5,7 @@ import { generalUseData, mngBlocksData, mngSlabsData, mngTilesData } from "./Mac
 import MachinerySwiper from "./MachinerySwiper";
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 
 export default function Machinery(){
@@ -18,7 +19,7 @@ export default function Machinery(){
                     <div className="quarries-hero">
                         <h1>{t('machinery.heroTitle')}</h1>
                         <div className="breadcrumb">
-                        <a href="/">{t('machinery.breadcrumbHome')}</a>
+                        <LangLink href="/">{t('machinery.breadcrumbHome')}</LangLink>
                         <p>{'>'} {t('machinery.breadcrumbCurrent')}</p>
                         </div>
                 </div>  
