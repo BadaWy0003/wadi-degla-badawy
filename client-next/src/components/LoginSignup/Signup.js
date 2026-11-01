@@ -126,7 +126,9 @@ export default function Signup() {
 
         // Save user data to localStorage
         localStorage.setItem('userData', JSON.stringify(userData));
-        localStorage.setItem('auth_token', JSON.stringify(data.token));
+        // Store the raw token (as Login.js does); JSON.stringify added quotes, which made
+        // every authenticated request fail and logged new customers out on the next page.
+        localStorage.setItem('auth_token', data.token);
 
         // Update global state
         setGlobalState({
