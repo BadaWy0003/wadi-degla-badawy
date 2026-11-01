@@ -1,4 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+# Account pages and error pages don't belong in search results
+Disallow: /*/login/
+Disallow: /*/signup/
+Disallow: /*/my-account/
+Disallow: /*/not-found/
+Disallow: /*/page-not-found/
 Sitemap: https://www.wadidegla-eg.com/sitemap.xml
