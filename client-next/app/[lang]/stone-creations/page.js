@@ -1,6 +1,5 @@
-import dynamic from 'next/dynamic';
 import { t, buildAlternates } from '../../../src/components/../util/meta';
-const StoneCreation = dynamic(() => import('../../../src/components/StoneCreation/StoneCreation'), { ssr: false });
+import StoneCreation from '../../../src/components/StoneCreation/StoneCreation';
 
 export function generateMetadata({ params }) {
   const { lang } = params;

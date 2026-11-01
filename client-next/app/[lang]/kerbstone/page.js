@@ -1,6 +1,5 @@
-import dynamic from 'next/dynamic';
 import { t, buildAlternates } from '../../../src/components/../util/meta';
-const Kerbstone = dynamic(() => import('../../../src/components/Kerbstone/Kerbstone'), { ssr: false });
+import Kerbstone from '../../../src/components/Kerbstone/Kerbstone';
 
 export function generateMetadata({ params }) {
   const { lang } = params;

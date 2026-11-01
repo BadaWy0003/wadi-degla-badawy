@@ -1,6 +1,5 @@
-import dynamic from 'next/dynamic';
 import { t, buildAlternates } from '../../../src/components/../util/meta';
-const Contact = dynamic(() => import('../../../src/components/Contact/Contact'), { ssr: false });
+import Contact from '../../../src/components/Contact/Contact';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
