@@ -365,7 +365,20 @@
       "galleryAlt18": "Contenitore aperto posizionato per carico di blocchi",
       "galleryAlt19": "Blocchi di marmo pesanti allineati per spedizione di esportazione",
       "galleryAlt20": "Piastrelle di pietra impilate in casse di legno all'aperto",
-      "galleryAlt21": "Linea di imballaggio del marmo all'interno della zona di esportazione della fabbrica"
+      "galleryAlt21": "Linea di imballaggio del marmo all'interno della zona di esportazione della fabbrica",
+      "galleryAlt22": "Container aperti carichi di casse di piastrelle di marmo in fabbrica",
+      "galleryAlt23": "Fila di container aperti carichi di casse di legno con piastrelle di pietra",
+      "galleryAlt24": "Carico di pietra naturale in casse nell'area di carico",
+      "galleryAlt25": "Marmo in casse imballato in un container aperto",
+      "galleryAlt26": "Casse di legno con piastrelle di pietra impilate in container aperti",
+      "galleryAlt27": "Operaio che avvolge con film una cassa di piastrelle di marmo per l'export",
+      "galleryAlt28": "Casse di pietra calcarea imballate nel piazzale della fabbrica",
+      "galleryAlt29": "File di casse per l'export allineate nel piazzale della pietra",
+      "galleryAlt30": "Casse export Wadi Degla pronte accanto ai container",
+      "galleryAlt31": "Cassa etichettata di piastrelle di pietra naturale pronta per la spedizione",
+      "galleryAlt32": "Casse di piastrelle di marmo filmate e reggiate nell'area export",
+      "galleryAlt33": "Casse Wadi Degla con etichette export nel piazzale della fabbrica",
+      "galleryAlt34": "Operatore Wadi Degla che controlla le casse per l'export nel piazzale"
     }
   },
   "contactInfo": {
@@ -431,7 +444,20 @@
     "packingAlt15": "Gru aerea che carica lastre nel contenitore di esportazione",
     "packingAlt16": "Fascio di marmo in legno con lastre avvolte in plastica",
     "packingAlt17": "Scatola in legno pesante che fissa lastre di marmo spesse",
-    "packingAlt18": "Spedizione di marmor per esportazione preparata nel cortile di carico di Wadi Degla"
+    "packingAlt18": "Spedizione di marmor per esportazione preparata nel cortile di carico di Wadi Degla",
+    "packingAlt19": "Container aperti carichi di casse di piastrelle di marmo in fabbrica",
+    "packingAlt20": "Fila di container aperti carichi di casse di legno con piastrelle di pietra",
+    "packingAlt21": "Carico di pietra naturale in casse nell'area di carico",
+    "packingAlt22": "Marmo in casse imballato in un container aperto",
+    "packingAlt23": "Casse di legno con piastrelle di pietra impilate in container aperti",
+    "packingAlt24": "Operaio che avvolge con film una cassa di piastrelle di marmo per l'export",
+    "packingAlt25": "Casse di pietra calcarea imballate nel piazzale della fabbrica",
+    "packingAlt26": "File di casse per l'export allineate nel piazzale della pietra",
+    "packingAlt27": "Casse export Wadi Degla pronte accanto ai container",
+    "packingAlt28": "Cassa etichettata di piastrelle di pietra naturale pronta per la spedizione",
+    "packingAlt29": "Casse di piastrelle di marmo filmate e reggiate nell'area export",
+    "packingAlt30": "Casse Wadi Degla con etichette export nel piazzale della fabbrica",
+    "packingAlt31": "Operatore Wadi Degla che controlla le casse per l'export nel piazzale"
   },
   "history": {
     "pageTitle": "Storia di Wadi Degla — Tre Generazioni di Eccellenza in Marmo Egiziano",
@@ -674,7 +700,9 @@
     "productFinish": "Finitura Prodotto",
     "yourName": "Il Tuo Nome*",
     "yourEmail": "La Tua Email*",
-    "submit": "Invia Richiesta"
+    "submit": "Invia Richiesta",
+    "errorGeneric": "Invio della richiesta non riuscito. Riprova.",
+    "errorNetwork": "Errore di rete. Riprova più tardi."
   },
   "visualizer": {
     "heroTitle": "Visualizzatore di Marmo e Granito",
@@ -823,7 +851,8 @@
   },
   "common": {
     "search": "Cerca...",
-    "product": "Prodotto"
+    "product": "Prodotto",
+    "imageHint": "Clicca sull'immagine per vederla a grandezza intera e scorri per navigare"
   },
   "projects": {
     "pageTitle": "I Nostri Progetti | Wadi Degla",

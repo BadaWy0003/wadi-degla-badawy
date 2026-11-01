@@ -365,7 +365,20 @@
       "galleryAlt18": "Container deschis pozitionat pentru incarcare blocuri",
       "galleryAlt19": "Blocuri marmura grele aliniate pentru transport export",
       "galleryAlt20": "Placi piatra stivuite in lazi lemn in aer liber",
-      "galleryAlt21": "Linie ambalare marmura in zona export fabrica"
+      "galleryAlt21": "Linie ambalare marmura in zona export fabrica",
+      "galleryAlt22": "Containere deschise încărcate cu lăzi de plăci de marmură în fabrică",
+      "galleryAlt23": "Șir de containere deschise încărcate cu lăzi din lemn cu plăci de piatră",
+      "galleryAlt24": "Încărcarea pietrei naturale în lăzi în zona de încărcare",
+      "galleryAlt25": "Marmură ambalată în lăzi într-un container deschis",
+      "galleryAlt26": "Lăzi din lemn cu plăci de piatră stivuite în containere deschise",
+      "galleryAlt27": "Muncitor care înfoliază o ladă cu plăci de marmură pentru export",
+      "galleryAlt28": "Lăzi cu calcar ambalate în curtea fabricii",
+      "galleryAlt29": "Rânduri de lăzi pentru export aliniate în curtea de piatră",
+      "galleryAlt30": "Lăzi de export Wadi Degla pregătite lângă containere",
+      "galleryAlt31": "Ladă etichetată cu plăci de piatră naturală, gata de expediere",
+      "galleryAlt32": "Lăzi cu plăci de marmură înfoliate și legate în zona de export",
+      "galleryAlt33": "Lăzi Wadi Degla cu etichete de export în curtea fabricii",
+      "galleryAlt34": "Angajat Wadi Degla inspectând lăzile de export în curte"
     }
   },
   "contactInfo": {
@@ -431,7 +444,20 @@
     "packingAlt15": "Macara aeriană încărcând plăci în containerul de export",
     "packingAlt16": "Fascicul de marmură din lemn cu plăci învelite în plastic",
     "packingAlt17": "Cutie din lemn greu asigurând plăci de marmură groase",
-    "packingAlt18": "Transport de marmură pentru export pregătit în curtea de încărcare Wadi Degla"
+    "packingAlt18": "Transport de marmură pentru export pregătit în curtea de încărcare Wadi Degla",
+    "packingAlt19": "Containere deschise încărcate cu lăzi de plăci de marmură în fabrică",
+    "packingAlt20": "Șir de containere deschise încărcate cu lăzi din lemn cu plăci de piatră",
+    "packingAlt21": "Încărcarea pietrei naturale în lăzi în zona de încărcare",
+    "packingAlt22": "Marmură ambalată în lăzi într-un container deschis",
+    "packingAlt23": "Lăzi din lemn cu plăci de piatră stivuite în containere deschise",
+    "packingAlt24": "Muncitor care înfoliază o ladă cu plăci de marmură pentru export",
+    "packingAlt25": "Lăzi cu calcar ambalate în curtea fabricii",
+    "packingAlt26": "Rânduri de lăzi pentru export aliniate în curtea de piatră",
+    "packingAlt27": "Lăzi de export Wadi Degla pregătite lângă containere",
+    "packingAlt28": "Ladă etichetată cu plăci de piatră naturală, gata de expediere",
+    "packingAlt29": "Lăzi cu plăci de marmură înfoliate și legate în zona de export",
+    "packingAlt30": "Lăzi Wadi Degla cu etichete de export în curtea fabricii",
+    "packingAlt31": "Angajat Wadi Degla inspectând lăzile de export în curte"
   },
   "history": {
     "pageTitle": "Istoria Wadi Degla — Trei Generații de Excelență în Marmură Egipteană",
@@ -674,7 +700,9 @@
     "productFinish": "Finisaj Produs",
     "yourName": "Numele Dumneavoastră*",
     "yourEmail": "Emailul Dumneavoastră*",
-    "submit": "Trimiteți Solicitarea"
+    "submit": "Trimiteți Solicitarea",
+    "errorGeneric": "Cererea nu a putut fi trimisă. Vă rugăm să încercați din nou.",
+    "errorNetwork": "Eroare de rețea. Vă rugăm să încercați mai târziu."
   },
   "visualizer": {
     "heroTitle": "Vizualizator de Marmoră și Granit",
@@ -823,7 +851,8 @@
   },
   "common": {
     "search": "Căutare...",
-    "product": "Produs"
+    "product": "Produs",
+    "imageHint": "Faceți clic pe imagine pentru a o vedea la dimensiune completă și glisați pentru a naviga"
   },
   "projects": {
     "pageTitle": "Proiectele Noastre | Wadi Degla",

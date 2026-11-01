@@ -365,7 +365,20 @@
       "galleryAlt18": "Conteneur ouvert positionné pour chargement de blocs",
       "galleryAlt19": "Blocs de marbre lourds alignés pour envoi d'exportation",
       "galleryAlt20": "Carreaux de pierre empilés dans des caisses en bois en plein air",
-      "galleryAlt21": "Ligne d'emballage de marbre à l'intérieur de la zone d'exportation de l'usine"
+      "galleryAlt21": "Ligne d'emballage de marbre à l'intérieur de la zone d'exportation de l'usine",
+      "galleryAlt22": "Conteneurs ouverts chargés de caisses de carreaux de marbre à l'usine",
+      "galleryAlt23": "Rangée de conteneurs ouverts chargés de caisses en bois de carreaux de pierre",
+      "galleryAlt24": "Chargement de pierre naturelle en caisses dans la zone de chargement",
+      "galleryAlt25": "Marbre en caisses emballé dans un conteneur maritime ouvert",
+      "galleryAlt26": "Caisses en bois de carreaux de pierre empilées dans des conteneurs ouverts",
+      "galleryAlt27": "Ouvrier filmant une caisse de carreaux de marbre pour l'export",
+      "galleryAlt28": "Caisses de calcaire emballées dans la cour de l'usine",
+      "galleryAlt29": "Rangées de caisses d'export alignées dans la cour à pierre",
+      "galleryAlt30": "Caisses d'export Wadi Degla prêtes à côté des conteneurs",
+      "galleryAlt31": "Caisse étiquetée de carreaux de pierre naturelle prête à expédier",
+      "galleryAlt32": "Caisses de carreaux de marbre filmées et cerclées dans la zone d'export",
+      "galleryAlt33": "Caisses Wadi Degla avec étiquettes d'export dans la cour de l'usine",
+      "galleryAlt34": "Employé de Wadi Degla inspectant les caisses d'export dans la cour"
     }
   },
   "contactInfo": {
@@ -431,7 +444,20 @@
     "packingAlt15": "Grue aérienne chargeant les dalles dans le conteneur d'exportation",
     "packingAlt16": "Paquet de marbre en bois avec dalles enveloppées de plastique",
     "packingAlt17": "Caisse en bois lourd sécurisant des dalles de marbre épaisses",
-    "packingAlt18": "Expédition de marbre préparée dans la cour de chargement de Wadi Degla"
+    "packingAlt18": "Expédition de marbre préparée dans la cour de chargement de Wadi Degla",
+    "packingAlt19": "Conteneurs ouverts chargés de caisses de carreaux de marbre à l'usine",
+    "packingAlt20": "Rangée de conteneurs ouverts chargés de caisses en bois de carreaux de pierre",
+    "packingAlt21": "Chargement de pierre naturelle en caisses dans la zone de chargement",
+    "packingAlt22": "Marbre en caisses emballé dans un conteneur maritime ouvert",
+    "packingAlt23": "Caisses en bois de carreaux de pierre empilées dans des conteneurs ouverts",
+    "packingAlt24": "Ouvrier filmant une caisse de carreaux de marbre pour l'export",
+    "packingAlt25": "Caisses de calcaire emballées dans la cour de l'usine",
+    "packingAlt26": "Rangées de caisses d'export alignées dans la cour à pierre",
+    "packingAlt27": "Caisses d'export Wadi Degla prêtes à côté des conteneurs",
+    "packingAlt28": "Caisse étiquetée de carreaux de pierre naturelle prête à expédier",
+    "packingAlt29": "Caisses de carreaux de marbre filmées et cerclées dans la zone d'export",
+    "packingAlt30": "Caisses Wadi Degla avec étiquettes d'export dans la cour de l'usine",
+    "packingAlt31": "Employé de Wadi Degla inspectant les caisses d'export dans la cour"
   },
   "history": {
     "pageTitle": "Histoire de Wadi Degla — Trois Générations d'Excellence en Marbre Égyptien",
@@ -674,7 +700,9 @@
     "productFinish": "Finition du Produit",
     "yourName": "Votre Nom*",
     "yourEmail": "Votre E-mail*",
-    "submit": "Soumettre la Demande"
+    "submit": "Soumettre la Demande",
+    "errorGeneric": "Échec de l'envoi de la demande. Veuillez réessayer.",
+    "errorNetwork": "Erreur réseau. Veuillez réessayer plus tard."
   },
   "visualizer": {
     "heroTitle": "Visualiseur de Marbre et Granit",
@@ -823,7 +851,8 @@
   },
   "common": {
     "search": "Rechercher...",
-    "product": "Produit"
+    "product": "Produit",
+    "imageHint": "Cliquez sur l'image pour l'afficher en taille réelle et faites glisser pour naviguer"
   },
   "projects": {
     "pageTitle": "Nos Projets | Wadi Degla",
