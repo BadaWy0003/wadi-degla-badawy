@@ -5,19 +5,31 @@ on:
       - main
     paths:
       - "admin-dashboard/**"
+  workflow_dispatch:
+
+# Never cancel a deploy halfway; queue the next one instead.
+concurrency:
+  group: deploy-admin
+  cancel-in-progress: false
 
 jobs:
+  checks:
+    uses: ./.github/workflows/checks.yml
+    with:
+      app: admin-dashboard
+
   deploy:
     name: Deploy admin dashboard
+    needs: checks
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./admin-dashboard
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: superfly/flyctl-actions/setup-flyctl@ed8efb33836e8b2096c7fd3ba1c8afe303ebbff1 # 1.6
 
       - name: Deploy to fly.io
         run: flyctl deploy --remote-only

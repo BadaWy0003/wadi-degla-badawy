@@ -1,10 +1,15 @@
-name: Deploy Client
+name: Deploy Client (retired)
+
+# The old CRA site (client/, Fly app client-rough-dawn-8020) was replaced by
+# client-next in March 2026. It no longer deploys automatically; it can still
+# be deployed by hand from the Actions tab if ever needed.
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "client/**"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-client
+  cancel-in-progress: false
+
 jobs:
   deploy:
     name: Deploy client
@@ -14,9 +19,9 @@ jobs:
         working-directory: ./client
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: superfly/flyctl-actions/setup-flyctl@ed8efb33836e8b2096c7fd3ba1c8afe303ebbff1 # 1.6
 
       - name: Deploy to fly.io
         run: flyctl deploy --remote-only
