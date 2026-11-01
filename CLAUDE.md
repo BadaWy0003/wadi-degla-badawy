@@ -35,7 +35,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 
 ## Languages (12)
 `en, ar, fr, es, de, it, ro, ko, sq, ru, ja, zh` (default `en`).
-- Each language has a JSON file in `client-next/translations/`, used with i18next/react-i18next (client) plus `t()` in `src/util/meta.js` for metadata (falls back to English).
+- Each language has a JSON file in `client-next/translations/`. They are imported **only server-side** (`src/util/meta.js`): `t()` for metadata, and `getMessages(lang)` (that language merged over English), which `app/[lang]/layout.js` passes to `AppShell` as `messages`; AppShell registers it with i18next (`setLanguageMessages` in `i18n.js`). Never import translation JSON in a client component: that ships all 12 languages to every page (it used to: 928 KB).
 - **Every new key must be added to all 12 files.** `en.json` is the source of truth.
 - RTL: `src/components/AppShell.js` sets `dir="rtl"` and `lang` on the client. RTL CSS uses `html[dir="rtl"]` selectors. Arabic uses the Cairo font (`body[lang="ar"]`).
 - nginx redirects `/` and any path without a language prefix to `/en/...`.
@@ -88,6 +88,7 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - `client/` duplicates most of client-next. Edit **client-next only**.
 - Product pages are generated at build time from the live API (fallback: `FALLBACK_PRODUCT_SLUGS`). A product added in the admin panel only gets its own page after the next client-next deploy.
 - nginx caches `/Assets/*` images for 1 year (`immutable`). **Replace an image under a new filename**, not the same one.
+- Visualizer: mockup photos load on hover/touch/click of a product (never preload them all: ~36 MB). The home/exports globe (amCharts, ~300 KB) loads via `Exports/LazyGlobeChart.js` when scrolled into view.
 - Static HTML has no body content (`ssr: false`). Keep that in mind for SEO work.
 - `server/.dockerignore` excludes `src/common`, so the PDF upload folder doesn't exist in the image.
 - The Fly API token in cloud sessions is **read-only**: it can't deploy or change anything.
