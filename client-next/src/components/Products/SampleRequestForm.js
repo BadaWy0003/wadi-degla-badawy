@@ -52,11 +52,11 @@ export default function SampleRequestForm({ isOpen, onClose, productName, produc
           setFormData({ name: '', email: '' });
           setShowSuccessPopup(true);
         } else {
-          alert('Failed to send request. Please try again.');
+          alert(t('sampleRequestForm.errorGeneric'));
         }
       })
       .catch(() => {
-        alert('Network error. Try again later.');
+        alert(t('sampleRequestForm.errorNetwork'));
       });
   };
 

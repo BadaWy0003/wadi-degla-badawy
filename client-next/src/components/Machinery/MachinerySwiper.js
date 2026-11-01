@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -12,6 +13,7 @@ import "../Projects/ProjectDetails.css";
 
 
 export default function MachinerySwiper({ images, title, description }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -47,7 +49,7 @@ export default function MachinerySwiper({ images, title, description }) {
             <div className="swiper-lazy-preloader"></div>
             {hovered && (
               <div className="image-overlay">
-                <p>Click on the image to view it in full size and swipe to navigate</p>
+                <p>{t('common.imageHint')}</p>
               </div>
             )}
           </SwiperSlide>

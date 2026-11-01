@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import Lightbox from "yet-another-react-lightbox";
@@ -12,6 +13,7 @@ import "./Inspiration.css";
 import "../Projects/ProjectDetails.css";
 
 export default function InspoAncientSwiper({ images }) {
+  const { t } = useTranslation();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -52,7 +54,7 @@ export default function InspoAncientSwiper({ images }) {
     <img loading="lazy" src={image} alt={`Slide ${index}`} className="swiper-lazy" />
     {hovered && (
       <div className="image-overlay">
-        <p>Click on the image to view it in full size and swipe to navigate</p>
+        <p>{t('common.imageHint')}</p>
       </div>
     )}
   </div>

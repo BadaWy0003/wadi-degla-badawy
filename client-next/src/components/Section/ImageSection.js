@@ -31,7 +31,7 @@ export default function ImageSection({ sectionData }) {
               <img loading="lazy" src={slide.image} alt={`Slide ${idx + 1}`} />
               {hovered === idx && (
                 <div className="image-overlay">
-                  <p>Click to view in full size and swipe to navigate</p>
+                  <p>{t('common.imageHint')}</p>
                 </div>
               )}
             </div>

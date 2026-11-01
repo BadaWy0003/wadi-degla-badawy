@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import "./Section.css"; // Create a CSS file for styling
 import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper (Install if not installed)
 // Import Swiper styles
@@ -13,6 +14,7 @@ import 'yet-another-react-lightbox/styles.css';
 import "../Projects/ProjectDetails.css";
 
 export default function Section({ title, text, images, imagePosition = "left" }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -48,7 +50,7 @@ export default function Section({ title, text, images, imagePosition = "left" })
                   <img loading="lazy" src={image} alt={`Slide ${idx + 1}`} />
                   {hovered && (
                     <div className="image-overlay">
-                      <p>Click on the image to view it in full size and swipe to navigate</p>
+                      <p>{t('common.imageHint')}</p>
                     </div>
                   )}
                 </SwiperSlide>
