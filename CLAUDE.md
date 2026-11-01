@@ -17,19 +17,21 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - **Customers / admins / documents**: Firestore collections `customers`, `admins`, `documents`.
 - **Everything else is static in the repo**: page text is in `client-next/translations/*.json`. Data lists such as projects, news, quarries, machinery and certificates are JS files in `client-next/src/components/<Section>/`. Images are in `client-next/public/Assets/Media/`.
 - No database or volumes on Fly. The Mongo/Prisma code in `server/` is dead.
-- Firebase project ID: **`wadi-degla-app`** (bucket `wadi-degla-app.firebasestorage.app`). As of 2026-11-01 the owner doesn't know which Google account owns it (it may be the original developer's).
+- Firebase project ID: **`wadi-degla-app`** (bucket `wadi-degla-app.firebasestorage.app`). The owner regained console access on 2026-11-01.
 - Admin passwords are bcrypt hashes in `admins`. Lost admin access: `fly ssh console -a server-withered-wildflower-1595`, then `node /app/scripts/admin-access.js list` or `node /app/scripts/admin-access.js reset-password <email>`.
 
 ## client-next structure
-- `app/layout.js`: root layout (GA4, Organization/WebSite JSON-LD).
-- `app/[lang]/layout.js`: `generateStaticParams` over `SUPPORTED_LANGS`.
+- There is **no** `app/layout.js`. `app/[lang]/layout.js` is the root layout for all language pages and renders `<html lang dir>` + `<body lang>` per language at build time. `app/(root)/` holds the `/` redirect page with its own small root layout.
+- `src/components/RootHtml.js`: the shared `<html>`/head for both root layouts (metadata `rootMetadata`, Organization/WebSite JSON-LD, GA4, Font Awesome). Edit site-wide head content there.
+- `app/sitemap.js`: generates `/sitemap.xml` at build time (all public pages × 12 languages with hreflang, products from the live API via `src/util/product-slugs.js`, projects, news). **Add new public pages to its `STATIC_PAGES` list.**
 - `app/[lang]/<page>/page.js`: thin wrappers that export `generateMetadata` (via `t()` / `buildAlternates()` from `src/util/meta.js`). They render the component with `dynamic(..., { ssr: false })`.
 - `src/components/<Section>/<Section>.js` + `<Section>.css`: the page UI (client components).
 - `src/util/supported-langs.js`: the language list.
 - `src/util/client.js`: axios instance using `NEXT_PUBLIC_BASE_API_URL`.
 - `src/components/LangLink.js`: use this for internal links. It prefixes `/{lang}`.
 - `src/Public` is a symlink to `../public`.
-- `public/sitemap.xml` and `public/robots.txt` are hand-maintained static files.
+- `public/robots.txt` is a static file (disallows login/signup/my-account/404 pages). Don't add a `public/sitemap.xml`: it would conflict with `app/sitemap.js`.
+- `out/404.html` (Next's default) has no lang/styles; it isn't used, because nginx serves `/en/page-not-found/` for 404s.
 
 ## Languages (12)
 `en, ar, fr, es, de, it, ro, ko, sq, ru, ja, zh` (default `en`).
@@ -102,7 +104,8 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 
 ## To do (agreed, not started)
 - Serve the admin panel on `admin.wadidegla-eg.com` (DNS + Fly certificate; the domain is already in the server's CORS list).
-- Firebase: recover owner access, then turn on Firestore backups.
+- Back up Firebase Storage (product/gallery photos).
+- Rotate the server's Firebase service-account key (created by the previous developer).
 - Staging environment (separate Fly apps + separate Firebase project) before larger admin/server changes.
 
 ## Decisions log
@@ -110,5 +113,6 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - 2026-10-31: the admin dashboard will be revived. `client/` is considered retired.
 - PR descriptions must **not** include the "Generated with Claude Code" line.
 - Staging (separate Fly apps + a separate free Firebase project) will be set up when the admin-dashboard revival starts.
+- 2026-11-01: Firestore backups enabled by the owner (daily kept 7 days, weekly kept 98 days). The owner now has Firebase and Zoho access. Not covered yet: Storage (photo) backups; the Firebase service-account key created by the previous developer was not rotated (owner chose to skip for now).
 - Formatting: format-on-edit only (no repo-wide reformat). When the hook reformats a whole file, commit the pure formatting separately first.
 - 2026-11-01: security hardening of the email endpoint, PDF export (admin only) and nginx headers/HSTS.

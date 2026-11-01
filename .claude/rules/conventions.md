@@ -26,7 +26,7 @@
 1. Create `src/components/<Section>/` with the component and CSS.
 2. Create `app/[lang]/<slug>/page.js`, copying an existing wrapper (e.g. `quarries/page.js`). Use `buildAlternates('/<slug>', lang)`.
 3. Add translation keys in all 12 languages, plus navbar/footer links if needed.
-4. Add the URL to `public/sitemap.xml`.
+4. Add the path to `STATIC_PAGES` in `app/sitemap.js` (the sitemap is generated at build time).
 
 ## Adding content (quarry, project, news, machinery...)
 - Images: convert to WebP with `node tools/optimize-images.js` (max 1600 px). Keep each image under ~300 KB and put it in `public/Assets/Media/<Section>/<kebab-name>/`. Use new filenames when replacing an image (1-year cache).
