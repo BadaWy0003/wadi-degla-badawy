@@ -8,28 +8,31 @@ on:
       - 'client-next/**'
   workflow_dispatch:
 
+# Never cancel a deploy halfway; queue the next one instead.
+concurrency:
+  group: deploy-client-next
+  cancel-in-progress: false
+
 jobs:
+  checks:
+    uses: ./.github/workflows/checks.yml
+    with:
+      app: client-next
+
   deploy:
     name: Deploy client-next
+    needs: checks
     runs-on: ubuntu-latest
-    concurrency:
-      group: deploy-client-next
-      cancel-in-progress: true
-
     steps:
       - uses: actions/checkout@v4
 
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: superfly/flyctl-actions/setup-flyctl@ed8efb33836e8b2096c7fd3ba1c8afe303ebbff1 # 1.6
 
       - name: Deploy
         working-directory: client-next
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: |
-          # Create app if it doesn't exist yet
-          flyctl apps list | grep -q "client-next-wadi-degla" || \
-            flyctl apps create --name client-next-wadi-degla
-
           # NEXT_PUBLIC_ vars must be passed at build time (they are baked into the JS bundle)
           flyctl deploy --remote-only -a client-next-wadi-degla \
             --build-arg NEXT_PUBLIC_BASE_API_URL=https://server-withered-wildflower-1595.fly.dev

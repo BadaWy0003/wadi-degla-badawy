@@ -1,0 +1,77 @@
+name: Checks
+
+# Runs on every pull request (so problems show up before merging) and is
+# reused by the deploy workflows, so nothing is deployed unless it builds.
+on:
+  pull_request:
+    branches: [main]
+  workflow_call:
+    inputs:
+      app:
+        description: "client-next | server | admin-dashboard"
+        type: string
+        required: true
+
+jobs:
+  client-next:
+    if: github.event_name == 'pull_request' || inputs.app == 'client-next'
+    name: Build website (client-next)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client-next
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20 # same as client-next/Dockerfile
+          cache: npm
+          cache-dependency-path: client-next/package-lock.json
+      - run: npm ci
+      # next build also runs ESLint and fails on lint errors
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_API_URL: https://server-withered-wildflower-1595.fly.dev
+
+  server:
+    if: github.event_name == 'pull_request' || inputs.app == 'server'
+    name: Check server
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # same major as server/Dockerfile
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true" # the Docker image uses system Chromium
+      # No tests exist yet: at least make sure every file parses.
+      - name: Syntax check
+        run: find src scripts -name '*.js' -print0 | xargs -0 -n1 node --check
+
+  admin-dashboard:
+    if: github.event_name == 'pull_request' || inputs.app == 'admin-dashboard'
+    name: Build admin dashboard
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: admin-dashboard
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20 # same as admin-dashboard/Dockerfile
+          cache: npm
+          cache-dependency-path: admin-dashboard/package-lock.json
+      - run: npm ci
+      - name: Build
+        # CI=false: CRA would otherwise treat existing lint warnings as errors
+        run: npx react-scripts --openssl-legacy-provider build
+        env:
+          CI: "false"
+          REACT_APP_BASE_API_URL: https://server-withered-wildflower-1595.fly.dev
