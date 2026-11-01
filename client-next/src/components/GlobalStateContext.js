@@ -25,6 +25,21 @@ export const GlobalStateProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchUserData = async () => {
+      // Only ask the API when this browser has a login token. The auth cookie is never
+      // sent cross-site (site and API are on different domains), so without a token the
+      // answer is always 401: that was one failed request + one server log line per page view.
+      let token = null;
+      try {
+        token = localStorage.getItem('auth_token');
+      } catch {
+        // storage blocked (private mode etc.): treat as logged out
+      }
+      if (!token) {
+        setGlobalState((prev) => ({ ...prev, isLoggedIn: false }));
+        setLoading(false);
+        return;
+      }
+
       try {
         const { data } = await apiClient.get(`/api/auth/customer/check-auth`);
 
