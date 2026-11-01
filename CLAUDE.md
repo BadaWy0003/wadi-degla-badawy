@@ -8,7 +8,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 |---|---|---|---|
 | `client-next/` | **Live website**, Next.js 14 App Router, static export (`output: 'export'`) served by nginx | `client-next-wadi-degla` (cdg) | live |
 | `server/` | Express 4 API on Node 22: email, products/gallery, auth, PDF export | `server-withered-wildflower-1595` (fra) | live |
-| `admin-dashboard/` | CRA + React 19 + MUI admin panel (products, gallery, users, PDFs) | `admin-dashboard-withered-waterfall-6127` | suspended, to be revived |
+| `admin-dashboard/` | CRA + React 19 + MUI admin panel (products, gallery, users, PDFs) | `admin-dashboard-withered-waterfall-6127` | works; machines sleep and auto-start on visit (https://admin-dashboard-withered-waterfall-6127.fly.dev/login) |
 | `client/` | OLD CRA website, replaced by client-next in March 2026 | `client-rough-dawn-8020` | suspended. Do not edit |
 | `tools/` | `optimize-images.js`: sharp batch converter to WebP (max 1600 px, q82) | n/a | n/a |
 
@@ -17,6 +17,8 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - **Customers / admins / documents**: Firestore collections `customers`, `admins`, `documents`.
 - **Everything else is static in the repo**: page text is in `client-next/translations/*.json`. Data lists such as projects, news, quarries, machinery and certificates are JS files in `client-next/src/components/<Section>/`. Images are in `client-next/public/Assets/Media/`.
 - No database or volumes on Fly. The Mongo/Prisma code in `server/` is dead.
+- Firebase project ID: **`wadi-degla-app`** (bucket `wadi-degla-app.firebasestorage.app`). As of 2026-11-01 the owner doesn't know which Google account owns it (it may be the original developer's).
+- Admin passwords are bcrypt hashes in `admins`. Lost admin access: `fly ssh console -a server-withered-wildflower-1595`, then `node /app/scripts/admin-access.js list` or `node /app/scripts/admin-access.js reset-password <email>`.
 
 ## client-next structure
 - `app/layout.js`: root layout (GA4, Organization/WebSite JSON-LD).
@@ -85,12 +87,17 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - `server/.dockerignore` excludes `src/common`, so the PDF upload folder doesn't exist in the image.
 - The Fly API token in cloud sessions is **read-only**: it can't deploy or change anything.
 - In cloud sessions the Docker daemon isn't started by default (`dockerd &`), and Docker builds can't reach Debian mirrors through the proxy, so the server image can't be built there.
-- Fly's own GitHub integration used to deploy the server and old client on **every** push to `main`, in parallel with our Actions (two releases per merge, lease conflicts). It was disconnected on 2026-11-01. If a merge creates two releases again, check the app's Settings > GitHub in the Fly dashboard. Ignore the "merge new files" banner.
+- Fly's own GitHub integration used to deploy the server and old client on **every** push to `main`, in parallel with our Actions (two releases per merge, lease conflicts). It was unlinked (Settings > "Unlink GitHub Connection") on 2026-11-01; the first attempt didn't take effect. If a merge creates two releases again, check the app's Settings > GitHub in the Fly dashboard. Ignore the "merge new files" banner.
 - Release image tags: `deployment-01…` come from GitHub Actions (flyctl); `deployment-<32 hex>` came from Fly's GitHub integration.
 - `nginx.conf`: the first `server` block (the non-www redirect) is the default for unknown hosts, so locally `http://localhost` redirects to the live site. For local tests, add `localhost` to the second block's `server_name` in a **copy** of the config.
 - `nginx.conf`: `add_header` in a `location` drops all server-level headers, so the security headers are repeated in every location that sets its own headers. Keep the copies in sync.
 - `/api/send-email`: rate limited to 5 per 15 minutes per IP (`Fly-Client-IP`), in memory per machine. It has a honeypot field `website`, and visitor HTML is reduced to `p/strong/ul/li/br` with no attributes.
 - Merging a PR that touches several app folders redeploys **each** of those apps (including the suspended `client/` and admin apps).
+
+## To do (agreed, not started)
+- Serve the admin panel on `admin.wadidegla-eg.com` (DNS + Fly certificate; the domain is already in the server's CORS list).
+- Firebase: recover owner access, then turn on Firestore backups.
+- Staging environment (separate Fly apps + separate Firebase project) before larger admin/server changes.
 
 ## Decisions log
 - 2026-10-31: removed a hidden `process.exit` trigger from `server/src/controllers/storage.controller.js` (PR #2, server release v247).
