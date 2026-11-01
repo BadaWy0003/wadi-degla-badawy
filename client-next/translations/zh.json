@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "进口大理石",
   "visualizer.egyptianMarbleDisplay": "埃及大理石",
   "visualizer.importedGraniteDisplay": "进口花岗岩",
-  "visualizer.egyptianGraniteDisplay": "埃及花岗岩"
+  "visualizer.egyptianGraniteDisplay": "埃及花岗岩",
+  "finishes": {
+    "polished": "抛光",
+    "honed": "哑光",
+    "antique": "仿古",
+    "brushed": "拉丝",
+    "flamed": "火烧",
+    "bushHammered": "荔枝面",
+    "leather": "皮革面",
+    "rough": "粗面",
+    "sandblasted": "喷砂",
+    "splitFace": "自然面"
+  }
 }

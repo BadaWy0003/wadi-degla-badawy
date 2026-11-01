@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "Marmură Importată",
   "visualizer.egyptianMarbleDisplay": "Marmură Egipteană",
   "visualizer.importedGraniteDisplay": "Granit Importat",
-  "visualizer.egyptianGraniteDisplay": "Granit Egiptean"
+  "visualizer.egyptianGraniteDisplay": "Granit Egiptean",
+  "finishes": {
+    "polished": "Lustruit",
+    "honed": "Șlefuit mat",
+    "antique": "Antichizat",
+    "brushed": "Periat",
+    "flamed": "Flambat",
+    "bushHammered": "Buciardat",
+    "leather": "Finisaj piele",
+    "rough": "Brut",
+    "sandblasted": "Sablat",
+    "splitFace": "Despicat"
+  }
 }

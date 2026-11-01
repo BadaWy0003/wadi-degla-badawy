@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "Marbre Importé",
   "visualizer.egyptianMarbleDisplay": "Marbre Égyptien",
   "visualizer.importedGraniteDisplay": "Granit Importé",
-  "visualizer.egyptianGraniteDisplay": "Granit Égyptien"
+  "visualizer.egyptianGraniteDisplay": "Granit Égyptien",
+  "finishes": {
+    "polished": "Poli",
+    "honed": "Adouci",
+    "antique": "Vieilli",
+    "brushed": "Brossé",
+    "flamed": "Flammé",
+    "bushHammered": "Bouchardé",
+    "leather": "Finition cuir",
+    "rough": "Brut",
+    "sandblasted": "Sablé",
+    "splitFace": "Éclaté"
+  }
 }

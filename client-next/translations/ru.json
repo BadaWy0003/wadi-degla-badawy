@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "Импортированный мрамор",
   "visualizer.egyptianMarbleDisplay": "Египетский мрамор",
   "visualizer.importedGraniteDisplay": "Импортированный гранит",
-  "visualizer.egyptianGraniteDisplay": "Египетский гранит"
+  "visualizer.egyptianGraniteDisplay": "Египетский гранит",
+  "finishes": {
+    "polished": "Полированный",
+    "honed": "Лощёный",
+    "antique": "Антик",
+    "brushed": "Брашированный",
+    "flamed": "Термообработанный",
+    "bushHammered": "Бучардированный",
+    "leather": "Под кожу",
+    "rough": "Необработанный",
+    "sandblasted": "Пескоструйный",
+    "splitFace": "Колотый"
+  }
 }

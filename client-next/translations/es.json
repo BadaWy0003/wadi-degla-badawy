@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "Mármol Importado",
   "visualizer.egyptianMarbleDisplay": "Mármol Egipcio",
   "visualizer.importedGraniteDisplay": "Granito Importado",
-  "visualizer.egyptianGraniteDisplay": "Granito Egipcio"
+  "visualizer.egyptianGraniteDisplay": "Granito Egipcio",
+  "finishes": {
+    "polished": "Pulido",
+    "honed": "Apomazado",
+    "antique": "Envejecido",
+    "brushed": "Cepillado",
+    "flamed": "Flameado",
+    "bushHammered": "Abujardado",
+    "leather": "Acabado cuero",
+    "rough": "En bruto",
+    "sandblasted": "Arenado",
+    "splitFace": "Cara partida"
+  }
 }

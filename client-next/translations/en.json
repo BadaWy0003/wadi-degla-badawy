@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "Imported Marble",
   "visualizer.egyptianMarbleDisplay": "Egyptian Marble",
   "visualizer.importedGraniteDisplay": "Imported Granite",
-  "visualizer.egyptianGraniteDisplay": "Egyptian Granite"
+  "visualizer.egyptianGraniteDisplay": "Egyptian Granite",
+  "finishes": {
+    "polished": "Polished",
+    "honed": "Honed",
+    "antique": "Antique",
+    "brushed": "Brushed",
+    "flamed": "Flamed",
+    "bushHammered": "Bush Hammered",
+    "leather": "Leather",
+    "rough": "Rough",
+    "sandblasted": "Sandblasted",
+    "splitFace": "Split Face"
+  }
 }

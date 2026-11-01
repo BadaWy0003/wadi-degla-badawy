@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "輸入大理石",
   "visualizer.egyptianMarbleDisplay": "エジプト大理石",
   "visualizer.importedGraniteDisplay": "輸入花崗岩",
-  "visualizer.egyptianGraniteDisplay": "エジプト花崗岩"
+  "visualizer.egyptianGraniteDisplay": "エジプト花崗岩",
+  "finishes": {
+    "polished": "本磨き",
+    "honed": "水磨き",
+    "antique": "アンティーク",
+    "brushed": "ブラッシュ仕上げ",
+    "flamed": "バーナー仕上げ",
+    "bushHammered": "ビシャン仕上げ",
+    "leather": "レザー仕上げ",
+    "rough": "粗面",
+    "sandblasted": "サンドブラスト",
+    "splitFace": "割肌"
+  }
 }

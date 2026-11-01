@@ -874,5 +874,17 @@
   "visualizer.importedMarbleDisplay": "Mermer i Importuar",
   "visualizer.egyptianMarbleDisplay": "Mermer Egjiptian",
   "visualizer.importedGraniteDisplay": "Granit i Importuar",
-  "visualizer.egyptianGraniteDisplay": "Granit Egjiptian"
+  "visualizer.egyptianGraniteDisplay": "Granit Egjiptian",
+  "finishes": {
+    "polished": "I lëmuar",
+    "honed": "Mat",
+    "antique": "Antik",
+    "brushed": "I furçuar",
+    "flamed": "I flakëruar",
+    "bushHammered": "I çekiçuar",
+    "leather": "Efekt lëkure",
+    "rough": "I papërpunuar",
+    "sandblasted": "I rërëzuar",
+    "splitFace": "Faqe e çarë"
+  }
 }
