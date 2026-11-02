@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon, Button } from '@mui/material';
-import { Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload } from '@mui/icons-material';
+import { Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, Newspaper } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../GlobalStateContext'; // Ensure this exists
 import apiClient from '../../util/client';
+import { canManageNews } from '../../util/news';
 
 
 const drawerWidth = 280;
@@ -17,6 +18,8 @@ export default function Layout() {
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
     { text: 'Products', icon: <Inventory />, path: '/products' },
     { text: 'Gallery', icon: <Collections />, path: '/gallery' },
+    // News: Admins and Super Admins only (the server enforces the same rule)
+    ...(canManageNews(globalState.role) ? [{ text: 'News', icon: <Newspaper />, path: '/news' }] : []),
     { text: 'Users', icon: <Group />, path: '/users' },
     { text: 'Customers', icon: <People />, path: '/customers' },
     { text: 'Documents', icon: <DriveFolderUpload />, path: '/documents' },
