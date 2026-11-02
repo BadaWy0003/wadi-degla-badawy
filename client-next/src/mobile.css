@@ -163,9 +163,18 @@
   html body .export-department:not(#m),
   html body .machinery-section:not(#m),
   html body .packing-slabs:not(#m),
-  html body .projects-section:not(#m),
+  html body .projects-section:not(#m) {
+    margin-bottom: 40px;
+  }
+
+  /* Space under the cover photo. Not on Products: there the cover is followed by the dark
+     category bar on a white page, and the margin showed as a white strip. */
   html body .quarries-hero:not(#m) {
     margin-bottom: 40px;
+  }
+
+  html body .products-container-2 .quarries-hero:not(#m) {
+    margin-bottom: 0;
   }
 
   html body .image-grid:not(#m) {
@@ -204,6 +213,23 @@
 
   html body .third-gen-section-gallery img:not(#m) {
     width: calc(50% - 0.5rem);
+  }
+
+  /* Exports and Packing photo walls (~40 photos each): 3 per row on phones instead of 2,
+     so those pages are about a third shorter. Exports.css sets column-count with
+     !important, hence !important here. Photos still open full size when tapped. */
+  html body .image-grid .masonry-grid:not(#m) {
+    column-count: 3 !important;
+    column-gap: 6px;
+  }
+
+  html body .image-grid .masonry-item:not(#m) {
+    margin-bottom: 6px;
+  }
+
+  html body .image-grid:not(#m) {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   /* ---------- Projects: shorter cards ---------- */
