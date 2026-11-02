@@ -3,7 +3,7 @@
 import { SUPPORTED_LANGS } from '../src/util/supported-langs';
 import { getProductSlugs } from '../src/util/product-slugs';
 import projects from '../src/components/Projects/projectList';
-import articles from '../src/components/News/newsList';
+import { getNewsSlugs } from '../src/util/news-data';
 
 export const dynamic = 'force-static';
 
@@ -40,6 +40,7 @@ const url = (lang, path) => `${BASE_URL}/${lang}${path}/`;
 export default async function sitemap() {
   const lastModified = new Date();
   const productSlugs = [...new Set(await getProductSlugs())];
+  const newsSlugs = await getNewsSlugs(); // from the admin panel
 
   const pages = [
     ...STATIC_PAGES,
@@ -53,7 +54,7 @@ export default async function sitemap() {
       priority: 0.6,
       changeFrequency: 'yearly',
     })),
-    ...articles.map((a) => ({ path: `/news/${a.slug}`, priority: 0.6, changeFrequency: 'yearly' })),
+    ...newsSlugs.map((slug) => ({ path: `/news/${slug}`, priority: 0.6, changeFrequency: 'yearly' })),
   ];
 
   return pages.flatMap(({ path, priority, changeFrequency }) => {

@@ -4,20 +4,15 @@ import './News.css';
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
 import NewsCard from "./NewsCard";
-import articles from "./newsList";
 import LangLink from '../LangLink';
 
-export default function News(){
+// articles: from the admin panel, read at build time by app/[lang]/news/page.js, already in
+// display order (pinned first, then newest).
+export default function News({ articles = [] }){
     const { t } = useTranslation();
     const [searchQuery, setSearchQuery] = useState("");
 
-    // Pin article id=1 first, then sort the rest by dateOrder descending (newest first)
-    const sortedArticles = [...articles]
-        .sort((a, b) => {
-            if (a.id === 1) return -1;
-            if (b.id === 1) return 1;
-            return b.dateOrder - a.dateOrder;
-        })
+    const sortedArticles = articles
         .filter((article) =>
             article.title.toLowerCase().includes(searchQuery.toLowerCase())
         );
