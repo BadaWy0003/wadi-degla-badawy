@@ -6,6 +6,8 @@ const AdminRouter = require('../routes/admin.route');
 const PdfExportRouter = require('../routes/pdfExport.route');
 const StorageRouter = require('../routes/storage.route');
 const NewsRouter = require('../routes/news.route');
+const ProjectsRouter = require('../routes/projects.route');
+const PublishRouter = require('../routes/publish.route');
 
 module.exports = (app) => {
   app.use('/api/index', IndexRouter);
@@ -16,5 +18,7 @@ module.exports = (app) => {
   app.use('/api/export-pdf', PdfExportRouter);
   app.use('/api/storage', StorageRouter);
   app.use('/api/news', NewsRouter);
+  app.use('/api/projects', ProjectsRouter);
+  app.use('/api/publish', PublishRouter);
   app.use('/api/send-email', require('../routes/sendEmail'));
 };

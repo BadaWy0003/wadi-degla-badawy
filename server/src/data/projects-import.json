@@ -1,0 +1,703 @@
+{
+  "countries": [
+    {
+      "en": "The Caribbean",
+      "ar": "منطقة البحر الكاريبي"
+    },
+    {
+      "en": "Kenya",
+      "ar": "كينيا"
+    },
+    {
+      "en": "Latin America",
+      "ar": "أمريكا اللاتينية"
+    },
+    {
+      "en": "Kuwait",
+      "ar": "الكويت"
+    },
+    {
+      "en": "Romania",
+      "ar": "رومانيا"
+    },
+    {
+      "en": "Egypt",
+      "ar": "مصر"
+    },
+    {
+      "en": "Australia",
+      "ar": "أستراليا"
+    }
+  ],
+  "projects": [
+    {
+      "number": 1,
+      "name": {
+        "en": "Viva Miches By Wyndham",
+        "ar": ""
+      },
+      "city": {
+        "en": "",
+        "ar": ""
+      },
+      "country": "The Caribbean",
+      "thumbnail": "/Assets/Media/Projects/wyndham1-2.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/wyndham.webp",
+          "alt": "Viva Miches By Wyndham image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham1.webp",
+          "alt": "Viva Miches By Wyndham image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham1-1.webp",
+          "alt": "Viva Miches By Wyndham image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham1-2.webp",
+          "alt": "Viva Miches By Wyndham image 4"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham2.webp",
+          "alt": "Viva Miches By Wyndham image 5"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham2-1.webp",
+          "alt": "Viva Miches By Wyndham image 6"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham2-2.webp",
+          "alt": "Viva Miches By Wyndham image 7"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham3.webp",
+          "alt": "Viva Miches By Wyndham image 8"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham3-1.webp",
+          "alt": "Viva Miches By Wyndham image 9"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham9.webp",
+          "alt": "Viva Miches By Wyndham image 10"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham10.webp",
+          "alt": "Viva Miches By Wyndham image 11"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham10-1.webp",
+          "alt": "Viva Miches By Wyndham image 12"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham10-2.webp",
+          "alt": "Viva Miches By Wyndham image 13"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham11.webp",
+          "alt": "Viva Miches By Wyndham image 14"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham12.webp",
+          "alt": "Viva Miches By Wyndham image 15"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham14.webp",
+          "alt": "Viva Miches By Wyndham image 16"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham15.webp",
+          "alt": "Viva Miches By Wyndham image 17"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham16.webp",
+          "alt": "Viva Miches By Wyndham image 18"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham17.webp",
+          "alt": "Viva Miches By Wyndham image 19"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham17-1.webp",
+          "alt": "Viva Miches By Wyndham image 20"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham17-2.webp",
+          "alt": "Viva Miches By Wyndham image 21"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham18.webp",
+          "alt": "Viva Miches By Wyndham image 22"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham19.webp",
+          "alt": "Viva Miches By Wyndham image 23"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham20.webp",
+          "alt": "Viva Miches By Wyndham image 24"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham1-0.webp",
+          "alt": "Viva Miches By Wyndham image 25"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-21.webp",
+          "alt": "Viva Miches By Wyndham image 26"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-22.webp",
+          "alt": "Viva Miches By Wyndham image 27"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-23.webp",
+          "alt": "Viva Miches By Wyndham image 28"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-24.webp",
+          "alt": "Viva Miches By Wyndham image 29"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-25.webp",
+          "alt": "Viva Miches By Wyndham image 30"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-26.webp",
+          "alt": "Viva Miches By Wyndham image 31"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-27.webp",
+          "alt": "Viva Miches By Wyndham image 32"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-28.webp",
+          "alt": "Viva Miches By Wyndham image 33"
+        },
+        {
+          "src": "/Assets/Media/Projects/wyndham-29.webp",
+          "alt": "Viva Miches By Wyndham image 34"
+        }
+      ],
+      "materialNames": [
+        "Creamy White Pearl",
+        "Triesta Beige",
+        "Turkish Cararra",
+        "Fantazia Sylvia",
+        "Fantazia Sunny",
+        "Sunny Light",
+        "Melly Grey",
+        "Black Aswan"
+      ]
+    },
+    {
+      "number": 2,
+      "name": {
+        "en": "Dominiqus Palace By Wyndham (Full Remodelation)",
+        "ar": ""
+      },
+      "city": {
+        "en": "",
+        "ar": ""
+      },
+      "country": "The Caribbean",
+      "thumbnail": "/Assets/Media/Projects/carribean-palace.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/carribean-palace.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-2.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-3.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-4.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 4"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-6.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 5"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-7.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 6"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-8.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 7"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-9.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 8"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-10.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 9"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-11.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 10"
+        },
+        {
+          "src": "/Assets/Media/Projects/carribean-palace-12.webp",
+          "alt": "Dominiqus Palace By Wyndham (Full Remodelation) image 11"
+        }
+      ],
+      "materialNames": ["Sunny Light"]
+    },
+    {
+      "number": 15,
+      "name": {
+        "en": "viva tangerine by wyndham (full remodelation)",
+        "ar": ""
+      },
+      "city": {
+        "en": "",
+        "ar": ""
+      },
+      "country": "The Caribbean",
+      "thumbnail": "/Assets/Media/Projects/viva-tangerine-9.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/viva-tangerine-9.webp",
+          "alt": "viva tangerine by wyndham (full remodelation) image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/viva-tangerine-1.webp",
+          "alt": "viva tangerine by wyndham (full remodelation) image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/viva-tangerine-2.webp",
+          "alt": "viva tangerine by wyndham (full remodelation) image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/viva-tangerine-3.webp",
+          "alt": "viva tangerine by wyndham (full remodelation) image 4"
+        },
+        {
+          "src": "/Assets/Media/Projects/viva-tangerine-4.webp",
+          "alt": "viva tangerine by wyndham (full remodelation) image 5"
+        },
+        {
+          "src": "/Assets/Media/Projects/viva-tangerine-7.webp",
+          "alt": "viva tangerine by wyndham (full remodelation) image 6"
+        }
+      ],
+      "materialNames": ["Sunny Light", "New Halayeb"]
+    },
+    {
+      "number": 3,
+      "name": {
+        "en": "Blu Terrenas",
+        "ar": ""
+      },
+      "city": {
+        "en": "",
+        "ar": ""
+      },
+      "country": "The Caribbean",
+      "thumbnail": "/Assets/Media/Projects/blu-terrenas.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/blu-terrenas.webp",
+          "alt": "Blu Terrenas image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/blu-terrenas-2.webp",
+          "alt": "Blu Terrenas image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/blu-terrenas-3.webp",
+          "alt": "Blu Terrenas image 3"
+        }
+      ],
+      "materialNames": ["New Halayeb"]
+    },
+    {
+      "number": 4,
+      "name": {
+        "en": "J&M Appartments",
+        "ar": ""
+      },
+      "city": {
+        "en": "Nairobi",
+        "ar": "نيروبي"
+      },
+      "country": "Kenya",
+      "thumbnail": "/Assets/Media/Projects/j-m-appartments-2-2.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/j-m-appartments-2.webp",
+          "alt": "J&M Appartments image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/j-m-appartments-2-2.webp",
+          "alt": "J&M Appartments image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/j-m-appartments-2-1.webp",
+          "alt": "J&M Appartments image 3"
+        }
+      ],
+      "materialNames": ["Creamy White Pearl", "Emperador"]
+    },
+    {
+      "number": 5,
+      "name": {
+        "en": "South C Project",
+        "ar": ""
+      },
+      "city": {
+        "en": "Nairobi",
+        "ar": "نيروبي"
+      },
+      "country": "Kenya",
+      "thumbnail": "/Assets/Media/Projects/south-c-project-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/south-c-project-1.webp",
+          "alt": "South C Project image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/south-c-project.webp",
+          "alt": "South C Project image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/south-c-project-2.webp",
+          "alt": "South C Project image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/south-c-project-3.webp",
+          "alt": "South C Project image 4"
+        },
+        {
+          "src": "/Assets/Media/Projects/south-c-project-4.webp",
+          "alt": "South C Project image 5"
+        },
+        {
+          "src": "/Assets/Media/Projects/south-c-project-5.webp",
+          "alt": "South C Project image 6"
+        }
+      ],
+      "materialNames": ["Creamy White Pearl", "Triesta Grey"]
+    },
+    {
+      "number": 6,
+      "name": {
+        "en": "Theta Lane Project",
+        "ar": ""
+      },
+      "city": {
+        "en": "Nairobi",
+        "ar": "نيروبي"
+      },
+      "country": "Kenya",
+      "thumbnail": "/Assets/Media/Projects/theta-lane-project.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/theta-lane-project.webp",
+          "alt": "Theta Lane Project image 1"
+        }
+      ],
+      "materialNames": ["Creamy White Pearl", "Triesta Grey"]
+    },
+    {
+      "number": 7,
+      "name": {
+        "en": "Lila Modern Cuisine (Restaurant)",
+        "ar": ""
+      },
+      "city": {
+        "en": "",
+        "ar": ""
+      },
+      "country": "Latin America",
+      "thumbnail": "/Assets/Media/Projects/latinamerica-project-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/latinamerica-project-1.webp",
+          "alt": "Lila Modern Cuisine (Restaurant) image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/latinamerica-project-2.webp",
+          "alt": "Lila Modern Cuisine (Restaurant) image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/latinamerica-project-3.webp",
+          "alt": "Lila Modern Cuisine (Restaurant) image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/latinamerica-project-4.webp",
+          "alt": "Lila Modern Cuisine (Restaurant) image 4"
+        },
+        {
+          "src": "/Assets/Media/Projects/latinamerica-project-5.webp",
+          "alt": "Lila Modern Cuisine (Restaurant) image 5"
+        },
+        {
+          "src": "/Assets/Media/Projects/latinamerica-project-6.webp",
+          "alt": "Lila Modern Cuisine (Restaurant) image 6"
+        }
+      ],
+      "materialNames": ["Sunny Light"]
+    },
+    {
+      "number": 8,
+      "name": {
+        "en": "Egyptian Embassy in Kuwait",
+        "ar": ""
+      },
+      "city": {
+        "en": "Kuwait City",
+        "ar": "مدينة الكويت"
+      },
+      "country": "Kuwait",
+      "thumbnail": "/Assets/Media/Projects/egy-embassy-kuwait-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/egy-embassy-kuwait-1.webp",
+          "alt": "Egyptian Embassy in Kuwait image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/egy-embassy-kuwait-2.webp",
+          "alt": "Egyptian Embassy in Kuwait image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/egy-embassy-kuwait-3.webp",
+          "alt": "Egyptian Embassy in Kuwait image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/egy-embassy-kuwait-4.webp",
+          "alt": "Egyptian Embassy in Kuwait image 4"
+        },
+        {
+          "src": "/Assets/Media/Projects/egy-embassy-kuwait-5.webp",
+          "alt": "Egyptian Embassy in Kuwait image 5"
+        },
+        {
+          "src": "/Assets/Media/Projects/egy-embassy-kuwait-6.webp",
+          "alt": "Egyptian Embassy in Kuwait image 6"
+        },
+        {
+          "src": "/Assets/Media/Projects/egy-embassy-kuwait-7.webp",
+          "alt": "Egyptian Embassy in Kuwait image 7"
+        }
+      ],
+      "materialNames": ["Sunny Light"]
+    },
+    {
+      "number": 9,
+      "name": {
+        "en": "Romania Project",
+        "ar": ""
+      },
+      "city": {
+        "en": "Bucharest",
+        "ar": "بوخارست"
+      },
+      "country": "Romania",
+      "thumbnail": "/Assets/Media/Projects/romania-project-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/romania-project-1.webp",
+          "alt": "Romania Project image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/romania-project-2.webp",
+          "alt": "Romania Project image 2"
+        }
+      ],
+      "materialNames": ["Creamy White Pearl"]
+    },
+    {
+      "number": 10,
+      "name": {
+        "en": "CFC Podiums",
+        "ar": ""
+      },
+      "city": {
+        "en": "Cairo",
+        "ar": "القاهرة"
+      },
+      "country": "Egypt",
+      "thumbnail": "/Assets/Media/Projects/cfc-podiums-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/cfc-podiums-1.webp",
+          "alt": "CFC Podiums image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/cfc-podiums-2.webp",
+          "alt": "CFC Podiums image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/cfc-podiums-3.webp",
+          "alt": "CFC Podiums image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/cfc-podiums-4.webp",
+          "alt": "CFC Podiums image 4"
+        }
+      ],
+      "materialNames": ["Pietra Grey", "Calacatta Italy", "Karnak Grey", "Fantastic White"]
+    },
+    {
+      "number": 11,
+      "name": {
+        "en": "Mivida Business Buildings",
+        "ar": ""
+      },
+      "city": {
+        "en": "Cairo",
+        "ar": "القاهرة"
+      },
+      "country": "Egypt",
+      "thumbnail": "/Assets/Media/Projects/mivida-business-park-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/mivida-business-park-1.webp",
+          "alt": "Mivida Business Buildings image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/mivida-business-park-2.webp",
+          "alt": "Mivida Business Buildings image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/mivida-business-park-3.webp",
+          "alt": "Mivida Business Buildings image 3"
+        }
+      ],
+      "materialNames": ["Pietra Grey", "Calacatta Italy", "Triesta Beige"]
+    },
+    {
+      "number": 12,
+      "name": {
+        "en": "Oriana Villas",
+        "ar": ""
+      },
+      "city": {
+        "en": "Cairo",
+        "ar": "القاهرة"
+      },
+      "country": "Egypt",
+      "thumbnail": "/Assets/Media/Projects/oriana-villas-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/oriana-villas-1.webp",
+          "alt": "Oriana Villas image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/oriana-villas-2.webp",
+          "alt": "Oriana Villas image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/oriana-villas-3.webp",
+          "alt": "Oriana Villas image 3"
+        }
+      ],
+      "materialNames": ["Triesta Grey", "Breccia Daino", "Arabescato", "Calacatta Italy", "Sunny Light", "Red Fersan"]
+    },
+    {
+      "number": 13,
+      "name": {
+        "en": "Mountain View Ras El-Hekma",
+        "ar": ""
+      },
+      "city": {
+        "en": "North Coast",
+        "ar": "الساحل الشمالي"
+      },
+      "country": "Egypt",
+      "thumbnail": "/Assets/Media/Projects/mountain-view-ras-elhekma-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/mountain-view-ras-elhekma-1.webp",
+          "alt": "Mountain View Ras El-Hekma image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/mountain-view-ras-elhekma-2.webp",
+          "alt": "Mountain View Ras El-Hekma image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/mountain-view-ras-elhekma-3.webp",
+          "alt": "Mountain View Ras El-Hekma image 3"
+        }
+      ],
+      "materialNames": ["Creamy White Pearl", "Pietra Grey", "Karnak Grey"]
+    },
+    {
+      "number": 14,
+      "name": {
+        "en": "Murano Ain Sokhna",
+        "ar": ""
+      },
+      "city": {
+        "en": "Red Sea",
+        "ar": "البحر الأحمر"
+      },
+      "country": "Egypt",
+      "thumbnail": "/Assets/Media/Projects/murano-ain-sokhna-2.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/murano-ain-sokhna-1.webp",
+          "alt": "Murano Ain Sokhna image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/murano-ain-sokhna-2.webp",
+          "alt": "Murano Ain Sokhna image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/murano-ain-sokhna-3.webp",
+          "alt": "Murano Ain Sokhna image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/murano-ain-sokhna-4.webp",
+          "alt": "Murano Ain Sokhna image 4"
+        }
+      ],
+      "materialNames": ["Sunny Light", "New Halayeb"]
+    },
+    {
+      "number": 16,
+      "name": {
+        "en": "Australia Project",
+        "ar": ""
+      },
+      "city": {
+        "en": "Sydney",
+        "ar": "سيدني"
+      },
+      "country": "Australia",
+      "thumbnail": "/Assets/Media/Projects/australia-project-1.webp",
+      "images": [
+        {
+          "src": "/Assets/Media/Projects/australia-project-2.webp",
+          "alt": "Australia Project image 1"
+        },
+        {
+          "src": "/Assets/Media/Projects/australia-project-1.webp",
+          "alt": "Australia Project image 2"
+        },
+        {
+          "src": "/Assets/Media/Projects/australia-project-3.webp",
+          "alt": "Australia Project image 3"
+        },
+        {
+          "src": "/Assets/Media/Projects/australia-project-4.webp",
+          "alt": "Australia Project image 4"
+        },
+        {
+          "src": "/Assets/Media/Projects/australia-project-5.webp",
+          "alt": "Australia Project image 5"
+        }
+      ],
+      "materialNames": ["Galala", "Triesta Beige"]
+    }
+  ]
+}

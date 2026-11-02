@@ -7,10 +7,10 @@
 const { db } = require('../start/firebase');
 const { col } = require('../start/data-area');
 const StorageService = require('./storage.service');
+const SiteMeta = require('./site-meta.service');
 const importArticles = require('../data/news-import.json');
 
 const newsCollection = () => db.collection(col('news'));
-const metaDoc = () => db.collection(col('site_meta')).doc('news');
 
 const NewsService = {};
 
@@ -45,10 +45,7 @@ const sortArticles = (list) =>
     return b.year * 100 + b.month - (a.year * 100 + a.month);
   });
 
-// Remember that the website no longer matches the database (shown in the admin panel).
-const markChanged = async (by) => {
-  await metaDoc().set({ lastChangeAt: Date.now(), lastChangeBy: by || null }, { merge: true });
-};
+const markChanged = SiteMeta.markChanged;
 
 const clean = (body) => ({
   title: { en: body.title.en, ar: body.title.ar || '' },
@@ -177,12 +174,5 @@ NewsService.importExisting = async (by) => {
   await markChanged(by);
   return { imported: importArticles.length };
 };
-
-NewsService.getMeta = async () => {
-  const doc = await metaDoc().get();
-  return doc.exists ? doc.data() : {};
-};
-
-NewsService.setMeta = async (data) => metaDoc().set(data, { merge: true });
 
 module.exports = NewsService;

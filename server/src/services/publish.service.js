@@ -1,12 +1,13 @@
 // "Publish to website": starts the website's normal deploy workflow on GitHub
 // (.github/workflows/deploy-client-next.yml, workflow_dispatch on main). The build reads
-// the news from GET /api/news, so the published site matches the database.
+// the news (GET /api/news) and projects (GET /api/projects), so the published site
+// matches the database.
 //
 // Needs the Fly secret GITHUB_DEPLOY_TOKEN: a fine-grained GitHub token limited to this
 // repository with "Actions: Read and write" permission (nothing else).
 
 const { IS_STAGING } = require('../start/data-area');
-const NewsService = require('./news.service');
+const SiteMeta = require('./site-meta.service');
 
 const REPO = process.env.GITHUB_REPO || 'BadaWy0003/wadi-degla-badawy';
 const WORKFLOW = process.env.GITHUB_DEPLOY_WORKFLOW || 'deploy-client-next.yml';
@@ -34,7 +35,7 @@ PublishService.publish = async (by) => {
   if (IS_STAGING) throw httpError(400, 'Publishing is disabled on staging.');
   if (!process.env.GITHUB_DEPLOY_TOKEN) throw httpError(503, 'Publishing is not set up yet (GITHUB_DEPLOY_TOKEN is missing).');
 
-  const meta = await NewsService.getMeta();
+  const meta = await SiteMeta.get();
   if (meta.lastPublishAt && Date.now() - meta.lastPublishAt < MIN_INTERVAL_MS) {
     throw httpError(429, 'A publish was just started. Please wait a minute.');
   }
@@ -50,14 +51,14 @@ PublishService.publish = async (by) => {
   }
 
   const startedAt = Date.now();
-  await NewsService.setMeta({ lastPublishAt: startedAt, lastPublishBy: by || null });
+  await SiteMeta.set({ lastPublishAt: startedAt, lastPublishBy: by || null });
   return { startedAt };
 };
 
 // Last website build started from the admin panel (or by hand on GitHub) and whether
 // there are changes that are not on the website yet.
 PublishService.status = async () => {
-  const meta = await NewsService.getMeta();
+  const meta = await SiteMeta.get();
   const result = {
     configured: PublishService.isConfigured(),
     lastChangeAt: meta.lastChangeAt || null,
