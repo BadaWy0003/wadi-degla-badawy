@@ -106,15 +106,12 @@ AdminService.currentAdminUpdate = async (adminId, newAdmin) => {
     throw new Error("User doesn't exist");
   }
 
-  const updatedAdmin = {
-    ...adminDoc.data(),
-    username: newAdmin.username,
-    updatedAt: Firestore.Timestamp.now(),
-  };
+  // Only the username can be changed here; the rest of the document is left as it is.
+  const changes = { username: newAdmin.username, updatedAt: Firestore.Timestamp.now() };
+  await adminsCollection.doc(adminId).update(changes);
 
-  await adminsCollection.doc(adminId).set(updatedAdmin);
-
-  return { id: adminId, ...updatedAdmin };
+  const { password, ...adminData } = { ...adminDoc.data(), ...changes }; // never send the hash
+  return { id: adminId, ...adminData };
 };
 
 module.exports = AdminService;
