@@ -583,3 +583,18 @@
     gap: 0.8rem;
   }
 }
+/* Phones: the title and intro text flow normally instead of being absolutely positioned,
+   so a long intro (Arabic wraps to 6 lines) no longer runs over the category bar. */
+@media (max-width: 768px) {
+  .products-container-2 .quarries-hero {
+    height: auto;
+    min-height: 80vh;
+    padding: 7rem 1rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .products-container-2 .quarries-hero h1,
+  .products-container-2 .hero-hint-2 {
+    position: static;
+  }
+}
