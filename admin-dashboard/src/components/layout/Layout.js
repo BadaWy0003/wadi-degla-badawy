@@ -24,23 +24,20 @@ export default function Layout() {
 
   const handleLogout = async () => {
     try {
-      await apiClient.post(`/api/auth/logout`);
-
-      console.log('Logout successful');
-
-      // Reset global state
+      // Ends this admin's sessions on every device (server refuses older tokens).
+      await apiClient.post(`/api/auth/admin/logout`);
+    } catch {
+      // Already expired or offline: still log out here.
+    } finally {
+      localStorage.removeItem('auth_token');
       setGlobalState({
         isLoggedIn: false,
         userName: '',
         email: '',
         role: '',
       });
-
-      // Navigate to the login page
       navigate('/login');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } finally {
-      localStorage.removeItem('auth_token');
     }
   };
 
