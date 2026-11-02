@@ -4,10 +4,30 @@ const { bucket } = require('../start/firebase');
 
 const firestore = new Firestore();
 
+// Public URL prefix of files in our bucket (used to turn a link back into a file path).
+const bucketUrlPrefix = () => `https://storage.googleapis.com/${bucket.name}/`;
+
+// Deletes photos that are no longer used. Only touches files in our own bucket;
+// a failure is logged and never breaks the request (the product was already saved).
+const deleteStorageFiles = async (links) => {
+  for (const link of links) {
+    if (typeof link !== 'string' || !link.startsWith(bucketUrlPrefix())) continue;
+    try {
+      await bucket.file(link.slice(bucketUrlPrefix().length)).delete();
+    } catch (error) {
+      console.error(`Failed to delete old file ${link}:`, error.message);
+    }
+  }
+};
+
 const uploadFileToStorage = async (file, type) => {
   const sanitizedType = type.replace(/[^a-zA-Z0-9_-]/g, '');
+  // The original file name comes from the uploader's computer: keep only safe characters.
+  const safeName = String(file.originalname || 'image')
+    .replace(/[^a-zA-Z0-9._-]/g, '_')
+    .slice(-80);
 
-  const fileName = `uploads/${sanitizedType}/${Date.now()}_${file.originalname}`;
+  const fileName = `uploads/${sanitizedType}/${Date.now()}_${safeName}`;
   const blob = bucket.file(fileName);
   const blobStream = blob.createWriteStream({
     metadata: {
@@ -61,7 +81,9 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
   } else {
     // Updating existing material
     const existingData = docSnapshot.data();
-    let nextFinishes = existingData.finishes ?? [];
+    // Copy, so the old links can be compared afterwards.
+    let nextFinishes = (existingData.finishes ?? []).map((f) => ({ ...f }));
+    const oldLinks = nextFinishes.map((f) => f.link);
 
     uploadedFinishes.forEach((uploadedFinish) => {
       const finishIndex = nextFinishes.findIndex((f) => f.finish === uploadedFinish.finish);
@@ -87,6 +109,10 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
       },
     );
 
+    // Photos that were replaced or whose finish was removed: delete them from storage.
+    const keptLinks = new Set(nextFinishes.map((f) => f.link));
+    await deleteStorageFiles(oldLinks.filter((link) => !keptLinks.has(link)));
+
     return {
       message: `Material updated successfully`,
       data: {
@@ -98,6 +124,10 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
   }
 };
 
+// Hidden products (hidden: true, set from the admin panel) are left out of the public
+// lists, so they disappear from the website. Admins see everything (fetchAllForAdmin).
+const isVisible = (doc) => doc.hidden !== true;
+
 StorageService.fetchMaterialsByType = async (type) => {
   const materialsRef = firestore.collection('materials');
   const querySnapshot = await materialsRef.where('type', '==', type).get();
@@ -107,15 +137,17 @@ StorageService.fetchMaterialsByType = async (type) => {
   }
 
   // Map through the query snapshot and extract material data
-  const materials = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+  const materials = querySnapshot.docs
+    .map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }))
+    .filter(isVisible);
 
   return materials;
 };
 
-StorageService.fetchAllProducts = async () => {
+StorageService.fetchAllProducts = async ({ includeHidden = false } = {}) => {
   const materialsRef = firestore.collection('materials');
   const querySnapshot = await materialsRef.get();
 
@@ -129,7 +161,19 @@ StorageService.fetchAllProducts = async () => {
     ...doc.data(),
   }));
 
-  return products;
+  return includeHidden ? products : products.filter(isVisible);
+};
+
+StorageService.setProductHidden = async (productId, hidden) => {
+  const docRef = firestore.collection('materials').doc(productId);
+  const doc = await docRef.get();
+  if (!doc.exists) {
+    const error = new Error('Product not found');
+    error.statusCode = 404;
+    throw error;
+  }
+  await docRef.update({ hidden });
+  return { id: productId, hidden };
 };
 
 StorageService.deleteProduct = async (productId) => {
@@ -144,8 +188,16 @@ StorageService.deleteProduct = async (productId) => {
 
   const product = doc.data();
 
+  // Safety: a product must be hidden before it can be deleted for good
+  // (there are no photo backups). Gallery photos can be deleted directly.
+  if (product.type !== 'Gallery' && product.hidden !== true) {
+    const error = new Error('Hide the product first. Only hidden products can be deleted permanently.');
+    error.statusCode = 409;
+    throw error;
+  }
+
   // Delete associated files from Firebase Storage
-  const finishFiles = product.finishes.map((finish) => finish.link); // Assuming `finishes` has `link` property
+  const finishFiles = (product.finishes || []).map((finish) => finish.link); // Assuming `finishes` has `link` property
   const mockupFiles = [product.mockup, product.mockupOutdoor];
 
   const allFiles = [...finishFiles, ...mockupFiles];

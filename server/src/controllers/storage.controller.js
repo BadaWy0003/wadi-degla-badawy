@@ -66,6 +66,32 @@ StorageController.getAllProducts = async (req, res) => {
   }
 };
 
+// Admin panel list: includes hidden products (each has hidden: true).
+StorageController.getAllForAdmin = async (req, res) => {
+  try {
+    const products = await StorageService.fetchAllProducts({ includeHidden: true });
+    res.status(200).json({ message: 'Products fetched successfully', data: products, totalCount: products.length });
+  } catch (error) {
+    console.error('Error in getAllForAdmin:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+// Hide a product from the website, or show it again ({ hidden: true | false }).
+StorageController.setProductHidden = async (req, res) => {
+  const { hidden } = req.body || {};
+  if (typeof hidden !== 'boolean') {
+    return res.status(400).json({ message: 'hidden must be true or false' });
+  }
+  try {
+    const data = await StorageService.setProductHidden(req.params.id, hidden);
+    res.status(200).json({ message: hidden ? 'Product hidden' : 'Product visible', data });
+  } catch (error) {
+    console.error('Error changing product visibility:', error.message);
+    res.status(error.statusCode || 500).json({ message: error.statusCode ? error.message : 'Internal server error' });
+  }
+};
+
 StorageController.deleteProduct = async (req, res) => {
   const { id } = req.params;
 
@@ -78,9 +104,8 @@ StorageController.deleteProduct = async (req, res) => {
     });
   } catch (error) {
     console.error('Error deleting product:', error);
-    res.status(500).json({
-      message: 'Failed to delete product',
-      error: error.message,
+    res.status(error.statusCode || 500).json({
+      message: error.statusCode ? error.message : 'Failed to delete product',
     });
   }
 };
