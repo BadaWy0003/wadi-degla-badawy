@@ -1,0 +1,93 @@
+name: Deploy Staging
+# Manual only: Actions tab > "Deploy Staging" > Run workflow > pick the BRANCH to test.
+# Deploys that branch to the staging apps (fly.staging.toml in each app folder).
+# Production is never touched by this workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      apps:
+        description: "Which staging apps to deploy"
+        type: choice
+        options:
+          - all
+          - server
+          - admin-dashboard
+          - client-next
+        default: all
+      create_apps_only:
+        description: "First-time setup step 1: only create the empty staging apps (then add the server secrets in the Fly dashboard)"
+        type: boolean
+        default: false
+      setup_data_for_admin:
+        description: "First-time setup step 3 (after a deploy): copy production products into staging and create a staging admin with this email (password = GitHub secret STAGING_ADMIN_PASSWORD). Leave empty normally."
+        type: string
+        default: ""
+
+# One staging deploy at a time; never cancel one halfway.
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+jobs:
+  create-apps:
+    name: Create staging apps (first time)
+    if: ${{ inputs.create_apps_only }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: superfly/flyctl-actions/setup-flyctl@ed8efb33836e8b2096c7fd3ba1c8afe303ebbff1 # 1.6
+      - name: Create the apps if they don't exist yet
+        run: |
+          for app in wadi-degla-server-staging wadi-degla-admin-staging wadi-degla-site-staging; do
+            if flyctl status -a "$app" >/dev/null 2>&1; then
+              echo "$app already exists"
+            else
+              flyctl apps create "$app" --org personal
+            fi
+          done
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+  deploy:
+    name: Deploy ${{ matrix.app }} to staging
+    if: ${{ !inputs.create_apps_only }}
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [server, admin-dashboard, client-next]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./${{ matrix.app }}
+    steps:
+      # (matrix can't be used in a job-level "if", so each step checks the chosen app)
+      - uses: actions/checkout@v4
+        if: ${{ inputs.apps == 'all' || inputs.apps == matrix.app }}
+
+      - uses: superfly/flyctl-actions/setup-flyctl@ed8efb33836e8b2096c7fd3ba1c8afe303ebbff1 # 1.6
+        if: ${{ inputs.apps == 'all' || inputs.apps == matrix.app }}
+
+      - name: Deploy to the staging app
+        if: ${{ inputs.apps == 'all' || inputs.apps == matrix.app }}
+        run: flyctl deploy --remote-only --config fly.staging.toml
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+  setup-data:
+    name: Copy products + create staging admin
+    needs: deploy
+    if: ${{ !inputs.create_apps_only && inputs.setup_data_for_admin != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: superfly/flyctl-actions/setup-flyctl@ed8efb33836e8b2096c7fd3ba1c8afe303ebbff1 # 1.6
+      - name: Seed staging and create the admin (production is only read)
+        run: |
+          flyctl machine start -a wadi-degla-server-staging $(flyctl machine list -a wadi-degla-server-staging -q | head -1) || true
+          flyctl ssh console -a wadi-degla-server-staging -C "node /app/scripts/seed-staging.js"
+          # base64 so the password's symbols survive the remote command line
+          B64=$(printf '%s' "$ADMIN_PASSWORD" | base64 -w0)
+          echo "::add-mask::$B64"
+          flyctl ssh console -a wadi-degla-server-staging -C "env ADMIN_PASSWORD_B64=$B64 node /app/scripts/admin-access.js create $ADMIN_EMAIL"
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          ADMIN_EMAIL: ${{ inputs.setup_data_for_admin }}
+          ADMIN_PASSWORD: ${{ secrets.STAGING_ADMIN_PASSWORD }}

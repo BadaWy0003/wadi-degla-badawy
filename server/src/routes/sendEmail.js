@@ -3,6 +3,7 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 const multer = require('multer');
 const path = require('path');
+const { IS_STAGING } = require('../start/data-area');
 const { rateLimit } = require('../middlewares/rate-limit.middleware');
 
 // Contact + sample-request forms: max 5 messages per visitor per 15 minutes.
@@ -85,7 +86,8 @@ router.post('/', emailRateLimit, handleUpload, async (req, res) => {
     from: `"Wadi Degla Website" <${process.env.ZOHO_EMAIL}>`,
     to: process.env.ZOHO_EMAIL,
     replyTo: email,
-    subject,
+    // Staging uses the same inbox; the prefix makes test messages obvious.
+    subject: IS_STAGING ? `[STAGING TEST] ${subject}` : subject,
     html: `
       <p><strong>Name:</strong> ${escapeHtml(name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(email)}</p>

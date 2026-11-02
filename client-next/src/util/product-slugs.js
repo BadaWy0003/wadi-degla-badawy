@@ -1,7 +1,12 @@
 // Product URL slugs, shared by the product pages (generateStaticParams) and the sitemap.
 // Products live in Firestore and are read from the live API at build time.
 
-export const PRODUCTS_API_URL = 'https://server-withered-wildflower-1595.fly.dev/api/storage/all';
+// The build reads products from the same server the site uses (staging builds use the
+// staging server). Production default if the variable isn't set.
+const API_BASE =
+  process.env.NEXT_PUBLIC_BASE_API_URL || 'https://server-withered-wildflower-1595.fly.dev';
+
+export const PRODUCTS_API_URL = `${API_BASE}/api/storage/all`;
 
 // Used only if the API can't be reached during the build.
 export const FALLBACK_PRODUCT_SLUGS = [
@@ -139,8 +144,7 @@ export async function getProductBySlug(slug) {
   return products?.find((p) => productSlug(p.name) === slug) || null;
 }
 
-export const GALLERY_API_URL =
-  'https://server-withered-wildflower-1595.fly.dev/api/storage/type/Gallery';
+export const GALLERY_API_URL = `${API_BASE}/api/storage/type/Gallery`;
 
 // Gallery photos from the live API (same endpoint and order as the gallery page uses in the
 // browser), or [] if it can't be reached at build time (the page then loads them in the browser).

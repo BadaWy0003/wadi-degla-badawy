@@ -15,6 +15,9 @@ const allowedOrigins = [
   'https://admin-dashboard-withered-waterfall-6127.fly.dev',
   'https://client-rough-dawn-8020.fly.dev',
   'https://client-next-wadi-degla.fly.dev',
+  // Staging (fly.staging.toml in each app)
+  'https://wadi-degla-site-staging.fly.dev',
+  'https://wadi-degla-admin-staging.fly.dev',
 ];
 app.use(
   cors({

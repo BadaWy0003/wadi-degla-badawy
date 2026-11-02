@@ -2,8 +2,10 @@
 FROM node:20-alpine as builder 
 WORKDIR /app
 
-# Set environment variables BEFORE the build
-ENV REACT_APP_BASE_API_URL="https://server-withered-wildflower-1595.fly.dev"
+# API address baked in at build time. Production default; staging passes its own
+# (fly.staging.toml [build.args]).
+ARG REACT_APP_BASE_API_URL="https://server-withered-wildflower-1595.fly.dev"
+ENV REACT_APP_BASE_API_URL=$REACT_APP_BASE_API_URL
 
 # Copy package files and install dependencies
 COPY package*.json ./

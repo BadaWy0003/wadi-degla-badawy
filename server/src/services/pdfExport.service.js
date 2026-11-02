@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const { Firestore } = require('@google-cloud/firestore');
 const { bucket } = require('../start/firebase');
+const { col, storagePath, canDeleteStoragePath } = require('../start/data-area');
 
 const firestore = new Firestore();
 
@@ -53,7 +54,7 @@ PdfExportService.generatePdfToFile = async (data, fileName) => {
 };
 
 PdfExportService.fetchAllInvoices = async () => {
-  const materialsRef = firestore.collection('documents');
+  const materialsRef = firestore.collection(col('documents'));
   const querySnapshot = await materialsRef.get();
 
   if (querySnapshot.empty) {
@@ -101,7 +102,7 @@ PdfExportService.fetchAllInvoices = async () => {
 };
 
 PdfExportService.fetchInvoicesByType = async (type) => {
-  const materialsRef = firestore.collection('documents');
+  const materialsRef = firestore.collection(col('documents'));
   const querySnapshot = await materialsRef.where('type', '==', type).get();
 
   if (querySnapshot.empty) {
@@ -118,7 +119,7 @@ PdfExportService.fetchInvoicesByType = async (type) => {
 };
 
 PdfExportService.deleteInvoice = async (invoiceId) => {
-  const materialsRef = firestore.collection('documents');
+  const materialsRef = firestore.collection(col('documents'));
   const docRef = materialsRef.doc(invoiceId);
 
   // Retrieve the product document
@@ -133,6 +134,7 @@ PdfExportService.deleteInvoice = async (invoiceId) => {
     const fileRef = bucket.file(fileName);
 
     try {
+      if (!canDeleteStoragePath(fileName)) throw new Error('outside this environment\'s storage folder');
       await fileRef.delete();
       console.log(`Deleted file from Firebase Storage: ${invoice.url}`);
     } catch (error) {
@@ -149,7 +151,7 @@ PdfExportService.deleteInvoice = async (invoiceId) => {
 // Upload PDF to Firebase
 async function uploadPdfToFirebase(pdfPath, metadata) {
   const fileName = path.basename(pdfPath);
-  const destination = `documents/${fileName}`;
+  const destination = storagePath(`documents/${fileName}`);
 
   // Upload the file to GCS
   const [file] = await bucket.upload(pdfPath, { destination });
@@ -161,7 +163,7 @@ async function uploadPdfToFirebase(pdfPath, metadata) {
   const fileUrl = `https://storage.googleapis.com/${bucket.name}/${destination}`;
 
   // Store metadata in Firestore
-  await firestore.collection('documents').add({
+  await firestore.collection(col('documents')).add({
     ...metadata,
     url: fileUrl,
     createdAt: Firestore.Timestamp.now(),

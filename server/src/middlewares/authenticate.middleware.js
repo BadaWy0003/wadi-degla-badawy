@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken');
 const { db } = require('../start/firebase'); // Import Firestore instance
+const { col } = require('../start/data-area');
 
 // Helper functions to get Firestore collections
-const customerCollection = () => db.collection('customers');
-const adminCollection = () => db.collection('admins');
+const customerCollection = () => db.collection(col('customers'));
+const adminCollection = () => db.collection(col('admins'));
 
 const customerAuth = async (req, res, next) => {
   try {

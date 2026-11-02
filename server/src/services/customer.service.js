@@ -1,11 +1,12 @@
 const { db } = require('../start/firebase'); // Import Firestore instance
+const { col } = require('../start/data-area');
 const hashPassword = require('../utils/password-hasher');
 
 const CustomerService = {};
 
 // Helper function to get collection references
-const customerCollection = () => db.collection('customers');
-const adminCollection = () => db.collection('admins');
+const customerCollection = () => db.collection(col('customers'));
+const adminCollection = () => db.collection(col('admins'));
 
 // Create a new customer
 CustomerService.createCustomer = async (customerData) => {

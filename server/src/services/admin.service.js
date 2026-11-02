@@ -1,9 +1,10 @@
 const { Firestore } = require('@google-cloud/firestore');
 const hashPassword = require('../utils/password-hasher');
+const { col } = require('../start/data-area');
 
 const firestore = new Firestore();
-const adminsCollection = firestore.collection('admins');
-const customersCollection = firestore.collection('customers');
+const adminsCollection = firestore.collection(col('admins'));
+const customersCollection = firestore.collection(col('customers'));
 
 const AdminService = {};
 

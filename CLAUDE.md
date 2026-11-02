@@ -9,6 +9,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 | `client-next/` | **Live website**, Next.js 14 App Router, static export (`output: 'export'`) served by nginx | `client-next-wadi-degla` (cdg) | live |
 | `server/` | Express 4 API on Node 22: email, products/gallery, auth, PDF export | `server-withered-wildflower-1595` (fra) | live |
 | `admin-dashboard/` | CRA + React 19 + MUI admin panel (products, gallery, users, PDFs) | `admin-dashboard-withered-waterfall-6127` | works; machines sleep and auto-start on visit (https://admin-dashboard-withered-waterfall-6127.fly.dev/login) |
+| staging (3 apps) | Private test copy: `fly.staging.toml` in `server/`, `admin-dashboard/`, `client-next/` | `wadi-degla-server-staging`, `wadi-degla-admin-staging`, `wadi-degla-site-staging` | see Staging below |
 | `client/` | OLD CRA website, replaced by client-next in March 2026 | `client-rough-dawn-8020` | suspended. Do not edit |
 | `tools/` | `optimize-images.js`: sharp batch converter to WebP (max 1600 px, q75) | n/a | n/a |
 
@@ -79,6 +80,29 @@ docker run -p 8080:80 wd-site
   Or `git revert` the merge commit and merge that.
 - No health checks, release commands or migrations.
 
+## Staging
+- **Addresses:** https://wadi-degla-site-staging.fly.dev, https://wadi-degla-admin-staging.fly.dev and https://wadi-degla-server-staging.fly.dev.
+- **Machines:** they sleep when unused (`auto_stop_machines = 'stop'`, `min_machines_running = 0`) and wake on the first request, which takes a few seconds.
+- **Data:** the same Firebase project as production, kept in a separate area. The server's `DATA_PREFIX=staging_` (set in `server/fly.staging.toml`) makes every collection `staging_<name>` and every Storage path `staging/<path>`. All of this goes through `server/src/start/data-area.js`; **never** write `collection('name')` or a Storage path without `col()` / `storagePath()`.
+  - Staging can't delete files outside `staging/`.
+  - The server refuses to start if an app named `*staging*` has no `DATA_PREFIX`, or if the prefix is unknown.
+  - Staging emails go to the company inbox with the subject prefix `[STAGING TEST]`.
+- **Website build:** the staging site is built with `NEXT_PUBLIC_SITE_ENV=staging`, which gives it `noindex` and no GA4. It reads products from the staging server (`NEXT_PUBLIC_BASE_API_URL`, also used by `src/util/product-slugs.js` at build time).
+- **Admin build:** the staging admin is built with `REACT_APP_BASE_API_URL` pointing at the staging server (Dockerfile `ARG`).
+- **Deploy:** GitHub > Actions > "Deploy Staging" > Run workflow, then pick the **branch** to test and which apps.
+  - It never touches production, and production deploys never touch staging.
+  - Claude can start it with the GitHub tools (`actions_run_trigger`, workflow `deploy-staging.yml`, ref = the branch).
+- **First-time setup** (done once by the owner):
+  1. Run "Deploy Staging" with `create_apps_only` ticked. This creates the 3 empty apps.
+  2. In the Fly dashboard > `wadi-degla-server-staging` > Secrets, add the same secret *names* as production: `SECRET_KEY` (a **new** random value), `ZOHO_EMAIL`, `ZOHO_PASSWORD`, `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET`, `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `GOOGLE_APPLICATION_CREDENTIALS_BASE64`. The last one is a new key from Firebase console > Project settings > Service accounts > Generate new private key, base64-encoded.
+  3. Run "Deploy Staging" with `all`.
+  4. Add the GitHub secret `STAGING_ADMIN_PASSWORD` (login rules: 8-16 characters with upper, lower, number and symbol), then run "Deploy Staging" with `all` and `setup_data_for_admin` = the staging admin's email.
+     - This runs `scripts/seed-staging.js`, which copies production products into `staging_materials`. The photos are links, not copies.
+     - It also runs `scripts/admin-access.js create <email>`.
+     - With the Fly CLI, the same can be done by hand: `fly ssh console -a wadi-degla-server-staging`.
+     - Production admins can't log in to staging.
+- **Testing from a cloud session:** the agent proxy only allows hosts the owner added. Add `*.fly.dev` (or the 3 staging hosts) to the environment's allowed domains to test staging from here.
+
 ## Environment variables (names only)
 - server (Fly secrets): `SECRET_KEY`, `ZOHO_EMAIL`, `ZOHO_PASSWORD`, `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET`, `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `GOOGLE_APPLICATION_CREDENTIALS_BASE64`.
 - server (fly.toml/Dockerfile): `PORT=3000`, `NODE_ENV=production`.
@@ -117,13 +141,12 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 ## To do (agreed, not started)
 - Serve the admin panel on `admin.wadidegla-eg.com` (DNS + Fly certificate; the domain is already in the server's CORS list).
 - Rotate the server's Firebase service-account key (created by the previous developer).
-- Staging environment (separate Fly apps + separate Firebase project) before larger admin/server changes.
 
 ## Decisions log
 - 2026-10-31: removed a hidden `process.exit` trigger from `server/src/controllers/storage.controller.js` (PR #2, server release v247).
 - 2026-10-31: the admin dashboard will be revived. `client/` is considered retired.
 - PR descriptions must **not** include the "Generated with Claude Code" line.
-- Staging (separate Fly apps + a separate free Firebase project) will be set up when the admin-dashboard revival starts.
+- 2026-11-02: staging set up as 3 separate Fly apps sharing the production Firebase project with a separate data area (`staging_` collections, `staging/` Storage folder), chosen by the owner to avoid a second Firebase project, which would need the Blaze plan and a card.
 - 2026-11-01: Firestore backups enabled by the owner (daily kept 7 days, weekly kept 98 days). The owner now has Firebase and Zoho access. Not covered yet: Storage (photo) backups; the Firebase service-account key created by the previous developer was not rotated (owner chose to skip for now).
 - 2026-11-01: owner chose no Firebase Storage (photo) backups and asked to avoid any extra cost; soft delete was turned on then off. Firestore backup status is the owner's call (they may disable it too).
 - Formatting: format-on-edit only (no repo-wide reformat). When the hook reformats a whole file, commit the pure formatting separately first.

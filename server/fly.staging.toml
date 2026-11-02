@@ -1,0 +1,27 @@
+# Staging server: same code as production, its own Fly app, and its own data area in the
+# shared Firebase project (DATA_PREFIX, see src/start/data-area.js).
+# Deployed only by .github/workflows/deploy-staging.yml (manual "Run workflow").
+# Secrets are set once in the Fly dashboard (see CLAUDE.md "Staging").
+
+app = 'wadi-degla-server-staging'
+primary_region = 'fra'
+
+[build]
+
+[env]
+  PORT = 3000
+  DATA_PREFIX = 'staging_'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  # Sleeps when nobody uses it (costs almost nothing); wakes on the first request.
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
