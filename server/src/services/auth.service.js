@@ -157,4 +157,9 @@ AuthService.loginAdminAndSignToken = async (adminData) => {
   }
 };
 
+// Tokens issued before this moment are refused by adminAuth (logout, password reset).
+AuthService.endAdminSessions = async (adminId) => {
+  await adminCollection().doc(adminId).update({ sessionsValidAfter: Date.now() });
+};
+
 module.exports = AuthService;
