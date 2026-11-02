@@ -4,9 +4,14 @@ import NewsDetail from '../../../../src/components/News/NewsDetail';
 import { getNewsSlugs, getNewsArticle } from '../../../../src/util/news-data';
 
 // One page per article and language, from the admin panel (read at build time).
+// With no visible articles (e.g. all hidden), a static export can't have an empty dynamic
+// route, so a placeholder page (shows "article not found", noindex, not in the sitemap) is built.
+const EMPTY_SLUG = 'no-articles';
+
 export async function generateStaticParams() {
   const slugs = await getNewsSlugs();
-  return SUPPORTED_LANGS.flatMap((lang) => slugs.map((slug) => ({ lang, slug })));
+  const list = slugs.length ? slugs : [EMPTY_SLUG];
+  return SUPPORTED_LANGS.flatMap((lang) => list.map((slug) => ({ lang, slug })));
 }
 
 export async function generateMetadata({ params }) {
@@ -17,6 +22,7 @@ export async function generateMetadata({ params }) {
     title: article ? `${article.title} | Wadi Degla` : t(lang, 'news.pageTitle', 'NewsDetail | Wadi Degla'),
     description: article?.excerpt || t(lang, 'news.metaDescription', ''),
     alternates: buildAlternates(`/news/${slug}`, lang),
+    ...(article ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
