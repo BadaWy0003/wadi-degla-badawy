@@ -38,10 +38,20 @@ export default function Login() {
 
         localStorage.setItem('auth_token', data.token);
 
+        // The login answer has no role; ask for the full profile (same call as on page load)
+        // so role-based menus (e.g. News for Admins) are right without a refresh.
+        let profile = {};
+        try {
+          profile = (await apiClient.get(`/api/auth/admin/check-auth`)).data;
+        } catch {
+          // fall back to the login answer
+        }
+
         // Update global state
         setGlobalState({
           isLoggedIn: true,
           ...data,
+          ...profile,
         });
 
         setMessage('Login successful!');
