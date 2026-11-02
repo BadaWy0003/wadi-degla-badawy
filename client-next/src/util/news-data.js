@@ -54,7 +54,14 @@ const shorten = (text, max = 160) => {
 // Articles in the shape the News components use, already in display order
 // (pinned first, then newest; the server sorts them).
 export async function getNewsArticles(lang = 'en') {
-  const list = await fetchArticles();
+  // Pinned first, then newest; articles from the same month by English title, so their
+  // order never changes between builds.
+  const list = [...(await fetchArticles())].sort(
+    (a, b) =>
+      Number(!!b.pinned) - Number(!!a.pinned) ||
+      b.year * 100 + b.month - (a.year * 100 + a.month) ||
+      String(a.title?.en || '').localeCompare(String(b.title?.en || '')),
+  );
   return list.map((a) => {
     const content = pick(a.content, lang);
     return {
