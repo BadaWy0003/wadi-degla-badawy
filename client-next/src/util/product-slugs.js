@@ -138,3 +138,21 @@ export async function getProductBySlug(slug) {
   const products = await getProducts();
   return products?.find((p) => productSlug(p.name) === slug) || null;
 }
+
+export const GALLERY_API_URL =
+  'https://server-withered-wildflower-1595.fly.dev/api/storage/type/Gallery';
+
+// Gallery photos from the live API (same endpoint and order as the gallery page uses in the
+// browser), or [] if it can't be reached at build time (the page then loads them in the browser).
+export async function getGalleryItems() {
+  try {
+    const res = await fetch(GALLERY_API_URL);
+    const json = await res.json();
+    return Array.isArray(json?.data) ? json.data : [];
+  } catch (e) {
+    console.warn(
+      `[product-slugs] Gallery API unreachable at build time (${e?.cause?.code || e?.message}).`,
+    );
+    return [];
+  }
+}

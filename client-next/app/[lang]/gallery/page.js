@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
 import { t, buildAlternates } from '../../../src/util/meta';
-const Gallery = dynamic(() => import('../../../src/components/Gallery/Gallery'), { ssr: false });
+import { getGalleryItems } from '../../../src/util/product-slugs';
+import Gallery from '../../../src/components/Gallery/Gallery';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -11,6 +11,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function GalleryPage() {
-  return <Gallery />;
+// Gallery photos are fetched at build time so they are in the static HTML (Google Images);
+// Gallery refreshes them in the browser.
+export default async function GalleryPage() {
+  const items = await getGalleryItems();
+  return <Gallery initialItems={items} />;
 }

@@ -12,23 +12,21 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import { useTranslation } from 'react-i18next';
 import LangLink from '../LangLink';
 
-export default function Gallery() {
+export default function Gallery({ initialItems = [] }) {
   const { t } = useTranslation();
-  const [gallery, setGallery] = useState([]);
+  const [gallery, setGallery] = useState(initialItems);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(initialItems.length === 0);
 
   useEffect(() => {
     const fetchGallery = async () => {
       const typeName = 'Gallery';
-      setLoading(true);
       try {
         const { data } = await apiClient.get(`/api/storage/type/${typeName}`);
         setGallery(Array.isArray(data.data) ? data.data : []);
       } catch (error) {
-        console.error('Error:', error);
-        setGallery([]);
+        console.error('Error:', error); // keep the photos from the build, if any
       } finally {
         setLoading(false);
       }
