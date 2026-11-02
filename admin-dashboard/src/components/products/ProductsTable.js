@@ -10,7 +10,11 @@ import {
   TableSortLabel,
   Checkbox,
   IconButton,
+  Chip,
+  Tooltip,
 } from "@mui/material";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import InfoIcon from "@mui/icons-material/Info";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -25,6 +29,7 @@ export default function ProductsTable({
   onMoreInfo,
   onEdit,
   onDelete,
+  onToggleHidden,
   data // Add data as a prop
 }) {
   const [loading, setLoading] = useState(true);
@@ -90,7 +95,12 @@ export default function ProductsTable({
                   onChange={() => onSelect(product.id)}
                 />
               </TableCell>
-              <TableCell>{product.name}</TableCell>
+              <TableCell>
+                {product.name}
+                {product.hidden && (
+                  <Chip label="Hidden from website" size="small" sx={{ ml: 1 }} />
+                )}
+              </TableCell>
               <TableCell>{product.type}</TableCell>
               <TableCell>{product.finishes.length}</TableCell>
               <TableCell>
@@ -100,9 +110,19 @@ export default function ProductsTable({
                 <IconButton onClick={() => onEdit(product)} color="primary">
                   <EditIcon />
                 </IconButton>
-                <IconButton onClick={() => onDelete(product.id)} color="error">
-                  <DeleteIcon />
-                </IconButton>
+                {/* Hide/show on the website. Only a hidden product can be deleted for good. */}
+                <Tooltip title={product.hidden ? "Show on website" : "Hide from website"}>
+                  <IconButton onClick={() => onToggleHidden(product)} color="primary">
+                    {product.hidden ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  </IconButton>
+                </Tooltip>
+                {product.hidden && (
+                  <Tooltip title="Delete permanently">
+                    <IconButton onClick={() => onDelete(product.id)} color="error">
+                      <DeleteIcon />
+                    </IconButton>
+                  </Tooltip>
+                )}
               </TableCell>
             </TableRow>
           ))}
