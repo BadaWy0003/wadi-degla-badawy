@@ -205,3 +205,5 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - 2026-11-01: owner chose no Firebase Storage (photo) backups and asked to avoid any extra cost; soft delete was turned on then off. Firestore backup status is the owner's call (they may disable it too).
 - Formatting: format-on-edit only (no repo-wide reformat). When the hook reformats a whole file, commit the pure formatting separately first.
 - 2026-11-01: security hardening of the email endpoint, PDF export (admin only) and nginx headers/HSTS.
+- 2026-11-02: News phase 1 live: news managed in the admin panel (EN + AR, ADMIN/SUPER_ADMIN only), the 7 existing articles imported (English only), website reads news at build time. Editing stays in the admin panel (not inline on the site).
+- 2026-11-02: `GITHUB_DEPLOY_TOKEN` added to the server (fine-grained token `wadi-degla-publish-2026`, this repo only, Actions read/write). **It expires around 2027-11: renew it on GitHub and replace the Fly secret before then**, or the Publish button stops working (saved articles stay safe). First Publish tested OK (client-next v47).
