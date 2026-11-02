@@ -24,8 +24,9 @@ export const toParagraphs = text =>
     .filter(Boolean);
 
 // Compress in the browser (WebP, max 1600px, like the website photos), then upload in
-// batches of 15 (server limit). Returns the public links in the same order.
-export const uploadNewsPhotos = async (files, onProgress) => {
+// batches of 15 (server limit) to `endpoint`. Returns the public links in the same order.
+// Used by News and Projects.
+export const uploadSitePhotos = async (endpoint, files, onProgress) => {
   const links = [];
   const list = [...files];
   for (let i = 0; i < list.length; i += 15) {
@@ -35,9 +36,11 @@ export const uploadNewsPhotos = async (files, onProgress) => {
     );
     const form = new FormData();
     compressed.forEach((blob, k) => form.append('files', blob, batch[k].name.replace(/\.[^.]+$/, '') + '.webp'));
-    const { data } = await apiClient.post('/api/news/admin/photos', form);
+    const { data } = await apiClient.post(endpoint, form);
     links.push(...data.data);
     if (onProgress) onProgress(Math.min(i + 15, list.length), list.length);
   }
   return links;
 };
+
+export const uploadNewsPhotos = (files, onProgress) => uploadSitePhotos('/api/news/admin/photos', files, onProgress);
