@@ -8,6 +8,7 @@ import apiClient from '../../util/client.js';
 import ContactBubble from '../Contact/ContactBubble.js';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 import LangLink from '../LangLink';
+import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
 
 const CATEGORIES = ['Egyptian Marble', 'Imported Marble', 'Egyptian Granite', 'Imported Granite'];
 
@@ -76,12 +77,12 @@ export default function Products({ initialProducts = [] }) {
                   sessionStorage.setItem('selectedCategory', category);
                 }}
               >
-                {category}
+                {t(PRODUCT_TYPE_KEYS[category])}
               </button>
             ))}
           </div>
 
-          <h2>{selectedCategory}</h2>
+          <h2>{t(PRODUCT_TYPE_KEYS[selectedCategory])}</h2>
 
           {/* Dynamic Category Description */}
           <div className="category-description-2">
@@ -98,7 +99,9 @@ export default function Products({ initialProducts = [] }) {
           {/* Search Bar */}
           <input
             type="text"
-            placeholder={t('products.searchPlaceholder', { category: selectedCategory })}
+            placeholder={t('products.searchPlaceholder', {
+              category: t(PRODUCT_TYPE_KEYS[selectedCategory]),
+            })}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-bar-2"
@@ -119,7 +122,9 @@ export default function Products({ initialProducts = [] }) {
               </div>
             ) : (
               <div className="no-products-message-2">
-                <p>{t('products.noProducts', { category: selectedCategory })}</p>
+                <p>
+                  {t('products.noProducts', { category: t(PRODUCT_TYPE_KEYS[selectedCategory]) })}
+                </p>
               </div>
             )}
           </>
