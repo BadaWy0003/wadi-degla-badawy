@@ -46,7 +46,8 @@ export default function Products() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await apiClient.get('/api/storage/all');
+      // Admin list: includes products hidden from the website.
+      const { data } = await apiClient.get('/api/storage/admin/all');
       setData(data.data);
       setTotalCount(data.totalCount || 0); // Assuming the backend returns a `totalCount` field
     } finally {
@@ -77,7 +78,8 @@ export default function Products() {
   };
 
   const handleDeleteSelected = async () => {
-    await Promise.all(selected.map(id => apiClient.delete(`/api/storage/product/${id}`)));
+    // Visible products are refused by the server (hide first); the rest are deleted.
+    await Promise.allSettled(selected.map(id => apiClient.delete(`/api/storage/product/${id}`)));
     fetchProducts();
     setSelected([]);
     setOpenDeleteDialog(false);
@@ -92,10 +94,24 @@ export default function Products() {
     fetchProducts(); // Refresh the list after successful edit
   };
 
-  const handleDelete = async id => {
-    await apiClient.delete(`/api/storage/product/${id}`);
+  const handleToggleHidden = async product => {
+    try {
+      await apiClient.put(`/api/storage/product/${product.id}/visibility`, { hidden: !product.hidden });
+    } catch {
+      return; // error toast shown by apiClient
+    }
     fetchProducts();
   };
+
+  const handleDelete = async id => {
+    try {
+      await apiClient.delete(`/api/storage/product/${id}`);
+    } catch {
+      // error toast shown by apiClient
+    }
+    fetchProducts();
+  };
+
 
   const handleConfirmDelete = async () => {
     if (productToDelete) {
@@ -203,6 +219,7 @@ export default function Products() {
         onSelect={handleSelect}
         onMoreInfo={handleMoreInfo}
         onEdit={handleEdit}
+        onToggleHidden={handleToggleHidden}
         onDelete={id => {
           setProductToDelete(id); // Use productToDelete instead of selectedProduct
           setOpenDeleteDialog(true);
