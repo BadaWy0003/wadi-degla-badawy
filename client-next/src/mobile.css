@@ -357,6 +357,33 @@
     display: block;
   }
 
+  /* Login/Signup: the form box kept a 518px minimum height and centred the form in it,
+     leaving ~100px of empty space above "Login" */
+  html body .container2:not(#m) {
+    min-height: 0;
+  }
+
+  html body .container1-img:not(#m) {
+    margin-top: 24px;
+  }
+
+  /* Quarries: gaps between quarry/factory cards and between the sections */
+  html body .quarry-card:not(#m),
+  html body .factory-card:not(#m) {
+    margin-bottom: 32px;
+  }
+
+  html body .quarries-container .factories:not(#m),
+  html body .quarries-container .global:not(#m) {
+    margin-top: 16px;
+  }
+
+  /* Patterns: the last section ended with ~130px of stacked margins */
+  html body .patterns-container .pattern-section:last-child:not(#m),
+  html body .patterns-container .pattern-section:last-child .section-content:not(#m) {
+    margin-bottom: 0;
+  }
+
   /* Pages without a hero photo: the title sat partly behind the fixed header */
   html body .certificates-page:not(#m),
   html body .partners-container:not(#m) {
