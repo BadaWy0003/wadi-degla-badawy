@@ -26,6 +26,7 @@ const validate = (schema) => {
       const message = err.details[0].message.replace(/['"]/g, '');
       return res.status(400).json({
         error: message,
+        message, // the admin panel shows `message` in its error toast
       });
     }
   };
