@@ -1,11 +1,15 @@
 import Script from 'next/script';
 
+// Staging build (fly.staging.toml): hidden from search engines and no Google Analytics,
+// so tests never show up in Google or in the visitor statistics.
+const IS_STAGING = process.env.NEXT_PUBLIC_SITE_ENV === 'staging';
+
 export const rootMetadata = {
   metadataBase: new URL('https://www.wadidegla-eg.com'),
   title: {
     default: 'Wadi Degla Co.',
   },
-  robots: { index: true, follow: true },
+  robots: IS_STAGING ? { index: false, follow: false } : { index: true, follow: true },
   description:
     'Discover premium Egyptian marble and limestone from Wadi Degla. Quarry ownership, advanced manufacturing, and global export of slabs, tiles, and blocks for residential, commercial, and landmark projects worldwide.',
   openGraph: {
@@ -36,7 +40,8 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Wadi Degla',
   url: 'https://www.wadidegla-eg.com',
-  description: 'Egyptian marble, limestone, and granite exporter — Galala marble, Silvia marble, Shelly limestone, Black Aswan granite, and 80+ natural stone varieties available as slabs, tiles, and blocks.',
+  description:
+    'Egyptian marble, limestone, and granite exporter — Galala marble, Silvia marble, Shelly limestone, Black Aswan granite, and 80+ natural stone varieties available as slabs, tiles, and blocks.',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
@@ -113,13 +118,20 @@ export default function RootHtml({ lang = 'en', children }) {
       </head>
       <body lang={lang}>
         {children}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-R2Y9CCM4YC" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">{`
+        {!IS_STAGING && (
+          <>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-R2Y9CCM4YC"
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-R2Y9CCM4YC');
         `}</Script>
+          </>
+        )}
       </body>
     </html>
   );

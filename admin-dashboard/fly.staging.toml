@@ -1,0 +1,22 @@
+# Staging admin panel: talks to the staging server only.
+# Deployed only by .github/workflows/deploy-staging.yml (manual "Run workflow").
+
+app = 'wadi-degla-admin-staging'
+primary_region = 'cdg'
+
+[build]
+  [build.args]
+    REACT_APP_BASE_API_URL = "https://wadi-degla-server-staging.fly.dev"
+
+[http_service]
+  internal_port = 80
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "256mb"
