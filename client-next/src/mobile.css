@@ -263,6 +263,12 @@
     padding-bottom: 40px;
   }
 
+  /* Visualizer: the category description had no side padding and touched the screen edge */
+  html body .products-categories-and-title .category-description-2:not(#m) {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
   /* Category buttons on Products / Visualizer: 10px text was too small to read */
   html body .products-categories-2 .btn2:not(#m) {
     font-size: 12px;
@@ -310,8 +316,10 @@
     gap: 32px;
   }
 
-  html body .homepage .btn2:not(#m) {
-    margin-top: 32px;
+  /* Home.js puts style={{ marginTop: '5rem' }} on these buttons; only !important beats an
+     inline style */
+  html body .homepage .home-button-section .btn2:not(#m) {
+    margin-top: 24px !important;
   }
 
   /* Product.css sets these with !important for short screens, so !important is needed */
@@ -379,8 +387,10 @@
   }
 
   /* Patterns: the last section ended with ~130px of stacked margins */
-  html body .patterns-container .pattern-section:last-child:not(#m),
-  html body .patterns-container .pattern-section:last-child .section-content:not(#m) {
+  /* (the last section is followed by the contact bubble, so it is not :last-child) */
+  html body .patterns-container .pattern-section:last-of-type:not(#m),
+  html body .patterns-container .pattern-section:has(+ .contact-bubble-container):not(#m),
+  html body .patterns-container .pattern-section:has(+ .contact-bubble-container) .section-content:not(#m) {
     margin-bottom: 0;
   }
 
