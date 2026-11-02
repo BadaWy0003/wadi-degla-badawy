@@ -234,6 +234,9 @@
 
 /* Updated Product Cards */
 .product-card-2 {
+  /* The card is a link: no underline or link colour */
+  text-decoration: none;
+  color: inherit;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

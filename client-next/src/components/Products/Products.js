@@ -9,21 +9,27 @@ import ContactBubble from '../Contact/ContactBubble.js';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 import LangLink from '../LangLink';
 
-export default function Products() {
+const CATEGORIES = ['Egyptian Marble', 'Imported Marble', 'Egyptian Granite', 'Imported Granite'];
+
+// initialProducts comes from the build (the page fetches the API), so the product cards are
+// in the static HTML for Google. The list is refreshed from the API in the browser, so
+// admin-panel changes show up without a redeploy.
+export default function Products({ initialProducts = [] }) {
   const { t } = useTranslation();
-  const [selectedCategory, setSelectedCategory] = useState(() => {
-    return sessionStorage.getItem('selectedCategory') || 'Egyptian Marble';
-  });
+  // The build always renders the default category; a category remembered in this tab
+  // (sessionStorage) is applied after the page has loaded.
+  const [selectedCategory, setSelectedCategory] = useState('Egyptian Marble');
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(initialProducts);
+  const [loading, setLoading] = useState(initialProducts.length === 0);
 
   useEffect(() => {
+    const saved = sessionStorage.getItem('selectedCategory');
+    if (CATEGORIES.includes(saved)) setSelectedCategory(saved);
     fetchProducts();
   }, []);
 
   const fetchProducts = async () => {
-    setLoading(true);
     try {
       const { data } = await apiClient.get(`/api/storage/all`);
       if (data.data) {
@@ -61,20 +67,18 @@ export default function Products() {
         {/* Categories and Search */}
         <div className="products-categories-and-title-2">
           <div className="products-categories-2">
-            {['Egyptian Marble', 'Imported Marble', 'Egyptian Granite', 'Imported Granite'].map(
-              (category) => (
-                <button
-                  key={category}
-                  className={`btn2 ${selectedCategory === category ? 'active-2' : ''}`}
-                  onClick={() => {
-                    setSelectedCategory(category);
-                    sessionStorage.setItem('selectedCategory', category);
-                  }}
-                >
-                  {category}
-                </button>
-              ),
-            )}
+            {CATEGORIES.map((category) => (
+              <button
+                key={category}
+                className={`btn2 ${selectedCategory === category ? 'active-2' : ''}`}
+                onClick={() => {
+                  setSelectedCategory(category);
+                  sessionStorage.setItem('selectedCategory', category);
+                }}
+              >
+                {category}
+              </button>
+            ))}
           </div>
 
           <h2>{selectedCategory}</h2>
