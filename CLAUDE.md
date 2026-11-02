@@ -14,6 +14,8 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 
 ## Data
 - **Products + gallery**: Firestore collection `materials`, with images in Firebase Storage (`uploads/<type>/...`). They're read at runtime through `GET /api/storage/all` and `GET /api/storage/type/:type`, and edited through the admin dashboard.
+- **Hidden products**: `hidden: true` on a `materials` doc (set by the admin panel's eye button, `PUT /api/storage/product/:id/visibility`). The public endpoints leave hidden docs out; the admin panel lists everything via `GET /api/storage/admin/all`. A product must be hidden before `DELETE /api/storage/product/:id` accepts it (409 otherwise; gallery photos delete directly). The website's product page for a newly hidden product redirects visitors to the products list (runtime check) and disappears from the build/sitemap at the next client-next deploy.
+- **Uploads** (`server/src/routes/storage.route.js`): JPG/PNG/WebP only, max 10 MB each, 15 per request; file names are sanitized. When a product's photo is replaced or a finish removed, the old file is deleted from Storage.
 - **Customers / admins / documents**: Firestore collections `customers`, `admins`, `documents`.
 - **Everything else is static in the repo**: page text is in `client-next/translations/*.json`. Data lists such as projects, news, quarries, machinery and certificates are JS files in `client-next/src/components/<Section>/`. Images are in `client-next/public/Assets/Media/`.
 - No database or volumes on Fly. The Mongo/Prisma code in `server/` is dead.
