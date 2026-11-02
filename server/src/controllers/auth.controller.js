@@ -137,6 +137,19 @@ AuthController.adminLogin = async (req, res) => {
   }
 };
 
+// Ends this admin's sessions on every device: tokens issued before now stop working
+// (see adminAuth), then clears the cookie.
+AuthController.adminLogout = async (req, res) => {
+  try {
+    await AuthService.endAdminSessions(req.user.id);
+    res.clearCookie('auth', { httpOnly: true, secure: true, sameSite: 'Strict' });
+    res.status(200).json({ message: 'Logged out' });
+  } catch (err) {
+    console.error('Admin logout error:', err.message);
+    res.status(500).json({ message: 'Logout failed' });
+  }
+};
+
 AuthController.deleteCookie = async (req, res) => {
   res.status(200).clearCookie('auth', {
     httpOnly: true,

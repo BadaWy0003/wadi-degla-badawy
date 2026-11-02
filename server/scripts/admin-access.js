@@ -59,7 +59,8 @@ async function resetPassword(db, email, newPassword, log = console.log) {
   }
 
   const doc = matches[0];
-  await doc.ref.update({ password: await hashPassword(newPassword) });
+  // sessionsValidAfter: logins made with the old password stop working everywhere.
+  await doc.ref.update({ password: await hashPassword(newPassword), sessionsValidAfter: Date.now() });
   log(`Password updated for ${doc.data().email} (role: ${doc.data().role || '-'}).`);
   log('Log in at https://admin-dashboard-withered-waterfall-6127.fly.dev/login with exactly that email.');
 }

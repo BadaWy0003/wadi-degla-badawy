@@ -119,7 +119,12 @@ export default function Users() {
   };
 
   const handleSubmit = async () => {
-    await apiClient.post(`/api/admin/create`, formData);
+    const { username, email, password, role } = formData;
+    try {
+      await apiClient.post(`/api/admin/create`, { username, email, password, role });
+    } catch {
+      return; // the error toast is shown by apiClient; keep the form open to fix it
+    }
     fetchUsers();
     handleCloseDialog();
   };

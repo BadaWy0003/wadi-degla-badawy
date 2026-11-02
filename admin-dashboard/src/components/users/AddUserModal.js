@@ -6,7 +6,15 @@ import {
   TextField,
   Button,
   Box,
+  MenuItem,
 } from '@mui/material';
+
+// Must match the roles the server knows (server/src/validations/admin.validation.schema.js).
+const ROLES = [
+  { value: 'MODERATOR', label: 'Moderator (products, gallery, customers, documents)' },
+  { value: 'ADMIN', label: 'Admin' },
+  { value: 'SUPER_ADMIN', label: 'Super admin (also manages admin users)' },
+];
 
 export default function AddUserModal({ 
   open, 
@@ -53,12 +61,19 @@ export default function AddUserModal({
           />
 
           <TextField
+            select
             fullWidth
-            label="role"
+            label="Role"
             value={formData.role}
             onChange={(e) => setFormData({ ...formData, role: e.target.value })}
             required
-          />
+          >
+            {ROLES.map((r) => (
+              <MenuItem key={r.value} value={r.value}>
+                {r.label}
+              </MenuItem>
+            ))}
+          </TextField>
         </Box>
       </DialogContent>
       <DialogActions>

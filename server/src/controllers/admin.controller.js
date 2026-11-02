@@ -3,7 +3,6 @@ const AdminService = require('../services/admin.service');
 
 AdminController.createAdmin = async (req, res) => {
   try {
-    console.log(req.body);
     const data = await AdminService.createAdmin(req.body);
 
     res.status(201).send(data);

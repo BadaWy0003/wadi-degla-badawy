@@ -29,7 +29,8 @@ const rateLimit = ({ windowMs, max }) => {
     entry.count += 1;
     if (entry.count > max) {
       res.set('Retry-After', String(Math.ceil((entry.resetAt - now) / 1000)));
-      return res.status(429).json({ success: false, error: 'Too many requests. Please try again later.' });
+      const error = 'Too many requests. Please try again later.';
+      return res.status(429).json({ success: false, error, message: error });
     }
     return next();
   };

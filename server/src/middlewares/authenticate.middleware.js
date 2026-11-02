@@ -52,6 +52,13 @@ const adminAuth = async (req, res, next) => {
       throw new Error('User not found');
     }
 
+    // Logged out (or password reset) after this token was issued: refuse it.
+    // iat is in seconds, sessionsValidAfter in milliseconds.
+    const validAfter = adminSnapshot.get('sessionsValidAfter');
+    if (validAfter && decodedToken.iat < Math.floor(validAfter / 1000)) {
+      throw new Error('Session ended');
+    }
+
     // Attach admin data to the request
     req.user = { id: adminSnapshot.id, ...adminSnapshot.data() };
     next();
