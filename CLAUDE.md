@@ -17,7 +17,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - **Products + gallery**: Firestore collection `materials`, with images in Firebase Storage (`uploads/<type>/...`). They're read at runtime through `GET /api/storage/all` and `GET /api/storage/type/:type`, and edited through the admin dashboard.
 - **Hidden products**: `hidden: true` on a `materials` doc (set by the admin panel's eye button, `PUT /api/storage/product/:id/visibility`). The public endpoints leave hidden docs out; the admin panel lists everything via `GET /api/storage/admin/all`. A product must be hidden before `DELETE /api/storage/product/:id` accepts it (409 otherwise; gallery photos delete directly). The website's product page for a newly hidden product redirects visitors to the products list (runtime check) and disappears from the build/sitemap at the next client-next deploy.
 - **Uploads** (`server/src/routes/storage.route.js`): JPG/PNG/WebP only, max 10 MB each, 15 per request; file names are sanitized. When a product's photo is replaced or a finish removed, the old file is deleted from Storage.
-- **News** (being moved from code to the admin panel; phase 1 PR 1 = server only):
+- **News** (managed in the admin panel since phase 1; the website reads it at build time):
   - **Storage:** Firestore collection `news` (via `col('news')`). Each article has:
     - `title` / `content` / `excerpt` as `{en, ar}`
     - `year` and `month`
@@ -29,6 +29,13 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
   - **Allowed photos:** only links to our bucket, or the website's existing `/Assets/Media/...` paths.
   - **One-time import:** `POST /api/news/admin/import` copies the 7 articles of `server/src/data/news-import.json` (generated from `client-next/src/components/News/newsList.js`). It only runs while the collection is empty.
   - **Publish:** `POST /api/news/admin/publish` starts `deploy-client-next.yml` via the GitHub API, using the Fly secret `GITHUB_DEPLOY_TOKEN`: a fine-grained token for this repo only, with Actions read/write. It's limited to one publish per minute. `GET /api/news/admin/publish` shows unpublished changes and the last run. The bookkeeping lives in `site_meta/news`.
+  - **Website:** `client-next/src/util/news-data.js` fetches `GET /api/news` at build time. It's used by `app/[lang]/news/page.js`, `news/[slug]/page.js` and `app/sitemap.js`.
+    - The Arabic pages use Arabic text when it exists; everything else shows English.
+    - Dates are formatted with `Intl` in the page's language.
+    - The meta description is the excerpt, or the first 160 characters of the text.
+    - **If the API is unreachable, the build fails on purpose,** so the live site keeps its news.
+    - `src/components/News/newsList.js` is no longer used (kept for reference).
+  - **New articles reach the site only with "Publish to website"**, or any client-next deploy.
   - **Admin panel** (`admin-dashboard/src/components/news/`, helpers in `src/util/news.js`):
     - **Visibility:** the News menu and page show for ADMIN/SUPER_ADMIN only, via `canManageNews(role)`.
     - **Page:** the list (pin, hide, delete when hidden, open on the site), the add/edit form with English/Arabic/Photos & date/Preview tabs, the one-time Import button (shown while empty), and the Publish panel, which refreshes every 20s while a build runs.
@@ -36,7 +43,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
     - **Orphans:** photos uploaded and then removed before saving, or left in a cancelled form, stay in Storage.
     - **Role after login:** `Login.js` loads `check-auth` right after login so the role (and so the News menu) is known without a refresh.
 - **Customers / admins / documents**: Firestore collections `customers`, `admins`, `documents`.
-- **Everything else is static in the repo**: page text is in `client-next/translations/*.json`. Data lists such as projects, news, quarries, machinery and certificates are JS files in `client-next/src/components/<Section>/`. Images are in `client-next/public/Assets/Media/`.
+- **Everything else is static in the repo**: page text is in `client-next/translations/*.json`. Data lists such as projects, quarries, machinery and certificates (not news any more) are JS files in `client-next/src/components/<Section>/`. Images are in `client-next/public/Assets/Media/`.
 - No database or volumes on Fly. The Mongo/Prisma code in `server/` is dead.
 - Firebase project ID: **`wadi-degla-app`** (bucket `wadi-degla-app.firebasestorage.app`). The owner regained console access on 2026-11-01.
 - Admin passwords are bcrypt hashes in `admins`. Lost admin access: `fly ssh console -a server-withered-wildflower-1595`, then `node /app/scripts/admin-access.js list` or `node /app/scripts/admin-access.js reset-password <email>`.
@@ -161,6 +168,7 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 ## Gotchas
 - `client/` duplicates most of client-next. Edit **client-next only**.
 - Product pages are generated at build time from the live API (fallback: `FALLBACK_PRODUCT_SLUGS`). If the API can't be reached, the build prints `[product-slugs] Products API unreachable…` and product pages are built **without content**: check for that line in the build log.
+- Local builds: Next.js keeps build-time `fetch` results in `client-next/.next/cache/fetch-cache` between builds. After building against a different or empty API, delete that folder first. CI and Fly builds start fresh.
 - In cloud sessions Node's `fetch` ignores the HTTPS proxy, so local builds can't reach the API (silent fallback). Build with `NODE_USE_ENV_PROXY=1` there. GitHub Actions and Fly builders have direct access. A product added in the admin panel only gets its own page after the next client-next deploy.
 - nginx caching: `/_next/static/` (hashed build files) 1 year `immutable`; other static files (photos under `/Assets`, icons, fonts) 30 days + ETag revalidation, so a replaced photo reaches everyone within 30 days (use a new filename if it must change immediately). HTML, `sitemap.xml`, `robots.txt`: no-cache.
 - Site photos: WebP quality 75, max 1600 px (banners in `Hero/` max 2000 px). Use `tools/optimize-images.js` (same settings) for new photos.

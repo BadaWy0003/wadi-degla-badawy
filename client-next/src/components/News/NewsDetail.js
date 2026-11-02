@@ -3,21 +3,17 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 // Helmet removed - metadata handled by generateMetadata() in page.js
 import "./NewsDetail.css";
-import articles from "./newsList";
 import ContactBubble from "../Contact/ContactBubble";
 import LangLink from "../LangLink";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
-import { useParams } from "next/navigation";
 
-export default function NewsDetail() {
-  const { slug } = useParams();
+// article: from the admin panel, read at build time by app/[lang]/news/[slug]/page.js.
+export default function NewsDetail({ article }) {
   const { t } = useTranslation();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-
-  const article = articles.find((a) => a.slug === slug);
 
   if (!article) {
     return (
