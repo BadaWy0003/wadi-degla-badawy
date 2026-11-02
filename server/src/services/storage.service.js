@@ -228,5 +228,12 @@ StorageService.deleteProduct = async (productId) => {
   return { message: 'Product and associated files deleted successfully' };
 };
 
+// Shared with the news service: store a photo under uploads/<folder>/ and return its public
+// URL; delete photos that are no longer used (only our own bucket, never outside the
+// environment's storage area).
+StorageService.uploadPhoto = (file, folder) => uploadFileToStorage(file, folder);
+StorageService.deleteStorageFiles = deleteStorageFiles;
+StorageService.isOwnStorageUrl = (link) => typeof link === 'string' && link.startsWith(bucketUrlPrefix());
+
 module.exports = StorageService;
 
