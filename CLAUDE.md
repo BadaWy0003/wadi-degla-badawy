@@ -17,6 +17,18 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - **Products + gallery**: Firestore collection `materials`, with images in Firebase Storage (`uploads/<type>/...`). They're read at runtime through `GET /api/storage/all` and `GET /api/storage/type/:type`, and edited through the admin dashboard.
 - **Hidden products**: `hidden: true` on a `materials` doc (set by the admin panel's eye button, `PUT /api/storage/product/:id/visibility`). The public endpoints leave hidden docs out; the admin panel lists everything via `GET /api/storage/admin/all`. A product must be hidden before `DELETE /api/storage/product/:id` accepts it (409 otherwise; gallery photos delete directly). The website's product page for a newly hidden product redirects visitors to the products list (runtime check) and disappears from the build/sitemap at the next client-next deploy.
 - **Uploads** (`server/src/routes/storage.route.js`): JPG/PNG/WebP only, max 10 MB each, 15 per request; file names are sanitized. When a product's photo is replaced or a finish removed, the old file is deleted from Storage.
+- **News** (being moved from code to the admin panel; phase 1 PR 1 = server only):
+  - **Storage:** Firestore collection `news` (via `col('news')`). Each article has:
+    - `title` / `content` / `excerpt` as `{en, ar}`
+    - `year` and `month`
+    - `author`, `thumbnail`, `images[{src,alt}]`
+    - `slug` (fixed after creation)
+    - `pinned` (only one article at a time), `hidden`
+  - **API:** public `GET /api/news` returns the visible articles, pinned first, then newest. The admin endpoints live under `/api/news/admin/*` and are limited to **ADMIN/SUPER_ADMIN**; moderators can't use them.
+  - **Deleting:** an article must be hidden first, and its uploaded photos are deleted with it. Photos are uploaded to `uploads/News/`.
+  - **Allowed photos:** only links to our bucket, or the website's existing `/Assets/Media/...` paths.
+  - **One-time import:** `POST /api/news/admin/import` copies the 7 articles of `server/src/data/news-import.json` (generated from `client-next/src/components/News/newsList.js`). It only runs while the collection is empty.
+  - **Publish:** `POST /api/news/admin/publish` starts `deploy-client-next.yml` via the GitHub API, using the Fly secret `GITHUB_DEPLOY_TOKEN`: a fine-grained token for this repo only, with Actions read/write. It's limited to one publish per minute. `GET /api/news/admin/publish` shows unpublished changes and the last run. The bookkeeping lives in `site_meta/news`.
 - **Customers / admins / documents**: Firestore collections `customers`, `admins`, `documents`.
 - **Everything else is static in the repo**: page text is in `client-next/translations/*.json`. Data lists such as projects, news, quarries, machinery and certificates are JS files in `client-next/src/components/<Section>/`. Images are in `client-next/public/Assets/Media/`.
 - No database or volumes on Fly. The Mongo/Prisma code in `server/` is dead.
@@ -132,7 +144,7 @@ docker run -p 8080:80 wd-site
 - **Testing from a cloud session:** the agent proxy only allows hosts the owner added. Add `*.fly.dev` (or the 3 staging hosts) to the environment's allowed domains to test staging from here.
 
 ## Environment variables (names only)
-- server (Fly secrets): `SECRET_KEY`, `ZOHO_EMAIL`, `ZOHO_PASSWORD`, `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET`, `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `GOOGLE_APPLICATION_CREDENTIALS_BASE64`.
+- server (Fly secrets): `GITHUB_DEPLOY_TOKEN` (news Publish button; optional until set), `SECRET_KEY`, `ZOHO_EMAIL`, `ZOHO_PASSWORD`, `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET`, `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `GOOGLE_APPLICATION_CREDENTIALS_BASE64`.
 - server (fly.toml/Dockerfile): `PORT=3000`, `NODE_ENV=production`.
 - client-next (build arg): `NEXT_PUBLIC_BASE_API_URL`. The server URL is also hardcoded in `app/[lang]/products/[productName]/page.js`.
 - admin-dashboard: `REACT_APP_BASE_API_URL`.
