@@ -6,6 +6,7 @@ const hero_bg = '/Assets/Media/Hero/visualizer-hero.webp';
 import ProductForVisualizer from "./ProductForVisualizer.js";
 import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
+import { PRODUCT_TYPE_KEYS } from "../../util/product-types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 
 export default function Visualizer() {
@@ -159,29 +160,29 @@ const handleProductClick = (item, type) => {
             className={`btn2 ${selectedCategory === "Imported Marble" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Imported Marble")}
           >
-            Imported Marble
+            {t('visualizer.importedMarble')}
           </button>
           <button
             className={`btn2 ${selectedCategory === "Egyptian Marble" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Egyptian Marble")}
           >
-            Egyptian Marble
+            {t('visualizer.egyptianMarble')}
           </button>
           <button
             className={`btn2 ${selectedCategory === "Imported Granite" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Imported Granite")}
           >
-            Imported Granite
+            {t('visualizer.importedGranite')}
           </button>
           <button
             className={`btn2 ${selectedCategory === "Egyptian Granite" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Egyptian Granite")}
           >
-            Egyptian Granite
+            {t('visualizer.egyptianGranite')}
           </button>
         </div>
 
-        <h2>{selectedCategory}</h2>
+        <h2>{t(PRODUCT_TYPE_KEYS[selectedCategory])}</h2>
 
         {/* Dynamic Category Description */}
         <div className="category-description-2">
@@ -196,7 +197,7 @@ const handleProductClick = (item, type) => {
         {/* Search Bar */}
         <input
           type="text"
-          placeholder={t('visualizer.searchPlaceholder', { category: selectedCategory })}
+          placeholder={t('visualizer.searchPlaceholder', { category: t(PRODUCT_TYPE_KEYS[selectedCategory]) })}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="search-bar"
@@ -237,7 +238,7 @@ const handleProductClick = (item, type) => {
             showOutdoor &&
             hasOutdoorProducts && (
               <p onClick={scrollToOutdoor} className="scroll-to-outdoor-btn">
-                Scroll to Outdoor ↓
+                {t('visualizer.scrollToOutdoor')}
               </p>
             )}
 
@@ -251,7 +252,7 @@ const handleProductClick = (item, type) => {
               }
               ref={indoorRef}
             >
-              {hasOutdoorProducts && <h2>Indoor</h2>}
+              {hasOutdoorProducts && <h2>{t('visualizer.indoor')}</h2>}
               <div className="product-cards">
                 {visibleIndoorProducts.map((item) => (
                   <ProductForVisualizer

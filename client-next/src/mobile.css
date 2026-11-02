@@ -163,9 +163,18 @@
   html body .export-department:not(#m),
   html body .machinery-section:not(#m),
   html body .packing-slabs:not(#m),
-  html body .projects-section:not(#m),
+  html body .projects-section:not(#m) {
+    margin-bottom: 40px;
+  }
+
+  /* Space under the cover photo. Not on Products: there the cover is followed by the dark
+     category bar on a white page, and the margin showed as a white strip. */
   html body .quarries-hero:not(#m) {
     margin-bottom: 40px;
+  }
+
+  html body .products-container-2 .quarries-hero:not(#m) {
+    margin-bottom: 0;
   }
 
   html body .image-grid:not(#m) {
@@ -206,6 +215,23 @@
     width: calc(50% - 0.5rem);
   }
 
+  /* Exports and Packing photo walls (~40 photos each): 3 per row on phones instead of 2,
+     so those pages are about a third shorter. Exports.css sets column-count with
+     !important, hence !important here. Photos still open full size when tapped. */
+  html body .image-grid .masonry-grid:not(#m) {
+    column-count: 3 !important;
+    column-gap: 6px;
+  }
+
+  html body .image-grid .masonry-item:not(#m) {
+    margin-bottom: 6px;
+  }
+
+  html body .image-grid:not(#m) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   /* ---------- Projects: shorter cards ---------- */
   html body .project-card:not(#m) {
     height: 240px;
@@ -231,6 +257,205 @@
 
   html body .footer-right-content:not(#m) {
     padding-top: 40px;
+  }
+}
+
+/* ---------- Mobile audit fixes (all pages) ---------- */
+@media screen and (max-width: 768px) {
+  /* Visualizer hero: title and intro overlapped each other (and the category buttons in
+     Arabic) because both are absolutely positioned. Let them flow under each other. */
+  html body .products-hero:not(#m) {
+    padding-top: 96px;
+    padding-bottom: 24px;
+    gap: 12px;
+  }
+
+  html body .products-hero h1:not(#m),
+  html body .products-hero .hero-hint:not(#m) {
+    position: static;
+    transform: none;
+    width: auto;
+    padding: 0 16px;
+  }
+
+  html body .products-hero .products-hero-image:not(#m) {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    z-index: -1;
+  }
+
+  html body .products-container:not(#m) {
+    padding-bottom: 40px;
+  }
+
+  /* Visualizer: the category description had no side padding and touched the screen edge */
+  html body .products-categories-and-title .category-description-2:not(#m) {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  /* Category buttons on Products / Visualizer: 10px text was too small to read */
+  html body .products-categories-2 .btn2:not(#m) {
+    font-size: 12px;
+  }
+
+  /* Leftover desktop spacing (80-240px) on pages the first pass did not cover */
+  html body .patterns-container:not(#m),
+  html body .stone-creation-container:not(#m),
+  html body .kerbstone-container:not(#m),
+  html body .cobble-container:not(#m) {
+    padding-bottom: 56px;
+  }
+
+  html body .pattern-section:not(#m),
+  html body .section-content:not(#m),
+  html body .kerb-intro:not(#m) {
+    margin-bottom: 40px;
+  }
+
+  html body .stone-creation-section:not(#m),
+  html body .kerbstone-section:not(#m),
+  html body .kerb-final:not(#m),
+  html body .cobble-section:not(#m),
+  html body .cobble-cta-section:not(#m) {
+    margin-top: 40px;
+  }
+
+  html body .cobble-benefits h2:not(#m),
+  html body .cobble-best-applications h2:not(#m),
+  html body .cobble-technical h2:not(#m) {
+    margin-top: 40px;
+  }
+
+  html body .stone-creation-section > p:not(#m),
+  html body .image-section-text-wrapper > p:not(#m),
+  html body .inspo-ancient-section > p:not(#m),
+  html body .gallery-intro > p:not(#m),
+  html body .certificates-page .breadcrumb:not(#m),
+  html body .machinery-captions:not(#m) {
+    margin-bottom: 32px;
+  }
+
+  html body .about-intro-section:not(#m),
+  html body .our-expertise-section-content:not(#m) {
+    gap: 32px;
+  }
+
+  /* Home.js puts style={{ marginTop: '5rem' }} on these buttons; only !important beats an
+     inline style */
+  html body .homepage .home-button-section .btn2:not(#m) {
+    margin-top: 24px !important;
+  }
+
+  /* Product.css sets these with !important for short screens, so !important is needed */
+  html body .product-details-page:not(#m) {
+    padding: 88px 1rem 40px !important; /* top keeps the breadcrumb ~28px under the header */
+  }
+
+  html body .project-details-page:not(#m) {
+    padding-top: 152px;
+    padding-bottom: 40px;
+  }
+
+  html body .news-detail-container:not(#m) {
+    padding-bottom: 40px;
+  }
+
+  html body .container-big:not(#m) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  /* Empty paragraphs (e.g. under "Stone Patterns") only added empty space */
+  html body p:empty:not(#m) {
+    display: none;
+  }
+
+  /* "Coming soon" placeholders were half a screen tall */
+  html body .coming-soon:not(#m) {
+    height: auto;
+    padding: 48px 16px;
+  }
+
+  html body .coming-soon h1:not(#m) {
+    font-size: 26px;
+  }
+
+  /* Large decorative logo outline (About, Login, Signup): smaller, so the text and the
+     login form come up sooner */
+  html body .about-intro-section-image img:not(#m),
+  html body .container1-img img:not(#m) {
+    max-width: 140px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Login/Signup: the form box kept a 518px minimum height and centred the form in it,
+     leaving ~100px of empty space above "Login" */
+  html body .container2:not(#m) {
+    min-height: 0;
+  }
+
+  html body .container1-img:not(#m) {
+    margin-top: 24px;
+  }
+
+  /* Quarries: gaps between quarry/factory cards and between the sections */
+  html body .quarry-card:not(#m),
+  html body .factory-card:not(#m) {
+    margin-bottom: 32px;
+  }
+
+  html body .quarries-container .factories:not(#m),
+  html body .quarries-container .global:not(#m) {
+    margin-top: 16px;
+  }
+
+  /* Patterns: the last section ended with ~130px of stacked margins */
+  /* (the last section is followed by the contact bubble, so it is not :last-child) */
+  html body .patterns-container .pattern-section:last-of-type:not(#m),
+  html body .patterns-container .pattern-section:has(+ .contact-bubble-container):not(#m),
+  html body .patterns-container .pattern-section:has(+ .contact-bubble-container) .section-content:not(#m) {
+    margin-bottom: 0;
+  }
+
+  /* Pages without a hero photo: the title sat partly behind the fixed header */
+  html body .certificates-page:not(#m),
+  html body .partners-container:not(#m) {
+    padding-top: 184px;
+  }
+
+  /* News article: long titles were absolutely positioned and ran up under the header */
+  html body .news-detail-hero:not(#m) {
+    min-height: 60vh;
+    padding-top: 96px;
+  }
+
+  html body .news-detail-hero-title:not(#m) {
+    position: relative;
+    top: auto;
+    transform: none;
+    max-width: 100%;
+  }
+}
+
+/* White pages without a hero photo: at the top of the page the header was a grey see-through
+   band over white. Give it the same frosted dark background it gets when scrolled. */
+@media screen and (max-width: 1230px) {
+  html body:has(.certificates-page, .partners-container) header.header:not(#m)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: rgba(10, 10, 10, 0.86);
+    -webkit-backdrop-filter: saturate(160%) blur(20px);
+    backdrop-filter: saturate(160%) blur(20px);
+  }
+
+  html body:has(.certificates-page, .partners-container) header.header:not(#m) {
+    background-color: transparent;
   }
 }
 

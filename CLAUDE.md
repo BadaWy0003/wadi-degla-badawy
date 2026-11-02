@@ -59,6 +59,16 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
   - frosted glass once scrolled: `rgba(10,10,10,.86)` + `blur(20px)`
   - The frosting is drawn on `header::before`, never on `header` itself. A `backdrop-filter`/`filter`/`transform` on `header` makes it the containing block of the fixed full-screen menu (`header nav`) and breaks it.
   - Don't target `.navbar-search` broadly: the menu contains a desktop search (`hide-on-mobile`) that must stay hidden.
+- Some spacing comes from inline styles (e.g. `style={{ marginTop: '5rem' }}` on the home buttons) or from component `!important` rules (e.g. `.product-details-page`). Overriding those in `mobile.css` needs `!important`.
+- `body:has(.certificates-page, .partners-container)` gives the header its dark frosted background at the top of those white pages.
+- Mobile audit method (2026-11-02): Playwright on iPhone 13 and a 360px phone, EN + AR, every page. It looks for:
+  - overlapping text (text-node rectangles)
+  - elements wider than the screen
+  - empty bands in the screenshot of 110px or more
+  - first content hidden under the header
+  - text under 12px
+
+  The Google Maps embed and Font Awesome don't load through the cloud proxy, so the empty map area on Contact is expected there.
 - Desktop must stay unchanged: compare page heights at 1366px wide before and after.
 - `Home.css` sets `.homepage h2 { font-size: 2rem !important }`, so `mobile.css` needs `!important` for that one rule.
 
