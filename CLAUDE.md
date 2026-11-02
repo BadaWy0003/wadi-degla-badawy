@@ -29,6 +29,12 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
   - **Allowed photos:** only links to our bucket, or the website's existing `/Assets/Media/...` paths.
   - **One-time import:** `POST /api/news/admin/import` copies the 7 articles of `server/src/data/news-import.json` (generated from `client-next/src/components/News/newsList.js`). It only runs while the collection is empty.
   - **Publish:** `POST /api/news/admin/publish` starts `deploy-client-next.yml` via the GitHub API, using the Fly secret `GITHUB_DEPLOY_TOKEN`: a fine-grained token for this repo only, with Actions read/write. It's limited to one publish per minute. `GET /api/news/admin/publish` shows unpublished changes and the last run. The bookkeeping lives in `site_meta/news`.
+  - **Admin panel** (`admin-dashboard/src/components/news/`, helpers in `src/util/news.js`):
+    - **Visibility:** the News menu and page show for ADMIN/SUPER_ADMIN only, via `canManageNews(role)`.
+    - **Page:** the list (pin, hide, delete when hidden, open on the site), the add/edit form with English/Arabic/Photos & date/Preview tabs, the one-time Import button (shown while empty), and the Publish panel, which refreshes every 20s while a build runs.
+    - **Photos:** compressed in the browser (WebP, 1600px) and uploaded in batches of 15. The star marks the cover photo.
+    - **Orphans:** photos uploaded and then removed before saving, or left in a cancelled form, stay in Storage.
+    - **Role after login:** `Login.js` loads `check-auth` right after login so the role (and so the News menu) is known without a refresh.
 - **Customers / admins / documents**: Firestore collections `customers`, `admins`, `documents`.
 - **Everything else is static in the repo**: page text is in `client-next/translations/*.json`. Data lists such as projects, news, quarries, machinery and certificates are JS files in `client-next/src/components/<Section>/`. Images are in `client-next/public/Assets/Media/`.
 - No database or volumes on Fly. The Mongo/Prisma code in `server/` is dead.
