@@ -54,6 +54,11 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
   - a tighter footer
 - Every selector is `html body <target>:not(#m)`. The `:not(#m)` matches everything; it only raises the specificity to id level, so the rule beats the components' own mobile rules.
 - Add new phone fixes there, not in the component CSS.
+- The **header** block at the end of `mobile.css` applies up to 1230px, the Navbar's hamburger breakpoint:
+  - 60px tall, with 16px side padding and 44px tap targets
+  - frosted glass once scrolled: `rgba(10,10,10,.86)` + `blur(20px)`
+  - The frosting is drawn on `header::before`, never on `header` itself. A `backdrop-filter`/`filter`/`transform` on `header` makes it the containing block of the fixed full-screen menu (`header nav`) and breaks it.
+  - Don't target `.navbar-search` broadly: the menu contains a desktop search (`hide-on-mobile`) that must stay hidden.
 - Desktop must stay unchanged: compare page heights at 1366px wide before and after.
 - `Home.css` sets `.homepage h2 { font-size: 2rem !important }`, so `mobile.css` needs `!important` for that one rule.
 
