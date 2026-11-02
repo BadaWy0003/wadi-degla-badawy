@@ -1,5 +1,7 @@
 import '../../src/index.css';
 import '../../src/App.css';
+// Phone-only size/spacing overrides; keep this import last (see the file's header).
+import '../../src/mobile.css';
 import AppShell from '../../src/components/AppShell';
 import RootHtml, { rootMetadata } from '../../src/components/RootHtml';
 import { SUPPORTED_LANGS } from '../../src/util/supported-langs';
