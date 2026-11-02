@@ -1,6 +1,7 @@
 const StorageService = {};
 const { Firestore } = require('@google-cloud/firestore');
 const { bucket } = require('../start/firebase');
+const { col, storagePath, canDeleteStoragePath } = require('../start/data-area');
 
 const firestore = new Firestore();
 
@@ -12,8 +13,10 @@ const bucketUrlPrefix = () => `https://storage.googleapis.com/${bucket.name}/`;
 const deleteStorageFiles = async (links) => {
   for (const link of links) {
     if (typeof link !== 'string' || !link.startsWith(bucketUrlPrefix())) continue;
+    const filePath = link.slice(bucketUrlPrefix().length);
+    if (!canDeleteStoragePath(filePath)) continue; // staging never deletes production photos
     try {
-      await bucket.file(link.slice(bucketUrlPrefix().length)).delete();
+      await bucket.file(filePath).delete();
     } catch (error) {
       console.error(`Failed to delete old file ${link}:`, error.message);
     }
@@ -27,7 +30,7 @@ const uploadFileToStorage = async (file, type) => {
     .replace(/[^a-zA-Z0-9._-]/g, '_')
     .slice(-80);
 
-  const fileName = `uploads/${sanitizedType}/${Date.now()}_${safeName}`;
+  const fileName = storagePath(`uploads/${sanitizedType}/${Date.now()}_${safeName}`);
   const blob = bucket.file(fileName);
   const blobStream = blob.createWriteStream({
     metadata: {
@@ -46,7 +49,7 @@ const uploadFileToStorage = async (file, type) => {
 };
 
 StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }) => {
-  const materialsRef = firestore.collection('materials');
+  const materialsRef = firestore.collection(col('materials'));
   const docSnapshot = id ? await materialsRef.doc(id).get() : undefined;
 
   finishes = finishes.map((f) => ({ ...f, finish: f.finish ?? f.finishName }));
@@ -129,7 +132,7 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
 const isVisible = (doc) => doc.hidden !== true;
 
 StorageService.fetchMaterialsByType = async (type) => {
-  const materialsRef = firestore.collection('materials');
+  const materialsRef = firestore.collection(col('materials'));
   const querySnapshot = await materialsRef.where('type', '==', type).get();
 
   if (querySnapshot.empty) {
@@ -148,7 +151,7 @@ StorageService.fetchMaterialsByType = async (type) => {
 };
 
 StorageService.fetchAllProducts = async ({ includeHidden = false } = {}) => {
-  const materialsRef = firestore.collection('materials');
+  const materialsRef = firestore.collection(col('materials'));
   const querySnapshot = await materialsRef.get();
 
   if (querySnapshot.empty) {
@@ -165,7 +168,7 @@ StorageService.fetchAllProducts = async ({ includeHidden = false } = {}) => {
 };
 
 StorageService.setProductHidden = async (productId, hidden) => {
-  const docRef = firestore.collection('materials').doc(productId);
+  const docRef = firestore.collection(col('materials')).doc(productId);
   const doc = await docRef.get();
   if (!doc.exists) {
     const error = new Error('Product not found');
@@ -177,7 +180,7 @@ StorageService.setProductHidden = async (productId, hidden) => {
 };
 
 StorageService.deleteProduct = async (productId) => {
-  const materialsRef = firestore.collection('materials');
+  const materialsRef = firestore.collection(col('materials'));
   const docRef = materialsRef.doc(productId);
 
   // Retrieve the product document
@@ -206,6 +209,7 @@ StorageService.deleteProduct = async (productId) => {
   for (const file of allFiles) {
     if (file) {
       const fileName = file.replace(`https://storage.googleapis.com/${bucket.name}/`, '');
+      if (!canDeleteStoragePath(fileName)) continue; // staging never deletes production photos
       const fileRef = bucket.file(fileName);
 
       try {

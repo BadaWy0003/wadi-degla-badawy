@@ -1,4 +1,5 @@
 const { db } = require('../start/firebase'); // Import Firestore instance
+const { col } = require('../start/data-area');
 const hashPassword = require('../utils/password-hasher');
 const comparePassword = require('../utils/compare-password');
 const { generateSignedCustomerToken, generateSignedAdminToken } = require('../utils/generate-token');
@@ -6,8 +7,8 @@ const { generateSignedCustomerToken, generateSignedAdminToken } = require('../ut
 const AuthService = {};
 
 // Helper functions to get collection references
-const customerCollection = () => db.collection('customers');
-const adminCollection = () => db.collection('admins');
+const customerCollection = () => db.collection(col('customers'));
+const adminCollection = () => db.collection(col('admins'));
 
 // Create a new customer and generate token
 AuthService.createCustomerAndGenerateToken = async (customerData) => {
