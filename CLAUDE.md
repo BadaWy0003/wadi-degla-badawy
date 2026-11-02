@@ -45,6 +45,18 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - RTL: `src/components/AppShell.js` sets `dir="rtl"` and `lang` on the client. RTL CSS uses `html[dir="rtl"]` selectors. Arabic uses the Cairo font (`body[lang="ar"]`).
 - nginx redirects `/` and any path without a language prefix to `/en/...`.
 
+## Phone layout
+- `client-next/src/mobile.css` (imported last in `app/[lang]/layout.js`) holds all phone-only (≤768px) size and spacing overrides. It covers:
+  - headings: h1 26px, h2 22px, hero 30px
+  - section gaps of 40-56px instead of 80-240px
+  - 2-column photo walls
+  - shorter project cards
+  - a tighter footer
+- Every selector is `html body <target>:not(#m)`. The `:not(#m)` matches everything; it only raises the specificity to id level, so the rule beats the components' own mobile rules.
+- Add new phone fixes there, not in the component CSS.
+- Desktop must stay unchanged: compare page heights at 1366px wide before and after.
+- `Home.css` sets `.homepage h2 { font-size: 2rem !important }`, so `mobile.css` needs `!important` for that one rule.
+
 ## Commands
 ```bash
 # website
@@ -81,6 +93,7 @@ docker run -p 8080:80 wd-site
 - No health checks, release commands or migrations.
 
 ## Staging
+**Not set up** (owner decision, 2026-11-02): the code and configs below are dormant. No staging apps exist, nothing runs, and nothing costs anything. Changes are tested locally and go live through branch + PR + the owner's "merge".
 - **Addresses:** https://wadi-degla-site-staging.fly.dev, https://wadi-degla-admin-staging.fly.dev and https://wadi-degla-server-staging.fly.dev.
 - **Machines:** they sleep when unused (`auto_stop_machines = 'stop'`, `min_machines_running = 0`) and wake on the first request, which takes a few seconds.
 - **Data:** the same Firebase project as production, kept in a separate area. The server's `DATA_PREFIX=staging_` (set in `server/fly.staging.toml`) makes every collection `staging_<name>` and every Storage path `staging/<path>`. All of this goes through `server/src/start/data-area.js`; **never** write `collection('name')` or a Storage path without `col()` / `storagePath()`.
