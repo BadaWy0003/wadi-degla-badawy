@@ -21,9 +21,6 @@ StorageController.uploadMaterial = async (req, res) => {
         message: 'The number of finishes does not match the number of uploaded files',
       });
     }
-    console.log('finishesArray:', finishesArray);
-    console.log('finishesWithoutFile:', finishesWithoutFile);
-    console.log('files:', files);
     
     const response = await StorageService.handleMaterialUpload({
       id,
