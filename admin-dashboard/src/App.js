@@ -16,8 +16,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const { globalState } = useGlobalState();
+  const { globalState, loading } = useGlobalState();
   const isLoggedIn = globalState.isLoggedIn;
+
+  // Wait for the login check before routing; otherwise a page refresh briefly looks
+  // logged-out and sends the user to /login and then to the Dashboard.
+  if (loading) return null;
 
   return (
     <ThemeProvider theme={theme}>
