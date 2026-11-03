@@ -1,10 +1,10 @@
 'use client';
-import React from "react";
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import "./Projects.css";
-import Project from "./Project";
-import projects from "./projectList"; // Import the project list
-import ContactBubble from "../Contact/ContactBubble";
+import './Projects.css';
+import Project from './Project';
+import projects from './projectList'; // Import the project list
+import ContactBubble from '../Contact/ContactBubble';
 import LangLink from '../LangLink';
 
 export default function Projects() {
@@ -21,40 +21,40 @@ export default function Projects() {
 
   return (
     <>
-    
-    <div className="projects-page">
-      {/* 🌟 Hero Section */}
-      <div className="quarries-hero">
-        <h1>{t('projects.heroHeading')}</h1>
-        <div className="breadcrumb">
-          <LangLink href="/">{t('projects.breadcrumbHome')}</LangLink>
-          <p>{">"} {t('projects.breadcrumbCurrent')}</p>
+      <div className="projects-page">
+        {/* 🌟 Hero Section */}
+        <div className="quarries-hero">
+          <h1>{t('projects.heroHeading')}</h1>
+          <div className="breadcrumb">
+            <LangLink href="/">{t('projects.breadcrumbHome')}</LangLink>
+            <p>
+              {'>'} {t('projects.breadcrumbCurrent')}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="projects-container">
-        {Object.keys(groupedProjects).map((country) => {
-          const countryProjects = groupedProjects[country];
-          return (
-            <div className="projects-section" key={country}>
-              <div className="projects-section-title">
-                <hr />
-                <h2>{country}</h2>
+        <div className="projects-container">
+          {Object.keys(groupedProjects).map((country) => {
+            const countryProjects = groupedProjects[country];
+            return (
+              <div className="projects-section" key={country}>
+                <div className="projects-section-title">
+                  <hr />
+                  <h2>{country}</h2>
+                </div>
+                <div
+                  className={`projects-section-content ${countryProjects.length === 1 ? 'single-project' : 'multi-projects'}`}
+                >
+                  {countryProjects.map((project) => (
+                    <Project key={project.id} project={project} />
+                  ))}
+                </div>
               </div>
-              <div 
-                className={`projects-section-content ${countryProjects.length === 1 ? "single-project" : "multi-projects"}`}
-              >
-                {countryProjects.map((project) => (
-                  <Project key={project.id} project={project} />
-                ))}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <ContactBubble />
       </div>
-      <ContactBubble />
-
-    </div>
     </>
   );
 }

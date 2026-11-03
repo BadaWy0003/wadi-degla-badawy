@@ -1,20 +1,20 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import "./ProjectDetails.css"
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Pagination, Navigation } from "swiper/modules";
-import apiClient from "../../util/client.js"; 
-import projects from "./projectList"; 
-import Product from "../Products/Product"; 
+import './ProjectDetails.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Pagination, Navigation } from 'swiper/modules';
+import apiClient from '../../util/client.js';
+import projects from './projectList';
+import Product from '../Products/Product';
 import Lightbox from 'yet-another-react-lightbox';
-import Zoom from "yet-another-react-lightbox/plugins/zoom"; // Import Zoom plugin
+import Zoom from 'yet-another-react-lightbox/plugins/zoom'; // Import Zoom plugin
 import 'yet-another-react-lightbox/styles.css';
-import ContactBubble from "../Contact/ContactBubble.js";
-import "../Products/Products.css";
+import ContactBubble from '../Contact/ContactBubble.js';
+import '../Products/Products.css';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 import { useParams } from 'next/navigation';
@@ -34,12 +34,12 @@ export default function ProjectDetails() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await apiClient.get("/api/storage/all"); 
+        const { data } = await apiClient.get('/api/storage/all');
         if (data?.data) {
-          setProducts(data.data); 
+          setProducts(data.data);
         }
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error('Error fetching products:', error);
       } finally {
         setLoading(false);
       }
@@ -54,19 +54,30 @@ export default function ProjectDetails() {
     return <div className="error-message">{t('projects.projectNotFound')}</div>;
   }
 
-  const materialProducts = project?.materialsSupplied?.map((material) => {
-    return products.find((p) => p.name.toLowerCase() === material.toLowerCase());
-  }).filter(Boolean) ?? []; // Prevents undefined errors
+  const materialProducts =
+    project?.materialsSupplied
+      ?.map((material) => {
+        return products.find((p) => p.name.toLowerCase() === material.toLowerCase());
+      })
+      .filter(Boolean) ?? []; // Prevents undefined errors
 
-  const slides = project?.gallery ? Object.values(project?.gallery).map((img) => ({ src: img })) : [];
+  const slides = project?.gallery
+    ? Object.values(project?.gallery).map((img) => ({ src: img }))
+    : [];
 
   return (
     <div className="project-details-page">
       <div className="breadcrumb">
         <LangLink href="/">{t('projects.breadcrumbHome')}</LangLink>
-        <p>{">"} {t('projects.breadcrumbExplore')}</p>
-        <LangLink href="/projects/">{">"} {t('projects.breadcrumbCurrent')}</LangLink>
-        <p>{">"} {project.name}</p>
+        <p>
+          {'>'} {t('projects.breadcrumbExplore')}
+        </p>
+        <LangLink href="/projects/">
+          {'>'} {t('projects.breadcrumbCurrent')}
+        </LangLink>
+        <p>
+          {'>'} {project.name}
+        </p>
       </div>
       <p className="project-hint">{t('projects.tapToView')}</p>
       <div className="project-details-container">
@@ -82,17 +93,25 @@ export default function ProjectDetails() {
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
-              }}            
+              }}
               className="project-gallery-swiper"
             >
               {Object.values(project?.gallery).map((image, index) => (
-                <SwiperSlide 
-                  key={index} 
-                  onClick={() => { setIndex(index); setOpen(true); }}
+                <SwiperSlide
+                  key={index}
+                  onClick={() => {
+                    setIndex(index);
+                    setOpen(true);
+                  }}
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
-                  >
-                  <img loading="lazy" src={image} alt={`Slide ${index}`} className="project-image" />
+                >
+                  <img
+                    loading="lazy"
+                    src={image}
+                    alt={`Slide ${index}`}
+                    className="project-image"
+                  />
                   {hovered && (
                     <div className="image-overlay">
                       <p>{t('projects.clickToView')}</p>
@@ -102,13 +121,25 @@ export default function ProjectDetails() {
               ))}
             </Swiper>
           ) : (
-            <img loading="lazy" src={project.thumbnail} alt={project.name} className="project-image" />
+            <img
+              loading="lazy"
+              src={project.thumbnail}
+              alt={project.name}
+              className="project-image"
+            />
           )}
         </div>
 
         <div className="project-details-right">
           <h1 className="project-details-title">{project.name}</h1>
-          <p className="project-details-description">{t('projects.location')} <strong>{project.city}{project.city?" - ":""}{project.country}</strong></p>
+          <p className="project-details-description">
+            {t('projects.location')}{' '}
+            <strong>
+              {project.city}
+              {project.city ? ' - ' : ''}
+              {project.country}
+            </strong>
+          </p>
 
           <p>{t('projects.materialSupplied')}</p>
           {loading ? (
@@ -123,7 +154,11 @@ export default function ProjectDetails() {
             <p id="no-materials">{t('projects.noMaterials')}</p>
           )}
 
-          <button className="btn1" onClick={() => router.push(`/${lang}/contact`)} style={{ width: "100%", marginTop: "2rem" }}>
+          <button
+            className="btn1"
+            onClick={() => router.push(`/${lang}/contact`)}
+            style={{ width: '100%', marginTop: '2rem' }}
+          >
             {t('projects.learnMore')}
           </button>
         </div>
@@ -131,15 +166,14 @@ export default function ProjectDetails() {
       <ContactBubble />
 
       {/* Lightbox Component */}
-      <Lightbox 
-      open={open} 
-      close={() => setOpen(false)} 
-      slides={slides} 
-      index={index}
-      plugins={[Zoom]} 
-      zoom={{ maxZoomPixelRatio: 3 }} 
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={slides}
+        index={index}
+        plugins={[Zoom]}
+        zoom={{ maxZoomPixelRatio: 3 }}
       />
-
     </div>
   );
 }

@@ -54,7 +54,11 @@ export default async function sitemap() {
       priority: 0.6,
       changeFrequency: 'yearly',
     })),
-    ...newsSlugs.map((slug) => ({ path: `/news/${slug}`, priority: 0.6, changeFrequency: 'yearly' })),
+    ...newsSlugs.map((slug) => ({
+      path: `/news/${slug}`,
+      priority: 0.6,
+      changeFrequency: 'yearly',
+    })),
   ];
 
   return pages.flatMap(({ path, priority, changeFrequency }) => {
