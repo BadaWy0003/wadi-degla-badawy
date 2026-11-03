@@ -12,6 +12,7 @@ import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
+import { productSlug } from '../../util/product-slugs';
 
 
 
@@ -143,7 +144,7 @@ export default function FeaturedProducts() {
               <button 
                 className="btn2"
                 onClick={() => {
-                  const urlName = activeProduct.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                  const urlName = productSlug(activeProduct.name);
                   router.push(`/${lang}/products/${urlName}`);
                   window.scrollTo({top: 0});
                 }}

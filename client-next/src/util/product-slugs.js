@@ -20,9 +20,9 @@ export const FALLBACK_PRODUCT_SLUGS = [
   'black-platinum-gold',
   'black-river',
   'blue-agate',
-  'border-beige-',
-  'botccino-classico',
-  'breccia-daino-',
+  'border-beige',
+  'botticino-classico',
+  'breccia-daino',
   'brown-agate',
   'brown-qusair',
   'calacatta-grey',
@@ -35,8 +35,8 @@ export const FALLBACK_PRODUCT_SLUGS = [
   'double-black',
   'egyptian-alabaster',
   'egyptian-alabaster-lightened',
-  'embrador-light',
-  'embrador-medium',
+  'emperador-light',
+  'emperador-medium',
   'emperador',
   'fantastic-white',
   'fantazia-sunny',
@@ -69,10 +69,9 @@ export const FALLBACK_PRODUCT_SLUGS = [
   'melly-grey-dark',
   'melly-grey-light',
   'nero-marquina',
-  'nero-marquinaa',
   'new-halayeb',
   'ocean-jasper',
-  'oriental-white-',
+  'oriental-white',
   'panda-white',
   'paradiso',
   'persian-grey',
@@ -92,11 +91,11 @@ export const FALLBACK_PRODUCT_SLUGS = [
   'sunny-white',
   'tiger-eye',
   'tiger-skin',
-  'traventine-beige',
+  'travertine-beige',
   'triesta-beige',
   'triesta-grey',
   'tundra-grey',
-  'turkish-cararra',
+  'turkish-carrara',
   'universal-grey',
   'verdi-green',
   'volakas',
@@ -104,8 +103,11 @@ export const FALLBACK_PRODUCT_SLUGS = [
   'yellow-quartz',
 ];
 
+// A product's web address. Spaces around the name are ignored, so a name typed as
+// "Oriental White " gives oriental-white, not oriental-white-.
 export const productSlug = (name) =>
   String(name)
+    .trim()
     .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '');

@@ -5,6 +5,7 @@ import apiClient from '../../util/client.js';
 import './SearchBar.css';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
+import { productSlug } from '../../util/product-slugs';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
@@ -182,7 +183,7 @@ const SearchBar = () => {
 
     // Search in products
     products.forEach((product) => {
-      const productPath = `/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+      const productPath = `/products/${productSlug(product.name)}`;
       
       if (!seenPaths.has(productPath)) {
         if (product.name.toLowerCase().includes(searchTerm) || 

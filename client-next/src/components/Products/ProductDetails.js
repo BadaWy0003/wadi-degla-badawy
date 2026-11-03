@@ -20,6 +20,7 @@ import { useParams } from 'next/navigation';
 import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
 import { CATEGORY_TOPIC } from '../../util/topic-pages';
 import { finishLabel } from '../../util/finishes';
+import { productSlug } from '../../util/product-slugs';
 import Product from './Product';
 
 // Default finish: "Polished" if available, else the first one.
@@ -48,14 +49,11 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
         const { data } = await apiClient.get(`/api/storage/all`);
 
         if (data.data) {
-          // Find the specific product by name
-          const foundProduct = data.data.find((p) => {
-            const urlName = p.name
-              .toLowerCase()
-              .replace(/\s+/g, '-')
-              .replace(/[^a-z0-9-]/g, '');
-            return urlName === productName;
-          });
+          // Find the product: by id when the page was built with it (so a product renamed
+          // in the admin panel keeps working until the next deploy), else by its address.
+          const foundProduct =
+            (initialProduct?.id && data.data.find((p) => p.id === initialProduct.id)) ||
+            data.data.find((p) => productSlug(p.name) === productName);
           if (foundProduct) {
             setProduct(foundProduct);
             if (initialProduct) {
