@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t } from '../../../src/util/meta';
 const Login = dynamic(() => import('../../../src/components/LoginSignup/Login'), { ssr: false });
 
 export function generateMetadata({ params }) {
@@ -7,7 +7,8 @@ export function generateMetadata({ params }) {
   return {
     title: t(lang, 'login.title', 'Login | Wadi Degla'),
     description: t(lang, 'home.metaDescription', ''),
-    alternates: buildAlternates('/login', lang),
+    // Private pages: kept out of Google (robots.txt lets Google read this "noindex").
+    robots: { index: false, follow: true },
   };
 }
 

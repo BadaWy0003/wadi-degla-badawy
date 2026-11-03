@@ -69,7 +69,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - `src/util/client.js`: axios instance using `NEXT_PUBLIC_BASE_API_URL`.
 - `src/components/LangLink.js`: use this for internal links. It prefixes `/{lang}`.
 - `src/Public` is a symlink to `../public`.
-- `public/robots.txt` is a static file (disallows login/signup/my-account/404 pages). Don't add a `public/sitemap.xml`: it would conflict with `app/sitemap.js`.
+- `public/robots.txt` is a static file. It does **not** block login/signup/my-account/404 pages: those carry `robots: noindex` in their `generateMetadata`/`metadata`, and Google must be able to read a page to see that (blocked pages still got listed without content, e.g. `/ko/login/`). Don't add a `public/sitemap.xml`: it would conflict with `app/sitemap.js`.
 - `out/404.html` (Next's default) has no lang/styles; it isn't used, because nginx serves `/en/page-not-found/` for 404s.
 
 ## Languages (12)

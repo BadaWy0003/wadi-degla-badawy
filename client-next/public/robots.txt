@@ -1,10 +1,7 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-# Account pages and error pages don't belong in search results
-Disallow: /*/login/
-Disallow: /*/signup/
-Disallow: /*/my-account/
-Disallow: /*/not-found/
-Disallow: /*/page-not-found/
+# Account and error pages are NOT blocked here on purpose: they carry a "noindex" tag,
+# and Google must be able to read a page to see that tag (a blocked page can still be
+# listed in results without its content).
 Sitemap: https://www.wadidegla-eg.com/sitemap.xml
