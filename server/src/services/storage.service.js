@@ -224,6 +224,8 @@ StorageService.deleteProduct = async (productId) => {
 
   // Delete the Firestore document
   await docRef.delete();
+  // and its stone details (description, sizes… shown on the website)
+  await require('./product-details.service').remove(productId);
 
   return { message: 'Product and associated files deleted successfully' };
 };
