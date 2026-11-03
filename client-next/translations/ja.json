@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "輸入花崗岩"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | エジプト産大理石・花崗岩 | Wadi Degla",
+    "pageTitle": "{{heading}} – {{type}}のスラブ・タイル | Wadi Degla",
     "metaDescription": "当社のプレミアム{{type}}コレクションで{{name}}をご覧ください。高品質な天然石をご利用いただけます。仕様を確認し、高級石材の信頼できる供給元であるワディ・デグラにサンプルをリクエストしてください。",
     "breadcrumbHome": "ホーム",
     "breadcrumbExplore": "探す",
@@ -690,7 +690,15 @@
     "applications_staircase": "階段",
     "applications_wallcladding": "壁面クラッディング",
     "applications_windowsills": "窓枠",
-    "requestSample": "サンプルをリクエスト"
+    "requestSample": "サンプルをリクエスト",
+    "heading": "{{name}} {{kind}}",
+    "kindMarble": "大理石",
+    "kindGranite": "花崗岩",
+    "introEgyptian": "{{heading}}はエジプトで採掘される天然石（{{type}}）で、Wadi Deglaがスラブ、タイル、ブロックで供給しています。対応仕上げ：{{finishes}}。床材、壁・外壁の仕上げ、階段、窓台、造園に使用されます。",
+    "introImported": "{{heading}}は輸入天然石（{{type}}）で、Wadi Deglaがエジプトからスラブとタイルで供給しています。対応仕上げ：{{finishes}}。床材、壁の仕上げ、階段、窓台、インテリアデザインに使用されます。",
+    "introCta": "1980年創業の石材会社Wadi Deglaに、{{name}}のサンプルまたはお見積りをご依頼ください。",
+    "related": "その他の{{type}}",
+    "usedInProjects": "{{heading}}を使用したプロジェクト"
   },
   "sampleRequestForm": {
     "successMessage": "メッセージが正常に送信されました！",

@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "Importierter Granit"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | Ägyptischer Marmor & Granit | Wadi Degla",
+    "pageTitle": "{{heading}} – {{type}} Platten & Fliesen | Wadi Degla",
     "metaDescription": "Entdecken Sie {{name}} in unserer Premium-Kollektion von {{type}}. Hochwertiger Naturstein verfügbar. Sehen Sie sich Spezifikationen an und fordern Sie Muster von Wadi Degla an, Ihrer vertrauenswürdigen Quelle für luxuriöse Steinmaterialien.",
     "breadcrumbHome": "Startseite",
     "breadcrumbExplore": "Erkunden",
@@ -690,7 +690,15 @@
     "applications_staircase": "Treppe",
     "applications_wallcladding": "Wandverkleidung",
     "applications_windowsills": "Fensterbänke",
-    "requestSample": "MUSTER ANFORDERN"
+    "requestSample": "MUSTER ANFORDERN",
+    "heading": "{{name}} {{kind}}",
+    "kindMarble": "Marmor",
+    "kindGranite": "Granit",
+    "introEgyptian": "{{heading}} ist ein in Ägypten abgebauter Naturstein ({{type}}), den Wadi Degla als Rohplatten, Fliesen und Blöcke liefert. Verfügbare Oberflächen: {{finishes}}. Er wird für Böden, Wand- und Fassadenverkleidungen, Treppen, Fensterbänke und die Gartengestaltung verwendet.",
+    "introImported": "{{heading}} ist ein importierter Naturstein ({{type}}), den Wadi Degla aus Ägypten als Rohplatten und Fliesen liefert. Verfügbare Oberflächen: {{finishes}}. Er wird für Böden, Wandverkleidungen, Treppen, Fensterbänke und die Innenarchitektur verwendet.",
+    "introCta": "Fordern Sie ein Muster oder ein Angebot für {{name}} bei Wadi Degla an, einem Marmorunternehmen seit 1980.",
+    "related": "Mehr {{type}}",
+    "usedInProjects": "Projekte mit {{heading}}"
   },
   "sampleRequestForm": {
     "successMessage": "Nachricht erfolgreich gesendet!",

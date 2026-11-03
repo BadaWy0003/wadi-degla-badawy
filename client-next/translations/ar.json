@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "الجرانيت المستورد"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | رخام وجرانيت مصري | وادي دجلة",
+    "pageTitle": "{{heading}} – ألواح وبلاطات {{type}} | وادي دجلة",
     "metaDescription": "اكتشف {{name}} في مجموعتنا المتميزة من {{type}}. حجر طبيعي عالي الجودة متاح. شاهد المواصفات واطلب عينات من وادي دجلة، مصدرك الموثوق للمواد الحجرية الفاخرة.",
     "breadcrumbHome": "الرئيسية",
     "breadcrumbExplore": "استكشف",
@@ -690,7 +690,15 @@
     "applications_staircase": "درج",
     "applications_wallcladding": "كسوة جدارية",
     "applications_windowsills": "عتبات النوافذ",
-    "requestSample": "طلب عينة"
+    "requestSample": "طلب عينة",
+    "heading": "{{kind}} {{name}}",
+    "kindMarble": "رخام",
+    "kindGranite": "جرانيت",
+    "introEgyptian": "{{heading}} حجر طبيعي مستخرج من محاجر مصر ({{type}})، توفره وادي دجلة على شكل ألواح وبلاطات وبلوكات. التشطيبات المتاحة: {{finishes}}. يُستخدم في الأرضيات وتكسيات الحوائط والواجهات والسلالم وأعتاب الشبابيك وتنسيق الحدائق.",
+    "introImported": "{{heading}} حجر طبيعي مستورد ({{type}})، توفره وادي دجلة من مصر على شكل ألواح وبلاطات. التشطيبات المتاحة: {{finishes}}. يُستخدم في الأرضيات وتكسيات الحوائط والسلالم وأعتاب الشبابيك والتصميم الداخلي.",
+    "introCta": "اطلب عينة أو عرض سعر لـ {{name}} من وادي دجلة، شركة رخام منذ عام 1980.",
+    "related": "المزيد من {{type}}",
+    "usedInProjects": "مشاريع استُخدم فيها {{heading}}"
   },
   "sampleRequestForm": {
     "successMessage": "تم إرسال الرسالة بنجاح!",

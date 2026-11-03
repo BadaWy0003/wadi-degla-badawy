@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "Granit Importat"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | Marmură & Granit Egiptean | Wadi Degla",
+    "pageTitle": "{{heading}} – Plăci și dale din {{type}} | Wadi Degla",
     "metaDescription": "Descoperiți {{name}} în colecția noastră premium de {{type}}. Piatră naturală de înaltă calitate disponibilă. Vizualizați specificațiile și solicitați mostre de la Wadi Degla, sursa dumneavoastră de încredere pentru materiale din piatră de lux.",
     "breadcrumbHome": "Acasă",
     "breadcrumbExplore": "Explorați",
@@ -690,7 +690,15 @@
     "applications_staircase": "Scară",
     "applications_wallcladding": "Placare Pereți",
     "applications_windowsills": "Glafuri",
-    "requestSample": "SOLICITAȚI O MOSTRĂ"
+    "requestSample": "SOLICITAȚI O MOSTRĂ",
+    "heading": "{{kind}} {{name}}",
+    "kindMarble": "Marmură",
+    "kindGranite": "Granit",
+    "introEgyptian": "{{heading}} este o piatră naturală extrasă în Egipt ({{type}}), furnizată de Wadi Degla sub formă de plăci, dale și blocuri. Finisaje disponibile: {{finishes}}. Se folosește pentru pardoseli, placări de pereți și fațade, scări, glafuri și amenajări peisagistice.",
+    "introImported": "{{heading}} este o piatră naturală importată ({{type}}), furnizată din Egipt de Wadi Degla sub formă de plăci și dale. Finisaje disponibile: {{finishes}}. Se folosește pentru pardoseli, placări de pereți, scări, glafuri și design interior.",
+    "introCta": "Solicitați o mostră sau o ofertă de preț pentru {{name}} de la Wadi Degla, companie de marmură din 1980.",
+    "related": "Mai multe din {{type}}",
+    "usedInProjects": "Proiecte cu {{heading}}"
   },
   "sampleRequestForm": {
     "successMessage": "Mesaj trimis cu succes!",

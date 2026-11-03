@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "进口花岗岩"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | 埃及大理石和花岗岩 | 瓦迪·德格拉",
+    "pageTitle": "{{heading}} – {{type}}大板与板材 | 瓦迪·德格拉",
     "metaDescription": "在我们优质的{{type}}系列中探索{{name}}。提供高质量天然石材。查看规格并从瓦迪·德格拉——您最值得信赖的豪华石材来源——申请样品。",
     "breadcrumbHome": "首页",
     "breadcrumbExplore": "探索",
@@ -690,7 +690,15 @@
     "applications_staircase": "楼梯",
     "applications_wallcladding": "墙面装饰",
     "applications_windowsills": "窗台",
-    "requestSample": "申请样品"
+    "requestSample": "申请样品",
+    "heading": "{{name}}{{kind}}",
+    "kindMarble": "大理石",
+    "kindGranite": "花岗岩",
+    "introEgyptian": "{{heading}}是一种开采自埃及的天然石材（{{type}}），由瓦迪·德格拉以大板、板材和荒料形式供应。可选表面处理：{{finishes}}。适用于地面、墙面及外墙装饰、楼梯、窗台和景观工程。",
+    "introImported": "{{heading}}是一种进口天然石材（{{type}}），由瓦迪·德格拉从埃及以大板和板材形式供应。可选表面处理：{{finishes}}。适用于地面、墙面装饰、楼梯、窗台和室内设计。",
+    "introCta": "欢迎向瓦迪·德格拉（始于1980年的石材公司）索取{{name}}的样品或报价。",
+    "related": "更多{{type}}",
+    "usedInProjects": "使用{{heading}}的项目"
   },
   "sampleRequestForm": {
     "successMessage": "消息发送成功！",

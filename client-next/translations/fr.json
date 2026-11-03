@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "Granit Importé"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | Marbre & Granit Égyptien | Wadi Degla",
+    "pageTitle": "{{heading}} – Tranches et carreaux en {{type}} | Wadi Degla",
     "metaDescription": "Découvrez {{name}} dans notre collection premium de {{type}}. Pierre naturelle de haute qualité disponible. Consultez les spécifications et demandez des échantillons auprès de Wadi Degla, votre source de confiance pour les matériaux en pierre de luxe.",
     "breadcrumbHome": "Accueil",
     "breadcrumbExplore": "Explorer",
@@ -690,7 +690,15 @@
     "applications_staircase": "Escalier",
     "applications_wallcladding": "Revêtement Mural",
     "applications_windowsills": "Appuis de Fenêtre",
-    "requestSample": "DEMANDER UN ÉCHANTILLON"
+    "requestSample": "DEMANDER UN ÉCHANTILLON",
+    "heading": "{{kind}} {{name}}",
+    "kindMarble": "Marbre",
+    "kindGranite": "Granit",
+    "introEgyptian": "Le {{heading}} est une pierre naturelle extraite en Égypte ({{type}}), fournie par Wadi Degla en tranches, carreaux et blocs. Finitions disponibles : {{finishes}}. Il est utilisé pour les sols, les revêtements muraux et de façade, les escaliers, les appuis de fenêtre et l'aménagement paysager.",
+    "introImported": "Le {{heading}} est une pierre naturelle importée ({{type}}), fournie depuis l'Égypte par Wadi Degla en tranches et carreaux. Finitions disponibles : {{finishes}}. Il est utilisé pour les sols, les revêtements muraux, les escaliers, les appuis de fenêtre et la décoration intérieure.",
+    "introCta": "Demandez un échantillon ou un devis pour {{name}} à Wadi Degla, entreprise de marbre depuis 1980.",
+    "related": "Plus de {{type}}",
+    "usedInProjects": "Projets réalisés avec le {{heading}}"
   },
   "sampleRequestForm": {
     "successMessage": "Message envoyé avec succès !",

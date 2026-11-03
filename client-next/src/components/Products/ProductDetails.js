@@ -1,6 +1,6 @@
 'use client';
-import React, { useState, useEffect } from "react";
-import "./Products.css";
+import React, { useState, useEffect } from 'react';
+import './Products.css';
 import LangLink from '../LangLink';
 const block = '/Assets/Icons/product-icons/block.svg';
 const exterior_cladding = '/Assets/Icons/product-icons/exterior-cladding.svg';
@@ -9,25 +9,28 @@ const slabs = '/Assets/Icons/product-icons/slabs.svg';
 const staircase = '/Assets/Icons/product-icons/staircase.svg';
 const wall_cladding = '/Assets/Icons/product-icons/wall-cladding.svg';
 const windowsills = '/Assets/Icons/product-icons/windowsills.svg';
-import apiClient from "../../util/client.js";
-import ContactBubble from "../Contact/ContactBubble.js";
+import apiClient from '../../util/client.js';
+import ContactBubble from '../Contact/ContactBubble.js';
 import SampleRequestForm from './SampleRequestForm';
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 import { useParams } from 'next/navigation';
-import { PRODUCT_TYPE_KEYS } from "../../util/product-types";
-import { finishLabel } from "../../util/finishes";
+import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
+import { finishLabel } from '../../util/finishes';
+import Product from './Product';
 
 // Default finish: "Polished" if available, else the first one.
 const defaultFinish = (product) =>
-  product?.finishes?.find((f) => f.finish === "Polished") || product?.finishes?.[0] || null;
-
+  product?.finishes?.find((f) => f.finish === 'Polished') || product?.finishes?.[0] || null;
 
 // initialProduct comes from the server at build time (so the page HTML has the product for
 // Google); it is refreshed from the API below so admin-panel changes still show up.
-export default function ProductDetails({ initialProduct = null }) {
+// seo (built at build time by the page, see src/util/product-seo.js): the search-friendly
+// heading ("Galala Marble"), a short description from the product's data, related stones
+// and the projects that used this stone. Shown under the product, as plain text and links.
+export default function ProductDetails({ initialProduct = null, seo = null }) {
   const { t } = useTranslation();
   const { productName } = useParams();
   const router = useRouter();
@@ -46,37 +49,40 @@ export default function ProductDetails({ initialProduct = null }) {
         if (data.data) {
           // Find the specific product by name
           const foundProduct = data.data.find((p) => {
-            const urlName = p.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            const urlName = p.name
+              .toLowerCase()
+              .replace(/\s+/g, '-')
+              .replace(/[^a-z0-9-]/g, '');
             return urlName === productName;
           });
           if (foundProduct) {
             setProduct(foundProduct);
             if (initialProduct) {
               // Keep the finish already shown, if it still exists in the fresh data.
-              setSelectedFinish((current) =>
-                foundProduct.finishes.find((f) => f.finish === current?.finish) || defaultFinish(foundProduct)
+              setSelectedFinish(
+                (current) =>
+                  foundProduct.finishes.find((f) => f.finish === current?.finish) ||
+                  defaultFinish(foundProduct),
               );
               return;
             }
             // Set default finish to "Polished" or the first finish if "Polished" doesn't exist
-            const polishedFinish = foundProduct.finishes.find(
-              (f) => f.finish === "Polished"
-            );
+            const polishedFinish = foundProduct.finishes.find((f) => f.finish === 'Polished');
             if (polishedFinish) {
               setSelectedFinish(polishedFinish);
             } else if (foundProduct.finishes.length > 0) {
               setSelectedFinish(foundProduct.finishes[0]);
             } else {
-              throw new Error("No finishes available for this product");
+              throw new Error('No finishes available for this product');
             }
           } else {
-            throw new Error("Product not found");
+            throw new Error('Product not found');
           }
         }
       } catch (error) {
-        console.error("Error:", error);
+        console.error('Error:', error);
         // If the API is unreachable but we already have the product from the build, keep showing it.
-        if (initialProduct && error.message !== "Product not found") return;
+        if (initialProduct && error.message !== 'Product not found') return;
         router.push(`/${lang}/products`);
       } finally {
         setLoading(false);
@@ -91,13 +97,13 @@ export default function ProductDetails({ initialProduct = null }) {
   }, [productName, router, lang, initialProduct]);
 
   const applicationIcons = [
-    { src: block, name: "Block" },
-    { src: exterior_cladding, name: "Exterior Cladding" },
-    { src: landscaping, name: "Landscaping" },
-    { src: slabs, name: "Slabs" },
-    { src: staircase, name: "Staircase" },
-    { src: wall_cladding, name: "Wall Cladding" },
-    { src: windowsills, name: "Window Sills" },
+    { src: block, name: 'Block' },
+    { src: exterior_cladding, name: 'Exterior Cladding' },
+    { src: landscaping, name: 'Landscaping' },
+    { src: slabs, name: 'Slabs' },
+    { src: staircase, name: 'Staircase' },
+    { src: wall_cladding, name: 'Wall Cladding' },
+    { src: windowsills, name: 'Window Sills' },
   ];
 
   if (loading) {
@@ -110,105 +116,151 @@ export default function ProductDetails({ initialProduct = null }) {
 
   return (
     <>
-    {/* */}
+      {/* */}
 
-
-    <div className="product-details-page">
-      <div className="breadcrumb">
-        <LangLink href="/">{t('productDetails.breadcrumbHome')}</LangLink>
-        <p>{">"} {t('productDetails.breadcrumbExplore')}</p>
-        <LangLink href="/products">{">"}  {t('productDetails.breadcrumbProducts')}</LangLink>
-        <p>
-          {">"} {product.name}
-        </p>
-      </div>
-
-      <div className="product-details-container">
-        <div className="details-left">
-          <img loading="lazy"
-            src={selectedFinish?.link}
-            alt={product.name}
-            className="product-image"
-          />
+      <div className="product-details-page">
+        <div className="breadcrumb">
+          <LangLink href="/">{t('productDetails.breadcrumbHome')}</LangLink>
+          <p>
+            {'>'} {t('productDetails.breadcrumbExplore')}
+          </p>
+          <LangLink href="/products">
+            {'>'} {t('productDetails.breadcrumbProducts')}
+          </LangLink>
+          <p>
+            {'>'} {product.name}
+          </p>
         </div>
 
-        <div className="details-right">
-          <h1 className="details-title">{product.name}</h1>
-
-          <div className="info-grid">
-            <div className="info-label">{t('productDetails.category')}</div>
-            <div className="info-value" style={{ color: "var(--blueColor)" }}>
-              {PRODUCT_TYPE_KEYS[product.type] ? t(PRODUCT_TYPE_KEYS[product.type]) : product.type}
-            </div>
-
-            <div className="info-label">{t('productDetails.finish')}</div>
-            <div className="info-value">
-              <select
-                className="modal-select"
-                value={selectedFinish?.finish || ""}
-                onChange={(e) => {
-                  const newFinish = product.finishes.find(
-                    (f) => f.finish === e.target.value
-                  );
-                  setSelectedFinish(newFinish);
-                }}
-              >
-                {product.finishes
-                  .filter(
-                    (finish) =>
-                      ![
-                        "indoorMockup",
-                        "mockup",
-                        "outdoorMockup",
-                        "mockupOutdoor",
-                      ].includes(finish.finish)
-                  )
-                  .map((finish) => (
-                    <option key={finish.finish} value={finish.finish}>
-                      {finishLabel(t, finish.finish)}
-                    </option>
-                  ))}
-              </select>
-            </div>
+        <div className="product-details-container">
+          <div className="details-left">
+            <img
+              loading="lazy"
+              src={selectedFinish?.link}
+              alt={product.name}
+              className="product-image"
+            />
           </div>
 
-          <div className="applications-section">
-            <h3>{t('productDetails.applications')}</h3>
-            <div className="applications-grid">
-              {applicationIcons.map((app, index) => (
-                <div key={index} className="application-icon-wrapper">
-                  <img loading="lazy"
-                    src={app.src}
-                    alt={app.name}
-                    className="application-icon"
-                  />
-                  <div className="hover-name">{app.name}</div>
-                  <div className="hover-name">{t(`productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`)}</div>
-                </div>
+          <div className="details-right">
+            <h1 className="details-title">{seo?.heading || product.name}</h1>
+
+            <div className="info-grid">
+              <div className="info-label">{t('productDetails.category')}</div>
+              <div className="info-value" style={{ color: 'var(--blueColor)' }}>
+                {PRODUCT_TYPE_KEYS[product.type]
+                  ? t(PRODUCT_TYPE_KEYS[product.type])
+                  : product.type}
+              </div>
+
+              <div className="info-label">{t('productDetails.finish')}</div>
+              <div className="info-value">
+                <select
+                  className="modal-select"
+                  value={selectedFinish?.finish || ''}
+                  onChange={(e) => {
+                    const newFinish = product.finishes.find((f) => f.finish === e.target.value);
+                    setSelectedFinish(newFinish);
+                  }}
+                >
+                  {product.finishes
+                    .filter(
+                      (finish) =>
+                        !['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'].includes(
+                          finish.finish,
+                        ),
+                    )
+                    .map((finish) => (
+                      <option key={finish.finish} value={finish.finish}>
+                        {finishLabel(t, finish.finish)}
+                      </option>
+                    ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="applications-section">
+              <h3>{t('productDetails.applications')}</h3>
+              <div className="applications-grid">
+                {applicationIcons.map((app, index) => (
+                  <div key={index} className="application-icon-wrapper">
+                    {/* one translated name (the English one used to be shown on top of it) */}
+                    <img
+                      loading="lazy"
+                      src={app.src}
+                      alt={t(
+                        `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
+                      )}
+                      className="application-icon"
+                    />
+                    <div className="hover-name">
+                      {t(
+                        `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button
+              className="btn1"
+              onClick={() => setIsFormOpen(true)}
+              style={{ width: '100%', marginTop: '2rem' }}
+            >
+              {t('productDetails.requestSample')}
+            </button>
+            <SampleRequestForm
+              isOpen={isFormOpen}
+              onClose={() => setIsFormOpen(false)}
+              productName={product.name}
+              productFinish={selectedFinish?.finish}
+              productFinishLabel={finishLabel(t, selectedFinish?.finish)}
+            />
+          </div>
+        </div>
+
+        {seo && (
+          <div className="product-seo">
+            <div className="product-seo-intro">
+              {seo.intro.map((text, i) => (
+                <p key={i}>{text}</p>
               ))}
             </div>
+
+            {seo.projects.length > 0 && (
+              <div className="product-seo-block">
+                <h2>{t('productDetails.usedInProjects').replace('{{heading}}', seo.heading)}</h2>
+                <ul className="product-seo-projects">
+                  {seo.projects.map((p) => (
+                    <li key={p.id}>
+                      <LangLink href={`/projects/${p.id}/`}>
+                        <img loading="lazy" src={p.thumbnail} alt={p.name} />
+                        <span>
+                          <strong>{p.name}</strong>
+                          {[p.city, p.country].filter(Boolean).join(' - ')}
+                        </span>
+                      </LangLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {seo.related.length > 0 && (
+              <div className="product-seo-block">
+                <h2>{t('productDetails.related').replace('{{type}}', seo.typeLabel)}</h2>
+                <div className="product-cards-2 product-seo-related">
+                  {seo.related.map((item) => (
+                    <Product key={item.id} item={item} />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-
-          <button
-            className="btn1"
-            onClick={() => setIsFormOpen(true)}
-            style={{ width: "100%", marginTop: "2rem" }}
-          >
-            {t('productDetails.requestSample')}
-          </button>
-          <SampleRequestForm
-        isOpen={isFormOpen}
-        onClose={() => setIsFormOpen(false)}
-        productName={product.name}
-        productFinish={selectedFinish?.finish}
-        productFinishLabel={finishLabel(t, selectedFinish?.finish)}
-      />
-
-        </div>
+        )}
+        <ContactBubble />
       </div>
-      <ContactBubble />
-
-    </div>
     </>
   );
 }
