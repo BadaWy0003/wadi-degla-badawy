@@ -168,8 +168,18 @@
     text-align: center;
 }
 
-.overlay button {
+.overlay button,
+.overlay a.btn2 {
     width: 90%;
+}
+
+/* "View" is a link (so Google can follow it), styled like the old button */
+.overlay a.btn2 {
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13.33px;
 }
 
 
