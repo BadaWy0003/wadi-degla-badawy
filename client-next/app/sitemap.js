@@ -2,7 +2,7 @@
 // Every public page in all 12 languages, each with hreflang alternates.
 import { SUPPORTED_LANGS } from '../src/util/supported-langs';
 import { getProductSlugs } from '../src/util/product-slugs';
-import projects from '../src/components/Projects/projectList';
+import { getProjectIds } from '../src/util/projects-data';
 import { getNewsSlugs } from '../src/util/news-data';
 
 export const dynamic = 'force-static';
@@ -41,6 +41,7 @@ export default async function sitemap() {
   const lastModified = new Date();
   const productSlugs = [...new Set(await getProductSlugs())];
   const newsSlugs = await getNewsSlugs(); // from the admin panel
+  const projectIds = await getProjectIds(); // from the admin panel
 
   const pages = [
     ...STATIC_PAGES,
@@ -49,8 +50,8 @@ export default async function sitemap() {
       priority: 0.8,
       changeFrequency: 'monthly',
     })),
-    ...projects.map((p) => ({
-      path: `/projects/${p.id}`,
+    ...projectIds.map((id) => ({
+      path: `/projects/${id}`,
       priority: 0.6,
       changeFrequency: 'yearly',
     })),

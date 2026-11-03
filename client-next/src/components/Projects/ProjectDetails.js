@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './ProjectDetails.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,8 +7,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination, Navigation } from 'swiper/modules';
-import apiClient from '../../util/client.js';
-import projects from './projectList';
 import Product from '../Products/Product';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'; // Import Zoom plugin
@@ -17,53 +15,32 @@ import ContactBubble from '../Contact/ContactBubble.js';
 import '../Products/Products.css';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
-import { useParams } from 'next/navigation';
 import LangLink from '../LangLink';
 
-export default function ProjectDetails() {
-  const { projectId } = useParams();
+// Paragraphs are separated by an empty line (same rule as the news articles).
+const toParagraphs = (text) =>
+  String(text || '')
+    .split(/\n\s*\n+/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+// project: from the admin panel, read at build time (src/util/projects-data.js), already in
+// the page's language, with its materials as product cards.
+export default function ProjectDetails({ project }) {
   const router = useRouter();
   const lang = useLang();
   const { t } = useTranslation();
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const { data } = await apiClient.get('/api/storage/all');
-        if (data?.data) {
-          setProducts(data.data);
-        }
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  const project = projects?.find((p) => p.id.toString() === projectId);
-
-  if (!projects || !project) {
+  if (!project) {
     return <div className="error-message">{t('projects.projectNotFound')}</div>;
   }
 
-  const materialProducts =
-    project?.materialsSupplied
-      ?.map((material) => {
-        return products.find((p) => p.name.toLowerCase() === material.toLowerCase());
-      })
-      .filter(Boolean) ?? []; // Prevents undefined errors
-
-  const slides = project?.gallery
-    ? Object.values(project?.gallery).map((img) => ({ src: img }))
-    : [];
+  const images = project.images || [];
+  const slides = images.map((img) => ({ src: img.src, alt: img.alt }));
+  const paragraphs = toParagraphs(project.description);
 
   return (
     <div className="project-details-page">
@@ -82,9 +59,9 @@ export default function ProjectDetails() {
       <p className="project-hint">{t('projects.tapToView')}</p>
       <div className="project-details-container">
         <div className="project-details-left">
-          {project?.gallery && Object.keys(project?.gallery)?.length > 0 ? (
+          {images.length > 0 ? (
             <Swiper
-              key={Object.keys(project?.gallery)?.length}
+              key={images.length}
               pagination={{ clickable: true }}
               navigation
               modules={[Pagination, Navigation]}
@@ -96,7 +73,7 @@ export default function ProjectDetails() {
               }}
               className="project-gallery-swiper"
             >
-              {Object.values(project?.gallery).map((image, index) => (
+              {images.map((image, index) => (
                 <SwiperSlide
                   key={index}
                   onClick={() => {
@@ -108,8 +85,8 @@ export default function ProjectDetails() {
                 >
                   <img
                     loading="lazy"
-                    src={image}
-                    alt={`Slide ${index}`}
+                    src={image.src}
+                    alt={image.alt || `${project.name} ${index + 1}`}
                     className="project-image"
                   />
                   {hovered && (
@@ -141,12 +118,18 @@ export default function ProjectDetails() {
             </strong>
           </p>
 
+          {paragraphs.length > 0 && (
+            <div className="project-details-text">
+              {paragraphs.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+            </div>
+          )}
+
           <p>{t('projects.materialSupplied')}</p>
-          {loading ? (
-            <p>{t('projects.loadingMaterials')}</p>
-          ) : materialProducts.length > 0 ? (
+          {project.materials.length > 0 ? (
             <div className="materials-supplied-container">
-              {materialProducts.map((product) => (
+              {project.materials.map((product) => (
                 <Product key={product.id} item={product} />
               ))}
             </div>

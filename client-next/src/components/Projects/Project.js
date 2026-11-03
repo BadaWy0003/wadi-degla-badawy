@@ -1,12 +1,9 @@
 'use client';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
-import { useLang } from '../../context/LangContext';
+import LangLink from '../LangLink';
 
 export default function Project({ project }) {
-  const router = useRouter();
-  const lang = useLang();
   const { t } = useTranslation();
 
   return (
@@ -23,15 +20,10 @@ export default function Project({ project }) {
           {project.city ? ' - ' : ''}
           {project.country}
         </p>
-        <button
-          className="btn2"
-          onClick={() => {
-            router.push(`/${lang}/projects/${project.id}`);
-            window.scrollTo({ top: 0 });
-          }}
-        >
+        {/* A real link (not a click handler), so Google can follow it to the project page. */}
+        <LangLink className="btn2" href={`/projects/${project.id}/`}>
           {t('projects.viewButton')}
-        </button>
+        </LangLink>
       </div>
     </div>
   );

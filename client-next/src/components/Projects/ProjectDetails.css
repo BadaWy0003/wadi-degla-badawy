@@ -76,8 +76,22 @@
     border-radius: 1rem;
     padding: 2rem;
     background-color: var(--whiteColor);
-    height: 70vh;
+    /* min-height (not height) so a long description grows the card instead of overflowing */
+    min-height: 70vh;
     min-width: 20vw;
+}
+
+/* Project description (from the admin panel), between the location and the materials */
+.project-details-text {
+    max-width: 30vw;
+    margin: 0.5rem 0 1rem;
+}
+
+.project-details-right .project-details-text p {
+    color: var(--blackColor);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 0.75rem;
 }
 
 .project-details-right h1 {
@@ -200,6 +214,7 @@
         padding: 0;
         background-color: unset;
         height: unset;
+        min-height: unset;
         min-width: unset;
         text-align: left !important;
     }
@@ -218,6 +233,15 @@
 
     #no-materials {
         color: var(--whiteColor);
+    }
+
+    .project-details-text {
+        max-width: unset;
+        margin: 0;
+    }
+
+    .project-details-right .project-details-text p {
+        color: var(--lightGrayColor);
     }
 
     .materials-supplied-container {
@@ -267,5 +291,6 @@
 
     .project-details-right {
         height: fit-content;
+        min-height: unset;
     }
 }
