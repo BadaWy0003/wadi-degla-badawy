@@ -1,1 +1,264 @@
-{}
+{
+  "common": {
+    "breadcrumbHome": "Home",
+    "breadcrumbProducts": "Prodotti",
+    "productsTitle": "{{topic}}: le {{count}} pietre che forniamo",
+    "projectsTitle": "Progetti con {{topic}}",
+    "faqTitle": "Domande frequenti",
+    "ctaTitle": "Richiedi un preventivo o un campione",
+    "ctaText": "Indicaci pietra, finitura, spessore, misure, quantità e destinazione: il nostro team commerciale ti risponderà con un preventivo.",
+    "ctaButton": "Contatta il team commerciale",
+    "relatedTitle": "Pagine correlate"
+  },
+  "egyptianMarble": {
+    "pageTitle": "Marmo egiziano – Lastre, piastrelle e blocchi dall'Egitto | Wadi Degla",
+    "metaDescription": "Marmo egiziano di Wadi Degla: Galala, Sunny, Triesta, Fantazia, Emperador, Cleopatra e altri. Lastre, piastrelle e blocchi dalle nostre cave e stabilimenti in Egitto, esportati in tutto il mondo dal 1980.",
+    "heading": "Marmo egiziano",
+    "intro": "Il marmo egiziano è una pietra naturale estratta in Egitto, nota per i suoi caldi toni beige, crema, grigi e marroni e per la sua qualità costante. Si trova in case, hotel, resort ed edifici commerciali di tutto il mondo.\n\nWadi Degla lavora nelle cave egiziane dal 1980, quando il nostro fondatore aprì la prima cava sul monte Galala. Oggi tagliamo e rifiniamo il marmo egiziano nei nostri stabilimenti in Egitto, su oltre 27.000 metri quadrati, e lo spediamo in lastre, piastrelle e blocchi a progetti in tutto il mondo. Qui sotto trovi tutti i marmi egiziani che forniamo e le risposte alle domande più frequenti.",
+    "sections": [
+      {
+        "title": "I tipi più diffusi di marmo egiziano",
+        "text": "La nostra gamma egiziana comprende Galala e Galala Extra, Sunny Light e Sunny Dark, Triesta Beige e Triesta Grey, Fantazia Sylvia e Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl e alabastro egiziano.\n\nOgni pietra ha la sua pagina con foto, finiture disponibili e i progetti in cui è stata usata."
+      },
+      {
+        "title": "Dove si usa il marmo egiziano",
+        "text": "Pavimenti, rivestimenti di pareti, facciate, scale, davanzali, piani di lavoro e paesaggistica, in ville, hotel, resort, complessi residenziali ed edifici commerciali. Tra i nostri progetti in marmo egiziano ci sono resort ai Caraibi, edifici residenziali in Kenya, ville e palazzi per uffici in Egitto e un'ambasciata in Kuwait."
+      },
+      {
+        "title": "Finiture e formati",
+        "text": "A seconda della pietra, il marmo egiziano è disponibile lucidato, levigato, spazzolato, anticato, sabbiato, bocciardato, fiammato, effetto pelle e spaccato. Forniamo blocchi, lastre e piastrelle su misura, e i nostri stabilimenti possono produrre dimensioni speciali per il tuo progetto."
+      },
+      {
+        "title": "Perché acquistare marmo egiziano da Wadi Degla",
+        "text": "Tre generazioni nell'industria estrattiva egiziana, cave sul monte Galala e tre stabilimenti (aperti nel 2000, 2011 e 2015) con moderne linee di taglio, lucidatura, resinatura, CNC e waterjet. La nostra produzione è certificata ISO, ogni ordine è imballato in fasci, casse o pallet di legno adatti all'esportazione, e spediamo nei paesi del Golfo, in Europa, Africa, Asia e nelle Americhe."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Il marmo egiziano è adatto ai pavimenti?",
+        "a": "Sì. Marmi egiziani come Galala, Sunny e Triesta sono molto usati per pavimenti interni di case, hotel ed edifici commerciali. Per esterni o zone umide, una finitura levigata, spazzolata o sabbiata offre più aderenza di quella lucidata."
+      },
+      {
+        "q": "Che differenza c'è tra marmo egiziano e marmo importato?",
+        "a": "Il marmo egiziano è estratto e lavorato in Egitto. I marmi importati, da cave partner in Italia, Turchia e altri paesi, aggiungono colori e venature che le cave egiziane non producono, come bianchi puri con venature decise. Wadi Degla fornisce entrambi, così puoi rifornire un intero progetto da un unico fornitore."
+      },
+      {
+        "q": "Posso avere un campione?",
+        "a": "Sì. Apri la pagina di qualsiasi pietra e premi «Richiedi un campione», oppure contatta il nostro team commerciale."
+      },
+      {
+        "q": "Esportate marmo egiziano?",
+        "a": "Sì. Esportiamo lastre, piastrelle e blocchi con imballaggio protettivo e documentazione completa nei paesi del Golfo, in Europa, Africa, Asia e nelle Americhe."
+      },
+      {
+        "q": "Come ottengo un prezzo?",
+        "a": "Il prezzo dipende da pietra, finitura, spessore, misure, quantità e destinazione. Inviaci le tue esigenze e il nostro team commerciale ti risponderà con un preventivo."
+      }
+    ]
+  },
+  "egyptianGranite": {
+    "pageTitle": "Granito egiziano – Lastre, piastrelle, cordoli e cubetti | Wadi Degla",
+    "metaDescription": "Granito egiziano di Wadi Degla: Black Aswan, Red Aswan, New Halayeb, Gandolla, Royal Red, Rosa El Nasr e altri. Lastre, piastrelle, blocchi, cordoli e cubetti, esportati in tutto il mondo.",
+    "heading": "Granito egiziano",
+    "intro": "Il granito egiziano è una pietra naturale dura e compatta estratta in Egitto, nei toni del nero, rosso, rosa, grigio, bianco e verde. Poiché resiste all'usura e alle intemperie, è scelto per pavimenti molto trafficati, scale, facciate, piani di cucina, cordoli e pavimentazioni esterne.\n\nWadi Degla fornisce granito egiziano in lastre, piastrelle e blocchi e produce cordoli e cubetti in granito, tutto tagliato e rifinito nei nostri stabilimenti in Egitto.",
+    "sections": [
+      {
+        "title": "I tipi più diffusi di granito egiziano",
+        "text": "I nostri graniti egiziani comprendono Black Aswan, Red Aswan, New Halayeb e Halayeb, Gandolla, Royal Red, Rosa El Nasr, Rosa Hoody, Red Fersan, Karnak Grey, Fantastic White, Verdi Green, Brown Qusair, Hoody Dark e Magic Noir."
+      },
+      {
+        "title": "Dove si usa il granito egiziano",
+        "text": "Pavimenti di aeroporti, centri commerciali, uffici e hotel; scale e gradini; rivestimenti esterni e facciate; piani di cucina; cordoli, cubetti e pavimentazioni per strade, vialetti e giardini."
+      },
+      {
+        "title": "Finiture",
+        "text": "Lucidato per una brillantezza profonda negli interni; fiammato, bocciardato e sabbiato per superfici esterne antiscivolo; levigato ed effetto pelle per un aspetto opaco e morbido. Le finiture disponibili per ogni granito sono indicate nella sua pagina."
+      },
+      {
+        "title": "Cordoli e cubetti in granito",
+        "text": "Oltre a lastre e piastrelle, i nostri stabilimenti producono cordoli in granito in diversi profili e cubetti in granito per vialetti, percorsi e piazze, in misure standard e su misura."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Il granito è più duro del marmo?",
+        "a": "Sì. Il granito è più duro e meno poroso del marmo, per questo è preferito per zone molto trafficate, esterni e piani di cucina."
+      },
+      {
+        "q": "Quale finitura è migliore per il granito in esterni?",
+        "a": "Una finitura fiammata, bocciardata o sabbiata. La superficie ruvida è antiscivolo, importante per pavimentazioni, gradini e bordi piscina. Il nostro team può consigliarti pietra e finitura adatte al tuo clima e uso."
+      },
+      {
+        "q": "Posso avere un campione?",
+        "a": "Sì. Apri la pagina di qualsiasi pietra e premi «Richiedi un campione», oppure contatta il nostro team commerciale."
+      },
+      {
+        "q": "Come ottengo un prezzo?",
+        "a": "Il prezzo dipende da pietra, finitura, spessore, misure, quantità e destinazione. Inviaci le tue esigenze e il nostro team commerciale ti risponderà con un preventivo."
+      }
+    ]
+  },
+  "importedMarble": {
+    "pageTitle": "Marmo importato – Marmo italiano, turco ed esotico | Wadi Degla",
+    "metaDescription": "Marmo importato di Wadi Degla: Calacatta, Arabescato, Botticino, Volakas, Nero Marquina, onice e altri, insieme alla nostra pietra egiziana. Lastre e piastrelle per progetti di lusso in tutto il mondo.",
+    "heading": "Marmo importato",
+    "intro": "Oltre alla pietra egiziana, Wadi Degla fornisce marmo importato grazie alle collaborazioni con cave in Italia, Turchia e altri paesi: bianchi classici come Calacatta e Arabescato, grigi eleganti, marmi scuri come il Nero Marquina, e onici e pietre esotiche decorative.\n\nCosì puoi rifornire le pietre egiziane e importate di un progetto da un unico fornitore.",
+    "sections": [
+      {
+        "title": "I marmi importati che forniamo",
+        "text": "Bianchi e grigi: Calacatta Italy, Calacatta Grey, Calacatta Viola, Arabescato, Volakas, Majestic White, Oriental White, Panda White, Sunny White, Pietra Grey, Tundra Grey, Silver Grey, Lady Grey, Persian Grey e Universal Grey.\n\nBeige e marroni: Botticino Classico, Breccia Daino, Travertino Beige, Diana Royal, Coffee Wood, Forest Brown e White Wood.\n\nScuri e colorati: Nero Marquina, Azul Macauba, Iron Red, Forest Green e Silver Wave.\n\nOnici e pietre esotiche: onice beige, onice verde, onice indiano, ametista, agate blu, marrone e grigia, diaspro, diaspro oceanico, occhio di tigre, quarzo giallo e legno pietrificato."
+      },
+      {
+        "title": "Dove si usa il marmo importato",
+        "text": "Pareti d'accento, bagni di lusso, hall di hotel, banconi reception, isole cucina, scale e arredi. L'onice retroilluminato e le pietre esotiche creano pareti, bar e banconi di grande effetto."
+      },
+      {
+        "title": "Finiture e formati",
+        "text": "Il marmo importato è fornito soprattutto in lastre e piastrelle lucidate o levigate. Le finiture disponibili per ogni pietra sono indicate nella sua pagina."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Che differenza c'è tra marmo Calacatta e marmo di Carrara?",
+        "a": "Sono entrambi marmi bianchi italiani. Il Calacatta ha di solito un fondo più bianco con venature più ampie e decise, mentre il Carrara è più grigio con venature più sottili e morbide."
+      },
+      {
+        "q": "Posso combinare marmo importato ed egiziano nello stesso progetto?",
+        "a": "Sì. Molti progetti usano un marmo importato per le zone d'accento e un marmo egiziano per le grandi superfici di pavimenti e pareti. Forniamo entrambi."
+      },
+      {
+        "q": "Posso avere un campione?",
+        "a": "Sì. Apri la pagina di qualsiasi pietra e premi «Richiedi un campione», oppure contatta il nostro team commerciale."
+      },
+      {
+        "q": "Come ottengo un prezzo?",
+        "a": "Il prezzo dipende da pietra, finitura, spessore, misure, quantità e destinazione. Inviaci le tue esigenze e il nostro team commerciale ti risponderà con un preventivo."
+      }
+    ]
+  },
+  "importedGranite": {
+    "pageTitle": "Granito importato – Kashmir, Star Galaxy, Labrador e altri | Wadi Degla",
+    "metaDescription": "Granito importato di Wadi Degla: Kashmir White, Kashmir Gold, Star Galaxy, Labrador Blue Pearl, Baltic Brown, Tiger Skin e altri. Lastre e piastrelle per piani di lavoro, pavimenti e facciate.",
+    "heading": "Granito importato",
+    "intro": "Wadi Degla fornisce anche graniti importati con colori e disegni che completano la nostra gamma egiziana, dai neri e blu scintillanti agli ori e marroni caldi.\n\nIl granito importato è duro e resistente, ed è quindi uno dei preferiti per piani di cucina, pavimenti molto trafficati, scale e facciate.",
+    "sections": [
+      {
+        "title": "I graniti importati che forniamo",
+        "text": "Kashmir White, Kashmir Gold, Star Galaxy, Black Platinum Gold, Black River, Double Black, Labrador Blue Pearl, Labrador Emerald Pearl, Baltic Brown, Paradiso, Shiva Gold e Tiger Skin."
+      },
+      {
+        "title": "Dove si usa il granito importato",
+        "text": "Piani e isole cucina, mobili bagno, pavimenti di zone molto trafficate, scale, rivestimenti esterni e facciate."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Il granito importato è adatto ai piani di cucina?",
+        "a": "Sì. Il granito è duro, resiste al calore ed è meno poroso del marmo, per questo è uno dei materiali più usati per i piani di lavoro."
+      },
+      {
+        "q": "Posso avere un campione?",
+        "a": "Sì. Apri la pagina di qualsiasi pietra e premi «Richiedi un campione», oppure contatta il nostro team commerciale."
+      },
+      {
+        "q": "Come ottengo un prezzo?",
+        "a": "Il prezzo dipende da pietra, finitura, spessore, misure, quantità e destinazione. Inviaci le tue esigenze e il nostro team commerciale ti risponderà con un preventivo."
+      }
+    ]
+  },
+  "galalaMarble": {
+    "pageTitle": "Marmo Galala – Marmo beige egiziano dalle cave di Galala | Wadi Degla",
+    "metaDescription": "Marmo Galala: il marmo beige egiziano più conosciuto, dalle cave del monte Galala aperte dal fondatore di Wadi Degla nel 1980. Lastre, piastrelle e blocchi in molte finiture, esportati in tutto il mondo.",
+    "heading": "Marmo Galala",
+    "intro": "Il marmo Galala è il marmo beige egiziano più conosciuto, estratto sul monte Galala. È apprezzato per la resistenza, la texture raffinata, il colore uniforme e il beige senza tempo, ed è usato in progetti residenziali, commerciali e architettonici di grande scala in tutto il mondo.\n\nLa storia di Wadi Degla è legata a Galala: il nostro fondatore aprì la prima cava di Galala nel 1980, quando il marmo della montagna era sconosciuto.",
+    "sections": [
+      {
+        "title": "La storia del Galala",
+        "text": "Nel 1980 il fondatore di Wadi Degla, Alhag Saed Alghanam, esplorò il potenziale allora sconosciuto del monte Galala e vi aprì la prima cava. Il Galala divenne presto una delle pietre egiziane più ricercate, attirando importatori da tutto il mondo. Sotto la sua guida Wadi Degla arrivò a possedere sette grandi cave a Galala, e la seconda generazione ne sviluppò altre sette."
+      },
+      {
+        "title": "Perché gli architetti scelgono il Galala",
+        "text": "Elevata resistenza strutturale e durata, colore e qualità della pietra uniformi, e un beige caldo adatto sia a progetti classici sia moderni. È usato per pavimenti, pareti, facciate, scale e davanzali in ville, hotel, complessi residenziali ed edifici commerciali."
+      },
+      {
+        "title": "Finiture e formati",
+        "text": "Il Galala è disponibile in molte finiture, tra cui lucidato, levigato, spazzolato, anticato, sabbiato, bocciardato, fiammato, effetto pelle, grezzo e spaccato. Lo forniamo in blocchi, lastre e piastrelle su misura, imballati per l'esportazione."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Il Galala è un marmo o un calcare?",
+        "a": "Dal punto di vista geologico, il Galala è un calcare compatto. Nel commercio della pietra è venduto come marmo perché si lucida e si usa allo stesso modo del marmo."
+      },
+      {
+        "q": "Che differenza c'è tra Galala e Galala Extra?",
+        "a": "Entrambi provengono dalle cave di Galala. Ognuno ha la sua pagina con foto, così puoi confrontare colore e texture."
+      },
+      {
+        "q": "Posso avere un campione di Galala?",
+        "a": "Sì. Apri la pagina della pietra e premi «Richiedi un campione», oppure contatta il nostro team commerciale."
+      },
+      {
+        "q": "Come ottengo un prezzo per il marmo Galala?",
+        "a": "Il prezzo dipende da finitura, spessore, misure, quantità e destinazione. Inviaci le tue esigenze e il nostro team commerciale ti risponderà con un preventivo."
+      }
+    ]
+  },
+  "buyGuide": {
+    "pageTitle": "Come acquistare marmo e granito dall'Egitto – Guida all'importazione | Wadi Degla",
+    "metaDescription": "Come importare marmo e granito dall'Egitto con Wadi Degla: scelta delle pietre e campioni, preventivo, produzione, imballaggio per l'export, spedizione e documenti. Esportiamo dal 1980.",
+    "heading": "Come acquistare marmo dall'Egitto",
+    "intro": "L'Egitto è una delle grandi fonti mondiali di pietra naturale, e Wadi Degla esporta marmo e granito egiziani dal 1980. Questa guida spiega come funziona un ordine con noi, dalla scelta della pietra all'arrivo del tuo container.",
+    "stepsTitle": "Come funziona un ordine",
+    "steps": [
+      {
+        "title": "Scegli le pietre",
+        "text": "Sfoglia il nostro marmo egiziano, il granito egiziano e le pietre importate, provali in ambienti reali con il visualizzatore di materiali e richiedi i campioni di quelli che ti piacciono."
+      },
+      {
+        "title": "Inviaci le tue esigenze",
+        "text": "Indicaci pietra, finitura, spessore, misure (lastre, piastrelle su misura o blocchi), quantità e porto di destinazione. Se hai disegni o un cronoprogramma del progetto, inviali pure."
+      },
+      {
+        "title": "Ricevi un preventivo",
+        "text": "Il nostro team commerciale prepara un preventivo per il tuo ordine e risponde alle domande tecniche."
+      },
+      {
+        "title": "Produzione e controllo qualità",
+        "text": "Il tuo ordine viene tagliato e rifinito nei nostri stabilimenti in Egitto, con controlli di qualità sulla pietra e sui pezzi finiti."
+      },
+      {
+        "title": "Imballaggio per l'export",
+        "text": "Le lastre sono raggruppate in fasci da 8 a 15 pezzi con telai in legno rinforzati, oppure appoggiate su listelli di legno per il carico manuale. Le piastrelle vanno in casse di legno rivestite di schiuma o su pallet reggiati. Le superfici lucidate sono protette con fogli di plastica, e ogni cassa e pallet ha un'etichetta con misure, spessore e dati dell'ordine."
+      },
+      {
+        "title": "Spedizione e documenti",
+        "text": "Il nostro ufficio export coordina il carico dei container, gli spedizionieri e la documentazione doganale, perché la tua spedizione sia sdoganata nel tuo paese senza ritardi."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Dove esportiamo",
+        "text": "Spediamo pietra naturale nei paesi del Golfo, in Europa, Africa, Asia e Nord e Sud America, con logistica professionale, imballaggio sicuro e documentazione completa per l'esportazione."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Fornite sia pietra egiziana sia importata?",
+        "a": "Sì. Oltre al nostro marmo e granito egiziani, forniamo marmo e granito importati da cave partner, così un intero progetto può essere rifornito da un unico fornitore."
+      },
+      {
+        "q": "Potete produrre misure speciali?",
+        "a": "Sì. Forniamo misure standard e i nostri stabilimenti possono tagliare misure speciali secondo i tuoi disegni."
+      },
+      {
+        "q": "Come sono protette le lastre durante il trasporto?",
+        "a": "Le lastre viaggiano in fasci di legno rinforzati o su listelli di legno, con fogli di plastica tra le facce lucidate, e sono reggiate per non spostarsi in mare."
+      },
+      {
+        "q": "Come inizio?",
+        "a": "Contatta il nostro team commerciale indicando pietra, quantità e destinazione, oppure richiedi un campione dalla pagina di qualsiasi pietra."
+      }
+    ]
+  }
+}
