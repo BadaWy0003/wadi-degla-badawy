@@ -113,6 +113,78 @@
   border-radius: 1rem;
 }
 
+/* Under the product: description, projects that used the stone, related stones
+   (built from the product's data at build time, see src/util/product-seo.js) */
+.product-seo {
+  width: 100%;
+  max-width: 1200px;
+  margin: 4rem auto 0;
+}
+
+.product-seo-intro p {
+  color: var(--lightGrayColor);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 820px;
+  margin: 0 0 1rem;
+}
+
+.product-seo-block {
+  margin-top: 3rem;
+}
+
+.product-seo-block h2 {
+  color: var(--goldColor);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem;
+}
+
+.product-seo-projects {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.product-seo-projects a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--lightGrayColor);
+  border: 1px solid rgba(173, 149, 113, 0.4);
+  border-radius: 10px;
+  padding: 0.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.product-seo-projects a:hover {
+  border-color: var(--goldColor);
+}
+
+.product-seo-projects img {
+  width: 96px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.product-seo-projects span {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.product-seo-projects strong {
+  color: var(--whiteColor);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 .details-title {
   font-size: 2.5rem;
   color: var(--goldColor);

@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "Imported Granite"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | Egyptian Marble & Granite | Wadi Degla",
+    "pageTitle": "{{heading}} – {{type}} Slabs & Tiles | Wadi Degla",
     "metaDescription": "Discover {{name}} — premium {{type}} available in slabs, tiles, and blocks. View specifications, finishes, and applications. Request a sample from Wadi Degla, Egypt's leading natural stone exporter.",
     "breadcrumbHome": "Home",
     "breadcrumbExplore": "Explore",
@@ -690,7 +690,15 @@
     "applications_staircase": "Staircase",
     "applications_wallcladding": "Wall Cladding",
     "applications_windowsills": "Window Sills",
-    "requestSample": "REQUEST A SAMPLE"
+    "requestSample": "REQUEST A SAMPLE",
+    "heading": "{{name}} {{kind}}",
+    "kindMarble": "Marble",
+    "kindGranite": "Granite",
+    "introEgyptian": "{{heading}} is a natural stone quarried in Egypt ({{type}}), supplied by Wadi Degla in slabs, tiles and blocks. Available finishes: {{finishes}}. It is used for flooring, wall and exterior cladding, staircases, window sills and landscaping.",
+    "introImported": "{{heading}} is an imported natural stone ({{type}}) supplied by Wadi Degla from Egypt in slabs and tiles. Available finishes: {{finishes}}. It is used for flooring, wall cladding, staircases, window sills and interior design.",
+    "introCta": "Request a sample or a price quote for {{name}} from Wadi Degla, a marble company since 1980.",
+    "related": "More {{type}}",
+    "usedInProjects": "Projects using {{heading}}"
   },
   "sampleRequestForm": {
     "successMessage": "Message sent successfully!",

@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "Graniti i Importuar"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | Mermer & Granit Egjiptian | Wadi Degla",
+    "pageTitle": "{{heading}} – Pllaka {{type}} | Wadi Degla",
     "metaDescription": "Zbuloni {{name}} në koleksionin tonë premium të {{type}}. Gur natyror me cilësi të lartë në dispozicion. Shikoni specifikimet dhe kërkoni mostra nga Wadi Degla, burimi juaj i besuar për materiale guri luksoze.",
     "breadcrumbHome": "Ballina",
     "breadcrumbExplore": "Eksploro",
@@ -690,7 +690,15 @@
     "applications_staircase": "Shkallë",
     "applications_wallcladding": "Veshje Muri",
     "applications_windowsills": "Dritare",
-    "requestSample": "KËRKONI NJË MOSTRË"
+    "requestSample": "KËRKONI NJË MOSTRË",
+    "heading": "{{kind}} {{name}}",
+    "kindMarble": "Mermer",
+    "kindGranite": "Granit",
+    "introEgyptian": "{{heading}} është një gur natyror i nxjerrë në Egjipt ({{type}}), i furnizuar nga Wadi Degla në pllaka, pllakëza dhe blloqe. Përfundimet e disponueshme: {{finishes}}. Përdoret për dysheme, veshje muresh dhe fasadash, shkallë, parvaze dritaresh dhe peizazh.",
+    "introImported": "{{heading}} është një gur natyror i importuar ({{type}}), i furnizuar nga Egjipti prej Wadi Degla në pllaka dhe pllakëza. Përfundimet e disponueshme: {{finishes}}. Përdoret për dysheme, veshje muresh, shkallë, parvaze dritaresh dhe dizajn të brendshëm.",
+    "introCta": "Kërkoni një mostër ose një ofertë çmimi për {{name}} nga Wadi Degla, kompani mermeri që nga viti 1980.",
+    "related": "Më shumë {{type}}",
+    "usedInProjects": "Projekte me {{heading}}"
   },
   "sampleRequestForm": {
     "successMessage": "Mesazh u dërgua me sukses!",

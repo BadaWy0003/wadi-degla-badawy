@@ -19,6 +19,7 @@ import { useLang } from '../../context/LangContext';
 import { useParams } from 'next/navigation';
 import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
 import { finishLabel } from '../../util/finishes';
+import Product from './Product';
 
 // Default finish: "Polished" if available, else the first one.
 const defaultFinish = (product) =>
@@ -26,7 +27,10 @@ const defaultFinish = (product) =>
 
 // initialProduct comes from the server at build time (so the page HTML has the product for
 // Google); it is refreshed from the API below so admin-panel changes still show up.
-export default function ProductDetails({ initialProduct = null }) {
+// seo (built at build time by the page, see src/util/product-seo.js): the search-friendly
+// heading ("Galala Marble"), a short description from the product's data, related stones
+// and the projects that used this stone. Shown under the product, as plain text and links.
+export default function ProductDetails({ initialProduct = null, seo = null }) {
   const { t } = useTranslation();
   const { productName } = useParams();
   const router = useRouter();
@@ -139,7 +143,7 @@ export default function ProductDetails({ initialProduct = null }) {
           </div>
 
           <div className="details-right">
-            <h1 className="details-title">{product.name}</h1>
+            <h1 className="details-title">{seo?.heading || product.name}</h1>
 
             <div className="info-grid">
               <div className="info-label">{t('productDetails.category')}</div>
@@ -180,8 +184,15 @@ export default function ProductDetails({ initialProduct = null }) {
               <div className="applications-grid">
                 {applicationIcons.map((app, index) => (
                   <div key={index} className="application-icon-wrapper">
-                    <img loading="lazy" src={app.src} alt={app.name} className="application-icon" />
-                    <div className="hover-name">{app.name}</div>
+                    {/* one translated name (the English one used to be shown on top of it) */}
+                    <img
+                      loading="lazy"
+                      src={app.src}
+                      alt={t(
+                        `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
+                      )}
+                      className="application-icon"
+                    />
                     <div className="hover-name">
                       {t(
                         `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
@@ -208,6 +219,46 @@ export default function ProductDetails({ initialProduct = null }) {
             />
           </div>
         </div>
+
+        {seo && (
+          <div className="product-seo">
+            <div className="product-seo-intro">
+              {seo.intro.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+            </div>
+
+            {seo.projects.length > 0 && (
+              <div className="product-seo-block">
+                <h2>{t('productDetails.usedInProjects').replace('{{heading}}', seo.heading)}</h2>
+                <ul className="product-seo-projects">
+                  {seo.projects.map((p) => (
+                    <li key={p.id}>
+                      <LangLink href={`/projects/${p.id}/`}>
+                        <img loading="lazy" src={p.thumbnail} alt={p.name} />
+                        <span>
+                          <strong>{p.name}</strong>
+                          {[p.city, p.country].filter(Boolean).join(' - ')}
+                        </span>
+                      </LangLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {seo.related.length > 0 && (
+              <div className="product-seo-block">
+                <h2>{t('productDetails.related').replace('{{type}}', seo.typeLabel)}</h2>
+                <div className="product-cards-2 product-seo-related">
+                  {seo.related.map((item) => (
+                    <Product key={item.id} item={item} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
         <ContactBubble />
       </div>
     </>

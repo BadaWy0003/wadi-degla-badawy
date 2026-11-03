@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "수입 화강암"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | 이집트 대리석 & 화강암 | Wadi Degla",
+    "pageTitle": "{{heading}} – {{type}} 슬래브 및 타일 | Wadi Degla",
     "metaDescription": "프리미엄 {{type}} 컬렉션에서 {{name}}을 발견하십시오. 고품질 천연석 이용 가능. 사양을 확인하고 고급 석재 재료의 신뢰할 수 있는 소스인 와디 데글라에 샘플을 요청하십시오.",
     "breadcrumbHome": "홈",
     "breadcrumbExplore": "탐색",
@@ -690,7 +690,15 @@
     "applications_staircase": "계단",
     "applications_wallcladding": "벽 마감재",
     "applications_windowsills": "창틀",
-    "requestSample": "샘플 요청"
+    "requestSample": "샘플 요청",
+    "heading": "{{name}} {{kind}}",
+    "kindMarble": "대리석",
+    "kindGranite": "화강암",
+    "introEgyptian": "{{heading}}은(는) 이집트에서 채석된 천연석({{type}})으로, Wadi Degla가 슬래브, 타일, 블록 형태로 공급합니다. 가능한 마감: {{finishes}}. 바닥재, 벽체 및 외벽 마감, 계단, 창턱, 조경에 사용됩니다.",
+    "introImported": "{{heading}}은(는) 수입 천연석({{type}})으로, Wadi Degla가 이집트에서 슬래브와 타일 형태로 공급합니다. 가능한 마감: {{finishes}}. 바닥재, 벽체 마감, 계단, 창턱, 인테리어 디자인에 사용됩니다.",
+    "introCta": "1980년부터 이어온 대리석 기업 Wadi Degla에 {{name}} 샘플 또는 견적을 요청하세요.",
+    "related": "{{type}} 더 보기",
+    "usedInProjects": "{{heading}}이(가) 사용된 프로젝트"
   },
   "sampleRequestForm": {
     "successMessage": "메시지가 성공적으로 전송되었습니다!",

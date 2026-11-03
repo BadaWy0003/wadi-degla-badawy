@@ -674,7 +674,7 @@
     "importedGraniteDisplay": "Granito Importado"
   },
   "productDetails": {
-    "pageTitle": "{{name}} | Mármol & Granito Egipcio | Wadi Degla",
+    "pageTitle": "{{heading}} – Planchas y baldosas de {{type}} | Wadi Degla",
     "metaDescription": "Descubre {{name}} en nuestra colección premium de {{type}}. Piedra natural de alta calidad disponible. Consulta especificaciones y solicita muestras de Wadi Degla, tu fuente confiable de materiales de lujo.",
     "breadcrumbHome": "Inicio",
     "breadcrumbExplore": "Explorar",
@@ -690,7 +690,15 @@
     "applications_staircase": "Escalera",
     "applications_wallcladding": "Revestimiento de Pared",
     "applications_windowsills": "Alfeizares",
-    "requestSample": "SOLICITAR UNA MUESTRA"
+    "requestSample": "SOLICITAR UNA MUESTRA",
+    "heading": "{{kind}} {{name}}",
+    "kindMarble": "Mármol",
+    "kindGranite": "Granito",
+    "introEgyptian": "El {{heading}} es una piedra natural extraída en Egipto ({{type}}), suministrada por Wadi Degla en planchas, baldosas y bloques. Acabados disponibles: {{finishes}}. Se utiliza en suelos, revestimientos de paredes y fachadas, escaleras, alféizares y paisajismo.",
+    "introImported": "El {{heading}} es una piedra natural importada ({{type}}), suministrada desde Egipto por Wadi Degla en planchas y baldosas. Acabados disponibles: {{finishes}}. Se utiliza en suelos, revestimientos de paredes, escaleras, alféizares y diseño de interiores.",
+    "introCta": "Solicite una muestra o un presupuesto de {{name}} a Wadi Degla, empresa de mármol desde 1980.",
+    "related": "Más {{type}}",
+    "usedInProjects": "Proyectos con {{heading}}"
   },
   "sampleRequestForm": {
     "successMessage": "¡Mensaje enviado exitosamente!",
