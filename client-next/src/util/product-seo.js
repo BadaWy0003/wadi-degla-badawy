@@ -85,3 +85,79 @@ export function relatedProducts(product, allProducts, max = 8) {
     finishes: [cardFinish(p)],
   }));
 }
+
+// ----- Stone details written in the admin panel (description, specs, uses) -----
+
+const paragraphs = (text) =>
+  String(text || '')
+    .split(/\n\s*\n+/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+const FORMS = ['slabs', 'tiles', 'blocks'];
+const USES = [
+  'flooring',
+  'wallCladding',
+  'exteriorCladding',
+  'staircases',
+  'windowSills',
+  'countertops',
+  'landscaping',
+];
+const TECH = [
+  ['density', 'specDensity', 'kg/m³'],
+  ['waterAbsorption', 'specWaterAbsorption', '%'],
+  ['compressiveStrength', 'specCompressive', 'MPa'],
+  ['flexuralStrength', 'specFlexural', 'MPa'],
+];
+// Application icons on the product page that match a form or a use.
+const ICON_FOR = {
+  slabs: 'Slabs',
+  blocks: 'Block',
+  exteriorCladding: 'Exterior Cladding',
+  landscaping: 'Landscaping',
+  staircases: 'Staircase',
+  wallCladding: 'Wall Cladding',
+  windowSills: 'Window Sills',
+};
+
+// Origin and colour are written in English and Arabic: Arabic pages use Arabic when given.
+const enAr = (lang, field) =>
+  (lang === 'ar' && field?.ar?.trim() ? field.ar : field?.en || '').trim();
+
+// What the product page shows from the details, in the page's language. null if nothing.
+export function productDetailsView(lang, product, details) {
+  if (!details) return null;
+  const k = (key) => t(lang, `productDetails.${key}`);
+  const description = paragraphs(details.description?.[lang]);
+  const specs = [];
+  const add = (label, value) => value && specs.push({ label, value });
+  add(k('specOrigin'), enAr(lang, details.origin));
+  add(k('specColour'), enAr(lang, details.colour));
+  add(
+    k('specForms'),
+    FORMS.filter((f) => details.forms?.includes(f))
+      .map((f) => k(`form_${f}`))
+      .join(', '),
+  );
+  add(k('specThickness'), details.thicknesses ? `${details.thicknesses} cm` : '');
+  add(k('specSizes'), details.sizes);
+  for (const [key, label, unit] of TECH) {
+    const v = details.tech?.[key];
+    if (typeof v === 'number') add(k(label), `${v.toLocaleString('en-US')} ${unit}`);
+  }
+  const uses = USES.filter((u) => details.uses?.includes(u));
+  const hasFormsOrUses = (details.forms || []).length > 0 || uses.length > 0;
+  const view = {
+    description,
+    otherNames: details.otherNames || [],
+    specs,
+    uses: uses.map((u) => k(`use_${u}`)),
+    // Only the icons that really apply, once forms or uses were filled in; else all of them.
+    icons: hasFormsOrUses
+      ? [...(details.forms || []), ...uses].map((x) => ICON_FOR[x]).filter(Boolean)
+      : null,
+  };
+  const empty = !description.length && !view.otherNames.length && !specs.length && !uses.length;
+  return empty ? null : view;
+}

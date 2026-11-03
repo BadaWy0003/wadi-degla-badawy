@@ -160,3 +160,22 @@ export async function getGalleryItems() {
     return [];
   }
 }
+
+export const DETAILS_API_URL = `${API_BASE}/api/storage/details`;
+
+// Stone details from the admin panel ({ <productId>: details }), read at build time. If the
+// API can't be reached (or doesn't have the endpoint yet), pages are built without them and
+// show the generated description instead.
+let detailsCache = null;
+export async function getProductDetailsMap() {
+  if (detailsCache) return detailsCache;
+  try {
+    const res = await fetch(DETAILS_API_URL);
+    const json = res.ok ? await res.json() : null;
+    detailsCache = json?.data && typeof json.data === 'object' ? json.data : {};
+  } catch (e) {
+    console.warn(`[product-slugs] Stone details unreachable at build time (${e?.cause?.code || e?.message}).`);
+    detailsCache = {};
+  }
+  return detailsCache;
+}
