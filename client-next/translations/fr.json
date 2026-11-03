@@ -158,7 +158,8 @@
     "myAccount": "Mon Compte",
     "login": "Se Connecter",
     "logout": "Se Déconnecter",
-    "loginSignup": "Connexion/Inscription"
+    "loginSignup": "Connexion/Inscription",
+    "buyGuide": "Comment acheter en Égypte"
   },
   "cobbles": {
     "pageTitle": "Pavés en Granit et Dallage Flammé | Solutions de Pierre Extérieure Durables | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "Marbre Égyptien",
     "importedMarbleDisplay": "Marbre Importé",
     "egyptianGraniteDisplay": "Granit Égyptien",
-    "importedGraniteDisplay": "Granit Importé"
+    "importedGraniteDisplay": "Granit Importé",
+    "aboutCategory": "À propos du {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – Tranches et carreaux en {{type}} | Wadi Degla",

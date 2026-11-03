@@ -18,6 +18,7 @@ import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 import { useParams } from 'next/navigation';
 import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
+import { CATEGORY_TOPIC } from '../../util/topic-pages';
 import { finishLabel } from '../../util/finishes';
 import Product from './Product';
 
@@ -148,9 +149,19 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
             <div className="info-grid">
               <div className="info-label">{t('productDetails.category')}</div>
               <div className="info-value" style={{ color: 'var(--blueColor)' }}>
-                {PRODUCT_TYPE_KEYS[product.type]
-                  ? t(PRODUCT_TYPE_KEYS[product.type])
-                  : product.type}
+                {/* links to the category's own page (e.g. /egyptian-marble/) */}
+                {CATEGORY_TOPIC[product.type] ? (
+                  <LangLink
+                    href={`/${CATEGORY_TOPIC[product.type]}/`}
+                    className="category-topic-link"
+                  >
+                    {t(PRODUCT_TYPE_KEYS[product.type])}
+                  </LangLink>
+                ) : PRODUCT_TYPE_KEYS[product.type] ? (
+                  t(PRODUCT_TYPE_KEYS[product.type])
+                ) : (
+                  product.type
+                )}
               </div>
 
               <div className="info-label">{t('productDetails.finish')}</div>

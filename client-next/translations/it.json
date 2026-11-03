@@ -158,7 +158,8 @@
     "myAccount": "Il Mio Account",
     "login": "Accedi",
     "logout": "Esci",
-    "loginSignup": "Accedi/Registrati"
+    "loginSignup": "Accedi/Registrati",
+    "buyGuide": "Come acquistare dall'Egitto"
   },
   "cobbles": {
     "pageTitle": "Sanpietrini in Granito e Pavimentazione Flammata | Soluzioni Durature in Pietra Esterna | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "Marmo Egiziano",
     "importedMarbleDisplay": "Marmo Importato",
     "egyptianGraniteDisplay": "Granito Egiziano",
-    "importedGraniteDisplay": "Granito Importato"
+    "importedGraniteDisplay": "Granito Importato",
+    "aboutCategory": "Scopri il {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – Lastre e piastrelle in {{type}} | Wadi Degla",

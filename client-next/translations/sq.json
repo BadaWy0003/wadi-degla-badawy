@@ -158,7 +158,8 @@
     "myAccount": "Llogaria Ime",
     "login": "Hyr",
     "logout": "Dil",
-    "loginSignup": "Hyr/Regjistrohu"
+    "loginSignup": "Hyr/Regjistrohu",
+    "buyGuide": "Si të blini nga Egjipti"
   },
   "cobbles": {
     "pageTitle": "Gur Graniti dhe Shtrime të Flakës | Zgjidhje Zgjata të Gurit të Jashtëm | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "Mermeri Egjiptian",
     "importedMarbleDisplay": "Mermeri i Importuar",
     "egyptianGraniteDisplay": "Graniti Egjiptian",
-    "importedGraniteDisplay": "Graniti i Importuar"
+    "importedGraniteDisplay": "Graniti i Importuar",
+    "aboutCategory": "Rreth {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – Pllaka {{type}} | Wadi Degla",

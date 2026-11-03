@@ -670,3 +670,19 @@
     position: static;
   }
 }
+
+/* Link from a category (products page, product page) to its topic page */
+.category-topic-link {
+  display: inline-block;
+  color: var(--goldColor);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.category-topic-link:hover {
+  text-decoration: underline;
+}
+
+.category-description-2 .category-topic-link {
+  margin-top: 0.75rem;
+}

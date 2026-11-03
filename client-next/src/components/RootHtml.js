@@ -68,6 +68,12 @@ const organizationSchema = {
     'وادي دجلة للرخام والجرانيت',
   ],
   foundingDate: '1980',
+  // The company's own profiles (same links as the footer): helps Google connect them.
+  sameAs: [
+    'https://www.facebook.com/wadideglaco',
+    'https://instagram.com/wadideglaco',
+    'https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/',
+  ],
   url: 'https://www.wadidegla-eg.com',
   logo: 'https://www.wadidegla-eg.com/favicon.svg',
   image: 'https://www.wadidegla-eg.com/preview.webp',

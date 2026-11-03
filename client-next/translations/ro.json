@@ -158,7 +158,8 @@
     "myAccount": "Contul Meu",
     "login": "Autentificare",
     "logout": "Deconectare",
-    "loginSignup": "Autentificare/Înregistrare"
+    "loginSignup": "Autentificare/Înregistrare",
+    "buyGuide": "Cum cumpărați din Egipt"
   },
   "cobbles": {
     "pageTitle": "Pavele de Granit și Pavaje Flacără | Soluții de Piatră Exterior Durabilă | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "Marmură Egipteană",
     "importedMarbleDisplay": "Marmură Importată",
     "egyptianGraniteDisplay": "Granit Egiptean",
-    "importedGraniteDisplay": "Granit Importat"
+    "importedGraniteDisplay": "Granit Importat",
+    "aboutCategory": "Despre {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – Plăci și dale din {{type}} | Wadi Degla",

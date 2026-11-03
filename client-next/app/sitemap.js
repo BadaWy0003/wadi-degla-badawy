@@ -14,6 +14,13 @@ const BASE_URL = 'https://www.wadidegla-eg.com';
 const STATIC_PAGES = [
   { path: '', priority: 1.0, changeFrequency: 'weekly' },
   { path: '/products', priority: 0.9, changeFrequency: 'weekly' },
+  // Topic pages (src/util/topic-pages.js)
+  { path: '/egyptian-marble', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/egyptian-granite', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/imported-marble', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/imported-granite', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/galala-marble', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/buy-marble-from-egypt', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/quarries', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/projects', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/gallery', priority: 0.7, changeFrequency: 'monthly' },

@@ -92,11 +92,16 @@ function Footer() {
               <LangLink href='/certificates' onClick={() => {window.scrollTo(0, 0);}}>{t('navigation.certificates')}</LangLink>
               <LangLink href='/exports' onClick={() => {window.scrollTo(0, 0);}}>{t('navigation.exports')}</LangLink>
               <LangLink href='/packing' onClick={() => {window.scrollTo(0, 0);}}>{t('navigation.packing')}</LangLink>
+              <LangLink href='/buy-marble-from-egypt' onClick={() => {window.scrollTo(0, 0);}}>{t('navigation.buyGuide')}</LangLink>
               <LangLink href='/about' onClick={() => {window.scrollTo(0, 0);}}>{t('navigation.whyChooseUs')}</LangLink>
             </div>
 
             <div className="col">
               <h4>{t('footer.explore')}</h4>
+              <LangLink href='/egyptian-marble' onClick={() => {window.scrollTo(0, 0);}}>{t('visualizer.egyptianMarble')}</LangLink>
+              <LangLink href='/egyptian-granite' onClick={() => {window.scrollTo(0, 0);}}>{t('visualizer.egyptianGranite')}</LangLink>
+              <LangLink href='/imported-marble' onClick={() => {window.scrollTo(0, 0);}}>{t('visualizer.importedMarble')}</LangLink>
+              <LangLink href='/imported-granite' onClick={() => {window.scrollTo(0, 0);}}>{t('visualizer.importedGranite')}</LangLink>
               <LangLink href='/products' onClick={() => {window.scrollTo(0, 0);}}>{t('navigation.exploreProducts')}</LangLink>
               <LangLink href='/visualizer' onClick={() => {window.scrollTo(0, 0);}}>{t('navigation.materialVisualizer')}</LangLink>
               <LangLink href='/patterns' onClick={() => {window.scrollTo(0, 0);}}>{t('navigation.patterns')}</LangLink>

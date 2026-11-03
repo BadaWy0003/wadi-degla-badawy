@@ -158,7 +158,8 @@
     "myAccount": "My Account",
     "login": "Login",
     "logout": "Logout",
-    "loginSignup": "Login/Signup"
+    "loginSignup": "Login/Signup",
+    "buyGuide": "How to Buy from Egypt"
   },
   "cobbles": {
     "pageTitle": "Granite Cobbles & Flamed Paving | Durable Outdoor Stone Solutions | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "Egyptian Marble",
     "importedMarbleDisplay": "Imported Marble",
     "egyptianGraniteDisplay": "Egyptian Granite",
-    "importedGraniteDisplay": "Imported Granite"
+    "importedGraniteDisplay": "Imported Granite",
+    "aboutCategory": "About {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – {{type}} Slabs & Tiles | Wadi Degla",

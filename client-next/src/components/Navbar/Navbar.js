@@ -159,6 +159,15 @@ export default function Navbar() {
                 {t('navigation.packing')}
               </LangLink>
               <LangLink
+                href="/buy-marble-from-egypt"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {t('navigation.buyGuide')}
+              </LangLink>
+              <LangLink
                 href="/about"
                 onClick={() => {
                   closeNavbar();
@@ -177,6 +186,42 @@ export default function Navbar() {
           </div>
           <div className="submenu-bg">
             <div className="submenu">
+              <LangLink
+                href="/egyptian-marble"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {t('visualizer.egyptianMarble')}
+              </LangLink>
+              <LangLink
+                href="/egyptian-granite"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {t('visualizer.egyptianGranite')}
+              </LangLink>
+              <LangLink
+                href="/imported-marble"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {t('visualizer.importedMarble')}
+              </LangLink>
+              <LangLink
+                href="/imported-granite"
+                onClick={() => {
+                  closeNavbar();
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {t('visualizer.importedGranite')}
+              </LangLink>
               <LangLink
                 href="/products"
                 onClick={() => {

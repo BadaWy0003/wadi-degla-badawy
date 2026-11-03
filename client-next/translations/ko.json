@@ -158,7 +158,8 @@
     "myAccount": "내 계정",
     "login": "로그인",
     "logout": "로그아웃",
-    "loginSignup": "로그인/가입"
+    "loginSignup": "로그인/가입",
+    "buyGuide": "이집트에서 구매하는 방법"
   },
   "cobbles": {
     "pageTitle": "화강암 포석과 불 처리 포장 | 내구성 있는 외부 석재 솔루션 | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "이집트 대리석",
     "importedMarbleDisplay": "수입 대리석",
     "egyptianGraniteDisplay": "이집트 화강암",
-    "importedGraniteDisplay": "수입 화강암"
+    "importedGraniteDisplay": "수입 화강암",
+    "aboutCategory": "{{category}} 알아보기"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – {{type}} 슬래브 및 타일 | Wadi Degla",
