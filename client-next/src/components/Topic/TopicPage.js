@@ -38,7 +38,7 @@ export default function TopicPage({ lang, topicKey, products = [], projects = []
   return (
     <div className="topic-page">
       <div
-        className="quarries-hero topic-hero"
+        className="topic-hero"
         style={{
           background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("${page.hero}") center / cover no-repeat`,
         }}

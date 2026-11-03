@@ -1,7 +1,27 @@
 /* Topic pages (Egyptian Marble, Egyptian Granite, Galala Marble, buying guide…) */
 
+/* Cover photo with the title (same look as the other pages' covers; defined here because
+   the shared .quarries-hero rules live in stylesheets these pages don't load) */
 .topic-page .topic-hero {
-  background-attachment: scroll;
+  position: relative;
+  height: 70vh;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.topic-page .topic-hero h1 {
+  color: var(--whiteColor);
+  margin: 4rem 0 1rem;
+  max-width: 900px;
+}
+
+.topic-page .topic-hero .breadcrumb {
+  flex-wrap: wrap;
 }
 
 .topic-content {
@@ -195,6 +215,16 @@ html[dir='rtl'] .topic-steps li::before {
 }
 
 @media screen and (max-width: 768px) {
+  .topic-page .topic-hero {
+    height: 46vh;
+    min-height: 300px;
+  }
+
+  .topic-page .topic-hero h1 {
+    font-size: 30px;
+    margin-top: 3rem;
+  }
+
   .topic-content {
     padding: 2.5rem 16px 4rem;
   }
