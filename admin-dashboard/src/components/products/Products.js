@@ -7,7 +7,6 @@ import AddProductModal from './AddProductModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
 import EditProductModal from './EditProductModal';
 import ProductDetailsForm from './ProductDetailsForm';
-import ImportDetailsButton from './ImportDetailsButton';
 import apiClient from '../../util/client';
 
 const modalStyle = {
@@ -194,9 +193,7 @@ export default function Products() {
     <Box sx={{ width: '100%', p: 2 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
         <Typography variant="h4">Products</Typography>
-        <Box sx={{ ml: 'auto' }} />
-        <ImportDetailsButton />
-        <Button variant="contained" color="primary" startIcon={<AddIcon />} onClick={() => setOpenAddModal(true)}>
+        <Button variant="contained" color="primary" startIcon={<AddIcon />} onClick={() => setOpenAddModal(true)} sx={{ ml: 'auto' }}>
           Add Product
         </Button>
       </Box>
