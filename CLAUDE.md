@@ -8,7 +8,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 |---|---|---|---|
 | `client-next/` | **Live website**, Next.js 14 App Router, static export (`output: 'export'`) served by nginx | `client-next-wadi-degla` (cdg) | live |
 | `server/` | Express 4 API on Node 22: email, products/gallery, auth, PDF export | `server-withered-wildflower-1595` (fra) | live |
-| `admin-dashboard/` | CRA + React 19 + MUI admin panel (products, gallery, users, PDFs) | `admin-dashboard-withered-waterfall-6127` | works; machines sleep and auto-start on visit (https://admin-dashboard-withered-waterfall-6127.fly.dev/login) |
+| `admin-dashboard/` | CRA + React 19 + MUI admin panel (products, gallery, users, PDFs) | `admin-dashboard-withered-waterfall-6127` | works at **https://admin.wadidegla-eg.com/login** (Fly certificate issued 2026-11-03; the old https://admin-dashboard-withered-waterfall-6127.fly.dev address still works and stays in the server's CORS list); machines sleep and auto-start on visit |
 | staging (3 apps) | Private test copy: `fly.staging.toml` in `server/`, `admin-dashboard/`, `client-next/` | `wadi-degla-server-staging`, `wadi-degla-admin-staging`, `wadi-degla-site-staging` | see Staging below |
 | `client/` | OLD CRA website, replaced by client-next in March 2026 | `client-rough-dawn-8020` | suspended. Do not edit |
 | `tools/` | `optimize-images.js`: sharp batch converter to WebP (max 1600 px, q75) | n/a | n/a |
@@ -207,7 +207,6 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - Admin dashboard: CRA treats lint warnings as errors when `CI=true` (GitHub sets it), so CI builds it with `CI=false`.
 
 ## To do (agreed, not started)
-- Serve the admin panel on `admin.wadidegla-eg.com` (DNS + Fly certificate; the domain is already in the server's CORS list).
 - Rotate the server's Firebase service-account key (created by the previous developer).
 
 ## Decisions log
@@ -222,3 +221,4 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - 2026-11-02: News phase 1 live: news managed in the admin panel (EN + AR, ADMIN/SUPER_ADMIN only), the 7 existing articles imported (English only), website reads news at build time. Editing stays in the admin panel (not inline on the site).
 - 2026-11-02: `GITHUB_DEPLOY_TOKEN` added to the server (fine-grained token `wadi-degla-publish-2026`, this repo only, Actions read/write). **It expires around 2027-11: renew it on GitHub and replace the Fly secret before then**, or the Publish button stops working (saved articles stay safe). First Publish tested OK (client-next v47).
 - 2026-11-03: owner decisions on the stone list: misspelled names fixed (Botticino, Travertine, Turkish Carrara, Emperador Light/Medium) with 301 redirects in `nginx.conf`; keep Nero Marquina and hide the Nero Marquinaa duplicate; categories stay as they are (semi-precious stones and Azul Macauba remain under Imported Marble); ISO standard is 9001:2015; missing stone details filled with reasonable values (technical figures left empty).
+- 2026-11-03: the admin panel is served on `admin.wadidegla-eg.com` (DNS + Fly certificate set up by the owner).
