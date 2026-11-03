@@ -1,8 +1,14 @@
 import { t, buildAlternates } from '../../../../src/util/meta';
 import { SUPPORTED_LANGS } from '../../../../src/util/supported-langs';
-import { getProducts, getProductSlugs, getProductBySlug } from '../../../../src/util/product-slugs';
+import {
+  getProducts,
+  getProductSlugs,
+  getProductBySlug,
+  getProductDetailsMap,
+} from '../../../../src/util/product-slugs';
 import ProductDetails from '../../../../src/components/Products/ProductDetails';
 import {
+  productDetailsView,
   productHeading,
   productIntro,
   productTitle,
@@ -30,12 +36,20 @@ export async function generateMetadata({ params }) {
   const product = await getProductBySlug(productName);
   const displayName = product ? productHeading(lang, product) : slugToName(productName);
   const descTemplate = t(lang, 'productDetails.metaDescription', '');
+  // The stone's own description (admin panel) when written in this language.
+  const own = product
+    ? productDetailsView(lang, product, (await getProductDetailsMap())[product.id])
+        ?.description?.[0]
+    : '';
+  const shortOwn = own && own.length > 160 ? `${own.slice(0, 159).replace(/\s+\S*$/, '')}…` : own;
   return {
     // "Galala Marble – Egyptian Marble Slabs & Tiles | Wadi Degla"
     title: product ? productTitle(lang, product) : `${displayName} | Wadi Degla`,
-    description: descTemplate
-      .replace(/\{\{name\}\}/g, displayName)
-      .replace(/\{\{type\}\}/g, product ? productTypeLabel(lang, product.type) : 'natural stone'),
+    description:
+      shortOwn ||
+      descTemplate
+        .replace(/\{\{name\}\}/g, displayName)
+        .replace(/\{\{type\}\}/g, product ? productTypeLabel(lang, product.type) : 'natural stone'),
     alternates: buildAlternates(`/products/${productName}`, lang),
   };
 }
@@ -70,10 +84,19 @@ export default async function ProductDetailsPage({ params }) {
   const product = await getProductBySlug(productName);
   let seo = null;
   if (product) {
-    const [all, projects] = await Promise.all([getProducts(), getProjects(lang)]);
+    const [all, projects, detailsMap] = await Promise.all([
+      getProducts(),
+      getProjects(lang),
+      getProductDetailsMap(),
+    ]);
+    const details = productDetailsView(lang, product, detailsMap[product.id]);
+    const generated = productIntro(lang, product);
     seo = {
       heading: productHeading(lang, product),
-      intro: productIntro(lang, product),
+      details,
+      // the stone's own description (admin panel) replaces the generated one; the
+      // "request a sample" sentence stays
+      intro: details?.description?.length ? [...details.description, generated[1]] : generated,
       typeLabel: productTypeLabel(lang, product.type),
       related: relatedProducts(product, all),
       projects: projects

@@ -145,6 +145,11 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
 
           <div className="details-right">
             <h1 className="details-title">{seo?.heading || product.name}</h1>
+            {seo?.details?.otherNames?.length > 0 && (
+              <p className="details-aka">
+                {t('productDetails.alsoKnownAs')}: {seo.details.otherNames.join(', ')}
+              </p>
+            )}
 
             <div className="info-grid">
               <div className="info-label">{t('productDetails.category')}</div>
@@ -193,24 +198,27 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
             <div className="applications-section">
               <h3>{t('productDetails.applications')}</h3>
               <div className="applications-grid">
-                {applicationIcons.map((app, index) => (
-                  <div key={index} className="application-icon-wrapper">
-                    {/* one translated name (the English one used to be shown on top of it) */}
-                    <img
-                      loading="lazy"
-                      src={app.src}
-                      alt={t(
-                        `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
-                      )}
-                      className="application-icon"
-                    />
-                    <div className="hover-name">
-                      {t(
-                        `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
-                      )}
+                {/* only the forms/uses that apply, once they were set in the admin panel */}
+                {applicationIcons
+                  .filter((app) => !seo?.details?.icons || seo.details.icons.includes(app.name))
+                  .map((app, index) => (
+                    <div key={index} className="application-icon-wrapper">
+                      {/* one translated name (the English one used to be shown on top of it) */}
+                      <img
+                        loading="lazy"
+                        src={app.src}
+                        alt={t(
+                          `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
+                        )}
+                        className="application-icon"
+                      />
+                      <div className="hover-name">
+                        {t(
+                          `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
 
@@ -238,6 +246,34 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                 <p key={i}>{text}</p>
               ))}
             </div>
+
+            {(seo.details?.specs?.length > 0 || seo.details?.uses?.length > 0) && (
+              <div className="product-seo-block product-specs">
+                {seo.details.specs.length > 0 && (
+                  <>
+                    <h2>{t('productDetails.specsTitle')}</h2>
+                    <dl className="product-specs-table">
+                      {seo.details.specs.map((row) => (
+                        <div key={row.label}>
+                          <dt>{row.label}</dt>
+                          <dd>{row.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </>
+                )}
+                {seo.details.uses.length > 0 && (
+                  <>
+                    <h2>{t('productDetails.usesTitle')}</h2>
+                    <ul className="product-uses">
+                      {seo.details.uses.map((u) => (
+                        <li key={u}>{u}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+            )}
 
             {seo.projects.length > 0 && (
               <div className="product-seo-block">

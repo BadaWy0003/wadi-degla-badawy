@@ -686,3 +686,63 @@
 .category-description-2 .category-topic-link {
   margin-top: 0.75rem;
 }
+
+/* Stone details from the admin panel (also known as, specifications, uses) */
+.details-aka {
+  color: var(--darkGrayColor);
+  font-size: 14px;
+  margin: -1.25rem 0 1.5rem;
+}
+
+.product-specs-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  max-width: 900px;
+}
+
+.product-specs-table > div {
+  border: 1px solid rgba(173, 149, 113, 0.35);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+
+.product-specs-table dt {
+  color: var(--goldColor);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.product-specs-table dd {
+  color: var(--whiteColor);
+  margin: 0;
+  font-size: 16px;
+}
+
+.product-specs h2 + .product-uses {
+  margin-top: 0;
+}
+
+.product-specs .product-specs-table + h2 {
+  margin-top: 2.5rem;
+}
+
+.product-uses {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.product-uses li {
+  color: var(--lightGrayColor);
+  border: 1px solid rgba(173, 149, 113, 0.5);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 14px;
+}
