@@ -75,7 +75,7 @@ async function resetPassword(db, email, newPassword, log = console.log) {
 
 const ADMIN_URL = IS_STAGING
   ? 'https://wadi-degla-admin-staging.fly.dev'
-  : 'https://admin-dashboard-withered-waterfall-6127.fly.dev';
+  : 'https://admin.wadidegla-eg.com';
 
 async function createAdmin(db, { email, username, password }, log = console.log) {
   const { error } = loginCustomerReqSchema.body.validate({ email, password });
