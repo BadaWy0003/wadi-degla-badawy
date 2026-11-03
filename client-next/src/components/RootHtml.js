@@ -73,6 +73,8 @@ const organizationSchema = {
     'https://www.facebook.com/wadideglaco',
     'https://instagram.com/wadideglaco',
     'https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/',
+    'https://t.me/wadideglaco',
+    'https://www.tiktok.com/@wadideglaco',
   ],
   url: 'https://www.wadidegla-eg.com',
   logo: 'https://www.wadidegla-eg.com/favicon.svg',
@@ -83,16 +85,37 @@ const organizationSchema = {
     '@type': 'Place',
     name: 'Egypt',
   },
+  // Name, address and phone must stay identical to the Contact page, Google Business
+  // Profile and every directory listing (Google matches them to trust the company).
   address: {
     '@type': 'PostalAddress',
-    addressCountry: 'EG',
-    addressRegion: 'Cairo',
+    streetAddress: '36, 241D Shaq Al-Thoaban Industrial Area for Marble & Granite, Tourrah',
     addressLocality: 'Cairo',
+    addressRegion: 'Cairo',
+    addressCountry: 'EG',
   },
+  telephone: '+20 10 6726 0314',
+  email: 'info@wadidegla-eg.com',
+  hasMap: 'https://maps.app.goo.gl/bM4qT3UBLVt3r7tN7',
   contactPoint: [
     {
       '@type': 'ContactPoint',
       contactType: 'sales',
+      telephone: '+20 10 6726 0314',
+      email: 'sales@wadidegla-eg.com',
+      availableLanguage: ['English', 'Arabic'],
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'export sales',
+      email: 'export@wadidegla-eg.com',
+      areaServed: 'Worldwide',
+      availableLanguage: ['English', 'Arabic'],
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      telephone: '+20 101 666 7890',
       availableLanguage: ['English', 'Arabic'],
     },
   ],
