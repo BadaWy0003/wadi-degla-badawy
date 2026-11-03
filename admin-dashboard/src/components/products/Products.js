@@ -6,6 +6,8 @@ import AddIcon from '@mui/icons-material/Add';
 import AddProductModal from './AddProductModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
 import EditProductModal from './EditProductModal';
+import ProductDetailsForm from './ProductDetailsForm';
+import ImportDetailsButton from './ImportDetailsButton';
 import apiClient from '../../util/client';
 
 const modalStyle = {
@@ -34,6 +36,7 @@ export default function Products() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [detailsProduct, setDetailsProduct] = useState(null);
   const [productToDelete, setProductToDelete] = useState(null);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
@@ -191,7 +194,9 @@ export default function Products() {
     <Box sx={{ width: '100%', p: 2 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
         <Typography variant="h4">Products</Typography>
-        <Button variant="contained" color="primary" startIcon={<AddIcon />} onClick={() => setOpenAddModal(true)} sx={{ ml: 'auto' }}>
+        <Box sx={{ ml: 'auto' }} />
+        <ImportDetailsButton />
+        <Button variant="contained" color="primary" startIcon={<AddIcon />} onClick={() => setOpenAddModal(true)}>
           Add Product
         </Button>
       </Box>
@@ -220,6 +225,7 @@ export default function Products() {
         onMoreInfo={handleMoreInfo}
         onEdit={handleEdit}
         onToggleHidden={handleToggleHidden}
+        onWebsiteDetails={setDetailsProduct}
         onDelete={id => {
           setProductToDelete(id); // Use productToDelete instead of selectedProduct
           setOpenDeleteDialog(true);
@@ -304,6 +310,8 @@ export default function Products() {
       </Modal>
 
       <AddProductModal open={openAddModal} onClose={() => setOpenAddModal(false)} onSubmit={handleAddProduct} />
+      <ProductDetailsForm product={detailsProduct} onClose={() => setDetailsProduct(null)} />
+
       <DeleteConfirmDialog
         open={openDeleteDialog}
         onClose={() => {

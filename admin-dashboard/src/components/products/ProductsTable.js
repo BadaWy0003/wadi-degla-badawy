@@ -18,6 +18,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import InfoIcon from "@mui/icons-material/Info";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import ArticleIcon from "@mui/icons-material/Article";
 
 export default function ProductsTable({
   orderBy,
@@ -30,6 +31,7 @@ export default function ProductsTable({
   onEdit,
   onDelete,
   onToggleHidden,
+  onWebsiteDetails,
   data // Add data as a prop
 }) {
   const [loading, setLoading] = useState(true);
@@ -110,6 +112,14 @@ export default function ProductsTable({
                 <IconButton onClick={() => onEdit(product)} color="primary">
                   <EditIcon />
                 </IconButton>
+                {/* Description, origin, sizes, uses… shown on the website page */}
+                {onWebsiteDetails && (
+                  <Tooltip title="Website details (description, sizes, uses…)">
+                    <IconButton onClick={() => onWebsiteDetails(product)} color="primary">
+                      <ArticleIcon />
+                    </IconButton>
+                  </Tooltip>
+                )}
                 {/* Hide/show on the website. Only a hidden product can be deleted for good. */}
                 <Tooltip title={product.hidden ? "Show on website" : "Hide from website"}>
                   <IconButton onClick={() => onToggleHidden(product)} color="primary">
