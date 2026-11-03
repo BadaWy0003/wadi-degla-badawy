@@ -5,8 +5,8 @@ const Visualizer = dynamic(() => import('../../../src/components/Products/Visual
 export function generateMetadata({ params }) {
   const { lang } = params;
   return {
-    title: t(lang, 'products.pageTitle', 'Visualizer | Wadi Degla'),
-    description: t(lang, 'products.metaDescription', ''),
+    title: t(lang, 'visualizer.pageTitle', 'Visualizer | Wadi Degla'),
+    description: t(lang, 'visualizer.metaDescription', ''),
     alternates: buildAlternates('/visualizer', lang),
   };
 }
