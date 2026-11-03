@@ -120,8 +120,12 @@ export default function ProjectDetails({ project }) {
 
           {paragraphs.length > 0 && (
             <div className="project-details-text">
+              {/* dir="auto": English text shown on the Arabic page (no Arabic written yet)
+                  keeps its left-to-right punctuation */}
               {paragraphs.map((text, i) => (
-                <p key={i}>{text}</p>
+                <p key={i} dir="auto">
+                  {text}
+                </p>
               ))}
             </div>
           )}
