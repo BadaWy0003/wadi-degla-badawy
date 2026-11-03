@@ -21,6 +21,8 @@ router.get('/admin/all', adminAuth, authorize('MODERATOR'), StorageController.ge
 // Stone details (description, origin, sizes, uses, technical data): public list for the
 // website build, edit in the admin panel (same roles as editing products).
 router.get('/details', ProductDetailsController.listPublic);
+// One-time import of the client's spreadsheet (ADMIN only; never overwrites).
+router.post('/admin/details/import', adminAuth, authorize('ADMIN'), ProductDetailsController.importExisting);
 router.get('/admin/details/:id', adminAuth, authorize('MODERATOR'), ProductDetailsController.get);
 router.put(
   '/admin/details/:id',

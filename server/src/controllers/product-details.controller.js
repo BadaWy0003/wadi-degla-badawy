@@ -16,4 +16,5 @@ module.exports = {
   listPublic: handle(() => ProductDetailsService.listPublic()),
   get: handle((req) => ProductDetailsService.get(req.params.id)),
   save: handle((req) => ProductDetailsService.save(req.params.id, req.body, who(req))),
+  importExisting: handle((req) => ProductDetailsService.importExisting(who(req))),
 };

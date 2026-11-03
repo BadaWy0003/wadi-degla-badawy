@@ -95,6 +95,42 @@ ProductDetailsService.save = async (id, body, by) => {
   return { id: product.id, ...data };
 };
 
+// One-time import of the details the client filled in a spreadsheet
+// (server/src/data/stone-details-import.json: English description + translations, other
+// names, origin, colour, uses). Fills only products that have no details yet, so it never
+// overwrites edits made in the admin panel; products that no longer exist are skipped.
+ProductDetailsService.importExisting = async (by) => {
+  const entries = require('../data/stone-details-import.json');
+  const [details, materials] = await Promise.all([detailsCol().get(), materialsCol().get()]);
+  const existing = new Set(details.docs.map((d) => d.id));
+  const products = new Set(materials.docs.filter((d) => d.data().type !== 'Gallery').map((d) => d.id));
+  const now = Date.now();
+  const result = { imported: 0, skippedExisting: 0, skippedMissing: 0 };
+  const batch = db.batch();
+  for (const entry of entries) {
+    if (!products.has(entry.id)) {
+      result.skippedMissing += 1;
+      continue;
+    }
+    if (existing.has(entry.id)) {
+      result.skippedExisting += 1;
+      continue;
+    }
+    batch.set(detailsCol().doc(entry.id), {
+      ...clean(entry),
+      updatedAt: now,
+      updatedBy: by || null,
+      importedFrom: 'spreadsheet',
+    });
+    result.imported += 1;
+  }
+  if (result.imported) {
+    await batch.commit();
+    await SiteMeta.markChanged(by);
+  }
+  return result;
+};
+
 // Called when a product is deleted for good.
 ProductDetailsService.remove = async (id) => {
   await detailsCol().doc(String(id)).delete();
