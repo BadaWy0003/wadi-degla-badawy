@@ -158,7 +158,8 @@
     "myAccount": "我的账户",
     "login": "登录",
     "logout": "退出",
-    "loginSignup": "登录/注册"
+    "loginSignup": "登录/注册",
+    "buyGuide": "如何从埃及采购"
   },
   "cobbles": {
     "pageTitle": "花岗岩鹅卵石与火烧面铺路 | 耐用户外石材解决方案 | 瓦迪·德格拉",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "埃及大理石",
     "importedMarbleDisplay": "进口大理石",
     "egyptianGraniteDisplay": "埃及花岗岩",
-    "importedGraniteDisplay": "进口花岗岩"
+    "importedGraniteDisplay": "进口花岗岩",
+    "aboutCategory": "了解{{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – {{type}}大板与板材 | 瓦迪·德格拉",

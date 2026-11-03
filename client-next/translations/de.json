@@ -158,7 +158,8 @@
     "myAccount": "Mein Konto",
     "login": "Anmelden",
     "logout": "Abmelden",
-    "loginSignup": "Anmelden/Registrieren"
+    "loginSignup": "Anmelden/Registrieren",
+    "buyGuide": "So kaufen Sie aus Ägypten"
   },
   "cobbles": {
     "pageTitle": "Granitkobel & Flammbehandelte Pflastersteine | Langlebige Außensteinlösungen | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "Ägyptischer Marmor",
     "importedMarbleDisplay": "Importierter Marmor",
     "egyptianGraniteDisplay": "Ägyptischer Granit",
-    "importedGraniteDisplay": "Importierter Granit"
+    "importedGraniteDisplay": "Importierter Granit",
+    "aboutCategory": "Mehr über {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – {{type}} Platten & Fliesen | Wadi Degla",

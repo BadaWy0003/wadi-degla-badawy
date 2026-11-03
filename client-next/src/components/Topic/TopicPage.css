@@ -1,0 +1,261 @@
+/* Topic pages (Egyptian Marble, Egyptian Granite, Galala Marble, buying guide…) */
+
+/* Cover photo with the title (same look as the other pages' covers; defined here because
+   the shared .quarries-hero rules live in stylesheets these pages don't load) */
+.topic-page .topic-hero {
+  position: relative;
+  height: 70vh;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.topic-page .topic-hero h1 {
+  color: var(--whiteColor);
+  margin: 4rem 0 1rem;
+  max-width: 900px;
+}
+
+.topic-page .topic-hero .breadcrumb {
+  flex-wrap: wrap;
+}
+
+.topic-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+.topic-intro p,
+.topic-block p {
+  color: var(--lightGrayColor);
+  font-size: 17px;
+  line-height: 1.85;
+  margin: 0 0 1rem;
+  max-width: 860px;
+}
+
+.topic-intro p:first-child {
+  color: var(--whiteColor);
+  font-size: 19px;
+}
+
+.topic-block {
+  margin-top: 3.5rem;
+}
+
+.topic-block h2 {
+  color: var(--goldColor);
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+}
+
+/* Buying guide steps */
+.topic-steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.topic-steps li {
+  counter-increment: step;
+  position: relative;
+  border: 1px solid rgba(173, 149, 113, 0.35);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem 0.5rem 4.5rem;
+}
+
+.topic-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 1.25rem;
+  top: 1.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--goldColor);
+  color: var(--whiteColor);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html[dir='rtl'] .topic-steps li {
+  padding: 1.25rem 4.5rem 0.5rem 1.5rem;
+}
+
+html[dir='rtl'] .topic-steps li::before {
+  left: auto;
+  right: 1.25rem;
+}
+
+.topic-steps h3 {
+  color: var(--whiteColor);
+  font-size: 1.1rem;
+  margin: 0.2rem 0 0.5rem;
+}
+
+/* Stones of this topic: same cards as the products page */
+.topic-products {
+  margin-top: 0.5rem;
+}
+
+/* Projects that used these stones (same look as on product pages) */
+.topic-projects {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.topic-projects a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--lightGrayColor);
+  border: 1px solid rgba(173, 149, 113, 0.4);
+  border-radius: 10px;
+  padding: 0.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.topic-projects a:hover {
+  border-color: var(--goldColor);
+}
+
+.topic-projects img {
+  width: 96px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.topic-projects span {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.topic-projects strong {
+  color: var(--whiteColor);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Questions & answers */
+.topic-faq details {
+  border-bottom: 1px solid rgba(173, 149, 113, 0.35);
+  padding: 1rem 0;
+}
+
+.topic-faq summary {
+  color: var(--whiteColor);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style-position: outside;
+}
+
+.topic-faq details p {
+  margin-top: 0.75rem;
+}
+
+/* Request a quote */
+.topic-cta {
+  border: 1px solid var(--goldColor);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.topic-cta p {
+  margin: 0 auto 1.5rem;
+}
+
+.topic-cta .btn1 {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Related pages */
+.topic-related {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.topic-related a {
+  display: inline-block;
+  color: var(--goldColor);
+  border: 1px solid rgba(173, 149, 113, 0.5);
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+}
+
+.topic-related a:hover {
+  background: var(--goldColor);
+  color: var(--whiteColor);
+}
+
+@media screen and (max-width: 768px) {
+  .topic-page .topic-hero {
+    height: 46vh;
+    min-height: 300px;
+  }
+
+  .topic-page .topic-hero h1 {
+    font-size: 30px;
+    margin-top: 3rem;
+  }
+
+  .topic-content {
+    padding: 2.5rem 16px 4rem;
+  }
+
+  .topic-intro p,
+  .topic-block p {
+    font-size: 16px;
+  }
+
+  .topic-intro p:first-child {
+    font-size: 17px;
+  }
+
+  .topic-block {
+    margin-top: 2.5rem;
+  }
+
+  .topic-block h2 {
+    font-size: 22px;
+  }
+
+  .topic-steps li {
+    padding-left: 3.75rem;
+  }
+
+  html[dir='rtl'] .topic-steps li {
+    padding-left: 1.5rem;
+    padding-right: 3.75rem;
+  }
+
+  .topic-cta {
+    padding: 1.5rem 1rem;
+  }
+}

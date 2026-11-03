@@ -158,7 +158,8 @@
     "myAccount": "Мой Аккаунт",
     "login": "Войти",
     "logout": "Выйти",
-    "loginSignup": "Войти/Зарегистрироваться"
+    "loginSignup": "Войти/Зарегистрироваться",
+    "buyGuide": "Как купить в Египте"
   },
   "cobbles": {
     "pageTitle": "Гранитные булыжники и обработанный огнем брусчатка | Долговечные решения для камня снаружи | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "Египетский Мрамор",
     "importedMarbleDisplay": "Импортный Мрамор",
     "egyptianGraniteDisplay": "Египетский Гранит",
-    "importedGraniteDisplay": "Импортный Гранит"
+    "importedGraniteDisplay": "Импортный Гранит",
+    "aboutCategory": "Подробнее: {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – слэбы и плитка | {{type}} | Wadi Degla",

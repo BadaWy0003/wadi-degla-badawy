@@ -158,7 +158,8 @@
     "myAccount": "حسابي",
     "login": "تسجيل الدخول",
     "logout": "تسجيل الخروج",
-    "loginSignup": "تسجيل الدخول/التسجيل"
+    "loginSignup": "تسجيل الدخول/التسجيل",
+    "buyGuide": "كيف تشتري من مصر"
   },
   "cobbles": {
     "pageTitle": "حجر الرصف والكوابلز الجرانيت | أرضيات خارجية عالية المتانة | وادي دجلة للرخام",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "الرخام المصري",
     "importedMarbleDisplay": "الرخام المستورد",
     "egyptianGraniteDisplay": "الجرانيت المصري",
-    "importedGraniteDisplay": "الجرانيت المستورد"
+    "importedGraniteDisplay": "الجرانيت المستورد",
+    "aboutCategory": "عن {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – ألواح وبلاطات {{type}} | وادي دجلة",

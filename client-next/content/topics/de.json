@@ -1,0 +1,264 @@
+{
+  "common": {
+    "breadcrumbHome": "Startseite",
+    "breadcrumbProducts": "Produkte",
+    "productsTitle": "{{topic}}: die {{count}} Steine, die wir liefern",
+    "projectsTitle": "Projekte mit {{topic}}",
+    "faqTitle": "Häufige Fragen",
+    "ctaTitle": "Angebot oder Muster anfordern",
+    "ctaText": "Nennen Sie uns Stein, Oberfläche, Stärke, Maße, Menge und Bestimmungsort, und unser Vertriebsteam antwortet Ihnen mit einem Angebot.",
+    "ctaButton": "Vertriebsteam kontaktieren",
+    "relatedTitle": "Verwandte Seiten"
+  },
+  "egyptianMarble": {
+    "pageTitle": "Ägyptischer Marmor – Rohplatten, Fliesen & Blöcke aus Ägypten | Wadi Degla",
+    "metaDescription": "Ägyptischer Marmor von Wadi Degla: Galala, Sunny, Triesta, Fantazia, Emperador, Cleopatra und mehr. Rohplatten, Fliesen und Blöcke aus unseren eigenen Steinbrüchen und Werken in Ägypten, weltweiter Export seit 1980.",
+    "heading": "Ägyptischer Marmor",
+    "intro": "Ägyptischer Marmor ist ein in Ägypten abgebauter Naturstein, bekannt für seine warmen Beige-, Creme-, Grau- und Brauntöne und seine gleichbleibende Qualität. Er wird in Häusern, Hotels, Resorts und Geschäftsgebäuden auf der ganzen Welt verwendet.\n\nWadi Degla arbeitet seit 1980 in ägyptischen Steinbrüchen, als unser Gründer den ersten Steinbruch am Galala-Berg eröffnete. Heute schneiden und veredeln wir ägyptischen Marmor in unseren eigenen Werken in Ägypten auf über 27.000 Quadratmetern und liefern ihn als Rohplatten, Fliesen und Blöcke an Projekte weltweit. Unten finden Sie alle ägyptischen Marmorsorten, die wir liefern, und Antworten auf die häufigsten Fragen.",
+    "sections": [
+      {
+        "title": "Beliebte Sorten ägyptischen Marmors",
+        "text": "Unser ägyptisches Sortiment umfasst Galala und Galala Extra, Sunny Light und Sunny Dark, Triesta Beige und Triesta Grey, Fantazia Sylvia und Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl und ägyptischen Alabaster.\n\nJeder Stein hat eine eigene Seite mit Fotos, verfügbaren Oberflächen und den Projekten, in denen er verwendet wurde."
+      },
+      {
+        "title": "Wo ägyptischer Marmor verwendet wird",
+        "text": "Böden, Wandverkleidungen, Fassaden, Treppen, Fensterbänke, Arbeitsplatten und Gartengestaltung in Villen, Hotels, Resorts, Wohnanlagen und Geschäftsgebäuden. Zu unseren Projekten mit ägyptischem Marmor gehören Resorts in der Karibik, Wohngebäude in Kenia, Villen und Bürogebäude in Ägypten und eine Botschaft in Kuwait."
+      },
+      {
+        "title": "Oberflächen und Formate",
+        "text": "Je nach Stein ist ägyptischer Marmor poliert, geschliffen, gebürstet, antik, sandgestrahlt, gestockt, geflammt, lederartig und gespalten erhältlich. Wir liefern Blöcke, Rohplatten und Fliesen nach Maß, und unsere Werke können Sondermaße für Ihr Projekt fertigen."
+      },
+      {
+        "title": "Warum ägyptischen Marmor bei Wadi Degla kaufen",
+        "text": "Drei Generationen in der ägyptischen Steinbruchindustrie, Steinbrüche am Galala-Berg und drei Werke (eröffnet 2000, 2011 und 2015) mit modernen Säge-, Polier-, Harz-, CNC- und Wasserstrahllinien. Unsere Produktion ist ISO-zertifiziert, jeder Auftrag wird in exporttauglichen Holzbündeln, Kisten oder Paletten verpackt, und wir liefern in die Golfstaaten, nach Europa, Afrika, Asien und Amerika."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Eignet sich ägyptischer Marmor für Böden?",
+        "a": "Ja. Ägyptische Marmore wie Galala, Sunny und Triesta werden häufig für Innenböden in Häusern, Hotels und Geschäftsgebäuden verwendet. Für Außen- oder Nassbereiche bietet eine geschliffene, gebürstete oder sandgestrahlte Oberfläche mehr Trittsicherheit als eine polierte."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen ägyptischem und importiertem Marmor?",
+        "a": "Ägyptischer Marmor wird in Ägypten abgebaut und verarbeitet. Importierte Marmore aus Partnersteinbrüchen in Italien, der Türkei und anderen Ländern bringen Farben und Maserungen, die ägyptische Steinbrüche nicht liefern, etwa reines Weiß mit kräftigen Adern. Wadi Degla liefert beides, sodass Sie ein ganzes Projekt bei einem Lieferanten beziehen können."
+      },
+      {
+        "q": "Kann ich ein Muster bekommen?",
+        "a": "Ja. Öffnen Sie die Seite eines Steins und klicken Sie auf „Muster anfordern“, oder kontaktieren Sie unser Vertriebsteam."
+      },
+      {
+        "q": "Exportieren Sie ägyptischen Marmor?",
+        "a": "Ja. Wir exportieren Rohplatten, Fliesen und Blöcke mit Schutzverpackung und vollständigen Exportdokumenten in die Golfstaaten, nach Europa, Afrika, Asien und Amerika."
+      },
+      {
+        "q": "Wie erhalte ich einen Preis?",
+        "a": "Der Preis hängt von Stein, Oberfläche, Stärke, Maßen, Menge und Bestimmungsort ab. Senden Sie uns Ihre Anforderungen, und unser Vertriebsteam antwortet mit einem Angebot."
+      }
+    ]
+  },
+  "egyptianGranite": {
+    "pageTitle": "Ägyptischer Granit – Platten, Fliesen, Bordsteine & Pflaster | Wadi Degla",
+    "metaDescription": "Ägyptischer Granit von Wadi Degla: Black Aswan, Red Aswan, New Halayeb, Gandolla, Royal Red, Rosa El Nasr und mehr. Rohplatten, Fliesen, Blöcke, Bordsteine und Pflastersteine, weltweit exportiert.",
+    "heading": "Ägyptischer Granit",
+    "intro": "Ägyptischer Granit ist ein harter, dichter Naturstein aus Ägypten in Schwarz-, Rot-, Rosa-, Grau-, Weiß- und Grüntönen. Weil er Abnutzung und Witterung widersteht, wird er für stark begangene Böden, Treppen, Fassaden, Küchenarbeitsplatten, Bordsteine und Außenpflaster gewählt.\n\nWadi Degla liefert ägyptischen Granit als Rohplatten, Fliesen und Blöcke und fertigt Granit-Bordsteine und -Pflastersteine, alles in unseren eigenen Werken in Ägypten geschnitten und veredelt.",
+    "sections": [
+      {
+        "title": "Beliebte Sorten ägyptischen Granits",
+        "text": "Zu unseren ägyptischen Graniten gehören Black Aswan, Red Aswan, New Halayeb und Halayeb, Gandolla, Royal Red, Rosa El Nasr, Rosa Hoody, Red Fersan, Karnak Grey, Fantastic White, Verdi Green, Brown Qusair, Hoody Dark und Magic Noir."
+      },
+      {
+        "title": "Wo ägyptischer Granit verwendet wird",
+        "text": "Böden in Flughäfen, Einkaufszentren, Büros und Hotels; Treppen und Stufen; Außenverkleidungen und Fassaden; Küchenarbeitsplatten; sowie Bordsteine, Pflastersteine und Beläge für Straßen, Wege und Gärten."
+      },
+      {
+        "title": "Oberflächen",
+        "text": "Poliert für tiefen Glanz im Innenbereich; geflammt, gestockt und sandgestrahlt für rutschfeste Außenflächen; geschliffen und lederartig für eine weiche, matte Optik. Die verfügbaren Oberflächen jedes Granits stehen auf seiner Seite."
+      },
+      {
+        "title": "Bordsteine und Pflastersteine aus Granit",
+        "text": "Neben Rohplatten und Fliesen fertigen unsere Werke Granit-Bordsteine in mehreren Profilen sowie Granit-Pflastersteine für Einfahrten, Wege und Plätze, in Standard- und Sondermaßen."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Ist Granit härter als Marmor?",
+        "a": "Ja. Granit ist härter und weniger porös als Marmor und wird deshalb für stark begangene Flächen, den Außenbereich und Küchenarbeitsplatten bevorzugt."
+      },
+      {
+        "q": "Welche Oberfläche eignet sich für Granit im Außenbereich?",
+        "a": "Eine geflammte, gestockte oder sandgestrahlte Oberfläche. Die strukturierte Fläche ist rutschhemmend, was bei Pflaster, Stufen und Poolbereichen wichtig ist. Unser Team empfiehlt Ihnen gern Stein und Oberfläche für Ihr Klima und Ihre Nutzung."
+      },
+      {
+        "q": "Kann ich ein Muster bekommen?",
+        "a": "Ja. Öffnen Sie die Seite eines Steins und klicken Sie auf „Muster anfordern“, oder kontaktieren Sie unser Vertriebsteam."
+      },
+      {
+        "q": "Wie erhalte ich einen Preis?",
+        "a": "Der Preis hängt von Stein, Oberfläche, Stärke, Maßen, Menge und Bestimmungsort ab. Senden Sie uns Ihre Anforderungen, und unser Vertriebsteam antwortet mit einem Angebot."
+      }
+    ]
+  },
+  "importedMarble": {
+    "pageTitle": "Importierter Marmor – Italienischer, türkischer & exotischer Marmor | Wadi Degla",
+    "metaDescription": "Importierter Marmor von Wadi Degla: Calacatta, Arabescato, Botticino, Volakas, Nero Marquina, Onyx und mehr, ergänzend zu unserem ägyptischen Stein. Rohplatten und Fliesen für hochwertige Projekte.",
+    "heading": "Importierter Marmor",
+    "intro": "Neben ägyptischem Stein liefert Wadi Degla importierten Marmor über Partnerschaften mit Steinbrüchen in Italien, der Türkei und anderen Ländern: klassische Weißtöne wie Calacatta und Arabescato, elegante Grautöne, dunkle Marmore wie Nero Marquina sowie dekorativen Onyx und exotische Steine.\n\nSo können Sie die ägyptischen und importierten Steine für ein Projekt bei einem Lieferanten beziehen.",
+    "sections": [
+      {
+        "title": "Importierte Marmore, die wir liefern",
+        "text": "Weiß und Grau: Calacatta Italy, Calacatta Grey, Calacatta Viola, Arabescato, Volakas, Majestic White, Oriental White, Panda White, Sunny White, Pietra Grey, Tundra Grey, Silver Grey, Lady Grey, Persian Grey und Universal Grey.\n\nBeige und Braun: Botticino Classico, Breccia Daino, Travertin Beige, Diana Royal, Coffee Wood, Forest Brown und White Wood.\n\nDunkel und farbig: Nero Marquina, Azul Macauba, Iron Red, Forest Green und Silver Wave.\n\nOnyx und exotische Steine: Beige Onyx, Grüner Onyx, Indischer Onyx, Amethyst, blauer, brauner und grauer Achat, Jaspis, Ozean-Jaspis, Tigerauge, gelber Quarz und versteinertes Holz."
+      },
+      {
+        "title": "Wo importierter Marmor verwendet wird",
+        "text": "Akzentwände, Luxusbäder, Hotellobbys, Empfangstheken, Kücheninseln, Treppen und Möbel. Hinterleuchteter Onyx und exotische Steine schaffen eindrucksvolle Wände, Bars und Theken."
+      },
+      {
+        "title": "Oberflächen und Formate",
+        "text": "Importierter Marmor wird meist als polierte oder geschliffene Rohplatten und Fliesen geliefert. Die verfügbaren Oberflächen jedes Steins stehen auf seiner Seite."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Was ist der Unterschied zwischen Calacatta- und Carrara-Marmor?",
+        "a": "Beide sind weiße italienische Marmore. Calacatta hat meist einen helleren weißen Grund mit kräftigeren, breiteren Adern, Carrara ist grauer mit feineren, weicheren Adern."
+      },
+      {
+        "q": "Kann ich importierten und ägyptischen Marmor in einem Projekt kombinieren?",
+        "a": "Ja. Viele Projekte nutzen einen importierten Marmor für Akzentbereiche und einen ägyptischen Marmor für große Boden- und Wandflächen. Wir liefern beides."
+      },
+      {
+        "q": "Kann ich ein Muster bekommen?",
+        "a": "Ja. Öffnen Sie die Seite eines Steins und klicken Sie auf „Muster anfordern“, oder kontaktieren Sie unser Vertriebsteam."
+      },
+      {
+        "q": "Wie erhalte ich einen Preis?",
+        "a": "Der Preis hängt von Stein, Oberfläche, Stärke, Maßen, Menge und Bestimmungsort ab. Senden Sie uns Ihre Anforderungen, und unser Vertriebsteam antwortet mit einem Angebot."
+      }
+    ]
+  },
+  "importedGranite": {
+    "pageTitle": "Importierter Granit – Kashmir, Star Galaxy, Labrador & mehr | Wadi Degla",
+    "metaDescription": "Importierter Granit von Wadi Degla: Kashmir White, Kashmir Gold, Star Galaxy, Labrador Blue Pearl, Baltic Brown, Tiger Skin und mehr. Rohplatten und Fliesen für Arbeitsplatten, Böden und Fassaden.",
+    "heading": "Importierter Granit",
+    "intro": "Wadi Degla liefert auch importierte Granite mit Farben und Mustern, die unser ägyptisches Sortiment ergänzen, von funkelndem Schwarz und Blau bis zu warmem Gold und Braun.\n\nImportierter Granit ist hart und langlebig und daher ein Favorit für Küchenarbeitsplatten, stark begangene Böden, Treppen und Fassaden.",
+    "sections": [
+      {
+        "title": "Importierte Granite, die wir liefern",
+        "text": "Kashmir White, Kashmir Gold, Star Galaxy, Black Platinum Gold, Black River, Double Black, Labrador Blue Pearl, Labrador Emerald Pearl, Baltic Brown, Paradiso, Shiva Gold und Tiger Skin."
+      },
+      {
+        "title": "Wo importierter Granit verwendet wird",
+        "text": "Küchenarbeitsplatten und Kücheninseln, Waschtische, Böden in stark frequentierten Bereichen, Treppen, Außenverkleidungen und Fassaden."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Eignet sich importierter Granit für Küchenarbeitsplatten?",
+        "a": "Ja. Granit ist hart, hitzebeständig und weniger porös als Marmor und damit eines der beliebtesten Materialien für Arbeitsplatten."
+      },
+      {
+        "q": "Kann ich ein Muster bekommen?",
+        "a": "Ja. Öffnen Sie die Seite eines Steins und klicken Sie auf „Muster anfordern“, oder kontaktieren Sie unser Vertriebsteam."
+      },
+      {
+        "q": "Wie erhalte ich einen Preis?",
+        "a": "Der Preis hängt von Stein, Oberfläche, Stärke, Maßen, Menge und Bestimmungsort ab. Senden Sie uns Ihre Anforderungen, und unser Vertriebsteam antwortet mit einem Angebot."
+      }
+    ]
+  },
+  "galalaMarble": {
+    "pageTitle": "Galala-Marmor – Beiger ägyptischer Marmor aus den Galala-Brüchen | Wadi Degla",
+    "metaDescription": "Galala-Marmor: Ägyptens bekanntester beiger Marmor aus den Steinbrüchen am Galala-Berg, die der Gründer von Wadi Degla 1980 eröffnete. Rohplatten, Fliesen und Blöcke in vielen Oberflächen.",
+    "heading": "Galala-Marmor",
+    "intro": "Galala-Marmor ist Ägyptens bekanntester beiger Marmor und wird am Galala-Berg abgebaut. Geschätzt wird er für seine Beständigkeit, seine feine Struktur, seine gleichmäßige Farbe und sein zeitloses Beige; er wird weltweit in Wohn-, Gewerbe- und großen Architekturprojekten eingesetzt.\n\nDie Geschichte von Wadi Degla ist eng mit Galala verbunden: Unser Gründer eröffnete 1980 den ersten Galala-Steinbruch, als der Marmor des Berges noch unbekannt war.",
+    "sections": [
+      {
+        "title": "Die Geschichte des Galala",
+        "text": "1980 erkundete der Gründer von Wadi Degla, Alhag Saed Alghanam, das damals unbekannte Potenzial des Galala-Berges und eröffnete dort den ersten Steinbruch. Galala wurde bald zu einem der gefragtesten Steine Ägyptens und zog Importeure aus aller Welt an. Unter seiner Führung besaß Wadi Degla sieben große Steinbrüche in Galala, und die zweite Generation erschloss sieben weitere."
+      },
+      {
+        "title": "Warum Architekten Galala wählen",
+        "text": "Hohe Festigkeit und Beständigkeit, gleichmäßige Farbe und Steinqualität sowie ein warmes Beige, das zu klassischen wie modernen Entwürfen passt. Er wird für Böden, Wände, Fassaden, Treppen und Fensterbänke in Villen, Hotels, Wohnanlagen und Geschäftsgebäuden verwendet."
+      },
+      {
+        "title": "Oberflächen und Formate",
+        "text": "Galala ist in vielen Oberflächen erhältlich, darunter poliert, geschliffen, gebürstet, antik, sandgestrahlt, gestockt, geflammt, lederartig, rau und gespalten. Wir liefern ihn als Blöcke, Rohplatten und Fliesen nach Maß, exportfertig verpackt."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Ist Galala Marmor oder Kalkstein?",
+        "a": "Geologisch ist Galala ein dichter Kalkstein. Im Steinhandel wird er als Marmor verkauft, weil er sich polieren lässt und wie Marmor verwendet wird."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Galala und Galala Extra?",
+        "a": "Beide stammen aus den Galala-Steinbrüchen. Jeder hat eine eigene Seite mit Fotos, damit Sie Farbe und Struktur vergleichen können."
+      },
+      {
+        "q": "Kann ich ein Galala-Muster bekommen?",
+        "a": "Ja. Öffnen Sie die Seite des Steins und klicken Sie auf „Muster anfordern“, oder kontaktieren Sie unser Vertriebsteam."
+      },
+      {
+        "q": "Wie erhalte ich einen Preis für Galala-Marmor?",
+        "a": "Der Preis hängt von Oberfläche, Stärke, Maßen, Menge und Bestimmungsort ab. Senden Sie uns Ihre Anforderungen, und unser Vertriebsteam antwortet mit einem Angebot."
+      }
+    ]
+  },
+  "buyGuide": {
+    "pageTitle": "Marmor & Granit aus Ägypten kaufen – Importleitfaden | Wadi Degla",
+    "metaDescription": "So importieren Sie Marmor und Granit aus Ägypten mit Wadi Degla: Steinauswahl und Muster, Angebot, Produktion, Exportverpackung, Versand und Dokumente. Export seit 1980.",
+    "heading": "Marmor aus Ägypten kaufen",
+    "intro": "Ägypten ist eine der großen Naturstein-Quellen der Welt, und Wadi Degla exportiert ägyptischen Marmor und Granit seit 1980. Dieser Leitfaden erklärt, wie eine Bestellung bei uns abläuft, von der Steinauswahl bis zur Ankunft Ihres Containers.",
+    "stepsTitle": "So läuft eine Bestellung ab",
+    "steps": [
+      {
+        "title": "Steine auswählen",
+        "text": "Stöbern Sie in unserem ägyptischen Marmor, ägyptischen Granit und unseren importierten Steinen, testen Sie sie mit dem Material-Visualisierer in echten Räumen und fordern Sie Muster Ihrer Favoriten an."
+      },
+      {
+        "title": "Anforderungen senden",
+        "text": "Nennen Sie uns Stein, Oberfläche, Stärke, Maße (Rohplatten, Fliesen nach Maß oder Blöcke), Menge und Zielhafen. Wenn Sie Pläne oder einen Projektzeitplan haben, senden Sie diese mit."
+      },
+      {
+        "title": "Angebot erhalten",
+        "text": "Unser Vertriebsteam erstellt ein Angebot für Ihre Bestellung und beantwortet technische Fragen."
+      },
+      {
+        "title": "Produktion und Qualitätskontrolle",
+        "text": "Ihre Bestellung wird in unseren Werken in Ägypten geschnitten und veredelt, mit Qualitätsprüfungen am Stein und an den fertigen Teilen."
+      },
+      {
+        "title": "Exportverpackung",
+        "text": "Rohplatten werden in Bündeln von 8 bis 15 Stück in verstärkten Holzrahmen zusammengefasst oder für das manuelle Verladen auf Holzlatten gestellt. Fliesen kommen in schaumstoffausgekleidete Holzkisten oder auf umreifte Paletten. Polierte Flächen werden mit Kunststofffolien geschützt, und jede Kiste und Palette trägt ein Etikett mit Maßen, Stärke und Auftragsdaten."
+      },
+      {
+        "title": "Versand und Dokumente",
+        "text": "Unsere Exportabteilung koordiniert die Containerverladung, Spediteure und Zolldokumente, damit Ihre Sendung in Ihrem Land ohne Verzögerung verzollt wird."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Wohin wir exportieren",
+        "text": "Wir liefern Naturstein in die Golfstaaten, nach Europa, Afrika, Asien sowie Nord- und Südamerika, mit professioneller Logistik, sicherer Verpackung und vollständigen Exportdokumenten."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Liefern Sie ägyptischen und importierten Stein?",
+        "a": "Ja. Neben unserem ägyptischen Marmor und Granit liefern wir importierten Marmor und Granit aus Partnersteinbrüchen, sodass ein ganzes Projekt von einem Lieferanten kommen kann."
+      },
+      {
+        "q": "Können Sie Sondermaße fertigen?",
+        "a": "Ja. Wir liefern Standardmaße, und unsere Werke können Sondermaße nach Ihren Plänen zuschneiden."
+      },
+      {
+        "q": "Wie werden Rohplatten beim Transport geschützt?",
+        "a": "Rohplatten reisen in verstärkten Holzbündeln oder auf Holzlatten, mit Kunststofffolien zwischen polierten Flächen, und sind umreift, damit sie auf See nicht verrutschen."
+      },
+      {
+        "q": "Wie fange ich an?",
+        "a": "Kontaktieren Sie unser Vertriebsteam mit Stein, Mengen und Bestimmungsort, oder fordern Sie auf der Seite eines Steins ein Muster an."
+      }
+    ]
+  }
+}

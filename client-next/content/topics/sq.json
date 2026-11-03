@@ -1,0 +1,264 @@
+{
+  "common": {
+    "breadcrumbHome": "Kreu",
+    "breadcrumbProducts": "Produktet",
+    "productsTitle": "{{topic}}: {{count}} gurët që furnizojmë",
+    "projectsTitle": "Projekte me {{topic}}",
+    "faqTitle": "Pyetje të shpeshta",
+    "ctaTitle": "Kërkoni një ofertë ose një mostër",
+    "ctaText": "Na tregoni gurin, përfundimin, trashësinë, përmasat, sasinë dhe destinacionin, dhe ekipi ynë i shitjeve do t'ju përgjigjet me një ofertë.",
+    "ctaButton": "Kontaktoni ekipin e shitjeve",
+    "relatedTitle": "Faqe të ngjashme"
+  },
+  "egyptianMarble": {
+    "pageTitle": "Mermer egjiptian – Pllaka dhe blloqe nga Egjipti | Wadi Degla",
+    "metaDescription": "Mermer egjiptian nga Wadi Degla: Galala, Sunny, Triesta, Fantazia, Emperador, Cleopatra dhe të tjerë. Pllaka dhe blloqe nga guroret dhe fabrikat tona në Egjipt, të eksportuara në mbarë botën që nga viti 1980.",
+    "heading": "Mermer egjiptian",
+    "intro": "Mermeri egjiptian është gur natyror i nxjerrë në Egjipt, i njohur për ngjyrat e ngrohta bezhë, krem, gri dhe kafe dhe për cilësinë e qëndrueshme. Përdoret në shtëpi, hotele, resorte dhe ndërtesa tregtare në mbarë botën.\n\nWadi Degla punon në guroret egjiptiane që nga viti 1980, kur themeluesi ynë hapi gurorën e parë në malin Galala. Sot e presim dhe e përpunojmë mermerin egjiptian në fabrikat tona në Egjipt, mbi 27.000 metra katrorë, dhe e dërgojmë si pllaka të mëdha, pllaka të prera dhe blloqe në projekte në mbarë botën. Më poshtë gjeni të gjitha llojet e mermerit egjiptian që furnizojmë dhe përgjigje për pyetjet më të shpeshta.",
+    "sections": [
+      {
+        "title": "Llojet më të njohura të mermerit egjiptian",
+        "text": "Gama jonë egjiptiane përfshin Galala dhe Galala Extra, Sunny Light dhe Sunny Dark, Triesta Beige dhe Triesta Grey, Fantazia Sylvia dhe Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl dhe alabastër egjiptian.\n\nÇdo gur ka faqen e vet me fotografi, përfundimet e disponueshme dhe projektet ku është përdorur."
+      },
+      {
+        "title": "Ku përdoret mermeri egjiptian",
+        "text": "Dysheme, veshje muresh, fasada, shkallë, parvaze dritaresh, banakë dhe peizazh, në vila, hotele, resorte, komplekse banimi dhe ndërtesa tregtare. Projektet tona me mermer egjiptian përfshijnë resorte në Karaibe, ndërtesa banimi në Kenia, vila dhe ndërtesa zyrash në Egjipt dhe një ambasadë në Kuvajt."
+      },
+      {
+        "title": "Përfundimet dhe formatet",
+        "text": "Sipas gurit, mermeri egjiptian ofrohet i lëmuar, mat, i furçuar, antik, i rëruar, i çekiçuar, i flakëruar, me efekt lëkure dhe i çarë. Furnizojmë blloqe, pllaka të mëdha dhe pllaka të prera me masë, dhe fabrikat tona mund të prodhojnë përmasa të veçanta për projektin tuaj."
+      },
+      {
+        "title": "Pse të blini mermer egjiptian nga Wadi Degla",
+        "text": "Tre breza në industrinë e gurorëve egjiptiane, gurore në malin Galala dhe tre fabrika (të hapura në 2000, 2011 dhe 2015) me linja moderne prerjeje, lëmimi, rrëshire, CNC dhe prerjeje me ujë. Prodhimi ynë është i certifikuar ISO, çdo porosi paketohet në pako, arka ose paleta druri për eksport, dhe dërgojmë në vendet e Gjirit, Evropë, Afrikë, Azi dhe Amerikë."
+      }
+    ],
+    "faq": [
+      {
+        "q": "A është mermeri egjiptian i përshtatshëm për dysheme?",
+        "a": "Po. Mermerët egjiptianë si Galala, Sunny dhe Triesta përdoren gjerësisht për dysheme të brendshme në shtëpi, hotele dhe ndërtesa tregtare. Për ambiente të jashtme ose të lagura, përfundimi mat, i furçuar ose i rëruar jep më shumë kapje se ai i lëmuar."
+      },
+      {
+        "q": "Cili është ndryshimi mes mermerit egjiptian dhe atij të importuar?",
+        "a": "Mermeri egjiptian nxirret dhe përpunohet në Egjipt. Mermerët e importuar, nga gurore partnere në Itali, Turqi dhe vende të tjera, sjellin ngjyra dhe damarë që guroret egjiptiane nuk i prodhojnë, si të bardhë të pastër me damarë të theksuar. Wadi Degla furnizon të dyja, kështu që mund ta furnizoni gjithë projektin nga një furnizues i vetëm."
+      },
+      {
+        "q": "A mund të marr një mostër?",
+        "a": "Po. Hapni faqen e çdo guri dhe shtypni \"Kërkoni një mostër\", ose kontaktoni ekipin tonë të shitjeve."
+      },
+      {
+        "q": "A eksportoni mermer egjiptian?",
+        "a": "Po. Eksportojmë pllaka dhe blloqe me paketim mbrojtës dhe dokumente të plota eksporti në vendet e Gjirit, Evropë, Afrikë, Azi dhe Amerikë."
+      },
+      {
+        "q": "Si ta mësoj çmimin?",
+        "a": "Çmimi varet nga guri, përfundimi, trashësia, përmasat, sasia dhe destinacioni. Na dërgoni kërkesat tuaja dhe ekipi i shitjeve do t'ju përgjigjet me një ofertë."
+      }
+    ]
+  },
+  "egyptianGranite": {
+    "pageTitle": "Granit egjiptian – Pllaka, bordura dhe kubëza | Wadi Degla",
+    "metaDescription": "Granit egjiptian nga Wadi Degla: Black Aswan, Red Aswan, New Halayeb, Gandolla, Royal Red, Rosa El Nasr dhe të tjerë. Pllaka, blloqe, bordura dhe kubëza, të eksportuara në mbarë botën.",
+    "heading": "Granit egjiptian",
+    "intro": "Graniti egjiptian është gur natyror i fortë dhe i dendur i nxjerrë në Egjipt, në ngjyra të zeza, të kuqe, rozë, gri, të bardha dhe jeshile. Meqë i reziston konsumimit dhe motit, zgjidhet për dysheme me trafik të lartë, shkallë, fasada, banakë kuzhine, bordura dhe shtrime të jashtme.\n\nWadi Degla furnizon granit egjiptian si pllaka dhe blloqe dhe prodhon bordura dhe kubëza graniti, të gjitha të prera dhe të përpunuara në fabrikat tona në Egjipt.",
+    "sections": [
+      {
+        "title": "Llojet më të njohura të granitit egjiptian",
+        "text": "Granitet tona egjiptiane përfshijnë Black Aswan, Red Aswan, New Halayeb dhe Halayeb, Gandolla, Royal Red, Rosa El Nasr, Rosa Hoody, Red Fersan, Karnak Grey, Fantastic White, Verdi Green, Brown Qusair, Hoody Dark dhe Magic Noir."
+      },
+      {
+        "title": "Ku përdoret graniti egjiptian",
+        "text": "Dysheme në aeroporte, qendra tregtare, zyra dhe hotele; shkallë; veshje të jashtme dhe fasada; banakë kuzhine; bordura, kubëza dhe shtrime për rrugë, shtigje dhe kopshte."
+      },
+      {
+        "title": "Përfundimet",
+        "text": "I lëmuar për shkëlqim të thellë në ambiente të brendshme; i flakëruar, i çekiçuar dhe i rëruar për sipërfaqe të jashtme kundër rrëshqitjes; mat dhe me efekt lëkure për pamje të butë mat. Përfundimet e disponueshme për çdo granit tregohen në faqen e tij."
+      },
+      {
+        "title": "Bordura dhe kubëza graniti",
+        "text": "Përveç pllakave, fabrikat tona prodhojnë bordura graniti me disa profile dhe kubëza graniti për hyrje, shtigje dhe sheshe, në përmasa standarde dhe me porosi."
+      }
+    ],
+    "faq": [
+      {
+        "q": "A është graniti më i fortë se mermeri?",
+        "a": "Po. Graniti është më i fortë dhe më pak poroz se mermeri, prandaj preferohet për trafik të lartë, ambiente të jashtme dhe banakë kuzhine."
+      },
+      {
+        "q": "Cili përfundim është më i miri për granit në ambiente të jashtme?",
+        "a": "Përfundimi i flakëruar, i çekiçuar ose i rëruar. Sipërfaqja e ashpër është kundër rrëshqitjes, gjë e rëndësishme për shtrime, shkallë dhe rreth pishinave. Ekipi ynë mund t'ju rekomandojë gurin dhe përfundimin për klimën dhe përdorimin tuaj."
+      },
+      {
+        "q": "A mund të marr një mostër?",
+        "a": "Po. Hapni faqen e çdo guri dhe shtypni \"Kërkoni një mostër\", ose kontaktoni ekipin tonë të shitjeve."
+      },
+      {
+        "q": "Si ta mësoj çmimin?",
+        "a": "Çmimi varet nga guri, përfundimi, trashësia, përmasat, sasia dhe destinacioni. Na dërgoni kërkesat tuaja dhe ekipi i shitjeve do t'ju përgjigjet me një ofertë."
+      }
+    ]
+  },
+  "importedMarble": {
+    "pageTitle": "Mermer i importuar – Mermer italian, turk dhe ekzotik | Wadi Degla",
+    "metaDescription": "Mermer i importuar nga Wadi Degla: Calacatta, Arabescato, Botticino, Volakas, Nero Marquina, oniks dhe të tjerë, krahas gurit tonë egjiptian. Pllaka për projekte luksoze në mbarë botën.",
+    "heading": "Mermer i importuar",
+    "intro": "Krahas gurit egjiptian, Wadi Degla furnizon mermer të importuar falë partneriteteve me gurore në Itali, Turqi dhe vende të tjera: të bardhë klasikë si Calacatta dhe Arabescato, gri elegante, mermerë të errët si Nero Marquina, si dhe oniks dhe gurë ekzotikë dekorativë.\n\nKështu mund t'i furnizoni gurët egjiptianë dhe të importuar të një projekti nga një furnizues i vetëm.",
+    "sections": [
+      {
+        "title": "Mermerët e importuar që furnizojmë",
+        "text": "Të bardhë dhe gri: Calacatta Italy, Calacatta Grey, Calacatta Viola, Arabescato, Volakas, Majestic White, Oriental White, Panda White, Sunny White, Pietra Grey, Tundra Grey, Silver Grey, Lady Grey, Persian Grey dhe Universal Grey.\n\nBezhë dhe kafe: Botticino Classico, Breccia Daino, Travertin Beige, Diana Royal, Coffee Wood, Forest Brown dhe White Wood.\n\nTë errët dhe me ngjyra: Nero Marquina, Azul Macauba, Iron Red, Forest Green dhe Silver Wave.\n\nOniks dhe gurë ekzotikë: oniks bezhë, oniks jeshil, oniks indian, ametist, agat blu, kafe dhe gri, jaspis, jaspis oqeani, sy tigri, kuarc i verdhë dhe dru i ngurtësuar."
+      },
+      {
+        "title": "Ku përdoret mermeri i importuar",
+        "text": "Mure theksi, banjo luksoze, holle hotelesh, banakë recepsioni, ishuj kuzhine, shkallë dhe mobilie. Oniksi i ndriçuar nga pas dhe gurët ekzotikë krijojnë mure, bare dhe banakë mbresëlënës."
+      },
+      {
+        "title": "Përfundimet dhe formatet",
+        "text": "Mermeri i importuar furnizohet kryesisht si pllaka të lëmuara ose mat. Përfundimet e disponueshme për çdo gur tregohen në faqen e tij."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Cili është ndryshimi mes mermerit Calacatta dhe Carrara?",
+        "a": "Të dy janë mermerë të bardhë italianë. Calacatta zakonisht ka sfond më të bardhë me damarë më të gjerë dhe më të theksuar, ndërsa Carrara është më gri me damarë më të hollë dhe më të butë."
+      },
+      {
+        "q": "A mund të kombinoj mermer të importuar dhe egjiptian në një projekt?",
+        "a": "Po. Shumë projekte përdorin një mermer të importuar për zonat e theksit dhe një mermer egjiptian për sipërfaqet e mëdha të dyshemeve dhe mureve. Ne furnizojmë të dyja."
+      },
+      {
+        "q": "A mund të marr një mostër?",
+        "a": "Po. Hapni faqen e çdo guri dhe shtypni \"Kërkoni një mostër\", ose kontaktoni ekipin tonë të shitjeve."
+      },
+      {
+        "q": "Si ta mësoj çmimin?",
+        "a": "Çmimi varet nga guri, përfundimi, trashësia, përmasat, sasia dhe destinacioni. Na dërgoni kërkesat tuaja dhe ekipi i shitjeve do t'ju përgjigjet me një ofertë."
+      }
+    ]
+  },
+  "importedGranite": {
+    "pageTitle": "Granit i importuar – Kashmir, Star Galaxy, Labrador e të tjerë | Wadi Degla",
+    "metaDescription": "Granit i importuar nga Wadi Degla: Kashmir White, Kashmir Gold, Star Galaxy, Labrador Blue Pearl, Baltic Brown, Tiger Skin dhe të tjerë. Pllaka për banakë, dysheme dhe fasada.",
+    "heading": "Granit i importuar",
+    "intro": "Wadi Degla furnizon gjithashtu granite të importuara me ngjyra dhe motive që plotësojnë gamën tonë egjiptiane, nga e zeza dhe bluja shkëlqyese te ari dhe kafeja e ngrohtë.\n\nGraniti i importuar është i fortë dhe jetëgjatë, prandaj është i preferuar për banakë kuzhine, dysheme me trafik të lartë, shkallë dhe fasada.",
+    "sections": [
+      {
+        "title": "Granitet e importuara që furnizojmë",
+        "text": "Kashmir White, Kashmir Gold, Star Galaxy, Black Platinum Gold, Black River, Double Black, Labrador Blue Pearl, Labrador Emerald Pearl, Baltic Brown, Paradiso, Shiva Gold dhe Tiger Skin."
+      },
+      {
+        "title": "Ku përdoret graniti i importuar",
+        "text": "Banakë dhe ishuj kuzhine, lavamanë banjoje, dysheme në zona me trafik të lartë, shkallë, veshje të jashtme dhe fasada."
+      }
+    ],
+    "faq": [
+      {
+        "q": "A është graniti i importuar i përshtatshëm për banakë kuzhine?",
+        "a": "Po. Graniti është i fortë, i reziston nxehtësisë dhe është më pak poroz se mermeri, prandaj është një nga materialet më të njohura për banakë."
+      },
+      {
+        "q": "A mund të marr një mostër?",
+        "a": "Po. Hapni faqen e çdo guri dhe shtypni \"Kërkoni një mostër\", ose kontaktoni ekipin tonë të shitjeve."
+      },
+      {
+        "q": "Si ta mësoj çmimin?",
+        "a": "Çmimi varet nga guri, përfundimi, trashësia, përmasat, sasia dhe destinacioni. Na dërgoni kërkesat tuaja dhe ekipi i shitjeve do t'ju përgjigjet me një ofertë."
+      }
+    ]
+  },
+  "galalaMarble": {
+    "pageTitle": "Mermer Galala – Mermer bezhë egjiptian nga guroret e Galalës | Wadi Degla",
+    "metaDescription": "Mermeri Galala: mermeri bezhë më i njohur i Egjiptit, nga guroret e malit Galala të hapura nga themeluesi i Wadi Degla në vitin 1980. Pllaka dhe blloqe me shumë përfundime.",
+    "heading": "Mermer Galala",
+    "intro": "Mermeri Galala është mermeri bezhë më i njohur i Egjiptit, i nxjerrë në malin Galala. Vlerësohet për qëndrueshmërinë, teksturën e rafinuar, ngjyrën e njëtrajtshme dhe bezhën e përjetshme, dhe përdoret në projekte banimi, tregtare dhe arkitekturore të mëdha në mbarë botën.\n\nHistoria e Wadi Degla është e lidhur me Galalën: themeluesi ynë hapi gurorën e parë të Galalës në vitin 1980, kur mermeri i malit ishte i panjohur.",
+    "sections": [
+      {
+        "title": "Historia e Galalës",
+        "text": "Në vitin 1980, themeluesi i Wadi Degla, Alhag Saed Alghanam, eksploroi potencialin atëherë të panjohur të malit Galala dhe hapi aty gurorën e parë. Galala u bë shpejt një nga gurët më të kërkuar të Egjiptit, duke tërhequr importues nga e gjithë bota. Nën drejtimin e tij, Wadi Degla zotëroi shtatë gurore të mëdha në Galala, dhe brezi i dytë zhvilloi edhe shtatë të tjera."
+      },
+      {
+        "title": "Pse arkitektët zgjedhin Galalën",
+        "text": "Qëndrueshmëri e lartë strukturore, ngjyrë dhe cilësi guri e njëtrajtshme, dhe një bezhë e ngrohtë që i përshtatet si dizajnit klasik ashtu edhe atij modern. Përdoret për dysheme, mure, fasada, shkallë dhe parvaze në vila, hotele, komplekse banimi dhe ndërtesa tregtare."
+      },
+      {
+        "title": "Përfundimet dhe formatet",
+        "text": "Galala ofrohet në shumë përfundime, përfshirë të lëmuar, mat, të furçuar, antik, të rëruar, të çekiçuar, të flakëruar, me efekt lëkure, të ashpër dhe të çarë. E furnizojmë si blloqe, pllaka të mëdha dhe pllaka të prera me masë, të paketuara për eksport."
+      }
+    ],
+    "faq": [
+      {
+        "q": "A është Galala mermer apo gur gëlqeror?",
+        "a": "Gjeologjikisht, Galala është gur gëlqeror kompakt. Në tregtinë e gurit shitet si mermer sepse lëmohet dhe përdoret njësoj si mermeri."
+      },
+      {
+        "q": "Cili është ndryshimi mes Galala dhe Galala Extra?",
+        "a": "Të dy vijnë nga guroret e Galalës. Secili ka faqen e vet me fotografi, që të krahasoni ngjyrën dhe teksturën."
+      },
+      {
+        "q": "A mund të marr një mostër Galala?",
+        "a": "Po. Hapni faqen e gurit dhe shtypni \"Kërkoni një mostër\", ose kontaktoni ekipin tonë të shitjeve."
+      },
+      {
+        "q": "Si ta mësoj çmimin e mermerit Galala?",
+        "a": "Çmimi varet nga përfundimi, trashësia, përmasat, sasia dhe destinacioni. Na dërgoni kërkesat tuaja dhe ekipi i shitjeve do t'ju përgjigjet me një ofertë."
+      }
+    ]
+  },
+  "buyGuide": {
+    "pageTitle": "Si të blini mermer dhe granit nga Egjipti – Udhëzues importi | Wadi Degla",
+    "metaDescription": "Si të importoni mermer dhe granit nga Egjipti me Wadi Degla: zgjedhja e gurëve dhe mostrave, oferta, prodhimi, paketimi për eksport, transporti dhe dokumentet. Eksportojmë që nga viti 1980.",
+    "heading": "Si të blini mermer nga Egjipti",
+    "intro": "Egjipti është një nga burimet e mëdha botërore të gurit natyror, dhe Wadi Degla eksporton mermer dhe granit egjiptian që nga viti 1980. Ky udhëzues shpjegon si funksionon një porosi me ne, nga zgjedhja e gurit deri te marrja e kontejnerit.",
+    "stepsTitle": "Si funksionon një porosi",
+    "steps": [
+      {
+        "title": "Zgjidhni gurët",
+        "text": "Shfletoni mermerin egjiptian, granitin egjiptian dhe gurët e importuar, provojini në ambiente reale me vizualizuesin e materialeve dhe kërkoni mostra të atyre që ju pëlqejnë."
+      },
+      {
+        "title": "Na dërgoni kërkesat",
+        "text": "Na tregoni gurin, përfundimin, trashësinë, përmasat (pllaka të mëdha, pllaka të prera ose blloqe), sasinë dhe portin e destinacionit. Nëse keni vizatime ose një kalendar projekti, dërgojini edhe ato."
+      },
+      {
+        "title": "Merrni një ofertë",
+        "text": "Ekipi ynë i shitjeve përgatit një ofertë për porosinë tuaj dhe u përgjigjet pyetjeve teknike."
+      },
+      {
+        "title": "Prodhimi dhe kontrolli i cilësisë",
+        "text": "Porosia juaj pritet dhe përpunohet në fabrikat tona në Egjipt, me kontrolle cilësie të gurit dhe të pjesëve të përfunduara."
+      },
+      {
+        "title": "Paketimi për eksport",
+        "text": "Pllakat e mëdha grupohen në pako me 8 deri në 15 copë në korniza druri të përforcuara, ose vendosen mbi shufra druri për ngarkim manual. Pllakat e vogla vendosen në arka druri të veshura me shkumë ose mbi paleta të lidhura. Sipërfaqet e lëmuara mbrohen me fletë plastike, dhe çdo arkë e paletë ka etiketë me përmasat, trashësinë dhe të dhënat e porosisë."
+      },
+      {
+        "title": "Transporti dhe dokumentet",
+        "text": "Departamenti ynë i eksportit koordinon ngarkimin e kontejnerëve, agjentët e transportit dhe dokumentet doganore, që ngarkesa juaj të zhdoganohet në vendin tuaj pa vonesa."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Ku eksportojmë",
+        "text": "Dërgojmë gur natyror në vendet e Gjirit, Evropë, Afrikë, Azi dhe Amerikën e Veriut e të Jugut, me logjistikë profesionale, paketim të sigurt dhe dokumente të plota eksporti."
+      }
+    ],
+    "faq": [
+      {
+        "q": "A furnizoni gur egjiptian dhe të importuar?",
+        "a": "Po. Përveç mermerit dhe granitit tonë egjiptian, furnizojmë mermer dhe granit të importuar nga gurore partnere, kështu që gjithë projekti mund të furnizohet nga një furnizues i vetëm."
+      },
+      {
+        "q": "A mund të prodhoni përmasa me porosi?",
+        "a": "Po. Furnizojmë përmasa standarde, dhe fabrikat tona mund të presin përmasa me porosi sipas vizatimeve tuaja."
+      },
+      {
+        "q": "Si mbrohen pllakat gjatë transportit?",
+        "a": "Pllakat udhëtojnë në pako druri të përforcuara ose mbi shufra druri, me fletë plastike mes faqeve të lëmuara, dhe lidhen fort që të mos lëvizin në det."
+      },
+      {
+        "q": "Si të filloj?",
+        "a": "Kontaktoni ekipin e shitjeve me gurin, sasitë dhe destinacionin, ose kërkoni një mostër nga faqja e çdo guri."
+      }
+    ]
+  }
+}

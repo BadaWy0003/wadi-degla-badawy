@@ -1,0 +1,264 @@
+{
+  "common": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbProducts": "Produits",
+    "productsTitle": "{{topic}} : les {{count}} pierres que nous fournissons",
+    "projectsTitle": "Projets réalisés en {{topic}}",
+    "faqTitle": "Questions fréquentes",
+    "ctaTitle": "Demander un devis ou un échantillon",
+    "ctaText": "Indiquez-nous la pierre, la finition, l'épaisseur, les dimensions, la quantité et la destination : notre équipe commerciale vous répondra avec un devis.",
+    "ctaButton": "Contacter notre équipe commerciale",
+    "relatedTitle": "Pages associées"
+  },
+  "egyptianMarble": {
+    "pageTitle": "Marbre égyptien – Tranches, carreaux et blocs d'Égypte | Wadi Degla",
+    "metaDescription": "Marbre égyptien de Wadi Degla : Galala, Sunny, Triesta, Fantazia, Emperador, Cleopatra et plus. Tranches, carreaux et blocs issus de nos carrières et usines en Égypte, exportés dans le monde entier depuis 1980.",
+    "heading": "Marbre égyptien",
+    "intro": "Le marbre égyptien est une pierre naturelle extraite en Égypte, reconnue pour ses tons chauds beige, crème, gris et brun et pour sa qualité constante. On le retrouve dans des maisons, des hôtels, des complexes hôteliers et des bâtiments commerciaux du monde entier.\n\nWadi Degla exploite des carrières égyptiennes depuis 1980, année où notre fondateur a ouvert la première carrière sur la montagne de Galala. Aujourd'hui, nous débitons et finissons le marbre égyptien dans nos propres usines en Égypte, sur plus de 27 000 mètres carrés, et l'expédions en tranches, carreaux et blocs vers des chantiers du monde entier. Vous trouverez ci-dessous tous les marbres égyptiens que nous fournissons, puis les réponses aux questions les plus fréquentes.",
+    "sections": [
+      {
+        "title": "Les principaux types de marbre égyptien",
+        "text": "Notre gamme égyptienne comprend Galala et Galala Extra, Sunny Light et Sunny Dark, Triesta Beige et Triesta Grey, Fantazia Sylvia et Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl et l'albâtre égyptien.\n\nChaque pierre a sa propre page avec ses photos, ses finitions disponibles et les projets où elle a été utilisée."
+      },
+      {
+        "title": "Utilisations du marbre égyptien",
+        "text": "Sols, revêtements muraux, façades, escaliers, appuis de fenêtre, plans de travail et aménagements paysagers, dans des villas, hôtels, complexes hôteliers, résidences et bâtiments commerciaux. Nos projets en marbre égyptien comprennent des complexes hôteliers dans les Caraïbes, des immeubles résidentiels au Kenya, des villas et des immeubles de bureaux en Égypte et une ambassade au Koweït."
+      },
+      {
+        "title": "Finitions et formats",
+        "text": "Selon la pierre, le marbre égyptien est disponible poli, adouci, brossé, antique, sablé, bouchardé, flammé, cuir et éclaté. Nous fournissons des blocs, des tranches et des carreaux sur mesure, et nos usines peuvent produire des dimensions spécifiques pour votre projet."
+      },
+      {
+        "title": "Pourquoi acheter votre marbre égyptien chez Wadi Degla",
+        "text": "Trois générations dans l'industrie des carrières égyptiennes, des carrières sur la montagne de Galala et trois usines (ouvertes en 2000, 2011 et 2015) équipées de lignes modernes de sciage, polissage, résinage, CNC et jet d'eau. Notre production est certifiée ISO, chaque commande est emballée en ballots, caisses ou palettes en bois adaptés à l'export, et nous expédions vers les pays du Golfe, l'Europe, l'Afrique, l'Asie et les Amériques."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Le marbre égyptien convient-il aux sols ?",
+        "a": "Oui. Les marbres égyptiens comme Galala, Sunny et Triesta sont largement utilisés pour les sols intérieurs de maisons, d'hôtels et de bâtiments commerciaux. Pour l'extérieur ou les zones humides, une finition adoucie, brossée ou sablée offre une meilleure adhérence qu'une finition polie."
+      },
+      {
+        "q": "Quelle est la différence entre le marbre égyptien et le marbre importé ?",
+        "a": "Le marbre égyptien est extrait et transformé en Égypte. Les marbres importés, issus de carrières partenaires en Italie, en Turquie et dans d'autres pays, apportent des couleurs et des veinages que les carrières égyptiennes ne produisent pas, comme des blancs purs aux veines marquées. Wadi Degla fournit les deux : vous pouvez approvisionner tout un projet auprès d'un seul fournisseur."
+      },
+      {
+        "q": "Puis-je obtenir un échantillon ?",
+        "a": "Oui. Ouvrez la page de n'importe quelle pierre et cliquez sur « Demander un échantillon », ou contactez notre équipe commerciale."
+      },
+      {
+        "q": "Exportez-vous le marbre égyptien ?",
+        "a": "Oui. Nous exportons tranches, carreaux et blocs avec un emballage de protection et tous les documents d'exportation vers les pays du Golfe, l'Europe, l'Afrique, l'Asie et les Amériques."
+      },
+      {
+        "q": "Comment obtenir un prix ?",
+        "a": "Le prix dépend de la pierre, de la finition, de l'épaisseur, des dimensions, de la quantité et de la destination. Envoyez-nous vos besoins et notre équipe commerciale vous répondra avec un devis."
+      }
+    ]
+  },
+  "egyptianGranite": {
+    "pageTitle": "Granit égyptien – Tranches, carreaux, bordures et pavés | Wadi Degla",
+    "metaDescription": "Granit égyptien de Wadi Degla : Black Aswan, Red Aswan, New Halayeb, Gandolla, Royal Red, Rosa El Nasr et plus. Tranches, carreaux, blocs, bordures et pavés, exportés dans le monde entier.",
+    "heading": "Granit égyptien",
+    "intro": "Le granit égyptien est une pierre naturelle dure et dense extraite en Égypte, dans des tons noirs, rouges, roses, gris, blancs et verts. Comme il résiste à l'usure et aux intempéries, il est choisi pour les sols très fréquentés, les escaliers, les façades, les plans de travail de cuisine, les bordures et les pavages extérieurs.\n\nWadi Degla fournit le granit égyptien en tranches, carreaux et blocs, et produit des bordures et des pavés en granit, le tout débité et fini dans nos propres usines en Égypte.",
+    "sections": [
+      {
+        "title": "Les principaux types de granit égyptien",
+        "text": "Nos granits égyptiens comprennent Black Aswan, Red Aswan, New Halayeb et Halayeb, Gandolla, Royal Red, Rosa El Nasr, Rosa Hoody, Red Fersan, Karnak Grey, Fantastic White, Verdi Green, Brown Qusair, Hoody Dark et Magic Noir."
+      },
+      {
+        "title": "Utilisations du granit égyptien",
+        "text": "Sols d'aéroports, de centres commerciaux, de bureaux et d'hôtels ; escaliers et marches ; revêtements extérieurs et façades ; plans de travail de cuisine ; bordures, pavés et dallages pour les routes, les allées et les jardins."
+      },
+      {
+        "title": "Finitions",
+        "text": "Poli pour une brillance profonde à l'intérieur ; flammé, bouchardé et sablé pour des surfaces extérieures antidérapantes ; adouci et cuir pour un aspect mat et doux. Les finitions disponibles pour chaque granit figurent sur sa page."
+      },
+      {
+        "title": "Bordures et pavés en granit",
+        "text": "En plus des tranches et des carreaux, nos usines produisent des bordures en granit de plusieurs profils et des pavés en granit pour les allées, les chemins et les places, en dimensions standard et sur mesure."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Le granit est-il plus dur que le marbre ?",
+        "a": "Oui. Le granit est plus dur et moins poreux que le marbre, c'est pourquoi on le préfère pour les zones très fréquentées, l'extérieur et les plans de travail de cuisine."
+      },
+      {
+        "q": "Quelle finition choisir pour un granit en extérieur ?",
+        "a": "Une finition flammée, bouchardée ou sablée. Sa surface texturée est antidérapante, ce qui compte pour les dallages, les marches et les abords de piscine. Notre équipe peut vous conseiller une pierre et une finition adaptées à votre climat et à votre usage."
+      },
+      {
+        "q": "Puis-je obtenir un échantillon ?",
+        "a": "Oui. Ouvrez la page de n'importe quelle pierre et cliquez sur « Demander un échantillon », ou contactez notre équipe commerciale."
+      },
+      {
+        "q": "Comment obtenir un prix ?",
+        "a": "Le prix dépend de la pierre, de la finition, de l'épaisseur, des dimensions, de la quantité et de la destination. Envoyez-nous vos besoins et notre équipe commerciale vous répondra avec un devis."
+      }
+    ]
+  },
+  "importedMarble": {
+    "pageTitle": "Marbre importé – Marbre italien, turc et exotique | Wadi Degla",
+    "metaDescription": "Marbre importé de Wadi Degla : Calacatta, Arabescato, Botticino, Volakas, Nero Marquina, onyx et plus, en complément de notre pierre égyptienne. Tranches et carreaux pour des projets haut de gamme.",
+    "heading": "Marbre importé",
+    "intro": "En plus de la pierre égyptienne, Wadi Degla fournit du marbre importé grâce à ses partenariats avec des carrières en Italie, en Turquie et dans d'autres pays : des blancs classiques comme le Calacatta et l'Arabescato, des gris élégants, des marbres sombres comme le Nero Marquina, ainsi que des onyx et des pierres exotiques décoratives.\n\nVous pouvez ainsi approvisionner les pierres égyptiennes et importées d'un projet auprès d'un seul fournisseur.",
+    "sections": [
+      {
+        "title": "Les marbres importés que nous fournissons",
+        "text": "Blancs et gris : Calacatta Italy, Calacatta Grey, Calacatta Viola, Arabescato, Volakas, Majestic White, Oriental White, Panda White, Sunny White, Pietra Grey, Tundra Grey, Silver Grey, Lady Grey, Persian Grey et Universal Grey.\n\nBeiges et bruns : Botticino Classico, Breccia Daino, Travertin Beige, Diana Royal, Coffee Wood, Forest Brown et White Wood.\n\nFoncés et colorés : Nero Marquina, Azul Macauba, Iron Red, Forest Green et Silver Wave.\n\nOnyx et pierres exotiques : onyx beige, onyx vert, onyx indien, améthyste, agates bleue, brune et grise, jaspe, jaspe océan, œil-de-tigre, quartz jaune et bois pétrifié."
+      },
+      {
+        "title": "Utilisations du marbre importé",
+        "text": "Murs décoratifs, salles de bains de luxe, halls d'hôtel, comptoirs d'accueil, îlots de cuisine, escaliers et mobilier. L'onyx rétroéclairé et les pierres exotiques créent des murs, des bars et des comptoirs spectaculaires."
+      },
+      {
+        "title": "Finitions et formats",
+        "text": "Le marbre importé est surtout fourni en tranches et carreaux polis ou adoucis. Les finitions disponibles pour chaque pierre figurent sur sa page."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quelle est la différence entre le marbre Calacatta et le marbre de Carrare ?",
+        "a": "Ce sont deux marbres blancs italiens. Le Calacatta a généralement un fond plus blanc avec des veines plus larges et plus marquées, tandis que le Carrare est plus gris avec des veines plus fines et plus douces."
+      },
+      {
+        "q": "Peut-on associer marbre importé et marbre égyptien dans un même projet ?",
+        "a": "Oui. De nombreux projets utilisent un marbre importé pour les zones décoratives et un marbre égyptien pour les grandes surfaces de sols et de murs. Nous fournissons les deux."
+      },
+      {
+        "q": "Puis-je obtenir un échantillon ?",
+        "a": "Oui. Ouvrez la page de n'importe quelle pierre et cliquez sur « Demander un échantillon », ou contactez notre équipe commerciale."
+      },
+      {
+        "q": "Comment obtenir un prix ?",
+        "a": "Le prix dépend de la pierre, de la finition, de l'épaisseur, des dimensions, de la quantité et de la destination. Envoyez-nous vos besoins et notre équipe commerciale vous répondra avec un devis."
+      }
+    ]
+  },
+  "importedGranite": {
+    "pageTitle": "Granit importé – Kashmir, Star Galaxy, Labrador et plus | Wadi Degla",
+    "metaDescription": "Granit importé de Wadi Degla : Kashmir White, Kashmir Gold, Star Galaxy, Labrador Blue Pearl, Baltic Brown, Tiger Skin et plus. Tranches et carreaux pour plans de travail, sols et façades.",
+    "heading": "Granit importé",
+    "intro": "Wadi Degla fournit aussi des granits importés aux couleurs et motifs qui complètent notre gamme égyptienne, des noirs et bleus scintillants aux ors et bruns chaleureux.\n\nLe granit importé est dur et résistant, ce qui en fait un favori pour les plans de travail de cuisine, les sols très fréquentés, les escaliers et les façades.",
+    "sections": [
+      {
+        "title": "Les granits importés que nous fournissons",
+        "text": "Kashmir White, Kashmir Gold, Star Galaxy, Black Platinum Gold, Black River, Double Black, Labrador Blue Pearl, Labrador Emerald Pearl, Baltic Brown, Paradiso, Shiva Gold et Tiger Skin."
+      },
+      {
+        "title": "Utilisations du granit importé",
+        "text": "Plans de travail et îlots de cuisine, meubles de salle de bains, sols des zones très fréquentées, escaliers, revêtements extérieurs et façades."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Le granit importé convient-il aux plans de travail de cuisine ?",
+        "a": "Oui. Le granit est dur, résistant à la chaleur et moins poreux que le marbre, ce qui en fait l'un des matériaux de plan de travail les plus populaires."
+      },
+      {
+        "q": "Puis-je obtenir un échantillon ?",
+        "a": "Oui. Ouvrez la page de n'importe quelle pierre et cliquez sur « Demander un échantillon », ou contactez notre équipe commerciale."
+      },
+      {
+        "q": "Comment obtenir un prix ?",
+        "a": "Le prix dépend de la pierre, de la finition, de l'épaisseur, des dimensions, de la quantité et de la destination. Envoyez-nous vos besoins et notre équipe commerciale vous répondra avec un devis."
+      }
+    ]
+  },
+  "galalaMarble": {
+    "pageTitle": "Marbre Galala – Marbre beige égyptien des carrières de Galala | Wadi Degla",
+    "metaDescription": "Marbre Galala : le marbre beige égyptien le plus connu, issu des carrières de la montagne de Galala ouvertes par le fondateur de Wadi Degla en 1980. Tranches, carreaux et blocs dans de nombreuses finitions.",
+    "heading": "Marbre Galala",
+    "intro": "Le marbre Galala est le marbre beige égyptien le plus connu, extrait de la montagne de Galala. Il est apprécié pour sa résistance, sa texture raffinée, sa couleur homogène et son beige intemporel, et il est utilisé dans des projets résidentiels, commerciaux et architecturaux de grande envergure dans le monde entier.\n\nL'histoire de Wadi Degla est liée à Galala : notre fondateur a ouvert la première carrière de Galala en 1980, à une époque où le marbre de la montagne était inconnu.",
+    "sections": [
+      {
+        "title": "L'histoire du Galala",
+        "text": "En 1980, le fondateur de Wadi Degla, Alhag Saed Alghanam, a exploré le potentiel alors inconnu de la montagne de Galala et y a ouvert la première carrière. Le Galala est vite devenu l'une des pierres égyptiennes les plus recherchées, attirant des importateurs du monde entier. Sous sa direction, Wadi Degla a possédé sept grandes carrières à Galala, et la deuxième génération en a développé sept autres."
+      },
+      {
+        "title": "Pourquoi les architectes choisissent le Galala",
+        "text": "Une grande résistance structurelle et une bonne durabilité, une couleur et une qualité de pierre homogènes, et un beige chaleureux qui convient aux styles classiques comme modernes. Il est utilisé pour les sols, les murs, les façades, les escaliers et les appuis de fenêtre dans des villas, des hôtels, des résidences et des bâtiments commerciaux."
+      },
+      {
+        "title": "Finitions et formats",
+        "text": "Le Galala est disponible dans de nombreuses finitions : poli, adouci, brossé, antique, sablé, bouchardé, flammé, cuir, brut et éclaté. Nous le fournissons en blocs, tranches et carreaux sur mesure, emballés pour l'export."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Le Galala est-il un marbre ou un calcaire ?",
+        "a": "Géologiquement, le Galala est un calcaire compact. Dans le commerce de la pierre, il est vendu comme marbre car il se polit et s'utilise de la même façon que le marbre."
+      },
+      {
+        "q": "Quelle est la différence entre Galala et Galala Extra ?",
+        "a": "Les deux proviennent des carrières de Galala. Chacun a sa propre page avec des photos, pour comparer leur couleur et leur texture."
+      },
+      {
+        "q": "Puis-je obtenir un échantillon de Galala ?",
+        "a": "Oui. Ouvrez la page de la pierre et cliquez sur « Demander un échantillon », ou contactez notre équipe commerciale."
+      },
+      {
+        "q": "Comment obtenir un prix pour le marbre Galala ?",
+        "a": "Le prix dépend de la finition, de l'épaisseur, des dimensions, de la quantité et de la destination. Envoyez-nous vos besoins et notre équipe commerciale vous répondra avec un devis."
+      }
+    ]
+  },
+  "buyGuide": {
+    "pageTitle": "Acheter du marbre et du granit en Égypte – Guide d'importation | Wadi Degla",
+    "metaDescription": "Comment importer du marbre et du granit d'Égypte avec Wadi Degla : choix des pierres et échantillons, devis, production, emballage export, expédition et documents. Exportateur depuis 1980.",
+    "heading": "Acheter du marbre en Égypte",
+    "intro": "L'Égypte est l'une des grandes sources mondiales de pierre naturelle, et Wadi Degla exporte du marbre et du granit égyptiens depuis 1980. Ce guide explique comment se déroule une commande chez nous, du choix de la pierre à la réception de votre conteneur.",
+    "stepsTitle": "Comment se déroule une commande",
+    "steps": [
+      {
+        "title": "Choisissez vos pierres",
+        "text": "Parcourez nos marbres égyptiens, granits égyptiens et pierres importées, essayez-les sur de vraies pièces avec le visualiseur de matériaux, et demandez des échantillons de celles qui vous plaisent."
+      },
+      {
+        "title": "Envoyez-nous vos besoins",
+        "text": "Indiquez-nous la pierre, la finition, l'épaisseur, les dimensions (tranches, carreaux sur mesure ou blocs), la quantité et le port de destination. Si vous avez des plans ou un calendrier de projet, envoyez-les aussi."
+      },
+      {
+        "title": "Recevez un devis",
+        "text": "Notre équipe commerciale prépare un devis pour votre commande et répond à vos questions techniques."
+      },
+      {
+        "title": "Production et contrôle qualité",
+        "text": "Votre commande est débitée et finie dans nos usines en Égypte, avec des contrôles qualité sur la pierre et sur les pièces finies."
+      },
+      {
+        "title": "Emballage export",
+        "text": "Les tranches sont regroupées en ballots de 8 à 15 pièces dans des cadres en bois renforcés, ou posées sur des barres de bois pour le chargement manuel. Les carreaux sont placés dans des caisses en bois garnies de mousse ou sur des palettes cerclées. Les surfaces polies sont protégées par des feuilles plastiques, et chaque caisse et palette porte une étiquette avec les dimensions, l'épaisseur et les détails de la commande."
+      },
+      {
+        "title": "Expédition et documents",
+        "text": "Notre service export coordonne le chargement des conteneurs, les transitaires et les documents douaniers, pour que votre envoi soit dédouané dans votre pays sans retard."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Où nous exportons",
+        "text": "Nous expédions de la pierre naturelle vers les pays du Golfe, l'Europe, l'Afrique, l'Asie et l'Amérique du Nord et du Sud, avec une logistique professionnelle, un emballage sûr et tous les documents d'exportation."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Fournissez-vous à la fois de la pierre égyptienne et importée ?",
+        "a": "Oui. En plus de notre marbre et de notre granit égyptiens, nous fournissons du marbre et du granit importés de carrières partenaires : tout un projet peut être approvisionné auprès d'un seul fournisseur."
+      },
+      {
+        "q": "Pouvez-vous produire des dimensions sur mesure ?",
+        "a": "Oui. Nous fournissons des dimensions standard, et nos usines peuvent découper des dimensions spécifiques selon vos plans."
+      },
+      {
+        "q": "Comment les tranches sont-elles protégées pendant le transport ?",
+        "a": "Les tranches voyagent dans des ballots en bois renforcés ou sur des barres de bois, avec des feuilles plastiques entre les faces polies, et sont cerclées pour ne pas bouger en mer."
+      },
+      {
+        "q": "Comment commencer ?",
+        "a": "Contactez notre équipe commerciale avec votre pierre, vos quantités et votre destination, ou demandez un échantillon depuis la page de n'importe quelle pierre."
+      }
+    ]
+  }
+}

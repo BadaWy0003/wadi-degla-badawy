@@ -9,6 +9,7 @@ import ContactBubble from '../Contact/ContactBubble.js';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 import LangLink from '../LangLink';
 import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
+import { CATEGORY_TOPIC } from '../../util/topic-pages';
 
 const CATEGORIES = ['Egyptian Marble', 'Imported Marble', 'Egyptian Granite', 'Imported Granite'];
 
@@ -92,6 +93,16 @@ export default function Products({ initialProducts = [] }) {
               {selectedCategory === 'Egyptian Granite' && t('products.egyptianGraniteDescription')}
               {selectedCategory === 'Imported Granite' && t('products.importedGraniteDescription')}
             </p>
+            {/* The category's own page, with its full description and questions */}
+            {CATEGORY_TOPIC[selectedCategory] && (
+              <LangLink
+                className="category-topic-link"
+                href={`/${CATEGORY_TOPIC[selectedCategory]}/`}
+              >
+                {t('products.aboutCategory', { category: t(PRODUCT_TYPE_KEYS[selectedCategory]) })}{' '}
+                →
+              </LangLink>
+            )}
           </div>
 
           {/* Search Bar */}

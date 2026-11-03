@@ -158,7 +158,8 @@
     "myAccount": "Mi Cuenta",
     "login": "Iniciar Sesión",
     "logout": "Cerrar Sesión",
-    "loginSignup": "Iniciar Sesión/Registrarse"
+    "loginSignup": "Iniciar Sesión/Registrarse",
+    "buyGuide": "Cómo comprar en Egipto"
   },
   "cobbles": {
     "pageTitle": "Adoquines de Granito y Pavimento Flameado | Soluciones de Piedra Exterior Duraderas | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "Mármol Egipcio",
     "importedMarbleDisplay": "Mármol Importado",
     "egyptianGraniteDisplay": "Granito Egipcio",
-    "importedGraniteDisplay": "Granito Importado"
+    "importedGraniteDisplay": "Granito Importado",
+    "aboutCategory": "Sobre el {{category}}"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – Planchas y baldosas de {{type}} | Wadi Degla",

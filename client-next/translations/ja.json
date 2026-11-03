@@ -158,7 +158,8 @@
     "myAccount": "マイアカウント",
     "login": "ログイン",
     "logout": "ログアウト",
-    "loginSignup": "ログイン/サインアップ"
+    "loginSignup": "ログイン/サインアップ",
+    "buyGuide": "エジプトからの購入方法"
   },
   "cobbles": {
     "pageTitle": "花崗岩コブル石とフレーム舗装 | 耐久的な屋外石ソリューション | Wadi Degla",
@@ -671,7 +672,8 @@
     "egyptianMarbleDisplay": "エジプト大理石",
     "importedMarbleDisplay": "輸入大理石",
     "egyptianGraniteDisplay": "エジプト花崗岩",
-    "importedGraniteDisplay": "輸入花崗岩"
+    "importedGraniteDisplay": "輸入花崗岩",
+    "aboutCategory": "{{category}}について"
   },
   "productDetails": {
     "pageTitle": "{{heading}} – {{type}}のスラブ・タイル | Wadi Degla",

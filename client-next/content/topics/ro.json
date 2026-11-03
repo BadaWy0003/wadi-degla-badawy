@@ -1,0 +1,264 @@
+{
+  "common": {
+    "breadcrumbHome": "Acasă",
+    "breadcrumbProducts": "Produse",
+    "productsTitle": "{{topic}}: cele {{count}} pietre pe care le furnizăm",
+    "projectsTitle": "Proiecte cu {{topic}}",
+    "faqTitle": "Întrebări frecvente",
+    "ctaTitle": "Solicitați o ofertă sau o mostră",
+    "ctaText": "Spuneți-ne piatra, finisajul, grosimea, dimensiunile, cantitatea și destinația, iar echipa noastră de vânzări vă va răspunde cu o ofertă.",
+    "ctaButton": "Contactați echipa de vânzări",
+    "relatedTitle": "Pagini similare"
+  },
+  "egyptianMarble": {
+    "pageTitle": "Marmură egipteană – Plăci, dale și blocuri din Egipt | Wadi Degla",
+    "metaDescription": "Marmură egipteană de la Wadi Degla: Galala, Sunny, Triesta, Fantazia, Emperador, Cleopatra și altele. Plăci, dale și blocuri din carierele și fabricile noastre din Egipt, exportate în toată lumea din 1980.",
+    "heading": "Marmură egipteană",
+    "intro": "Marmura egipteană este o piatră naturală extrasă în Egipt, cunoscută pentru nuanțele calde de bej, crem, gri și maro și pentru calitatea constantă. Este folosită în locuințe, hoteluri, stațiuni și clădiri comerciale din întreaga lume.\n\nWadi Degla lucrează în carierele egiptene din 1980, când fondatorul nostru a deschis prima carieră pe Muntele Galala. Astăzi tăiem și finisăm marmura egipteană în propriile fabrici din Egipt, pe peste 27.000 de metri pătrați, și o livrăm sub formă de plăci, dale și blocuri către proiecte din toată lumea. Mai jos găsiți toate tipurile de marmură egipteană pe care le furnizăm și răspunsuri la cele mai frecvente întrebări.",
+    "sections": [
+      {
+        "title": "Tipuri populare de marmură egipteană",
+        "text": "Gama noastră egipteană include Galala și Galala Extra, Sunny Light și Sunny Dark, Triesta Beige și Triesta Grey, Fantazia Sylvia și Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl și alabastru egiptean.\n\nFiecare piatră are propria pagină cu fotografii, finisajele disponibile și proiectele în care a fost folosită."
+      },
+      {
+        "title": "Unde se folosește marmura egipteană",
+        "text": "Pardoseli, placări de pereți, fațade, scări, glafuri, blaturi și amenajări peisagistice, în vile, hoteluri, stațiuni, ansambluri rezidențiale și clădiri comerciale. Proiectele noastre cu marmură egipteană includ stațiuni din Caraibe, clădiri rezidențiale din Kenya, vile și clădiri de birouri din Egipt și o ambasadă în Kuweit."
+      },
+      {
+        "title": "Finisaje și formate",
+        "text": "În funcție de piatră, marmura egipteană este disponibilă lustruită, șlefuită, periată, antichizată, sablată, buceardată, flambată, cu aspect de piele și despicată. Furnizăm blocuri, plăci și dale la dimensiune, iar fabricile noastre pot produce dimensiuni speciale pentru proiectul dumneavoastră."
+      },
+      {
+        "title": "De ce să cumpărați marmură egipteană de la Wadi Degla",
+        "text": "Trei generații în industria carierelor din Egipt, cariere pe Muntele Galala și trei fabrici (deschise în 2000, 2011 și 2015) cu linii moderne de tăiere, lustruire, rășinare, CNC și jet de apă. Producția noastră este certificată ISO, fiecare comandă este ambalată în baloți, lăzi sau paleți de lemn potriviți pentru export, iar livrăm în țările Golfului, Europa, Africa, Asia și cele două Americi."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Este marmura egipteană potrivită pentru pardoseli?",
+        "a": "Da. Marmurile egiptene precum Galala, Sunny și Triesta sunt folosite pe scară largă pentru pardoseli interioare în locuințe, hoteluri și clădiri comerciale. Pentru exterior sau zone umede, un finisaj șlefuit, periat sau sablat oferă o aderență mai bună decât unul lustruit."
+      },
+      {
+        "q": "Care este diferența dintre marmura egipteană și cea importată?",
+        "a": "Marmura egipteană este extrasă și prelucrată în Egipt. Marmurile importate, din cariere partenere din Italia, Turcia și alte țări, aduc culori și vânări pe care carierele egiptene nu le produc, cum ar fi albul pur cu vânări puternice. Wadi Degla le furnizează pe amândouă, astfel încât puteți aproviziona un proiect întreg de la un singur furnizor."
+      },
+      {
+        "q": "Pot primi o mostră?",
+        "a": "Da. Deschideți pagina oricărei pietre și apăsați „Solicită o mostră”, sau contactați echipa noastră de vânzări."
+      },
+      {
+        "q": "Exportați marmură egipteană?",
+        "a": "Da. Exportăm plăci, dale și blocuri cu ambalaj de protecție și documente complete de export în țările Golfului, Europa, Africa, Asia și cele două Americi."
+      },
+      {
+        "q": "Cum aflu prețul?",
+        "a": "Prețul depinde de piatră, finisaj, grosime, dimensiuni, cantitate și destinație. Trimiteți-ne cerințele, iar echipa de vânzări vă va răspunde cu o ofertă."
+      }
+    ]
+  },
+  "egyptianGranite": {
+    "pageTitle": "Granit egiptean – Plăci, dale, borduri și pavele | Wadi Degla",
+    "metaDescription": "Granit egiptean de la Wadi Degla: Black Aswan, Red Aswan, New Halayeb, Gandolla, Royal Red, Rosa El Nasr și altele. Plăci, dale, blocuri, borduri și pavele, exportate în toată lumea.",
+    "heading": "Granit egiptean",
+    "intro": "Granitul egiptean este o piatră naturală dură și densă extrasă în Egipt, în nuanțe de negru, roșu, roz, gri, alb și verde. Deoarece rezistă la uzură și intemperii, este ales pentru pardoseli cu trafic intens, scări, fațade, blaturi de bucătărie, borduri și pavaje exterioare.\n\nWadi Degla furnizează granit egiptean sub formă de plăci, dale și blocuri și produce borduri și pavele din granit, totul tăiat și finisat în propriile fabrici din Egipt.",
+    "sections": [
+      {
+        "title": "Tipuri populare de granit egiptean",
+        "text": "Granitele noastre egiptene includ Black Aswan, Red Aswan, New Halayeb și Halayeb, Gandolla, Royal Red, Rosa El Nasr, Rosa Hoody, Red Fersan, Karnak Grey, Fantastic White, Verdi Green, Brown Qusair, Hoody Dark și Magic Noir."
+      },
+      {
+        "title": "Unde se folosește granitul egiptean",
+        "text": "Pardoseli în aeroporturi, mall-uri, birouri și hoteluri; scări și trepte; placări exterioare și fațade; blaturi de bucătărie; borduri, pavele și pavaje pentru drumuri, alei și grădini."
+      },
+      {
+        "title": "Finisaje",
+        "text": "Lustruit pentru o strălucire profundă la interior; flambat, buceardat și sablat pentru suprafețe exterioare antiderapante; șlefuit și cu aspect de piele pentru un aspect mat și fin. Finisajele disponibile pentru fiecare granit sunt afișate pe pagina sa."
+      },
+      {
+        "title": "Borduri și pavele din granit",
+        "text": "Pe lângă plăci și dale, fabricile noastre produc borduri din granit în mai multe profile și pavele din granit pentru alei, căi de acces și piețe, în dimensiuni standard și la comandă."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Este granitul mai dur decât marmura?",
+        "a": "Da. Granitul este mai dur și mai puțin poros decât marmura, de aceea este preferat pentru trafic intens, exterior și blaturi de bucătărie."
+      },
+      {
+        "q": "Ce finisaj este cel mai bun pentru granitul de exterior?",
+        "a": "Un finisaj flambat, buceardat sau sablat. Suprafața texturată este antiderapantă, lucru important pentru pavaje, trepte și zonele din jurul piscinelor. Echipa noastră vă poate recomanda piatra și finisajul potrivite climei și utilizării."
+      },
+      {
+        "q": "Pot primi o mostră?",
+        "a": "Da. Deschideți pagina oricărei pietre și apăsați „Solicită o mostră”, sau contactați echipa noastră de vânzări."
+      },
+      {
+        "q": "Cum aflu prețul?",
+        "a": "Prețul depinde de piatră, finisaj, grosime, dimensiuni, cantitate și destinație. Trimiteți-ne cerințele, iar echipa de vânzări vă va răspunde cu o ofertă."
+      }
+    ]
+  },
+  "importedMarble": {
+    "pageTitle": "Marmură importată – Marmură italiană, turcească și exotică | Wadi Degla",
+    "metaDescription": "Marmură importată de la Wadi Degla: Calacatta, Arabescato, Botticino, Volakas, Nero Marquina, onix și altele, alături de piatra noastră egipteană. Plăci și dale pentru proiecte de lux.",
+    "heading": "Marmură importată",
+    "intro": "Pe lângă piatra egipteană, Wadi Degla furnizează marmură importată prin parteneriatele cu cariere din Italia, Turcia și alte țări: albe clasice precum Calacatta și Arabescato, griuri elegante, marmuri închise precum Nero Marquina, onix și pietre exotice decorative.\n\nAstfel puteți aproviziona pietrele egiptene și importate ale unui proiect de la un singur furnizor.",
+    "sections": [
+      {
+        "title": "Marmurile importate pe care le furnizăm",
+        "text": "Albe și gri: Calacatta Italy, Calacatta Grey, Calacatta Viola, Arabescato, Volakas, Majestic White, Oriental White, Panda White, Sunny White, Pietra Grey, Tundra Grey, Silver Grey, Lady Grey, Persian Grey și Universal Grey.\n\nBej și maro: Botticino Classico, Breccia Daino, Travertin Beige, Diana Royal, Coffee Wood, Forest Brown și White Wood.\n\nÎnchise și colorate: Nero Marquina, Azul Macauba, Iron Red, Forest Green și Silver Wave.\n\nOnix și pietre exotice: onix bej, onix verde, onix indian, ametist, agat albastru, maro și gri, jasp, jasp oceanic, ochi de tigru, cuarț galben și lemn pietrificat."
+      },
+      {
+        "title": "Unde se folosește marmura importată",
+        "text": "Pereți de accent, băi de lux, holuri de hotel, recepții, insule de bucătărie, scări și mobilier. Onixul iluminat din spate și pietrele exotice creează pereți, baruri și blaturi spectaculoase."
+      },
+      {
+        "title": "Finisaje și formate",
+        "text": "Marmura importată se livrează mai ales sub formă de plăci și dale lustruite sau șlefuite. Finisajele disponibile pentru fiecare piatră sunt afișate pe pagina sa."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Care este diferența dintre marmura Calacatta și cea de Carrara?",
+        "a": "Ambele sunt marmuri albe italiene. Calacatta are de obicei un fond mai alb, cu vânări mai late și mai pronunțate, în timp ce Carrara este mai gri, cu vânări mai fine și mai discrete."
+      },
+      {
+        "q": "Pot combina marmura importată cu cea egipteană într-un proiect?",
+        "a": "Da. Multe proiecte folosesc o marmură importată pentru zonele de accent și o marmură egipteană pentru suprafețele mari de pardoseli și pereți. Le furnizăm pe amândouă."
+      },
+      {
+        "q": "Pot primi o mostră?",
+        "a": "Da. Deschideți pagina oricărei pietre și apăsați „Solicită o mostră”, sau contactați echipa noastră de vânzări."
+      },
+      {
+        "q": "Cum aflu prețul?",
+        "a": "Prețul depinde de piatră, finisaj, grosime, dimensiuni, cantitate și destinație. Trimiteți-ne cerințele, iar echipa de vânzări vă va răspunde cu o ofertă."
+      }
+    ]
+  },
+  "importedGranite": {
+    "pageTitle": "Granit importat – Kashmir, Star Galaxy, Labrador și altele | Wadi Degla",
+    "metaDescription": "Granit importat de la Wadi Degla: Kashmir White, Kashmir Gold, Star Galaxy, Labrador Blue Pearl, Baltic Brown, Tiger Skin și altele. Plăci și dale pentru blaturi, pardoseli și fațade.",
+    "heading": "Granit importat",
+    "intro": "Wadi Degla furnizează și granite importate cu culori și modele care completează gama noastră egipteană, de la negru și albastru sclipitor la auriu și maro cald.\n\nGranitul importat este dur și durabil, ceea ce îl face preferat pentru blaturi de bucătărie, pardoseli cu trafic intens, scări și fațade.",
+    "sections": [
+      {
+        "title": "Granitele importate pe care le furnizăm",
+        "text": "Kashmir White, Kashmir Gold, Star Galaxy, Black Platinum Gold, Black River, Double Black, Labrador Blue Pearl, Labrador Emerald Pearl, Baltic Brown, Paradiso, Shiva Gold și Tiger Skin."
+      },
+      {
+        "title": "Unde se folosește granitul importat",
+        "text": "Blaturi și insule de bucătărie, mobilier de baie, pardoseli în zone cu trafic intens, scări, placări exterioare și fațade."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Este granitul importat potrivit pentru blaturi de bucătărie?",
+        "a": "Da. Granitul este dur, rezistent la căldură și mai puțin poros decât marmura, fiind unul dintre cele mai populare materiale pentru blaturi."
+      },
+      {
+        "q": "Pot primi o mostră?",
+        "a": "Da. Deschideți pagina oricărei pietre și apăsați „Solicită o mostră”, sau contactați echipa noastră de vânzări."
+      },
+      {
+        "q": "Cum aflu prețul?",
+        "a": "Prețul depinde de piatră, finisaj, grosime, dimensiuni, cantitate și destinație. Trimiteți-ne cerințele, iar echipa de vânzări vă va răspunde cu o ofertă."
+      }
+    ]
+  },
+  "galalaMarble": {
+    "pageTitle": "Marmură Galala – Marmură egipteană bej din carierele Galala | Wadi Degla",
+    "metaDescription": "Marmura Galala: cea mai cunoscută marmură bej egipteană, din carierele Muntelui Galala deschise de fondatorul Wadi Degla în 1980. Plăci, dale și blocuri în multe finisaje, exportate în toată lumea.",
+    "heading": "Marmură Galala",
+    "intro": "Marmura Galala este cea mai cunoscută marmură bej din Egipt, extrasă din Muntele Galala. Este apreciată pentru rezistență, textura rafinată, culoarea uniformă și nuanța de bej atemporală și este folosită în proiecte rezidențiale, comerciale și arhitecturale de anvergură din întreaga lume.\n\nPovestea Wadi Degla este legată de Galala: fondatorul nostru a deschis prima carieră Galala în 1980, când marmura muntelui era necunoscută.",
+    "sections": [
+      {
+        "title": "Povestea Galala",
+        "text": "În 1980, fondatorul Wadi Degla, Alhag Saed Alghanam, a explorat potențialul de atunci necunoscut al Muntelui Galala și a deschis acolo prima carieră. Galala a devenit curând una dintre cele mai căutate pietre egiptene, atrăgând importatori din toată lumea. Sub conducerea sa, Wadi Degla a deținut șapte cariere mari la Galala, iar a doua generație a dezvoltat alte șapte."
+      },
+      {
+        "title": "De ce aleg arhitecții Galala",
+        "text": "Rezistență structurală ridicată și durabilitate, culoare și calitate a pietrei constante și un bej cald potrivit atât designului clasic, cât și celui modern. Este folosită pentru pardoseli, pereți, fațade, scări și glafuri în vile, hoteluri, ansambluri rezidențiale și clădiri comerciale."
+      },
+      {
+        "title": "Finisaje și formate",
+        "text": "Galala este disponibilă în multe finisaje, printre care lustruit, șlefuit, periat, antichizat, sablat, buceardat, flambat, cu aspect de piele, brut și despicat. O furnizăm sub formă de blocuri, plăci și dale la dimensiune, ambalate pentru export."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Este Galala marmură sau calcar?",
+        "a": "Din punct de vedere geologic, Galala este un calcar compact. În comerțul cu piatră este vândută ca marmură, deoarece se poate lustrui și se folosește la fel ca marmura."
+      },
+      {
+        "q": "Care este diferența dintre Galala și Galala Extra?",
+        "a": "Ambele provin din carierele Galala. Fiecare are propria pagină cu fotografii, ca să le puteți compara culoarea și textura."
+      },
+      {
+        "q": "Pot primi o mostră de Galala?",
+        "a": "Da. Deschideți pagina pietrei și apăsați „Solicită o mostră”, sau contactați echipa noastră de vânzări."
+      },
+      {
+        "q": "Cum aflu prețul marmurei Galala?",
+        "a": "Prețul depinde de finisaj, grosime, dimensiuni, cantitate și destinație. Trimiteți-ne cerințele, iar echipa de vânzări vă va răspunde cu o ofertă."
+      }
+    ]
+  },
+  "buyGuide": {
+    "pageTitle": "Cum cumpărați marmură și granit din Egipt – Ghid de import | Wadi Degla",
+    "metaDescription": "Cum importați marmură și granit din Egipt cu Wadi Degla: alegerea pietrelor și mostrelor, ofertă, producție, ambalare pentru export, transport și documente. Exportăm din 1980.",
+    "heading": "Cum cumpărați marmură din Egipt",
+    "intro": "Egiptul este una dintre marile surse de piatră naturală ale lumii, iar Wadi Degla exportă marmură și granit egiptean din 1980. Acest ghid explică cum decurge o comandă la noi, de la alegerea pietrei până la primirea containerului.",
+    "stepsTitle": "Cum decurge o comandă",
+    "steps": [
+      {
+        "title": "Alegeți pietrele",
+        "text": "Răsfoiți marmura egipteană, granitul egiptean și pietrele importate, încercați-le în încăperi reale cu vizualizatorul de materiale și solicitați mostre din cele care vă plac."
+      },
+      {
+        "title": "Trimiteți-ne cerințele",
+        "text": "Spuneți-ne piatra, finisajul, grosimea, dimensiunile (plăci, dale la dimensiune sau blocuri), cantitatea și portul de destinație. Dacă aveți planuri sau un calendar al proiectului, trimiteți-le și pe acestea."
+      },
+      {
+        "title": "Primiți o ofertă",
+        "text": "Echipa noastră de vânzări pregătește o ofertă pentru comanda dumneavoastră și răspunde la întrebările tehnice."
+      },
+      {
+        "title": "Producție și control al calității",
+        "text": "Comanda este tăiată și finisată în fabricile noastre din Egipt, cu verificări de calitate ale pietrei și ale pieselor finite."
+      },
+      {
+        "title": "Ambalare pentru export",
+        "text": "Plăcile sunt grupate în baloți de 8–15 bucăți în rame de lemn întărite sau așezate pe șipci de lemn pentru încărcarea manuală. Dalele sunt puse în lăzi de lemn căptușite cu spumă sau pe paleți legați cu chingi. Suprafețele lustruite sunt protejate cu folii de plastic, iar fiecare ladă și palet are o etichetă cu dimensiunile, grosimea și detaliile comenzii."
+      },
+      {
+        "title": "Transport și documente",
+        "text": "Departamentul nostru de export coordonează încărcarea containerelor, casele de expediții și documentele vamale, astfel încât transportul să fie vămuit în țara dumneavoastră fără întârzieri."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Unde exportăm",
+        "text": "Livrăm piatră naturală în țările Golfului, Europa, Africa, Asia și America de Nord și de Sud, cu logistică profesională, ambalare sigură și documente complete de export."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Furnizați atât piatră egipteană, cât și importată?",
+        "a": "Da. Pe lângă marmura și granitul egiptean, furnizăm marmură și granit importate din cariere partenere, astfel încât un proiect întreg poate fi aprovizionat de la un singur furnizor."
+      },
+      {
+        "q": "Puteți produce dimensiuni speciale?",
+        "a": "Da. Furnizăm dimensiuni standard, iar fabricile noastre pot tăia dimensiuni speciale după planurile dumneavoastră."
+      },
+      {
+        "q": "Cum sunt protejate plăcile în timpul transportului?",
+        "a": "Plăcile călătoresc în baloți de lemn întăriți sau pe șipci de lemn, cu folii de plastic între fețele lustruite, și sunt legate cu chingi ca să nu se miște pe mare."
+      },
+      {
+        "q": "Cum încep?",
+        "a": "Contactați echipa de vânzări cu piatra, cantitățile și destinația, sau solicitați o mostră de pe pagina oricărei pietre."
+      }
+    ]
+  }
+}
