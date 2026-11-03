@@ -38,7 +38,10 @@ export const rootMetadata = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Wadi Degla',
+  // The site name Google shows in results. "Marble & Granite" tells it apart from the
+  // Wadi Degla nature reserve, which searches for "Wadi Degla" return first.
+  name: 'Wadi Degla Marble & Granite',
+  alternateName: 'Wadi Degla',
   url: 'https://www.wadidegla-eg.com',
   description:
     'Egyptian marble, limestone, and granite exporter — Galala marble, Silvia marble, Shelly limestone, Black Aswan granite, and 80+ natural stone varieties available as slabs, tiles, and blocks.',
@@ -55,8 +58,16 @@ const websiteSchema = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Wadi Degla Co.',
-  alternateName: 'Wadi Degla',
+  // Same name as on the website footer (use it everywhere: Google Business Profile,
+  // directories, social pages).
+  name: 'Wadi Degla for Marble & Granite',
+  alternateName: [
+    'Wadi Degla',
+    'Wadi Degla Marble',
+    'Wadi Degla Co.',
+    'وادي دجلة للرخام والجرانيت',
+  ],
+  foundingDate: '1980',
   url: 'https://www.wadidegla-eg.com',
   logo: 'https://www.wadidegla-eg.com/favicon.svg',
   image: 'https://www.wadidegla-eg.com/preview.webp',
@@ -82,6 +93,9 @@ const organizationSchema = {
   areaServed: 'Worldwide',
   knowsAbout: [
     'Egyptian marble',
+    'Egyptian granite',
+    'imported marble',
+    'imported granite',
     'Galala marble',
     'Silvia marble',
     'Rosa marble',

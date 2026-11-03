@@ -4,8 +4,8 @@ import About from '../../../src/components/About/About';
 export function generateMetadata({ params }) {
   const { lang } = params;
   return {
-    title: t(lang, 'navigation.about', 'About | Wadi Degla'),
-    description: t(lang, 'home.metaDescription', ''),
+    title: t(lang, 'about.pageTitle', 'About | Wadi Degla'),
+    description: t(lang, 'about.metaDescription', ''),
     alternates: buildAlternates('/about', lang),
   };
 }
