@@ -18,8 +18,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Cream to beige",
@@ -31,7 +31,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "YsgTviQBk6V4lIn45375",
@@ -52,8 +59,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Creamy white",
@@ -65,7 +72,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "xQktFbHkD3Yc4l4qGomN",
@@ -98,7 +112,13 @@
   },
   "uses": [
    "wallCladding"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2",
+  "sizes": "30×60, 60×60"
  },
  {
   "id": "lU0eYPb8uZ47ddNG31rv",
@@ -128,7 +148,13 @@
   },
   "uses": [
    "wallCladding"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2",
+  "sizes": "30×60, 60×60"
  },
  {
   "id": "wKC8GEvZUATUJtgHwPKK",
@@ -151,8 +177,8 @@
    "Egyptian Emperador"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Brown with light veins",
@@ -164,7 +190,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Dc5KJZ21fyjFXzKbP7XN",
@@ -187,8 +220,8 @@
    "Fantasia Sunny"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Beige with varied pattern",
@@ -200,7 +233,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "w465XVawSjgTvlmoH9LG",
@@ -224,8 +264,8 @@
    "Silvia"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Beige with varied pattern",
@@ -237,7 +277,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "udebzfORbldW9VdMn0BH",
@@ -276,7 +323,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "SYpeLb5o5EOaO0Gd86gN",
@@ -313,7 +367,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "avMxajJ9SXparkFvX3RP",
@@ -334,8 +395,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Beige",
@@ -347,7 +408,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "NMI3QptLxwxSxdcUwDbX",
@@ -371,8 +439,8 @@
    "Katrina Marble"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Beige-yellow",
@@ -384,7 +452,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "g0416JqQmKxgkqESno8I",
@@ -408,8 +483,8 @@
    "Mely Grey"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Grey with natural markings",
@@ -421,7 +496,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "RGJ5hbVl33bSEKKPZKzB",
@@ -444,8 +526,8 @@
    "Milly Grey Dark"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Dark grey",
@@ -457,7 +539,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "5xUg2Mw1gNcoZiQfbfG3",
@@ -480,8 +569,8 @@
    "Milly Grey Light"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Light grey",
@@ -493,7 +582,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "H2k1pG0iXqRgm9SRE5Cs",
@@ -516,8 +612,8 @@
    "Sunny Menia Dark"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Dark beige with natural markings",
@@ -529,7 +625,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "t9yOcRidgp4tnqMTmmdQ",
@@ -552,8 +655,8 @@
    "Sunny Menia Light"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Light beige with natural markings",
@@ -565,7 +668,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "cxKsObktUvIYuzAJtwOu",
@@ -589,8 +699,8 @@
    "Triesta"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Light beige",
@@ -602,7 +712,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "UIHNycflBskdOWyCT5rX",
@@ -625,8 +742,8 @@
    "Trista Grey"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Grey-beige",
@@ -638,7 +755,14 @@
    "exteriorCladding",
    "staircases",
    "windowSills"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "QCNDYT5QF1GvIup3b6f1",
@@ -677,7 +801,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "79G2dgzYPka7UXR940jl",
@@ -701,8 +832,8 @@
    "Brown Kusair"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Quseir, Red Sea, Egypt",
+   "ar": "القصير، البحر الأحمر، مصر"
   },
   "colour": {
    "en": "Brown",
@@ -716,7 +847,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "w9qR5YRWf2PEUqXR5L77",
@@ -737,8 +875,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Light/white with dark speckles",
@@ -752,7 +890,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "dPlZDe17jAwCtn4uDp61",
@@ -775,12 +920,12 @@
    "Gandola"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "Grey with pink and black speckles",
+   "ar": "رمادي بنقاط وردية وسوداء"
   },
   "uses": [
    "flooring",
@@ -790,7 +935,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "SSbJ6Dv3oa48ISAif1JQ",
@@ -813,12 +965,12 @@
    "Halaib"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Halayeb, south-eastern Egypt",
+   "ar": "حلايب، جنوب شرق مصر"
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "White-grey with black speckles",
+   "ar": "أبيض رمادي بنقاط سوداء"
   },
   "uses": [
    "flooring",
@@ -828,7 +980,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "ENrtLqgjGcch3w277yBt",
@@ -851,12 +1010,12 @@
    "Hody Dark"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "Red-brown with black speckles",
+   "ar": "أحمر بني بنقاط سوداء"
   },
   "uses": [
    "flooring",
@@ -866,7 +1025,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "sQPsPuF0vUWqbeokm14d",
@@ -887,8 +1053,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Grey",
@@ -902,7 +1068,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "QRnrATk5eMLLumLIjuxf",
@@ -923,8 +1096,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Black / very dark",
@@ -938,7 +1111,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "m47BSOSAECP1WIqRl4xL",
@@ -961,12 +1141,12 @@
    "New Halaib"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Halayeb, south-eastern Egypt",
+   "ar": "حلايب، جنوب شرق مصر"
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "White with dense black and grey speckles",
+   "ar": "أبيض بنقاط سوداء ورمادية كثيفة"
   },
   "uses": [
    "flooring",
@@ -976,7 +1156,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Mfpf5MmfEcXjtftgxTn6",
@@ -1016,7 +1203,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "VnUAluu35MowmAyfBmiP",
@@ -1039,8 +1233,8 @@
    "Red Forsan"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Red",
@@ -1054,7 +1248,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "nSGqB70tRJzhzxfY3ArF",
@@ -1077,8 +1278,8 @@
    "Rosa Nasr"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Pink",
@@ -1092,7 +1293,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "wUfRaSE1DxzhIBpZtVnB",
@@ -1115,8 +1323,8 @@
    "Rosa Hody"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Pink",
@@ -1130,7 +1338,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "saPWzMyqRbtcqcGOqmYh",
@@ -1151,8 +1366,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Red",
@@ -1166,7 +1381,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "AQA2SYi4c0A7LtBb0Pdc",
@@ -1189,8 +1411,8 @@
    "Verde Green"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Egypt",
+   "ar": "مصر"
   },
   "colour": {
    "en": "Green",
@@ -1204,7 +1426,14 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles",
+   "blocks"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "4UolSejObJW4Ja3dmyuk",
@@ -1237,7 +1466,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "vbeoxLBDbjsRPC5Tzz9B",
@@ -1268,7 +1502,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "8oi6ID7r11HFajmdb5Hi",
@@ -1305,7 +1544,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "ZL9eNrPWJ1E4WUVOUQnv",
@@ -1342,7 +1587,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "YiSzfhCpCLsiz98HDHsR",
@@ -1374,7 +1625,13 @@
   },
   "uses": [
    "wallCladding"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2",
+  "sizes": "30×60, 60×60"
  },
  {
   "id": "DNexQSzzkwb6ISBBczm1",
@@ -1405,7 +1662,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "PVgSKqh7xSiPl8B4r2me",
@@ -1439,7 +1701,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Ba9irsMMMahUyvmwCv32",
@@ -1475,7 +1743,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "pDS5Do4WGtF2U8u8i3MI",
@@ -1500,8 +1774,8 @@
    "ar": ""
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "Beige with brown wavy veins",
+   "ar": "بيج بعروق بنية متموجة"
   },
   "uses": [
    "flooring",
@@ -1509,7 +1783,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "wuWwkqHGwHq2zX3IsXSS",
@@ -1540,7 +1820,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "QY173OLS2c0rAaPAZmIW",
@@ -1574,7 +1859,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "8kr0C3aDuewSDzv5RKaT",
@@ -1611,7 +1902,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "61zrrLr8QL1z1RVTceR9",
@@ -1647,7 +1944,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "iF6mNUrKLXzXLX8aPanZ",
@@ -1683,7 +1986,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "rhr79I6t95KYu4HwiEJw",
@@ -1710,8 +2019,8 @@
    "ar": ""
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "Light beige-cream with a soft cloudy pattern",
+   "ar": "بيج كريمي فاتح بنقوش ناعمة"
   },
   "uses": [
    "flooring",
@@ -1719,7 +2028,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "YBg0jz0AuFvQ4fA3LaUP",
@@ -1742,8 +2057,8 @@
    "Light Emperador"
   ],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Spain / Turkey",
+   "ar": "إسبانيا / تركيا"
   },
   "colour": {
    "en": "Light brown with fine veins",
@@ -1755,7 +2070,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "5SyNawkPIC7JSJbo6nSs",
@@ -1776,8 +2097,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Spain / Turkey",
+   "ar": "إسبانيا / تركيا"
   },
   "colour": {
    "en": "Medium brown with fine veins",
@@ -1789,7 +2110,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "jQuSIlDF61PPGbmMqRJJ",
@@ -1825,7 +2152,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "hqKheoN6uxLyUGPA5poG",
@@ -1862,7 +2195,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "LjUDju2guhW5Owy9eYgT",
@@ -1892,7 +2231,13 @@
   },
   "uses": [
    "wallCladding"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2",
+  "sizes": "30×60, 60×60"
  },
  {
   "id": "510dZJE4pN9PcSzEBDrH",
@@ -1923,7 +2268,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "RAucMmT7LSYve4Ev5oPR",
@@ -1959,7 +2309,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "wuxuwFxQbEHm2QqlMB9t",
@@ -1984,12 +2340,18 @@
    "ar": "الهند"
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "Pale green and white bands, translucent",
+   "ar": "شرائط خضراء فاتحة وبيضاء، شفاف"
   },
   "uses": [
    "wallCladding"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2",
+  "sizes": "30×60, 60×60"
  },
  {
   "id": "wZcWiM59e3d2cm2DV77m",
@@ -2023,7 +2385,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "7M2WGsvI4vabDQTXNdyC",
@@ -2054,7 +2422,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "Ffmi8RrKf9h8FoxylbaB",
@@ -2088,7 +2461,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "JzQ34THuBPfYZ2YXn1GA",
@@ -2125,7 +2504,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "q0LFzhNLj18G8BVDkK52",
@@ -2159,7 +2544,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "V7UAbbZoiPmj3vapuTs5",
@@ -2196,7 +2587,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Puu7DqCgYtrl3viw0MI6",
@@ -2233,7 +2630,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "77ZkFrV3KPHF0a1sv0FI",
@@ -2254,8 +2657,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Madagascar",
+   "ar": "مدغشقر"
   },
   "colour": {
    "en": "Green, cream and pink with round orbs",
@@ -2264,7 +2667,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "Ew0jAtd5uTid1TpfqWfz",
@@ -2300,7 +2708,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Mhwk69rWjV5UxVZlINIe",
@@ -2336,7 +2750,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "E0AUCoCKafsaVwCSKDAM",
@@ -2357,8 +2777,8 @@
   },
   "otherNames": [],
   "origin": {
-   "en": "",
-   "ar": ""
+   "en": "Iran",
+   "ar": "إيران"
   },
   "colour": {
    "en": "Grey",
@@ -2370,7 +2790,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "C1gmGO5vRkiw4cEDUpPF",
@@ -2403,7 +2829,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "z7S0Shp2cXCzspRzNX6P",
@@ -2436,7 +2867,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "QkVj9Fmyr1iyPSXdrFdJ",
@@ -2473,7 +2909,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "k6h7LRXe9gVzrGSjpVKy",
@@ -2507,7 +2949,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "M3Cn9EMzfIp7cH2oSLQc",
@@ -2543,7 +2991,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "i9QqnOgIChGWcuSQHEY8",
@@ -2577,7 +3031,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "rfyUuqaFsHOmdEElMNVu",
@@ -2610,7 +3070,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "fwdpo0QmTq2gnlDfLWbF",
@@ -2635,8 +3100,8 @@
    "ar": ""
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "Brown, beige and black striped pattern",
+   "ar": "نقوش مخططة بالبني والبيج والأسود"
   },
   "uses": [
    "flooring",
@@ -2644,7 +3109,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "PY8j6Viv9HJndoMWxkYI",
@@ -2681,7 +3152,13 @@
    "staircases",
    "windowSills",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Ty3Lh2rMlgWMuYQO8t6m",
@@ -2717,7 +3194,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "akYko77YQC6paf9moHy7",
@@ -2751,7 +3234,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "sWsAbuNzhf8lSvdPu84k",
@@ -2785,7 +3274,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Ge3LVTqqIrcYHBIC830J",
@@ -2822,7 +3317,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "gyDZKtoFRLqkxkUUIgMg",
@@ -2858,7 +3359,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "ERFutEBTcG2sgTLUqgTi",
@@ -2889,7 +3396,12 @@
   "uses": [
    "wallCladding",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs"
+  ],
+  "thicknesses": "2",
+  "sizes": ""
  },
  {
   "id": "YiqBbYBedzVEB0MCjvIf",
@@ -2925,7 +3437,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "45ZgYu5Zn62auQVkt4a6",
@@ -2961,7 +3479,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "cSz9e71GcdqV7BtyFJ13",
@@ -2997,7 +3521,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "RyWxL4lQyFsG6k6fAHHC",
@@ -3033,7 +3563,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Q24OUqIBQofL3ThFvQXE",
@@ -3069,7 +3605,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "paDpFtp5SYhnKocq5nuR",
@@ -3105,7 +3647,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "QP1aUkOd8muPbTWfkEY8",
@@ -3143,7 +3691,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "EJveFMx2ohH3w0kvwf9D",
@@ -3181,7 +3735,13 @@
    "staircases",
    "windowSills",
    "countertops"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "Idnwv5WWxfyULOkIRvBJ",
@@ -3219,7 +3779,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "B4cytpLt6kHHwbtVddu4",
@@ -3244,8 +3810,8 @@
    "ar": ""
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "Golden-yellow with flowing bands and small red-brown specks",
+   "ar": "أصفر ذهبي بتموجات ونقاط بنية حمراء صغيرة"
   },
   "uses": [
    "flooring",
@@ -3255,7 +3821,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "gx4R59Zaq5UyzxKgxQut",
@@ -3293,7 +3865,13 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  },
  {
   "id": "pJcnKjNwUsuUXUJeHezf",
@@ -3320,8 +3898,8 @@
    "ar": ""
   },
   "colour": {
-   "en": "",
-   "ar": ""
+   "en": "Black with copper-brown wavy stripes",
+   "ar": "أسود بخطوط متموجة بنية نحاسية"
   },
   "uses": [
    "flooring",
@@ -3331,6 +3909,12 @@
    "windowSills",
    "countertops",
    "landscaping"
-  ]
+  ],
+  "forms": [
+   "slabs",
+   "tiles"
+  ],
+  "thicknesses": "2, 3",
+  "sizes": "30×60, 40×40, 60×60, 60×120"
  }
 ]
