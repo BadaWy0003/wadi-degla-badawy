@@ -16,7 +16,7 @@ import './Inspiration.css';
 // Import required modules
 import { EffectCoverflow, Navigation, Autoplay } from 'swiper/modules';
 
-export default function InspoSwiper({ images }) {
+export default function InspoSwiper({ images, alt = "" }) {
   const { t } = useTranslation();
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -60,7 +60,7 @@ export default function InspoSwiper({ images }) {
         onMouseLeave={() => setHoveredIndex(null)}
         >
             <div className="swiper-slide-container">
-              <img loading="lazy" src={image} alt={`Slide ${index}`} />
+              <img loading="lazy" src={image} alt={`${alt} ${index + 1}`.trim()} />
               {hoveredIndex === index && (
                 <div className="image-overlay">
                   <p>{t('common.imageHint')}</p>

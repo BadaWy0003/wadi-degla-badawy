@@ -19,7 +19,7 @@ export default function SlideSection({ slides }) {
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="slide">
             <div className="image-wrapper">
-              <img loading="lazy" src={slide.image} alt={`Slide ${index + 1}`} />
+              <img loading="lazy" src={slide.image} alt={slide.title || ""} />
             </div>
             <div className="text-wrapper">
               <h3>{slide.title}</h3>

@@ -24,6 +24,8 @@ export const architectureData=[
         image: cobble_stone,
         title: "Cobble Stone",
         textKey: "stoneCreation.cobbleStoneMasonryText",
+        // the full range has its own page
+        link: { href: "/cobbles", labelKey: "stoneCreation.cobblesLink" },
       },
       {
         image: crown,

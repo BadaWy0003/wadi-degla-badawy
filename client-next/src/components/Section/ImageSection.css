@@ -46,3 +46,15 @@
         /* 1 item per row on small screens */
     }
 }
+/* Optional link under a card's text (e.g. Cobble Stone -> the Cobbles page) */
+.image-section-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--goldColor);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.image-section-link:hover {
+  text-decoration: underline;
+}

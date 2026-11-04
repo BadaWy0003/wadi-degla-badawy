@@ -13,7 +13,9 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import 'yet-another-react-lightbox/styles.css';
 import "../Projects/ProjectDetails.css";
 
-export default function Section({ title, text, images, imagePosition = "left" }) {
+export default function Section({ title, text, images, imagePosition = "left", alt }) {
+  // Photo description for Google/screen readers: the section title unless given.
+  const altBase = alt || (typeof title === "string" ? title : "");
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
@@ -47,7 +49,7 @@ export default function Section({ title, text, images, imagePosition = "left" })
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                 >
-                  <img loading="lazy" src={image} alt={`Slide ${idx + 1}`} />
+                  <img loading="lazy" src={image} alt={`${altBase} ${idx + 1}`.trim()} />
                   {hovered && (
                     <div className="image-overlay">
                       <p>{t('common.imageHint')}</p>

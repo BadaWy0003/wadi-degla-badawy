@@ -676,7 +676,8 @@
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Partners & Clients",
     "imageAlt": "Partner Logo {{number}}",
-    "cta": "Become one of our partners"
+    "cta": "Become one of our partners",
+    "introText": "Over the years, Wadi Degla has worked with leading developers, hotel groups, contractors and institutions in Egypt and abroad. These are some of our partners and clients."
   },
   "news": {
     "pageTitle": "Wadi Degla News | Marble & Natural Stone Industry Updates",
@@ -849,7 +850,8 @@
     "mosaicsTrapezoid5x5Text": "A dynamic pattern for creative architectural finishes.",
     "mosaics10x3Text": "Slim-line modern mosaic ideal for feature walls and linear designs.",
     "mosaicsCircular5x5Text": "Soft curves and dimensional depth for artistic wall expressions.",
-    "mosaicsUpsAndDown10x10Text": "3D geometric styling creating visual depth and movement."
+    "mosaicsUpsAndDown10x10Text": "3D geometric styling creating visual depth and movement.",
+    "cobblesLink": "See our full cobbles range →"
   },
   "patterns": {
     "pageTitle": "Marble Patterns & Stone Pavers | Outdoor Flooring | Wadi Degla Marble Egypt",
@@ -859,12 +861,13 @@
     "breadcrumbCurrent": "Patterns / Pavers",
     "paversTitle": "Marble Paving Tiles Collection",
     "splitFaceTitle": "Split Face Marble",
-    "selectMaterial": "Select a material from below to appear on this scenery",
+    "selectMaterial": "Pick a stone below to see it in this setting",
     "paversAlt": "Marble Pavers {{number}}",
     "paversMainAlt": "Selected Marble Paver",
     "splitFaceAlt": "Split Face {{number}}",
     "splitFaceMainAlt": "Selected Split Face",
-    "patternsTitle": "Stone Patterns"
+    "patternsTitle": "Stone Patterns",
+    "introText": "Wadi Degla produces marble paving tiles, split-face marble and decorative stone patterns for terraces, walkways, pool decks, gardens and façades. Pick a stone below to see it in a real setting, and contact us for sizes, finishes and quantities for your project."
   },
   "home": {
     "pageTitle": "Egyptian Marble & Granite Exporter Since 1980 | Wadi Degla",

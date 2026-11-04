@@ -38,7 +38,7 @@ export default function Inspiration(){
                     ))}
                 </p>
             </div>
-            <InspoAncientSwiper images={ancientImageData} />
+            <InspoAncientSwiper images={ancientImageData} alt={t('inspiration.ancientSubtitle')} />
 
             <div className="inspo-ancient-section">
                 <div className="inspo-section-title">
@@ -64,7 +64,7 @@ export default function Inspiration(){
                     ))}
                 </p>
             </div>
-            <InspoSwiper images={interiorImageData} />
+            <InspoSwiper images={interiorImageData} alt={t('inspiration.interiorSubtitle')} />
 
             <div className="inspo-ancient-section">
                 <div className="inspo-section-title">
@@ -90,7 +90,7 @@ export default function Inspiration(){
                     ))}
                 </p>
             </div>
-            <InspoSwiper images={exteriorImageData} />
+            <InspoSwiper images={exteriorImageData} alt={t('inspiration.exteriorSubtitle')} />
 
             <div className="inspo-ancient-section">
                 <div className="inspo-section-title">

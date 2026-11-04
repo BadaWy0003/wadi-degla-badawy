@@ -34,6 +34,21 @@ import LangLink from '../LangLink';
         mountain_view,
     ];
 
+// Company names for the logos' descriptions (same order as partnerLogos; empty = generic text).
+const PARTNER_NAMES = [
+    '',
+    'Orascom',
+    'Emaar',
+    'Consulate General of Egypt in Kuwait',
+    'Wyndham',
+    'Hyde Park Developments',
+    'Majid Al Futtaim',
+    'Trade Logistics',
+    'CKPC',
+    'WD Developments',
+    'Mountain View',
+];
+
 export default function Partners() {
     const router = useRouter();
   const lang = useLang();
@@ -54,13 +69,15 @@ export default function Partners() {
             <p>{'>'} {t('partners.breadcrumbCurrent')}</p>
             </div>
 
+            <p className="partners-intro">{t('partners.introText')}</p>
+
             <div className="partners">
                 {partnerLogos.map((logo, index) => (
                     <img loading="lazy"
                         id={`partner-logo-${index + 1}`}
                         key={index} // Unique key for each logo
                         src={logo}
-                        alt={t('partners.imageAlt', { number: index + 1 })}
+                        alt={PARTNER_NAMES[index] || t('partners.imageAlt', { number: index + 1 })}
                     />
                 ))}
             </div>

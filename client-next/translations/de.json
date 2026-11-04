@@ -676,7 +676,8 @@
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Partner & Kunden",
     "imageAlt": "Partner Logo {{number}}",
-    "cta": "Werden Sie einer unserer Partner"
+    "cta": "Werden Sie einer unserer Partner",
+    "introText": "Im Laufe der Jahre hat Wadi Degla mit führenden Projektentwicklern, Hotelgruppen, Bauunternehmen und Institutionen in Ägypten und im Ausland zusammengearbeitet. Hier sind einige unserer Partner und Kunden."
   },
   "news": {
     "pageTitle": "Wadi Degla Nachrichten | Marmor- und Naturstein-Branchenupdates",
@@ -849,7 +850,8 @@
     "mosaicsTrapezoid5x5Text": "Ein dynamisches Muster für kreative architektonische Oberflächen.",
     "mosaics10x3Text": "Schlankes modernes Mosaik ideal für Akzentwände und lineare Designs.",
     "mosaicsCircular5x5Text": "Sanfte Kurven und dimensionale Tiefe für künstlerische Wandausdrücke.",
-    "mosaicsUpsAndDown10x10Text": "3D-Geometrie-Styling, das visuelle Tiefe und Bewegung schafft."
+    "mosaicsUpsAndDown10x10Text": "3D-Geometrie-Styling, das visuelle Tiefe und Bewegung schafft.",
+    "cobblesLink": "Unser gesamtes Pflastersteinsortiment ansehen →"
   },
   "patterns": {
     "pageTitle": "Marmorplatten & Steinplatten | Außenbodenbelag | Wadi Degla Marmor Ägypten",
@@ -864,7 +866,8 @@
     "paversMainAlt": "Ausgewählter Marmor-Pflasterstein",
     "splitFaceAlt": "Spaltfläche {{number}}",
     "splitFaceMainAlt": "Ausgewählte Spaltfläche",
-    "patternsTitle": "Steinmuster"
+    "patternsTitle": "Steinmuster",
+    "introText": "Wadi Degla produziert Marmor-Pflasterplatten, Spaltmarmor (Split-Face) und dekorative Steinmuster für Terrassen, Wege, Poolumrandungen, Gärten und Fassaden. Wählen Sie unten einen Stein, um ihn in einer echten Umgebung zu sehen, und kontaktieren Sie uns für Formate, Oberflächen und Mengen für Ihr Projekt."
   },
   "home": {
     "pageTitle": "Ägyptischer Marmor & Granit Exporteur seit 1980 | Wadi Degla",
