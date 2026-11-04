@@ -1,73 +1,106 @@
 'use client';
-import './Contact.css';
-import '../LoginSignup/Signup.css'
-const facebook_circle_white_icon = '/Assets/Icons/Social/facebook-circle-white-icon.svg';
-const instagram_circle_white_icon = '/Assets/Icons/Social/instagram-circle-white-icon.svg';
-// const x_circle_white_icon = '/Assets/Icons/Social/x-circle-white-icon.svg';
-const linkedin_circle_white_icon = '/Assets/Icons/Social/linkedin-circle-white-icon.svg';
-const whatsapp_circle_white_icon = '/Assets/Icons/Social/whatsapp-circle-white-icon.svg';
-const telegram_circle_white_icon = '/Assets/Icons/Social/telegram-circle-white-icon.svg';
-const tiktok_circle_white_icon = '/Assets/Icons/Social/tiktok-circle-white-icon.svg';
-const qr = '/Assets/Icons/Social/QR.png';
-import AddressMap from './AddressMap.js';
 import { useTranslation } from 'react-i18next';
+import AddressMap from './AddressMap.js';
+import Icon from './ContactIcons';
+import { EMAILS, PHONES, DOWNLOADS, SOCIALS, QR, MAPS_URL } from './contactData';
 
+const external = { target: '_blank', rel: 'noopener noreferrer' };
+
+// The company's details next to the form (under it on phones): one card per topic.
 export default function ContactInfo() {
   const { t } = useTranslation();
   return (
-    <div className="contact-inner-right">
-      <h2>{t('contactInfo.title')}</h2>
-      <div className="contact-info">
-        <div className="email-address">
-          <h4>{t('contactInfo.email')}</h4>
-          <p>{t('contactInfo.emailHomes')}</p>
-          <a href="mailto:sales@wadidegla-eg.com">sales@wadidegla-eg.com</a>
-          <p>{t('contactInfo.emailProjects')}</p>
-          <a href="mailto:projects@wadidegla-eg.com">projects@wadidegla-eg.com</a>
-          <p>{t('contactInfo.emailExport')}</p>
-          <a href="mailto:export@wadidegla-eg.com">export@wadidegla-eg.com</a>
-          <p>{t('contactInfo.emailInfo')}</p>
-          <a href="mailto:info@wadidegla-eg.com">info@wadidegla-eg.com</a>
-        </div>
-
-        <div className="phone-numbers">
-          <h4>{t('contactInfo.phone')}</h4>
-          <p>{t('contactInfo.phoneHeadOffice')}</p>
-          <a href="tel:+201067260314">(+20) 10-6726-0314</a>
-          <a href="tel:+201155559896">(+20) 11-5555-9896</a>
-          <p>{t('contactInfo.phoneSupport')}</p>
-          <a href="tel:+201016667890">(+20) 101-666-7890</a>
-        </div>
-        <div className="location">
-          <h4>{t('contactInfo.address')}</h4>
-          <a href='https://maps.app.goo.gl/bM4qT3UBLVt3r7tN7' target="_blank" rel="noopener noreferrer">
-            36, 241D Shaq Althoaban Industrial
-            Area for Marble & Granite, Tourrah,
-            Cairo, Egypt
-          </a>
-          <AddressMap />
-        </div>
-        <div className="social">
-          <h4>{t('contactInfo.social')}</h4>
-          <div className='social-icons'>
-            <a href='https://www.facebook.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={facebook_circle_white_icon} className='social-icons-footer' /></a>
-            <a href='https://instagram.com/wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={instagram_circle_white_icon} className='social-icons-footer' /></a>
-            {/* <a href='https://twitter.com/wadideglaaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={x_circle_white_icon} className='social-icons-footer' /></a> */}
-            <a href='https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={linkedin_circle_white_icon} className='social-icons-footer' /></a>
-            <a href='https://wa.me/message/LAQ57AMNJ5ZON1?src=qr' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={whatsapp_circle_white_icon} className='social-icons-footer' /></a>
-            <a href='https://t.me/wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={telegram_circle_white_icon} className='social-icons-footer' /></a>
-            <a href='https://www.tiktok.com/@wadideglaco' target="_blank" rel="noopener noreferrer"><img loading="lazy" alt='' src={tiktok_circle_white_icon} className='social-icons-footer' /></a>
-          </div>
-          <a href='https://drive.google.com/file/d/1cr1xARl2DO_dmVo2NUaZrP6mJ0FyNHUa/view' target="_blank" rel="noopener noreferrer"> <button className='btn2'>
-            {t('contactInfo.companyProfile')}</button> </a>
-          <a href='https://drive.google.com/file/d/17sczDrWJN8pWQ4EPHMdIeh30TLbXYh-l/view?usp=sharing' target="_blank" rel="noopener noreferrer"> <button className='btn1'>
-            {t('contactInfo.specialCatalogue')}</button> </a>
-          <h4>{t('contactInfo.qrInstruction')}</h4>
-          <div>
-            <a id="qr-code" href='https://wadideg.social/' target="_blank" rel="noopener noreferrer"> <img loading="lazy" alt='' src={qr} /> </a>
-          </div>
-        </div>
+    <aside className="cx-info" aria-labelledby="cx-info-title">
+      <div className="cx-section-head">
+        <p className="cx-eyebrow">{t('contactInfo.eyebrow')}</p>
+        <h2 id="cx-info-title">{t('contactInfo.title')}</h2>
       </div>
-    </div>
-  )
+
+      <div className="cx-card">
+        <h3 className="cx-card-title">
+          <Icon name="mail" />
+          {t('contactInfo.email')}
+        </h3>
+        <ul className="cx-list">
+          {EMAILS.map(({ key, email }) => (
+            <li key={email}>
+              <span className="cx-list-label">{t(key)}</span>
+              <a className="cx-list-value" href={`mailto:${email}`} dir="ltr">
+                {email}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="cx-card">
+        <h3 className="cx-card-title">
+          <Icon name="phone" />
+          {t('contactInfo.phone')}
+        </h3>
+        <ul className="cx-list">
+          {PHONES.map(({ key, numbers }) => (
+            <li key={key}>
+              <span className="cx-list-label">{t(key)}</span>
+              {numbers.map((n) => (
+                <a key={n.tel} className="cx-list-value" href={`tel:${n.tel}`} dir="ltr">
+                  {n.label}
+                </a>
+              ))}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="cx-card cx-card-visit">
+        <h3 className="cx-card-title">
+          <Icon name="pin" />
+          {t('contactInfo.address')}
+        </h3>
+        <address className="cx-address">{t('contactInfo.addressLine')}</address>
+        <AddressMap title={t('contactInfo.mapTitle')} />
+        <a className="cx-btn cx-btn-ghost" href={MAPS_URL} {...external}>
+          {t('contact.directions')}
+          <Icon name="arrow" />
+        </a>
+      </div>
+
+      <div className="cx-card">
+        <h3 className="cx-card-title">
+          <Icon name="file" />
+          {t('contactInfo.downloads')}
+        </h3>
+        <ul className="cx-downloads">
+          {DOWNLOADS.map(({ key, href }) => (
+            <li key={key}>
+              <a href={href} {...external}>
+                <span className="cx-file-badge">PDF</span>
+                <span className="cx-download-name">{t(key)}</span>
+                <Icon name="arrow" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="cx-card cx-card-social">
+        <div>
+          <h3 className="cx-card-title">{t('contactInfo.social')}</h3>
+          <ul className="cx-social">
+            {SOCIALS.map((s) => (
+              <li key={s.name}>
+                <a href={s.href} {...external} aria-label={s.name} title={s.name}>
+                  <img loading="lazy" alt="" src={s.icon} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <a className="cx-qr" href={QR.href} {...external}>
+          <img loading="lazy" src={QR.img} alt="" width="88" height="88" />
+          <span>{t('contactInfo.qrInstruction')}</span>
+        </a>
+      </div>
+    </aside>
+  );
 }
