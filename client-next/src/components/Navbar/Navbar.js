@@ -14,6 +14,7 @@ const arrow_down = '/Assets/Icons/arrow-down.svg';
 import SearchBar from '../SearchBar/SearchBar.js.js';
 import SearchBarMobile from '../SearchBar/SearchBarMobile.js.js';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { COMPANY_MENU, PRODUCTS_MENU, RESOURCES_MENU } from '../../util/site-menu';
 
 export default function Navbar() {
   const navRef = useRef();
@@ -76,6 +77,40 @@ export default function Navbar() {
     };
   }, []);
 
+  const onNavigate = () => {
+    closeNavbar();
+    window.scrollTo(0, 0);
+  };
+
+  // One dropdown: optional group titles (plain text, not links), the links, and an optional
+  // "View all" button. The Products menu is "wide": its groups sit side by side on desktop.
+  const renderDropdown = (menu) => (
+    <div className="nav-item-with-submenu" key={menu.label}>
+      <div className="nav-item-with-submenu-title">
+        <p>{t(menu.label)}</p>
+      </div>
+      <div className={`submenu-bg${menu.wide ? ' submenu-bg-wide' : ''}`}>
+        <div className={`submenu${menu.wide ? ' submenu-wide' : ''}`}>
+          {menu.groups.map((group, gi) => (
+            <div className="submenu-group" key={group.title || gi}>
+              {group.title && <span className="submenu-group-title">{t(group.title)}</span>}
+              {group.items.map((item) => (
+                <LangLink key={item.href} href={item.href} onClick={onNavigate}>
+                  {t(item.label)}
+                </LangLink>
+              ))}
+            </div>
+          ))}
+          {menu.all && (
+            <LangLink href={menu.all.href} onClick={onNavigate} className="submenu-all">
+              {t(menu.all.label)} <span aria-hidden="true">→</span>
+            </LangLink>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <LangLink
@@ -108,250 +143,13 @@ export default function Navbar() {
             id="logo-nav-mobile"
           />
         </LangLink>
-        {/* Navigation Links */}
-        <div className="nav-item-with-submenu">
-          <div className="nav-item-with-submenu-title">
-            <p>{t('navigation.wadiDegla')}</p>
-          </div>
-          <div className="submenu-bg">
-            <div className="submenu">
-              <LangLink
-                href="/history"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.history')}
-              </LangLink>
-              <LangLink
-                href="/machinery"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.machinery')}
-              </LangLink>
-              <LangLink
-                href="/certificates"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.certificates')}
-              </LangLink>
-              <LangLink
-                href="/exports"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.exports')}
-              </LangLink>
-              <LangLink
-                href="/packing"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.packing')}
-              </LangLink>
-              <LangLink
-                href="/buy-marble-from-egypt"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.buyGuide')}
-              </LangLink>
-              <LangLink
-                href="/about"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.whyChooseUs')}
-              </LangLink>
-            </div>
-          </div>
-        </div>
-        <div className="nav-item-with-submenu">
-          <div className="nav-item-with-submenu-title">
-            <p>{t('navigation.products')}</p>
-          </div>
-          <div className="submenu-bg">
-            <div className="submenu">
-              <LangLink
-                href="/egyptian-marble"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('visualizer.egyptianMarble')}
-              </LangLink>
-              <LangLink
-                href="/egyptian-granite"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('visualizer.egyptianGranite')}
-              </LangLink>
-              <LangLink
-                href="/imported-marble"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('visualizer.importedMarble')}
-              </LangLink>
-              <LangLink
-                href="/imported-granite"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('visualizer.importedGranite')}
-              </LangLink>
-              <LangLink
-                href="/products"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.exploreProducts')}
-              </LangLink>
-              <LangLink
-                href="/visualizer"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.materialVisualizer')}
-              </LangLink>
-              <LangLink
-                href="/patterns"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.patterns')}
-              </LangLink>
-              <LangLink
-                href="/kerbstone"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.kerbstone')}
-              </LangLink>
-              <LangLink
-                href="/cobbles"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.cobbles')}
-              </LangLink>
-              <LangLink
-                href="/stone-creations"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.stoneCreations')}
-              </LangLink>
-            </div>
-          </div>
-        </div>
-        <div className="nav-item-with-submenu">
-          <div className="nav-item-with-submenu-title">
-            <p>{t('navigation.resources')}</p>
-          </div>
-          <div className="submenu-bg">
-            <div className="submenu">
-              <LangLink
-                href="/quarries"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.quarries')}
-              </LangLink>
-              <LangLink
-                href="/inspiration"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.inspiration')}
-              </LangLink>
-              <LangLink
-                href="/gallery"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.gallery')}
-              </LangLink>
-              <LangLink
-                href="/news"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.news')}
-              </LangLink>
-              <LangLink
-                href="/partners"
-                onClick={() => {
-                  closeNavbar();
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.partners')}
-              </LangLink>
-            </div>
-          </div>
-        </div>
-        <LangLink
-          href="/projects"
-          onClick={() => {
-            closeNavbar();
-            window.scrollTo(0, 0);
-          }}
-        >
+        {/* Navigation Links (lists in src/util/site-menu.js) */}
+        {renderDropdown(COMPANY_MENU)}
+        {renderDropdown(PRODUCTS_MENU)}
+        <LangLink href="/projects" onClick={onNavigate}>
           {t('navigation.projects')}
         </LangLink>
-        <LangLink
-          href="/fairs"
-          onClick={() => {
-            closeNavbar();
-            window.scrollTo(0, 0);
-          }}
-        >
-          {t('navigation.fairs')}
-        </LangLink>
+        {renderDropdown(RESOURCES_MENU)}
         <LangLink
           href="/contact"
           onClick={() => {

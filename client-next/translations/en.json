@@ -159,7 +159,11 @@
     "login": "Login",
     "logout": "Logout",
     "loginSignup": "Login/Signup",
-    "buyGuide": "How to Buy from Egypt"
+    "buyGuide": "How to Buy from Egypt",
+    "groupStones": "Stones",
+    "groupStoneProducts": "Stone products",
+    "groupTools": "Tools",
+    "viewAllProducts": "View all products"
   },
   "cobbles": {
     "pageTitle": "Granite Cobbles & Flamed Paving | Durable Outdoor Stone Solutions | Wadi Degla",

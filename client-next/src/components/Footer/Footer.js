@@ -14,6 +14,14 @@ import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import LangLink from '../LangLink';
 import { useLang } from '../../context/LangContext';
+import { COMPANY_MENU, PRODUCTS_MENU, RESOURCES_MENU, menuLinks } from '../../util/site-menu';
+
+// Footer columns: the 3 menus; Projects (a top-level link in the menu) is listed under Resources.
+const FOOTER_COLUMNS = [
+  { menu: COMPANY_MENU, extra: [] },
+  { menu: PRODUCTS_MENU, extra: [] },
+  { menu: RESOURCES_MENU, extra: [{ href: '/projects', label: 'navigation.projects' }] },
+];
 
 function Footer() {
   const router = useRouter();
@@ -91,210 +99,17 @@ function Footer() {
           </div>
 
           <div className="footer-nav">
-            <div className="col">
-              <h4>{t('navigation.wadiDegla')}</h4>
-              <LangLink
-                href="/history"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.history')}
-              </LangLink>
-              <LangLink
-                href="/machinery"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.machinery')}
-              </LangLink>
-              <LangLink
-                href="/certificates"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.certificates')}
-              </LangLink>
-              <LangLink
-                href="/exports"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.exports')}
-              </LangLink>
-              <LangLink
-                href="/packing"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.packing')}
-              </LangLink>
-              <LangLink
-                href="/buy-marble-from-egypt"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.buyGuide')}
-              </LangLink>
-              <LangLink
-                href="/about"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.whyChooseUs')}
-              </LangLink>
-            </div>
-
-            <div className="col">
-              <h4>{t('footer.explore')}</h4>
-              <LangLink
-                href="/egyptian-marble"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('visualizer.egyptianMarble')}
-              </LangLink>
-              <LangLink
-                href="/egyptian-granite"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('visualizer.egyptianGranite')}
-              </LangLink>
-              <LangLink
-                href="/imported-marble"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('visualizer.importedMarble')}
-              </LangLink>
-              <LangLink
-                href="/imported-granite"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('visualizer.importedGranite')}
-              </LangLink>
-              <LangLink
-                href="/products"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.exploreProducts')}
-              </LangLink>
-              <LangLink
-                href="/visualizer"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.materialVisualizer')}
-              </LangLink>
-              <LangLink
-                href="/patterns"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.patterns')}
-              </LangLink>
-              <LangLink
-                href="/kerbstone"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.kerbstone')}
-              </LangLink>
-              <LangLink
-                href="/cobbles"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.cobbles')}
-              </LangLink>
-              <LangLink
-                href="/stone-creations"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.stoneCreations')}
-              </LangLink>
-            </div>
-
-            <div className="col">
-              <h4>{t('navigation.resources')}</h4>
-              <LangLink
-                href="/quarries"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.quarries')}
-              </LangLink>
-              <LangLink
-                href="/inspiration"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.inspiration')}
-              </LangLink>
-              <LangLink
-                href="/gallery"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.gallery')}
-              </LangLink>
-              <LangLink
-                href="/partners"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.partners')}
-              </LangLink>
-              <LangLink
-                href="/projects"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.projects')}
-              </LangLink>
-              <LangLink
-                href="/fairs"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.fairs')}
-              </LangLink>
-              <LangLink
-                href="/news"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.news')}
-              </LangLink>
-            </div>
-
+            {/* Same lists as the top menu (src/util/site-menu.js) */}
+            {FOOTER_COLUMNS.map(({ menu, extra }) => (
+              <div className="col" key={menu.label}>
+                <h4>{t(menu.label)}</h4>
+                {[...menuLinks(menu), ...extra].map((item) => (
+                  <LangLink key={item.href} href={item.href} onClick={() => window.scrollTo(0, 0)}>
+                    {t(item.label)}
+                  </LangLink>
+                ))}
+              </div>
+            ))}
             <div className="col">
               <h4>{t('footer.contactHeading')}</h4>
               <LangLink

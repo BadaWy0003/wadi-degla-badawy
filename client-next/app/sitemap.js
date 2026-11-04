@@ -33,7 +33,6 @@ const STATIC_PAGES = [
   { path: '/certificates', priority: 0.6, changeFrequency: 'yearly' },
   { path: '/history', priority: 0.6, changeFrequency: 'yearly' },
   { path: '/partners', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/fairs', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/inspiration', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/patterns', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/stone-creations', priority: 0.6, changeFrequency: 'monthly' },

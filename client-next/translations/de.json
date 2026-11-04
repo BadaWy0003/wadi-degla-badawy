@@ -159,7 +159,11 @@
     "login": "Anmelden",
     "logout": "Abmelden",
     "loginSignup": "Anmelden/Registrieren",
-    "buyGuide": "So kaufen Sie aus Ägypten"
+    "buyGuide": "So kaufen Sie aus Ägypten",
+    "groupStones": "Natursteine",
+    "groupStoneProducts": "Steinprodukte",
+    "groupTools": "Tools",
+    "viewAllProducts": "Alle Produkte ansehen"
   },
   "cobbles": {
     "pageTitle": "Granitkobel & Flammbehandelte Pflastersteine | Langlebige Außensteinlösungen | Wadi Degla",

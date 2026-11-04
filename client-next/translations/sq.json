@@ -159,7 +159,11 @@
     "login": "Hyr",
     "logout": "Dil",
     "loginSignup": "Hyr/Regjistrohu",
-    "buyGuide": "Si të blini nga Egjipti"
+    "buyGuide": "Si të blini nga Egjipti",
+    "groupStones": "Gurë",
+    "groupStoneProducts": "Produkte guri",
+    "groupTools": "Mjete",
+    "viewAllProducts": "Shihni të gjitha produktet"
   },
   "cobbles": {
     "pageTitle": "Gur Graniti dhe Shtrime të Flakës | Zgjidhje Zgjata të Gurit të Jashtëm | Wadi Degla",

@@ -620,3 +620,109 @@ html[dir="rtl"] .submenu a:hover {
     border-left: none;
 }
 
+
+/* ---------- Grouped dropdowns (src/util/site-menu.js) ---------- */
+/* A group of links, stacked (header divs are flex rows by default) */
+header .submenu-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Group title: plain text above a group of links (e.g. "Stones") */
+.submenu-group-title {
+    display: block;
+    padding: 8px 15px 4px;
+    color: var(--goldColor);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+body[lang="ar"] .submenu-group-title {
+    letter-spacing: 0;
+    font-size: 0.8rem;
+}
+
+/* Products: the groups side by side, then "View all products" across the bottom */
+.nav-item-with-submenu:hover .submenu.submenu-wide,
+.scrolled .nav-item-with-submenu:hover .submenu.submenu-wide {
+    display: grid;
+}
+
+.submenu.submenu-wide {
+    align-items: start;
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 1.25rem;
+    padding: 1rem 0.5rem;
+}
+
+.submenu.submenu-wide .submenu-group a {
+    white-space: nowrap;
+}
+
+.submenu .submenu-all,
+.scrolled .submenu .submenu-all {
+    grid-column: 1 / -1;
+    margin: 0.5rem 15px 0;
+    padding: 0.75rem 0 0;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--goldColor);
+    font-weight: 600;
+}
+
+.submenu .submenu-all:hover,
+.scrolled .submenu .submenu-all:hover,
+html[dir="rtl"] .submenu .submenu-all:hover {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--whiteColor);
+}
+
+html[dir="rtl"] .submenu .submenu-all {
+    padding-right: 0;
+}
+
+html[dir="rtl"] .submenu-all span {
+    display: inline-block;
+    transform: scaleX(-1);
+}
+
+/* Desktop, top of the page: a darker, frosted dropdown so the page title behind it
+   doesn't show through the links */
+@media only screen and (min-width: 1231px) {
+    header:not(.scrolled) .submenu {
+        background-color: rgba(10, 10, 10, 0.82);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+    }
+}
+
+/* Hamburger menu (phones, tablets): 2 columns so the list stays short */
+@media only screen and (max-width: 1230px) {
+    .submenu.submenu-wide {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 0.25rem;
+        width: min(330px, calc(100vw - 48px));
+        padding: 0.75rem 0.25rem;
+        /* centred under "Products" so it never runs off the screen */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav-item-with-submenu:hover .submenu.submenu-wide,
+    .scrolled .nav-item-with-submenu:hover .submenu.submenu-wide {
+        transform: translateX(-50%);
+    }
+
+    .submenu.submenu-wide .submenu-group a {
+        white-space: normal;
+    }
+
+    .submenu-group-title {
+        padding-top: 10px;
+    }
+}

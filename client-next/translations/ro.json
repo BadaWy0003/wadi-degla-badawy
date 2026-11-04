@@ -159,7 +159,11 @@
     "login": "Autentificare",
     "logout": "Deconectare",
     "loginSignup": "Autentificare/Înregistrare",
-    "buyGuide": "Cum cumpărați din Egipt"
+    "buyGuide": "Cum cumpărați din Egipt",
+    "groupStones": "Pietre",
+    "groupStoneProducts": "Produse din piatră",
+    "groupTools": "Instrumente",
+    "viewAllProducts": "Vezi toate produsele"
   },
   "cobbles": {
     "pageTitle": "Pavele de Granit și Pavaje Flacără | Soluții de Piatră Exterior Durabilă | Wadi Degla",
