@@ -159,7 +159,11 @@
     "login": "Iniciar Sesión",
     "logout": "Cerrar Sesión",
     "loginSignup": "Iniciar Sesión/Registrarse",
-    "buyGuide": "Cómo comprar en Egipto"
+    "buyGuide": "Cómo comprar en Egipto",
+    "groupStones": "Piedras",
+    "groupStoneProducts": "Productos de piedra",
+    "groupTools": "Herramientas",
+    "viewAllProducts": "Ver todos los productos"
   },
   "cobbles": {
     "pageTitle": "Adoquines de Granito y Pavimento Flameado | Soluciones de Piedra Exterior Duraderas | Wadi Degla",

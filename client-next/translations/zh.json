@@ -159,7 +159,11 @@
     "login": "登录",
     "logout": "退出",
     "loginSignup": "登录/注册",
-    "buyGuide": "如何从埃及采购"
+    "buyGuide": "如何从埃及采购",
+    "groupStones": "石材",
+    "groupStoneProducts": "石材制品",
+    "groupTools": "工具",
+    "viewAllProducts": "查看全部产品"
   },
   "cobbles": {
     "pageTitle": "花岗岩鹅卵石与火烧面铺路 | 耐用户外石材解决方案 | 瓦迪·德格拉",

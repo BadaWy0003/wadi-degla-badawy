@@ -7,6 +7,9 @@ export function generateMetadata({ params }) {
     title: t(lang, 'fairs.pageTitle', 'Fairs | Wadi Degla'),
     description: t(lang, 'fairs.metaDescription', ''),
     alternates: buildAlternates('/fairs', lang),
+    // Empty "Coming soon" page: kept out of Google (and out of the menu and sitemap) until it
+    // has real fairs. Then remove this line and add it back to app/sitemap.js and site-menu.js.
+    robots: { index: false, follow: true },
   };
 }
 

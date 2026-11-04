@@ -159,7 +159,11 @@
     "login": "로그인",
     "logout": "로그아웃",
     "loginSignup": "로그인/가입",
-    "buyGuide": "이집트에서 구매하는 방법"
+    "buyGuide": "이집트에서 구매하는 방법",
+    "groupStones": "석재",
+    "groupStoneProducts": "석재 제품",
+    "groupTools": "도구",
+    "viewAllProducts": "전체 제품 보기"
   },
   "cobbles": {
     "pageTitle": "화강암 포석과 불 처리 포장 | 내구성 있는 외부 석재 솔루션 | Wadi Degla",

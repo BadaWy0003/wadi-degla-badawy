@@ -159,7 +159,11 @@
     "login": "Se Connecter",
     "logout": "Se Déconnecter",
     "loginSignup": "Connexion/Inscription",
-    "buyGuide": "Comment acheter en Égypte"
+    "buyGuide": "Comment acheter en Égypte",
+    "groupStones": "Pierres",
+    "groupStoneProducts": "Produits en pierre",
+    "groupTools": "Outils",
+    "viewAllProducts": "Voir tous les produits"
   },
   "cobbles": {
     "pageTitle": "Pavés en Granit et Dallage Flammé | Solutions de Pierre Extérieure Durables | Wadi Degla",

@@ -159,7 +159,11 @@
     "login": "Accedi",
     "logout": "Esci",
     "loginSignup": "Accedi/Registrati",
-    "buyGuide": "Come acquistare dall'Egitto"
+    "buyGuide": "Come acquistare dall'Egitto",
+    "groupStones": "Pietre",
+    "groupStoneProducts": "Prodotti in pietra",
+    "groupTools": "Strumenti",
+    "viewAllProducts": "Vedi tutti i prodotti"
   },
   "cobbles": {
     "pageTitle": "Sanpietrini in Granito e Pavimentazione Flammata | Soluzioni Durature in Pietra Esterna | Wadi Degla",

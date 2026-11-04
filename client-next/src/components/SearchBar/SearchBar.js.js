@@ -98,7 +98,6 @@ const SearchBar = () => {
     contact: '/contact',
     products: '/products',
     projects: '/projects',
-    fairs: '/fairs',
     partners: '/partners',
     news: '/news',
     kerbstone: '/kerbstone',

@@ -159,7 +159,11 @@
     "login": "ログイン",
     "logout": "ログアウト",
     "loginSignup": "ログイン/サインアップ",
-    "buyGuide": "エジプトからの購入方法"
+    "buyGuide": "エジプトからの購入方法",
+    "groupStones": "石材",
+    "groupStoneProducts": "石材製品",
+    "groupTools": "ツール",
+    "viewAllProducts": "すべての製品を見る"
   },
   "cobbles": {
     "pageTitle": "花崗岩コブル石とフレーム舗装 | 耐久的な屋外石ソリューション | Wadi Degla",
