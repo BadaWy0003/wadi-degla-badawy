@@ -672,7 +672,8 @@
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Socios y Clientes",
     "imageAlt": "Logo del socio {{number}}",
-    "cta": "Conviértete en uno de nuestros socios"
+    "cta": "Conviértete en uno de nuestros socios",
+    "introText": "A lo largo de los años, Wadi Degla ha trabajado con importantes promotoras, grupos hoteleros, constructoras e instituciones en Egipto y en el extranjero. Estos son algunos de nuestros socios y clientes."
   },
   "news": {
     "pageTitle": "Noticias de Wadi Degla | Actualizaciones de la Industria de Mármol y Piedra Natural",
@@ -845,7 +846,8 @@
     "mosaicsTrapezoid5x5Text": "Un patrón dinámico para acabados arquitectónicos creativos.",
     "mosaics10x3Text": "Mosaico moderno de línea fina ideal para muros de acento y diseños lineales.",
     "mosaicsCircular5x5Text": "Curvas suaves y profundidad dimensional para expresiones artísticas de pared.",
-    "mosaicsUpsAndDown10x10Text": "Estilo de geometría 3D que crea profundidad visual y movimiento."
+    "mosaicsUpsAndDown10x10Text": "Estilo de geometría 3D que crea profundidad visual y movimiento.",
+    "cobblesLink": "Ver toda nuestra gama de adoquines →"
   },
   "patterns": {
     "pageTitle": "Patrones de Mármol y Adoquines de Piedra | Pisos Exteriores | Mármol Wadi Degla Egipto",
@@ -860,7 +862,8 @@
     "paversMainAlt": "Adoquín de Mármol seleccionado",
     "splitFaceAlt": "Split Face {{number}}",
     "splitFaceMainAlt": "Split Face seleccionado",
-    "patternsTitle": "Patrones de Piedra"
+    "patternsTitle": "Patrones de Piedra",
+    "introText": "Wadi Degla fabrica baldosas de pavimento de mármol, mármol split-face y patrones decorativos de piedra para terrazas, caminos, bordes de piscina, jardines y fachadas. Elija una piedra abajo para verla en un entorno real y contáctenos para conocer medidas, acabados y cantidades para su proyecto."
   },
   "home": {
     "pageTitle": "Exportador de Mármol y Granito Egipcio desde 1980 | Wadi Degla",

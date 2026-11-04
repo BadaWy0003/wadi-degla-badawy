@@ -672,7 +672,8 @@
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Parteneri și Clienți",
     "imageAlt": "Logo Partener {{number}}",
-    "cta": "Deveniți unul dintre partenerii noștri"
+    "cta": "Deveniți unul dintre partenerii noștri",
+    "introText": "De-a lungul anilor, Wadi Degla a colaborat cu dezvoltatori importanți, grupuri hoteliere, constructori și instituții din Egipt și din străinătate. Iată câțiva dintre partenerii și clienții noștri."
   },
   "news": {
     "pageTitle": "Știri Wadi Degla | Actualizări ale industriei marmurii și pietrei naturale",
@@ -845,7 +846,8 @@
     "mosaicsTrapezoid5x5Text": "Un model dinamic pentru finisări arhitecturale creative.",
     "mosaics10x3Text": "Mosaicul modern cu linie fină ideal pentru pereți caracteristici și proiecte liniare.",
     "mosaicsCircular5x5Text": "Curbe ușoare și adâncime dimensională pentru expresii de perete artistice.",
-    "mosaicsUpsAndDown10x10Text": "Stilul geometric 3D care creează adâncime vizuală și mișcare."
+    "mosaicsUpsAndDown10x10Text": "Stilul geometric 3D care creează adâncime vizuală și mișcare.",
+    "cobblesLink": "Vezi întreaga gamă de pavele →"
   },
   "patterns": {
     "pageTitle": "Modele de Marmură și Pavaje din Piatră | Podele Exterioare | Marmură Wadi Degla Egipt",
@@ -860,7 +862,8 @@
     "paversMainAlt": "Dala de Marmură Selectată",
     "splitFaceAlt": "Fațadă Despicată {{number}}",
     "splitFaceMainAlt": "Fațadă Despicată Selectată",
-    "patternsTitle": "Modele din Piatră"
+    "patternsTitle": "Modele din Piatră",
+    "introText": "Wadi Degla produce dale de pavaj din marmură, marmură split-face și modele decorative din piatră pentru terase, alei, margini de piscină, grădini și fațade. Alegeți o piatră de mai jos pentru a o vedea într-un cadru real și contactați-ne pentru dimensiuni, finisaje și cantități pentru proiectul dvs."
   },
   "home": {
     "pageTitle": "Exportator de Marmură și Granit Egiptean din 1980 | Wadi Degla",

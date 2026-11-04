@@ -672,7 +672,8 @@
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Partner e Clienti",
     "imageAlt": "Logo Partner {{number}}",
-    "cta": "Diventa uno dei nostri partner"
+    "cta": "Diventa uno dei nostri partner",
+    "introText": "Nel corso degli anni Wadi Degla ha lavorato con importanti sviluppatori immobiliari, gruppi alberghieri, imprese edili e istituzioni in Egitto e all’estero. Ecco alcuni dei nostri partner e clienti."
   },
   "news": {
     "pageTitle": "Notizie Wadi Degla | Aggiornamenti dell'industria del marmo e della pietra naturale",
@@ -845,7 +846,8 @@
     "mosaicsTrapezoid5x5Text": "Un motivo dinamico per finiture architettoniche creative.",
     "mosaics10x3Text": "Mosaico moderno snello ideale per pareti caratteristiche e design lineari.",
     "mosaicsCircular5x5Text": "Curve morbide e profondità dimensionale per espressioni murali artistiche.",
-    "mosaicsUpsAndDown10x10Text": "Stile geometrico 3D che crea profondità visiva e movimento."
+    "mosaicsUpsAndDown10x10Text": "Stile geometrico 3D che crea profondità visiva e movimento.",
+    "cobblesLink": "Scopri tutta la gamma di cubetti →"
   },
   "patterns": {
     "pageTitle": "Motivi in Marmo e Pavimentazioni in Pietra | Pavimentazione Esterna | Marmo Wadi Degla Egitto",
@@ -860,7 +862,8 @@
     "paversMainAlt": "Pavimento in Marmo Selezionato",
     "splitFaceAlt": "Faccia Spaccata {{number}}",
     "splitFaceMainAlt": "Faccia Spaccata Selezionata",
-    "patternsTitle": "Motivi in Pietra"
+    "patternsTitle": "Motivi in Pietra",
+    "introText": "Wadi Degla produce lastre da pavimentazione in marmo, marmo a spacco (split-face) e motivi decorativi in pietra per terrazze, vialetti, bordi piscina, giardini e facciate. Scegli una pietra qui sotto per vederla in un ambiente reale e contattaci per formati, finiture e quantità per il tuo progetto."
   },
   "home": {
     "pageTitle": "Esportatore di Marmo e Granito Egiziano dal 1980 | Wadi Degla",

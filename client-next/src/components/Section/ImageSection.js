@@ -6,6 +6,7 @@ import Lightbox from 'yet-another-react-lightbox';
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import 'yet-another-react-lightbox/styles.css';
 import { useTranslation } from 'react-i18next';
+import LangLink from '../LangLink';
 
 export default function ImageSection({ sectionData }) {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ export default function ImageSection({ sectionData }) {
             style={{ cursor: 'pointer' }}
           >
             <div className="image-section-image-wrapper">
-              <img loading="lazy" src={slide.image} alt={`Slide ${idx + 1}`} />
+              <img loading="lazy" src={slide.image} alt={slide.title} />
               {hovered === idx && (
                 <div className="image-overlay">
                   <p>{t('common.imageHint')}</p>
@@ -38,6 +39,15 @@ export default function ImageSection({ sectionData }) {
             <div className="image-section-text-wrapper">
               <h3>{slide.title}</h3>
               <p>{slide.textKey ? t(slide.textKey) : slide.text}</p>
+              {slide.link && (
+                <LangLink
+                  href={slide.link.href}
+                  className="image-section-link"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {t(slide.link.labelKey)}
+                </LangLink>
+              )}
             </div>
           </div>
         ))}

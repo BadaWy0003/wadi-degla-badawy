@@ -93,3 +93,13 @@
     }
 
 }
+/* Short introduction above the logos */
+.partners-intro {
+  max-width: 760px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: center;
+}

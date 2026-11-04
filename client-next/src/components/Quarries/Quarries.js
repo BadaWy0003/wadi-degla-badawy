@@ -41,7 +41,7 @@ export default function Quarries() {
 
           {/* Galala Quarry */}
           <div className="quarry-card left">
-            <QuarriesSwiper images={galalaQuarryImages} />
+            <QuarriesSwiper images={galalaQuarryImages} alt={t("quarries.galalaTitle")} />
             <div className="text">
               <h3>{t("quarries.galalaTitle")}</h3>
               <p>
@@ -78,12 +78,12 @@ export default function Quarries() {
                   ))}
               </p>
             </div>
-            <QuarriesSwiper images={creamyQuarryImages} />
+            <QuarriesSwiper images={creamyQuarryImages} alt={t("quarries.creamyTitle")} />
           </div>
 
           {/* Beige Sinai Pearl Quarry */}
           <div className="quarry-card left">
-            <QuarriesSwiper images={beigeSinaiPearlQuarryImages} />
+            <QuarriesSwiper images={beigeSinaiPearlQuarryImages} alt={t("quarries.beigeSinaiPearlTitle")} />
             <div className="text">
               <h3>{t("quarries.beigeSinaiPearlTitle")}</h3>
               <p>
@@ -114,7 +114,7 @@ export default function Quarries() {
 
           {/* Factory 2000 */}
           <div className="factory-card left">
-            <QuarriesSwiper images={firstFactoryImages} />
+            <QuarriesSwiper images={firstFactoryImages} alt={t("quarries.factory2000Title")} />
             <div className="text">
               <h3>{t("quarries.factory2000Title")}</h3>
               <p>
@@ -149,12 +149,12 @@ export default function Quarries() {
                   ))}
               </p>
             </div>
-            <QuarriesSwiper images={secondFactoryImages} />
+            <QuarriesSwiper images={secondFactoryImages} alt={t("quarries.factory2011Title")} />
           </div>
 
           {/* Factory 2015 */}
           <div className="factory-card left">
-            <QuarriesSwiper images={thirdFactoryImages} />
+            <QuarriesSwiper images={thirdFactoryImages} alt={t("quarries.factory2015Title")} />
             <div className="text">
               <h3>{t("quarries.factory2015Title")}</h3>
               <p>
@@ -181,9 +181,6 @@ export default function Quarries() {
               <hr />
             </div>
             <p>{t("quarries.globalDescription")}</p>
-            <div className="coming-soon">
-              <h1>{t("quarries.comingSoon")}</h1>
-            </div>
 
             {/* <p>
             Expanding to Gambia, Africa, and South America with Cleopatra by

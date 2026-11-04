@@ -672,7 +672,8 @@
     "breadcrumbHome": "Accueil",
     "breadcrumbCurrent": "Partenaires et Clients",
     "imageAlt": "Logo Partenaire {{number}}",
-    "cta": "Devenez l'un de nos partenaires"
+    "cta": "Devenez l'un de nos partenaires",
+    "introText": "Au fil des années, Wadi Degla a travaillé avec de grands promoteurs, groupes hôteliers, entreprises de construction et institutions en Égypte et à l’étranger. Voici quelques-uns de nos partenaires et clients."
   },
   "news": {
     "pageTitle": "Actualités Wadi Degla | Mises à jour de l'industrie du marbre et de la pierre naturelle",
@@ -845,7 +846,8 @@
     "mosaicsTrapezoid5x5Text": "Un motif dynamique pour les finitions architecturales créatives.",
     "mosaics10x3Text": "Mosaïque moderne épurée idéale pour les murs de caractéristique et les designs linéaires.",
     "mosaicsCircular5x5Text": "Courbes douces et profondeur dimensionnelle pour les expressions murales artistiques.",
-    "mosaicsUpsAndDown10x10Text": "Style géométrique 3D créant profondeur visuelle et mouvement."
+    "mosaicsUpsAndDown10x10Text": "Style géométrique 3D créant profondeur visuelle et mouvement.",
+    "cobblesLink": "Voir toute notre gamme de pavés →"
   },
   "patterns": {
     "pageTitle": "Motifs de Marbre et Pavés en Pierre | Revêtement de Sol Extérieur | Marbre Wadi Degla Égypte",
@@ -860,7 +862,8 @@
     "paversMainAlt": "Pavé de Marbre Sélectionné",
     "splitFaceAlt": "Façade Despicée {{number}}",
     "splitFaceMainAlt": "Façade Despicée Sélectionnée",
-    "patternsTitle": "Motifs en Pierre"
+    "patternsTitle": "Motifs en Pierre",
+    "introText": "Wadi Degla produit des dalles de pavage en marbre, du marbre éclaté (split-face) et des motifs décoratifs en pierre pour terrasses, allées, plages de piscine, jardins et façades. Choisissez une pierre ci-dessous pour la voir en situation réelle, et contactez-nous pour les formats, finitions et quantités de votre projet."
   },
   "home": {
     "pageTitle": "Exportateur de Marbre et Granit Égyptien depuis 1980 | Wadi Degla",

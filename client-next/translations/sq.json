@@ -672,7 +672,8 @@
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Partnerët dhe Klientët",
     "imageAlt": "Logoja e Partnerit {{number}}",
-    "cta": "Bëhuni një nga partnerët tanë"
+    "cta": "Bëhuni një nga partnerët tanë",
+    "introText": "Ndër vite, Wadi Degla ka bashkëpunuar me zhvillues kryesorë, grupe hotelesh, kontraktorë dhe institucione në Egjipt dhe jashtë tij. Këta janë disa nga partnerët dhe klientët tanë."
   },
   "news": {
     "pageTitle": "Lajmet Wadi Degla | Përditesimet e industrisë së marmorit dhe gurit natyral",
@@ -845,7 +846,8 @@
     "mosaicsTrapezoid5x5Text": "Një model dinamik për përfundime arkitektonike krijuese.",
     "mosaics10x3Text": "Mozaik modern i hollë ideale për muret e veçantë dhe dizajnet lineare.",
     "mosaicsCircular5x5Text": "Kurba të buta dhe thellësi dimensionale për shprehje artistike të murit.",
-    "mosaicsUpsAndDown10x10Text": "Stil gjeometrik 3D që krijon thellësi vizuale dhe lëvizje."
+    "mosaicsUpsAndDown10x10Text": "Stil gjeometrik 3D që krijon thellësi vizuale dhe lëvizje.",
+    "cobblesLink": "Shihni gamën e plotë të kalldrëmeve →"
   },
   "patterns": {
     "pageTitle": "Modele Mermeri & Rrethje Guri | Dysheme të Jashtme | Mermer Wadi Degla Egjipt",
@@ -860,7 +862,8 @@
     "paversMainAlt": "Pllakë Shtrimi Mermeri e Zgjedhur",
     "splitFaceAlt": "Faqe e Ndarë {{number}}",
     "splitFaceMainAlt": "Faqe e Ndarë e Zgjedhur",
-    "patternsTitle": "Modele Guri"
+    "patternsTitle": "Modele Guri",
+    "introText": "Wadi Degla prodhon pllaka shtrimi prej mermeri, mermer split-face dhe modele dekorative guri për tarraca, shtigje, buzë pishinash, kopshte dhe fasada. Zgjidhni një gur më poshtë për ta parë në një mjedis real dhe na kontaktoni për përmasat, përfundimet dhe sasitë për projektin tuaj."
   },
   "home": {
     "pageTitle": "Eksportues i Mermerit dhe Granitit Egjiptian që nga 1980 | Wadi Degla",

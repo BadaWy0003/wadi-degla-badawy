@@ -68,6 +68,7 @@ const patternImages=[
                     <p>{'>'} {t('patterns.breadcrumbCurrent')}</p>
                         </div>
                 </div>  
+            <p className="patterns-intro">{t('patterns.introText')}</p>
             <div className="pattern-section">
                 <div className="pattern-section-left">
                     <h2>{t('patterns.paversTitle')}</h2>

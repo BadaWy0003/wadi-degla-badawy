@@ -13,7 +13,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import 'yet-another-react-lightbox/styles.css';
 
 
-export default function QuarriesSwiper({images}){
+export default function QuarriesSwiper({images, alt = ""}){
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
@@ -44,7 +44,7 @@ export default function QuarriesSwiper({images}){
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
           >
-            <img loading="lazy" src={image} alt={`Slide ${i}`} className="swiper-lazy" />
+            <img loading="lazy" src={image} alt={`${alt} ${i + 1}`.trim()} className="swiper-lazy" />
             <div className="swiper-lazy-preloader"></div>
             {hovered && (
               <div className="image-overlay">

@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 import "./Inspiration.css";
 import "../Projects/ProjectDetails.css";
 
-export default function InspoAncientSwiper({ images }) {
+export default function InspoAncientSwiper({ images, alt = "" }) {
   const { t } = useTranslation();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -51,7 +51,7 @@ export default function InspoAncientSwiper({ images }) {
   <div className="swiper-slide-container"
        onMouseEnter={() => setHovered(true)}
        onMouseLeave={() => setHovered(false)}>
-    <img loading="lazy" src={image} alt={`Slide ${index}`} className="swiper-lazy" />
+    <img loading="lazy" src={image} alt={`${alt} ${index + 1}`.trim()} className="swiper-lazy" />
     {hovered && (
       <div className="image-overlay">
         <p>{t('common.imageHint')}</p>

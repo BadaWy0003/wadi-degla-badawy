@@ -672,7 +672,8 @@
     "breadcrumbHome": "홈",
     "breadcrumbCurrent": "파트너 및 고객",
     "imageAlt": "파트너 로고 {{number}}",
-    "cta": "우리의 파트너가 되십시오"
+    "cta": "우리의 파트너가 되십시오",
+    "introText": "Wadi Degla는 수년간 이집트 국내외의 주요 개발사, 호텔 그룹, 시공사 및 기관과 함께해 왔습니다. 다음은 저희 파트너와 고객의 일부입니다."
   },
   "news": {
     "pageTitle": "Wadi Degla 뉴스 | 대리석 및 천연석 산업 업데이트",
@@ -845,7 +846,8 @@
     "mosaicsTrapezoid5x5Text": "창의적인 건축 마감을 위한 역동적인 패턴.",
     "mosaics10x3Text": "특징 벽과 선형 설계에 이상적인 슬림 라인 현대 모자이크.",
     "mosaicsCircular5x5Text": "예술적 벽 표현을 위한 부드러운 곡선과 차원 깊이.",
-    "mosaicsUpsAndDown10x10Text": "시각적 깊이와 움직임을 만드는 3D 기하학적 스타일."
+    "mosaicsUpsAndDown10x10Text": "시각적 깊이와 움직임을 만드는 3D 기하학적 스타일.",
+    "cobblesLink": "코블스톤 전체 제품 보기 →"
   },
   "patterns": {
     "pageTitle": "대리석 패턴 & 석재 포장 | 실외 바닥재 | Wadi Degla 대리석 이집트",
@@ -860,7 +862,8 @@
     "paversMainAlt": "선택된 대리석 포장재",
     "splitFaceAlt": "스플릿 페이스 {{number}}",
     "splitFaceMainAlt": "선택된 스플릿 페이스",
-    "patternsTitle": "석재 패턴"
+    "patternsTitle": "석재 패턴",
+    "introText": "Wadi Degla는 테라스, 산책로, 수영장 데크, 정원, 외벽을 위한 대리석 포장 타일, 스플릿 페이스 대리석, 장식용 석재 패턴을 생산합니다. 아래에서 석재를 선택해 실제 공간에 적용된 모습을 확인하시고, 프로젝트에 맞는 규격, 마감, 수량은 문의해 주세요."
   },
   "home": {
     "pageTitle": "1980년부터 이집트 대리석 및 화강암 수출 | Wadi Degla",
