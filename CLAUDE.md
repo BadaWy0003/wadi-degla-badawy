@@ -207,7 +207,7 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - Admin dashboard: CRA treats lint warnings as errors when `CI=true` (GitHub sets it), so CI builds it with `CI=false`.
 
 ## To do (agreed, not started)
-- Rotate the server's Firebase service-account key (created by the previous developer).
+- Nothing open.
 
 ## Decisions log
 - 2026-10-31: removed a hidden `process.exit` trigger from `server/src/controllers/storage.controller.js` (PR #2, server release v247).
@@ -222,3 +222,4 @@ GA4 `G-R2Y9CCM4YC`, Google Maps embed, WhatsApp `wa.me` link, Font Awesome 6.4 (
 - 2026-11-02: `GITHUB_DEPLOY_TOKEN` added to the server (fine-grained token `wadi-degla-publish-2026`, this repo only, Actions read/write). **It expires around 2027-11: renew it on GitHub and replace the Fly secret before then**, or the Publish button stops working (saved articles stay safe). First Publish tested OK (client-next v47).
 - 2026-11-03: owner decisions on the stone list: misspelled names fixed (Botticino, Travertine, Turkish Carrara, Emperador Light/Medium) with 301 redirects in `nginx.conf`; keep Nero Marquina and hide the Nero Marquinaa duplicate; categories stay as they are (semi-precious stones and Azul Macauba remain under Imported Marble); ISO standard is 9001:2015; missing stone details filled with reasonable values (technical figures left empty).
 - 2026-11-03: the admin panel is served on `admin.wadidegla-eg.com` (DNS + Fly certificate set up by the owner).
+- 2026-11-04: Firebase service-account key rotated by the owner: new key (id starting `18ccfa67`, created 2026-11-04) set in the server's Fly secret `GOOGLE_APPLICATION_CREDENTIALS_BASE64` (server v261), and the 5 old keys made by the previous developer (Dec 2024) deleted in Google Cloud > IAM > Service accounts > firebase-adminsdk > Keys. To rotate again: generate a key there, base64 it on one line, replace that Fly secret, check the API, then delete the old key. The project is on the Blaze plan (needed by Storage); no budget alert yet.
