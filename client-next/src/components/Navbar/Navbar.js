@@ -1,29 +1,29 @@
 'use client';
-import "./Navbar.css";
-import { usePathname, useRouter } from "next/navigation";
-import LangLink from "../LangLink";
+import './Navbar.css';
+import { usePathname, useRouter } from 'next/navigation';
+import LangLink from '../LangLink';
 const wadi_degla_logo_color = '/Assets/Logo-Identity/wadi-degla-logo-color.svg';
 const wadi_degla_logo_white = '/Assets/Logo-Identity/wadi-degla-logo-white.svg';
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGlobalState } from "../GlobalStateContext.js";
-import { useLang } from "../../context/LangContext";
-import { FaBars, FaTimes } from "react-icons/fa";
-import apiClient from "../../util/client.js";
+import { useGlobalState } from '../GlobalStateContext.js';
+import { useLang } from '../../context/LangContext';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import apiClient from '../../util/client.js';
 const arrow_down = '/Assets/Icons/arrow-down.svg';
-import SearchBar from "../SearchBar/SearchBar.js.js";
-import SearchBarMobile from "../SearchBar/SearchBarMobile.js.js";
-import LanguageSelector from "../LanguageSelector/LanguageSelector";
+import SearchBar from '../SearchBar/SearchBar.js.js';
+import SearchBarMobile from '../SearchBar/SearchBarMobile.js.js';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
 
 export default function Navbar() {
   const navRef = useRef();
   const { t } = useTranslation();
-  
+
   const showNavbar = () => {
-    navRef.current.classList.toggle("responsive_nav");
+    navRef.current.classList.toggle('responsive_nav');
   };
   const closeNavbar = () => {
-    navRef.current.classList.remove("responsive_nav");
+    navRef.current.classList.remove('responsive_nav');
   };
 
   const [scrolled, setScrolled] = useState(false);
@@ -45,21 +45,21 @@ export default function Navbar() {
       setGlobalState({
         isLoggedIn: false,
         token: null,
-        fullName: "",
-        companyName: "",
-        rnc: "",
-        email: "",
-        phone: "",
-        whatsapp: "",
-        country: "",
-        countryCode: "",
-        address: "",
-        port: "",
+        fullName: '',
+        companyName: '',
+        rnc: '',
+        email: '',
+        phone: '',
+        whatsapp: '',
+        country: '',
+        countryCode: '',
+        address: '',
+        port: '',
       });
 
       router.push(`/${lang}/login`);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      localStorage.removeItem("auth_token");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      localStorage.removeItem('auth_token');
     }
   };
 
@@ -69,22 +69,23 @@ export default function Navbar() {
       setScrolled(isScrolled);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-    <header className={`header ${scrolled ? "scrolled" : ""}`}>
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <LangLink
         href="/"
         onClick={() => {
           window.scrollTo(0, 0);
         }}
       >
-        <img loading="lazy"
+        <img
+          loading="lazy"
           alt={t('navigation.wadiDegla')}
           src={scrolled ? wadi_degla_logo_color : wadi_degla_logo_white}
           className="logo"
@@ -93,23 +94,24 @@ export default function Navbar() {
       <nav ref={navRef}>
         {/* Responsive Logo (only for small screens) */}
         <LangLink
-        href="/"
-        onClick={() => {
-          closeNavbar();
-          window.scrollTo(0, 0);
-        }}
-      >
-            <img loading="lazy"
-          alt={t('navigation.wadiDegla')}
-          src={wadi_degla_logo_color}
-          className="nav-item-mobile"
-          id="logo-nav-mobile"
-        />
-      </LangLink>
+          href="/"
+          onClick={() => {
+            closeNavbar();
+            window.scrollTo(0, 0);
+          }}
+        >
+          <img
+            loading="lazy"
+            alt={t('navigation.wadiDegla')}
+            src={wadi_degla_logo_color}
+            className="nav-item-mobile"
+            id="logo-nav-mobile"
+          />
+        </LangLink>
         {/* Navigation Links */}
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
-          <p>{t('navigation.wadiDegla')}</p>
+            <p>{t('navigation.wadiDegla')}</p>
           </div>
           <div className="submenu-bg">
             <div className="submenu">
@@ -176,13 +178,12 @@ export default function Navbar() {
               >
                 {t('navigation.whyChooseUs')}
               </LangLink>
-
             </div>
           </div>
         </div>
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
-          <p>{t('navigation.products')}</p>
+            <p>{t('navigation.products')}</p>
           </div>
           <div className="submenu-bg">
             <div className="submenu">
@@ -281,11 +282,11 @@ export default function Navbar() {
         </div>
         <div className="nav-item-with-submenu">
           <div className="nav-item-with-submenu-title">
-          <p>{t('navigation.resources')}</p>
+            <p>{t('navigation.resources')}</p>
           </div>
           <div className="submenu-bg">
             <div className="submenu">
-            <LangLink
+              <LangLink
                 href="/quarries"
                 onClick={() => {
                   closeNavbar();
@@ -360,9 +361,9 @@ export default function Navbar() {
         >
           {t('navigation.contact')}
         </LangLink>
-          <div className="navbar-search hide-on-mobile">
-            <SearchBar />
-          </div>
+        <div className="navbar-search hide-on-mobile">
+          <SearchBar />
+        </div>
         {/* Responsive Login/My Account Section */}
         <div className="responsive-nav-bottom nav-item-mobile">
           {globalState.isLoggedIn ? (
@@ -460,14 +461,13 @@ export default function Navbar() {
 
       <div className="mob-search-and-nav-btn">
         <div className="navbar-search show-on-mobile">
-              <SearchBarMobile />
-          </div>
+          <SearchBarMobile />
+        </div>
         {/* Hamburger Icon */}
         <button className="nav-btn" onClick={showNavbar}>
           <FaBars />
         </button>
       </div>
-        
     </header>
   );
 }
