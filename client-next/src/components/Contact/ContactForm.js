@@ -1,119 +1,135 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import './Contact.css';
 import '../LoginSignup/Signup.css';
 
-import 'react-multi-carousel/lib/styles.css';
 import 'react-phone-input-2/lib/style.css';
-
-import countryList from 'react-select-country-list'; // Optional helper for countries
+import countryList from 'react-select-country-list';
+import PhoneInput from 'react-phone-input-2';
+import Select from 'react-select';
+import { useTranslation } from 'react-i18next';
 
 import { useGlobalState } from '../GlobalStateContext.js';
+import { useLang } from '../../context/LangContext';
+import Icon from './ContactIcons';
+import { WHATSAPP_URL } from './contactData';
 
-import PhoneInput from 'react-phone-input-2'; // Import PhoneInput component
+const MAX_FILE_BYTES = 10 * 1024 * 1024; // same limit as the server (routes/sendEmail.js)
+const PHONE_RE = /^\d{8,15}$/;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-import Select from 'react-select'; // Import react-select
-import { useTranslation } from 'react-i18next';
+const EMPTY = {
+  fname: '',
+  cname: '',
+  email: '',
+  phone: '',
+  whatsapp: '',
+  country: null,
+  address: '',
+  port: '',
+  message: '',
+  attachment: null,
+};
+
+// Order used to move the cursor to the first field with a problem.
+const FIELD_ORDER = ['fname', 'email', 'phone', 'country', 'message', 'whatsapp', 'attachment'];
 
 export default function ContactForm() {
   const { t } = useTranslation();
+  const { globalState, loading } = useGlobalState();
+  const lang = useLang();
+  const countryOptions = useMemo(() => countryList().getData(), []);
 
-  const { globalState, loading } = useGlobalState(); // Access global state for user data and loading status
-
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
-
+  const [formData, setFormData] = useState(EMPTY);
   const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | failed
+  const [failMessage, setFailMessage] = useState('');
+  // Phones: the optional fields are folded away until asked for (always shown on desktop).
+  const [moreOpen, setMoreOpen] = useState(false);
+  const fileRef = useRef(null);
+  const formRef = useRef(null);
 
-  const countryOptions = countryList().getData(); // Get country list
-
-  const [formData, setFormData] = useState({
-    fname: '',
-    cname: '',
-    rnc: '',
-    email: '',
-    phone: '',
-    whatsapp: '',
-    country: null,
-    address: '',
-    port: '',
-    message: '',
-    attachment: null,
-  });
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0] || null;
-    setFormData((prev) => ({ ...prev, attachment: file }));
-  };
-
-  // Pre-fill form for logged-in users
+  // Pre-fill for logged-in customers
   useEffect(() => {
     if (!loading && globalState.isLoggedIn) {
       setFormData((prev) => ({
         ...prev,
         fname: globalState.fullName || '',
         cname: globalState.companyName || '',
-        rnc: globalState.rnc || '',
         email: globalState.email || '',
         phone: globalState.phone || '',
         whatsapp: globalState.whatsapp || '',
-        country: countryOptions.find((option) => option.label === globalState.country) || null,
+        country: countryOptions.find((o) => o.label === globalState.country) || null,
         address: globalState.address || '',
         port: globalState.port || '',
       }));
     }
   }, [globalState, loading, countryOptions]);
 
-  // Validation for phone number
-  const validateFields = () => {
-    const newErrors = {};
-    const phoneRegex = /^\d{8,15}$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (formData.phone && !phoneRegex.test(formData.phone)) {
-      newErrors.phone = t('contactForm.errorPhone');
-    }
-
-    if (formData.whatsapp && !phoneRegex.test(formData.whatsapp)) {
-      newErrors.whatsapp = t('contactForm.errorWhatsapp');
-    }
-
-    if (formData.email && !emailRegex.test(formData.email)) {
-      newErrors.email = t('contactForm.errorEmail');
-    }
-
-    if (!formData.country) newErrors.country = t('contactForm.errorCountry');
-
-    return newErrors;
-  };
-
-  // Handle input change
-  const handleInputChange = (field, value) => {
+  const setField = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    // Clear a field's error as soon as it is edited.
+    setErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validate = () => {
+    const e = {};
+    const required = t('contactForm.errorRequired');
+    if (!formData.fname.trim()) e.fname = required;
+    if (!formData.email.trim()) e.email = required;
+    else if (!EMAIL_RE.test(formData.email.trim())) e.email = t('contactForm.errorEmail');
+    if (!formData.phone) e.phone = required;
+    else if (!PHONE_RE.test(formData.phone)) e.phone = t('contactForm.errorPhone');
+    if (!formData.country) e.country = t('contactForm.errorCountry');
+    if (!formData.message.trim()) e.message = required;
+    if (formData.whatsapp && !PHONE_RE.test(formData.whatsapp)) {
+      e.whatsapp = t('contactForm.errorWhatsapp');
+    }
+    if (formData.attachment && formData.attachment.size > MAX_FILE_BYTES) {
+      e.attachment = t('contactForm.errorFileSize');
+    }
+    return e;
+  };
 
-    const validationErrors = validateFields();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+  const focusFirstError = (e) => {
+    const first = FIELD_ORDER.find((f) => e[f]);
+    if (!first) return;
+    if (first === 'whatsapp') setMoreOpen(true);
+    const el = formRef.current?.querySelector(
+      `[data-field="${first}"] input, [data-field="${first}"] textarea`,
+    );
+    el?.focus({ preventScroll: true });
+    el?.closest('[data-field]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  const clearFile = () => {
+    setField('attachment', null);
+    if (fileRef.current) fileRef.current.value = '';
+  };
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    if (status === 'sending') return;
+    const e = validate();
+    if (Object.keys(e).some((k) => e[k])) {
+      setErrors(e);
+      focusFirstError(e);
       return;
     }
-
-    setErrors({}); // Clear errors if validation passes
+    setErrors({});
+    setStatus('sending');
 
     const payload = new FormData();
-    payload.append('name', formData.fname);
-    payload.append('email', formData.email);
-    payload.append('subject', `Contact Form Submission from ${formData.fname}`);
+    payload.append('name', formData.fname.trim());
+    payload.append('email', formData.email.trim());
+    payload.append('subject', `Contact Form Submission from ${formData.fname.trim()}`);
     payload.append('message', formData.message);
     // Spam trap: hidden field that only bots fill in
-    payload.append('website', e.target.elements.website?.value || '');
+    payload.append('website', ev.target.elements.website?.value || '');
     payload.append(
       'extraFields',
       `
       <p><strong>Company/Project:</strong> ${formData.cname}</p>
-      <p><strong>Tax ID (RNC):</strong> ${formData.rnc}</p>
       <p><strong>Phone:</strong> ${formData.phone}</p>
       <p><strong>WhatsApp:</strong> ${formData.whatsapp}</p>
       <p><strong>Country:</strong> ${formData.country?.label}</p>
@@ -121,58 +137,81 @@ export default function ContactForm() {
       <p><strong>Port of Destination:</strong> ${formData.port}</p>
     `,
     );
-    if (formData.attachment) {
-      payload.append('attachment', formData.attachment);
-    }
+    if (formData.attachment) payload.append('attachment', formData.attachment);
 
-    fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/send-email`, {
-      method: 'POST',
-      body: payload,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          setShowSuccessPopup(true);
-          setFormData({
-            fname: '',
-            cname: '',
-            rnc: '',
-            email: '',
-            phone: '',
-            whatsapp: '',
-            country: null,
-            address: '',
-            port: '',
-            message: '',
-            attachment: null,
-          });
-          // Reset the file input element
-          const fileInput = document.getElementById('attachment');
-          if (fileInput) fileInput.value = '';
-        } else {
-          alert(t('contactForm.errorGeneric'));
-        }
-      })
-      .catch(() => {
-        alert(t('contactForm.errorConnection'));
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/send-email`, {
+        method: 'POST',
+        body: payload,
       });
+      const data = await res.json().catch(() => ({}));
+      if (data.success) {
+        setStatus('sent');
+        setFormData(EMPTY);
+        if (fileRef.current) fileRef.current.value = '';
+        formRef.current
+          ?.closest('.cx-form-card')
+          ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        setFailMessage(t('contactForm.errorGeneric'));
+        setStatus('failed');
+      }
+    } catch {
+      setFailMessage(t('contactForm.errorConnection'));
+      setStatus('failed');
+    }
   };
 
-  return (
-    <div className="contact-inner-left">
-      {showSuccessPopup && (
-        <div className="success-popup">
-          <p>{t('contactForm.successMessage')}</p>
-          <button onClick={() => setShowSuccessPopup(false)} className="btn1">
-            {t('contactForm.close')}
+  // Props shared by every field wrapper: error state + the id of its error text.
+  const fieldProps = (name, extra = '') => ({
+    className: `cx-field${errors[name] ? ' has-error' : ''}${extra ? ` ${extra}` : ''}`,
+    'data-field': name,
+  });
+  const errorText = (name) =>
+    errors[name] ? (
+      <p className="cx-field-error" id={`${name}-error`}>
+        <Icon name="alert" />
+        {errors[name]}
+      </p>
+    ) : null;
+  const describedBy = (name) => (errors[name] ? `${name}-error` : undefined);
+  const optional = <span className="cx-optional">{t('contactForm.optional')}</span>;
+
+  if (status === 'sent') {
+    return (
+      <section className="cx-form-card cx-sent" aria-live="polite">
+        <span className="cx-sent-icon">
+          <Icon name="check" />
+        </span>
+        <h2>{t('contactForm.successMessage')}</h2>
+        <p>{t('contactForm.subtitle')}</p>
+        <div className="cx-sent-actions">
+          <a
+            className="cx-btn cx-btn-ghost"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="whatsapp" />
+            {t('contactForm.fasterReply')}
+          </a>
+          <button type="button" className="cx-btn cx-btn-link" onClick={() => setStatus('idle')}>
+            {t('contactForm.sendAnother')}
           </button>
         </div>
-      )}
-      <div className="contact-form-title">
-        <h2>{t('contactForm.title')}</h2>
-        <p>{t('contactForm.subtitle')}</p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="cx-form-card" aria-labelledby="cx-form-title">
+      <div className="cx-section-head">
+        <p className="cx-eyebrow">{t('contactForm.eyebrow')}</p>
+        <h2 id="cx-form-title">{t('contactForm.title')}</h2>
+        <p className="cx-section-sub">{t('contactForm.subtitle')}</p>
       </div>
-      <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
+
+      <form ref={formRef} className="cx-form" onSubmit={handleSubmit} noValidate>
         {/* Spam trap: hidden from people, bots tend to fill it in */}
         <input
           type="text"
@@ -183,142 +222,229 @@ export default function ContactForm() {
           aria-hidden="true"
           defaultValue=""
         />
-        <div className="double-inputs">
-          <div className="input-field">
+
+        <div className="cx-grid">
+          <div {...fieldProps('fname')}>
             <label htmlFor="fname">{t('contactForm.fullName')}</label>
             <input
               type="text"
               id="fname"
               name="fname"
+              autoComplete="name"
               value={formData.fname}
-              onChange={(e) => handleInputChange('fname', e.target.value)}
+              onChange={(e) => setField('fname', e.target.value)}
+              aria-invalid={!!errors.fname}
+              aria-describedby={describedBy('fname')}
               required
             />
+            {errorText('fname')}
           </div>
-          <div className="input-field">
-            <label htmlFor="cname">{t('contactForm.companyProject')}</label>
-            <input
-              type="text"
-              id="cname"
-              name="cname"
-              value={formData.cname}
-              onChange={(e) => handleInputChange('cname', e.target.value)}
-              required
-            />
-          </div>
-        </div>
-        <div className="double-inputs">
-          <div className="input-field">
-            <label htmlFor="rnc">{t('contactForm.taxId')}</label>
-            <input
-              type="text"
-              id="rnc"
-              name="rnc"
-              value={formData.rnc}
-              onChange={(e) => handleInputChange('rnc', e.target.value)}
-            />
-          </div>
-          <div className="input-field">
+
+          <div {...fieldProps('email')}>
             <label htmlFor="email">{t('contactForm.email')}</label>
             <input
               type="email"
               id="email"
               name="email"
+              dir="ltr"
+              autoComplete="email"
+              inputMode="email"
               value={formData.email}
-              onChange={(e) => handleInputChange('email', e.target.value)}
+              onChange={(e) => setField('email', e.target.value)}
+              aria-invalid={!!errors.email}
+              aria-describedby={describedBy('email')}
               required
             />
+            {errorText('email')}
           </div>
-        </div>
-        <div className="double-inputs">
-          <div className="input-field country-phone">
+
+          <div {...fieldProps('phone', 'cx-phone')}>
             <label htmlFor="phone">{t('contactForm.phone')}</label>
             <PhoneInput
               value={formData.phone}
-              onChange={(value) => handleInputChange('phone', value)}
-              placeholder={t('signup.phonePlaceholder')}
+              onChange={(value) => setField('phone', value)}
+              placeholder="+20 100 000 0000"
               inputProps={{
+                id: 'phone',
                 name: 'phone',
                 required: true,
+                autoComplete: 'tel',
+                'aria-invalid': !!errors.phone,
+                'aria-describedby': describedBy('phone'),
               }}
             />
+            {errorText('phone')}
           </div>
-          <div className="input-field country-phone">
-            <label htmlFor="whatsapp">{t('contactForm.whatsapp')}</label>
-            <PhoneInput
-              value={formData.whatsapp}
-              onChange={(value) => handleInputChange('whatsapp', value)}
-              placeholder={t('signup.phonePlaceholder')}
-            />
-          </div>
-        </div>
-        <div className="double-inputs">
-          <div className="input-field" id="input-country">
+
+          <div {...fieldProps('country')}>
             <label htmlFor="country">{t('contactForm.country')}</label>
             <Select
+              inputId="country"
+              isRtl={lang === 'ar'}
               options={countryOptions}
               value={formData.country}
               classNamePrefix="react-select"
-              onChange={(value) => handleInputChange('country', value)}
+              onChange={(value) => setField('country', value)}
               placeholder={t('contactForm.searchCountry')}
+              aria-invalid={!!errors.country}
+              aria-describedby={describedBy('country')}
             />
+            {errorText('country')}
           </div>
-          <div className="input-field" id="input-address">
-            <label htmlFor="address">{t('contactForm.address')}</label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              value={formData.address}
-              onChange={(e) => handleInputChange('address', e.target.value)}
+
+          <div {...fieldProps('message', 'cx-span-2')}>
+            <label htmlFor="message">{t('contactForm.message')}</label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              placeholder={t('contactForm.messagePlaceholder')}
+              value={formData.message}
+              onChange={(e) => setField('message', e.target.value)}
+              aria-invalid={!!errors.message}
+              aria-describedby={describedBy('message')}
+              required
             />
+            {errorText('message')}
           </div>
         </div>
-        <div className="input-field">
-          <label htmlFor="port">{t('contactForm.port')}</label>
+
+        <div
+          className={`cx-more${moreOpen ? ' is-open' : ''}`}
+          role="group"
+          aria-labelledby="cx-more-label"
+        >
+          <button
+            type="button"
+            className="cx-more-toggle"
+            aria-expanded={moreOpen}
+            aria-controls="cx-more-fields"
+            onClick={() => setMoreOpen((v) => !v)}
+          >
+            <span id="cx-more-label">{t('contactForm.moreDetails')}</span>
+            {optional}
+            <Icon name="chevron" />
+          </button>
+          <div className="cx-grid" id="cx-more-fields">
+            <div {...fieldProps('cname')}>
+              <label htmlFor="cname">{t('contactForm.companyProject')}</label>
+              <input
+                type="text"
+                id="cname"
+                name="cname"
+                autoComplete="organization"
+                value={formData.cname}
+                onChange={(e) => setField('cname', e.target.value)}
+              />
+            </div>
+
+            <div {...fieldProps('whatsapp', 'cx-phone')}>
+              <label htmlFor="whatsapp">{t('contactForm.whatsapp')}</label>
+              <PhoneInput
+                value={formData.whatsapp}
+                onChange={(value) => setField('whatsapp', value)}
+                placeholder="+20 100 000 0000"
+                inputProps={{
+                  id: 'whatsapp',
+                  name: 'whatsapp',
+                  'aria-invalid': !!errors.whatsapp,
+                  'aria-describedby': describedBy('whatsapp'),
+                }}
+              />
+              {errorText('whatsapp')}
+            </div>
+
+            <div {...fieldProps('address')}>
+              <label htmlFor="address">{t('contactForm.address')}</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                autoComplete="street-address"
+                value={formData.address}
+                onChange={(e) => setField('address', e.target.value)}
+              />
+            </div>
+
+            <div {...fieldProps('port')}>
+              <label htmlFor="port">{t('contactForm.port')}</label>
+              <input
+                type="text"
+                id="port"
+                name="port"
+                value={formData.port}
+                onChange={(e) => setField('port', e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div {...fieldProps('attachment', 'cx-file')}>
+          <span className="cx-label">
+            {t('contactForm.attachFile')} {optional}
+          </span>
+          {formData.attachment ? (
+            <div className="cx-file-chosen">
+              <Icon name="file" />
+              <span className="cx-file-name" dir="auto">
+                {formData.attachment.name}
+              </span>
+              <button
+                type="button"
+                className="cx-file-remove"
+                onClick={clearFile}
+                aria-label={t('contactForm.removeFile')}
+                title={t('contactForm.removeFile')}
+              >
+                <Icon name="close" />
+              </button>
+            </div>
+          ) : (
+            <label htmlFor="attachment" className="cx-file-drop">
+              <Icon name="clip" />
+              <span>
+                <strong>{t('contactForm.chooseFile')}</strong>
+                <small>{t('contactForm.fileHint')}</small>
+              </span>
+            </label>
+          )}
           <input
-            type="text"
-            id="port"
-            name="port"
-            value={formData.port}
-            onChange={(e) => handleInputChange('port', e.target.value)}
-            required
+            ref={fileRef}
+            type="file"
+            id="attachment"
+            name="attachment"
+            className="sr-only"
+            onChange={(e) => setField('attachment', e.target.files[0] || null)}
+            accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.webp"
+            aria-describedby={describedBy('attachment')}
           />
+          {errorText('attachment')}
         </div>
-        <div className="input-field-message">
-          <label htmlFor="message">{t('contactForm.message')}</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={(e) => handleInputChange('message', e.target.value)}
-            required
-          />
-        </div>
-        <div className="input-field input-field-file">
-          <label htmlFor="attachment">{t('contactForm.attachFile')}</label>
-          <div className="file-input-wrapper">
-            <input
-              type="file"
-              id="attachment"
-              name="attachment"
-              onChange={handleFileChange}
-              accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.webp"
-            />
-            {formData.attachment && (
-              <span className="file-name-display">{formData.attachment.name}</span>
-            )}
+
+        {status === 'failed' && (
+          <div className="cx-alert" role="alert">
+            <Icon name="alert" />
+            <span>{failMessage}</span>
           </div>
+        )}
+
+        <div className="cx-submit-row">
+          <button type="submit" className="cx-btn cx-btn-primary" disabled={status === 'sending'}>
+            {status === 'sending' ? (
+              <>
+                <span className="cx-spinner" aria-hidden="true" />
+                {t('contactForm.sending')}
+              </>
+            ) : (
+              <>
+                {t('contactForm.sendMessage')}
+                <Icon name="send" />
+              </>
+            )}
+          </button>
+          <p className="cx-privacy">{t('contactForm.privacyNote')}</p>
         </div>
-        {errors.email && <p className="error">{errors.email}</p>}
-        {errors.country && <p className="error">{errors.country}</p>}
-        {errors.phone && <p className="error">{errors.phone}</p>}
-        {errors.whatsapp && <p className="error">{errors.whatsapp}</p>}
-        <button type="submit" className="btn1">
-          {' '}
-          {t('contactForm.send')}{' '}
-        </button>
       </form>
-    </div>
+    </section>
   );
 }
