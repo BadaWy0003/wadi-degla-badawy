@@ -172,6 +172,7 @@ export default function RootHtml({ lang = 'en', children }) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-R2Y9CCM4YC');
+          gtag('config', 'G-HK6F9VF9R5');
         `}</Script>
           </>
         )}

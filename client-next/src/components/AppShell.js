@@ -11,6 +11,7 @@ import { GlobalStateProvider } from './GlobalStateContext';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 import ScrollToTop from './ScrollToTop';
+import { startEnquiryTracking } from '../util/analytics';
 
 export default function AppShell({ children, lang, messages }) {
   // Initialize i18n language from URL param
@@ -21,6 +22,9 @@ export default function AppShell({ children, lang, messages }) {
       localStorage.setItem('language', lang);
     }
   }, [lang, messages]);
+
+  // Count WhatsApp / call / email / directions taps in Google Analytics
+  useEffect(() => startEnquiryTracking(), []);
 
   // Set html lang + dir
   useEffect(() => {
@@ -42,9 +46,7 @@ export default function AppShell({ children, lang, messages }) {
             <Navbar />
             <ToastContainer autoClose={5000} hideProgressBar />
             <div id="main-content" className="main-content">
-              <div className="route-wrapper">
-                {children}
-              </div>
+              <div className="route-wrapper">{children}</div>
             </div>
             <Footer />
           </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './SampleRequestForm.css';
 import './Products.css';
 import { useGlobalState } from '../GlobalStateContext.js';
+import { trackEvent } from '../../util/analytics';
 import { useTranslation } from 'react-i18next';
 
 // productFinish (English) goes into the email to the company; productFinishLabel is the
@@ -58,6 +59,7 @@ export default function SampleRequestForm({
       .then((data) => {
         if (data.success) {
           setFormData({ name: '', email: '' });
+          trackEvent('sample_request_sent', { product_name: productName, finish: productFinish });
           setShowSuccessPopup(true);
         } else {
           alert(t('sampleRequestForm.errorGeneric'));
