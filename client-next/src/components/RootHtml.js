@@ -44,7 +44,7 @@ const websiteSchema = {
   alternateName: 'Wadi Degla',
   url: 'https://www.wadidegla-eg.com',
   description:
-    'Egyptian marble, limestone, and granite exporter — Galala marble, Silvia marble, Shelly limestone, Black Aswan granite, and 80+ natural stone varieties available as slabs, tiles, and blocks.',
+    'Egyptian marble, limestone, and granite exporter — Galala marble, Sunny marble, Shelly limestone, Black Aswan granite, and 80+ natural stone varieties available as slabs, tiles, and blocks.',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
@@ -80,7 +80,7 @@ const organizationSchema = {
   logo: 'https://www.wadidegla-eg.com/favicon.svg',
   image: 'https://www.wadidegla-eg.com/preview.webp',
   description:
-    'Wadi Degla Co. is an Egyptian natural stone company specializing in quarrying, manufacturing, and exporting premium marble, limestone, granite, and travertine. Products include Galala marble, Silvia marble, Shelly limestone, Rosa marble, and more — available as slabs, tiles, blocks, cobbles, kerbstones, and custom finishes for global residential, commercial, and landmark projects.',
+    'Wadi Degla Co. is an Egyptian natural stone company specializing in quarrying, manufacturing, and exporting premium marble, limestone, granite, and travertine. Products include Galala marble, Sunny marble, Shelly limestone, Rosa marble, and more — available as slabs, tiles, blocks, cobbles, kerbstones, and custom finishes for global residential, commercial, and landmark projects.',
   foundingLocation: {
     '@type': 'Place',
     name: 'Egypt',
@@ -126,7 +126,7 @@ const organizationSchema = {
     'imported marble',
     'imported granite',
     'Galala marble',
-    'Silvia marble',
+    'Sunny marble',
     'Rosa marble',
     'Shelly limestone',
     'Egyptian limestone',

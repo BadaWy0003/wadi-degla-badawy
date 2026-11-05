@@ -11,7 +11,7 @@ const faqSchema = {
       name: 'What products does Wadi Degla supply?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Wadi Degla supplies Egyptian marble (Galala, Silvia, Rosa, Halayeb, Cleopatra), limestone (Shelly), granite (Black Aswan, Red Aswan, Red Fersan), and imported marble and granite — available as slabs, tiles, blocks, cobbles, kerbstones, and custom finishes.',
+        text: 'Wadi Degla supplies Egyptian marble (Galala, Sunny, Rosa, Halayeb, Cleopatra), limestone (Shelly), granite (Black Aswan, Red Aswan, Red Fersan), and imported marble and granite — available as slabs, tiles, blocks, cobbles, kerbstones, and custom finishes.',
       },
     },
     {
