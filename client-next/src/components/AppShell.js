@@ -42,9 +42,7 @@ export default function AppShell({ children, lang, messages }) {
             <Navbar />
             <ToastContainer autoClose={5000} hideProgressBar />
             <div id="main-content" className="main-content">
-              <div className="route-wrapper">
-                {children}
-              </div>
+              <div className="route-wrapper">{children}</div>
             </div>
             <Footer />
           </div>
