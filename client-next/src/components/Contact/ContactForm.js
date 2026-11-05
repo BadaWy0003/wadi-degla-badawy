@@ -10,6 +10,7 @@ import Select from 'react-select';
 import { useTranslation } from 'react-i18next';
 
 import { useGlobalState } from '../GlobalStateContext.js';
+import { trackEvent } from '../../util/analytics';
 import { useLang } from '../../context/LangContext';
 import Icon from './ContactIcons';
 import { WHATSAPP_URL } from './contactData';
@@ -147,6 +148,7 @@ export default function ContactForm() {
       const data = await res.json().catch(() => ({}));
       if (data.success) {
         setStatus('sent');
+        trackEvent('contact_form_sent');
         setFormData(EMPTY);
         if (fileRef.current) fileRef.current.value = '';
         formRef.current
