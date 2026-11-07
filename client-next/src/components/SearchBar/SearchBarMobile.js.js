@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FaSearch } from 'react-icons/fa';
 import apiClient from '../../util/client.js';
 import './SearchBarMobile.css';
 import { useRouter } from 'next/navigation';
@@ -210,7 +211,7 @@ const SearchBarMobile = () => {
         className={`mobile-search-icon ${open ? 'active' : ''}`}
         onClick={() => setOpen((s) => !s)}
       >
-        <i className="fas fa-search" />
+        <FaSearch aria-hidden="true" />
       </button>
 
       {open && (

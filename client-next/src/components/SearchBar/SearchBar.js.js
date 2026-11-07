@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FaSearch } from 'react-icons/fa';
 import apiClient from '../../util/client.js';
 import './SearchBar.css';
 import { useRouter } from 'next/navigation';
@@ -220,7 +221,7 @@ const SearchBar = () => {
         className={`search-icon ${isSearchOpen ? 'hidden' : ''}`}
         onClick={toggleSearch}
       >
-        <i className="fas fa-search"></i>
+        <FaSearch aria-hidden="true" />
       </div>
       <div className={`search-input-container ${isSearchOpen ? 'open' : ''}`}>
         <input

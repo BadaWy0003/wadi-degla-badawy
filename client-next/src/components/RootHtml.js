@@ -146,10 +146,6 @@ export default function RootHtml({ lang = 'en', children }) {
   return (
     <html lang={lang} dir={dir}>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
