@@ -14,6 +14,8 @@ export default function ImageSection({ sectionData }) {
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(null);
 
+  // Translated name (titleKey) when there is one, otherwise the plain title
+  const slideTitle = (slide) => (slide.titleKey ? t(slide.titleKey) : slide.title);
   const slides = sectionData.map((item) => ({ src: item.image }));
 
   return (
@@ -29,7 +31,7 @@ export default function ImageSection({ sectionData }) {
             style={{ cursor: 'pointer' }}
           >
             <div className="image-section-image-wrapper">
-              <img loading="lazy" src={slide.image} alt={slide.title} />
+              <img loading="lazy" src={slide.image} alt={slideTitle(slide)} />
               {hovered === idx && (
                 <div className="image-overlay">
                   <p>{t('common.imageHint')}</p>
@@ -37,7 +39,7 @@ export default function ImageSection({ sectionData }) {
               )}
             </div>
             <div className="image-section-text-wrapper">
-              <h3>{slide.title}</h3>
+              <h3>{slideTitle(slide)}</h3>
               <p>{slide.textKey ? t(slide.textKey) : slide.text}</p>
               {slide.link && (
                 <LangLink

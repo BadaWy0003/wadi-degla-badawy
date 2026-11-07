@@ -851,7 +851,27 @@
     "mosaics10x3Text": "Mosaico moderno snello ideale per pareti caratteristiche e design lineari.",
     "mosaicsCircular5x5Text": "Curve morbide e profondità dimensionale per espressioni murali artistiche.",
     "mosaicsUpsAndDown10x10Text": "Stile geometrico 3D che crea profondità visiva e movimento.",
-    "cobblesLink": "Scopri tutta la gamma di cubetti →"
+    "cobblesLink": "Scopri tutta la gamma di cubetti →",
+    "items": {
+      "cobbleStone": "Cubetto",
+      "crown": "Capitello",
+      "handrail": "Corrimano",
+      "keystone": "Chiave di volta",
+      "massiveSteps": "Gradini massicci",
+      "planter": "Fioriera",
+      "poolCopingSet": "Set bordo piscina",
+      "squaredCrown": "Capitello squadrato",
+      "stoneSeat": "Panca in pietra",
+      "wallstone": "Pietra da rivestimento",
+      "mosaics2x2": "Mosaico 2×2 cm",
+      "mosaics5x5": "Mosaico 5×5 cm",
+      "mosaics10x10": "Mosaico 10×10 cm",
+      "mosaicsHexagon5x5": "Mosaico esagonale 5×5 cm",
+      "mosaicsTrapezoid5x5": "Mosaico trapezoidale 5×5 cm",
+      "mosaics10x3": "Mosaico 10×3 cm",
+      "mosaicsCircular5x5": "Mosaico circolare 5×5 cm",
+      "mosaicsUpsDown10x10": "Mosaico a rilievo 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "Pavimenti in marmo e decori in pietra | Wadi Degla",

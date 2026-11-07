@@ -851,7 +851,27 @@
     "mosaics10x3Text": "非常适合特色墙和线性设计的细长现代马赛克。",
     "mosaicsCircular5x5Text": "柔和曲线和三维深度，适用于艺术性墙面表达。",
     "mosaicsUpsAndDown10x10Text": "创造视觉深度和动感的3D几何造型。",
-    "cobblesLink": "查看全部弹石产品 →"
+    "cobblesLink": "查看全部弹石产品 →",
+    "items": {
+      "cobbleStone": "弹石",
+      "crown": "石冠",
+      "handrail": "扶手",
+      "keystone": "拱顶石",
+      "massiveSteps": "整石台阶",
+      "planter": "花槽",
+      "poolCopingSet": "泳池压顶石套装",
+      "squaredCrown": "方形石冠",
+      "stoneSeat": "石凳",
+      "wallstone": "墙面石",
+      "mosaics2x2": "马赛克 2×2 厘米",
+      "mosaics5x5": "马赛克 5×5 厘米",
+      "mosaics10x10": "马赛克 10×10 厘米",
+      "mosaicsHexagon5x5": "六角马赛克 5×5 厘米",
+      "mosaicsTrapezoid5x5": "梯形马赛克 5×5 厘米",
+      "mosaics10x3": "马赛克 10×3 厘米",
+      "mosaicsCircular5x5": "圆形马赛克 5×5 厘米",
+      "mosaicsUpsDown10x10": "凹凸马赛克 10×10 厘米"
+    }
   },
   "patterns": {
     "pageTitle": "大理石图案与石材铺路板 | 户外地板 | 瓦迪·德格拉大理石埃及",

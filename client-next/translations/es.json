@@ -851,7 +851,27 @@
     "mosaics10x3Text": "Mosaico moderno de línea fina ideal para muros de acento y diseños lineales.",
     "mosaicsCircular5x5Text": "Curvas suaves y profundidad dimensional para expresiones artísticas de pared.",
     "mosaicsUpsAndDown10x10Text": "Estilo de geometría 3D que crea profundidad visual y movimiento.",
-    "cobblesLink": "Ver toda nuestra gama de adoquines →"
+    "cobblesLink": "Ver toda nuestra gama de adoquines →",
+    "items": {
+      "cobbleStone": "Adoquín",
+      "crown": "Corona",
+      "handrail": "Pasamanos",
+      "keystone": "Clave de arco",
+      "massiveSteps": "Peldaños macizos",
+      "planter": "Jardinera",
+      "poolCopingSet": "Juego de remates de piscina",
+      "squaredCrown": "Corona cuadrada",
+      "stoneSeat": "Banco de piedra",
+      "wallstone": "Piedra de revestimiento",
+      "mosaics2x2": "Mosaico 2×2 cm",
+      "mosaics5x5": "Mosaico 5×5 cm",
+      "mosaics10x10": "Mosaico 10×10 cm",
+      "mosaicsHexagon5x5": "Mosaico hexagonal 5×5 cm",
+      "mosaicsTrapezoid5x5": "Mosaico trapezoidal 5×5 cm",
+      "mosaics10x3": "Mosaico 10×3 cm",
+      "mosaicsCircular5x5": "Mosaico circular 5×5 cm",
+      "mosaicsUpsDown10x10": "Mosaico en relieve 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "Adoquines de mármol y diseños en piedra | Wadi Degla",

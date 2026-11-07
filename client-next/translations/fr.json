@@ -851,7 +851,27 @@
     "mosaics10x3Text": "Mosaïque moderne épurée idéale pour les murs de caractéristique et les designs linéaires.",
     "mosaicsCircular5x5Text": "Courbes douces et profondeur dimensionnelle pour les expressions murales artistiques.",
     "mosaicsUpsAndDown10x10Text": "Style géométrique 3D créant profondeur visuelle et mouvement.",
-    "cobblesLink": "Voir toute notre gamme de pavés →"
+    "cobblesLink": "Voir toute notre gamme de pavés →",
+    "items": {
+      "cobbleStone": "Pavé",
+      "crown": "Couronnement",
+      "handrail": "Main courante",
+      "keystone": "Clé de voûte",
+      "massiveSteps": "Marches massives",
+      "planter": "Jardinière",
+      "poolCopingSet": "Ensemble de margelles de piscine",
+      "squaredCrown": "Couronnement carré",
+      "stoneSeat": "Banc en pierre",
+      "wallstone": "Pierre de parement",
+      "mosaics2x2": "Mosaïque 2×2 cm",
+      "mosaics5x5": "Mosaïque 5×5 cm",
+      "mosaics10x10": "Mosaïque 10×10 cm",
+      "mosaicsHexagon5x5": "Mosaïque hexagonale 5×5 cm",
+      "mosaicsTrapezoid5x5": "Mosaïque trapézoïdale 5×5 cm",
+      "mosaics10x3": "Mosaïque 10×3 cm",
+      "mosaicsCircular5x5": "Mosaïque circulaire 5×5 cm",
+      "mosaicsUpsDown10x10": "Mosaïque en relief 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "Pavés en marbre et motifs en pierre | Wadi Degla",

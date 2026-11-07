@@ -851,7 +851,27 @@
     "mosaics10x3Text": "특징 벽과 선형 설계에 이상적인 슬림 라인 현대 모자이크.",
     "mosaicsCircular5x5Text": "예술적 벽 표현을 위한 부드러운 곡선과 차원 깊이.",
     "mosaicsUpsAndDown10x10Text": "시각적 깊이와 움직임을 만드는 3D 기하학적 스타일.",
-    "cobblesLink": "코블스톤 전체 제품 보기 →"
+    "cobblesLink": "코블스톤 전체 제품 보기 →",
+    "items": {
+      "cobbleStone": "코블스톤",
+      "crown": "크라운",
+      "handrail": "핸드레일",
+      "keystone": "키스톤",
+      "massiveSteps": "통석 계단",
+      "planter": "플랜터",
+      "poolCopingSet": "수영장 코핑 세트",
+      "squaredCrown": "사각 크라운",
+      "stoneSeat": "석재 벤치",
+      "wallstone": "벽 마감석",
+      "mosaics2x2": "모자이크 2×2 cm",
+      "mosaics5x5": "모자이크 5×5 cm",
+      "mosaics10x10": "모자이크 10×10 cm",
+      "mosaicsHexagon5x5": "육각 모자이크 5×5 cm",
+      "mosaicsTrapezoid5x5": "사다리꼴 모자이크 5×5 cm",
+      "mosaics10x3": "모자이크 10×3 cm",
+      "mosaicsCircular5x5": "원형 모자이크 5×5 cm",
+      "mosaicsUpsDown10x10": "입체 모자이크 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "대리석 패턴 & 석재 포장 | 실외 바닥재 | Wadi Degla 대리석 이집트",

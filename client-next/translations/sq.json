@@ -851,7 +851,27 @@
     "mosaics10x3Text": "Mozaik modern i hollë ideale për muret e veçantë dhe dizajnet lineare.",
     "mosaicsCircular5x5Text": "Kurba të buta dhe thellësi dimensionale për shprehje artistike të murit.",
     "mosaicsUpsAndDown10x10Text": "Stil gjeometrik 3D që krijon thellësi vizuale dhe lëvizje.",
-    "cobblesLink": "Shihni gamën e plotë të kalldrëmeve →"
+    "cobblesLink": "Shihni gamën e plotë të kalldrëmeve →",
+    "items": {
+      "cobbleStone": "Gur kubik",
+      "crown": "Kurorë",
+      "handrail": "Parmak",
+      "keystone": "Gur kyç",
+      "massiveSteps": "Shkallë masive",
+      "planter": "Vazo për bimë",
+      "poolCopingSet": "Set bordurash pishine",
+      "squaredCrown": "Kurorë katrore",
+      "stoneSeat": "Stol guri",
+      "wallstone": "Gur veshjeje muri",
+      "mosaics2x2": "Mozaik 2×2 cm",
+      "mosaics5x5": "Mozaik 5×5 cm",
+      "mosaics10x10": "Mozaik 10×10 cm",
+      "mosaicsHexagon5x5": "Mozaik gjashtëkëndor 5×5 cm",
+      "mosaicsTrapezoid5x5": "Mozaik trapezoidal 5×5 cm",
+      "mosaics10x3": "Mozaik 10×3 cm",
+      "mosaicsCircular5x5": "Mozaik rrethor 5×5 cm",
+      "mosaicsUpsDown10x10": "Mozaik reliev 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "Shtrime mermeri dhe modele guri | Wadi Degla",
