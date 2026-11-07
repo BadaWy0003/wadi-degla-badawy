@@ -113,11 +113,34 @@ export const theme = createTheme({
         }
       }
     },
+    // Phones: tighter table cells and icon buttons, so the action icons fit next to the name
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          '@media (max-width: 599.95px)': {
+            padding: '8px 4px',
+            '& .MuiIconButton-root': { padding: '5px' },
+            // the last column holds the action icons: let them wrap onto 2 lines instead of being cut off
+            '&:last-of-type': { whiteSpace: 'normal', minWidth: 72 },
+          },
+        },
+      },
+    },
     MuiDialog: {
       styleOverrides: {
         paper: {
           borderRadius: '16px',
-        }
+          // Phones: forms and dialogs use (almost) the whole screen instead of a 32 px margin
+          '@media (max-width: 599.95px)': {
+            margin: '8px',
+            maxHeight: 'calc(100% - 16px)',
+          },
+        },
+        paperFullWidth: {
+          '@media (max-width: 599.95px)': {
+            width: 'calc(100% - 16px)',
+          },
+        },
       }
     }
   },
