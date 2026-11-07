@@ -15,6 +15,22 @@ const PdfExportService = {};
 // Only these templates exist in src/templates; never build a path from raw input.
 const ALLOWED_TEMPLATES = ['invoice', 'packing-list', 'pricing-list'];
 
+// The logo and QR code are embedded in the page (data: links), so making a PDF needs no
+// outside website. They used to come from i.ibb.co (plus an unused d3 script from d3js.org);
+// when those were slow or unreachable, Chromium waited 60 s and "Create document" failed.
+const ASSETS_DIR = path.join(__dirname, '../templates/assets');
+let embeddedImages;
+function getEmbeddedImages() {
+  if (!embeddedImages) {
+    const dataUri = (file, type) => `data:${type};base64,${fs.readFileSync(path.join(ASSETS_DIR, file)).toString('base64')}`;
+    embeddedImages = {
+      logoSrc: dataUri('logo.svg', 'image/svg+xml'),
+      qrSrc: dataUri('qr-code.png', 'image/png'),
+    };
+  }
+  return embeddedImages;
+}
+
 // Compile Handlebars template
 async function compileTemplate(documentType, data) {
   // The admin panel sends e.g. 'INVOICE'; template files are lower-case ('invoice.hbs').
@@ -26,7 +42,7 @@ async function compileTemplate(documentType, data) {
   }
   const templatePath = path.join(__dirname, '../templates', `${templateName}.hbs`);
   const templateContent = await fs.promises.readFile(templatePath, 'utf-8');
-  return hbs.compile(templateContent)(data);
+  return hbs.compile(templateContent)({ ...data, ...getEmbeddedImages() });
 }
 
 // Generate PDF buffer
