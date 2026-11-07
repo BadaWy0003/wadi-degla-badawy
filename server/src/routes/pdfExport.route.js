@@ -10,6 +10,7 @@ router.post('/generate-upload-pdf', adminAuth, PdfExportController.generateAndUp
 
 router.get('/all', adminAuth, authorize('MODERATOR'), PdfExportController.getAllInvoices);
 router.get('/type/:type', adminAuth, authorize('MODERATOR'), PdfExportController.getInvoicesByType);
+router.get('/invoice/:id/file', adminAuth, authorize('MODERATOR'), PdfExportController.getDocumentFile);
 router.delete('/invoice/:id', adminAuth, authorize('MODERATOR'), PdfExportController.deleteInvoice);
 
 module.exports = router;

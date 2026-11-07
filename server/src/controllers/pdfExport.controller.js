@@ -25,12 +25,34 @@ PdfExportController.generateAndUploadPdf = async (req, res) => {
       type: req.body.documentType || 'No type provided',
     };
 
-    const pdfUrl = await PdfExportService.generateAndUploadPdf(req.body, metadata);
+    const id = await PdfExportService.generateAndUploadPdf(req.body, metadata);
 
-    res.status(200).json({ message: 'PDF generated and uploaded successfully', pdfUrl, data: req.body });
+    res.status(200).json({ message: 'PDF generated and uploaded successfully', id });
   } catch (error) {
     console.error('Error generating and uploading PDF:', error);
     res.status(500).json({ error: 'Failed to generate and upload PDF' });
+  }
+};
+
+// Stream one document's PDF to a logged-in admin (the files have no public link).
+PdfExportController.getDocumentFile = async (req, res) => {
+  try {
+    const found = await PdfExportService.getDocumentFile(req.params.id);
+    if (!found) return res.status(404).json({ message: 'Document file not found' });
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `inline; filename="${found.name}"`);
+    res.setHeader('Cache-Control', 'private, no-store');
+    found.file
+      .createReadStream()
+      .on('error', (error) => {
+        console.error('Error reading document file:', error.message);
+        if (!res.headersSent) res.status(500).json({ message: 'Could not read the file' });
+        else res.end();
+      })
+      .pipe(res);
+  } catch (error) {
+    console.error('Error in getDocumentFile:', error.message);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 

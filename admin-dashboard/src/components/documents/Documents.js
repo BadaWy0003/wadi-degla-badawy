@@ -203,8 +203,21 @@ export default function Documents() {
   //   setOpenDialog(false);
   // };
 
-  const handleView = url => {
-    window.open(url, '_blank');
+  // Documents have no public link: download the PDF with the admin's login, then show it.
+  // The tab is opened first (synchronously) so pop-up blockers allow it.
+  const handleView = async id => {
+    const tab = window.open('', '_blank');
+    try {
+      const { data } = await apiClient.get(`/api/export-pdf/invoice/${id}/file`, {
+        responseType: 'blob',
+      });
+      const fileUrl = URL.createObjectURL(new Blob([data], { type: 'application/pdf' }));
+      if (tab) tab.location.href = fileUrl;
+      else window.location.href = fileUrl;
+      setTimeout(() => URL.revokeObjectURL(fileUrl), 60000);
+    } catch (err) {
+      if (tab) tab.close();
+    }
   };
 
   const filteredDocuments = documents
@@ -407,7 +420,8 @@ export default function Documents() {
                     {/* <IconButton size="small" color="primary" onClick={() => handleDownload(document.url)}>
                       <DownloadIcon />
                     </IconButton> */}
-                    <IconButton size="small" color="primary" onClick={() => handleView(document.url)}>
+                    <IconButton size="small" color="primary" onClick={() => handleView(document.id)}
+                      disabled={!document.hasFile}>
                       <VisibilityIcon />
                     </IconButton>
                   </Box>
