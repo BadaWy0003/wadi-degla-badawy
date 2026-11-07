@@ -53,7 +53,7 @@ export const TOPIC_PAGES = {
   },
 };
 
-// Other pages a topic page can link to (path + translation key of its name).
+// Other pages a topic page or a RelatedPages block can link to (path + translation key of its name).
 export const OTHER_LINKS = {
   kerbstone: { path: '/kerbstone', label: 'navigation.kerbstone' },
   cobbles: { path: '/cobbles', label: 'navigation.cobbles' },
@@ -61,6 +61,13 @@ export const OTHER_LINKS = {
   history: { path: '/history', label: 'navigation.history' },
   packing: { path: '/packing', label: 'navigation.packing' },
   exports: { path: '/exports', label: 'navigation.exports' },
+  machinery: { path: '/machinery', label: 'navigation.machinery' },
+  patterns: { path: '/patterns', label: 'navigation.patterns' },
+  stoneCreations: { path: '/stone-creations', label: 'navigation.stoneCreations' },
+  products: { path: '/products', label: 'navigation.viewAllProducts' },
+  projects: { path: '/projects', label: 'navigation.projects' },
+  visualizer: { path: '/visualizer', label: 'navigation.materialVisualizer' },
+  contact: { path: '/contact', label: 'navigation.contact' },
 };
 
 // Firestore category -> its topic page (used by the products list and product pages).
