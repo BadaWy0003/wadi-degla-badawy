@@ -9,7 +9,7 @@ export default function ProjectsHome() {
       const { t } = useTranslation();
 
     return(
-        <section className="projects-home-section" aria-label={t('home.projectsAlt')}>
+        <section className="projects-home-section lazy-bg" aria-label={t('home.projectsAlt')}>
             <h2>{t('home.experienceWork')}</h2>
             <p>{t('home.experienceWorkDesc')}</p>
                 <LangLink href="/projects" className="btn-link">

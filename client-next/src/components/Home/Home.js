@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useLazyBackgrounds } from "../../util/lazy-bg";
 import "./Home.css";
 import "react-multi-carousel/lib/styles.css";
 import { useTranslation } from "react-i18next";
@@ -19,6 +20,7 @@ import FaqHome from "./FaqHome.js";
 import LangLink from "../LangLink";
 
 export default function Home() {
+  useLazyBackgrounds();
   const { t } = useTranslation();
 
   //   const globalState = useGlobalState(); // Access global state for user data
