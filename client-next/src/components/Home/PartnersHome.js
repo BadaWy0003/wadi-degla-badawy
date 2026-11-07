@@ -1,18 +1,36 @@
 'use client';
-import React, { useEffect } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect, useRef } from "react";
 import "./Home.css";
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { useTranslation } from 'react-i18next';
-import { FreeMode, Autoplay } from 'swiper/modules';
+import { useNearScreen, useLazyComponent } from '../../util/near-screen';
 
 import { partnerLogos } from "../Partners/Partners.js";
+
+// The slider's markup without the slider code: same classes, so the same size.
+function PartnersPlaceholder() {
+    return (
+        <div className="swiper partners-swiper">
+            <div className="swiper-wrapper">
+                {partnerLogos.map((logo, index) => (
+                    <div key={index} className="swiper-slide partner-slide">
+                        <img loading="lazy" src={logo} alt={`Partner ${index + 1}`} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+const loadPartnersSlider = () => import('./PartnersSlider');
 
 export default function PartnersHome() {
     const { t, i18n } = useTranslation();
     const isRTL = i18n.language === 'ar';
+    const sliderRef = useRef(null);
+    const PartnersSlider = useLazyComponent(useNearScreen(sliderRef), loadPartnersSlider);
 
     useEffect(() => {
         // Force document direction update
@@ -23,47 +41,15 @@ export default function PartnersHome() {
         <section className="partners-home-section">
             <h2>{t('home.partnersClients')}</h2>
             <p>{t('home.partnersDescription')}</p>
-            <Swiper
-                key={`partners-swiper-${isRTL}`}
-                slidesPerView={1}
-                spaceBetween={0}
-                loop={true}
-                speed={2000}
-                dir={isRTL ? 'rtl' : 'ltr'}
-                autoplay={{
-                    delay: 1000,
-                    disableOnInteraction: false,
-                    reverseDirection: isRTL,
-                }}
-                breakpoints={{
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 0,
-                        centeredSlides: true,
-                    },
-                    768: {
-                        slidesPerView: 3, 
-                        spaceBetween: 15
-                    },
-                    968: {
-                        slidesPerView: 3,
-                        spaceBetween: 20
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 50
-                    }
-                }}
-                modules={[FreeMode, Autoplay]}
-                className="partners-swiper"
-                alt={t('home.partnersAlt')}
-            >
-                {partnerLogos.map((logo, index) => (
-                    <SwiperSlide key={index} className="partner-slide">
-                        <img loading="lazy" id={`Partner-logo-home-${index + 1}`} src={logo} alt={`Partner ${index + 1}`} />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+            {/* Same markup as the slider before it starts (same height); the slider code loads
+                when the section comes near the screen. */}
+            <div ref={sliderRef} className="partners-slider-box">
+                {PartnersSlider ? (
+                    <PartnersSlider isRTL={isRTL} alt={t('home.partnersAlt')} />
+                ) : (
+                    <PartnersPlaceholder />
+                )}
+            </div>
 
             </section>
     );

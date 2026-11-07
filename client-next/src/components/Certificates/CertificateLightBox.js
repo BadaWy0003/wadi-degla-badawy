@@ -1,31 +1,32 @@
 'use client';
-import React, { useState } from "react";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
-import Zoom from "yet-another-react-lightbox/plugins/zoom"; // Import Zoom plugin
+import React, { useState } from 'react';
+import { useLazyComponent } from '../../util/near-screen';
+
+// The zoom viewer's code is loaded the first time a certificate is clicked.
+const loadCertificateZoom = () => import('./CertificateZoom');
 
 export default function CertificateLightBox({ thumbnail, fullImage, altText }) {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [wanted, setWanted] = useState(false);
+  const CertificateZoom = useLazyComponent(wanted, loadCertificateZoom);
 
-    return (
-        <>
-            {/* Thumbnail Image */}
-            <img loading="lazy" 
-                className="certificate-image"
-                src={thumbnail} 
-                alt={altText || "Certificate"} 
-                onClick={() => setIsOpen(true)} 
-            />
+  return (
+    <>
+      {/* Thumbnail Image */}
+      <img
+        loading="lazy"
+        className="certificate-image"
+        src={thumbnail}
+        alt={altText || 'Certificate'}
+        onClick={() => {
+          setWanted(true);
+          setIsOpen(true);
+        }}
+      />
 
-            {/* Lightbox */}
-            <Lightbox
-                open={isOpen}
-                close={() => setIsOpen(false)}
-                slides={[{ src: fullImage }]}
-                carousel={{ finite: true }}  // Disables navigation arrows & swiping
-                plugins={[Zoom]}  // Enable Zoom
-                zoom={{ maxZoomPixelRatio: 3 }} // Allows zooming up to 3x
-            />
-        </>
-    );
+      {CertificateZoom && (
+        <CertificateZoom open={isOpen} close={() => setIsOpen(false)} fullImage={fullImage} />
+      )}
+    </>
+  );
 }

@@ -1,19 +1,19 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import "./FeaturedProducts.css"
 import { useTranslation } from 'react-i18next';
-import { finishLabel } from '../../util/finishes';
 import { getApiClient } from "../../util/api-lazy.js";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { useNearScreen, useLazyComponent } from '../../util/near-screen';
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 import { productSlug } from '../../util/product-slugs';
 import LangLink from '../LangLink';
 
 
+
+const loadFeaturedCube = () => import('./FeaturedCube');
 
 export default function FeaturedProducts() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -32,9 +32,15 @@ export default function FeaturedProducts() {
     "Red Aswan"
   ];
 
+  // The products and the slider code load only when the section comes near the screen.
+  const sectionRef = useRef(null);
+  const near = useNearScreen(sectionRef);
+  const FeaturedCube = useLazyComponent(near, loadFeaturedCube);
+
   useEffect(() => {
-    fetchFeaturedProducts();
-  }, []);
+    if (near) fetchFeaturedProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [near]);
 
   const fetchFeaturedProducts = async () => {
     try {
@@ -75,64 +81,13 @@ export default function FeaturedProducts() {
   
 
   return(
-    <section className="featured-products-section">
+    <section className="featured-products-section" ref={sectionRef}>
       <h2>{t('home.featuredProducts')}</h2>
       <p>{t('home.featuredProductsDesc')}</p>
       <div className="featured-content-wrapper">
-        {loading? ( <LoadingSpinner />
+        {loading || !FeaturedCube ? ( <LoadingSpinner />
         ):(
-        <Swiper
-          effect={'cube'}
-          grabCursor={true}
-          loop={true}
-          cubeEffect={{
-            shadow: true,
-            slideShadows: true,
-            shadowOffset: 20,
-            shadowScale: 0.94,
-          }}
-          pagination={{
-            clickable: true,
-            el: '.swiper-custom-pagination'
-          }}
-          navigation={{
-            nextEl: '.swiper-custom-button-next',
-            prevEl: '.swiper-custom-button-prev'
-          }}
-          modules={[EffectCube, Pagination, Navigation, Autoplay]}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: true,
-          }}
-          className="featured-cube-swiper"
-          onSlideChange={(swiper) => {
-            const realIndex = swiper.realIndex;
-            setActiveProduct(featuredProducts[realIndex]);
-          }}
-          onInit={(swiper) => {
-            setActiveProduct(featuredProducts[0]);
-          }}
-        >
-          {featuredProducts.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className="featured-cube-slide">
-              {(() => {
-                const honedFinish = item.finishes.find(finish => finish.finish === 'Honed');
-                const polishedFinish = item.finishes.find(finish => finish.finish === 'Polished');
-                const selectedFinish = honedFinish || polishedFinish; // Use "Honed" if available, otherwise "Polished"
-
-                return selectedFinish ? (
-                  <img loading="lazy" 
-                    src={selectedFinish.thumb || selectedFinish.link} 
-                    alt={`${item.name} - ${finishLabel(t, selectedFinish.finish)}`} 
-                  />
-                ) : null;
-              })()}
-
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <FeaturedCube featuredProducts={featuredProducts} setActiveProduct={setActiveProduct} />
         )}
         <div className="product-info-panel">
           {activeProduct && (

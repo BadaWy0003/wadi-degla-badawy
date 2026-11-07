@@ -157,6 +157,13 @@
     cursor: grab;
 }
 
+/* Wrapper of the partners slider (PartnersHome): full width, or the slider measures an
+   endless width inside the centred flex section and never moves. */
+.partners-slider-box {
+    width: 100%;
+    max-width: 100%;
+}
+
 .partners-swiper {
     max-width: 100%;
     margin: unset !important;

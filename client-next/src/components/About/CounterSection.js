@@ -1,11 +1,10 @@
 'use client';
-import React from "react";
+import React, { useRef } from "react";
 import "./CounterSection.css";
-import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { useNearScreen, useLazyComponent } from "../../util/near-screen";
 import CountUp from "react-countup";
 import { useTranslation } from 'react-i18next';
 
@@ -16,6 +15,39 @@ const technology = '/Assets/Icons/technology.svg';
 const craftsmanship = '/Assets/Icons/craftsmanship.png';
 const global_supply_chain = '/Assets/Icons/global-supply-chain.svg';
 const experience = '/Assets/Icons/experience.svg';
+
+// The slider's markup without the slider code (same classes, so the same size).
+function CounterSlidesStatic({ slides }) {
+  return (
+    <div className="swiper">
+      <div className="swiper-wrapper">
+        {slides.map((slide, index) => (
+          <div className="swiper-slide" key={index}>
+            {slide}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const loadCounterSlider = () => import("./CounterSlider");
+
+// Phone-only slider: static slides first, the real slider (and its code) once it comes near
+// the screen. On desktop .counters-swiper is display:none, so it never loads.
+function LazyCounterSlider({ slides, delay, spaceBetween }) {
+  const ref = useRef(null);
+  const CounterSlider = useLazyComponent(useNearScreen(ref), loadCounterSlider);
+  return (
+    <div className="counters-swiper" ref={ref}>
+      {CounterSlider ? (
+        <CounterSlider slides={slides} delay={delay} spaceBetween={spaceBetween} />
+      ) : (
+        <CounterSlidesStatic slides={slides} />
+      )}
+    </div>
+  );
+}
 
 export default function CounterSection() {
   const { t } = useTranslation();
@@ -33,37 +65,24 @@ export default function CounterSection() {
       {/* Counters Section (First 3) */}
       <div className="about-counters-section-inner">
         {/* Swiper for Small Screens */}
-        <div className="counters-swiper">
-          <Swiper 
-            autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-            }}          
-            
-            loop={true}
-            spaceBetween={0} 
-            slidesPerView={1} 
-            modules={[Navigation, Autoplay]}
-            >
-            {[ 
-              { img: manpower, title: t('about.counters.manpowerTitle'), count: 500 },
-              { img: tiles, title: t('about.counters.productionTitle'), count: 3000 },
-              { img: projects, title: t('about.counters.projectsTitle'), count: 300 }
-            ].map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className="counter-card">
-                  <img loading="lazy" src={item.img} alt={`${item.title.toLowerCase()}-icon`} />
-                  <h3>{item.title}</h3>
-                  {/* Static number on the mobile slider: the looping slider re-creates its
-                      slides, which restarted (or never started) the CountUp animation, so
-                      the live site showed "0 +". Same format as CountUp ("3,000 +"). */}
-                  <span className="counter-text">{item.count.toLocaleString('en-US')} +</span>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <LazyCounterSlider
+          delay={2000}
+          spaceBetween={0}
+          slides={[
+            { img: manpower, title: t('about.counters.manpowerTitle'), count: 500 },
+            { img: tiles, title: t('about.counters.productionTitle'), count: 3000 },
+            { img: projects, title: t('about.counters.projectsTitle'), count: 300 },
+          ].map((item, index) => (
+            <div className="counter-card" key={index}>
+              <img loading="lazy" src={item.img} alt={`${item.title.toLowerCase()}-icon`} />
+              <h3>{item.title}</h3>
+              {/* Static number on the mobile slider: the looping slider re-creates its
+                  slides, which restarted (or never started) the CountUp animation, so
+                  the live site showed "0 +". Same format as CountUp ("3,000 +"). */}
+              <span className="counter-text">{item.count.toLocaleString('en-US')} +</span>
+            </div>
+          ))}
+        />
 
         {/* Grid Layout for Large Screens */}
         <div className="counters-grid">
@@ -90,34 +109,21 @@ export default function CounterSection() {
       {/* Counters Section (Second 3) */}
       <div className="about-counters-section-inner">
         {/* Swiper for Small Screens */}
-        <div className="counters-swiper">
-        <Swiper 
-            autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-            }}          
-            
-            loop={true}
-            spaceBetween={10} 
-            slidesPerView={1} 
-            modules={[Navigation, Autoplay]}
-            >
-            {[ 
-              { img: technology, title: t('about.counters.technologyTitle'), text: t('about.counters.technologyText') },
-              { img: craftsmanship, title: t('about.counters.craftsmanshipTitle'), text: t('about.counters.craftsmanshipText') },
-              { img: global_supply_chain, title: t('about.counters.supplyChainTitle'), text: t('about.counters.supplyChainText') }
-            ].map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className="counter-card">
-                  <img loading="lazy" src={item.img} alt={`${item.title}-icon`} />
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <LazyCounterSlider
+          delay={3000}
+          spaceBetween={10}
+          slides={[
+            { img: technology, title: t('about.counters.technologyTitle'), text: t('about.counters.technologyText') },
+            { img: craftsmanship, title: t('about.counters.craftsmanshipTitle'), text: t('about.counters.craftsmanshipText') },
+            { img: global_supply_chain, title: t('about.counters.supplyChainTitle'), text: t('about.counters.supplyChainText') },
+          ].map((item, index) => (
+            <div className="counter-card" key={index}>
+              <img loading="lazy" src={item.img} alt={`${item.title}-icon`} />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        />
 
         {/* Grid Layout for Large Screens */}
         <div className="counters-grid">
