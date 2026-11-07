@@ -1,21 +1,20 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './ProjectDetails.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Pagination, Navigation } from 'swiper/modules';
 import Product from '../Products/Product';
-import Lightbox from 'yet-another-react-lightbox';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom'; // Import Zoom plugin
-import 'yet-another-react-lightbox/styles.css';
+import { useNearScreen, useLazyComponent } from '../../util/near-screen';
+import usePhotoZoom from '../usePhotoZoom';
 import ContactBubble from '../Contact/ContactBubble.js';
 import '../Products/Products.css';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
 import LangLink from '../LangLink';
+
+const loadSlider = () => import('./ProjectSlider');
 
 // Paragraphs are separated by an empty line (same rule as the news articles).
 const toParagraphs = (text) =>
@@ -30,9 +29,9 @@ export default function ProjectDetails({ project }) {
   const router = useRouter();
   const lang = useLang();
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState(0);
-  const [hovered, setHovered] = useState(false);
+  const sliderRef = useRef(null);
+  const Slider = useLazyComponent(useNearScreen(sliderRef), loadSlider);
+  const [openPhoto, zoom] = usePhotoZoom();
 
   if (!project) {
     return <div className="error-message">{t('projects.projectNotFound')}</div>;
@@ -60,43 +59,25 @@ export default function ProjectDetails({ project }) {
       <div className="project-details-container">
         <div className="project-details-left">
           {images.length > 0 ? (
-            <Swiper
-              key={images.length}
-              pagination={{ clickable: true }}
-              navigation
-              modules={[Pagination, Navigation]}
-              lazy={true}
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              className="project-gallery-swiper"
-            >
-              {images.map((image, index) => (
-                <SwiperSlide
-                  key={index}
-                  onClick={() => {
-                    setIndex(index);
-                    setOpen(true);
-                  }}
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
-                >
-                  <img
-                    loading="lazy"
-                    src={image.src}
-                    alt={image.alt || `${project.name} ${index + 1}`}
-                    className="project-image"
-                  />
-                  {hovered && (
-                    <div className="image-overlay">
-                      <p>{t('projects.clickToView')}</p>
+            Slider ? (
+              <Slider images={images} name={project.name} onOpen={openPhoto} />
+            ) : (
+              // Until the slider code arrives: the same markup without Swiper (same size).
+              <div className="swiper project-gallery-swiper" ref={sliderRef}>
+                <div className="swiper-wrapper">
+                  {images.map((image, index) => (
+                    <div className="swiper-slide" key={index} onClick={() => openPhoto(index)}>
+                      <img
+                        loading={index === 0 ? undefined : 'lazy'}
+                        src={image.src}
+                        alt={image.alt || `${project.name} ${index + 1}`}
+                        className="project-image"
+                      />
                     </div>
-                  )}
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  ))}
+                </div>
+              </div>
+            )
           ) : (
             <img
               loading="lazy"
@@ -152,15 +133,7 @@ export default function ProjectDetails({ project }) {
       </div>
       <ContactBubble />
 
-      {/* Lightbox Component */}
-      <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        slides={slides}
-        index={index}
-        plugins={[Zoom]}
-        zoom={{ maxZoomPixelRatio: 3 }}
-      />
+      {zoom(slides)}
     </div>
   );
 }
