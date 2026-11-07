@@ -165,8 +165,10 @@ export default function RootHtml({ lang = 'en', children }) {
           <>
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-R2Y9CCM4YC"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
+            {/* The Google tag downloads after the page has loaded (it used to compete with the
+                main photo). gtag() below queues the page view and events until it arrives. */}
             <Script id="google-analytics" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
