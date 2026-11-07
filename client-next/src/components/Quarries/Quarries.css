@@ -113,6 +113,7 @@
 
 .quarries-slider {
   height: 20rem !important;
+  width: 100%; /* its own width before the slider code starts (it is a flex item; empty until the photo loads) */
   max-width: 530px;
 }
 
