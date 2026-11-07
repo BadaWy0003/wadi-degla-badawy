@@ -1,9 +1,9 @@
 'use client';
-import React, { useState } from "react";
-import "./ImageSection.css";
-import "../Inspiration/Inspiration.css";
+import React, { useState } from 'react';
+import './ImageSection.css';
+import '../Inspiration/Inspiration.css';
 import Lightbox from 'yet-another-react-lightbox';
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import 'yet-another-react-lightbox/styles.css';
 import { useTranslation } from 'react-i18next';
 import LangLink from '../LangLink';
@@ -22,10 +22,13 @@ export default function ImageSection({ sectionData }) {
     <>
       <div className="image-section-grid">
         {sectionData.map((slide, idx) => (
-          <div 
-            key={idx} 
+          <div
+            key={idx}
             className="grid-item"
-            onClick={() => { setIndex(idx); setOpen(true); }}
+            onClick={() => {
+              setIndex(idx);
+              setOpen(true);
+            }}
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
             style={{ cursor: 'pointer' }}
@@ -56,13 +59,13 @@ export default function ImageSection({ sectionData }) {
       </div>
 
       {/* Lightbox Component */}
-      <Lightbox 
-        open={open} 
-        close={() => setOpen(false)} 
-        slides={slides} 
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={slides}
         index={index}
-        plugins={[Zoom]} 
-        zoom={{ maxZoomPixelRatio: 3 }} 
+        plugins={[Zoom]}
+        zoom={{ maxZoomPixelRatio: 3 }}
       />
     </>
   );

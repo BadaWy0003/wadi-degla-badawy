@@ -1,13 +1,13 @@
-"use client";
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+'use client';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 // Helmet removed - metadata handled by generateMetadata() in page.js
-import "./NewsDetail.css";
-import ContactBubble from "../Contact/ContactBubble";
-import LangLink from "../LangLink";
-import Lightbox from "yet-another-react-lightbox";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import "yet-another-react-lightbox/styles.css";
+import './NewsDetail.css';
+import ContactBubble from '../Contact/ContactBubble';
+import LangLink from '../LangLink';
+import Lightbox from 'yet-another-react-lightbox';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import 'yet-another-react-lightbox/styles.css';
 
 // article: from the admin panel, read at build time by app/[lang]/news/[slug]/page.js.
 export default function NewsDetail({ article }) {
@@ -18,7 +18,7 @@ export default function NewsDetail({ article }) {
   if (!article) {
     return (
       <div className="news-detail-not-found">
-        <h2>{t("news.articleNotFound")}</h2>
+        <h2>{t('news.articleNotFound')}</h2>
       </div>
     );
   }
@@ -39,16 +39,16 @@ export default function NewsDetail({ article }) {
           style={{
             background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
                          url(${article.thumbnail}) center/cover no-repeat`,
-            backgroundAttachment: "fixed",
+            backgroundAttachment: 'fixed',
           }}
         >
           <h1 className="news-detail-hero-title">{article.title}</h1>
           <div className="breadcrumb">
-            <LangLink href="/">{t("news.breadcrumbHome")}</LangLink>
-            <p>{">"}</p>
-            <LangLink href="/news">{t("news.breadcrumbCurrent")}</LangLink>
+            <LangLink href="/">{t('news.breadcrumbHome')}</LangLink>
+            <p>{'>'}</p>
+            <LangLink href="/news">{t('news.breadcrumbCurrent')}</LangLink>
             <p>
-              {">"} {article.title}
+              {'>'} {article.title}
             </p>
           </div>
         </div>
@@ -65,16 +65,14 @@ export default function NewsDetail({ article }) {
             ))}
           </div>
 
-          {article.author && (
-            <p className="news-detail-author">— {article.author}</p>
-          )}
+          {article.author && <p className="news-detail-author">— {article.author}</p>}
         </div>
 
         {/* ── Gallery ── */}
         {article.images && article.images.length > 0 && (
           <div
             className="news-detail-gallery"
-            style={{ "--gallery-cols": Math.min(article.images.length, 4) }}
+            style={{ '--gallery-cols': Math.min(article.images.length, 4) }}
           >
             {article.images.map((img, i) => (
               <div

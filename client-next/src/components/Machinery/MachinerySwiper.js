@@ -7,10 +7,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Lightbox from 'yet-another-react-lightbox';
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import 'yet-another-react-lightbox/styles.css';
-import "../Projects/ProjectDetails.css";
-
+import '../Projects/ProjectDetails.css';
 
 export default function MachinerySwiper({ images, title, description }) {
   const { t } = useTranslation();
@@ -26,10 +25,10 @@ export default function MachinerySwiper({ images, title, description }) {
       {description && <p className="machinery-description">{description}</p>}
       <Swiper
         autoplay={{
-        delay: 4000, // Delay in milliseconds (4 seconds)
-        disableOnInteraction: false, // Continue autoplay after user interaction
-        pauseOnMouseEnter: true, // Pause autoplay when hovered
-        }}          
+          delay: 4000, // Delay in milliseconds (4 seconds)
+          disableOnInteraction: false, // Continue autoplay after user interaction
+          pauseOnMouseEnter: true, // Pause autoplay when hovered
+        }}
         navigation
         loop={true}
         pagination={{ clickable: true }}
@@ -39,9 +38,12 @@ export default function MachinerySwiper({ images, title, description }) {
         lazy={true}
       >
         {images.map((image, i) => (
-          <SwiperSlide 
+          <SwiperSlide
             key={i}
-            onClick={() => { setIndex(i); setOpen(true); }}
+            onClick={() => {
+              setIndex(i);
+              setOpen(true);
+            }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
           >
@@ -57,13 +59,13 @@ export default function MachinerySwiper({ images, title, description }) {
       </Swiper>
 
       {/* Lightbox Component */}
-      <Lightbox 
-        open={open} 
-        close={() => setOpen(false)} 
-        slides={slides} 
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={slides}
         index={index}
-        plugins={[Zoom]} 
-        zoom={{ maxZoomPixelRatio: 3 }} 
+        plugins={[Zoom]}
+        zoom={{ maxZoomPixelRatio: 3 }}
       />
     </div>
   );
