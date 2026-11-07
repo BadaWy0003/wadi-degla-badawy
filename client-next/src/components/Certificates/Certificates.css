@@ -43,6 +43,7 @@
 
 .certificate-image {
     width: 15rem;
+    height: auto; /* the width/height attributes only give the shape, so space is kept before it loads */
     cursor: pointer;
     transition: transform 0.3s ease;
 }

@@ -20,6 +20,8 @@ export default function CertificatesHome() {
                     <CertificateLightBox 
                     thumbnail={certificate.thumbnail} 
                     fullImage={certificate.image}
+                    width={certificate.thumbWidth}
+                    height={certificate.thumbHeight}
                     altText={t('home.certificatesAlt')}
                     />
                 </div>
