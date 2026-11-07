@@ -4,6 +4,8 @@
    the shared .quarries-hero rules live in stylesheets these pages don't load) */
 .topic-page .topic-hero {
   position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), var(--topic-hero) center / cover
+    no-repeat;
   height: 70vh;
   min-height: 420px;
   display: flex;

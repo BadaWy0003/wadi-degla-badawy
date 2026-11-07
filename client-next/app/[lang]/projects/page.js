@@ -1,6 +1,7 @@
 import { t, buildAlternates } from '../../../src/util/meta';
 import Projects from '../../../src/components/Projects/Projects';
 import { getProjects } from '../../../src/util/projects-data';
+import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -24,5 +25,10 @@ export default async function ProjectsPage({ params }) {
       thumbnail,
     }),
   );
-  return <Projects projects={projects} />;
+  return (
+    <>
+      <HeroPreload page="projects" />
+      <Projects projects={projects} />
+    </>
+  );
 }

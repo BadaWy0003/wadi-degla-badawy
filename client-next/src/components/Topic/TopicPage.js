@@ -10,6 +10,9 @@ import { topicText, fillText } from '../../util/topic-content';
 import { TOPIC_PAGES, OTHER_LINKS } from '../../util/topic-pages';
 import '../Products/Products.css';
 import './TopicPage.css';
+import HeroPreload from '../HeroPreload';
+import { heroPhoneSrc } from '../../util/hero-images';
+import { cardImageProps } from '../../util/responsive-img';
 
 const paragraphs = (text) =>
   String(text || '')
@@ -37,10 +40,12 @@ export default function TopicPage({ lang, topicKey, products = [], projects = []
 
   return (
     <div className="topic-page">
+      <HeroPreload src={page.hero} />
       <div
         className="topic-hero"
         style={{
-          background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("${page.hero}") center / cover no-repeat`,
+          '--topic-hero': `url("${page.hero}")`,
+          '--topic-hero-phone': `url("${heroPhoneSrc(page.hero)}")`,
         }}
       >
         <h1>{heading}</h1>
@@ -108,7 +113,7 @@ export default function TopicPage({ lang, topicKey, products = [], projects = []
               {projects.map((p) => (
                 <li key={p.id}>
                   <LangLink href={`/projects/${p.id}/`}>
-                    <img loading="lazy" src={p.thumbnail} alt={p.name} />
+                    <img loading="lazy" {...cardImageProps(p.thumbnail)} alt={p.name} />
                     <span>
                       <strong>{p.name}</strong>
                       {[p.city, p.country].filter(Boolean).join(' - ')}

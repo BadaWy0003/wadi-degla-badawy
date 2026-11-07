@@ -1,6 +1,6 @@
-import Script from 'next/script';
 import { t, buildAlternates } from '../../src/util/meta';
 import Home from '../../src/components/Home/Home';
+import HeroPreload from '../../src/components/HeroPreload';
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -73,7 +73,9 @@ export default function HomePage({ params }) {
   const pageTitle = t(lang, 'home.pageTitle', 'Wadi Degla | Egyptian Natural Stone');
   return (
     <>
-      <Script
+      <HeroPreload page="home" />
+      {/* Plain <script>, not next/script: next/script here made every page load the home page's code */}
+      <script
         id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

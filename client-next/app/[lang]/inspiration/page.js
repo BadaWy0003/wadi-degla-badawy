@@ -1,5 +1,6 @@
 import { t, buildAlternates } from '../../../src/util/meta';
 import Inspiration from '../../../src/components/Inspiration/Inspiration';
+import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -11,5 +12,10 @@ export function generateMetadata({ params }) {
 }
 
 export default function InspirationPage() {
-  return <Inspiration />;
+  return (
+    <>
+      <HeroPreload page="inspiration" />
+      <Inspiration />
+    </>
+  );
 }

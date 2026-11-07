@@ -4,13 +4,13 @@ import './Partners.css';
 import ContactBubble from "../Contact/ContactBubble";
 import { useTranslation } from 'react-i18next';
 
-const otrovato = '/Assets/Icons/partners/otrovato.png';
+const otrovato = '/Assets/Icons/partners/otrovato.webp';
 const orascom = '/Assets/Icons/partners/orascom.png';
 const emaar = '/Assets/Icons/partners/emaar.svg';
-const hydepark = '/Assets/Icons/partners/hydepark.png';
-const wyndham = '/Assets/Icons/partners/wyndham.png';
+const hydepark = '/Assets/Icons/partners/hydepark.webp';
+const wyndham = '/Assets/Icons/partners/wyndham.webp';
 const majid_alfuttaim = '/Assets/Icons/partners/majid-alfuttaim.png';
-const trade_logistics = '/Assets/Icons/partners/trade-logistics.png';
+const trade_logistics = '/Assets/Icons/partners/trade-logistics.webp';
 const egy_consulate_kuwait = '/Assets/Icons/partners/egy-consulate-kuwait.jpeg';
 const ckpc = '/Assets/Icons/partners/ckpc.jpeg';
 const wd_developments = '/Assets/Icons/partners/wd-developments.jpeg';
