@@ -13,12 +13,12 @@ export default function ProductsSearchBar({
   setOpenDeleteDialog // Add this prop
 }) {
   return (
-    <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
+    <Box sx={{ display: 'flex', flexWrap: { xs: 'wrap', sm: 'nowrap' }, gap: 2, mb: 2 }}>
       <TextField
         select
         value={searchField}
         onChange={(e) => onFieldChange(e.target.value)}
-        sx={{ width: '150px' }}
+        sx={{ width: { xs: '130px', sm: '150px' } }}
         size="small"
       >
         <MenuItem value="name">Search by Name</MenuItem>
@@ -29,7 +29,7 @@ export default function ProductsSearchBar({
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
         placeholder={`Search by ${searchField}...`}
-        sx={{ width: '300px' }}
+        sx={{ width: { xs: 'calc(100% - 146px)', sm: '300px' } }}
         size="small"
         InputProps={{
           startAdornment: (
@@ -46,7 +46,7 @@ export default function ProductsSearchBar({
         startIcon={<DeleteIcon />}
         onClick={() => setOpenDeleteDialog(true)} // Update this to open dialog
         disabled={selected.length === 0}
-        sx={{ ml: 'auto' }}
+        sx={{ ml: { xs: 0, sm: 'auto' }, width: { xs: '100%', sm: 'auto' } }}
       >
         Delete Selected {selected.length > 0 && `(${selected.length})`}
       </Button>

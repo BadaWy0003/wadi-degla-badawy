@@ -125,7 +125,7 @@ export default function NewsForm({ open, article, onClose, onSaved }) {
     <Dialog open={open} onClose={busy ? undefined : onClose} fullWidth maxWidth="lg">
       <DialogTitle>{editing ? 'Edit article' : 'New article'}</DialogTitle>
       <DialogContent dividers>
-        <Tabs value={tab} onChange={(e, v) => setTab(v)} sx={{ mb: 2 }}>
+        <Tabs value={tab} onChange={(e, v) => setTab(v)} sx={{ mb: 2 }} variant="scrollable" allowScrollButtonsMobile>
           <Tab label="English" value="en" />
           <Tab label="العربية (Arabic)" value="ar" />
           <Tab label="Photos & date" value="photos" />

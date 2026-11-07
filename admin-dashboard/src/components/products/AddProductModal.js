@@ -27,12 +27,12 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '80%',
+  width: { xs: '95%', sm: '80%' }, // phones: nearly the full screen
   maxHeight: '90vh',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
-  p: 4,
+  p: { xs: 2, sm: 4 },
   overflow: 'auto',
 };
 

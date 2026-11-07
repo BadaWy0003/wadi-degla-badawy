@@ -148,7 +148,7 @@ export default function Users() {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Users</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
@@ -179,12 +179,12 @@ export default function Users() {
                   Name
                 </TableSortLabel>
               </TableCell>
-              <TableCell>
+              <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
                 <TableSortLabel active={orderBy === 'email'} direction={orderBy === 'email' ? order : 'asc'} onClick={() => handleSort('email')}>
                   Email
                 </TableSortLabel>
               </TableCell>
-              <TableCell>
+              <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
                 <TableSortLabel active={orderBy === 'role'} direction={orderBy === 'role' ? order : 'asc'} onClick={() => handleSort('role')}>
                   Role
                 </TableSortLabel>
@@ -198,11 +198,22 @@ export default function Users() {
                 <TableCell padding="checkbox">
                   <Checkbox checked={selected.includes(user.id)} onChange={() => handleSelect(user.id)} />
                 </TableCell>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.email}</TableCell>
-                <TableCell>{user.role}</TableCell>
                 <TableCell>
-                  <Box sx={{ display: 'flex', gap: 1 }}>
+                  {user.name}
+                  {/* Phones: email and role under the name (their columns are hidden) */}
+                  <Box
+                    component="span"
+                    sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem', overflowWrap: 'anywhere' }}
+                  >
+                    {user.email}
+                    <br />
+                    {user.role}
+                  </Box>
+                </TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{user.email}</TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{user.role}</TableCell>
+                <TableCell>
+                  <Box sx={{ display: 'flex', gap: 1, flexWrap: { xs: 'wrap', sm: 'nowrap' } }}>
                     {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(user)}>
                       <EditIcon />
                     </IconButton> */}

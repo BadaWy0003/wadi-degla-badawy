@@ -180,100 +180,109 @@ export default function Projects() {
                   No projects yet. This country is not shown on the website until it has one.
                 </Typography>
               ) : (
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Cover</TableCell>
-                      <TableCell>Project</TableCell>
-                      <TableCell>City</TableCell>
-                      <TableCell>Arabic</TableCell>
-                      <TableCell align="right">Actions</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {list.map((p, pi) => (
-                      <TableRow key={p.id} sx={p.hidden ? { opacity: 0.6 } : undefined}>
-                        <TableCell sx={{ width: 96 }}>
-                          <img src={photoUrl(p.thumbnail)} alt="" style={{ width: 80, height: 56, objectFit: 'cover', borderRadius: 4 }} />
-                        </TableCell>
-                        <TableCell>
-                          {p.name.en}
-                          <Typography component="span" variant="body2" color="text.secondary" sx={{ ml: 1 }}>
-                            #{p.number}
-                          </Typography>
-                          {p.hidden && <Chip size="small" label="Hidden from website" sx={{ ml: 1 }} />}
-                          {p.legacyMaterials?.length > 0 && (
-                            <Tooltip
-                              title={`Not linked to a product: ${p.legacyMaterials.join(', ')}. Open the project to choose the right product.`}
-                            >
-                              <Chip size="small" color="warning" label="Material to check" sx={{ ml: 1 }} />
-                            </Tooltip>
-                          )}
-                        </TableCell>
-                        <TableCell>{p.city?.en}</TableCell>
-                        <TableCell>
-                          {p.name.ar || p.description?.ar ? (
-                            'Yes'
-                          ) : (
-                            <Typography variant="body2" color="text.secondary">
-                              English shown
-                            </Typography>
-                          )}
-                        </TableCell>
-                        <TableCell align="right" sx={{ whiteSpace: 'nowrap' }}>
-                          <Tooltip title="Move up">
-                            <span>
-                              <IconButton
-                                size="small"
-                                disabled={busy || pi === 0}
-                                onClick={() => act(() => apiClient.put(`/api/projects/admin/${p.id}/move`, { direction: 'up' }))}
-                              >
-                                <ArrowUpwardIcon fontSize="small" />
-                              </IconButton>
-                            </span>
-                          </Tooltip>
-                          <Tooltip title="Move down">
-                            <span>
-                              <IconButton
-                                size="small"
-                                disabled={busy || pi === list.length - 1}
-                                onClick={() => act(() => apiClient.put(`/api/projects/admin/${p.id}/move`, { direction: 'down' }))}
-                              >
-                                <ArrowDownwardIcon fontSize="small" />
-                              </IconButton>
-                            </span>
-                          </Tooltip>
-                          <Tooltip title="Edit">
-                            <IconButton color="primary" onClick={() => openForm(p)}>
-                              <EditIcon />
-                            </IconButton>
-                          </Tooltip>
-                          <Tooltip title={p.hidden ? 'Show on website' : 'Hide from website'}>
-                            <IconButton
-                              color="primary"
-                              disabled={busy}
-                              onClick={() => act(() => apiClient.put(`/api/projects/admin/${p.id}/visibility`, { hidden: !p.hidden }))}
-                            >
-                              {p.hidden ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                            </IconButton>
-                          </Tooltip>
-                          <Tooltip title="Open on the website (after publishing)">
-                            <IconButton component="a" href={projectUrl(p.id)} target="_blank" rel="noreferrer">
-                              <OpenInNewIcon />
-                            </IconButton>
-                          </Tooltip>
-                          {p.hidden && (
-                            <Tooltip title="Delete permanently">
-                              <IconButton color="error" onClick={() => setToDelete(p)}>
-                                <DeleteIcon />
-                              </IconButton>
-                            </Tooltip>
-                          )}
-                        </TableCell>
+                // Phones: cover, city and Arabic columns hidden (city shown under the name); the table
+                // scrolls inside its box if it is still too wide
+                <Box sx={{ overflowX: 'auto' }}>
+                  <Table size="small" sx={{ '& td, & th': { px: { xs: 1, sm: 2 } } }}>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Cover</TableCell>
+                        <TableCell>Project</TableCell>
+                        <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>City</TableCell>
+                        <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Arabic</TableCell>
+                        <TableCell align="right">Actions</TableCell>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHead>
+                    <TableBody>
+                      {list.map((p, pi) => (
+                        <TableRow key={p.id} sx={p.hidden ? { opacity: 0.6 } : undefined}>
+                          <TableCell sx={{ width: 96, display: { xs: 'none', sm: 'table-cell' } }}>
+                            <img src={photoUrl(p.thumbnail)} alt="" style={{ width: 80, height: 56, objectFit: 'cover', borderRadius: 4 }} />
+                          </TableCell>
+                          <TableCell>
+                            {p.name.en}
+                            <Typography component="span" variant="body2" color="text.secondary" sx={{ ml: 1 }}>
+                              #{p.number}
+                            </Typography>
+                            {p.hidden && <Chip size="small" label="Hidden from website" sx={{ ml: 1 }} />}
+                            {p.legacyMaterials?.length > 0 && (
+                              <Tooltip
+                                title={`Not linked to a product: ${p.legacyMaterials.join(', ')}. Open the project to choose the right product.`}
+                              >
+                                <Chip size="small" color="warning" label="Material to check" sx={{ ml: 1 }} />
+                              </Tooltip>
+                            )}
+                            {p.city?.en && (
+                              <Box component="span" sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem' }}>
+                                {p.city.en}
+                              </Box>
+                            )}
+                          </TableCell>
+                          <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{p.city?.en}</TableCell>
+                          <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
+                            {p.name.ar || p.description?.ar ? (
+                              'Yes'
+                            ) : (
+                              <Typography variant="body2" color="text.secondary">
+                                English shown
+                              </Typography>
+                            )}
+                          </TableCell>
+                          <TableCell align="right" sx={{ whiteSpace: { xs: 'normal', sm: 'nowrap' } }}>
+                            <Tooltip title="Move up">
+                              <span>
+                                <IconButton
+                                  size="small"
+                                  disabled={busy || pi === 0}
+                                  onClick={() => act(() => apiClient.put(`/api/projects/admin/${p.id}/move`, { direction: 'up' }))}
+                                >
+                                  <ArrowUpwardIcon fontSize="small" />
+                                </IconButton>
+                              </span>
+                            </Tooltip>
+                            <Tooltip title="Move down">
+                              <span>
+                                <IconButton
+                                  size="small"
+                                  disabled={busy || pi === list.length - 1}
+                                  onClick={() => act(() => apiClient.put(`/api/projects/admin/${p.id}/move`, { direction: 'down' }))}
+                                >
+                                  <ArrowDownwardIcon fontSize="small" />
+                                </IconButton>
+                              </span>
+                            </Tooltip>
+                            <Tooltip title="Edit">
+                              <IconButton color="primary" onClick={() => openForm(p)}>
+                                <EditIcon />
+                              </IconButton>
+                            </Tooltip>
+                            <Tooltip title={p.hidden ? 'Show on website' : 'Hide from website'}>
+                              <IconButton
+                                color="primary"
+                                disabled={busy}
+                                onClick={() => act(() => apiClient.put(`/api/projects/admin/${p.id}/visibility`, { hidden: !p.hidden }))}
+                              >
+                                {p.hidden ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                              </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Open on the website (after publishing)">
+                              <IconButton component="a" href={projectUrl(p.id)} target="_blank" rel="noreferrer">
+                                <OpenInNewIcon />
+                              </IconButton>
+                            </Tooltip>
+                            {p.hidden && (
+                              <Tooltip title="Delete permanently">
+                                <IconButton color="error" onClick={() => setToDelete(p)}>
+                                  <DeleteIcon />
+                                </IconButton>
+                              </Tooltip>
+                            )}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </Box>
               )}
             </Paper>
           );

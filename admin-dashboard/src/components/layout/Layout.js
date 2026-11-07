@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon, Button } from '@mui/material';
-import { Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, Newspaper, Apartment } from '@mui/icons-material';
+import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon, Button, IconButton, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { Menu as MenuIcon, Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, Newspaper, Apartment } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../GlobalStateContext'; // Ensure this exists
 import apiClient from '../../util/client';
@@ -13,6 +14,11 @@ const drawerWidth = 280;
 export default function Layout() {
   const navigate = useNavigate();
   const { globalState,setGlobalState } = useGlobalState();
+  // Phones and small tablets: the menu hides behind a ☰ button and the page uses the full width.
+  // From 900 px (md) up, the layout is unchanged (menu always open on the left).
+  const theme = useTheme();
+  const small = useMediaQuery(theme.breakpoints.down('md'));
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
@@ -60,12 +66,19 @@ export default function Layout() {
           backgroundColor: 'rgba(255, 255, 255, 0.9)',
         }}
       >
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Toolbar sx={{ justifyContent: 'space-between', gap: 1 }}>
+          {small && (
+            <IconButton aria-label="Open menu" edge="start" onClick={() => setMenuOpen(true)} sx={{ color: '#6a7b83' }}>
+              <MenuIcon />
+            </IconButton>
+          )}
           <Typography
             variant="h5"
             sx={{
               fontWeight: 600,
-              fontSize: '3rem',
+              fontSize: small ? '1.6rem' : '3rem',
+              flexGrow: small ? 1 : 0,
+              whiteSpace: 'nowrap',
               background: 'linear-gradient(45deg, #ad9571 30%, #6a7b83 90%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -80,12 +93,13 @@ export default function Layout() {
               fontWeight: 500,
               fontSize: '1rem',
               color: '#6a7b83',
+              display: { xs: 'none', sm: 'block' },
             }}
           >
             Welcome back <strong>{globalState.username}</strong>!
           </Typography>
 
-          <Button variant="contained" color="secondary" onClick={() => handleLogout()}>
+          <Button variant="contained" color="secondary" size={small ? 'small' : 'medium'} onClick={() => handleLogout()}>
             Logout
           </Button>
 
@@ -93,25 +107,32 @@ export default function Layout() {
       </AppBar>
 
       <Drawer
-        variant="permanent"
+        variant={small ? 'temporary' : 'permanent'}
+        open={small ? menuOpen : true}
+        onClose={() => setMenuOpen(false)}
+        ModalProps={{ keepMounted: true }}
         sx={{
-          width: drawerWidth,
+          width: small ? 0 : drawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: drawerWidth,
+            width: small ? 260 : drawerWidth,
             boxSizing: 'border-box',
             padding: '8px',
-            mt: 8,
+            mt: small ? 0 : 8,
           },
         }}
       >
+        {/* spacer: the menu starts below the top bar */}
         <Toolbar />
         <List>
           {menuItems.map(item => (
             <ListItem
               button
               key={item.text}
-              onClick={() => navigate(item.path)}
+              onClick={() => {
+                navigate(item.path);
+                setMenuOpen(false);
+              }}
               sx={{
                 mb: 1,
                 cursor: 'pointer',
@@ -145,7 +166,8 @@ export default function Layout() {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 4,
+          minWidth: 0, // lets wide tables scroll inside their own box instead of widening the page
+          p: { xs: 2, md: 4 },
           backgroundColor: 'background.default',
           borderRadius: '24px 0 0 0',
           mt: 8,
