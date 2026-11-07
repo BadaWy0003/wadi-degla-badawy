@@ -17,6 +17,8 @@ router.delete('/product/:id', adminAuth, authorize('MODERATOR'), StorageControll
 router.put('/product/:id', adminAuth, authorize('MODERATOR'), uploadPhotos, StorageController.uploadMaterial);
 router.put('/product/:id/visibility', adminAuth, authorize('MODERATOR'), StorageController.setProductHidden);
 router.get('/admin/all', adminAuth, authorize('MODERATOR'), StorageController.getAllForAdmin);
+// Small copies (thumbs) of older photos, 15 per call (admin panel button, ADMIN only).
+router.post('/admin/thumbs', adminAuth, authorize('ADMIN'), StorageController.createMissingThumbs);
 
 // Stone details (description, origin, sizes, uses, technical data): public list for the
 // website build, edit in the admin panel (same roles as editing products).

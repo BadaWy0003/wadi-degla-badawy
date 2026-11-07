@@ -110,5 +110,16 @@ StorageController.deleteProduct = async (req, res) => {
   }
 };
 
+// One-time job (safe to repeat): small copies of the photos uploaded before thumbnails existed.
+StorageController.createMissingThumbs = async (req, res) => {
+  try {
+    const data = await StorageService.createMissingThumbs({ limit: 15 });
+    res.status(200).json({ message: 'Small photos created', data });
+  } catch (error) {
+    console.error('Error creating small photos:', error.message);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 module.exports = StorageController;
 

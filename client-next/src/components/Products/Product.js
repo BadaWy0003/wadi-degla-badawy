@@ -27,7 +27,7 @@ export default function Product({ item }) {
       <div className="img-div-2">
         <img
           loading="lazy"
-          src={selectedFinish.link}
+          src={selectedFinish.thumb || selectedFinish.link} // small copy when there is one
           alt={`${item.name} - ${finishLabel(t, selectedFinish.finish)}`}
         />
       </div>

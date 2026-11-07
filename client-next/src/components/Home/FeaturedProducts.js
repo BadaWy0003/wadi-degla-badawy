@@ -54,7 +54,7 @@ export default function FeaturedProducts() {
           if (selected?.link) {
             return new Promise((resolve) => {
               const img = new Image();
-              img.src = selected.link;
+              img.src = selected.thumb || selected.link;
               img.onload = resolve;
               img.onerror = resolve;
             });
@@ -122,7 +122,7 @@ export default function FeaturedProducts() {
 
                 return selectedFinish ? (
                   <img loading="lazy" 
-                    src={selectedFinish.link} 
+                    src={selectedFinish.thumb || selectedFinish.link} 
                     alt={`${item.name} - ${finishLabel(t, selectedFinish.finish)}`} 
                   />
                 ) : null;
