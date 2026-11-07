@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 
 import { I18nextProvider } from 'react-i18next';
 import i18n, { setLanguageMessages } from '../../i18n';
@@ -12,6 +11,9 @@ import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 import ScrollToTop from './ScrollToTop';
 import { startEnquiryTracking } from '../util/analytics';
+import { SHOW_TOASTS_EVENT } from '../util/toast';
+
+const ToastHost = dynamic(() => import('./ToastHost'), { ssr: false });
 
 export default function AppShell({ children, lang, messages }) {
   // Initialize i18n language from URL param
@@ -22,6 +24,14 @@ export default function AppShell({ children, lang, messages }) {
       localStorage.setItem('language', lang);
     }
   }, [lang, messages]);
+
+  // Pop-up messages: the toast code is only loaded the first time a message is sent
+  const [showToasts, setShowToasts] = useState(false);
+  useEffect(() => {
+    const show = () => setShowToasts(true);
+    window.addEventListener(SHOW_TOASTS_EVENT, show);
+    return () => window.removeEventListener(SHOW_TOASTS_EVENT, show);
+  }, []);
 
   // Count WhatsApp / call / email / directions taps in Google Analytics
   useEffect(() => startEnquiryTracking(), []);
@@ -44,7 +54,7 @@ export default function AppShell({ children, lang, messages }) {
           <ScrollToTop />
           <div className="main">
             <Navbar />
-            <ToastContainer autoClose={5000} hideProgressBar />
+            {showToasts && <ToastHost />}
             <div id="main-content" className="main-content">
               <div className="route-wrapper">{children}</div>
             </div>

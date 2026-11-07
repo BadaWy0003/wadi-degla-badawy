@@ -146,10 +146,6 @@ export default function RootHtml({ lang = 'en', children }) {
   return (
     <html lang={lang} dir={dir}>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -165,8 +161,10 @@ export default function RootHtml({ lang = 'en', children }) {
           <>
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-R2Y9CCM4YC"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
+            {/* The Google tag downloads after the page has loaded (it used to compete with the
+                main photo). gtag() below queues the page view and events until it arrives. */}
             <Script id="google-analytics" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

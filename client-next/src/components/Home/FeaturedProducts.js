@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 import "./FeaturedProducts.css"
 import { useTranslation } from 'react-i18next';
 import { finishLabel } from '../../util/finishes';
-import apiClient from "../../util/client.js";
+import { getApiClient } from "../../util/api-lazy.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
@@ -38,6 +38,7 @@ export default function FeaturedProducts() {
 
   const fetchFeaturedProducts = async () => {
     try {
+      const apiClient = await getApiClient();
       const { data } = await apiClient.get('/api/storage/all');
       if (data.data) {
         const featured = data.data.filter(product =>
