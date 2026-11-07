@@ -1,6 +1,7 @@
 const StorageService = {};
 const { Firestore } = require('@google-cloud/firestore');
 const { bucket } = require('../start/firebase');
+const sharp = require('sharp');
 const { col, storagePath, canDeleteStoragePath } = require('../start/data-area');
 
 const firestore = new Firestore();
@@ -48,6 +49,33 @@ const uploadFileToStorage = async (file, type) => {
   return `https://storage.googleapis.com/${bucket.name}/${fileName}`;
 };
 
+// Small copy of a stone photo for cards and lists on the website (640 px wide WebP, about
+// 40-70 KB instead of 150-400 KB), stored next to the original under uploads/<type>/thumbs/.
+// The finish keeps `link` (full photo) and gets `thumb`. A failure never blocks the upload:
+// the website then simply uses the full photo.
+const THUMB_WIDTH = 640;
+const makeThumb = async (buffer, type, baseName) => {
+  try {
+    const out = await sharp(buffer)
+      .rotate()
+      .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
+      .webp({ quality: 72 })
+      .toBuffer();
+    const sanitizedType = type.replace(/[^a-zA-Z0-9_-]/g, '');
+    const safeName = String(baseName || 'image')
+      .replace(/\.[a-z0-9]+$/i, '')
+      .replace(/[^a-zA-Z0-9._-]/g, '_')
+      .slice(-80);
+    const fileName = storagePath(`uploads/${sanitizedType}/thumbs/${Date.now()}_${safeName}.webp`);
+    await bucket.file(fileName).save(out, { contentType: 'image/webp', resumable: false });
+    await bucket.file(fileName).makePublic();
+    return `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+  } catch (error) {
+    console.error('Thumbnail failed:', error.message);
+    return undefined;
+  }
+};
+
 StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }) => {
   const materialsRef = firestore.collection(col('materials'));
   const docSnapshot = id ? await materialsRef.doc(id).get() : undefined;
@@ -65,7 +93,8 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
         if (!finish) return null; // Safeguard against mismatched counts
 
         const publicUrl = await uploadFileToStorage(file, type); // Upload the file and get its URL
-        return { finish: finish.finish, link: publicUrl }; // Use 'finish' for mapping
+        const thumb = await makeThumb(file.buffer, type, file.originalname);
+        return { finish: finish.finish, link: publicUrl, ...(thumb ? { thumb } : {}) };
       }),
     );
 
@@ -86,13 +115,16 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     const existingData = docSnapshot.data();
     // Copy, so the old links can be compared afterwards.
     let nextFinishes = (existingData.finishes ?? []).map((f) => ({ ...f }));
-    const oldLinks = nextFinishes.map((f) => f.link);
+    const oldLinks = nextFinishes.flatMap((f) => [f.link, f.thumb]).filter(Boolean);
 
     uploadedFinishes.forEach((uploadedFinish) => {
       const finishIndex = nextFinishes.findIndex((f) => f.finish === uploadedFinish.finish);
 
       if (finishIndex >= 0) {
         nextFinishes[finishIndex].link = uploadedFinish.link; // Update existing finish
+        // the old small copy belongs to the old photo
+        if (uploadedFinish.thumb) nextFinishes[finishIndex].thumb = uploadedFinish.thumb;
+        else delete nextFinishes[finishIndex].thumb;
       } else {
         nextFinishes.push(uploadedFinish); // Add new finish
       }
@@ -113,7 +145,7 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     );
 
     // Photos that were replaced or whose finish was removed: delete them from storage.
-    const keptLinks = new Set(nextFinishes.map((f) => f.link));
+    const keptLinks = new Set(nextFinishes.flatMap((f) => [f.link, f.thumb]).filter(Boolean));
     await deleteStorageFiles(oldLinks.filter((link) => !keptLinks.has(link)));
 
     return {
@@ -200,7 +232,7 @@ StorageService.deleteProduct = async (productId) => {
   }
 
   // Delete associated files from Firebase Storage
-  const finishFiles = (product.finishes || []).map((finish) => finish.link); // Assuming `finishes` has `link` property
+  const finishFiles = (product.finishes || []).flatMap((finish) => [finish.link, finish.thumb]);
   const mockupFiles = [product.mockup, product.mockupOutdoor];
 
   const allFiles = [...finishFiles, ...mockupFiles];
@@ -228,6 +260,43 @@ StorageService.deleteProduct = async (productId) => {
   await require('./product-details.service').remove(productId);
 
   return { message: 'Product and associated files deleted successfully' };
+};
+
+// One-time (and safe to repeat) job: small copies for the photos uploaded before thumbnails
+// existed. Handles at most `limit` photos per call (so a request never times out) and returns
+// how many are still missing; the admin panel calls it until `remaining` is 0. Only photos in
+// our own bucket; originals are never changed.
+StorageService.createMissingThumbs = async ({ limit = 15 } = {}) => {
+  const snap = await firestore.collection(col('materials')).get();
+  const todo = [];
+  snap.docs.forEach((doc) => {
+    (doc.data().finishes || []).forEach((f, index) => {
+      if (f?.link && !f.thumb && f.link.startsWith(bucketUrlPrefix())) todo.push({ doc, index });
+    });
+  });
+  let done = 0;
+  let failed = 0;
+  for (const { doc, index } of todo.slice(0, limit)) {
+    const finishes = (doc.data().finishes || []).map((f) => ({ ...f }));
+    const f = finishes[index];
+    try {
+      const filePath = decodeURIComponent(f.link.slice(bucketUrlPrefix().length));
+      const [buffer] = await bucket.file(filePath).download();
+      const thumb = await makeThumb(buffer, doc.data().type || 'misc', filePath.split('/').pop());
+      if (!thumb) throw new Error('resize failed');
+      // re-read, so a change made meanwhile in the admin panel is not lost
+      const fresh = (await doc.ref.get()).data();
+      const next = (fresh.finishes || []).map((x) =>
+        x.link === f.link && !x.thumb ? { ...x, thumb } : x,
+      );
+      await doc.ref.update({ finishes: next });
+      done += 1;
+    } catch (error) {
+      console.error(`Thumbnail for ${f.link} failed:`, error.message);
+      failed += 1;
+    }
+  }
+  return { done, failed, remaining: Math.max(todo.length - done, 0) };
 };
 
 // Shared with the news service: store a photo under uploads/<folder>/ and return its public
