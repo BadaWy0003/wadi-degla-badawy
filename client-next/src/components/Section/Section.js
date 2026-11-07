@@ -1,63 +1,43 @@
 'use client';
-import React, { useState } from "react";
-import { useTranslation } from 'react-i18next';
-import "./Section.css"; // Create a CSS file for styling
-import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper (Install if not installed)
-// Import Swiper styles
+import React, { useRef } from 'react';
+import './Section.css';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import "swiper/css/navigation";
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import Lightbox from 'yet-another-react-lightbox';
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import 'yet-another-react-lightbox/styles.css';
-import "../Projects/ProjectDetails.css";
+import 'swiper/css/navigation';
+import '../Projects/ProjectDetails.css';
+import { useNearScreen, useLazyComponent } from '../../util/near-screen';
+import usePhotoZoom from '../usePhotoZoom';
 
-export default function Section({ title, text, images, imagePosition = "left", alt }) {
+const loadSlider = () => import('./SectionSlider');
+
+// A text block with a photo slider. The slider code loads when it comes near the screen (until
+// then: the same markup without Swiper, so the same size); the zoom viewer loads on the first
+// click.
+export default function Section({ title, text, images, imagePosition = 'left', alt }) {
   // Photo description for Google/screen readers: the section title unless given.
-  const altBase = alt || (typeof title === "string" ? title : "");
-  const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState(0);
-  const [hovered, setHovered] = useState(false);
-
-  const slides = images.map((img) => ({ src: img }));
+  const altBase = alt || (typeof title === 'string' ? title : '');
+  const ref = useRef(null);
+  const Slider = useLazyComponent(useNearScreen(ref), loadSlider);
+  const [openPhoto, zoom] = usePhotoZoom();
 
   return (
     <>
       <div className="section-container">
-        <div className={`section-content ${imagePosition === "right" ? "reverse" : ""}`}>
-          {/* Swiper for Images */}
+        <div className={`section-content ${imagePosition === 'right' ? 'reverse' : ''}`}>
           <div className="image-container">
-            <Swiper 
-              spaceBetween={10} 
-              slidesPerView={1}
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}    
-              modules={[Pagination, Navigation, Autoplay]}
-              pagination={{ clickable: true }}
-              navigation
-              grabCursor={true}
-            >
-              {images.map((image, idx) => (
-                <SwiperSlide 
-                  key={idx}
-                  onClick={() => { setIndex(idx); setOpen(true); }}
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
-                >
-                  <img loading="lazy" src={image} alt={`${altBase} ${idx + 1}`.trim()} />
-                  {hovered && (
-                    <div className="image-overlay">
-                      <p>{t('common.imageHint')}</p>
+            {Slider ? (
+              <Slider images={images} altBase={altBase} onOpen={openPhoto} />
+            ) : (
+              <div className="swiper" ref={ref}>
+                <div className="swiper-wrapper">
+                  {images.map((image, idx) => (
+                    <div className="swiper-slide" key={idx} onClick={() => openPhoto(idx)}>
+                      <img loading="lazy" src={image} alt={`${altBase} ${idx + 1}`.trim()} />
                     </div>
-                  )}
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Text Content */}
@@ -68,15 +48,7 @@ export default function Section({ title, text, images, imagePosition = "left", a
         </div>
       </div>
 
-      {/* Lightbox Component */}
-      <Lightbox 
-        open={open} 
-        close={() => setOpen(false)} 
-        slides={slides} 
-        index={index}
-        plugins={[Zoom]} 
-        zoom={{ maxZoomPixelRatio: 3 }} 
-      />
+      {zoom(images.map((src) => ({ src })))}
     </>
   );
 }

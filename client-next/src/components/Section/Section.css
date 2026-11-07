@@ -12,6 +12,8 @@
 .image-container {
   flex: 1;
   max-width: 50%;
+  /* Without this the slider widens the photo by 40px when it starts, pushing the text aside. */
+  min-width: 0;
 }
 
 .image-container img {
