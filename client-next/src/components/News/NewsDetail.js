@@ -1,19 +1,16 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 // Helmet removed - metadata handled by generateMetadata() in page.js
 import './NewsDetail.css';
 import ContactBubble from '../Contact/ContactBubble';
 import LangLink from '../LangLink';
-import Lightbox from 'yet-another-react-lightbox';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-import 'yet-another-react-lightbox/styles.css';
+import usePhotoZoom from '../usePhotoZoom';
 
 // article: from the admin panel, read at build time by app/[lang]/news/[slug]/page.js.
 export default function NewsDetail({ article }) {
   const { t } = useTranslation();
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [openPhoto, zoom] = usePhotoZoom();
 
   if (!article) {
     return (
@@ -75,28 +72,14 @@ export default function NewsDetail({ article }) {
             style={{ '--gallery-cols': Math.min(article.images.length, 4) }}
           >
             {article.images.map((img, i) => (
-              <div
-                key={i}
-                className="news-gallery-item"
-                onClick={() => {
-                  setLightboxIndex(i);
-                  setLightboxOpen(true);
-                }}
-              >
+              <div key={i} className="news-gallery-item" onClick={() => openPhoto(i)}>
                 <img loading="lazy" src={img.src} alt={img.alt} />
               </div>
             ))}
           </div>
         )}
 
-        <Lightbox
-          open={lightboxOpen}
-          close={() => setLightboxOpen(false)}
-          slides={slides}
-          index={lightboxIndex}
-          plugins={[Zoom]}
-          zoom={{ maxZoomPixelRatio: 3 }}
-        />
+        {zoom(slides)}
 
         <ContactBubble />
       </div>

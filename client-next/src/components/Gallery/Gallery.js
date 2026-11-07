@@ -1,9 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import './Gallery.css';
-import Lightbox from 'yet-another-react-lightbox';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom'; // Import Zoom plugin
-import 'yet-another-react-lightbox/styles.css';
+import usePhotoZoom from '../usePhotoZoom';
 import apiClient from '../../util/client';
 import ContactBubble from '../Contact/ContactBubble';
 import '../Exports/Exports.css';
@@ -15,8 +13,7 @@ import LangLink from '../LangLink';
 export default function Gallery({ initialItems = [] }) {
   const { t } = useTranslation();
   const [gallery, setGallery] = useState(initialItems);
-  const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [openPhoto, zoom] = usePhotoZoom();
   const [loading, setLoading] = useState(initialItems.length === 0);
 
   useEffect(() => {
@@ -69,14 +66,7 @@ export default function Gallery({ initialItems = [] }) {
             <>
               <div className="masonry-grid">
                 {slides.map((slide, i) => (
-                  <div
-                    key={i}
-                    className="masonry-item"
-                    onClick={() => {
-                      setIndex(i);
-                      setOpen(true);
-                    }}
-                  >
+                  <div key={i} className="masonry-item" onClick={() => openPhoto(i)}>
                     <img
                       loading="lazy"
                       src={slide.thumb || slide.src}
@@ -89,15 +79,7 @@ export default function Gallery({ initialItems = [] }) {
           )}
         </div>
 
-        {/* Lightbox Component */}
-        <Lightbox
-          open={open}
-          close={() => setOpen(false)}
-          slides={slides}
-          index={index}
-          plugins={[Zoom]}
-          zoom={{ maxZoomPixelRatio: 3 }}
-        />
+        {zoom(slides)}
         <ContactBubble />
       </div>
     </>

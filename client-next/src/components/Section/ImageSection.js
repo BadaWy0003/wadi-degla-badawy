@@ -2,16 +2,13 @@
 import React, { useState } from 'react';
 import './ImageSection.css';
 import '../Inspiration/Inspiration.css';
-import Lightbox from 'yet-another-react-lightbox';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-import 'yet-another-react-lightbox/styles.css';
+import usePhotoZoom from '../usePhotoZoom';
 import { useTranslation } from 'react-i18next';
 import LangLink from '../LangLink';
 
 export default function ImageSection({ sectionData }) {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [openPhoto, zoom] = usePhotoZoom();
   const [hovered, setHovered] = useState(null);
 
   // Translated name (titleKey) when there is one, otherwise the plain title
@@ -25,10 +22,7 @@ export default function ImageSection({ sectionData }) {
           <div
             key={idx}
             className="grid-item"
-            onClick={() => {
-              setIndex(idx);
-              setOpen(true);
-            }}
+            onClick={() => openPhoto(idx)}
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
             style={{ cursor: 'pointer' }}
@@ -57,16 +51,7 @@ export default function ImageSection({ sectionData }) {
           </div>
         ))}
       </div>
-
-      {/* Lightbox Component */}
-      <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        slides={slides}
-        index={index}
-        plugins={[Zoom]}
-        zoom={{ maxZoomPixelRatio: 3 }}
-      />
+      {zoom(slides)}
     </>
   );
 }
