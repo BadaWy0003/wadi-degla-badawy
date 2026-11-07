@@ -141,6 +141,13 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
               width={1200}
               height={800}
               src={selectedFinish?.link}
+              // phones download the small copy (640 px) when there is one
+              {...(selectedFinish?.thumb
+                ? {
+                    srcSet: `${selectedFinish.thumb} 640w, ${selectedFinish.link} 1600w`,
+                    sizes: '(max-width: 768px) 100vw, 45vw',
+                  }
+                : {})}
               alt={product.name}
               className="product-image"
             />

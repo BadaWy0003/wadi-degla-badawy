@@ -38,7 +38,9 @@ export default function Gallery({ initialItems = [] }) {
   // Convert images array to Lightbox format
   const slides = gallery
     .map((item) =>
-      item.finishes && item.finishes[0]?.link ? { src: item.finishes[0].link } : null,
+      item.finishes && item.finishes[0]?.link
+        ? { src: item.finishes[0].link, thumb: item.finishes[0].thumb }
+        : null,
     )
     .filter(Boolean);
 
@@ -77,7 +79,7 @@ export default function Gallery({ initialItems = [] }) {
                   >
                     <img
                       loading="lazy"
-                      src={slide.src}
+                      src={slide.thumb || slide.src}
                       alt={t('gallery.imageAlt', { number: i + 1 })}
                     />
                   </div>
