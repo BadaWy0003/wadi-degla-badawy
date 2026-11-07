@@ -24,6 +24,8 @@ export default function Certificates() {
                     <CertificateLightBox 
                     thumbnail={certificate.thumbnail} 
                     fullImage={certificate.image} 
+                    width={certificate.thumbWidth}
+                    height={certificate.thumbHeight}
                     />
                     {/* Title */}
                     <h2>{t(certificate.name)}</h2>
