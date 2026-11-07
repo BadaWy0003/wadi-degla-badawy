@@ -7,6 +7,7 @@ import AddProductModal from './AddProductModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
 import EditProductModal from './EditProductModal';
 import ProductDetailsForm from './ProductDetailsForm';
+import SmallPhotosButton from './SmallPhotosButton';
 import apiClient from '../../util/client';
 
 const modalStyle = {
@@ -197,6 +198,8 @@ export default function Products() {
           Add Product
         </Button>
       </Box>
+
+      <SmallPhotosButton products={data} onDone={fetchProducts} />
 
       <ProductsSearchBar
         searchQuery={searchQuery}
