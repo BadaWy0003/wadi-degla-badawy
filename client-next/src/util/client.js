@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import qs from 'qs';
+import { getToast } from './toast';
 
 const apiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_API_URL,
@@ -22,7 +23,7 @@ apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {
     if (typeof window !== 'undefined' && error.response?.data) {
-      const { toast } = await import('react-toastify');
+      const toast = await getToast();
       if (error.response.data instanceof Blob && error.response.data.type === 'application/json') {
         toast.error(JSON.parse(await error.response.data.text()));
       } else {
