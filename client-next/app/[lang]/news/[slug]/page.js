@@ -1,7 +1,7 @@
 import { t, buildAlternates } from '../../../../src/util/meta';
 import { SUPPORTED_LANGS } from '../../../../src/util/supported-langs';
 import NewsDetail from '../../../../src/components/News/NewsDetail';
-import { getNewsSlugs, getNewsArticle } from '../../../../src/util/news-data';
+import { getNewsSlugs, getNewsArticle, getNewsIndexedLangs } from '../../../../src/util/news-data';
 
 // One page per article and language, from the admin panel (read at build time).
 // With no visible articles (e.g. all hidden), a static export can't have an empty dynamic
@@ -17,12 +17,16 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { lang, slug } = params;
   const article = await getNewsArticle(slug, lang);
+  const langs = await getNewsIndexedLangs(slug);
   return {
     // Each article gets its own title, description and canonical URL.
-    title: article ? `${article.title} | Wadi Degla` : t(lang, 'news.pageTitle', 'NewsDetail | Wadi Degla'),
+    title: article
+      ? `${article.title} | Wadi Degla`
+      : t(lang, 'news.pageTitle', 'NewsDetail | Wadi Degla'),
     description: article?.excerpt || t(lang, 'news.metaDescription', ''),
-    alternates: buildAlternates(`/news/${slug}`, lang),
-    ...(article ? {} : { robots: { index: false, follow: true } }),
+    alternates: buildAlternates(`/news/${slug}`, lang, langs),
+    // Not found, or not written in this language (English text shown): keep out of Google.
+    ...(article && langs.includes(lang) ? {} : { robots: { index: false, follow: true } }),
   };
 }
 

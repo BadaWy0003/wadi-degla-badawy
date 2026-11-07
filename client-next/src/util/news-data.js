@@ -81,6 +81,15 @@ export async function getNewsArticles(lang = 'en') {
   });
 }
 
+// The languages an article is really written in: English, plus Arabic when its Arabic title
+// and text exist. The other language pages show the English text, so they are noindex and
+// not in the sitemap (duplicate content); they stay visible to visitors.
+export async function getNewsIndexedLangs(slug) {
+  const a = (await fetchArticles()).find((x) => x.slug === slug);
+  if (!a) return [];
+  return a.title?.ar?.trim() && a.content?.ar?.trim() ? ['en', 'ar'] : ['en'];
+}
+
 export async function getNewsSlugs() {
   return (await fetchArticles()).map((a) => a.slug);
 }

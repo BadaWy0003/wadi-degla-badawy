@@ -50,9 +50,12 @@ export function t(lang, key, fallback = '') {
 /**
  * Build hreflang alternates and canonical URL for a given path (e.g. "/products")
  */
-export function buildAlternates(path = '', lang = 'en') {
+// `langs`: the languages this page really exists in (default: all 12). News and projects are
+// only written in English (and sometimes Arabic), so their other language copies are left
+// out of hreflang (and carry noindex, see indexedLangs in news-data / projects-data).
+export function buildAlternates(path = '', lang = 'en', langs = SUPPORTED_LANGS) {
   const languages = {};
-  for (const l of SUPPORTED_LANGS) {
+  for (const l of langs) {
     languages[l] = `${BASE_URL}/${l}${path}/`;
   }
   languages['x-default'] = `${BASE_URL}/en${path}/`;

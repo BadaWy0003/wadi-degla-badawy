@@ -2,8 +2,8 @@
 // Every public page in all 12 languages, each with hreflang alternates.
 import { SUPPORTED_LANGS } from '../src/util/supported-langs';
 import { getProductSlugs } from '../src/util/product-slugs';
-import { getProjectIds } from '../src/util/projects-data';
-import { getNewsSlugs } from '../src/util/news-data';
+import { getProjectIds, getProjectIndexedLangs } from '../src/util/projects-data';
+import { getNewsSlugs, getNewsIndexedLangs } from '../src/util/news-data';
 
 export const dynamic = 'force-static';
 
@@ -56,22 +56,30 @@ export default async function sitemap() {
       priority: 0.8,
       changeFrequency: 'monthly',
     })),
-    ...projectIds.map((id) => ({
-      path: `/projects/${id}`,
-      priority: 0.6,
-      changeFrequency: 'yearly',
-    })),
-    ...newsSlugs.map((slug) => ({
-      path: `/news/${slug}`,
-      priority: 0.6,
-      changeFrequency: 'yearly',
-    })),
+    // News and projects: only the languages they are written in (English, Arabic when
+    // written); the other language copies show English text and are noindex.
+    ...(await Promise.all(
+      projectIds.map(async (id) => ({
+        path: `/projects/${id}`,
+        priority: 0.6,
+        changeFrequency: 'yearly',
+        langs: await getProjectIndexedLangs(id),
+      })),
+    )),
+    ...(await Promise.all(
+      newsSlugs.map(async (slug) => ({
+        path: `/news/${slug}`,
+        priority: 0.6,
+        changeFrequency: 'yearly',
+        langs: await getNewsIndexedLangs(slug),
+      })),
+    )),
   ];
 
-  return pages.flatMap(({ path, priority, changeFrequency }) => {
-    const languages = Object.fromEntries(SUPPORTED_LANGS.map((l) => [l, url(l, path)]));
+  return pages.flatMap(({ path, priority, changeFrequency, langs = SUPPORTED_LANGS }) => {
+    const languages = Object.fromEntries(langs.map((l) => [l, url(l, path)]));
     languages['x-default'] = url('en', path);
-    return SUPPORTED_LANGS.map((lang) => ({
+    return langs.map((lang) => ({
       url: url(lang, path),
       lastModified,
       changeFrequency,
