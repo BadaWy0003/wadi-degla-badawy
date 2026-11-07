@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useGlobalState } from '../GlobalStateContext.js';
 import { useLang } from '../../context/LangContext';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import apiClient from '../../util/client.js';
+import { getApiClient } from '../../util/api-lazy.js';
 const arrow_down = '/Assets/Icons/arrow-down.svg';
 import SearchBar from '../SearchBar/SearchBar.js.js';
 import SearchBarMobile from '../SearchBar/SearchBarMobile.js.js';
@@ -41,6 +41,7 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     try {
+      const apiClient = await getApiClient();
       await apiClient.post(`/api/auth/logout`);
     } finally {
       setGlobalState({

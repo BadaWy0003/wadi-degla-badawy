@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import apiClient from '../util/client';
+import { getApiClient } from '../util/api-lazy';
 
 const GlobalStateContext = createContext();
 
@@ -27,6 +27,7 @@ export const GlobalStateProvider = ({ children }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
+        const apiClient = await getApiClient();
         const { data } = await apiClient.get(`/api/auth/customer/check-auth`);
         setGlobalState({ isLoggedIn: true, ...data });
       } catch (err) {

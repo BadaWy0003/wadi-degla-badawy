@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSearch } from 'react-icons/fa';
-import apiClient from '../../util/client.js';
+import { loadSearchProducts } from '../../util/api-lazy.js';
 import './SearchBar.css';
 import { useRouter } from 'next/navigation';
 import { useLang } from '../../context/LangContext';
@@ -19,20 +19,17 @@ const SearchBar = () => {
   const lang = useLang();
   const { t, i18n } = useTranslation();
 
-  // Fetch products on mount
+  // Load the product list the first time the search box is opened (not on every page view)
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const { data } = await apiClient.get('/api/storage/all');
-        if (data.data) {
-          setProducts(data.data);
-        }
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
+    if (!isSearchOpen || products.length) return;
+    let alive = true;
+    loadSearchProducts().then((list) => {
+      if (alive && list.length) setProducts(list);
+    });
+    return () => {
+      alive = false;
     };
-    fetchProducts();
-  }, []);
+  }, [isSearchOpen, products.length]);
 
   // Handle click outside to close results and search bar
   useEffect(() => {
@@ -214,6 +211,12 @@ const SearchBar = () => {
     setShowResults(false);
     setIsSearchOpen(false);
   };
+
+  // Products arrive after the box opens: refresh the results if something was already typed
+  useEffect(() => {
+    if (query.trim()) handleSearch(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products]);
 
   return (
     <div className="search-container" ref={searchRef}>
