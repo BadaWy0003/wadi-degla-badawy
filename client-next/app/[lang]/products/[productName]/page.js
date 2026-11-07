@@ -31,6 +31,24 @@ const slugToName = (slug) =>
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ');
 
+// Google shows about 160 characters: whole sentences that fit, so the result doesn't end in
+// "It is…"; a cut word only when the first sentence alone is longer.
+function metaFromText(text, max = 160) {
+  const clean = String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (clean.length <= max) return clean;
+  let out = '';
+  for (const sentence of clean.match(/[^.!?。！？]+[.!?。！？]+/g) || []) {
+    // no space after a Chinese/Japanese full stop
+    const next = `${out}${/[。！？]$/.test(out) ? '' : ' '}${sentence.trim()}`.trim();
+    if (next.length > max) break;
+    out = next;
+  }
+  out = out.trim();
+  return out || `${clean.slice(0, max - 1).replace(/\s+\S*$/, '')}…`;
+}
+
 export async function generateMetadata({ params }) {
   const { lang, productName } = params;
   const product = await getProductBySlug(productName);
@@ -41,7 +59,7 @@ export async function generateMetadata({ params }) {
     ? productDetailsView(lang, product, (await getProductDetailsMap())[product.id])
         ?.description?.[0]
     : '';
-  const shortOwn = own && own.length > 160 ? `${own.slice(0, 159).replace(/\s+\S*$/, '')}…` : own;
+  const shortOwn = metaFromText(own);
   return {
     // "Galala Marble – Egyptian Marble Slabs & Tiles | Wadi Degla"
     title: product ? productTitle(lang, product) : `${displayName} | Wadi Degla`,

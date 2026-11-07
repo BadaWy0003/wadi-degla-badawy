@@ -1,6 +1,7 @@
 import { t, buildAlternates } from '../../../src/util/meta';
 import History from '../../../src/components/History/History';
 import HeroPreload from '../../../src/components/HeroPreload';
+import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -11,11 +12,12 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function HistoryPage() {
+export default function HistoryPage({ params }) {
   return (
     <>
       <HeroPreload page="history" />
       <History />
+      <RelatedPages lang={params.lang} page="history" />
     </>
   );
 }

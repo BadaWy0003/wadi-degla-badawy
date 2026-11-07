@@ -7,7 +7,8 @@ import Product from '../Products/Product';
 import ContactBubble from '../Contact/ContactBubble';
 import { t } from '../../util/meta';
 import { topicText, fillText } from '../../util/topic-content';
-import { TOPIC_PAGES, OTHER_LINKS } from '../../util/topic-pages';
+import { TOPIC_PAGES } from '../../util/topic-pages';
+import { relatedLink } from '../../util/related-links';
 import '../Products/Products.css';
 import './TopicPage.css';
 import HeroPreload from '../HeroPreload';
@@ -19,14 +20,6 @@ const paragraphs = (text) =>
     .split(/\n\s*\n+/)
     .map((p) => p.trim())
     .filter(Boolean);
-
-function relatedLink(lang, key) {
-  if (TOPIC_PAGES[key]) {
-    return { href: `/${TOPIC_PAGES[key].slug}/`, label: topicText(lang, `${key}.heading`) };
-  }
-  const other = OTHER_LINKS[key];
-  return other ? { href: `${other.path}/`, label: t(lang, other.label) } : null;
-}
 
 export default function TopicPage({ lang, topicKey, products = [], projects = [] }) {
   const page = TOPIC_PAGES[topicKey];

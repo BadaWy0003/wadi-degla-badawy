@@ -1,5 +1,6 @@
 import { t, buildAlternates } from '../../../src/util/meta';
 import Packing from '../../../src/components/Packing/Packing';
+import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -10,6 +11,11 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function PackingPage() {
-  return <Packing />;
+export default function PackingPage({ params }) {
+  return (
+    <>
+      <Packing />
+      <RelatedPages lang={params.lang} page="packing" />
+    </>
+  );
 }
