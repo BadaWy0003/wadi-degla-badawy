@@ -9,7 +9,7 @@ export default function InspirationHome() {
       const { t } = useTranslation();
 
     return(
-        <section className="inspiration-home-section" aria-label={t('home.inspirationAlt')}>
+        <section className="inspiration-home-section lazy-bg" aria-label={t('home.inspirationAlt')}>
             <h2>{t('home.inspiration')}</h2>
             <h4>{t('home.inspirationTitle')}</h4>
             <p>{t('home.inspirationDesc')}</p>

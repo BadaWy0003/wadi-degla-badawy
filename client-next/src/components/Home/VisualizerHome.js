@@ -10,7 +10,7 @@ export default function VisualizerHome() {
 
     return(
         <section className="visualizer-home-section" aria-label={t('home.visualizerAlt')}>
-            <div className="visualizer-home-inner">
+            <div className="visualizer-home-inner lazy-bg">
             <h2>{t('home.bringVisionToLife')}</h2>
             <p>{t('home.bringVisionToLifeDesc')}</p>
                 <LangLink href="/visualizer" className="btn-link">

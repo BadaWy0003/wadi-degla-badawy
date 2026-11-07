@@ -851,7 +851,27 @@
     "mosaics10x3Text": "Schlankes modernes Mosaik ideal für Akzentwände und lineare Designs.",
     "mosaicsCircular5x5Text": "Sanfte Kurven und dimensionale Tiefe für künstlerische Wandausdrücke.",
     "mosaicsUpsAndDown10x10Text": "3D-Geometrie-Styling, das visuelle Tiefe und Bewegung schafft.",
-    "cobblesLink": "Unser gesamtes Pflastersteinsortiment ansehen →"
+    "cobblesLink": "Unser gesamtes Pflastersteinsortiment ansehen →",
+    "items": {
+      "cobbleStone": "Pflasterstein",
+      "crown": "Kapitell",
+      "handrail": "Handlauf",
+      "keystone": "Schlussstein",
+      "massiveSteps": "Massivstufen",
+      "planter": "Pflanzkübel",
+      "poolCopingSet": "Pool-Randstein-Set",
+      "squaredCrown": "Eckiges Kapitell",
+      "stoneSeat": "Steinbank",
+      "wallstone": "Mauerstein",
+      "mosaics2x2": "Mosaik 2×2 cm",
+      "mosaics5x5": "Mosaik 5×5 cm",
+      "mosaics10x10": "Mosaik 10×10 cm",
+      "mosaicsHexagon5x5": "Sechseck-Mosaik 5×5 cm",
+      "mosaicsTrapezoid5x5": "Trapez-Mosaik 5×5 cm",
+      "mosaics10x3": "Mosaik 10×3 cm",
+      "mosaicsCircular5x5": "Rund-Mosaik 5×5 cm",
+      "mosaicsUpsDown10x10": "3D-Mosaik 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "Marmor-Pflaster & Steinmuster | Wadi Degla",

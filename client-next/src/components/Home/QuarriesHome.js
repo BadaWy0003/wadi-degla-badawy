@@ -9,7 +9,7 @@ export default function QuarriesHome() {
       const { t } = useTranslation();
 
     return(
-        <section className="quarries-home-section">
+        <section className="quarries-home-section lazy-bg">
             <h2>{t('home.globalQuarries')}</h2>
             <h4>{t('home.globalQuarriesTitle')}</h4>
             <p>{t('home.globalQuarriesDesc')}</p>

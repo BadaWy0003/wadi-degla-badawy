@@ -851,7 +851,27 @@
     "mosaics10x3Text": "Mosaicul modern cu linie fină ideal pentru pereți caracteristici și proiecte liniare.",
     "mosaicsCircular5x5Text": "Curbe ușoare și adâncime dimensională pentru expresii de perete artistice.",
     "mosaicsUpsAndDown10x10Text": "Stilul geometric 3D care creează adâncime vizuală și mișcare.",
-    "cobblesLink": "Vezi întreaga gamă de pavele →"
+    "cobblesLink": "Vezi întreaga gamă de pavele →",
+    "items": {
+      "cobbleStone": "Piatră cubică",
+      "crown": "Capitel",
+      "handrail": "Balustradă",
+      "keystone": "Cheie de boltă",
+      "massiveSteps": "Trepte masive",
+      "planter": "Jardinieră",
+      "poolCopingSet": "Set de borduri pentru piscină",
+      "squaredCrown": "Capitel pătrat",
+      "stoneSeat": "Bancă din piatră",
+      "wallstone": "Piatră de placare",
+      "mosaics2x2": "Mozaic 2×2 cm",
+      "mosaics5x5": "Mozaic 5×5 cm",
+      "mosaics10x10": "Mozaic 10×10 cm",
+      "mosaicsHexagon5x5": "Mozaic hexagonal 5×5 cm",
+      "mosaicsTrapezoid5x5": "Mozaic trapezoidal 5×5 cm",
+      "mosaics10x3": "Mozaic 10×3 cm",
+      "mosaicsCircular5x5": "Mozaic circular 5×5 cm",
+      "mosaicsUpsDown10x10": "Mozaic în relief 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "Pavaje din marmură și modele din piatră | Wadi Degla",

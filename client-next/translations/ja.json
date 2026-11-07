@@ -851,7 +851,27 @@
     "mosaics10x3Text": "特徴の壁と線形デザインに最適なスリムラインモダンモザイク。",
     "mosaicsCircular5x5Text": "アートの壁の表現のための柔らかい曲線と次元の深さ。",
     "mosaicsUpsAndDown10x10Text": "視覚的な深さと動きを作成する3D幾何学的スタイル。",
-    "cobblesLink": "ピンコロ石の全製品を見る →"
+    "cobblesLink": "ピンコロ石の全製品を見る →",
+    "items": {
+      "cobbleStone": "石畳ブロック",
+      "crown": "クラウン",
+      "handrail": "手すり",
+      "keystone": "キーストーン",
+      "massiveSteps": "無垢石の階段",
+      "planter": "プランター",
+      "poolCopingSet": "プールコーピングセット",
+      "squaredCrown": "角型クラウン",
+      "stoneSeat": "石のベンチ",
+      "wallstone": "壁石",
+      "mosaics2x2": "モザイク 2×2 cm",
+      "mosaics5x5": "モザイク 5×5 cm",
+      "mosaics10x10": "モザイク 10×10 cm",
+      "mosaicsHexagon5x5": "六角モザイク 5×5 cm",
+      "mosaicsTrapezoid5x5": "台形モザイク 5×5 cm",
+      "mosaics10x3": "モザイク 10×3 cm",
+      "mosaicsCircular5x5": "円形モザイク 5×5 cm",
+      "mosaicsUpsDown10x10": "凹凸モザイク 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "大理石パターン & 石張り舗装 | 屋外床材 | Wadi Degla大理石エジプト",

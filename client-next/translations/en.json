@@ -851,7 +851,27 @@
     "mosaics10x3Text": "Slim-line modern mosaic ideal for feature walls and linear designs.",
     "mosaicsCircular5x5Text": "Soft curves and dimensional depth for artistic wall expressions.",
     "mosaicsUpsAndDown10x10Text": "3D geometric styling creating visual depth and movement.",
-    "cobblesLink": "See our full cobbles range →"
+    "cobblesLink": "See our full cobbles range →",
+    "items": {
+      "cobbleStone": "Cobblestone",
+      "crown": "Crown",
+      "handrail": "Handrail",
+      "keystone": "Keystone",
+      "massiveSteps": "Massive Steps",
+      "planter": "Planter",
+      "poolCopingSet": "Pool Coping Set",
+      "squaredCrown": "Squared Crown",
+      "stoneSeat": "Stone Seat",
+      "wallstone": "Wallstone",
+      "mosaics2x2": "Mosaics 2×2 cm",
+      "mosaics5x5": "Mosaics 5×5 cm",
+      "mosaics10x10": "Mosaics 10×10 cm",
+      "mosaicsHexagon5x5": "Hexagon Mosaics 5×5 cm",
+      "mosaicsTrapezoid5x5": "Trapezoid Mosaics 5×5 cm",
+      "mosaics10x3": "Mosaics 10×3 cm",
+      "mosaicsCircular5x5": "Circular Mosaics 5×5 cm",
+      "mosaicsUpsDown10x10": "Ups & Downs Mosaics 10×10 cm"
+    }
   },
   "patterns": {
     "pageTitle": "Marble Pavers & Stone Patterns | Wadi Degla",
