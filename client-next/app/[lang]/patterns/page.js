@@ -1,5 +1,6 @@
 import { t, buildAlternates } from '../../../src/components/../util/meta';
 import Patterns from '../../../src/components/Patterns/Patterns';
+import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -11,5 +12,10 @@ export function generateMetadata({ params }) {
 }
 
 export default function PatternsPage({ params }) {
-  return <Patterns />;
+  return (
+    <>
+      <HeroPreload page="patterns" />
+      <Patterns />
+    </>
+  );
 }

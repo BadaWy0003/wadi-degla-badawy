@@ -1,5 +1,6 @@
 import { t, buildAlternates } from '../../../src/util/meta';
 import About from '../../../src/components/About/About';
+import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -11,5 +12,10 @@ export function generateMetadata({ params }) {
 }
 
 export default function AboutPage() {
-  return <About />;
+  return (
+    <>
+      <HeroPreload page="about" />
+      <About />
+    </>
+  );
 }

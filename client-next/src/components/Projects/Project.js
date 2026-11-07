@@ -2,6 +2,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LangLink from '../LangLink';
+import { cardImageProps } from '../../util/responsive-img';
 
 export default function Project({ project }) {
   const { t } = useTranslation();
@@ -9,7 +10,7 @@ export default function Project({ project }) {
   return (
     <div className="project-card" style={{ position: 'relative', cursor: 'pointer' }}>
       <div className="img-div">
-        <img loading="lazy" src={project.thumbnail} alt={project.name} className="project-image" />
+        <img loading="lazy" {...cardImageProps(project.thumbnail)} alt={project.name} className="project-image" />
       </div>
 
       {/* Hover overlay */}

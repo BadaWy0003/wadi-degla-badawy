@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import 'yet-another-react-lightbox/styles.css';
+import { cardImageProps } from '../../util/responsive-img';
 
 
 export default function QuarriesSwiper({images, alt = ""}){
@@ -44,7 +45,7 @@ export default function QuarriesSwiper({images, alt = ""}){
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
           >
-            <img loading="lazy" src={image} alt={`${alt} ${i + 1}`.trim()} className="swiper-lazy" />
+            <img loading="lazy" {...cardImageProps(image, '(max-width: 768px) 100vw, 800px')} alt={`${alt} ${i + 1}`.trim()} className="swiper-lazy" />
             <div className="swiper-lazy-preloader"></div>
             {hovered && (
               <div className="image-overlay">

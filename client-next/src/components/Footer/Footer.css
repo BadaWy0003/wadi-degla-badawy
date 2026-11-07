@@ -27,13 +27,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-image: url("../../Public/Assets/Media/pattern-1.webp");
   width: stretch !important;
   height: stretch !important;
   overflow-y: hidden;
   padding: 0rem 5rem;
   min-height: 622px !important;
 
+}
+
+/* Loaded only once the footer is near the screen (Footer.js adds footer-bg-ready) */
+.footer-bg-ready .footer-left-bg {
+  background-image: url("../../Public/Assets/Media/pattern-1.webp");
 }
 
 .footer-left-bg .btn1 {

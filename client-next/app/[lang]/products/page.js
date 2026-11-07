@@ -1,6 +1,7 @@
 import { t, buildAlternates } from '../../../src/util/meta';
 import { getProducts, productSlug } from '../../../src/util/product-slugs';
 import Products from '../../../src/components/Products/Products';
+import HeroPreload from '../../../src/components/HeroPreload';
 
 const BASE = 'https://www.wadidegla-eg.com';
 
@@ -49,6 +50,7 @@ export default async function ProductsPage({ params }) {
   }));
   return (
     <>
+      <HeroPreload page="products" />
       {products.length > 0 && (
         <script
           type="application/ld+json"

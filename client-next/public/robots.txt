@@ -5,3 +5,4 @@ Allow: /
 # and Google must be able to read a page to see that tag (a blocked page can still be
 # listed in results without its content).
 Sitemap: https://www.wadidegla-eg.com/sitemap.xml
+Sitemap: https://www.wadidegla-eg.com/image-sitemap.xml

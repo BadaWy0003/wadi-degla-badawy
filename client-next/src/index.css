@@ -214,3 +214,10 @@ h2 {
 .react-tel-input{
   direction: ltr !important;
 } 
+/* A link wrapping a button or card (so Google can follow it) without changing the layout:
+   the wrapper creates no box, the button/card inside keeps its own styles. */
+.btn-link {
+  display: contents;
+  color: inherit;
+  text-decoration: none;
+}

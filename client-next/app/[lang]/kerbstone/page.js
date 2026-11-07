@@ -1,5 +1,6 @@
 import { t, buildAlternates } from '../../../src/components/../util/meta';
 import Kerbstone from '../../../src/components/Kerbstone/Kerbstone';
+import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -11,5 +12,10 @@ export function generateMetadata({ params }) {
 }
 
 export default function KerbstonePage({ params }) {
-  return <Kerbstone />;
+  return (
+    <>
+      <HeroPreload page="kerbstone" />
+      <Kerbstone />
+    </>
+  );
 }

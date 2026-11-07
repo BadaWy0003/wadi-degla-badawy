@@ -16,13 +16,9 @@ import CertificatesHome from "./CertificatesHome.js";
 import InspirationHome from "./InspirationHome.js";
 import FaqHome from "./FaqHome.js";
 // import { useGlobalState } from '../GlobalStateContext.js';
-import { useRouter } from "next/navigation";
-import { useLang } from "../../context/LangContext";
 import LangLink from "../LangLink";
 
 export default function Home() {
-  const router = useRouter();
-  const lang = useLang();
   const { t } = useTranslation();
 
   //   const globalState = useGlobalState(); // Access global state for user data
@@ -67,16 +63,11 @@ export default function Home() {
         </section>
         <MissionVisionSection />
         <div id="home-about-button" className="home-button-section">
-          <button
-            className="btn2"
-            style={{ marginTop: "2rem" }}
-            onClick={() => {
-              router.push(`/${lang}/about`);
-              window.scrollTo({ top: 0 });
-            }}
-          >
-            {t("home.aboutWadiDegla")}
-          </button>
+          <LangLink href="/about" className="btn-link">
+            <button type="button" className="btn2" style={{ marginTop: "2rem" }}>
+              {t("home.aboutWadiDegla")}
+            </button>
+          </LangLink>
         </div>
 
         <QuarriesHome />
@@ -89,16 +80,11 @@ export default function Home() {
         <VisualizerHome />
         <OurMarkets />
         <div className="home-button-section">
-          <button
-            className="btn2"
-            style={{ marginTop: "5rem" }}
-            onClick={() => {
-              router.push(`/${lang}/exports`);
-              window.scrollTo({ top: 0 });
-            }}
-          >
-            {t("home.learnMore")}
-          </button>
+          <LangLink href="/exports" className="btn-link">
+            <button type="button" className="btn2" style={{ marginTop: "5rem" }}>
+              {t("home.learnMore")}
+            </button>
+          </LangLink>
         </div>
         <ProjectsHome />
         <FaqHome />

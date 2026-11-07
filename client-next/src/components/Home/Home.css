@@ -608,7 +608,7 @@
         background: linear-gradient(180deg,
                 rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0.6)),
-            url('/Assets/Media/Hero/projects-hero-mobile.webp') !important;
+            url('/Assets/Media/Hero/projects-hero-mobile-m.webp') !important;
         /* background-attachment: unset !important; */
         background-position: center !important;
         background-size: cover !important;

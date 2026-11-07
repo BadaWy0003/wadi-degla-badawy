@@ -1,5 +1,6 @@
 import { t, buildAlternates } from '../../../src/components/../util/meta';
 import Contact from '../../../src/components/Contact/Contact';
+import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -11,5 +12,10 @@ export function generateMetadata({ params }) {
 }
 
 export default function ContactPage({ params }) {
-  return <Contact />;
+  return (
+    <>
+      <HeroPreload page="contact" />
+      <Contact />
+    </>
+  );
 }

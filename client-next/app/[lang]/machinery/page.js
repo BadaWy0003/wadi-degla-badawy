@@ -1,5 +1,6 @@
 import { t, buildAlternates } from '../../../src/util/meta';
 import Machinery from '../../../src/components/Machinery/Machinery';
+import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -11,5 +12,10 @@ export function generateMetadata({ params }) {
 }
 
 export default function MachineryPage() {
-  return <Machinery />;
+  return (
+    <>
+      <HeroPreload page="machinery" />
+      <Machinery />
+    </>
+  );
 }

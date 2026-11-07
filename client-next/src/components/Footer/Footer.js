@@ -62,6 +62,28 @@ function Footer() {
     };
   }, []);
 
+  // The pattern behind "Get in touch" (86 KB) is only loaded when the footer comes near the
+  // screen (class footer-bg-ready, see Footer.css), not on every page load.
+  useEffect(() => {
+    const el = footerMainRef.current;
+    if (!el) return undefined;
+    if (!('IntersectionObserver' in window)) {
+      el.classList.add('footer-bg-ready');
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          el.classList.add('footer-bg-ready');
+          io.disconnect();
+        }
+      },
+      { rootMargin: '600px 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   function OnClick() {
     router.push(`/${lang}/contact`);
     window.scrollTo({ top: 0 });

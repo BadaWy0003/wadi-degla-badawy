@@ -22,6 +22,7 @@ import { CATEGORY_TOPIC } from '../../util/topic-pages';
 import { finishLabel } from '../../util/finishes';
 import { productSlug } from '../../util/product-slugs';
 import Product from './Product';
+import { cardImageProps } from '../../util/responsive-img';
 
 // Default finish: "Polished" if available, else the first one.
 const defaultFinish = (product) =>
@@ -133,8 +134,12 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
 
         <div className="product-details-container">
           <div className="details-left">
+            {/* The page's main photo: loaded first, and width/height (most stone photos are 3:2)
+                reserve its space so the page doesn't jump when it appears */}
             <img
-              loading="lazy"
+              fetchPriority="high"
+              width={1200}
+              height={800}
               src={selectedFinish?.link}
               alt={product.name}
               className="product-image"
@@ -280,7 +285,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                   {seo.projects.map((p) => (
                     <li key={p.id}>
                       <LangLink href={`/projects/${p.id}/`}>
-                        <img loading="lazy" src={p.thumbnail} alt={p.name} />
+                        <img loading="lazy" {...cardImageProps(p.thumbnail)} alt={p.name} />
                         <span>
                           <strong>{p.name}</strong>
                           {[p.city, p.country].filter(Boolean).join(' - ')}
