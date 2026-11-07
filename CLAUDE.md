@@ -227,6 +227,7 @@ GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the 
 - Internal links in components: use `LangLink` (never `<a href="/...">`). A bulk mechanical change across many files is done with a script, not the Edit tool, to avoid the format hook reformatting every file.
 - Merging a PR that touches several app folders redeploys **each** of those apps (including the admin app; `client/` no longer deploys automatically).
 - Admin dashboard: CRA treats lint warnings as errors when `CI=true` (GitHub sets it), so CI builds it with `CI=false`.
+- Admin dashboard on phones (2026-11-07): below 900 px (`md`) `Layout.js` uses a slide-out menu (☰) instead of the fixed 280 px one; the theme (`src/theme.js`) makes dialogs nearly full-screen and table cells tighter on phones (<600 px); list tables hide minor columns on phones with `display: { xs: 'none', sm: 'table-cell' }` and show their text under the name. Desktop (≥900 px) must stay unchanged. Test without a real login: build with `REACT_APP_BASE_API_URL=http://api.test`, then in Playwright set `localStorage.auth_token` and answer `http://api.test/**` with sample JSON (`check-auth` returns `{username, role}`).
 
 ## To do (agreed, not started)
 - Nothing open.
