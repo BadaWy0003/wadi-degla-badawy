@@ -252,6 +252,12 @@
 
     /* LEFT ______________________________________________________ */
 
+    /* The slider runs edge to edge here; fixing the width keeps the photo from widening when
+       the slider starts (it used to start inside the page padding, then jump). */
+    .project-details-left {
+        width: 100vw;
+    }
+
     .project-gallery-swiper {
         /* width: 60vw;
     height: 80vh;
