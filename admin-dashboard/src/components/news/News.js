@@ -88,7 +88,7 @@ export default function News() {
 
   return (
     <Box sx={{ width: '100%', p: 2 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, gap: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, gap: 2, flexWrap: 'wrap' }}>
         <Typography variant="h4">News</Typography>
         <Button
           variant="contained"
@@ -117,29 +117,34 @@ export default function News() {
         </Paper>
       ) : (
         <TableContainer component={Paper}>
-          <Table>
+          {/* Phones: cover, date and Arabic columns hidden (date shown under the title), tighter cells */}
+          <Table sx={{ '& td, & th': { px: { xs: 1, sm: 2 } } }}>
             <TableHead>
               <TableRow>
-                <TableCell>Cover</TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Cover</TableCell>
                 <TableCell>Title</TableCell>
-                <TableCell>Date</TableCell>
-                <TableCell>Arabic</TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Date</TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Arabic</TableCell>
                 <TableCell align="right">Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {articles.map(a => (
                 <TableRow key={a.id} sx={a.hidden ? { opacity: 0.6 } : undefined}>
-                  <TableCell sx={{ width: 96 }}>
+                  <TableCell sx={{ width: 96, display: { xs: 'none', sm: 'table-cell' } }}>
                     <img src={photoUrl(a.thumbnail)} alt="" style={{ width: 80, height: 56, objectFit: 'cover', borderRadius: 4 }} />
                   </TableCell>
                   <TableCell>
                     {a.title.en}
                     {a.pinned && <Chip size="small" color="primary" label="Pinned" sx={{ ml: 1 }} />}
                     {a.hidden && <Chip size="small" label="Hidden from website" sx={{ ml: 1 }} />}
+                    <Box component="span" sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem' }}>
+                      {formatDate(a.year, a.month)}
+                      {a.title.ar ? ' · Arabic ✓' : ''}
+                    </Box>
                   </TableCell>
-                  <TableCell>{formatDate(a.year, a.month)}</TableCell>
-                  <TableCell>
+                  <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{formatDate(a.year, a.month)}</TableCell>
+                  <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
                     {a.title.ar ? (
                       'Yes'
                     ) : (
@@ -148,7 +153,7 @@ export default function News() {
                       </Typography>
                     )}
                   </TableCell>
-                  <TableCell align="right" sx={{ whiteSpace: 'nowrap' }}>
+                  <TableCell align="right" sx={{ whiteSpace: { xs: 'normal', sm: 'nowrap' } }}>
                     <Tooltip title="Edit">
                       <IconButton
                         color="primary"

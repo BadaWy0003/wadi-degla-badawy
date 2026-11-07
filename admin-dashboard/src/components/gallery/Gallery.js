@@ -179,7 +179,7 @@ function Gallery() {
   });
 
   const renderSearchBar = () => (
-    <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
+    <Box sx={{ display: 'flex', gap: 2, mb: 3, flexWrap: 'wrap' }}>
       <TextField
         fullWidth
         placeholder={`Search by ${searchField}...`}
@@ -265,7 +265,7 @@ function Gallery() {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Gallery</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (

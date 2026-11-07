@@ -187,7 +187,7 @@ export default function Customers() {
   });
 
   const renderSearchBar = () => (
-    <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
+    <Box sx={{ display: 'flex', gap: 2, mb: 3, flexWrap: 'wrap' }}>
       <TextField select value={searchField} onChange={e => setSearchField(e.target.value)} sx={{ width: 150 }}>
         <MenuItem value="fullName">Name</MenuItem>
         <MenuItem value="email">Email</MenuItem>
@@ -263,7 +263,7 @@ export default function Customers() {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Customers</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
@@ -291,7 +291,7 @@ export default function Customers() {
                 />
               </TableCell>
               {['name', 'email', 'company'].map(field => (
-                <TableCell key={field}>
+                <TableCell key={field} sx={field === 'name' ? undefined : { display: { xs: 'none', sm: 'table-cell' } }}>
                   <TableSortLabel active={orderBy === field} direction={orderBy === field ? order : 'asc'} onClick={() => handleSort(field)}>
                     {field.charAt(0).toUpperCase() + field.slice(1)}
                   </TableSortLabel>
@@ -306,11 +306,21 @@ export default function Customers() {
                 <TableCell padding="checkbox">
                   <Checkbox checked={selected.includes(customer.id)} onChange={() => handleSelect(customer.id)} />
                 </TableCell>
-                <TableCell>{customer.fullName}</TableCell>
-                <TableCell>{customer.email}</TableCell>
-                <TableCell>{customer.companyName}</TableCell>
                 <TableCell>
-                  <Box sx={{ display: 'flex', gap: 1 }}>
+                  {customer.fullName}
+                  {/* Phones: email and company under the name (their columns are hidden) */}
+                  <Box
+                    component="span"
+                    sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem', overflowWrap: 'anywhere' }}
+                  >
+                    {customer.email}
+                    {customer.companyName ? ` · ${customer.companyName}` : ''}
+                  </Box>
+                </TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{customer.email}</TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{customer.companyName}</TableCell>
+                <TableCell>
+                  <Box sx={{ display: 'flex', gap: 1, flexWrap: { xs: 'wrap', sm: 'nowrap' } }}>
                     {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(customer)}>
                       <EditIcon />
                     </IconButton> */}

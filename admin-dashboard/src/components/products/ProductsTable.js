@@ -12,6 +12,7 @@ import {
   IconButton,
   Chip,
   Tooltip,
+  Box,
 } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -46,7 +47,8 @@ export default function ProductsTable({
 
   return (
     <TableContainer component={Paper}>
-      <Table>
+      {/* Phones: category and finishes columns hidden (category shown under the name), tighter cells */}
+      <Table sx={{ '& td, & th': { px: { xs: 1, sm: 2 } } }}>
         <TableHead>
           <TableRow>
             <TableCell padding="checkbox">
@@ -67,7 +69,7 @@ export default function ProductsTable({
                 Name
               </TableSortLabel>
             </TableCell>
-            <TableCell>
+            <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
               <TableSortLabel
                 active={orderBy === "category"}
                 direction={orderBy === "category" ? order : "asc"}
@@ -76,7 +78,7 @@ export default function ProductsTable({
                 Category
               </TableSortLabel>
             </TableCell>
-            <TableCell>
+            <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
               <TableSortLabel
                 active={orderBy === "finishes"}
                 direction={orderBy === "finishes" ? order : "asc"}
@@ -102,9 +104,12 @@ export default function ProductsTable({
                 {product.hidden && (
                   <Chip label="Hidden from website" size="small" sx={{ ml: 1 }} />
                 )}
+                <Box component="span" sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem' }}>
+                  {product.type} · {product.finishes.length} finishes
+                </Box>
               </TableCell>
-              <TableCell>{product.type}</TableCell>
-              <TableCell>{product.finishes.length}</TableCell>
+              <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{product.type}</TableCell>
+              <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{product.finishes.length}</TableCell>
               <TableCell>
                 <IconButton onClick={() => onMoreInfo(product)} color="primary">
                   <InfoIcon />

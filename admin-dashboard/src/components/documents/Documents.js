@@ -242,7 +242,7 @@ export default function Documents() {
   };
 
   const renderSearchBar = () => (
-    <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
+    <Box sx={{ display: 'flex', gap: 2, mb: 3, flexWrap: 'wrap' }}>
       <TextField select value={searchField} onChange={e => setSearchField(e.target.value)} sx={{ width: 150 }}>
         <MenuItem value="id">ID</MenuItem>
         {/* <MenuItem value="invoiceNumber">Invoice Number</MenuItem>
@@ -354,7 +354,7 @@ export default function Documents() {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Documents</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
@@ -384,7 +384,7 @@ export default function Documents() {
                 />
               </TableCell>
               {['id', 'type', 'createdAt'].map(field => (
-                <TableCell key={field}>
+                <TableCell key={field} sx={field === 'type' ? { display: { xs: 'none', sm: 'table-cell' } } : undefined}>
                   <TableSortLabel active={orderBy === field} direction={orderBy === field ? order : 'asc'} onClick={() => handleSort(field)}>
                     {field === 'createdAt' ? 'Created At' : field.charAt(0).toUpperCase() + field.slice(1)}
                   </TableSortLabel>
@@ -399,11 +399,16 @@ export default function Documents() {
                 <TableCell padding="checkbox">
                   <Checkbox checked={selected.includes(document.id)} onChange={() => handleSelect(document.id)} />
                 </TableCell>
-                <TableCell>{document.id}</TableCell>
-                <TableCell>{document.type}</TableCell>
+                <TableCell sx={{ overflowWrap: 'anywhere' }}>
+                  {document.id}
+                  <Box component="span" sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem', overflowWrap: 'normal' }}>
+                    {document.type}
+                  </Box>
+                </TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{document.type}</TableCell>
                 <TableCell>{formatDate(document.createdAt)}</TableCell>
                 <TableCell>
-                  <Box sx={{ display: 'flex', gap: 1 }}>
+                  <Box sx={{ display: 'flex', gap: 1, flexWrap: { xs: 'wrap', sm: 'nowrap' } }}>
                     {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(document)}>
                       <EditIcon />
                     </IconButton> */}
