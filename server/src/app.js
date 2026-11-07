@@ -34,6 +34,10 @@ require('./start/routes')(app);
 const port = process.env.PORT || 5000;
 const server = app.listen(port, async () => {
   console.log(`Server running on port ${port}`);
+  // One-time: remove the public links of documents created before they became private.
+  require('./services/pdfExport.service')
+    .makeOldDocumentsPrivate()
+    .catch((error) => console.error('[documents] make private failed:', error.message));
 });
 
 module.exports = server;

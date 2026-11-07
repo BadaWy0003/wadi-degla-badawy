@@ -6,6 +6,7 @@ const path = require('path');
 const { Firestore } = require('@google-cloud/firestore');
 const { bucket } = require('../start/firebase');
 const { col, storagePath, canDeleteStoragePath } = require('../start/data-area');
+const SiteMeta = require('./site-meta.service');
 
 const firestore = new Firestore();
 
@@ -44,14 +45,13 @@ PdfExportService.generatePdfBuffer = async (data) => {
   }
 };
 
-// Generate PDF and save to local file system
-PdfExportService.generatePdfToFile = async (data, fileName) => {
-  const filePath = path.join(__dirname, '../common/uploads', `${fileName}.pdf`);
-  const pdfBuffer = await PdfExportService.generatePdfBuffer(data);
-
-  await fs.promises.writeFile(filePath, pdfBuffer);
-  return filePath;
-};
+// Documents (invoices, packing lists, price lists) are PRIVATE files in Storage: no public
+// link. The admin panel opens them through GET /api/export-pdf/invoice/:id/file (logged-in
+// admins only). Older documents kept a public storage.googleapis.com link in `url`; their
+// path is derived from it, and makeOldDocumentsPrivate() removed their public access.
+const publicUrlPrefix = () => `https://storage.googleapis.com/${bucket.name}/`;
+const documentPath = (doc) =>
+  doc.path || (doc.url && doc.url.startsWith(publicUrlPrefix()) ? doc.url.slice(publicUrlPrefix().length) : null);
 
 PdfExportService.fetchAllInvoices = async () => {
   const materialsRef = firestore.collection(col('documents'));
@@ -68,7 +68,7 @@ PdfExportService.fetchAllInvoices = async () => {
     return {
       id: doc.id, // Document ID
       type: data.type || 'Unknown Type', // Add a fallback for type
-      url: data.url || null, // URL of the PDF
+      hasFile: Boolean(documentPath(data)), // the PDF is opened through /invoice/:id/file
       userId: data.userId || 'anonymous', // User ID
       createdAt: data.createdAt || null, // Timestamp when created
       // Include all detailed fields like `items`, `total`, etc.
@@ -110,10 +110,10 @@ PdfExportService.fetchInvoicesByType = async (type) => {
   }
 
   // Map through the query snapshot and extract invoice data
-  const invoices = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+  const invoices = querySnapshot.docs.map((doc) => {
+    const { url, path: filePath, ...data } = doc.data();
+    return { id: doc.id, ...data, hasFile: Boolean(documentPath({ url, path: filePath })) };
+  });
 
   return invoices;
 };
@@ -128,18 +128,15 @@ PdfExportService.deleteInvoice = async (invoiceId) => {
     throw new Error('Invoice not found');
   }
 
-  const invoice = doc.data();
-  if (invoice.url) {
-    const fileName = invoice.url.replace(`https://storage.googleapis.com/${bucket.name}/`, '');
-    const fileRef = bucket.file(fileName);
-
+  const fileName = documentPath(doc.data());
+  if (fileName) {
     try {
       if (!canDeleteStoragePath(fileName)) throw new Error('outside this environment\'s storage folder');
-      await fileRef.delete();
-      console.log(`Deleted file from Firebase Storage: ${invoice.url}`);
+      await bucket.file(fileName).delete();
+      console.log(`Deleted document file: ${fileName}`);
     } catch (error) {
-      console.error(`Failed to delete file ${invoice.url}:`, error.message);
-      // Continue with other deletions even if one fails
+      console.error(`Failed to delete file ${fileName}:`, error.message);
+      // Continue with the Firestore delete even if the file is already gone
     }
   }
   // Delete the Firestore document
@@ -148,42 +145,58 @@ PdfExportService.deleteInvoice = async (invoiceId) => {
   return { message: 'Invoice and associated files deleted successfully' };
 };
 
-// Upload PDF to Firebase
-async function uploadPdfToFirebase(pdfPath, metadata) {
-  const fileName = path.basename(pdfPath);
+// Generate the PDF, save it as a private file in Storage and record it in Firestore.
+// (It used to be written to src/common/uploads first, a folder the Docker image doesn't
+// have, so creating a document failed on the live server.)
+PdfExportService.generateAndUploadPdf = async (data, metadata) => {
+  const pdfBuffer = await PdfExportService.generatePdfBuffer(data);
+  const fileName = `${String(data.documentType).toLowerCase()}-${nanoid(10)}.pdf`;
   const destination = storagePath(`documents/${fileName}`);
 
-  // Upload the file to GCS
-  const [file] = await bucket.upload(pdfPath, { destination });
-
-  // Make the file publicly accessible
-  await file.makePublic();
-
-  // Generate the public URL
-  const fileUrl = `https://storage.googleapis.com/${bucket.name}/${destination}`;
-
-  // Store metadata in Firestore
-  await firestore.collection(col('documents')).add({
-    ...metadata,
-    url: fileUrl,
-    createdAt: Firestore.Timestamp.now(),
+  await bucket.file(destination).save(pdfBuffer, {
+    contentType: 'application/pdf',
+    resumable: false,
   });
 
-  // Remove the local file after upload
-  fs.unlinkSync(pdfPath);
+  const ref = await firestore.collection(col('documents')).add({
+    ...metadata,
+    path: destination,
+    createdAt: Firestore.Timestamp.now(),
+  });
+  return ref.id;
+};
 
-  return fileUrl;
-}
+// The PDF of one document, for logged-in admins. Returns null when there is none.
+PdfExportService.getDocumentFile = async (id) => {
+  const doc = await firestore.collection(col('documents')).doc(id).get();
+  if (!doc.exists) return null;
+  const filePath = documentPath(doc.data());
+  if (!filePath) return null;
+  const file = bucket.file(filePath);
+  const [exists] = await file.exists();
+  if (!exists) return null;
+  return { file, name: filePath.split('/').pop() };
+};
 
-// Generate, upload, and store metadata for PDF
-PdfExportService.generateAndUploadPdf = async (data, metadata) => {
-  const fileId = nanoid(6);
-  const fileName = `${data.documentType.toLowerCase()}-${fileId}`;
-
-  const pdfPath = await PdfExportService.generatePdfToFile(data, fileName);
-  const pdfUrl = await uploadPdfToFirebase(pdfPath, metadata);
-
-  return pdfUrl;
+// One-time job (run at server start until it has succeeded once): remove public access from
+// every file in the documents folder, including files no Firestore document points to.
+PdfExportService.makeOldDocumentsPrivate = async () => {
+  const meta = await SiteMeta.get();
+  if (meta.documentsPrivateAt) return;
+  const [files] = await bucket.getFiles({ prefix: storagePath('documents/') });
+  let done = 0;
+  let failed = 0;
+  for (const file of files) {
+    try {
+      await file.makePrivate();
+      done += 1;
+    } catch (error) {
+      failed += 1;
+      console.error(`[documents] could not make ${file.name} private:`, error.message);
+    }
+  }
+  console.log(`[documents] made ${done} file(s) private, ${failed} failed`);
+  if (!failed) await SiteMeta.set({ documentsPrivateAt: Date.now() });
 };
 
 module.exports = PdfExportService;
