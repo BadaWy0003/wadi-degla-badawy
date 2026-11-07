@@ -10,17 +10,14 @@ import apiClient from "../../util/client.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
-import { useRouter } from 'next/navigation';
-import { useLang } from '../../context/LangContext';
 import { productSlug } from '../../util/product-slugs';
+import LangLink from '../LangLink';
 
 
 
 export default function FeaturedProducts() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null);
-  const router = useRouter();
-  const lang = useLang();
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
 
@@ -141,16 +138,11 @@ export default function FeaturedProducts() {
             <>
               <h3>{activeProduct.name}</h3>
               <p>{activeProduct.type}</p>
-              <button 
-                className="btn2"
-                onClick={() => {
-                  const urlName = productSlug(activeProduct.name);
-                  router.push(`/${lang}/products/${urlName}`);
-                  window.scrollTo({top: 0});
-                }}
-              >
-                {t('home.moreDetails')}
-              </button>
+              <LangLink href={`/products/${productSlug(activeProduct.name)}`} className="btn-link">
+                <button type="button" className="btn2">
+                  {t('home.moreDetails')}
+                </button>
+              </LangLink>
             </>
           )}
         </div>
@@ -162,16 +154,11 @@ export default function FeaturedProducts() {
         <div className="swiper-custom-button-next">›</div>
       </div>  
       
-      <button
-        className="btn1"
-        style={{marginTop: "2rem"}}
-        onClick={() => {
-          router.push(`/${lang}/products`);
-          window.scrollTo({top: 0});
-        }}
-      >
-        {t('home.exploreAllProducts')}
-      </button>                     
+      <LangLink href="/products" className="btn-link">
+        <button type="button" className="btn1" style={{marginTop: "2rem"}}>
+          {t('home.exploreAllProducts')}
+        </button>
+      </LangLink>                     
     </section>
   );
 }
