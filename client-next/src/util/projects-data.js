@@ -74,6 +74,15 @@ export async function getProjects(lang = 'en') {
   });
 }
 
+// The languages a project page is really written in: English, plus Arabic when its Arabic
+// description exists. Other language pages only translate the labels around English names,
+// so they are noindex and not in the sitemap; they stay visible to visitors.
+export async function getProjectIndexedLangs(id) {
+  const p = (await fetchProjects()).find((x) => String(x.id) === String(id));
+  if (!p) return [];
+  return p.description?.ar?.trim() ? ['en', 'ar'] : ['en'];
+}
+
 export async function getProjectIds() {
   return (await fetchProjects()).map((p) => String(p.id));
 }
