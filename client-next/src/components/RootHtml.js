@@ -1,4 +1,6 @@
 import Script from 'next/script';
+import { MAIN_EMAIL, MAIN_PHONE, MAPS_URL, PHONES, EMAILS, SOCIALS } from './Contact/contactData';
+import { SITE_URL, ORG_ID, WEBSITE_ID } from '../util/schema-ids';
 
 // Staging build (fly.staging.toml): hidden from search engines and no Google Analytics,
 // so tests never show up in Google or in the visitor statistics.
@@ -38,6 +40,7 @@ export const rootMetadata = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': WEBSITE_ID,
   // The site name Google shows in results. "Marble & Granite" tells it apart from the
   // Wadi Degla nature reserve, which searches for "Wadi Degla" return first.
   name: 'Wadi Degla Marble & Granite',
@@ -53,32 +56,57 @@ const websiteSchema = {
     },
     'query-input': 'required name=search_term_string',
   },
+  publisher: { '@id': ORG_ID },
+};
+
+// Contact details come straight from the Contact page's data (contactData.js), so the two
+// can never differ.
+const phone = (key) => PHONES.find((p) => p.key === key).numbers;
+const email = (key) => EMAILS.find((e) => e.key === key).email;
+const [, headOffice2] = phone('contactInfo.phoneHeadOffice');
+const [support] = phone('contactInfo.phoneSupport');
+const LANGS = ['English', 'Arabic'];
+const ADDRESS = {
+  '@type': 'PostalAddress',
+  streetAddress: '36, 241D Shaq Al-Thoaban Industrial Area for Marble & Granite, Tourrah',
+  addressLocality: 'Cairo',
+  addressRegion: 'Cairo',
+  addressCountry: 'EG',
 };
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': ORG_ID,
   // Same name as on the website footer (use it everywhere: Google Business Profile,
   // directories, social pages).
   name: 'Wadi Degla for Marble & Granite',
+  legalName: 'Wadi Degla Co. for Marble & Granite',
   alternateName: [
     'Wadi Degla',
     'Wadi Degla Marble',
     'Wadi Degla Co.',
     'وادي دجلة للرخام والجرانيت',
+    'شركة وادي دجلة للرخام والجرانيت',
+    '와디 데글라',
   ],
+  // Tells Google this is not one of the other, unrelated "Wadi Degla" names.
+  disambiguatingDescription:
+    'Egyptian marble, limestone and granite quarry owner and exporter, founded 1980. Not affiliated with Wadi Degla Holding, Wadi Degla Developments or Wadi Degla Sporting Club.',
   foundingDate: '1980',
   // The company's own profiles (same links as the footer): helps Google connect them.
-  sameAs: [
-    'https://www.facebook.com/wadideglaco',
-    'https://instagram.com/wadideglaco',
-    'https://www.linkedin.com/company/wadi-degla-co-for-marble-and-granite/',
-    'https://t.me/wadideglaco',
-    'https://www.tiktok.com/@wadideglaco',
-  ],
-  url: 'https://www.wadidegla-eg.com',
-  logo: 'https://www.wadidegla-eg.com/favicon.svg',
-  image: 'https://www.wadidegla-eg.com/preview.webp',
+  // WhatsApp is a chat link, not a profile.
+  sameAs: SOCIALS.filter((s) => s.name !== 'WhatsApp').map((s) => s.href),
+  url: SITE_URL,
+  // Google needs a raster logo (PNG/JPG, at least 112x112), not SVG. Made from the colour logo
+  // by tools/make-logo-png.js.
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE_URL}/logo-512.png`,
+    width: 512,
+    height: 512,
+  },
+  image: `${SITE_URL}/preview.webp`,
   description:
     'Wadi Degla Co. is an Egyptian natural stone company specializing in quarrying, manufacturing, and exporting premium marble, limestone, granite, and travertine. Products include Galala marble, Sunny marble, Shelly limestone, Rosa marble, and more — available as slabs, tiles, blocks, cobbles, kerbstones, and custom finishes for global residential, commercial, and landmark projects.',
   foundingLocation: {
@@ -87,56 +115,58 @@ const organizationSchema = {
   },
   // Name, address and phone must stay identical to the Contact page, Google Business
   // Profile and every directory listing (Google matches them to trust the company).
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '36, 241D Shaq Al-Thoaban Industrial Area for Marble & Granite, Tourrah',
-    addressLocality: 'Cairo',
-    addressRegion: 'Cairo',
-    addressCountry: 'EG',
-  },
-  telephone: '+20 10 6726 0314',
-  email: 'info@wadidegla-eg.com',
-  hasMap: 'https://maps.app.goo.gl/bM4qT3UBLVt3r7tN7',
+  address: ADDRESS,
+  // The map link belongs to a place (schema.org has no hasMap on Organization).
+  location: { '@type': 'Place', address: ADDRESS, hasMap: MAPS_URL },
+  telephone: MAIN_PHONE.label,
+  email: MAIN_EMAIL,
   contactPoint: [
     {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      telephone: '+20 10 6726 0314',
-      email: 'sales@wadidegla-eg.com',
-      availableLanguage: ['English', 'Arabic'],
+      telephone: MAIN_PHONE.label,
+      email: email('contactInfo.emailHomes'),
+      availableLanguage: LANGS,
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: headOffice2.label,
+      availableLanguage: LANGS,
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'project sales',
+      email: email('contactInfo.emailProjects'),
+      availableLanguage: LANGS,
     },
     {
       '@type': 'ContactPoint',
       contactType: 'export sales',
-      email: 'export@wadidegla-eg.com',
+      email: email('contactInfo.emailExport'),
       areaServed: 'Worldwide',
-      availableLanguage: ['English', 'Arabic'],
+      availableLanguage: LANGS,
     },
     {
       '@type': 'ContactPoint',
       contactType: 'customer support',
-      telephone: '+20 101 666 7890',
-      availableLanguage: ['English', 'Arabic'],
+      telephone: support.label,
+      availableLanguage: LANGS,
     },
   ],
   areaServed: 'Worldwide',
   knowsAbout: [
     'Egyptian marble',
-    'Egyptian granite',
-    'imported marble',
-    'imported granite',
     'Galala marble',
-    'Sunny marble',
-    'Rosa marble',
-    'Shelly limestone',
-    'Egyptian limestone',
+    'Egyptian granite',
+    'limestone',
     'natural stone export',
-    'marble slabs',
-    'limestone tiles',
-    'granite blocks',
-    'travertine',
-    'marble quarrying',
   ],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'ISO 9001:2015',
+    credentialCategory: 'certification',
+  },
 };
 
 // The <html> element for every page. Rendered by the root layouts with the page's language,
