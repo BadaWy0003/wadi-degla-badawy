@@ -713,8 +713,13 @@
     "aboutCategory": "عن {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – ألواح وبلاطات {{type}} | وادي دجلة",
+    "titleSupplierSlabsTiles": "مورد مصري، ألواح وبلاطات",
+    "titleSupplierSlabs": "مورد مصري، ألواح",
+    "titleSupplier": "مورد مصري",
+    "titleBrand": "وادي دجلة",
     "metaDescription": "اكتشف {{name}} في مجموعتنا المتميزة من {{type}}. حجر طبيعي عالي الجودة متاح. شاهد المواصفات واطلب عينات من وادي دجلة، مصدرك الموثوق للمواد الحجرية الفاخرة.",
+    "metaAlsoCalled": "(ويُعرف أيضًا باسم {{name}})",
+    "metaTail": "نُصدّره إلى جميع أنحاء العالم منذ 1980. عينات مجانية وعروض أسعار عند الطلب.",
     "breadcrumbHome": "الرئيسية",
     "breadcrumbExplore": "استكشف",
     "breadcrumbProducts": "المنتجات",

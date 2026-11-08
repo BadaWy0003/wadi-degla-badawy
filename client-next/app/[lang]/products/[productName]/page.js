@@ -11,6 +11,7 @@ import {
   productDetailsView,
   productHeading,
   productIntro,
+  productMetaDescription,
   productTitle,
   productTypeLabel,
   relatedProducts,
@@ -31,42 +32,20 @@ const slugToName = (slug) =>
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ');
 
-// Google shows about 160 characters: whole sentences that fit, so the result doesn't end in
-// "It is…"; a cut word only when the first sentence alone is longer.
-function metaFromText(text, max = 160) {
-  const clean = String(text || '')
-    .replace(/\s+/g, ' ')
-    .trim();
-  if (clean.length <= max) return clean;
-  let out = '';
-  for (const sentence of clean.match(/[^.!?。！？]+[.!?。！？]+/g) || []) {
-    // no space after a Chinese/Japanese full stop
-    const next = `${out}${/[。！？]$/.test(out) ? '' : ' '}${sentence.trim()}`.trim();
-    if (next.length > max) break;
-    out = next;
-  }
-  out = out.trim();
-  return out || `${clean.slice(0, max - 1).replace(/\s+\S*$/, '')}…`;
-}
-
 export async function generateMetadata({ params }) {
   const { lang, productName } = params;
   const product = await getProductBySlug(productName);
   const displayName = product ? productHeading(lang, product) : slugToName(productName);
-  const descTemplate = t(lang, 'productDetails.metaDescription', '');
-  // The stone's own description (admin panel) when written in this language.
-  const own = product
-    ? productDetailsView(lang, product, (await getProductDetailsMap())[product.id])
-        ?.description?.[0]
-    : '';
-  const shortOwn = metaFromText(own);
-  // "Galala Marble – Egyptian Marble Slabs & Tiles | Wadi Degla"
+  const details = product ? (await getProductDetailsMap())[product.id] : null;
+  // "Galala Marble – Egyptian Supplier, Slabs & Tiles | Wadi Degla" (max 60 characters) and
+  // "<what the stone is> (also called …). Exported worldwide since 1980. Free samples…"
+  // (max 155), both from src/util/product-seo.js.
   const title = product ? productTitle(lang, product) : `${displayName} | Wadi Degla`;
-  const description =
-    shortOwn ||
-    descTemplate
-      .replace(/\{\{name\}\}/g, displayName)
-      .replace(/\{\{type\}\}/g, product ? productTypeLabel(lang, product.type) : 'natural stone');
+  const description = product
+    ? productMetaDescription(lang, product, details)
+    : t(lang, 'productDetails.metaDescription', '')
+        .replace(/\{\{name\}\}/g, displayName)
+        .replace(/\{\{type\}\}/g, 'natural stone');
   // The page's main photo: the Polished finish when there is one, else the first (same rule
   // as ProductDetails); the full-size photo, not the small copy.
   const mainFinish =

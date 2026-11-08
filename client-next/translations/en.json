@@ -713,8 +713,13 @@
     "aboutCategory": "About {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – {{type}} Slabs & Tiles | Wadi Degla",
+    "titleSupplierSlabsTiles": "Egyptian Supplier, Slabs & Tiles",
+    "titleSupplierSlabs": "Egyptian Supplier, Slabs",
+    "titleSupplier": "Egyptian Supplier",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Discover {{name}} — premium {{type}} available in slabs, tiles, and blocks. View specifications, finishes, and applications. Request a sample from Wadi Degla, Egypt's leading natural stone exporter.",
+    "metaAlsoCalled": "(also called {{name}})",
+    "metaTail": "Exported worldwide since 1980. Free samples and quotes on request.",
     "breadcrumbHome": "Home",
     "breadcrumbExplore": "Explore",
     "breadcrumbProducts": "Products",

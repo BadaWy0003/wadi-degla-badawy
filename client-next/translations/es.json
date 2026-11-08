@@ -713,8 +713,13 @@
     "aboutCategory": "Sobre el {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – Planchas y baldosas de {{type}} | Wadi Degla",
+    "titleSupplierSlabsTiles": "Proveedor egipcio, planchas y baldosas",
+    "titleSupplierSlabs": "Proveedor egipcio, planchas",
+    "titleSupplier": "Proveedor egipcio",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Descubre {{name}} en nuestra colección premium de {{type}}. Piedra natural de alta calidad disponible. Consulta especificaciones y solicita muestras de Wadi Degla, tu fuente confiable de materiales de lujo.",
+    "metaAlsoCalled": "(también llamado {{name}})",
+    "metaTail": "Exportado a todo el mundo desde 1980. Muestras gratuitas y presupuestos a petición.",
     "breadcrumbHome": "Inicio",
     "breadcrumbExplore": "Explorar",
     "breadcrumbProducts": "Productos",

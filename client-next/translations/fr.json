@@ -713,8 +713,13 @@
     "aboutCategory": "À propos du {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – Tranches et carreaux en {{type}} | Wadi Degla",
+    "titleSupplierSlabsTiles": "Fournisseur égyptien, tranches et carreaux",
+    "titleSupplierSlabs": "Fournisseur égyptien, tranches",
+    "titleSupplier": "Fournisseur égyptien",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Découvrez {{name}} dans notre collection premium de {{type}}. Pierre naturelle de haute qualité disponible. Consultez les spécifications et demandez des échantillons auprès de Wadi Degla, votre source de confiance pour les matériaux en pierre de luxe.",
+    "metaAlsoCalled": "(aussi appelé {{name}})",
+    "metaTail": "Exporté dans le monde entier depuis 1980. Échantillons gratuits et devis sur demande.",
     "breadcrumbHome": "Accueil",
     "breadcrumbExplore": "Explorer",
     "breadcrumbProducts": "Produits",

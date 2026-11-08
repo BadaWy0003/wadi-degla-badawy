@@ -713,8 +713,13 @@
     "aboutCategory": "了解{{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – {{type}}大板与板材 | 瓦迪·德格拉",
+    "titleSupplierSlabsTiles": "埃及供应商，大板与板材",
+    "titleSupplierSlabs": "埃及供应商，大板",
+    "titleSupplier": "埃及供应商",
+    "titleBrand": "瓦迪·德格拉",
     "metaDescription": "在我们优质的{{type}}系列中探索{{name}}。提供高质量天然石材。查看规格并从瓦迪·德格拉——您最值得信赖的豪华石材来源——申请样品。",
+    "metaAlsoCalled": "（又称{{name}}）",
+    "metaTail": "自1980年起出口全球。可提供免费样品和报价。",
     "breadcrumbHome": "首页",
     "breadcrumbExplore": "探索",
     "breadcrumbProducts": "产品",

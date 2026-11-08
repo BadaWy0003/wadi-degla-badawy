@@ -45,12 +45,97 @@ export function productFinishList(lang, product) {
     .join(', ');
 }
 
+// Search results show about 60 characters of a title.
+export const TITLE_MAX = 60;
+export const DESCRIPTION_MAX = 155;
+
+// "Galala Marble – Egyptian Supplier, Slabs & Tiles | Wadi Degla". When that is longer than
+// 60 characters, words are dropped in this order until it fits: "& Tiles", "Slabs",
+// "Egyptian Supplier", the brand.
 export function productTitle(lang, product) {
-  return fill(t(lang, 'productDetails.pageTitle'), {
-    heading: productHeading(lang, product),
-    name: product.name,
-    type: productTypeLabel(lang, product.type),
-  });
+  const heading = productHeading(lang, product);
+  const k = (key) => t(lang, `productDetails.${key}`);
+  const brand = k('titleBrand');
+  const options = [
+    `${heading} – ${k('titleSupplierSlabsTiles')} | ${brand}`,
+    `${heading} – ${k('titleSupplierSlabs')} | ${brand}`,
+    `${heading} – ${k('titleSupplier')} | ${brand}`,
+    `${heading} | ${brand}`,
+  ];
+  return options.find((o) => o.length <= TITLE_MAX) || heading;
+}
+
+const SENTENCE = /[^.!?。！？]+[.!?。！？]+/g;
+const firstSentence = (text) => {
+  const clean = String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return ((clean.match(SENTENCE) || [clean])[0] || '').trim();
+};
+
+// A sentence that fits in `max` characters (full stop included), or '' when it doesn't:
+// the whole sentence, else the part before a colon or dash when that part is a clause of
+// its own ("Galala is the best-known Egyptian marble: a cream-beige…"). Never a word cut.
+function fitSentence(sentence, max, stop = '.') {
+  const body = String(sentence || '')
+    .replace(/[.!?。！？]+$/, '')
+    .trim();
+  if (!body) return '';
+  if (body.length + 1 <= max) return body + stop;
+  const breaks = [...body.slice(0, max - 1).matchAll(/\s*[:：–—]\s/g)].map((m) => m.index);
+  const at = breaks.filter((b) => b > 12).pop();
+  return at ? body.slice(0, at).trim() + stop : '';
+}
+
+// Korean and Japanese need a polite ending after the short sentence below.
+const SENTENCE_END = { ko: '입니다', ja: 'です' };
+
+// "Halayeb Granite is a natural stone quarried in Egypt": the start of the generated intro
+// (productDetails.introEgyptian / introImported, all 12 languages), up to "({{type}})".
+function shortIdentity(lang, product) {
+  const key = isImported(product.type)
+    ? 'productDetails.introImported'
+    : 'productDetails.introEgyptian';
+  const template = t(lang, key);
+  const at = Math.max(template.indexOf('({{type}})'), template.indexOf('（{{type}}）'));
+  if (at <= 0) return '';
+  return (
+    fill(template.slice(0, at), { heading: productHeading(lang, product) }).trim() +
+    (SENTENCE_END[lang] || '')
+  );
+}
+
+// The first other name that adds something (not just the stone's own name, e.g. "Galala
+// Marble" for Galala), for "(also called Halaib)".
+function alsoCalledName(product, details) {
+  const name = String(product?.name || '').trim().toLowerCase();
+  return (details?.otherNames || []).find((n) => n && !n.toLowerCase().includes(name)) || '';
+}
+
+// Product meta description (max 155 characters): what the stone is, the first useful other
+// name, then "Exported worldwide since 1980. Free samples and quotes on request."
+// "What the stone is": the first sentence of its own description in this language when it
+// fits (or its clause before a colon/dash), else the short generated sentence ("Halayeb
+// Granite is a natural stone quarried in Egypt"). Only if even that is too long is the other
+// name left out. Sentences are never cut in the middle.
+export function productMetaDescription(lang, product, details) {
+  // Japanese and Chinese sentences end with 。 and follow each other without a space.
+  const cjk = lang === 'ja' || lang === 'zh';
+  const stop = cjk ? '。' : '.';
+  const gap = cjk ? '' : ' ';
+  const tail = t(lang, 'productDetails.metaTail');
+  const other = alsoCalledName(product, details);
+  const also = other ? fill(t(lang, 'productDetails.metaAlsoCalled'), { name: other }) : '';
+  const own = firstSentence(details?.description?.[lang]);
+  const identity = shortIdentity(lang, product);
+
+  const build = (withAlso) => {
+    const extra = withAlso && also ? `${/^[(]/.test(also) ? ' ' : ''}${also}` : '';
+    const room = DESCRIPTION_MAX - tail.length - gap.length - extra.length;
+    const sentence = fitSentence(own, room, stop) || fitSentence(identity, room, stop);
+    return sentence ? `${sentence.slice(0, -1)}${extra}${stop}${gap}${tail}` : '';
+  };
+  return build(true) || build(false) || tail;
 }
 
 export function productIntro(lang, product) {

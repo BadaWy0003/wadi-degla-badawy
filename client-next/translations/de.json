@@ -713,8 +713,13 @@
     "aboutCategory": "Mehr über {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – {{type}} Platten & Fliesen | Wadi Degla",
+    "titleSupplierSlabsTiles": "Ägyptischer Lieferant, Platten & Fliesen",
+    "titleSupplierSlabs": "Ägyptischer Lieferant, Platten",
+    "titleSupplier": "Ägyptischer Lieferant",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Entdecken Sie {{name}} in unserer Premium-Kollektion von {{type}}. Hochwertiger Naturstein verfügbar. Sehen Sie sich Spezifikationen an und fordern Sie Muster von Wadi Degla an, Ihrer vertrauenswürdigen Quelle für luxuriöse Steinmaterialien.",
+    "metaAlsoCalled": "(auch {{name}} genannt)",
+    "metaTail": "Weltweiter Export seit 1980. Kostenlose Muster und Angebote auf Anfrage.",
     "breadcrumbHome": "Startseite",
     "breadcrumbExplore": "Erkunden",
     "breadcrumbProducts": "Produkte",

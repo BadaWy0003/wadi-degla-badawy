@@ -713,8 +713,13 @@
     "aboutCategory": "{{category}}について"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – {{type}}のスラブ・タイル | Wadi Degla",
+    "titleSupplierSlabsTiles": "エジプトのサプライヤー、スラブ・タイル",
+    "titleSupplierSlabs": "エジプトのサプライヤー、スラブ",
+    "titleSupplier": "エジプトのサプライヤー",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "当社のプレミアム{{type}}コレクションで{{name}}をご覧ください。高品質な天然石をご利用いただけます。仕様を確認し、高級石材の信頼できる供給元であるワディ・デグラにサンプルをリクエストしてください。",
+    "metaAlsoCalled": "（別名：{{name}}）",
+    "metaTail": "1980年から世界各国へ輸出。無料サンプルとお見積りを承ります。",
     "breadcrumbHome": "ホーム",
     "breadcrumbExplore": "探す",
     "breadcrumbProducts": "製品",

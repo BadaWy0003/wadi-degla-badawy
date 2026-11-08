@@ -713,8 +713,13 @@
     "aboutCategory": "Scopri il {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – Lastre e piastrelle in {{type}} | Wadi Degla",
+    "titleSupplierSlabsTiles": "Fornitore egiziano, lastre e piastrelle",
+    "titleSupplierSlabs": "Fornitore egiziano, lastre",
+    "titleSupplier": "Fornitore egiziano",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Scopri {{name}} nella nostra collezione premium di {{type}}. Pietra naturale di alta qualità disponibile. Visualizza le specifiche e richiedi campioni da Wadi Degla, la tua fonte fidata per materiali lapidei di lusso.",
+    "metaAlsoCalled": "(detto anche {{name}})",
+    "metaTail": "Esportato in tutto il mondo dal 1980. Campioni gratuiti e preventivi su richiesta.",
     "breadcrumbHome": "Home",
     "breadcrumbExplore": "Esplora",
     "breadcrumbProducts": "Prodotti",

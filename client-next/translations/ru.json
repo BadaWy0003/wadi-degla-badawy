@@ -713,8 +713,13 @@
     "aboutCategory": "Подробнее: {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – слэбы и плитка | {{type}} | Wadi Degla",
+    "titleSupplierSlabsTiles": "Египетский поставщик, слэбы и плитка",
+    "titleSupplierSlabs": "Египетский поставщик, слэбы",
+    "titleSupplier": "Египетский поставщик",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Откройте для себя {{name}} в нашей премиальной коллекции {{type}}. Высококачественный натуральный камень доступен. Просмотрите спецификации и запросите образцы у **Вади Дегла**, вашего надежного источника роскошных каменных материалов.",
+    "metaAlsoCalled": "(также известен как {{name}})",
+    "metaTail": "Экспорт по всему миру с 1980 года. Бесплатные образцы и расчёт цены по запросу.",
     "breadcrumbHome": "Главная",
     "breadcrumbExplore": "Исследовать",
     "breadcrumbProducts": "Продукты",
