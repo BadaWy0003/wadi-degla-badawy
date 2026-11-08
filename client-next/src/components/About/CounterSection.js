@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { useNearScreen, useLazyComponent } from "../../util/near-screen";
-import CountUp from "react-countup";
+import StatCounter from "./StatCounter";
 import { useTranslation } from 'react-i18next';
 
 const projects = '/Assets/Icons/projects.svg';
@@ -59,7 +59,7 @@ export default function CounterSection() {
       <div id="experience-card" className="counter-card">
         <img loading="lazy" src={experience} alt={t('about.counters.experienceIconAlt')} />
         <h3>{t('about.counters.experienceTitle')}</h3>
-        <CountUp start={0} end={45} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
+        <StatCounter end={45} />
       </div>
 
       {/* Counters Section (First 3) */}
@@ -89,17 +89,17 @@ export default function CounterSection() {
           <div className="counter-card">
             <img loading="lazy" src={manpower} alt={t('about.counters.manpowerIconAlt')} />
             <h3>{t('about.counters.manpowerTitle')}</h3>
-            <CountUp start={0} end={500} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
+            <StatCounter end={500} />
           </div>
           <div className="counter-card">
             <img loading="lazy" src={tiles} alt={t('about.counters.productionIconAlt')} />
             <h3>{t('about.counters.productionTitle')}</h3>
-            <CountUp start={0} end={3000} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
+            <StatCounter end={3000} />
           </div>
           <div className="counter-card">
             <img loading="lazy" src={projects} alt={t('about.counters.projectsIconAlt')} />
             <h3>{t('about.counters.projectsTitle')}</h3>
-            <CountUp start={0} end={300} duration={3} enableScrollSpy={true} suffix=" +" className="counter-text" />
+            <StatCounter end={300} />
           </div>
         </div>
       </div>
