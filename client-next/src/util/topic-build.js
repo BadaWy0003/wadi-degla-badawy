@@ -1,5 +1,5 @@
 // Build-time data and metadata for the topic pages (see src/util/topic-pages.js).
-import { buildAlternates } from './meta';
+import { buildAlternates, buildSocial } from './meta';
 import { topicText } from './topic-content';
 import { TOPIC_PAGES } from './topic-pages';
 import { getProducts } from './product-slugs';
@@ -9,10 +9,14 @@ const BASE = 'https://www.wadidegla-eg.com';
 
 export function topicMetadata(lang, key) {
   const page = TOPIC_PAGES[key];
+  const title = topicText(lang, `${key}.pageTitle`);
+  const description = topicText(lang, `${key}.metaDescription`);
   return {
-    title: topicText(lang, `${key}.pageTitle`),
-    description: topicText(lang, `${key}.metaDescription`),
+    title,
+    description,
     alternates: buildAlternates(`/${page.slug}`, lang),
+    // Shared links show the page's cover photo.
+    ...buildSocial({ title, description, path: `/${page.slug}`, lang, image: page.hero }),
   };
 }
 

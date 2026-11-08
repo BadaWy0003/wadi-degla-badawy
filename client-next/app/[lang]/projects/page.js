@@ -1,14 +1,17 @@
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Projects from '../../../src/components/Projects/Projects';
 import { getProjects } from '../../../src/util/projects-data';
 import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'projects.pageTitle', 'Projects | Wadi Degla');
+  const description = t(lang, 'projects.metaDescription', '');
   return {
-    title: t(lang, 'projects.pageTitle', 'Projects | Wadi Degla'),
-    description: t(lang, 'projects.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/projects', lang),
+    ...buildSocial({ title, description, path: '/projects', lang }),
   };
 }
 

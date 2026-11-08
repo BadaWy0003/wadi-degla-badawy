@@ -1,12 +1,15 @@
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Exports from '../../../src/components/Exports/Exports';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'exports.pageTitle', 'Exports | Wadi Degla');
+  const description = t(lang, 'exports.metaDescription', '');
   return {
-    title: t(lang, 'exports.pageTitle', 'Exports | Wadi Degla'),
-    description: t(lang, 'exports.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/exports', lang),
+    ...buildSocial({ title, description, path: '/exports', lang }),
   };
 }
 

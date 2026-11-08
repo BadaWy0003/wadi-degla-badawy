@@ -1,14 +1,17 @@
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Machinery from '../../../src/components/Machinery/Machinery';
 import HeroPreload from '../../../src/components/HeroPreload';
 import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'machinery.pageTitle', 'Machinery | Wadi Degla');
+  const description = t(lang, 'machinery.metaDescription', '');
   return {
-    title: t(lang, 'machinery.pageTitle', 'Machinery | Wadi Degla'),
-    description: t(lang, 'machinery.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/machinery', lang),
+    ...buildSocial({ title, description, path: '/machinery', lang }),
   };
 }
 

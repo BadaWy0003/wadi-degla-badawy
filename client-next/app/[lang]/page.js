@@ -1,4 +1,4 @@
-import { t, buildAlternates } from '../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../src/util/meta';
 import Home from '../../src/components/Home/Home';
 import HeroPreload from '../../src/components/HeroPreload';
 
@@ -56,15 +56,8 @@ export function generateMetadata({ params }) {
   return {
     title: pageTitle,
     description,
-    openGraph: {
-      title: pageTitle,
-      description,
-      url: `https://www.wadidegla-eg.com/${lang}/`,
-      siteName: 'Wadi Degla',
-      images: [{ url: '/preview.webp' }],
-      type: 'website',
-    },
     alternates: buildAlternates('', lang),
+    ...buildSocial({ title: pageTitle, description, path: '', lang }),
   };
 }
 

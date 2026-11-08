@@ -1,4 +1,4 @@
-import { t, buildAlternates } from '../../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../../src/util/meta';
 import { SUPPORTED_LANGS } from '../../../../src/util/supported-langs';
 import ProjectDetails from '../../../../src/components/Projects/ProjectDetails';
 import {
@@ -23,13 +23,23 @@ export async function generateMetadata({ params }) {
   const { lang, projectId } = params;
   const project = await getProject(projectId, lang);
   const langs = await getProjectIndexedLangs(projectId);
+  const title = project
+    ? `${project.name} | Wadi Degla`
+    : t(lang, 'projects.pageTitle', 'ProjectDetails | Wadi Degla');
+  const description = project?.metaDescription || t(lang, 'projects.metaDescription', '');
   return {
     // Each project gets its own title, description (when written) and canonical URL.
-    title: project
-      ? `${project.name} | Wadi Degla`
-      : t(lang, 'projects.pageTitle', 'ProjectDetails | Wadi Degla'),
-    description: project?.metaDescription || t(lang, 'projects.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates(`/projects/${projectId}`, lang, langs),
+    // Shared links show the project's main photo.
+    ...buildSocial({
+      title,
+      description,
+      path: `/projects/${projectId}`,
+      lang,
+      image: project?.thumbnail || project?.images?.[0]?.src,
+    }),
     // Not found, or not written in this language: keep out of Google.
     ...(project && langs.includes(lang) ? {} : { robots: { index: false, follow: true } }),
   };

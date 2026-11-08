@@ -1,14 +1,17 @@
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import News from '../../../src/components/News/News';
 import { getNewsArticles } from '../../../src/util/news-data';
 import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'news.pageTitle', 'News | Wadi Degla');
+  const description = t(lang, 'news.metaDescription', '');
   return {
-    title: t(lang, 'news.pageTitle', 'News | Wadi Degla'),
-    description: t(lang, 'news.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/news', lang),
+    ...buildSocial({ title, description, path: '/news', lang }),
   };
 }
 
