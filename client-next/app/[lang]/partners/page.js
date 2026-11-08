@@ -1,12 +1,15 @@
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Partners from '../../../src/components/Partners/Partners';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'partners.pageTitle', 'Partners | Wadi Degla');
+  const description = t(lang, 'partners.metaDescription', '');
   return {
-    title: t(lang, 'partners.pageTitle', 'Partners | Wadi Degla'),
-    description: t(lang, 'partners.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/partners', lang),
+    ...buildSocial({ title, description, path: '/partners', lang }),
   };
 }
 

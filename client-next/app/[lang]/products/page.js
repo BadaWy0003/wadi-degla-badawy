@@ -1,4 +1,4 @@
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import { getProducts, productSlug } from '../../../src/util/product-slugs';
 import Products from '../../../src/components/Products/Products';
 import HeroPreload from '../../../src/components/HeroPreload';
@@ -28,10 +28,13 @@ function buildItemListSchema(lang, products) {
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'products.pageTitle', 'Egyptian Marble & Granite | Wadi Degla');
+  const description = t(lang, 'products.metaDescription', '');
   return {
-    title: t(lang, 'products.pageTitle', 'Egyptian Marble & Granite | Wadi Degla'),
-    description: t(lang, 'products.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/products', lang),
+    ...buildSocial({ title, description, path: '/products', lang }),
   };
 }
 

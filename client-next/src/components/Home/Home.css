@@ -431,6 +431,11 @@
     animation: slideDown 0.3s ease-out;
 }
 
+/* Closed answers stay in the HTML for Google; showing one replays slideDown as before. */
+.faq-answer.faq-answer-closed {
+    display: none;
+}
+
 @keyframes slideDown {
     from {
         opacity: 0;

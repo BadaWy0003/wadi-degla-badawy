@@ -1,12 +1,15 @@
 import dynamic from 'next/dynamic';
-import { t } from '../../../src/util/meta';
+import { t, buildSocial } from '../../../src/util/meta';
 const Signup = dynamic(() => import('../../../src/components/LoginSignup/Signup'), { ssr: false });
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'signup.title', 'Signup | Wadi Degla');
+  const description = t(lang, 'home.metaDescription', '');
   return {
-    title: t(lang, 'signup.title', 'Signup | Wadi Degla'),
-    description: t(lang, 'home.metaDescription', ''),
+    title,
+    description,
+    ...buildSocial({ title, description, path: '/signup', lang }),
     // Private pages: kept out of Google (robots.txt lets Google read this "noindex").
     robots: { index: false, follow: true },
   };

@@ -1,4 +1,4 @@
-import { t, buildAlternates } from '../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../src/util/meta';
 import Home from '../../src/components/Home/Home';
 import HeroPreload from '../../src/components/HeroPreload';
 
@@ -56,21 +56,12 @@ export function generateMetadata({ params }) {
   return {
     title: pageTitle,
     description,
-    openGraph: {
-      title: pageTitle,
-      description,
-      url: `https://www.wadidegla-eg.com/${lang}/`,
-      siteName: 'Wadi Degla',
-      images: [{ url: '/preview.webp' }],
-      type: 'website',
-    },
     alternates: buildAlternates('', lang),
+    ...buildSocial({ title: pageTitle, description, path: '', lang }),
   };
 }
 
 export default function HomePage({ params }) {
-  const lang = params?.lang || 'en';
-  const pageTitle = t(lang, 'home.pageTitle', 'Wadi Degla | Egyptian Natural Stone');
   return (
     <>
       <HeroPreload page="home" />
@@ -80,7 +71,6 @@ export default function HomePage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <h1 className="sr-only">{pageTitle}</h1>
       <Home />
     </>
   );

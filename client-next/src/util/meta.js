@@ -65,6 +65,52 @@ export function buildAlternates(path = '', lang = 'en', langs = SUPPORTED_LANGS)
   };
 }
 
+// Open Graph / Twitter card language (og:locale) for each site language.
+const OG_LOCALES = {
+  en: 'en_US',
+  ar: 'ar_EG',
+  fr: 'fr_FR',
+  es: 'es_ES',
+  de: 'de_DE',
+  it: 'it_IT',
+  ro: 'ro_RO',
+  ko: 'ko_KR',
+  sq: 'sq_AL',
+  ru: 'ru_RU',
+  ja: 'ja_JP',
+  zh: 'zh_CN',
+};
+export const DEFAULT_SOCIAL_IMAGE = '/preview.webp';
+
+/**
+ * The page's own preview for links shared on WhatsApp, Facebook, LinkedIn, X… (Open Graph +
+ * Twitter card). Spread it into generateMetadata: `...buildSocial({ title, description, path,
+ * lang, image })`. og:url is the page's canonical (same as buildAlternates). Next.js replaces
+ * the root layout's openGraph/twitter as a whole, so every field is set here.
+ * image: a site path (/Assets/...) or a full https link; defaults to /preview.webp.
+ */
+export function buildSocial({ title, description, path = '', lang = 'en', image }) {
+  const url = `${BASE_URL}/${lang}${path}/`;
+  const img = image || DEFAULT_SOCIAL_IMAGE;
+  return {
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: 'Wadi Degla',
+      locale: OG_LOCALES[lang] || 'en_US',
+      images: [{ url: img }],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [img],
+    },
+  };
+}
+
 // Deep-merge `override` onto `base` (objects only; strings/arrays from `override` win).
 function mergeMessages(base, override) {
   const out = { ...base };

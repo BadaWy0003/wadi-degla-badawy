@@ -1,4 +1,4 @@
-import { t, buildAlternates } from '../../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../../src/util/meta';
 import { SUPPORTED_LANGS } from '../../../../src/util/supported-langs';
 import {
   getProducts,
@@ -60,15 +60,29 @@ export async function generateMetadata({ params }) {
         ?.description?.[0]
     : '';
   const shortOwn = metaFromText(own);
+  // "Galala Marble – Egyptian Marble Slabs & Tiles | Wadi Degla"
+  const title = product ? productTitle(lang, product) : `${displayName} | Wadi Degla`;
+  const description =
+    shortOwn ||
+    descTemplate
+      .replace(/\{\{name\}\}/g, displayName)
+      .replace(/\{\{type\}\}/g, product ? productTypeLabel(lang, product.type) : 'natural stone');
+  // The page's main photo: the Polished finish when there is one, else the first (same rule
+  // as ProductDetails); the full-size photo, not the small copy.
+  const mainFinish =
+    product?.finishes?.find((f) => f.finish === 'Polished') || product?.finishes?.[0];
   return {
-    // "Galala Marble – Egyptian Marble Slabs & Tiles | Wadi Degla"
-    title: product ? productTitle(lang, product) : `${displayName} | Wadi Degla`,
-    description:
-      shortOwn ||
-      descTemplate
-        .replace(/\{\{name\}\}/g, displayName)
-        .replace(/\{\{type\}\}/g, product ? productTypeLabel(lang, product.type) : 'natural stone'),
+    title,
+    description,
     alternates: buildAlternates(`/products/${productName}`, lang),
+    // Shared links show the stone's main photo.
+    ...buildSocial({
+      title,
+      description,
+      path: `/products/${productName}`,
+      lang,
+      image: mainFinish?.link,
+    }),
   };
 }
 

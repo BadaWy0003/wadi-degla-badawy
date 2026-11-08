@@ -1,13 +1,16 @@
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import { getGalleryItems } from '../../../src/util/product-slugs';
 import Gallery from '../../../src/components/Gallery/Gallery';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'gallery.pageTitle', 'Gallery | Wadi Degla');
+  const description = t(lang, 'gallery.metaDescription', '');
   return {
-    title: t(lang, 'gallery.pageTitle', 'Gallery | Wadi Degla'),
-    description: t(lang, 'gallery.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/gallery', lang),
+    ...buildSocial({ title, description, path: '/gallery', lang }),
   };
 }
 

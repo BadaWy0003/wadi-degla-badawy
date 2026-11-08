@@ -1,13 +1,16 @@
 import dynamic from 'next/dynamic';
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 const Visualizer = dynamic(() => import('../../../src/components/Products/Visualizer'), { ssr: false });
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'visualizer.pageTitle', 'Visualizer | Wadi Degla');
+  const description = t(lang, 'visualizer.metaDescription', '');
   return {
-    title: t(lang, 'visualizer.pageTitle', 'Visualizer | Wadi Degla'),
-    description: t(lang, 'visualizer.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/visualizer', lang),
+    ...buildSocial({ title, description, path: '/visualizer', lang }),
   };
 }
 

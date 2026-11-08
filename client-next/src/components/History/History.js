@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './History.css';
 import MasonryGrid from '../MasonryGrid/MasonryGrid';
 import ContactBubble from '../Contact/ContactBubble';
-import CountUp from 'react-countup';
+import StatCounter from '../About/StatCounter';
 const history16 = '/Assets/Media/History/history16.webp'
 const sameh_ghanam = '/Assets/Media/History/sameh-ghanam.webp'
 const saeed_jr = '/Assets/Media/History/saeed-jr.webp'
@@ -34,13 +34,15 @@ export default function History() {
             <div className="history-intro-section">
                 <div className="history-intro-section-title">
                 <h2>{t('history.foundedTitle')}</h2>
-                <CountUp start={2025}
+                {/* The founding year is in the HTML as 1980 (CountUp showed 2025 there); in
+                    the browser it still counts down from 2025 when scrolled into view. */}
+                <StatCounter from={2025}
                             end={1980}
                             duration={3}
                             delay={2}
-                            enableScrollSpy={true}
-                            separator=""
+                            separator={false}
                             suffix=""
+                            className={undefined}
                             style={{ fontSize: '100px', fontWeight: 900, color: 'var(--goldColor)'}}
                 />
                 </div>

@@ -1,12 +1,15 @@
-import { t, buildAlternates } from '../../../src/util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Certificates from '../../../src/components/Certificates/Certificates';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
+  const title = t(lang, 'certificates.pageTitle', 'Certificates | Wadi Degla');
+  const description = t(lang, 'certificates.metaDescription', '');
   return {
-    title: t(lang, 'certificates.pageTitle', 'Certificates | Wadi Degla'),
-    description: t(lang, 'certificates.metaDescription', ''),
+    title,
+    description,
     alternates: buildAlternates('/certificates', lang),
+    ...buildSocial({ title, description, path: '/certificates', lang }),
   };
 }
 
