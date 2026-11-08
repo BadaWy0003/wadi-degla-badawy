@@ -100,7 +100,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - `src/Public` is a symlink to `../public`.
 - `public/robots.txt` is a static file. It does **not** block login/signup/my-account/404 pages: those carry `robots: noindex` in their `generateMetadata`/`metadata`, and Google must be able to read a page to see that (blocked pages still got listed without content, e.g. `/ko/login/`). Don't add a `public/sitemap.xml`: it would conflict with `app/sitemap.js`.
 - **One H1 per page.** On the home page it is the hero heading (`Home.js`): its text for Google/screen readers is `home.heroH1` (company + what it does) in a `sr-only` span; the visible gold heading is `home.companyName` (`aria-hidden`).
-- **Numbers in the HTML must be the real ones**: counters use `About/StatCounter.js` (real value at build time, counts up from 0 in the browser when an off-screen counter scrolls into view), not `react-countup` (renders `0` at build time). `History.js` still uses CountUp (2025 → 1980).
+- **Numbers in the HTML must be the real ones**: counters use `About/StatCounter.js` (real value at build time, counts up from 0 in the browser when an off-screen counter scrolls into view), not `react-countup` (renders its start value at build time; no longer used anywhere). The History founding year uses it too (`from={2025} end={1980}`): it is on screen at load, so it shows 1980 without the countdown.
 - **FAQ answers are always in the HTML** (`Home/FaqHome.js`, closed ones `display: none` via `.faq-answer-closed`): the page's FAQPage JSON-LD needs them on the page.
 - `out/404.html` (Next's default) has no lang/styles; it isn't used, because nginx serves `/en/page-not-found/` for 404s.
 
