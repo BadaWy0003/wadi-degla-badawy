@@ -557,8 +557,8 @@
     "whyChooseList": "Decades of expertise in natural stone quarrying and manufacturing\n\nPremium marble and granite suitable for global architectural styles\n\nWide range of finishes: polished, honed, flamed, brushed\n\nSolutions tailored for villas, hotels, mixed-use, and mega projects\n\nTrusted by architects, designers, and developers worldwide"
   },
   "kerbstone": {
-    "pageTitle": "Granite & Limestone Kerbstones from Egypt | Wadi Degla",
-    "metaDescription": "Egyptian granite and limestone kerbstones for roads, walkways, highways and landscaping, in several profiles and finishes, exported by Wadi Degla.",
+    "pageTitle": "Granite Kerbstones – Egyptian Supplier | Wadi Degla",
+    "metaDescription": "Granite and limestone kerbstones from Egypt for roads, walkways and landscaping. Exported worldwide since 1980. Free samples and quotes on request.",
     "heroTitle": "KERBSTONE",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Kerbstone",
@@ -713,8 +713,13 @@
     "aboutCategory": "About {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – {{type}} Slabs & Tiles | Wadi Degla",
+    "titleSupplierSlabsTiles": "Egyptian Supplier, Slabs & Tiles",
+    "titleSupplierSlabs": "Egyptian Supplier, Slabs",
+    "titleSupplier": "Egyptian Supplier",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Discover {{name}} — premium {{type}} available in slabs, tiles, and blocks. View specifications, finishes, and applications. Request a sample from Wadi Degla, Egypt's leading natural stone exporter.",
+    "metaAlsoCalled": "(also called {{name}})",
+    "metaTail": "Exported worldwide since 1980. Free samples and quotes on request.",
     "breadcrumbHome": "Home",
     "breadcrumbExplore": "Explore",
     "breadcrumbProducts": "Products",

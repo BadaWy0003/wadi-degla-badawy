@@ -557,8 +557,8 @@
     "whyChooseList": "数十年天然石材采石和制造专业知识\n\n适合全球建筑风格的优质大理石和花岗岩\n\n多种饰面：抛光、磨砂、火烧、拉丝\n\n为别墅、酒店、混合用途和大型项目量身定制的解决方案\n\n受到全球建筑师、设计师和开发商的信任"
   },
   "kerbstone": {
-    "pageTitle": "埃及路缘石供应商 | 花岗岩和石灰石路缘石 | 瓦迪·德格拉大理石",
-    "metaDescription": "适用于道路、人行道、景观和重型应用的优质埃及花岗岩和石灰石路缘石。探索瓦迪·德格拉大理石的路缘石类型、尺寸、饰面和出口选项。",
+    "pageTitle": "花岗岩路缘石 – 埃及供应商 | 瓦迪·德格拉",
+    "metaDescription": "适用于道路、人行道和景观的埃及花岗岩和石灰石路缘石。自1980年起出口全球。可提供免费样品和报价。",
     "heroTitle": "路缘石",
     "breadcrumbHome": "首页",
     "breadcrumbCurrent": "路缘石",
@@ -713,8 +713,13 @@
     "aboutCategory": "了解{{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – {{type}}大板与板材 | 瓦迪·德格拉",
+    "titleSupplierSlabsTiles": "埃及供应商，大板与板材",
+    "titleSupplierSlabs": "埃及供应商，大板",
+    "titleSupplier": "埃及供应商",
+    "titleBrand": "瓦迪·德格拉",
     "metaDescription": "在我们优质的{{type}}系列中探索{{name}}。提供高质量天然石材。查看规格并从瓦迪·德格拉——您最值得信赖的豪华石材来源——申请样品。",
+    "metaAlsoCalled": "（又称{{name}}）",
+    "metaTail": "自1980年起出口全球。可提供免费样品和报价。",
     "breadcrumbHome": "首页",
     "breadcrumbExplore": "探索",
     "breadcrumbProducts": "产品",

@@ -557,8 +557,8 @@
     "whyChooseList": "Dhjetra vjet përvojë në nxjerrjen dhe prodhimin e gurit natyral\n\nMarmor dhe granit premium i përshtatshëm për stilet arkitektonike globale\n\nGamë e gjerë përfundimesh: poliuar, bushanarduar, nxehtësi, furçuar\n\nZgjidhje të përshtatura për vila, hotele, përdorime të përziera dhe megaprojekte\n\nI besuar nga arkitektë, dizajnerë dhe zhvillues në të gjithë botën"
   },
   "kerbstone": {
-    "pageTitle": "Bordura graniti dhe gëlqerori nga Egjipti | Wadi Degla",
-    "metaDescription": "Bordura graniti dhe gëlqerori egjiptian për rrugë, trotuare, autostrada dhe peizazh, në disa profile dhe përfundime, të eksportuara nga Wadi Degla.",
+    "pageTitle": "Bordura graniti – Furnizues egjiptian | Wadi Degla",
+    "metaDescription": "Bordura graniti dhe gëlqerori nga Egjipti për rrugë dhe trotuare. Eksportohen në mbarë botën që nga viti 1980. Mostra falas dhe oferta sipas kërkesës.",
     "heroTitle": "BORDURA",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Bordura",
@@ -713,8 +713,13 @@
     "aboutCategory": "Rreth {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – Pllaka {{type}} | Wadi Degla",
+    "titleSupplierSlabsTiles": "Furnizues egjiptian, pllaka dhe pllakëza",
+    "titleSupplierSlabs": "Furnizues egjiptian, pllaka",
+    "titleSupplier": "Furnizues egjiptian",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Zbuloni {{name}} në koleksionin tonë premium të {{type}}. Gur natyror me cilësi të lartë në dispozicion. Shikoni specifikimet dhe kërkoni mostra nga Wadi Degla, burimi juaj i besuar për materiale guri luksoze.",
+    "metaAlsoCalled": "(i quajtur edhe {{name}})",
+    "metaTail": "Eksportohet në mbarë botën që nga viti 1980. Mostra falas dhe oferta sipas kërkesës.",
     "breadcrumbHome": "Ballina",
     "breadcrumbExplore": "Eksploro",
     "breadcrumbProducts": "Produktet",

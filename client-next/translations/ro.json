@@ -557,8 +557,8 @@
     "whyChooseList": "Zeci de ani de experiență în extragerea și fabricarea pietrei naturale\n\nMarmură și granit premium potrivite pentru stilurile arhitecturale globale\n\nGamă largă de finisaje: polic, bujardă, flamă, perie\n\nSoluții adaptate pentru vile, hoteluri, proiecte mixte și megaproiecte\n\nDe încredere de către arhitecți, designeri și dezvoltatori din întreaga lume"
   },
   "kerbstone": {
-    "pageTitle": "Borduri din granit și calcar din Egipt | Wadi Degla",
-    "metaDescription": "Borduri din granit și calcar egiptean pentru drumuri, trotuare, autostrăzi și amenajări peisagistice, în mai multe profile și finisaje, exportate de Wadi Degla.",
+    "pageTitle": "Borduri din granit – Furnizor egiptean | Wadi Degla",
+    "metaDescription": "Borduri din granit și calcar din Egipt pentru drumuri și trotuare. Exportate în întreaga lume din 1980. Mostre gratuite și oferte la cerere.",
     "heroTitle": "BORDURI",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Borduri",
@@ -713,8 +713,13 @@
     "aboutCategory": "Despre {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – Plăci și dale din {{type}} | Wadi Degla",
+    "titleSupplierSlabsTiles": "Furnizor egiptean, plăci și dale",
+    "titleSupplierSlabs": "Furnizor egiptean, plăci",
+    "titleSupplier": "Furnizor egiptean",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Descoperiți {{name}} în colecția noastră premium de {{type}}. Piatră naturală de înaltă calitate disponibilă. Vizualizați specificațiile și solicitați mostre de la Wadi Degla, sursa dumneavoastră de încredere pentru materiale din piatră de lux.",
+    "metaAlsoCalled": "(numit și {{name}})",
+    "metaTail": "Exportat în întreaga lume din 1980. Mostre gratuite și oferte la cerere.",
     "breadcrumbHome": "Acasă",
     "breadcrumbExplore": "Explorați",
     "breadcrumbProducts": "Produse",

@@ -557,8 +557,8 @@
     "whyChooseList": "Decenni di esperienza nell'estrazione e nella produzione di pietra naturale\n\nMarmo e granito premium adatti agli stili architettonici globali\n\nAmpia gamma di finiture: lucida, bocciardata, fiammata, spazzolata\n\nSoluzioni personalizzate per ville, hotel, progetti misti e megaprogetti\n\nFidata da architetti, designer e sviluppatori in tutto il mondo"
   },
   "kerbstone": {
-    "pageTitle": "Cordoli in granito e pietra calcarea dall'Egitto | Wadi Degla",
-    "metaDescription": "Cordoli in granito e pietra calcarea egiziani per strade, marciapiedi, autostrade e paesaggistica, in vari profili e finiture, esportati da Wadi Degla.",
+    "pageTitle": "Cordoli in granito – Fornitore egiziano | Wadi Degla",
+    "metaDescription": "Cordoli in granito e calcare dall'Egitto per strade e marciapiedi. Esportati in tutto il mondo dal 1980. Campioni gratuiti e preventivi su richiesta.",
     "heroTitle": "CORDOLI",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Cordoli",
@@ -713,8 +713,13 @@
     "aboutCategory": "Scopri il {{category}}"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – Lastre e piastrelle in {{type}} | Wadi Degla",
+    "titleSupplierSlabsTiles": "Fornitore egiziano, lastre e piastrelle",
+    "titleSupplierSlabs": "Fornitore egiziano, lastre",
+    "titleSupplier": "Fornitore egiziano",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "Scopri {{name}} nella nostra collezione premium di {{type}}. Pietra naturale di alta qualità disponibile. Visualizza le specifiche e richiedi campioni da Wadi Degla, la tua fonte fidata per materiali lapidei di lusso.",
+    "metaAlsoCalled": "(detto anche {{name}})",
+    "metaTail": "Esportato in tutto il mondo dal 1980. Campioni gratuiti e preventivi su richiesta.",
     "breadcrumbHome": "Home",
     "breadcrumbExplore": "Esplora",
     "breadcrumbProducts": "Prodotti",

@@ -557,8 +557,8 @@
     "whyChooseList": "天然石採掘および製造における数十年の専門知識\n\nグローバルな建築スタイルに適したプレミアム大理石と花崗岩\n\n幅広い仕上げ：磨かれた、槌目、炎処理、ブラッシュ\n\nヴィラ、ホテル、混合用途、メガプロジェクト向けのカスタマイズソリューション\n\n世界中の建築家、デザイナー、開発者から信頼されています"
   },
   "kerbstone": {
-    "pageTitle": "エジプト縁石供給業者 | 花崗岩と石灰岩の縁石 | Wadi Degla大理石",
-    "metaDescription": "道路、歩道、景観、重作業用途向けのエジプト産プレミアム花崗岩および石灰岩縁石。Wadi Degla大理石から縁石の種類、サイズ、仕上げ、輸出オプションを探索してください。",
+    "pageTitle": "花崗岩縁石 – エジプトのサプライヤー | Wadi Degla",
+    "metaDescription": "道路・歩道・造園向けのエジプト産花崗岩・石灰岩縁石。1980年から世界各国へ輸出。無料サンプルとお見積りを承ります。",
     "heroTitle": "縁石",
     "breadcrumbHome": "ホーム",
     "breadcrumbCurrent": "縁石",
@@ -713,8 +713,13 @@
     "aboutCategory": "{{category}}について"
   },
   "productDetails": {
-    "pageTitle": "{{heading}} – {{type}}のスラブ・タイル | Wadi Degla",
+    "titleSupplierSlabsTiles": "エジプトのサプライヤー、スラブ・タイル",
+    "titleSupplierSlabs": "エジプトのサプライヤー、スラブ",
+    "titleSupplier": "エジプトのサプライヤー",
+    "titleBrand": "Wadi Degla",
     "metaDescription": "当社のプレミアム{{type}}コレクションで{{name}}をご覧ください。高品質な天然石をご利用いただけます。仕様を確認し、高級石材の信頼できる供給元であるワディ・デグラにサンプルをリクエストしてください。",
+    "metaAlsoCalled": "（別名：{{name}}）",
+    "metaTail": "1980年から世界各国へ輸出。無料サンプルとお見積りを承ります。",
     "breadcrumbHome": "ホーム",
     "breadcrumbExplore": "探す",
     "breadcrumbProducts": "製品",
