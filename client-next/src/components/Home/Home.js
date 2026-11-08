@@ -37,7 +37,12 @@ export default function Home() {
     <>
       <div className="homepage">
         <div className="hero">
-          <h1 className="hero-heading">{t("home.companyName")}</h1>
+          {/* The page's only H1. Google and screen readers get the full line (home.heroH1:
+              company + what it does); the visible heading stays the company name. */}
+          <h1 className="hero-heading">
+            <span className="sr-only">{t("home.heroH1")}</span>
+            <span aria-hidden="true">{t("home.companyName")}</span>
+          </h1>
           <p>{t("home.heroWelcome")}</p>
           <div className="place4btns">
             <LangLink
