@@ -1,5 +1,6 @@
 // Build-time data and metadata for the topic pages (see src/util/topic-pages.js).
 import { buildAlternates, buildSocial } from './meta';
+import { ORG_ID, WEBSITE_ID } from './schema-ids';
 import { topicText } from './topic-content';
 import { TOPIC_PAGES } from './topic-pages';
 import { getProducts } from './product-slugs';
@@ -42,7 +43,9 @@ export async function topicData(lang, key) {
   return { products, projects: used };
 }
 
-// Home > (Products >) Topic, for Google's breadcrumb display.
+// JSON-LD of a topic page: the page itself (published by the company, part of the website: both
+// point to the site-wide nodes in RootHtml.js by @id) and its breadcrumb Home > (Products >)
+// Topic, for Google's breadcrumb display.
 export function topicBreadcrumb(lang, key) {
   const page = TOPIC_PAGES[key];
   const items = [{ name: topicText(lang, 'common.breadcrumbHome'), item: `${BASE}/${lang}/` }];
@@ -53,9 +56,25 @@ export function topicBreadcrumb(lang, key) {
     });
   }
   items.push({ name: topicText(lang, `${key}.heading`), item: `${BASE}/${lang}/${page.slug}/` });
+  const url = `${BASE}/${lang}/${page.slug}/`;
   return {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((x, i) => ({ '@type': 'ListItem', position: i + 1, ...x })),
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': url,
+        url,
+        name: topicText(lang, `${key}.pageTitle`),
+        inLanguage: lang,
+        isPartOf: { '@id': WEBSITE_ID },
+        publisher: { '@id': ORG_ID },
+        breadcrumb: { '@id': `${url}#breadcrumb` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: items.map((x, i) => ({ '@type': 'ListItem', position: i + 1, ...x })),
+      },
+    ],
   };
 }
