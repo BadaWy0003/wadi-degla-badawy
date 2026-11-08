@@ -49,9 +49,11 @@ export default function FaqHome() {
                                 ▼
                             </span>
                         </h3>
-                        {activeIndex === index && (
-                            <p className="faq-answer">{faq.answer}</p>
-                        )}
+                        {/* Every answer is in the HTML (the page's FAQPage JSON-LD needs the
+                            answers on the page); closed ones are hidden with CSS. */}
+                        <p className={`faq-answer${activeIndex === index ? '' : ' faq-answer-closed'}`}>
+                            {faq.answer}
+                        </p>
                     </div>
                 ))}
             </div>
