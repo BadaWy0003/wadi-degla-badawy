@@ -1,5 +1,13 @@
 import Script from 'next/script';
-import { MAIN_EMAIL, MAIN_PHONE, MAPS_URL, PHONES, EMAILS, SOCIALS } from './Contact/contactData';
+import {
+  MAIN_EMAIL,
+  MAIN_PHONE,
+  MAPS_URL,
+  GOOGLE_PROFILE_URL,
+  PHONES,
+  EMAILS,
+  SOCIALS,
+} from './Contact/contactData';
 import { SITE_URL, ORG_ID, WEBSITE_ID } from '../util/schema-ids';
 
 // Staging build (fly.staging.toml): hidden from search engines and no Google Analytics,
@@ -96,7 +104,7 @@ const organizationSchema = {
   foundingDate: '1980',
   // The company's own profiles (same links as the footer): helps Google connect them.
   // WhatsApp is a chat link, not a profile.
-  sameAs: SOCIALS.filter((s) => s.name !== 'WhatsApp').map((s) => s.href),
+  sameAs: [GOOGLE_PROFILE_URL, ...SOCIALS.filter((s) => s.name !== 'WhatsApp').map((s) => s.href)],
   url: SITE_URL,
   // Google needs a raster logo (PNG/JPG, at least 112x112), not SVG. Made from the colour logo
   // by tools/make-logo-png.js.
