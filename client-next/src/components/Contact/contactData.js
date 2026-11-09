@@ -4,6 +4,9 @@
 
 export const WHATSAPP_URL = 'https://wa.me/message/LAQ57AMNJ5ZON1?src=qr';
 export const MAPS_URL = 'https://maps.app.goo.gl/bM4qT3UBLVt3r7tN7';
+// The company's Google Business Profile (the profile's own "Share" link, 2026-11-09). Listed in
+// the Organization JSON-LD's sameAs so Google ties the profile to this website.
+export const GOOGLE_PROFILE_URL = 'https://share.google/Rd6wSY83M15CWZ6OR';
 export const MAIN_EMAIL = 'info@wadidegla-eg.com';
 
 export const MAIN_PHONE = { tel: '+201067260314', label: '+20 10 6726 0314' };
