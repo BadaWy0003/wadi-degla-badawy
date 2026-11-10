@@ -10,15 +10,13 @@
 export const TOPIC_PAGES = {
   egyptianMarble: {
     slug: 'egyptian-marble',
-    // Our factory yard in Egypt with Egyptian marble blocks and packed slabs (owner's choice,
-    // 2026-11-10). Only 1080x720: replace with a larger photo of the yard or quarry if one comes.
-    hero: '/Assets/Media/home-bg4.webp',
+    // Strips of our own stones' photos, made by tools/make-topic-heroes.js (also the next three).
+    hero: '/Assets/Media/Hero/egyptian-marble-hero.webp',
     products: (p) => p.type === 'Egyptian Marble',
     related: ['galalaMarble', 'egyptianGranite', 'importedMarble', 'buyGuide'],
   },
   egyptianGranite: {
     slug: 'egyptian-granite',
-    // Strips of our own stones' photos, made by tools/make-topic-heroes.js (also the next two).
     hero: '/Assets/Media/Hero/egyptian-granite-hero.webp',
     products: (p) => p.type === 'Egyptian Granite',
     related: ['egyptianMarble', 'importedGranite', 'kerbstone', 'cobbles', 'buyGuide'],

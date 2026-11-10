@@ -19,6 +19,10 @@ import '../Certificates/Certificates.css';
 import './HomePage.css';
 
 const ICONS = '/Assets/Icons';
+// Partner and certificate logos with a transparent background (tools/make-transparent-logos.js),
+// shown in one light colour and in colour on hover (HomePage.css).
+const clearLogo = (src) =>
+  `${ICONS}/logos-transparent/${src.split('/').pop().replace(/\.\w+$/, '')}.webp`;
 const HERO = '/Assets/Media/Hero';
 
 // The four stone ranges, each linking to its topic page (same header photos as those pages).
@@ -26,22 +30,22 @@ const RANGES = [
   {
     href: '/egyptian-marble',
     label: 'visualizer.egyptianMarble',
-    img: `${HERO}/egyptian-marble-tile.webp`,
+    img: `${HERO}/stone-tile-egyptian-marble.webp`,
   },
   {
     href: '/egyptian-granite',
     label: 'visualizer.egyptianGranite',
-    img: `${HERO}/egyptian-granite-hero-tile.webp`,
+    img: `${HERO}/stone-tile-egyptian-granite.webp`,
   },
   {
     href: '/imported-marble',
     label: 'visualizer.importedMarble',
-    img: `${HERO}/imported-marble-hero-tile.webp`,
+    img: `${HERO}/stone-tile-imported-marble.webp`,
   },
   {
     href: '/imported-granite',
     label: 'visualizer.importedGranite',
-    img: `${HERO}/imported-granite-hero-tile.webp`,
+    img: `${HERO}/stone-tile-imported-granite.webp`,
   },
 ];
 
@@ -364,7 +368,7 @@ export default function Home({ featured = [] }) {
             <li key={logo}>
               <img
                 loading="lazy"
-                src={logo}
+                src={clearLogo(logo)}
                 alt={
                   PARTNER_NAMES[i]
                     ? `${PARTNER_NAMES[i]} – ${t('home.partnersAlt')}`
@@ -382,7 +386,7 @@ export default function Home({ featured = [] }) {
           {certificatesData.map((c) => (
             <li key={c.thumbnail}>
               <CertificateLightBox
-                thumbnail={c.thumbnail}
+                thumbnail={clearLogo(c.thumbnail)}
                 fullImage={c.image}
                 width={c.thumbWidth}
                 height={c.thumbHeight}
