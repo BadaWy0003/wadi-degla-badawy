@@ -10,6 +10,10 @@ export const MOBILE_HEROES = new Set([
   'exports-hero',
   'home-hero-4',
   'projects-hero-mobile',
+  // Topic page headers made by tools/make-topic-heroes.js
+  'egyptian-granite-hero',
+  'imported-marble-hero',
+  'imported-granite-hero',
 ]);
 
 export const PAGE_HEROES = {

@@ -10,25 +10,28 @@
 export const TOPIC_PAGES = {
   egyptianMarble: {
     slug: 'egyptian-marble',
-    hero: '/Assets/Media/Hero/quarries-hero.webp',
+    // Our factory yard in Egypt with Egyptian marble blocks and packed slabs (owner's choice,
+    // 2026-11-10). Only 1080x720: replace with a larger photo of the yard or quarry if one comes.
+    hero: '/Assets/Media/home-bg4.webp',
     products: (p) => p.type === 'Egyptian Marble',
     related: ['galalaMarble', 'egyptianGranite', 'importedMarble', 'buyGuide'],
   },
   egyptianGranite: {
     slug: 'egyptian-granite',
-    hero: '/Assets/Media/Hero/products-hero-2.webp',
+    // Strips of our own stones' photos, made by tools/make-topic-heroes.js (also the next two).
+    hero: '/Assets/Media/Hero/egyptian-granite-hero.webp',
     products: (p) => p.type === 'Egyptian Granite',
     related: ['egyptianMarble', 'importedGranite', 'kerbstone', 'cobbles', 'buyGuide'],
   },
   importedMarble: {
     slug: 'imported-marble',
-    hero: '/Assets/Media/Hero/inspo-hero.webp',
+    hero: '/Assets/Media/Hero/imported-marble-hero.webp',
     products: (p) => p.type === 'Imported Marble',
     related: ['egyptianMarble', 'importedGranite', 'buyGuide'],
   },
   importedGranite: {
     slug: 'imported-granite',
-    hero: '/Assets/Media/Hero/products-hero.webp',
+    hero: '/Assets/Media/Hero/imported-granite-hero.webp',
     products: (p) => p.type === 'Imported Granite',
     related: ['egyptianGranite', 'importedMarble', 'buyGuide'],
   },
