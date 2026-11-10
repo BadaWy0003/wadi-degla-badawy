@@ -35,7 +35,7 @@ import LangLink from '../LangLink';
     ];
 
 // Company names for the logos' descriptions (same order as partnerLogos; empty = generic text).
-const PARTNER_NAMES = [
+export const PARTNER_NAMES = [
     'Otrovato',
     'Orascom',
     'Emaar',

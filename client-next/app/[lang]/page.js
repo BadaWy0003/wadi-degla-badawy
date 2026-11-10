@@ -1,6 +1,36 @@
 import { t, buildAlternates, buildSocial } from '../../src/util/meta';
 import Home from '../../src/components/Home/Home';
 import HeroPreload from '../../src/components/HeroPreload';
+import { getProducts, productSlug } from '../../src/util/product-slugs';
+
+// Stones of the home "showroom" (same list as the old featured cube), read at build time so
+// their names, photos and links are in the static HTML.
+const FEATURED = [
+  'Creamy White Pearl',
+  'Pietra Grey',
+  'Sunny Light',
+  'Calacatta Italy',
+  'Arabescato',
+  'Triesta Beige',
+  'New Halayeb',
+  'Red Aswan',
+];
+
+async function featuredStones() {
+  const all = (await getProducts()) || [];
+  return FEATURED.map((name) => all.find((p) => String(p.name).trim() === name))
+    .filter(Boolean)
+    .map((p) => {
+      const f =
+        p.finishes?.find((x) => x.finish === 'Polished') ||
+        p.finishes?.find((x) => x.finish === 'Honed') ||
+        p.finishes?.[0];
+      return f?.link
+        ? { name: p.name.trim(), type: p.type, slug: productSlug(p.name), img: f.thumb || f.link }
+        : null;
+    })
+    .filter(Boolean);
+}
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -61,7 +91,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function HomePage({ params }) {
+export default async function HomePage({ params }) {
+  const featured = await featuredStones();
   return (
     <>
       <HeroPreload page="home" />
@@ -71,7 +102,7 @@ export default function HomePage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <Home />
+      <Home featured={featured} />
     </>
   );
 }
