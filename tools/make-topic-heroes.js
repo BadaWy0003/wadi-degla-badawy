@@ -4,6 +4,7 @@
 // stretched over a whole screen). Writes, in client-next/public/Assets/Media/Hero/:
 //   <name>.webp    2000x720, 5 strips (desktop)
 //   <name>-m.webp   800x800, the first 3 strips (phones, see MOBILE_HEROES in hero-images.js)
+//   <name>-tile.webp 480x640, for the home page's "Choose your stone" tiles
 // Run again if a stone's photo changes, then use new file names (photos are cached 30 days):
 //   cd tools && NODE_USE_ENV_PROXY=1 node make-topic-heroes.js   (NODE_USE_ENV_PROXY: cloud only)
 const path = require('path');
@@ -57,6 +58,11 @@ async function strips(buffers, stripW, height) {
       .resize(800, 800, { fit: 'cover' })
       .webp({ quality: 68 })
       .toFile(path.join(OUT, `${name}-m.webp`));
+    // Tile for the home page's "Choose your stone" (480x640, the middle 3 strips)
+    await sharp(path.join(OUT, `${name}.webp`))
+      .resize(480, 640, { fit: 'cover' })
+      .webp({ quality: 66 })
+      .toFile(path.join(OUT, `${name}-tile.webp`));
     console.log(`${name}: ${stones.join(', ')}`);
   }
 })().catch((e) => {

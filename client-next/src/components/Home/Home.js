@@ -26,24 +26,31 @@ const RANGES = [
   {
     href: '/egyptian-marble',
     label: 'visualizer.egyptianMarble',
-    img: '/Assets/Media/home-bg4.webp',
+    img: `${HERO}/egyptian-marble-tile.webp`,
   },
   {
     href: '/egyptian-granite',
     label: 'visualizer.egyptianGranite',
-    img: `${HERO}/egyptian-granite-hero-m.webp`,
+    img: `${HERO}/egyptian-granite-hero-tile.webp`,
   },
   {
     href: '/imported-marble',
     label: 'visualizer.importedMarble',
-    img: `${HERO}/imported-marble-hero-m.webp`,
+    img: `${HERO}/imported-marble-hero-tile.webp`,
   },
   {
     href: '/imported-granite',
     label: 'visualizer.importedGranite',
-    img: `${HERO}/imported-granite-hero-m.webp`,
+    img: `${HERO}/imported-granite-hero-tile.webp`,
   },
 ];
+
+// "→" that points the reading way (left in Arabic, see HomePage.css)
+const Arrow = () => (
+  <span className="hp-arrow" aria-hidden="true">
+    →
+  </span>
+);
 
 function WhatsAppButton({ label, className = 'hp-btn hp-btn-gold' }) {
   return (
@@ -106,7 +113,10 @@ function Showroom({ stones, t }) {
                 {PRODUCT_TYPE_KEYS[s.type] ? t(PRODUCT_TYPE_KEYS[s.type]) : s.type}
               </span>
               <h3>{s.name}</h3>
-              <span className="hp-link">{t('home.moreDetails')} →</span>
+              <span className="hp-link">
+                {t('home.moreDetails')}
+                <Arrow />
+              </span>
             </span>
           </LangLink>
         </li>
@@ -136,7 +146,8 @@ export default function Home({ featured = [] }) {
               {t('home.ourProducts')}
             </LangLink>
             <LangLink href="/history" className="hp-text-link">
-              {t('home.ourHistory')} →
+              {t('home.ourHistory')}
+              <Arrow />
             </LangLink>
           </div>
         </div>
@@ -173,7 +184,10 @@ export default function Home({ featured = [] }) {
                 <img loading="lazy" src={r.img} alt={t(r.label)} />
                 <span className="hp-range-body">
                   <h3>{t(r.label)}</h3>
-                  <span className="hp-link">{t('home.explore')} →</span>
+                  <span className="hp-link">
+                    {t('home.explore')}
+                    <Arrow />
+                  </span>
                 </span>
               </LangLink>
             </li>
@@ -318,7 +332,10 @@ export default function Home({ featured = [] }) {
                   {eyebrow && <span className="hp-eyebrow">{t(`home.${eyebrow}`)}</span>}
                   <h2>{t(`home.${title}`)}</h2>
                   <span className="hp-explore-desc">{t(`home.${desc}`)}</span>
-                  <span className="hp-link">{t(`home.${cta}`)} →</span>
+                  <span className="hp-link">
+                    {t(`home.${cta}`)}
+                    <Arrow />
+                  </span>
                 </span>
               </LangLink>
             </li>

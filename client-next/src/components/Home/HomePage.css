@@ -157,11 +157,6 @@
   outline-offset: 3px;
 }
 
-html[dir='rtl'] .hp-link,
-html[dir='rtl'] .hp-text-link {
-  unicode-bidi: plaintext;
-}
-
 /* 1. Hero */
 .hp-hero {
   position: relative;
@@ -993,4 +988,23 @@ html body:has(.hp) .footer-left:not(#m) {
 html body:has(.hp) .footer-right:not(#m) {
   width: 100%;
   border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* Arabic: arrows point the reading way; no letter spacing or capitals (they break joined letters) */
+.hp-arrow {
+  display: inline-block;
+  margin-inline-start: 0.35em;
+}
+
+html[dir='rtl'] .hp-arrow {
+  transform: scaleX(-1);
+}
+
+body[lang='ar'] .hp .hp-eyebrow,
+body[lang='ar'] .hp .hp-trust li,
+body[lang='ar'] .hp .hp-stats li,
+body[lang='ar'] .hp .hp-slab-type,
+body[lang='ar'] .hp .hp-slab-label,
+body[lang='ar'] .hp .hp-btn {
+  letter-spacing: 0;
 }
