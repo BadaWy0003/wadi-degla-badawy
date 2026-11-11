@@ -12,7 +12,8 @@ const adminCollection = () => db.collection(col('admins'));
 
 // Create a new customer and generate token
 AuthService.createCustomerAndGenerateToken = async (customerData) => {
-  const { fullName, companyName, rnc, email, phone, whatsapp, country, countryCode, address, port, password } = customerData;
+  const { fullName, companyName, rnc, email, phone, whatsapp, country, countryCode, address, port, savedStones, password } =
+    customerData;
 
   try {
     // Check if email exists in customers or admins collection
@@ -38,7 +39,8 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
       country,
       countryCode: countryCode || null,
       address: address || null,
-      port,
+      port: port || null,
+      savedStones: savedStones || [],
       password: hashedPassword,
     });
 
@@ -51,6 +53,7 @@ AuthService.createCustomerAndGenerateToken = async (customerData) => {
     return { newCustomer, token };
   } catch (error) {
     console.error('Error creating customer:', error.message);
+    if (error.statusCode === 409) throw error; // "Email already exists": the signup page says so
     throw new Error('Failed to create customer. Please try again.');
   }
 };

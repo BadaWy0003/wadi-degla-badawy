@@ -115,6 +115,7 @@ CustomerService.currentCustomerUpdate = async (customerId, newCustomer) => {
       countryCode: newCustomer.countryCode,
       address: newCustomer.address,
       port: newCustomer.port,
+      savedStones: newCustomer.savedStones,
     });
 
     // Update the customer document
