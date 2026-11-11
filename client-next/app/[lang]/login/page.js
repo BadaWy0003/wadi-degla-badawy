@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic';
 import { t, buildSocial } from '../../../src/util/meta';
-const Login = dynamic(() => import('../../../src/components/LoginSignup/Login'), { ssr: false });
+const Login = dynamic(() => import('../../../src/components/Auth/Login'), { ssr: false });
 
 export function generateMetadata({ params }) {
   const { lang } = params;
-  const title = t(lang, 'login.title', 'Login | Wadi Degla');
-  const description = t(lang, 'home.metaDescription', '');
+  const title = t(lang, 'login.pageTitle', 'Login | Wadi Degla');
+  const description = t(lang, 'login.metaDescription', '');
   return {
     title,
     description,
