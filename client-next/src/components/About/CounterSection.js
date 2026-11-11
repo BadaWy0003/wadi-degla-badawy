@@ -59,7 +59,7 @@ export default function CounterSection() {
       <div id="experience-card" className="counter-card">
         <img loading="lazy" src={experience} alt={t('about.counters.experienceIconAlt')} />
         <h3>{t('about.counters.experienceTitle')}</h3>
-        <StatCounter end={45} />
+        <StatCounter end={46} />
       </div>
 
       {/* Counters Section (First 3) */}

@@ -206,6 +206,12 @@ html[dir='rtl'] .hp-hero {
   text-align: start;
 }
 
+.hp-hero-title .hp-eyebrow {
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+
 .hp-hero-headline {
   font-size: clamp(2.4rem, 5.2vw, 4.4rem);
   line-height: 1.05;
@@ -227,7 +233,7 @@ html[dir='rtl'] .hp-hero {
   margin: 56px auto 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1.4fr 1fr; /* the 4th is ISO 9001:2015 */
   border-top: 1px solid var(--hp-line-strong);
 }
 
@@ -393,12 +399,13 @@ html[dir='rtl'] .hp-hero {
   letter-spacing: 0.06em;
   white-space: nowrap;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease 0.55s;
   z-index: 2;
 }
 
 .is-active .hp-slab-label {
   opacity: 0;
+  transition: opacity 0.1s ease;
 }
 
 .hp-slab-info {
@@ -408,17 +415,21 @@ html[dir='rtl'] .hp-hero {
   display: grid;
   gap: 6px;
   background: linear-gradient(180deg, transparent, rgba(12, 11, 10, 0.88));
+  min-width: 340px; /* keeps its lines while it fades out, instead of squeezing */
   opacity: 0;
   transform: translateY(12px);
   transition:
-    opacity 0.4s ease 0.2s,
-    transform 0.4s ease 0.2s;
+    opacity 0.15s ease,
+    transform 0.15s ease;
   z-index: 1;
 }
 
 .is-active .hp-slab-info {
   opacity: 1;
   transform: none;
+  transition:
+    opacity 0.4s ease 0.35s,
+    transform 0.4s ease 0.35s;
 }
 
 .hp-slab-info h3 {
@@ -665,6 +676,10 @@ html[dir='rtl'] .hp-hero {
   width: auto;
 }
 
+.hp-certs .certificate-image:hover {
+  transform: none;
+}
+
 /* 10. FAQ */
 .hp-faq {
   display: grid;
@@ -807,8 +822,14 @@ html[dir='rtl'] .hp-hero {
       url('/Assets/Media/Hero/home-hero-4-m.webp') center / cover;
   }
 
+  /* phones: the company name bigger, the headline a little smaller (owner, 2026-11-11) */
+  .hp-hero-title .hp-eyebrow {
+    font-size: 1.2rem;
+    letter-spacing: 0.14em;
+  }
+
   .hp-hero-headline {
-    font-size: 2.2rem;
+    font-size: 1.75rem;
   }
 
   .hp-hero-text {
@@ -839,6 +860,19 @@ html[dir='rtl'] .hp-hero {
 
   .hp-trust li:nth-child(n + 3) {
     border-top: 1px solid var(--hp-line);
+  }
+
+  /* five items: ISO (the longest) moves to the end, across both columns */
+  .hp-trust li.hp-trust-iso {
+    order: 1;
+    grid-column: 1 / -1;
+    padding-inline-start: 0;
+    border-inline-start: 0;
+  }
+
+  .hp-trust li:last-child {
+    padding-inline-start: 16px;
+    border-inline-start: 1px solid var(--hp-line);
   }
 
   .hp-head {
