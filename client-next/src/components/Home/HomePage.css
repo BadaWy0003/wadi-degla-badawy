@@ -792,117 +792,44 @@ html[dir='rtl'] .hp-hero {
   }
 }
 
-.hp-hero-photo {
-  display: none;
-}
-
-@keyframes hp-kenburns {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.12);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hp-hero-photo span {
-    animation: none !important;
-  }
-}
-
 /* Phones */
 @media (max-width: 768px) {
   .hp-section {
     padding: 64px 16px 0;
   }
 
-  /* The factory photo in its own rounded frame under the header, slowly zooming in;
-     the company name sits on it like a brand plate, the headline and buttons follow on the
-     dark page, so nothing covers the photo. */
-  .hp-hero,
-  html[dir='rtl'] .hp-hero {
-    position: relative;
-    padding: 76px 16px 0;
-    min-height: 0;
+  .hp-hero {
+    padding: 110px 16px 0;
+    min-height: 92svh;
     background:
-      radial-gradient(120% 55% at 50% 0%, rgba(173, 149, 113, 0.16), transparent 70%),
-      var(--hp-bg);
+      linear-gradient(
+        180deg,
+        rgba(12, 11, 10, 0.5) 0%,
+        rgba(12, 11, 10, 0.55) 45%,
+        var(--hp-bg) 100%
+      ),
+      url('/Assets/Media/Hero/home-hero-4-m.webp') center / cover;
   }
 
-  .hp-hero-photo {
-    display: block;
-    position: relative;
-    aspect-ratio: 6 / 5;
-    margin-bottom: 22px;
-    border-radius: 24px;
-    overflow: hidden;
-    isolation: isolate;
-    background: var(--hp-surface);
-    box-shadow:
-      0 0 0 1px var(--hp-line-strong),
-      0 40px 70px -34px rgba(0, 0, 0, 0.95);
+  html[dir='rtl'] .hp-hero {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(12, 11, 10, 0.5) 0%,
+        rgba(12, 11, 10, 0.55) 45%,
+        var(--hp-bg) 100%
+      ),
+      url('/Assets/Media/Hero/home-hero-4-m.webp') center / cover;
   }
 
-  .hp-hero-photo span {
-    position: absolute;
-    inset: 0;
-    background: url('/Assets/Media/Hero/home-hero-4-m.webp') center / cover;
-    transform-origin: 55% 75%;
-    animation: hp-kenburns 24s ease-in-out infinite alternate;
-  }
-
-  /* soft shade at the top for the name plate, and a fine inner edge like a framed print */
-  .hp-hero-photo::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(180deg, rgba(12, 11, 10, 0.4) 0%, transparent 30%);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-    pointer-events: none;
-  }
-
-  /* "Wadi Degla Co." as a frosted plate on the photo's sky (still inside the H1) */
+  /* phones: the company name bigger, the headline a little smaller (owner, 2026-11-11) */
   .hp-hero-title .hp-eyebrow {
-    position: absolute;
-    top: 94px;
-    inset-inline-start: 34px;
-    z-index: 2;
-    padding: 9px 16px 8px;
-    border-radius: 999px;
-    background: rgba(12, 11, 10, 0.42);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(232, 214, 186, 0.28);
-    font-size: 0.95rem;
-    letter-spacing: 0.2em;
-    line-height: 1.2;
-  }
-
-  .hp-hero-text {
-    line-height: 1.55;
-  }
-
-  .hp-hero-inner {
-    gap: 18px;
-  }
-
-  /* the numbers as one quiet card */
-  .hp-trust {
-    background: var(--hp-surface);
-    border: 1px solid var(--hp-line);
-    border-radius: 20px;
-    padding: 4px 18px;
-    box-sizing: border-box;
-  }
-
-  .hp-trust li.hp-trust-iso {
-    padding-bottom: 20px;
+    font-size: 1.2rem;
+    letter-spacing: 0.14em;
   }
 
   .hp-hero-headline {
-    font-size: 1.9rem;
+    font-size: 1.75rem;
   }
 
   .hp-hero-text {

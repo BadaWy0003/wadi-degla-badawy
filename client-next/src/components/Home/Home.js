@@ -141,10 +141,6 @@ export default function Home({ featured = [] }) {
     <div className="hp">
       {/* 1. Hero: who we are, the main action (WhatsApp) and proof at a glance */}
       <section className="hp-hero">
-        {/* phones only: the factory photo in its own frame, above the text (HomePage.css) */}
-        <div className="hp-hero-photo" aria-hidden="true">
-          <span />
-        </div>
         <div className="hp-hero-inner">
           <h1 className="hero-heading hp-hero-title">
             <span className="hp-eyebrow">{t('home.companyName')}</span>
