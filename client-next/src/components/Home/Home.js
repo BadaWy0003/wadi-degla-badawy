@@ -24,13 +24,16 @@ const ICONS = '/Assets/Icons';
 const clearLogo = (src) =>
   `${ICONS}/logos-transparent/${src.split('/').pop().replace(/\.\w+$/, '')}.webp`;
 const HERO = '/Assets/Media/Hero';
+// Years since 1980, shown as a plain number (owner, 2026-11-11). Also in home.legacy45Years
+// ("46 Years Shaping…") in all 12 translation files: update both each year.
+const YEARS = 46;
 
 // The four stone ranges, each linking to its topic page (same header photos as those pages).
 const RANGES = [
   {
     href: '/egyptian-marble',
     label: 'visualizer.egyptianMarble',
-    img: `${HERO}/stone-tile-egyptian-marble.webp`,
+    img: `${HERO}/stone-tile-egyptian-marble-2.webp`,
   },
   {
     href: '/egyptian-granite',
@@ -157,7 +160,7 @@ export default function Home({ featured = [] }) {
         </div>
         <ul className="hp-trust">
           <li>
-            <StatCounter end={45} suffix="+" className="hp-trust-value" />
+            <StatCounter end={YEARS} suffix="" className="hp-trust-value" />
             <span>{counters('experienceTitle')}</span>
           </li>
           <li>
@@ -165,6 +168,10 @@ export default function Home({ featured = [] }) {
             <span>{t('home.trustQuarries')}</span>
           </li>
           <li>
+            <StatCounter end={26} suffix="+" className="hp-trust-value" />
+            <span>{t('home.trustCountries')}</span>
+          </li>
+          <li className="hp-trust-iso">
             <span className="hp-trust-value">ISO 9001:2015</span>
             <span>{t('home.trustIso')}</span>
           </li>
@@ -251,13 +258,13 @@ export default function Home({ featured = [] }) {
           <h2 className="hp-band-title">{counters('sectionTitle')}</h2>
           <ul className="hp-stats">
             {[
-              [45, 'experienceTitle'],
-              [500, 'manpowerTitle'],
-              [3000, 'productionTitle'],
-              [300, 'projectsTitle'],
-            ].map(([n, key]) => (
+              [YEARS, 'experienceTitle', ''],
+              [500, 'manpowerTitle', '+'],
+              [3000, 'productionTitle', '+'],
+              [300, 'projectsTitle', '+'],
+            ].map(([n, key, plus]) => (
               <li key={key}>
-                <StatCounter end={n} suffix="+" className="hp-stat-value" />
+                <StatCounter end={n} suffix={plus} className="hp-stat-value" />
                 <span>{counters(key)}</span>
               </li>
             ))}

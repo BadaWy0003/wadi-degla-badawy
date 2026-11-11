@@ -32,9 +32,9 @@ const HEROES = {
   ],
 };
 
-// Home page "Choose your stone" cards (owner's choice, 2026-11-10)
+// Home page "Choose your stone" cards (owner's choice, 2026-11-10). The Egyptian marble card
+// (stone-tile-egyptian-marble-2.webp, 2026-11-11) is a photo sent by the client, not made here.
 const TILES = {
-  'stone-tile-egyptian-marble': 'Sunny Dark',
   'stone-tile-egyptian-granite': 'Red Aswan',
   'stone-tile-imported-marble': 'Calacatta Italy',
   'stone-tile-imported-granite': 'Black Platinum Gold',

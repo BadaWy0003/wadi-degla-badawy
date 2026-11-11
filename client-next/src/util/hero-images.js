@@ -18,7 +18,7 @@ export const MOBILE_HEROES = new Set([
 ]);
 
 export const PAGE_HEROES = {
-  home: { desktop: 'home-hero-4', phone: 'home-hero-4' },
+  home: { desktop: 'home-hero-4', phone: 'home-hero-phone' }, // 3:2 phone copy, photo above the text
   about: { desktop: 'about-hero' },
   history: { desktop: 'history-hero' },
   quarries: { desktop: 'quarries-hero' },
