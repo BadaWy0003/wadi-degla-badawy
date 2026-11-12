@@ -261,3 +261,19 @@ html[dir='rtl'] .topic-steps li::before {
     padding: 1.5rem 1rem;
   }
 }
+
+/* Link under a second stone group (e.g. "Egyptian Limestone →" on the Egyptian marble page) */
+.topic-also-link {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.topic-also-link a {
+  color: var(--goldColor, #ad9571);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.topic-also-link a:hover {
+  text-decoration: underline;
+}

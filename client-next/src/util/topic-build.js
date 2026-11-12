@@ -28,19 +28,24 @@ const cardFinish = (p) =>
 // 8 projects that used one of them.
 export async function topicData(lang, key) {
   const page = TOPIC_PAGES[key];
-  if (!page.products) return { products: [], projects: [] };
+  if (!page.products) return { products: [], alsoProducts: [], projects: [] };
   const [all, projects] = await Promise.all([getProducts(), getProjects(lang)]);
-  const products = (all || [])
-    .filter(page.products)
-    .filter(cardFinish)
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((p) => ({ id: p.id, name: p.name, type: p.type, finishes: [cardFinish(p)] }));
-  const ids = new Set(products.map((p) => p.id));
+  const cards = (test) =>
+    test
+      ? (all || [])
+          .filter(test)
+          .filter(cardFinish)
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((p) => ({ id: p.id, name: p.name, type: p.type, finishes: [cardFinish(p)] }))
+      : [];
+  const products = cards(page.products);
+  const alsoProducts = cards(page.alsoProducts); // second group, e.g. limestones on Egyptian marble
+  const ids = new Set([...products, ...alsoProducts].map((p) => p.id));
   const used = projects
     .filter((p) => p.materials.some((m) => ids.has(m.id)))
     .slice(0, 8)
     .map(({ id, name, city, country, thumbnail }) => ({ id, name, city, country, thumbnail }));
-  return { products, projects: used };
+  return { products, alsoProducts, projects: used };
 }
 
 // JSON-LD of a topic page: the page itself (published by the company, part of the website: both

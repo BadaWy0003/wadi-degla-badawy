@@ -21,7 +21,13 @@ const paragraphs = (text) =>
     .map((p) => p.trim())
     .filter(Boolean);
 
-export default function TopicPage({ lang, topicKey, products = [], projects = [] }) {
+export default function TopicPage({
+  lang,
+  topicKey,
+  products = [],
+  alsoProducts = [],
+  projects = [],
+}) {
   const page = TOPIC_PAGES[topicKey];
   const k = (path) => topicText(lang, `${topicKey}.${path}`);
   const common = (path) => topicText(lang, `common.${path}`);
@@ -96,6 +102,24 @@ export default function TopicPage({ lang, topicKey, products = [], projects = []
                 <Product key={item.id} item={item} />
               ))}
             </div>
+          </section>
+        )}
+
+        {alsoProducts.length > 0 && (
+          <section className="topic-block">
+            <h2>{fillText(k('alsoTitle'), { count: alsoProducts.length })}</h2>
+            <div className="product-cards-2 topic-products">
+              {alsoProducts.map((item) => (
+                <Product key={item.id} item={item} />
+              ))}
+            </div>
+            {page.alsoLink && (
+              <p className="topic-also-link">
+                <LangLink href={`/${TOPIC_PAGES[page.alsoLink].slug}/`}>
+                  {topicText(lang, `${page.alsoLink}.heading`)} →
+                </LangLink>
+              </p>
+            )}
           </section>
         )}
 
