@@ -1,0 +1,665 @@
+/* Inspiration page (redesigned 2026-11-12, design B "Lookbook"): dark + gold like the other
+   redesigned pages. Everything is scoped under .ins; smaller screens at the end.
+   (Inspiration.css is still used by the patterns/cobbles/kerbstone and Stone Creations pages.) */
+.ins {
+  --ins-bg: #0c0b0a;
+  --ins-surface: #15130f;
+  --ins-line: rgba(232, 214, 186, 0.1);
+  --ins-line-strong: rgba(232, 214, 186, 0.22);
+  --ins-text: #f3eee6;
+  --ins-body: #d6d0c6;
+  --ins-muted: #a8a196;
+  --ins-gold: #ad9571;
+  --ins-gold-hi: #cdb48b;
+  --ins-on-gold: #16130f;
+  --ins-header: 84px; /* the fixed site header */
+  background: var(--ins-bg);
+  color: var(--ins-text);
+}
+
+.ins *,
+.ins *::before,
+.ins *::after {
+  box-sizing: border-box;
+}
+
+.ins h1,
+.ins h2,
+.ins p,
+.ins dl,
+.ins dd {
+  margin: 0;
+  padding: 0;
+}
+
+.ins h1,
+.ins h2 {
+  font-family: inherit;
+  color: var(--ins-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.ins h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.ins h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.ins-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.ins-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ins-muted);
+  margin-bottom: 34px;
+}
+
+.ins-crumb a {
+  color: var(--ins-muted);
+  text-decoration: none;
+}
+
+.ins-crumb a:hover,
+.ins-crumb-here {
+  color: var(--ins-gold-hi);
+}
+
+html[dir='rtl'] .ins-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.ins-eyebrow {
+  color: var(--ins-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.ins-hero {
+  padding: calc(var(--ins-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.ins-lead {
+  color: var(--ins-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.ins .ins-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.ins-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.ins-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--ins-gold-hi);
+}
+
+.ins-stats dt {
+  color: var(--ins-muted);
+  font-size: 13px;
+}
+
+.ins h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 24px;
+}
+
+.ins-section {
+  padding-top: 72px;
+}
+
+/* ---------- one chapter per style ---------- */
+.ins-chapter {
+  padding-top: 72px;
+}
+
+.ins-feature {
+  position: relative;
+  height: 540px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--ins-surface);
+}
+
+.ins-feature-photo {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.ins-feature-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 2.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* the photo settles in slowly when scrolled to */
+.ins-feature.ins-hidden .ins-feature-photo img {
+  transform: scale(1.12);
+}
+
+.ins-feature-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(12, 11, 10, 0.9),
+    rgba(12, 11, 10, 0.45) 55%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+html[dir='rtl'] .ins-feature-photo::after {
+  background: linear-gradient(
+    270deg,
+    rgba(12, 11, 10, 0.9),
+    rgba(12, 11, 10, 0.45) 55%,
+    transparent
+  );
+}
+
+.ins-feature-text {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  max-width: 580px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none; /* clicks reach the photo (zoom), except on the text's own parts */
+  transition:
+    opacity 0.9s ease 0.2s,
+    translate 0.9s ease 0.2s;
+}
+
+.ins-feature.ins-hidden .ins-feature-text {
+  opacity: 0;
+  translate: -40px 0;
+}
+
+html[dir='rtl'] .ins-feature.ins-hidden .ins-feature-text {
+  translate: 40px 0;
+}
+
+.ins .ins-feature h2 {
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  margin: 4px 0 14px;
+}
+
+.ins .ins-text {
+  color: var(--ins-body);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+.ins-uses {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ins-uses li {
+  border: 1px solid var(--ins-line-strong);
+  background: rgba(12, 11, 10, 0.35);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13.5px;
+  color: var(--ins-body);
+}
+
+/* the row of photos: swipe on phones, scroll or use the arrows on desktop */
+.ins-row-wrap {
+  position: relative;
+  margin-top: 12px;
+}
+
+.ins-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.ins-row::-webkit-scrollbar {
+  display: none;
+}
+
+.ins-photo {
+  flex: 0 0 300px;
+  height: 220px;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--ins-surface);
+  cursor: zoom-in;
+  scroll-snap-align: start;
+}
+
+.ins-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.ins-photo:hover img {
+  transform: scale(1.06);
+}
+
+.ins-arrows {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ins-arrows button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--ins-line-strong);
+  background: transparent;
+  color: var(--ins-text);
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.ins-arrows button:hover {
+  border-color: var(--ins-gold);
+  color: var(--ins-gold-hi);
+}
+
+html[dir='rtl'] .ins-arrows span {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+/* ---------- next steps ---------- */
+.ins-next {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ins-next-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  background: var(--ins-surface);
+  border: 1px solid var(--ins-line);
+  border-radius: 18px;
+  overflow: hidden;
+  color: var(--ins-text);
+  text-decoration: none;
+  transition:
+    border-color 0.3s,
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.ins-next-card:nth-child(2) {
+  transition-delay: 0s, 0.12s, 0.12s;
+}
+
+.ins-next-card:hover {
+  border-color: var(--ins-line-strong);
+  color: var(--ins-text);
+}
+
+.ins-next-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.ins-next-card:hover img {
+  transform: scale(1.05);
+}
+
+.ins-next-card > span {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ins-next-card b {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.ins-next-card small {
+  color: var(--ins-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ins-next-card em {
+  font-style: normal;
+  color: var(--ins-gold-hi);
+  font-size: 14px;
+}
+
+.ins-arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.ins-next-card:hover .ins-arrow {
+  transform: translateX(4px);
+}
+
+html[dir='rtl'] .ins-arrow {
+  transform: scaleX(-1);
+}
+
+html[dir='rtl'] .ins-next-card:hover .ins-arrow {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* ---------- why Wadi Degla ---------- */
+.ins-why {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--ins-line);
+  border: 1px solid var(--ins-line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.ins-why li {
+  background: var(--ins-surface);
+  padding: 22px 20px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ins-body);
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.ins-why li span {
+  display: block;
+  color: var(--ins-gold);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.ins-why li:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.ins-why li:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.ins-why li:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.ins-why li:nth-child(5) {
+  transition-delay: 0.32s;
+}
+
+/* fade-up when scrolled to (class added by useReveal after load); the big photos have their
+   own settle-in above */
+.ins-reveal.ins-hidden:not(.ins-feature) {
+  opacity: 0;
+  translate: 0 36px;
+}
+
+/* ---------- final call to action ---------- */
+.ins-band {
+  margin-top: 88px;
+  background: var(--ins-surface);
+  border-top: 1px solid var(--ins-line);
+  padding: 48px 0;
+}
+
+.ins-band .ins-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ins .ins-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.ins-band p {
+  color: var(--ins-muted);
+}
+
+.ins-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--ins-gold);
+  color: var(--ins-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ins-btn:hover {
+  background: var(--ins-gold-hi);
+  color: var(--ins-on-gold);
+}
+
+.ins-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.ins) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.ins) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ins * {
+    transition: none !important;
+  }
+
+  .ins-feature.ins-hidden .ins-feature-photo img {
+    transform: none;
+  }
+
+  .ins-feature.ins-hidden .ins-feature-text,
+  .ins-reveal.ins-hidden {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .ins {
+    --ins-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 1000px) {
+  .ins-why {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ins-next {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ins-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .ins-hero {
+    padding: calc(var(--ins-header) + 16px) 0 32px;
+  }
+
+  .ins-crumb {
+    margin-bottom: 20px;
+  }
+
+  .ins-lead {
+    font-size: 15.5px;
+  }
+
+  .ins .ins-stats {
+    gap: 28px;
+  }
+
+  .ins-stats dd {
+    font-size: 22px;
+  }
+
+  .ins-stats dt {
+    font-size: 11px;
+  }
+
+  .ins-chapter,
+  .ins-section {
+    padding-top: 48px;
+  }
+
+  /* text under a darker bottom half, so it stays readable over any photo */
+  .ins-feature {
+    height: auto;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .ins-feature-photo::after,
+  html[dir='rtl'] .ins-feature-photo::after {
+    background: linear-gradient(
+      0deg,
+      rgba(12, 11, 10, 0.96),
+      rgba(12, 11, 10, 0.88) 55%,
+      rgba(12, 11, 10, 0.5) 80%,
+      transparent
+    );
+  }
+
+  .ins-feature-text {
+    height: auto;
+    padding: 160px 20px 22px;
+    justify-content: flex-end;
+  }
+
+  .ins-feature.ins-hidden .ins-feature-text,
+  html[dir='rtl'] .ins-feature.ins-hidden .ins-feature-text {
+    translate: 0 30px;
+  }
+
+  .ins-uses li {
+    font-size: 12.5px;
+    padding: 6px 12px;
+  }
+
+  .ins-photo {
+    flex-basis: 220px;
+    height: 160px;
+  }
+
+  .ins-row {
+    gap: 8px;
+  }
+
+  .ins-arrows {
+    display: none;
+  }
+
+  .ins-next-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ins-next-card img {
+    min-height: 0;
+    height: 170px;
+  }
+
+  .ins-why {
+    grid-template-columns: 1fr;
+  }
+
+  .ins-band {
+    margin-top: 56px;
+  }
+
+  .ins-band .ins-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
