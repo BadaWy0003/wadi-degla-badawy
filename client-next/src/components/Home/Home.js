@@ -163,11 +163,15 @@ export default function Home({ featured = [] }) {
             <StatCounter end={YEARS} suffix="" className="hp-trust-value" />
             <span>{counters('experienceTitle')}</span>
           </li>
-          <li>
+          <li className="hp-trust-quarries">
             <span className="hp-trust-value">14</span>
             <span>{t('home.trustQuarries')}</span>
           </li>
-          <li>
+          <li className="hp-trust-factories">
+            <span className="hp-trust-value">3</span>
+            <span>{t('home.trustFactories')}</span>
+          </li>
+          <li className="hp-trust-countries">
             <StatCounter end={26} suffix="+" className="hp-trust-value" />
             <span>{t('home.trustCountries')}</span>
           </li>
@@ -175,7 +179,7 @@ export default function Home({ featured = [] }) {
             <span className="hp-trust-value">ISO 9001:2015</span>
             <span>{t('home.trustIso')}</span>
           </li>
-          <li>
+          <li className="hp-trust-production">
             <StatCounter end={3000} suffix="" className="hp-trust-value" />
             <span>{counters('productionTitle')}</span>
           </li>
