@@ -1,7 +1,6 @@
 import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import News from '../../../src/components/News/News';
 import { getNewsArticles } from '../../../src/util/news-data';
-import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -18,10 +17,5 @@ export function generateMetadata({ params }) {
 // Articles come from the admin panel (read at build time, see src/util/news-data.js).
 export default async function NewsPage({ params }) {
   const articles = await getNewsArticles(params.lang);
-  return (
-    <>
-      <HeroPreload page="news" />
-      <News articles={articles} />
-    </>
-  );
+  return <News articles={articles} />;
 }
