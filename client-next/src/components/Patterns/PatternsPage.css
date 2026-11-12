@@ -1,0 +1,489 @@
+/* Patterns / pavers page (redesigned 2026-11-12, design A "Pick a stone"): dark + gold like the
+   other redesigned pages. Everything is scoped under .pt; smaller screens at the end. */
+.pt {
+  --pt-bg: #0c0b0a;
+  --pt-surface: #15130f;
+  --pt-line: rgba(232, 214, 186, 0.1);
+  --pt-line-strong: rgba(232, 214, 186, 0.22);
+  --pt-text: #f3eee6;
+  --pt-body: #d6d0c6;
+  --pt-muted: #a8a196;
+  --pt-gold: #ad9571;
+  --pt-gold-hi: #cdb48b;
+  --pt-on-gold: #16130f;
+  --pt-header: 84px; /* the fixed site header */
+  background: var(--pt-bg);
+  color: var(--pt-text);
+}
+
+.pt *,
+.pt *::before,
+.pt *::after {
+  box-sizing: border-box;
+}
+
+.pt h1,
+.pt h2,
+.pt p,
+.pt dl,
+.pt dd {
+  margin: 0;
+  padding: 0;
+}
+
+.pt h1,
+.pt h2 {
+  font-family: inherit;
+  color: var(--pt-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.pt h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.pt h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.pt-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.pt-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--pt-muted);
+  margin-bottom: 34px;
+}
+
+.pt-crumb a {
+  color: var(--pt-muted);
+  text-decoration: none;
+}
+
+.pt-crumb a:hover,
+.pt-crumb-here {
+  color: var(--pt-gold-hi);
+}
+
+html[dir='rtl'] .pt-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.pt-eyebrow {
+  color: var(--pt-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.pt-hero {
+  padding: calc(var(--pt-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.pt-lead {
+  color: var(--pt-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.pt .pt-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.pt-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.pt-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--pt-gold-hi);
+}
+
+.pt-stats dt {
+  color: var(--pt-muted);
+  font-size: 13px;
+}
+
+.pt h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 20px;
+}
+
+.pt h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--pt-text);
+  text-transform: none;
+  margin: 0 0 6px;
+}
+
+.pt-section {
+  padding-top: 64px;
+}
+
+.pt .pt-intro {
+  color: var(--pt-body);
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 760px;
+  margin: -8px 0 22px;
+}
+
+/* ---------- try-the-stone scenes ---------- */
+.pt-scene {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  background: var(--pt-surface);
+  border: 1px solid var(--pt-line);
+  border-radius: 24px;
+  overflow: hidden;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.pt-scene-photo {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: var(--pt-bg);
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.pt-scene-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pt-scene-photo .pt-under {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pt-scene-photo img.pt-fade {
+  position: relative;
+  animation: pt-fade 0.6s ease both;
+}
+
+@keyframes pt-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.pt-badge {
+  position: absolute;
+  bottom: 16px;
+  inset-inline-start: 16px;
+  background: rgba(12, 11, 10, 0.75);
+  color: var(--pt-text);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+}
+
+.pt-side {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pt-side > p {
+  color: var(--pt-muted);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.pt-swatches {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.pt-swatches-many {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.pt-swatches button {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--pt-muted);
+  font: inherit;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.pt-swatches img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition:
+    transform 0.25s,
+    border-color 0.25s;
+}
+
+.pt-swatches-many img {
+  object-fit: contain;
+}
+
+.pt-swatches button:hover img {
+  transform: translateY(-3px);
+}
+
+.pt-swatches button.is-on {
+  color: var(--pt-gold-hi);
+}
+
+.pt-swatches button.is-on img {
+  border-color: var(--pt-gold);
+}
+
+/* ---------- pattern photos ---------- */
+.pt-patterns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.pt-pattern {
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--pt-surface);
+  cursor: zoom-in;
+  aspect-ratio: 1;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.pt-pattern:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.pt-pattern:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.pt-pattern:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.pt-pattern img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.pt-pattern:hover img {
+  transform: scale(1.06);
+}
+
+/* the shared "Related pages" links */
+.pt .related-pages {
+  padding-top: 64px;
+  margin: 0;
+  background: transparent;
+}
+
+/* fade-up when scrolled to (class added by useReveal after load) */
+.pt-reveal.pt-hidden {
+  opacity: 0;
+  translate: 0 36px;
+}
+
+/* ---------- buttons, final call to action ---------- */
+.pt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--pt-gold);
+  color: var(--pt-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.pt-btn:hover {
+  background: var(--pt-gold-hi);
+  color: var(--pt-on-gold);
+}
+
+.pt-btn svg {
+  font-size: 19px;
+}
+
+.pt-band {
+  margin-top: 88px;
+  background: var(--pt-surface);
+  border-top: 1px solid var(--pt-line);
+  padding: 48px 0;
+}
+
+.pt-band .pt-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.pt .pt-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.pt-band p {
+  color: var(--pt-muted);
+}
+
+.pt-band .pt-btn {
+  margin-top: 0;
+  align-self: auto;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.pt) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.pt) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pt * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .pt-reveal.pt-hidden {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .pt {
+    --pt-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 1000px) {
+  .pt-scene {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pt-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .pt-hero {
+    padding: calc(var(--pt-header) + 16px) 0 32px;
+  }
+
+  .pt-crumb {
+    margin-bottom: 20px;
+  }
+
+  .pt-lead {
+    font-size: 15.5px;
+  }
+
+  .pt .pt-stats {
+    gap: 28px;
+  }
+
+  .pt-stats dd {
+    font-size: 22px;
+  }
+
+  .pt-stats dt {
+    font-size: 11px;
+  }
+
+  .pt-section {
+    padding-top: 48px;
+  }
+
+  .pt-side {
+    padding: 18px;
+  }
+
+  .pt-patterns {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .pt .related-pages {
+    padding-top: 48px;
+  }
+
+  .pt-band {
+    margin-top: 56px;
+  }
+
+  .pt-band .pt-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

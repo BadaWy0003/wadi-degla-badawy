@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "Spaltfläche {{number}}",
     "splitFaceMainAlt": "Ausgewählte Spaltfläche",
     "patternsTitle": "Steinmuster",
-    "introText": "Wadi Degla produziert Marmor-Pflasterplatten, Spaltmarmor (Split-Face) und dekorative Steinmuster für Terrassen, Wege, Poolumrandungen, Gärten und Fassaden. Wählen Sie unten einen Stein, um ihn in einer echten Umgebung zu sehen, und kontaktieren Sie uns für Formate, Oberflächen und Mengen für Ihr Projekt."
+    "introText": "Wadi Degla produziert Marmor-Pflasterplatten, Spaltmarmor (Split-Face) und dekorative Steinmuster für Terrassen, Wege, Poolumrandungen, Gärten und Fassaden. Wählen Sie unten einen Stein, um ihn in einer echten Umgebung zu sehen, und kontaktieren Sie uns für Formate, Oberflächen und Mengen für Ihr Projekt.",
+    "eyebrow": "Naturstein für außen",
+    "paversEyebrow": "Pooldecks, Terrassen, Wege",
+    "splitFaceEyebrow": "Fassaden und Akzentwände",
+    "statPavers": "Pflastersteine",
+    "statSplitFace": "Spaltsteine",
+    "statPatterns": "Verlegemuster",
+    "pickTitle": "Stein wählen",
+    "stoneN": "Stein {{number}}",
+    "stoneOf": "Stein {{number}} von {{count}}",
+    "ask": "Zu diesem Stein anfragen",
+    "patternsText": "Fischgrät- und Zickzackverlegung für Wege und Einfahrten.",
+    "bandTitle": "Planen Sie eine Terrasse, ein Pooldeck oder eine Fassade?",
+    "bandText": "Nennen Sie uns Fläche und Wunschoptik: Wir schlagen Stein, Format und Oberfläche vor."
   },
   "home": {
     "pageTitle": "Ägyptischer Marmor, Granit & Kalkstein | Wadi Degla",

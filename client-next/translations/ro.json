@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "Fațadă Despicată {{number}}",
     "splitFaceMainAlt": "Fațadă Despicată Selectată",
     "patternsTitle": "Modele din Piatră",
-    "introText": "Wadi Degla produce dale de pavaj din marmură, marmură split-face și modele decorative din piatră pentru terase, alei, margini de piscină, grădini și fațade. Alegeți o piatră de mai jos pentru a o vedea într-un cadru real și contactați-ne pentru dimensiuni, finisaje și cantități pentru proiectul dvs."
+    "introText": "Wadi Degla produce dale de pavaj din marmură, marmură split-face și modele decorative din piatră pentru terase, alei, margini de piscină, grădini și fațade. Alegeți o piatră de mai jos pentru a o vedea într-un cadru real și contactați-ne pentru dimensiuni, finisaje și cantități pentru proiectul dvs.",
+    "eyebrow": "Piatră pentru exterior",
+    "paversEyebrow": "Margini de piscină, terase, alei",
+    "splitFaceEyebrow": "Fațade și pereți decorativi",
+    "statPavers": "pietre de pavaj",
+    "statSplitFace": "pietre cu fața spartă",
+    "statPatterns": "modele",
+    "pickTitle": "Alegeți o piatră",
+    "stoneN": "Piatra {{number}}",
+    "stoneOf": "Piatra {{number}} din {{count}}",
+    "ask": "Întrebați despre această piatră",
+    "patternsText": "Montaj în spic și zigzag pentru alei și căi de acces.",
+    "bandTitle": "Plănuiți o terasă, o piscină sau o fațadă?",
+    "bandText": "Spuneți-ne suprafața și stilul dorit: vă sugerăm piatra, dimensiunea și finisajul."
   },
   "home": {
     "pageTitle": "Marmură, granit și calcar egiptean | Wadi Degla",

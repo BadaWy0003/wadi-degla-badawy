@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "스플릿 페이스 {{number}}",
     "splitFaceMainAlt": "선택된 스플릿 페이스",
     "patternsTitle": "석재 패턴",
-    "introText": "Wadi Degla는 테라스, 산책로, 수영장 데크, 정원, 외벽을 위한 대리석 포장 타일, 스플릿 페이스 대리석, 장식용 석재 패턴을 생산합니다. 아래에서 석재를 선택해 실제 공간에 적용된 모습을 확인하시고, 프로젝트에 맞는 규격, 마감, 수량은 문의해 주세요."
+    "introText": "Wadi Degla는 테라스, 산책로, 수영장 데크, 정원, 외벽을 위한 대리석 포장 타일, 스플릿 페이스 대리석, 장식용 석재 패턴을 생산합니다. 아래에서 석재를 선택해 실제 공간에 적용된 모습을 확인하시고, 프로젝트에 맞는 규격, 마감, 수량은 문의해 주세요.",
+    "eyebrow": "외장용 석재",
+    "paversEyebrow": "수영장 데크, 테라스, 보도",
+    "splitFaceEyebrow": "파사드 및 포인트 벽",
+    "statPavers": "포장석",
+    "statSplitFace": "스플릿 페이스 석재",
+    "statPatterns": "패턴",
+    "pickTitle": "석재 선택",
+    "stoneN": "석재 {{number}}",
+    "stoneOf": "석재 {{number}} / {{count}}",
+    "ask": "이 석재 문의하기",
+    "patternsText": "보도와 진입로를 위한 헤링본 및 지그재그 패턴.",
+    "bandTitle": "테라스, 수영장 데크, 파사드를 계획 중이신가요?",
+    "bandText": "면적과 원하는 스타일을 알려주시면 석재, 크기, 마감을 제안해 드립니다."
   },
   "home": {
     "pageTitle": "와디 데글라 Wadi Degla | 이집트 대리석·화강암·석회암 수출",

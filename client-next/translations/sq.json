@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "Faqe e Ndarë {{number}}",
     "splitFaceMainAlt": "Faqe e Ndarë e Zgjedhur",
     "patternsTitle": "Modele Guri",
-    "introText": "Wadi Degla prodhon pllaka shtrimi prej mermeri, mermer split-face dhe modele dekorative guri për tarraca, shtigje, buzë pishinash, kopshte dhe fasada. Zgjidhni një gur më poshtë për ta parë në një mjedis real dhe na kontaktoni për përmasat, përfundimet dhe sasitë për projektin tuaj."
+    "introText": "Wadi Degla prodhon pllaka shtrimi prej mermeri, mermer split-face dhe modele dekorative guri për tarraca, shtigje, buzë pishinash, kopshte dhe fasada. Zgjidhni një gur më poshtë për ta parë në një mjedis real dhe na kontaktoni për përmasat, përfundimet dhe sasitë për projektin tuaj.",
+    "eyebrow": "Gur për ambiente të jashtme",
+    "paversEyebrow": "Rreth pishinave, tarraca, shtigje",
+    "splitFaceEyebrow": "Fasada dhe mure dekorative",
+    "statPavers": "gurë shtrimi",
+    "statSplitFace": "gurë me faqe të çarë",
+    "statPatterns": "modele",
+    "pickTitle": "Zgjidhni një gur",
+    "stoneN": "Guri {{number}}",
+    "stoneOf": "Guri {{number}} nga {{count}}",
+    "ask": "Pyetni për këtë gur",
+    "patternsText": "Shtrime në formë thumbi peshku dhe zigzag për shtigje dhe hyrje.",
+    "bandTitle": "Po planifikoni një tarracë, pishinë apo fasadë?",
+    "bandText": "Na tregoni sipërfaqen dhe stilin që ju pëlqen: do t’ju sugjerojmë gurin, përmasën dhe përfundimin."
   },
   "home": {
     "pageTitle": "Mermer, granit dhe gur gëlqeror egjiptian | Wadi Degla",

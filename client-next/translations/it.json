@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "Faccia Spaccata {{number}}",
     "splitFaceMainAlt": "Faccia Spaccata Selezionata",
     "patternsTitle": "Motivi in Pietra",
-    "introText": "Wadi Degla produce lastre da pavimentazione in marmo, marmo a spacco (split-face) e motivi decorativi in pietra per terrazze, vialetti, bordi piscina, giardini e facciate. Scegli una pietra qui sotto per vederla in un ambiente reale e contattaci per formati, finiture e quantità per il tuo progetto."
+    "introText": "Wadi Degla produce lastre da pavimentazione in marmo, marmo a spacco (split-face) e motivi decorativi in pietra per terrazze, vialetti, bordi piscina, giardini e facciate. Scegli una pietra qui sotto per vederla in un ambiente reale e contattaci per formati, finiture e quantità per il tuo progetto.",
+    "eyebrow": "Pietra per esterni",
+    "paversEyebrow": "Bordi piscina, terrazze, vialetti",
+    "splitFaceEyebrow": "Facciate e pareti decorative",
+    "statPavers": "pietre per pavimentazione",
+    "statSplitFace": "pietre a spacco",
+    "statPatterns": "motivi",
+    "pickTitle": "Scegliete una pietra",
+    "stoneN": "Pietra {{number}}",
+    "stoneOf": "Pietra {{number}} di {{count}}",
+    "ask": "Chiedi di questa pietra",
+    "patternsText": "Posa a spina di pesce e a zigzag per vialetti e accessi.",
+    "bandTitle": "State progettando una terrazza, una piscina o una facciata?",
+    "bandText": "Indicateci superficie e stile: vi suggeriremo pietra, formato e finitura."
   },
   "home": {
     "pageTitle": "Marmo, granito e calcare egiziani | Wadi Degla",
