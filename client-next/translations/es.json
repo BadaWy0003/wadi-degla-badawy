@@ -696,7 +696,7 @@
     "slabs": {
       "caption": "Líneas de pulido y tratamiento diseñadas para entregar acabados premium con brillo, textura y durabilidad consistentes.",
       "polishingLines": "3 líneas de pulido",
-      "risinLine": "1 línea de tratamiento risin",
+      "risinLine": "1 línea de tratamiento con resina",
       "polishingLinesDesc": "Capaz de producir una amplia gama de acabados—pulido, abrillantado, cepillado, cuero, etc.—con espesores de hasta 8 cm.",
       "risinLineDesc": "Una línea de resina especializada que mejora la resistencia superficial, durabilidad y apariencia visual de las losas, especialmente piedras premium."
     },
@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "Los cortadores de puentes están diseñados para la precisión en la producción de baldosas, escalones y formatos de piedra personalizados.",
       "tumblingMachineDesc": "Una línea dedicada para acabados antiguos, pulidos y texturizados utilizados en diseño de paisaje y arquitectura rústica.",
       "splittingStripsDesc": "Máquinas de división de tiras para baldosas delgadas, piezas de revestimiento y elementos de piedra decorativa."
-    }
+    },
+    "eyebrow": "Dentro de nuestras fábricas",
+    "pageHeading": "Nuestra maquinaria",
+    "statMachines": "máquinas",
+    "statThickness": "espesor máx. de plancha",
+    "flowTitle": "Del bloque a la baldosa",
+    "stage1Title": "Del bloque",
+    "stage1Text": "Corte de bloques en planchas",
+    "stage2Title": "A la plancha",
+    "stage2Text": "Pulido y tratamiento con resina",
+    "stage3Title": "A la baldosa",
+    "stage3Text": "Corte a medida y acabados especiales",
+    "stage4Title": "Moverlo todo",
+    "stage4Text": "Grúas y carretillas elevadoras",
+    "bandTitle": "¿Necesita una medida o acabado especial?",
+    "bandText": "Envíenos sus planos. Nuestras fábricas cortan y acaban para su proyecto."
   },
   "myAccount": {
     "pageTitle": "Mi Cuenta | Wadidegla",

@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "I taglierini a ponte sono progettati per la precisione nella produzione di piastrelle, gradini e formati di pietra personalizzati.",
       "tumblingMachineDesc": "Una linea dedicata a finiture antiche, levigate e strutturate utilizzate nella progettazione paesaggistica e nell'architettura rustica.",
       "splittingStripsDesc": "Macchine di divisione a strisce per piastrelle sottili, pezzi di rivestimento e elementi decorativi in pietra."
-    }
+    },
+    "eyebrow": "Dentro le nostre fabbriche",
+    "pageHeading": "I nostri macchinari",
+    "statMachines": "macchine",
+    "statThickness": "spessore max. lastre",
+    "flowTitle": "Dal blocco alla piastrella",
+    "stage1Title": "Dal blocco",
+    "stage1Text": "Taglio dei blocchi in lastre",
+    "stage2Title": "Alla lastra",
+    "stage2Text": "Lucidatura e trattamento con resina",
+    "stage3Title": "Alla piastrella",
+    "stage3Text": "Taglio su misura e finiture speciali",
+    "stage4Title": "Movimentazione",
+    "stage4Text": "Gru e carrelli elevatori",
+    "bandTitle": "Ti serve una misura o finitura speciale?",
+    "bandText": "Inviaci i disegni. Le nostre fabbriche tagliano e rifiniscono per il tuo progetto."
   },
   "myAccount": {
     "pageTitle": "Il Mio Account | Wadidegla",

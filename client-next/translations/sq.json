@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "Prerësit e urave janë të dizajnuara për saktësinë në prodhimin e pllakave, shkallëve dhe formateve të gurëve të personalizuara.",
       "tumblingMachineDesc": "Një linjë e dedikuar për përfundime antike, tumbled dhe të strukturuara të përdorura në dizajn peizazh dhe arkitekturë rusike.",
       "splittingStripsDesc": "Makinat e ndarjes së shiritave për pllaka të hollë, copëza mbulimi dhe elemente dekorative guri."
-    }
+    },
+    "eyebrow": "Brenda fabrikave tona",
+    "pageHeading": "Makineritë tona",
+    "statMachines": "makineri",
+    "statThickness": "trashësia maks. e pllakave",
+    "flowTitle": "Nga blloku te pllaka",
+    "stage1Title": "Nga blloku",
+    "stage1Text": "Prerja e blloqeve në pllaka",
+    "stage2Title": "Te pllaka",
+    "stage2Text": "Lustrim dhe trajtim me rrëshirë",
+    "stage3Title": "Te pllakëza",
+    "stage3Text": "Prerje me përmasë dhe përfundime të veçanta",
+    "stage4Title": "Lëvizja e gjithçkaje",
+    "stage4Text": "Vinça dhe pirunë ngritës",
+    "bandTitle": "Ju duhet një përmasë ose përfundim i veçantë?",
+    "bandText": "Na dërgoni vizatimet. Fabrikat tona presin dhe përpunojnë për projektin tuaj."
   },
   "myAccount": {
     "pageTitle": "Llogaria Ime | Wadidegla",

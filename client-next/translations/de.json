@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "Brückenschneider sind für Genauigkeit bei der Herstellung von Fliesen, Stufen und maßgeschneiderten Steinformaten entwickelt.",
       "tumblingMachineDesc": "Eine spezielle Linie für antike, polierte und strukturierte Oberflächen, die in Landschafts- und rustikalen Architekturdesigns verwendet werden.",
       "splittingStripsDesc": "Strip-Splitting-Maschinen für dünne Fliesen, Verkleidungsteile und dekorative Steinelemente."
-    }
+    },
+    "eyebrow": "In unseren Werken",
+    "pageHeading": "Unsere Maschinen",
+    "statMachines": "Maschinen",
+    "statThickness": "max. Plattenstärke",
+    "flowTitle": "Vom Block zur Fliese",
+    "stage1Title": "Vom Block",
+    "stage1Text": "Blöcke zu Platten sägen",
+    "stage2Title": "Zur Platte",
+    "stage2Text": "Polieren und Harzbehandlung",
+    "stage3Title": "Zur Fliese",
+    "stage3Text": "Zuschnitt nach Maß und Spezialoberflächen",
+    "stage4Title": "Alles bewegen",
+    "stage4Text": "Kräne und Gabelstapler",
+    "bandTitle": "Sondermaß oder besondere Oberfläche?",
+    "bandText": "Senden Sie uns Ihre Pläne. Unsere Werke schneiden und veredeln für Ihr Projekt."
   },
   "myAccount": {
     "pageTitle": "Mein Konto | Wadidegla",
