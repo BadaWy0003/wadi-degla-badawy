@@ -1,0 +1,506 @@
+/* History page (redesigned 2026-11-12, design A "Timeline"): dark + gold like the home, stone and
+   products pages. Everything is scoped under .hi; smaller screens at the end. */
+.hi {
+  --hi-bg: #0c0b0a;
+  --hi-surface: #15130f;
+  --hi-line: rgba(232, 214, 186, 0.1);
+  --hi-line-strong: rgba(232, 214, 186, 0.22);
+  --hi-text: #f3eee6;
+  --hi-body: #d6d0c6;
+  --hi-muted: #a8a196;
+  --hi-gold: #ad9571;
+  --hi-gold-hi: #cdb48b;
+  --hi-on-gold: #16130f;
+  --hi-header: 84px; /* the fixed site header */
+  background: var(--hi-bg);
+  color: var(--hi-text);
+}
+
+.hi *,
+.hi *::before,
+.hi *::after {
+  box-sizing: border-box;
+}
+
+.hi h1,
+.hi h2,
+.hi p,
+.hi dl,
+.hi dd {
+  margin: 0;
+  padding: 0;
+}
+
+.hi h1,
+.hi h2 {
+  font-family: inherit;
+  color: var(--hi-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.hi h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.hi h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.hi-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.hi-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--hi-muted);
+  margin-bottom: 34px;
+}
+
+.hi-crumb a {
+  color: var(--hi-muted);
+  text-decoration: none;
+}
+
+.hi-crumb a:hover,
+.hi-crumb-here {
+  color: var(--hi-gold-hi);
+}
+
+html[dir='rtl'] .hi-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.hi-eyebrow {
+  color: var(--hi-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.hi-hero {
+  padding: calc(var(--hi-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.hi-lead {
+  color: var(--hi-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.hi .hi-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.hi-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.hi-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--hi-gold-hi);
+}
+
+.hi-stats dt {
+  color: var(--hi-muted);
+  font-size: 13px;
+}
+
+/* ---------- sections ---------- */
+.hi-section {
+  padding-top: 72px;
+}
+
+.hi h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: var(--hi-text);
+  margin: 0 0 10px;
+  text-transform: none;
+}
+
+.hi-text {
+  color: var(--hi-body);
+  line-height: 1.7;
+  max-width: 780px;
+  margin-bottom: 14px !important;
+}
+
+/* ---------- timeline ---------- */
+.hi-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.hi-timeline::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 128px;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: var(--hi-line-strong);
+}
+
+.hi-timeline > li {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 48px;
+  padding-bottom: 36px;
+}
+
+.hi-year {
+  position: relative;
+  text-align: end;
+  color: var(--hi-gold-hi);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.hi-year::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: -30px;
+  top: 8px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--hi-gold);
+  box-shadow: 0 0 0 4px var(--hi-bg);
+}
+
+.hi-card {
+  background: var(--hi-surface);
+  border: 1px solid var(--hi-line);
+  border-radius: 18px;
+  padding: 24px;
+  min-width: 0;
+}
+
+.hi-card.has-photo {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 24px;
+  align-items: start;
+}
+
+.hi-card-text {
+  min-width: 0;
+}
+
+.hi-card p {
+  color: var(--hi-body);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+.hi-card p + p,
+.hi-card p + .hi-lead-in {
+  margin-top: 10px !important;
+}
+
+.hi .hi-lead-in {
+  color: var(--hi-text);
+  font-weight: 500;
+  margin-top: 12px !important;
+}
+
+.hi-portrait {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.hi-checks {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.hi-checks li {
+  position: relative;
+  padding-inline-start: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.hi-checks li::before {
+  content: '✓';
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--hi-gold);
+}
+
+.hi-mini {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.hi-mini img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ---------- archive photos ---------- */
+.hi-archive {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 160px;
+  gap: 8px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: 22px;
+}
+
+.hi-tile {
+  padding: 0;
+  border: 0;
+  background: var(--hi-surface);
+  cursor: zoom-in;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.hi-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hi-tile:hover img {
+  transform: scale(1.04);
+}
+
+.hi-all {
+  position: absolute;
+  inset-inline-end: 14px;
+  bottom: 14px;
+  background: var(--hi-text);
+  color: var(--hi-on-gold);
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.hi-chips {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hi-chips li {
+  border: 1px solid var(--hi-line-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* the shared "Related pages" links */
+.hi .related-pages {
+  padding-top: 72px;
+  margin: 0;
+  background: transparent;
+}
+
+/* ---------- final call to action ---------- */
+.hi-band {
+  margin-top: 88px;
+  background: var(--hi-surface);
+  border-top: 1px solid var(--hi-line);
+  padding: 48px 0;
+}
+
+.hi-band .hi-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.hi .hi-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.hi-band p {
+  color: var(--hi-muted);
+}
+
+.hi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--hi-gold);
+  color: var(--hi-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.hi-btn:hover {
+  background: var(--hi-gold-hi);
+  color: var(--hi-on-gold);
+}
+
+.hi-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.hi) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.hi) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .hi {
+    --hi-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 900px) {
+  .hi-card.has-photo {
+    grid-template-columns: 1fr;
+  }
+
+  .hi-portrait {
+    order: -1;
+    max-height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hi-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hi-hero {
+    padding: calc(var(--hi-header) + 16px) 0 32px;
+  }
+
+  .hi-crumb {
+    margin-bottom: 20px;
+  }
+
+  .hi-lead {
+    font-size: 15.5px;
+  }
+
+  .hi .hi-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .hi-stats dd {
+    font-size: 22px;
+  }
+
+  .hi-stats dt {
+    font-size: 11px;
+  }
+
+  .hi-section {
+    padding-top: 48px;
+  }
+
+  .hi-timeline::before {
+    inset-inline-start: 5px;
+  }
+
+  .hi-timeline > li {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-inline-start: 28px;
+    padding-bottom: 28px;
+  }
+
+  .hi-year {
+    text-align: start;
+    font-size: 18px;
+  }
+
+  .hi-year::after {
+    inset-inline-end: auto;
+    inset-inline-start: -28px;
+  }
+
+  .hi-card {
+    padding: 18px;
+  }
+
+  .hi-archive {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 120px;
+  }
+
+  .hi .related-pages {
+    padding-top: 48px;
+  }
+
+  .hi-band {
+    margin-top: 56px;
+  }
+
+  .hi-band .hi-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
