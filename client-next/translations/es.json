@@ -821,7 +821,24 @@
     "breadcrumbCurrent": "Socios y Clientes",
     "imageAlt": "Logo del socio {{number}}",
     "cta": "Conviértete en uno de nuestros socios",
-    "introText": "A lo largo de los años, Wadi Degla ha trabajado con importantes promotoras, grupos hoteleros, constructoras e instituciones en Egipto y en el extranjero. Estos son algunos de nuestros socios y clientes."
+    "introText": "A lo largo de los años, Wadi Degla ha trabajado con importantes promotoras, grupos hoteleros, constructoras e instituciones en Egipto y en el extranjero. Estos son algunos de nuestros socios y clientes.",
+    "eyebrow": "Confían en nosotros",
+    "pageHeading": "Nuestros socios y clientes",
+    "statPartners": "socios",
+    "statProjects": "proyectos",
+    "statCountries": "países de exportación",
+    "storiesTitle": "Historias de socios",
+    "projectOne": "1 proyecto",
+    "projectMany": "{{count}} proyectos",
+    "alsoTitle": "También confían en nosotros",
+    "bandText": "Promotores, contratistas e importadores: cuéntenos su próximo proyecto.",
+    "stories": {
+      "wyndham": "Piedra suministrada para tres resorts Wyndham en el Caribe, incluida la remodelación completa de Dominicus Palace y Viva Tangerine. En Viva Miches, Wadi Degla fue el proveedor exclusivo de todo el mármol.",
+      "emaar": "Piedra para los edificios de oficinas de Mivida, el desarrollo de Emaar Misr en El Cairo.",
+      "mountain-view": "Piedra para Mountain View Ras El-Hekma, en la costa norte de Egipto.",
+      "egy-consulate-kuwait": "Piedra para la Embajada de Egipto en la Ciudad de Kuwait.",
+      "wd-developments": "Piedra para Murano, el resort de Wadi Degla Developments en Ain Sokhna, en el mar Rojo."
+    }
   },
   "news": {
     "pageTitle": "Noticias de Wadi Degla | Mármol y piedra natural",

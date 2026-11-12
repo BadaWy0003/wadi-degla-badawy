@@ -821,7 +821,24 @@
     "breadcrumbCurrent": "Partner & Kunden",
     "imageAlt": "Partner Logo {{number}}",
     "cta": "Werden Sie einer unserer Partner",
-    "introText": "Im Laufe der Jahre hat Wadi Degla mit führenden Projektentwicklern, Hotelgruppen, Bauunternehmen und Institutionen in Ägypten und im Ausland zusammengearbeitet. Hier sind einige unserer Partner und Kunden."
+    "introText": "Im Laufe der Jahre hat Wadi Degla mit führenden Projektentwicklern, Hotelgruppen, Bauunternehmen und Institutionen in Ägypten und im Ausland zusammengearbeitet. Hier sind einige unserer Partner und Kunden.",
+    "eyebrow": "Vertrauen uns",
+    "pageHeading": "Unsere Partner & Kunden",
+    "statPartners": "Partner",
+    "statProjects": "Projekte",
+    "statCountries": "Exportländer",
+    "storiesTitle": "Partnergeschichten",
+    "projectOne": "1 Projekt",
+    "projectMany": "{{count}} Projekte",
+    "alsoTitle": "Ebenfalls Kunden von uns",
+    "bandText": "Bauträger, Bauunternehmen und Importeure: Erzählen Sie uns von Ihrem nächsten Projekt.",
+    "stories": {
+      "wyndham": "Naturstein für drei Wyndham-Resorts in der Karibik, darunter die Komplettsanierung von Dominicus Palace und Viva Tangerine. Bei Viva Miches war Wadi Degla exklusiver Lieferant des gesamten Marmors.",
+      "emaar": "Naturstein für die Bürogebäude von Mivida, dem Projekt von Emaar Misr in Kairo.",
+      "mountain-view": "Naturstein für Mountain View Ras El-Hekma an Ägyptens Nordküste.",
+      "egy-consulate-kuwait": "Naturstein für die Ägyptische Botschaft in Kuwait-Stadt.",
+      "wd-developments": "Naturstein für Murano, das Resort von Wadi Degla Developments in Ain Sokhna am Roten Meer."
+    }
   },
   "news": {
     "pageTitle": "Wadi Degla Nachrichten | Marmor & Naturstein",

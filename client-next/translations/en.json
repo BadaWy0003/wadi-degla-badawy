@@ -821,7 +821,24 @@
     "breadcrumbCurrent": "Partners & Clients",
     "imageAlt": "Partner Logo {{number}}",
     "cta": "Become one of our partners",
-    "introText": "Over the years, Wadi Degla has worked with leading developers, hotel groups, contractors and institutions in Egypt and abroad. These are some of our partners and clients."
+    "introText": "Over the years, Wadi Degla has worked with leading developers, hotel groups, contractors and institutions in Egypt and abroad. These are some of our partners and clients.",
+    "eyebrow": "Trusted by",
+    "pageHeading": "Our partners & clients",
+    "statPartners": "partners",
+    "statProjects": "projects",
+    "statCountries": "export countries",
+    "storiesTitle": "Partner stories",
+    "projectOne": "1 project",
+    "projectMany": "{{count}} projects",
+    "alsoTitle": "Also trusted by",
+    "bandText": "Developers, contractors and importers: tell us about your next project.",
+    "stories": {
+      "wyndham": "Stone supplied for three Wyndham resorts in the Caribbean, including the full remodelling of Dominicus Palace and Viva Tangerine. At Viva Miches, Wadi Degla was the exclusive supplier of all the marble.",
+      "emaar": "Stone for the business buildings of Mivida, Emaar Misr’s development in Cairo.",
+      "mountain-view": "Stone for Mountain View Ras El-Hekma on Egypt’s North Coast.",
+      "egy-consulate-kuwait": "Stone for the Egyptian Embassy in Kuwait City.",
+      "wd-developments": "Stone for Murano, Wadi Degla Developments’ resort in Ain Sokhna on the Red Sea."
+    }
   },
   "news": {
     "pageTitle": "Wadi Degla News | Marble & Natural Stone Industry Updates",

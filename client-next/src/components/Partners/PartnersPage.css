@@ -1,0 +1,573 @@
+/* Partners & clients page (redesigned 2026-11-12, design B "Partner stories"): dark + gold like the
+   other redesigned pages. Everything is scoped under .pa; smaller screens at the end. */
+.pa {
+  --pa-bg: #0c0b0a;
+  --pa-surface: #15130f;
+  --pa-line: rgba(232, 214, 186, 0.1);
+  --pa-line-strong: rgba(232, 214, 186, 0.22);
+  --pa-text: #f3eee6;
+  --pa-body: #d6d0c6;
+  --pa-muted: #a8a196;
+  --pa-gold: #ad9571;
+  --pa-gold-hi: #cdb48b;
+  --pa-on-gold: #16130f;
+  --pa-header: 84px; /* the fixed site header */
+  background: var(--pa-bg);
+  color: var(--pa-text);
+}
+
+.pa *,
+.pa *::before,
+.pa *::after {
+  box-sizing: border-box;
+}
+
+.pa h1,
+.pa h2,
+.pa p,
+.pa dl,
+.pa dd {
+  margin: 0;
+  padding: 0;
+}
+
+.pa h1,
+.pa h2 {
+  font-family: inherit;
+  color: var(--pa-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.pa h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.pa h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.pa-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.pa-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--pa-muted);
+  margin-bottom: 34px;
+}
+
+.pa-crumb a {
+  color: var(--pa-muted);
+  text-decoration: none;
+}
+
+.pa-crumb a:hover,
+.pa-crumb-here {
+  color: var(--pa-gold-hi);
+}
+
+html[dir='rtl'] .pa-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.pa-eyebrow {
+  color: var(--pa-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.pa-hero {
+  padding: calc(var(--pa-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.pa-lead {
+  color: var(--pa-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.pa .pa-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.pa-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.pa-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--pa-gold-hi);
+}
+
+.pa-stats dt {
+  color: var(--pa-muted);
+  font-size: 13px;
+}
+
+.pa h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 8px;
+}
+
+.pa h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  line-height: 1.15;
+  color: var(--pa-text);
+  text-transform: none;
+  margin: 0;
+}
+
+.pa-section {
+  padding-top: 64px;
+}
+
+/* logos: one soft light colour on the dark page (transparent copies) */
+.pa-ticker img,
+.pa-story-logo img,
+.pa-also img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(0.9) sepia(0.2);
+  opacity: 0.85;
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* ---------- moving strip of logos ---------- */
+.pa-ticker {
+  margin-top: 40px;
+  overflow: hidden;
+  border-top: 1px solid var(--pa-line);
+  border-bottom: 1px solid var(--pa-line);
+  padding: 22px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.pa-ticker-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  --pa-gap: 64px;
+  gap: var(--pa-gap);
+  width: max-content;
+  animation: pa-slide 50s linear infinite;
+}
+
+.pa-ticker:hover .pa-ticker-row {
+  animation-play-state: paused;
+}
+
+.pa-ticker li {
+  flex: 0 0 140px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes pa-slide {
+  to {
+    transform: translateX(calc(-50% - var(--pa-gap) / 2));
+  }
+}
+
+html[dir='rtl'] .pa-ticker-row {
+  animation-name: pa-slide-rtl;
+}
+
+@keyframes pa-slide-rtl {
+  to {
+    transform: translateX(calc(50% + var(--pa-gap) / 2));
+  }
+}
+
+/* ---------- partner stories ---------- */
+.pa-story {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--pa-line);
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.pa-story:last-child {
+  border-bottom: 0;
+}
+
+.pa-story-logo {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px;
+  background: var(--pa-surface);
+  border: 1px solid var(--pa-line);
+  border-radius: 18px;
+  transition: background 0.3s ease;
+}
+
+.pa-story:hover .pa-story-logo {
+  background: #f4f0ea;
+}
+
+.pa-story:hover .pa-story-logo img {
+  filter: none;
+  opacity: 1;
+}
+
+.pa-story .pa-eyebrow {
+  margin-bottom: 6px !important;
+}
+
+.pa .pa-text {
+  color: var(--pa-body);
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin: 10px 0 18px;
+  max-width: 720px;
+}
+
+.pa-projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.pa-project {
+  position: relative;
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--pa-surface);
+  color: var(--pa-text);
+  text-decoration: none;
+}
+
+.pa-project:only-child {
+  grid-column: span 2;
+  aspect-ratio: 16 / 7;
+}
+
+.pa-project img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.pa-project:hover img {
+  transform: scale(1.06);
+}
+
+.pa-project > span {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 36px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: linear-gradient(transparent, rgba(12, 11, 10, 0.88));
+}
+
+.pa-project b {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.pa-project small {
+  color: var(--pa-gold-hi);
+  font-size: 12px;
+}
+
+.pa-project:hover {
+  color: var(--pa-text);
+}
+
+/* ---------- other logos ---------- */
+.pa-also {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.pa-also li {
+  height: 96px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--pa-line);
+  border-radius: 14px;
+  transition:
+    background 0.3s ease,
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.pa-also li:nth-child(6n + 2) {
+  transition-delay: 0s, 0.06s, 0.06s;
+}
+
+.pa-also li:nth-child(6n + 3) {
+  transition-delay: 0s, 0.12s, 0.12s;
+}
+
+.pa-also li:nth-child(6n + 4) {
+  transition-delay: 0s, 0.18s, 0.18s;
+}
+
+.pa-also li:nth-child(6n + 5) {
+  transition-delay: 0s, 0.24s, 0.24s;
+}
+
+.pa-also li:nth-child(6n) {
+  transition-delay: 0s, 0.3s, 0.3s;
+}
+
+.pa-also li:hover {
+  background: #f4f0ea;
+}
+
+.pa-also li:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+/* fade-up when scrolled to (class added by useReveal after load) */
+.pa-reveal.pa-hidden {
+  opacity: 0;
+  translate: 0 36px;
+}
+
+/* ---------- final call to action ---------- */
+.pa-band {
+  margin-top: 88px;
+  background: var(--pa-surface);
+  border-top: 1px solid var(--pa-line);
+  padding: 48px 0;
+}
+
+.pa-band .pa-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.pa .pa-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.pa-band p {
+  color: var(--pa-muted);
+}
+
+.pa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--pa-gold);
+  color: var(--pa-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pa-btn:hover {
+  background: var(--pa-gold-hi);
+  color: var(--pa-on-gold);
+}
+
+.pa-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.pa) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.pa) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pa * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* no sliding: the logos simply wrap (the second copy is hidden) */
+  .pa-ticker-row {
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 40px;
+  }
+
+  .pa-ticker li[aria-hidden] {
+    display: none;
+  }
+
+  .pa-reveal.pa-hidden {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .pa {
+    --pa-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 1000px) {
+  .pa-story {
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+  }
+
+  .pa-also {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pa-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .pa-hero {
+    padding: calc(var(--pa-header) + 16px) 0 32px;
+  }
+
+  .pa-crumb {
+    margin-bottom: 20px;
+  }
+
+  .pa-lead {
+    font-size: 15.5px;
+  }
+
+  .pa .pa-stats {
+    gap: 28px;
+  }
+
+  .pa-stats dd {
+    font-size: 22px;
+  }
+
+  .pa-stats dt {
+    font-size: 11px;
+  }
+
+  .pa-ticker {
+    margin-top: 28px;
+    padding: 16px 0;
+  }
+
+  .pa-ticker-row {
+    --pa-gap: 40px;
+  }
+
+  .pa-ticker li {
+    flex-basis: 100px;
+    height: 40px;
+  }
+
+  .pa-section {
+    padding-top: 44px;
+  }
+
+  .pa-story {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 28px 0;
+  }
+
+  .pa-story-logo {
+    height: 100px;
+  }
+
+  .pa-projects {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .pa-projects .pa-project:only-child,
+  .pa-projects .pa-project:last-child:nth-child(odd) {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+  }
+
+  .pa-also {
+    gap: 8px;
+  }
+
+  .pa-also li {
+    height: 76px;
+    padding: 12px;
+  }
+
+  .pa-band {
+    margin-top: 56px;
+  }
+
+  .pa-band .pa-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

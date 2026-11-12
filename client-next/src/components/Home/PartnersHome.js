@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import { useTranslation } from 'react-i18next';
 import { useNearScreen, useLazyComponent } from '../../util/near-screen';
 
-import { partnerLogos } from "../Partners/Partners.js";
+import { partnerLogos } from "../Partners/PartnersData";
 
 // The slider's markup without the slider code: same classes, so the same size.
 function PartnersPlaceholder() {
