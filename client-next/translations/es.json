@@ -1,7 +1,7 @@
 {
   "certificates": {
-    "pageTitle": "Certificaciones de Mármol y Granito | Normas ISO e Internacionales | Wadi Degla",
-    "metaDescription": "Wadi Degla está certificada por ISO, IAF, UAF, EOS y CBMI, garantizando calidad internacional, seguridad y cumplimiento de exportación para la producción de mármol y granito en todo el mundo.",
+    "pageTitle": "Certificados y normas de calidad | Wadi Degla",
+    "metaDescription": "Wadi Degla tiene la certificación ISO 9001:2015 y acreditaciones IAF, UAF, EOS y CBMI de calidad, seguridad y exportación.",
     "heroTitle": "NUESTROS CERTIFICADOS",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Certificados",
@@ -39,8 +39,8 @@
       "sectionTitle": "Nuestros Logros en Números",
       "sectionTitle2": "Por Qué Wadi Degla Se Destaca"
     },
-    "pageTitle": "Por qué elegir Wadi Degla Mármol y Granito | 46+ años de excelencia",
-    "metaDescription": "Descubra por qué los desarrolladores globales confían en Wadi Degla Mármol y Granito. 46+ años de experiencia, piedra natural premium, tecnología avanzada y capacidades de suministro global sin igual.",
+    "pageTitle": "Por qué Wadi Degla | 46 años en mármol y granito",
+    "metaDescription": "Por qué elegir Wadi Degla: 46 años en mármol y granito, 14 canteras, 3 fábricas, más de 500 trabajadores cualificados y exportación a 31+ países.",
     "heroTitle": "POR QUÉ ELEGIRNOS",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Por Qué Elegirnos",
@@ -124,7 +124,7 @@
     "errorRegistration": "Error en el registro. Por favor intente nuevamente.",
     "errorNetwork": "Error de red. Por favor verifique su conexión e intente nuevamente.",
     "pageTitle": "Registrarse | Crear cuenta Wadi Degla",
-    "metaDescription": "Cree una cuenta de Wadi Degla para consultar sobre productos de mármol, granito y piedra natural. Únase a arquitectos, desarrolladores e importadores que acceden a soluciones de piedra premium globalmente."
+    "metaDescription": "Cree una cuenta gratuita en Wadi Degla para guardar las piedras que le gustan y tener los datos de su empresa listos para cotizar."
   },
   "login": {
     "title": "Wadi Degla",
@@ -231,7 +231,7 @@
   },
   "contact": {
     "title": "Contacte a Wadi Degla | Proveedor de Mármol y Piedra Natural en todo el mundo",
-    "metaDescription": "Póngase en contacto con Wadi Degla para soluciones de mármol y piedra natural. Contacte a nuestro equipo para consultas de proyectos, soporte técnico, especificaciones y suministro internacional.",
+    "metaDescription": "Contacte con Wadi Degla para mármol, granito y caliza: precios, muestras, especificaciones y suministro a todo el mundo.",
     "heroHeading": "CONTÁCTANOS",
     "breadcrumbHome": "Inicio",
     "breadcrumbContact": "Contacto",
@@ -289,8 +289,8 @@
     "sendAnother": "Enviar otro mensaje"
   },
   "gallery": {
-    "pageTitle": "Galería de Fábrica y Patio de Wadi Degla | Producción de Mármol, Almacenamiento y Operaciones de Exportación",
-    "metaDescription": "Explore las fábricas de mármol y piedra caliza de Wadi Degla, patios de almacenamiento, maquinaria y operaciones de exportación. Imágenes reales que muestran la capacidad de producción, estándares de embalaje y logística de piedra a gran escala.",
+    "pageTitle": "Galería de fábricas y patios | Wadi Degla",
+    "metaDescription": "Fotos de las fábricas de mármol y caliza de Wadi Degla, patios de stock, maquinaria, embalaje y carga de exportación en Egipto.",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Galería",
     "imageAlt": "Imagen de Galería {{number}}",
@@ -307,8 +307,8 @@
     "heroAlt": "Participación de Wadi Degla en ferias internacionales de mármol, piedra natural y construcción"
   },
   "exports": {
-    "pageTitle": "Exportador de Mármol y Piedra Caliza Egipcia | Exportaciones Globales Wadi Degla",
-    "metaDescription": "Exportaciones de mármol y piedra caliza egipcia premium con empaque seguro, logística global y documentación cumplida. Envíos a GCC, Europa, África y América.",
+    "pageTitle": "Exportación de mármol y caliza egipcios | Wadi Degla",
+    "metaDescription": "Exportación de mármol y caliza egipcios con embalaje seguro, logística global y documentación conforme. Al Golfo, Europa, África y América.",
     "heroTitle": "Servicios de Exportación Global para Mármol y Piedra Caliza Egipcia",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Exportaciones",
@@ -560,8 +560,8 @@
     "finalSectionAlt": "Equipos de cantera de mármol egipcio — foto histórica de Wadi Degla"
   },
   "inspiration": {
-    "pageTitle": "Inspiración en Diseño de Piedra Natural | Ideas de Mármol y Granito Interior y Exterior | Wadi Degla",
-    "metaDescription": "Explore la inspiración en diseño de piedra natural utilizando mármol y granito premium. Aplicaciones de piedra en interiores y exteriores para villas, hoteles y proyectos arquitectónicos en todo el mundo por Wadi Degla.",
+    "pageTitle": "Ideas de diseño en mármol y granito | Wadi Degla",
+    "metaDescription": "Ideas de diseño en mármol y granito para suelos, paredes, cocinas, baños y fachadas, con piedra natural de Wadi Degla.",
     "heroTitle": "Inspiración en Diseño de Piedra Natural",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Inspiración",
@@ -623,7 +623,7 @@
   },
   "machinery": {
     "pageTitle": "Maquinaria de fábrica para mármol y granito | Wadi Degla",
-    "metaDescription": "Telares, cortadoras de bloques, líneas de pulido y sierras puente: la maquinaria de las fábricas de Wadi Degla en Egipto que corta y acaba mármol y granito.",
+    "metaDescription": "Telares, cortadoras de bloques, líneas de pulido y sierras puente: la maquinaria de Wadi Degla en Egipto que corta y acaba mármol y granito.",
     "heroTitle": "NUESTRA MAQUINARIA",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Maquinaria",
@@ -706,8 +706,8 @@
     "introText": "A lo largo de los años, Wadi Degla ha trabajado con importantes promotoras, grupos hoteleros, constructoras e instituciones en Egipto y en el extranjero. Estos son algunos de nuestros socios y clientes."
   },
   "news": {
-    "pageTitle": "Noticias de Wadi Degla | Actualizaciones de la Industria de Mármol y Piedra Natural",
-    "metaDescription": "Manténgase actualizado con las noticias de Wadi Degla que cubren expansiones de canteras de mármol, fábricas de piedra, proyectos internacionales, exposiciones y desarrollos de la industria de la piedra natural en todo el mundo.",
+    "pageTitle": "Noticias de Wadi Degla | Mármol y piedra natural",
+    "metaDescription": "Noticias de Wadi Degla: inauguraciones de proyectos, visitas de clientes y socios, y novedades de nuestras canteras y fábricas en Egipto.",
     "heroTitle": "Noticias de Wadi Degla",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Noticias",
@@ -720,8 +720,8 @@
     "noResults": "No se encontraron artículos para \"%s\"."
   },
   "products": {
-    "pageTitle": "Mármol Egipcio, Granito y Caliza | Losas, Azulejos & Bloques | Wadi Degla",
-    "metaDescription": "Explore mármol egipcio premium (Galala, Sunny, Rosa, Cleopatra, Halayeb), caliza egipcia (Shelly), granito egipcio (Asuán Negro, Asuán Rojo) y piedra importada. Losas, azulejos y bloques de Wadi Degla para proyectos residenciales, comerciales e internacionales.",
+    "pageTitle": "Mármol, granito y caliza en planchas | Wadi Degla",
+    "metaDescription": "Todas nuestras piedras: mármol, caliza y granito egipcios (Galala, Sunny, Rojo Asuán) y mármol y granito importados. Planchas, baldosas, bloques.",
     "heroTitle": "Nuestros Productos de Mármol y Granito",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Productos",
@@ -851,8 +851,8 @@
     "scrollToIndoor": "Ir a Interior ↑",
     "comingSoon": "{{category}} Próximamente.",
     "noProducts": "No hay productos disponibles para tu búsqueda en {{category}}.",
-    "pageTitle": "Visualizador de Mármol y Granito | Herramienta de Vista Previa de Cocina, Baño y Piso | Wadi Degla",
-    "metaDescription": "Obtenga una vista previa de mármol y granito al instante con el Visualizador en línea de Wadi Degla. Pruebe piedra egipcia e importada en encimeras de cocina, paredes de baños, pisos y salas de estar. Acceso gratuito, rápido y global.",
+    "pageTitle": "Visualizador de mármol y granito | Wadi Degla",
+    "metaDescription": "Pruebe el mármol y granito de Wadi Degla en cocinas, baños, suelos y paredes con nuestro visualizador gratuito en línea.",
     "egyptianMarbleDescription": "Mármol egipcio premium conocido por tonos cálidos, durabilidad y acabados versátiles—ideal para pisos, revestimiento de paredes, escaleras e interiores de lujo.",
     "importedMarbleDescription": "Variedades de mármol internacional cuidadosamente seleccionadas que ofrecen acabados premium y rangos de color únicos para interiores de lujo.",
     "egyptianGraniteDescription": "Piedra fuerte, elegante y resistente al calor ideal para aplicaciones exteriores, encimeras, pisos de alto tráfico y proyectos urbanos.",
@@ -906,8 +906,8 @@
     "bandText": "Indíquenos la piedra, la medida y la cantidad. Le respondemos con precio y plazo."
   },
   "stoneCreation": {
-    "pageTitle": "Creaciones en Piedra | Productos de Piedra Arquitectónica y Paisajística | Mármol Wadi Degla",
-    "metaDescription": "Explore creaciones en piedra fabricadas artesanalmente con granito y piedra caliza egipcios. Diseños personalizados, acabados premium, cortes artísticos y elementos de piedra arquitectónica durable para proyectos de lujo. De Mármol Wadi Degla.",
+    "pageTitle": "Stone Creations | Piedra arquitectónica | Wadi Degla",
+    "metaDescription": "Productos de piedra para arquitectura y paisajismo de Wadi Degla: elementos tallados, cortes a medida y acabados en granito y caliza egipcios.",
     "heroTitle": "Creaciones en Piedra",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Creaciones en Piedra",
@@ -973,7 +973,7 @@
   },
   "home": {
     "pageTitle": "Exportador de Mármol, Granito y Caliza Egipcios | Wadi Degla",
-    "metaDescription": "Wadi Degla — exportador de mármol egipcio, caliza & granito. Galala, Sunny, Shelly, Rosa, Cleopatra, Asuán Negro. Losas, baldosas & bloques en todo el mundo.",
+    "metaDescription": "Wadi Degla, exportador de mármol, caliza y granito egipcios: Galala, Sunny, Shelly, Rosa, Cleopatra, Negro Asuán. Planchas, baldosas y bloques.",
     "companyName": "Wadi Degla Co.",
     "heroH1": "Wadi Degla: exportador de mármol y granito egipcio desde 1980",
     "heroHeadline": "Exportador de Mármol, Granito y Piedra Caliza Egipcios desde 1980",

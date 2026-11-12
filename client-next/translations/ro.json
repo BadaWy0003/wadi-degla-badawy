@@ -1,7 +1,7 @@
 {
   "certificates": {
-    "pageTitle": "Certificări Marmoră și Granit | Standarde ISO și Internaționale | Wadi Degla",
-    "metaDescription": "Wadi Degla este certificată de ISO, IAF, UAF, EOS și CBMI, asigurând calitate internațională, siguranță și conformitate la export pentru producția de marmoră și granit în întreaga lume.",
+    "pageTitle": "Certificate și standarde de calitate | Wadi Degla",
+    "metaDescription": "Wadi Degla are certificarea ISO 9001:2015 și acreditări IAF, UAF, EOS și CBMI pentru calitate, siguranță și export.",
     "heroTitle": "CERTIFICATELE NOASTRE",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Certificate",
@@ -39,8 +39,8 @@
       "sectionTitle": "Realizările Noastre în Numere",
       "sectionTitle2": "De Ce Wadi Degla Se Distinge"
     },
-    "pageTitle": "De ce să alegi Wadi Degla Marmură și Granit | 46+ ani de excelență",
-    "metaDescription": "Descoperă de ce dezvoltatorii globali se încred în Wadi Degla Marmură și Granit. 46+ ani de expertiză, piatră naturală premium, tehnologie avansată și capacități de aprovizionare globală fără egal.",
+    "pageTitle": "De ce Wadi Degla | 46 de ani în marmură și granit",
+    "metaDescription": "De ce Wadi Degla: 46 de ani în marmură și granit, 14 cariere, 3 fabrici, peste 500 de muncitori calificați și export în 31+ țări.",
     "heroTitle": "DE CE SĂ NE ALEGEȚI",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "De Ce Să Ne Alegeți",
@@ -124,7 +124,7 @@
     "errorRegistration": "Înregistrarea a eșuat. Vă rugăm să încercați din nou.",
     "errorNetwork": "Eroare de rețea. Vă rugăm să încercați din nou.",
     "pageTitle": "Înregistrare | Crează cont Wadi Degla",
-    "metaDescription": "Creați un cont Wadi Degla pentru a vă informa despre produse din marmură, granit și piatră naturală. Alăturați-vă arhitecților, dezvoltatorilor și importatorilor care acces la soluții de piatră premium global."
+    "metaDescription": "Creează un cont Wadi Degla gratuit ca să salvezi pietrele preferate și să ai datele firmei pregătite pentru oferte."
   },
   "login": {
     "title": "Wadi Degla",
@@ -231,7 +231,7 @@
   },
   "contact": {
     "title": "Contactați Wadi Degla | Furnizor de Marmură și Piatră Naturală Mondial",
-    "metaDescription": "Contactați Wadi Degla pentru soluții din marmură și piatră naturală. Contactați echipa noastră pentru întrebări despre proiecte, suport tehnic, specificații și aprovizionare internațională.",
+    "metaDescription": "Contactează Wadi Degla pentru marmură, granit și calcar: prețuri, mostre, specificații și livrare în toată lumea.",
     "heroHeading": "CONTACTAȚI-NE",
     "breadcrumbHome": "Acasă",
     "breadcrumbContact": "Contact",
@@ -289,8 +289,8 @@
     "sendAnother": "Trimiteți alt mesaj"
   },
   "gallery": {
-    "pageTitle": "Galeria Fabrica și Curte Wadi Degla | Producție Marmoră, Depozitare și Operații de Export",
-    "metaDescription": "Explorați fabricile de marmoră și calcar, curțile de depozitare, mașinaria și operațiile de export ale Wadi Degla. Imagini reale care arată capacitatea de producție, standardele de ambalare și logistica pietrei la scară mare.",
+    "pageTitle": "Galerie fabrici și depozite | Wadi Degla",
+    "metaDescription": "Fotografii din fabricile de marmură și calcar Wadi Degla, depozite, utilaje, ambalare și încărcare pentru export în Egipt.",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Galerie",
     "imageAlt": "Imagine Galerie {{number}}",
@@ -307,7 +307,7 @@
     "heroAlt": "Participarea Wadi Degla la expozițiile internaționale de marmură, piatră naturală și construcție"
   },
   "exports": {
-    "pageTitle": "Exportator de Marmură și Var Egiptean | Wadi Degla Exporturi Globale",
+    "pageTitle": "Export de marmură și calcar egiptean | Wadi Degla",
     "metaDescription": "Exporturi premium de marmură și var egiptean cu ambalare sigură, logistică globală și documentație conformă. Livrări către GCC, Europa, Africa și Americi.",
     "heroTitle": "Servicii de export global pentru marmură și var egiptean",
     "breadcrumbHome": "Acasă",
@@ -560,8 +560,8 @@
     "finalSectionAlt": "Echipe de cariere de marmură egipteană — fotografie istorică de Wadi Degla"
   },
   "inspiration": {
-    "pageTitle": "Inspirație în Proiectarea cu Piatră Naturală | Idei cu Marmură și Granit Interior și Exterior | Wadi Degla",
-    "metaDescription": "Explorați inspirația în proiectarea cu piatră naturală folosind marmură și granit premium. Aplicații de piatră interior și exterior pentru vile, hoteluri și proiecte arhitecturale din întreaga lume de la Wadi Degla.",
+    "pageTitle": "Idei de design cu marmură și granit | Wadi Degla",
+    "metaDescription": "Idei de design cu marmură și granit pentru pardoseli, pereți, bucătării, băi și fațade, cu piatră naturală de la Wadi Degla.",
     "heroTitle": "Inspirație în Proiectarea cu Piatră Naturală",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Inspirație",
@@ -623,7 +623,7 @@
   },
   "machinery": {
     "pageTitle": "Utilaje pentru marmură și granit | Wadi Degla",
-    "metaDescription": "Gatere, mașini de debitat blocuri, linii de lustruire și ferăstraie pod: utilajele din fabricile Wadi Degla din Egipt care taie și finisează marmura și granitul.",
+    "metaDescription": "Gatere, mașini de debitat blocuri, linii de lustruire și ferăstraie pod: utilajele Wadi Degla din Egipt pentru marmură și granit.",
     "heroTitle": "UTILAJUL NOSTRU",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Utilaje",
@@ -706,8 +706,8 @@
     "introText": "De-a lungul anilor, Wadi Degla a colaborat cu dezvoltatori importanți, grupuri hoteliere, constructori și instituții din Egipt și din străinătate. Iată câțiva dintre partenerii și clienții noștri."
   },
   "news": {
-    "pageTitle": "Știri Wadi Degla | Actualizări ale industriei marmurii și pietrei naturale",
-    "metaDescription": "Rămâineți actualizat cu știrile Wadi Degla care acoperă expansiuni ale carierelor de marmură, fabrici de piatră, proiecte internaționale, expoziții și dezvoltări ale industriei pietrei naturale în întreaga lume.",
+    "pageTitle": "Știri Wadi Degla | Marmură și piatră naturală",
+    "metaDescription": "Știri Wadi Degla: inaugurări de proiecte, vizite ale clienților și partenerilor, noutăți din carierele și fabricile noastre din Egipt.",
     "heroTitle": "Știri Wadi Degla",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Știri",
@@ -720,8 +720,8 @@
     "noResults": "Niciun articol găsit pentru \"%s\"."
   },
   "products": {
-    "pageTitle": "Marmură Egipteană, Granit și Calcar | Plăci, Gresie & Blocuri | Wadi Degla",
-    "metaDescription": "Explorați marmură egipteană premium (Galala, Sunny, Rosa, Cleopatra, Halayeb), calcar egiptean (Shelly), granit egiptean (Assuan Negru, Assuan Roșu) și piatră importată. Plăci, gresie și blocuri de la Wadi Degla pentru proiecte rezidențiale, comerciale și internaționale.",
+    "pageTitle": "Marmură, granit și calcar în plăci | Wadi Degla",
+    "metaDescription": "Toate pietrele Wadi Degla: marmură, calcar și granit egiptean (Galala, Sunny, Red Aswan) și marmură și granit importate. Plăci, dale, blocuri.",
     "heroTitle": "Produsele Noastre din Marmoră și Granit",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Produse",
@@ -851,8 +851,8 @@
     "scrollToIndoor": "Derulați la Interior ↑",
     "comingSoon": "{{category}} În curând.",
     "noProducts": "Nu sunt disponibile produse pentru căutarea dumneavoastră în {{category}}.",
-    "pageTitle": "Vizualizator de Marmoră și Granit | Instrument de Previzualizare Bucătărie, Baie și Podea | Wadi Degla",
-    "metaDescription": "Previzualizare marmoră și granit instant cu Vizualizatorul online al Wadi Degla. Încercați piatră egipteană și importată pe blate de bucătărie, pereți de baie, podele și sufragerii. Acces gratuit, rapid și global.",
+    "pageTitle": "Vizualizator marmură și granit | Wadi Degla",
+    "metaDescription": "Încearcă marmura și granitul Wadi Degla pe bucătării, băi, pardoseli și pereți cu vizualizatorul nostru online gratuit.",
     "egyptianMarbleDescription": "Marmoră egipteană premium cunoscută pentru tonuri calde, durabilitate și finisaje versatile—ideală pentru pardoseli, placare perete, scări și interioare de lux.",
     "importedMarbleDescription": "Varietăți de marmoră internațională selectate cu grijă care oferă finisaje premium și grame de culori unice pentru interioare de lux.",
     "egyptianGraniteDescription": "Piatră puternică, elegantă și rezistentă la căldură ideală pentru aplicații externe, blate, pardoseli cu trafic intens și proiecte urbane.",
@@ -906,8 +906,8 @@
     "bandText": "Spune-ne piatra, dimensiunea și cantitatea. Îți răspundem cu prețul și termenul."
   },
   "stoneCreation": {
-    "pageTitle": "Creații în Piatră | Produse Arhitecturale și Peisagistice | Marmură Wadi Degla",
-    "metaDescription": "Explorați creații artizanale în piatră din granit și var egiptean. Proiecte personalizate, finisaje premium, tăieturi artistice și elemente arhitecturale durabile pentru proiecte de lux. De Marmură Wadi Degla.",
+    "pageTitle": "Stone Creations | Piatră arhitecturală | Wadi Degla",
+    "metaDescription": "Produse din piatră pentru arhitectură și peisagistică de la Wadi Degla: elemente sculptate, tăieturi la comandă, granit și calcar egiptean.",
     "heroTitle": "Creații din Piatră",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Creații din Piatră",
@@ -972,7 +972,7 @@
     "introText": "Wadi Degla produce dale de pavaj din marmură, marmură split-face și modele decorative din piatră pentru terase, alei, margini de piscină, grădini și fațade. Alegeți o piatră de mai jos pentru a o vedea într-un cadru real și contactați-ne pentru dimensiuni, finisaje și cantități pentru proiectul dvs."
   },
   "home": {
-    "pageTitle": "Exportator de Marmură, Granit și Calcar Egiptean | Wadi Degla",
+    "pageTitle": "Marmură, granit și calcar egiptean | Wadi Degla",
     "metaDescription": "Wadi Degla — exportator de marmură egipteană, calcar & granit. Galala, Sunny, Shelly, Rosa, Cleopatra, Aswan Negru. Plăci, gresie & blocuri în toată lumea.",
     "companyName": "Wadi Degla Co.",
     "heroH1": "Wadi Degla: exportator de marmură și granit egiptean din 1980",

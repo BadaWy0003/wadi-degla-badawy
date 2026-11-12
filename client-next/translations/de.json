@@ -1,7 +1,7 @@
 {
   "certificates": {
-    "pageTitle": "Marmor- und Granit-Zertifizierungen | ISO und internationale Standards | Wadi Degla",
-    "metaDescription": "Wadi Degla ist von ISO, IAF, UAF, EOS und CBMI zertifiziert und gewährleistet internationale Qualität, Sicherheit und Exportkonformität für Marmor- und Granitproduktion weltweit.",
+    "pageTitle": "Zertifikate & Qualitätsstandards | Wadi Degla",
+    "metaDescription": "Wadi Degla ist nach ISO 9001:2015 zertifiziert, mit IAF-, UAF-, EOS- und CBMI-Akkreditierungen für Qualität, Sicherheit und Export.",
     "heroTitle": "UNSERE ZERTIFIKATE",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Zertifikate",
@@ -39,8 +39,8 @@
       "sectionTitle": "Unsere Erfolge in Zahlen",
       "sectionTitle2": "Warum Wadi Degla sich abhebt"
     },
-    "pageTitle": "Warum Wadi Degla Marmor & Granit wählen | 46+ Jahre Exzellenz",
-    "metaDescription": "Entdecken Sie, warum globale Entwickler Wadi Degla Marmor & Granit vertrauen. 46+ Jahre Expertise, Premium-Naturstein, fortschrittliche Technologie und unübertroffene globale Lieferfähigkeiten.",
+    "pageTitle": "Warum Wadi Degla | 46 Jahre Marmor & Granit",
+    "metaDescription": "Warum Wadi Degla: 46 Jahre Marmor und Granit, 14 Steinbrüche, 3 Werke, über 500 Fachkräfte und Export in mehr als 31 Länder.",
     "heroTitle": "WARUM SIE UNS WÄHLEN SOLLTEN",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Warum Sie Uns Wählen Sollten",
@@ -124,7 +124,7 @@
     "errorRegistration": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
     "errorNetwork": "Netzwerkfehler. Bitte versuchen Sie es erneut.",
     "pageTitle": "Registrieren | Wadi Degla Konto erstellen",
-    "metaDescription": "Erstellen Sie ein Wadi Degla-Konto, um nach Marmor-, Granit- und Natursteinprodukten zu fragen. Treten Sie Architekten, Entwicklern und Importeuren bei, die weltweit auf Premium-Steinlösungen zugreifen."
+    "metaDescription": "Erstellen Sie ein kostenloses Wadi Degla Konto, um Ihre Lieblingssteine zu speichern und Firmendaten für Angebote bereitzuhalten."
   },
   "login": {
     "title": "Wadi Degla",
@@ -231,7 +231,7 @@
   },
   "contact": {
     "title": "Kontaktieren Sie Wadi Degla | Marmor- und Natursteinlieferant weltweit",
-    "metaDescription": "Kontaktieren Sie Wadi Degla für Marmor- und Natursteinlösungen. Kontaktieren Sie unser Team für Projektanfragen, technischen Support, Spezifikationen und internationale Lieferung.",
+    "metaDescription": "Kontaktieren Sie Wadi Degla für Marmor, Granit und Kalkstein: Preise, Muster, technische Daten und weltweite Lieferung.",
     "heroHeading": "KONTAKTIEREN SIE UNS",
     "breadcrumbHome": "Startseite",
     "breadcrumbContact": "Kontakt",
@@ -289,8 +289,8 @@
     "sendAnother": "Weitere Nachricht senden"
   },
   "gallery": {
-    "pageTitle": "Wadi Degla Fabrik- und Lagergalerie | Marmorproduktion, Lagerung und Exportoperationen",
-    "metaDescription": "Erkunden Sie Wadi Degla's Marmor- und Kalksteinfabriken, Lagerhöfe, Maschinen und Exportoperationen. Echte Bilder, die Produktionskapazität, Verpackungsstandards und großmaßstäbliche Steinlogistik zeigen.",
+    "pageTitle": "Galerie: Werke & Lager | Wadi Degla",
+    "metaDescription": "Fotos der Marmor- und Kalksteinwerke von Wadi Degla, der Lager, Maschinen, Verpackung und Exportverladung in Ägypten.",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Galerie",
     "imageAlt": "Galerie Bild {{number}}",
@@ -307,8 +307,8 @@
     "heroAlt": "Teilnahme von Wadi Degla an internationalen Marmor-, Naturstein- und Baummessen"
   },
   "exports": {
-    "pageTitle": "Ägyptischer Marmor- und Kalksteinexporteur | Wadi Degla Global Exports",
-    "metaDescription": "Premium ägyptischer Marmor- und Kalksteinexporte mit sicherer Verpackung, globaler Logistik und konformer Dokumentation. Versand in GCC, Europa, Afrika und Amerika.",
+    "pageTitle": "Export von ägyptischem Marmor & Kalkstein | Wadi Degla",
+    "metaDescription": "Ägyptischer Marmor und Kalkstein im Export: sichere Verpackung, weltweite Logistik und korrekte Dokumente. Golf, Europa, Afrika, Amerika.",
     "heroTitle": "Globale Exportdienstleistungen für ägyptischen Marmor und Kalkstein",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Exporte",
@@ -560,8 +560,8 @@
     "finalSectionAlt": "Ägyptische Marmorstein-Quarry-Teams — historisches Foto von Wadi Degla"
   },
   "inspiration": {
-    "pageTitle": "Inspiration für Natursteindesign | Ideen für Marmor- und Granit-Innen- und Außenbereiche | Wadi Degla",
-    "metaDescription": "Entdecken Sie Inspiration für Natursteindesign mit hochwertigem Marmor und Granit. Anwendungen von Natursteinen in Innen- und Außenbereichen für Villen, Hotels und Architekturprojekte weltweit von Wadi Degla.",
+    "pageTitle": "Designideen mit Marmor & Granit | Wadi Degla",
+    "metaDescription": "Designideen mit Marmor und Granit für Böden, Wände, Küchen, Bäder und Fassaden, mit Naturstein von Wadi Degla.",
     "heroTitle": "Inspiration für Natursteindesign",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Inspiration",
@@ -706,8 +706,8 @@
     "introText": "Im Laufe der Jahre hat Wadi Degla mit führenden Projektentwicklern, Hotelgruppen, Bauunternehmen und Institutionen in Ägypten und im Ausland zusammengearbeitet. Hier sind einige unserer Partner und Kunden."
   },
   "news": {
-    "pageTitle": "Wadi Degla Nachrichten | Marmor- und Naturstein-Branchenupdates",
-    "metaDescription": "Bleiben Sie mit Wadi Degla Nachrichten über Marmorbruch-Erweiterungen, Steinfabriken, internationale Projekte, Ausstellungen und Natursteinbranchentwicklungen weltweit auf dem Laufenden.",
+    "pageTitle": "Wadi Degla Nachrichten | Marmor & Naturstein",
+    "metaDescription": "Neuigkeiten von Wadi Degla: Projekteröffnungen, Kunden- und Partnerbesuche sowie Neues aus unseren Steinbrüchen und Werken in Ägypten.",
     "heroTitle": "Wadi Degla Nachrichten",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Neuigkeiten",
@@ -720,8 +720,8 @@
     "noResults": "Keine Artikel gefunden für \"%s\"."
   },
   "products": {
-    "pageTitle": "Ägyptischer Marmor, Granit & Kalkstein | Platten, Fliesen & Blöcke | Wadi Degla",
-    "metaDescription": "Entdecken Sie hochwertigen ägyptischen Marmor (Galala, Sunny, Rosa, Kleopatra, Halayeb), ägyptischen Kalkstein (Shelly), ägyptischen Granit (Schwarz Assuan, Rot Assuan) und importierten Stein. Platten, Fliesen und Blöcke von Wadi Degla für Wohn-, Gewerbe- und internationale Projekte.",
+    "pageTitle": "Marmor, Granit & Kalkstein: Platten | Wadi Degla",
+    "metaDescription": "Alle Steine von Wadi Degla: ägyptischer Marmor, Kalkstein und Granit (Galala, Sunny, Red Aswan) sowie Importware. Rohplatten, Fliesen, Blöcke.",
     "heroTitle": "Unsere Marmor- und Granitprodukte",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Produkte",
@@ -851,8 +851,8 @@
     "scrollToIndoor": "Zu Innenbereich scrollen ↑",
     "comingSoon": "{{category}} Demnächst.",
     "noProducts": "Keine Produkte für Ihre Suche in {{category}} verfügbar.",
-    "pageTitle": "Marmor- und Granit-Visualisierer | Küchen-, Bad- und Bodenvorschau-Tool | Wadi Degla",
-    "metaDescription": "Vorschau Marmor und Granit sofort mit Wadi Degla's Online-Visualisierer. Testen Sie ägyptischen und importierten Stein auf Küchenarbeitsplatten, Badezimmerwänden, Böden und Wohnzimmern. Kostenlos, schnell, globaler Zugang.",
+    "pageTitle": "Marmor & Granit Visualizer | Wadi Degla",
+    "metaDescription": "Testen Sie Marmor und Granit von Wadi Degla an Küchen, Bädern, Böden und Wänden mit unserem kostenlosen Online-Visualizer.",
     "egyptianMarbleDescription": "Hochwertiger ägyptischer Marmor, bekannt für warme Töne, Haltbarkeit und vielseitige Oberflächen – ideal für Böden, Wandverkleidungen, Treppen und Luxusinterieur.",
     "importedMarbleDescription": "Sorgfältig ausgewählte internationale Marmorsorten mit Premium-Oberflächen und einzigartigen Farbvariationen für Luxusinterieur.",
     "egyptianGraniteDescription": "Starker, eleganter, hitzebeständiger Stein ideal für Außenanwendungen, Arbeitsplatten, stark frequentierte Böden und urbane Projekte.",
@@ -906,8 +906,8 @@
     "bandText": "Nennen Sie Stein, Maß und Menge. Wir antworten mit Preis und Lieferzeit."
   },
   "stoneCreation": {
-    "pageTitle": "Steinkreationen | Architektur- & Landschaftssteinartikel | Wadi Degla Marmor",
-    "metaDescription": "Entdecken Sie handgefertigte Steinkreationen aus ägyptischem Granit und Kalkstein. Individuelle Designs, hochwertige Oberflächen, künstlerische Schnitte und haltbare Architektursteinelemente für Luxusprojekte. Von Wadi Degla Marmor.",
+    "pageTitle": "Stone Creations | Architekturstein | Wadi Degla",
+    "metaDescription": "Architektur- und Gartensteinprodukte von Wadi Degla: gearbeitete Elemente, Zuschnitte nach Maß, ägyptischer Granit und Kalkstein.",
     "heroTitle": "Steinkreationen",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Steinkreationen",
@@ -972,7 +972,7 @@
     "introText": "Wadi Degla produziert Marmor-Pflasterplatten, Spaltmarmor (Split-Face) und dekorative Steinmuster für Terrassen, Wege, Poolumrandungen, Gärten und Fassaden. Wählen Sie unten einen Stein, um ihn in einer echten Umgebung zu sehen, und kontaktieren Sie uns für Formate, Oberflächen und Mengen für Ihr Projekt."
   },
   "home": {
-    "pageTitle": "Ägyptischer Marmor, Granit & Kalkstein Exporteur | Wadi Degla",
+    "pageTitle": "Ägyptischer Marmor, Granit & Kalkstein | Wadi Degla",
     "metaDescription": "Wadi Degla — Exporteur für ägyptischen Marmor & Kalkstein. Galala, Sunny, Shelly, Rosa, Kleopatra, Schwarzer Assuan. Platten, Fliesen & Blöcke weltweit.",
     "companyName": "Wadi Degla Co.",
     "heroH1": "Wadi Degla: Exporteur von ägyptischem Marmor & Granit seit 1980",
