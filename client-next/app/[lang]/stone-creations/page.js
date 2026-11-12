@@ -1,6 +1,5 @@
 import { t, buildAlternates, buildSocial } from '../../../src/components/../util/meta';
 import StoneCreation from '../../../src/components/StoneCreation/StoneCreation';
-import HeroPreload from '../../../src/components/HeroPreload';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -15,10 +14,5 @@ export function generateMetadata({ params }) {
 }
 
 export default function StoneCreationPage({ params }) {
-  return (
-    <>
-      <HeroPreload page="stoneCreations" />
-      <StoneCreation />
-    </>
-  );
+  return <StoneCreation />;
 }

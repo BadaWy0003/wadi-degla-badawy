@@ -1122,7 +1122,23 @@
       "mosaics10x3": "Mosaïque 10×3 cm",
       "mosaicsCircular5x5": "Mosaïque circulaire 5×5 cm",
       "mosaicsUpsDown10x10": "Mosaïque en relief 10×10 cm"
-    }
+    },
+    "eyebrow": "Sur commande",
+    "intro": "Éléments architecturaux, pièces paysagères et mosaïques, taillés et sculptés dans le marbre et le calcaire égyptiens dans nos propres usines.",
+    "statElements": "éléments architecturaux",
+    "statMosaics": "motifs de mosaïque",
+    "statCustomLabel": "dimensions & finitions",
+    "statCustom": "Sur mesure",
+    "quote": "Demander un devis",
+    "howTitle": "Comment se passent les commandes sur mesure",
+    "how1Title": "Envoyez votre plan",
+    "how1Text": "Dimensions, forme, quantité et la pierre souhaitée.",
+    "how2Title": "Recevez devis et échantillon",
+    "how2Text": "Nous confirmons la pierre, la finition et le prix, et envoyons un échantillon.",
+    "how3Title": "Fabriqué et expédié",
+    "how3Text": "Taillé et sculpté dans nos usines, emballé pour l’export.",
+    "bandTitle": "Besoin d’une pièce selon votre plan ?",
+    "bandText": "Envoyez-nous dimensions, forme et pierre : nous vous enverrons un devis et un échantillon."
   },
   "patterns": {
     "pageTitle": "Pavés en marbre et motifs en pierre | Wadi Degla",

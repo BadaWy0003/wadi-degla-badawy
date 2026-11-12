@@ -1122,7 +1122,23 @@
       "mosaics10x3": "Mozaik 10×3 cm",
       "mosaicsCircular5x5": "Mozaik rrethor 5×5 cm",
       "mosaicsUpsDown10x10": "Mozaik reliev 10×10 cm"
-    }
+    },
+    "eyebrow": "Me porosi",
+    "intro": "Elemente arkitekturore, pjesë për peizazh dhe mozaikë, të prera dhe të gdhendura nga mermeri dhe gëlqerori egjiptian në fabrikat tona.",
+    "statElements": "elemente arkitekturore",
+    "statMosaics": "modele mozaiku",
+    "statCustomLabel": "përmasa dhe përfundime",
+    "statCustom": "Me porosi",
+    "quote": "Kërko ofertë",
+    "howTitle": "Si funksionojnë porositë me porosi",
+    "how1Title": "Dërgoni vizatimin",
+    "how1Text": "Përmasat, forma, sasia dhe guri që ju pëlqen.",
+    "how2Title": "Merrni ofertë dhe mostër",
+    "how2Text": "Konfirmojmë gurin, përfundimin dhe çmimin, dhe dërgojmë një mostër.",
+    "how3Title": "Prodhuar dhe dërguar",
+    "how3Text": "Prerë dhe gdhendur në fabrikat tona, paketuar për eksport.",
+    "bandTitle": "Ju duhet një pjesë sipas vizatimit tuaj?",
+    "bandText": "Na dërgoni përmasat, formën dhe gurin: do t’ju dërgojmë ofertë dhe mostër."
   },
   "patterns": {
     "pageTitle": "Shtrime mermeri dhe modele guri | Wadi Degla",

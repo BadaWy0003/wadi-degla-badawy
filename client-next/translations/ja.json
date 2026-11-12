@@ -1122,7 +1122,23 @@
       "mosaics10x3": "モザイク 10×3 cm",
       "mosaicsCircular5x5": "円形モザイク 5×5 cm",
       "mosaicsUpsDown10x10": "凹凸モザイク 10×10 cm"
-    }
+    },
+    "eyebrow": "オーダーメイド",
+    "intro": "自社工場でエジプト産の大理石と石灰岩から切り出し・彫刻した建築部材、ランドスケープ部材、モザイク。",
+    "statElements": "種類の建築部材",
+    "statMosaics": "種類のモザイク",
+    "statCustomLabel": "サイズと仕上げ",
+    "statCustom": "特注対応",
+    "quote": "見積もりを依頼",
+    "howTitle": "特注品のご注文の流れ",
+    "how1Title": "図面を送る",
+    "how1Text": "サイズ、形状、数量、ご希望の石材をお知らせください。",
+    "how2Title": "見積もりとサンプル",
+    "how2Text": "石材・仕上げ・価格を確認し、サンプルをお送りします。",
+    "how3Title": "製作と出荷",
+    "how3Text": "自社工場で切断・彫刻し、輸出用に梱包します。",
+    "bandTitle": "図面どおりの製作をご希望ですか？",
+    "bandText": "サイズ、形状、石材をお送りください。見積もりとサンプルをお送りします。"
   },
   "patterns": {
     "pageTitle": "大理石パターン & 石張り舗装 | 屋外床材 | Wadi Degla大理石エジプト",

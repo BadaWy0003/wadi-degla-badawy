@@ -1122,7 +1122,23 @@
       "mosaics10x3": "Mozaic 10×3 cm",
       "mosaicsCircular5x5": "Mozaic circular 5×5 cm",
       "mosaicsUpsDown10x10": "Mozaic în relief 10×10 cm"
-    }
+    },
+    "eyebrow": "La comandă",
+    "intro": "Elemente arhitecturale, piese pentru amenajări peisagistice și mozaicuri, tăiate și sculptate din marmură și calcar egiptean în fabricile noastre.",
+    "statElements": "elemente arhitecturale",
+    "statMosaics": "modele de mozaic",
+    "statCustomLabel": "dimensiuni și finisaje",
+    "statCustom": "La comandă",
+    "quote": "Cereți o ofertă",
+    "howTitle": "Cum funcționează comenzile personalizate",
+    "how1Title": "Trimiteți desenul",
+    "how1Text": "Dimensiuni, formă, cantitate și piatra preferată.",
+    "how2Title": "Primiți ofertă și mostră",
+    "how2Text": "Confirmăm piatra, finisajul și prețul și trimitem o mostră.",
+    "how3Title": "Produs și expediat",
+    "how3Text": "Tăiat și sculptat în fabricile noastre, ambalat pentru export.",
+    "bandTitle": "Aveți nevoie de o piesă după desenul dvs.?",
+    "bandText": "Trimiteți-ne dimensiunile, forma și piatra: vă trimitem oferta și o mostră."
   },
   "patterns": {
     "pageTitle": "Pavaje din marmură și modele din piatră | Wadi Degla",

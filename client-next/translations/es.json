@@ -1122,7 +1122,23 @@
       "mosaics10x3": "Mosaico 10×3 cm",
       "mosaicsCircular5x5": "Mosaico circular 5×5 cm",
       "mosaicsUpsDown10x10": "Mosaico en relieve 10×10 cm"
-    }
+    },
+    "eyebrow": "Por encargo",
+    "intro": "Elementos arquitectónicos, piezas de paisajismo y mosaicos, cortados y tallados en mármol y piedra caliza egipcios en nuestras propias fábricas.",
+    "statElements": "elementos arquitectónicos",
+    "statMosaics": "diseños de mosaico",
+    "statCustomLabel": "medidas y acabados",
+    "statCustom": "A medida",
+    "quote": "Pedir presupuesto",
+    "howTitle": "Cómo funcionan los pedidos a medida",
+    "how1Title": "Envíe su plano",
+    "how1Text": "Medidas, forma, cantidad y la piedra que le guste.",
+    "how2Title": "Reciba presupuesto y muestra",
+    "how2Text": "Confirmamos la piedra, el acabado y el precio, y enviamos una muestra.",
+    "how3Title": "Fabricado y enviado",
+    "how3Text": "Cortado y tallado en nuestras fábricas, embalado para exportación.",
+    "bandTitle": "¿Necesita una pieza según su plano?",
+    "bandText": "Envíenos medidas, forma y piedra: le enviaremos presupuesto y muestra."
   },
   "patterns": {
     "pageTitle": "Adoquines de mármol y diseños en piedra | Wadi Degla",
