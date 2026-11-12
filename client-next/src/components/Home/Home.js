@@ -32,7 +32,7 @@ const YEARS = 46;
 const RANGES = [
   {
     href: '/egyptian-marble',
-    label: 'visualizer.egyptianMarble',
+    label: 'home.rangeEgyptianMarbleLimestone', // the page lists both (owner, 2026-11-12)
     img: `${HERO}/stone-tile-egyptian-marble-2.webp`,
   },
   {
