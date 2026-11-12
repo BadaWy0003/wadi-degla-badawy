@@ -1122,7 +1122,23 @@
       "mosaics10x3": "马赛克 10×3 厘米",
       "mosaicsCircular5x5": "圆形马赛克 5×5 厘米",
       "mosaicsUpsDown10x10": "凹凸马赛克 10×10 厘米"
-    }
+    },
+    "eyebrow": "按需定制",
+    "intro": "在自有工厂用埃及大理石和石灰石切割雕刻的建筑构件、景观石件和马赛克。",
+    "statElements": "种建筑构件",
+    "statMosaics": "种马赛克图案",
+    "statCustomLabel": "尺寸与表面处理",
+    "statCustom": "可定制",
+    "quote": "询价",
+    "howTitle": "定制订单流程",
+    "how1Title": "发送图纸",
+    "how1Text": "尺寸、形状、数量以及您喜欢的石材。",
+    "how2Title": "获取报价和样品",
+    "how2Text": "我们确认石材、表面处理和价格，并寄送样品。",
+    "how3Title": "生产与发货",
+    "how3Text": "在我们的工厂切割雕刻，按出口标准包装。",
+    "bandTitle": "需要按图纸定制石件吗？",
+    "bandText": "发来尺寸、形状和石材：我们会报价并寄送样品。"
   },
   "patterns": {
     "pageTitle": "大理石图案与石材铺路板 | 户外地板 | 瓦迪·德格拉大理石埃及",

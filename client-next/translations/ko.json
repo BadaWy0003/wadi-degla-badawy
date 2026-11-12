@@ -1122,7 +1122,23 @@
       "mosaics10x3": "모자이크 10×3 cm",
       "mosaicsCircular5x5": "원형 모자이크 5×5 cm",
       "mosaicsUpsDown10x10": "입체 모자이크 10×10 cm"
-    }
+    },
+    "eyebrow": "주문 제작",
+    "intro": "이집트산 대리석과 석회암을 자체 공장에서 절단·조각한 건축 요소, 조경석, 모자이크.",
+    "statElements": "건축 요소",
+    "statMosaics": "모자이크 패턴",
+    "statCustomLabel": "크기 및 마감",
+    "statCustom": "맞춤 제작",
+    "quote": "견적 요청",
+    "howTitle": "맞춤 주문 진행 방식",
+    "how1Title": "도면 보내기",
+    "how1Text": "크기, 형태, 수량, 원하는 석재를 알려주세요.",
+    "how2Title": "견적 및 샘플 받기",
+    "how2Text": "석재, 마감, 가격을 확정하고 샘플을 보내드립니다.",
+    "how3Title": "제작 및 선적",
+    "how3Text": "자체 공장에서 절단·조각하고 수출용으로 포장합니다.",
+    "bandTitle": "도면대로 제작이 필요하신가요?",
+    "bandText": "크기, 형태, 석재를 보내주시면 견적과 샘플을 보내드립니다."
   },
   "patterns": {
     "pageTitle": "대리석 패턴 & 석재 포장 | 실외 바닥재 | Wadi Degla 대리석 이집트",

@@ -1122,7 +1122,23 @@
       "mosaics10x3": "Mosaics 10×3 cm",
       "mosaicsCircular5x5": "Circular Mosaics 5×5 cm",
       "mosaicsUpsDown10x10": "Ups & Downs Mosaics 10×10 cm"
-    }
+    },
+    "eyebrow": "Made to order",
+    "intro": "Architectural elements, landscaping pieces and mosaics, cut and carved from Egyptian marble and limestone in our own factories.",
+    "statElements": "architectural elements",
+    "statMosaics": "mosaic patterns",
+    "statCustomLabel": "sizes & finishes",
+    "statCustom": "Custom",
+    "quote": "Ask for a quote",
+    "howTitle": "How custom orders work",
+    "how1Title": "Send your drawing",
+    "how1Text": "Size, shape, quantity and the stone you like.",
+    "how2Title": "Get a quote & sample",
+    "how2Text": "We confirm the stone, finish and price, and send a sample.",
+    "how3Title": "Made & shipped",
+    "how3Text": "Cut and carved in our factories, packed for export.",
+    "bandTitle": "Need a piece made to your drawing?",
+    "bandText": "Send us the size, shape and stone: we’ll quote and send a sample."
   },
   "patterns": {
     "pageTitle": "Marble Pavers & Stone Patterns | Wadi Degla",

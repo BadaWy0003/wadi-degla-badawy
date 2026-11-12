@@ -1122,7 +1122,23 @@
       "mosaics10x3": "Mosaico 10×3 cm",
       "mosaicsCircular5x5": "Mosaico circolare 5×5 cm",
       "mosaicsUpsDown10x10": "Mosaico a rilievo 10×10 cm"
-    }
+    },
+    "eyebrow": "Su ordinazione",
+    "intro": "Elementi architettonici, pezzi per il paesaggio e mosaici, tagliati e scolpiti in marmo e pietra calcarea egiziani nei nostri stabilimenti.",
+    "statElements": "elementi architettonici",
+    "statMosaics": "motivi a mosaico",
+    "statCustomLabel": "misure e finiture",
+    "statCustom": "Su misura",
+    "quote": "Richiedi un preventivo",
+    "howTitle": "Come funzionano gli ordini su misura",
+    "how1Title": "Inviate il disegno",
+    "how1Text": "Misure, forma, quantità e la pietra che preferite.",
+    "how2Title": "Preventivo e campione",
+    "how2Text": "Confermiamo pietra, finitura e prezzo, e inviamo un campione.",
+    "how3Title": "Prodotto e spedito",
+    "how3Text": "Tagliato e scolpito nei nostri stabilimenti, imballato per l’export.",
+    "bandTitle": "Vi serve un pezzo su disegno?",
+    "bandText": "Inviateci misure, forma e pietra: vi mandiamo preventivo e campione."
   },
   "patterns": {
     "pageTitle": "Pavimenti in marmo e decori in pietra | Wadi Degla",

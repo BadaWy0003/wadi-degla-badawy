@@ -1122,7 +1122,23 @@
       "mosaics10x3": "Mosaik 10×3 cm",
       "mosaicsCircular5x5": "Rund-Mosaik 5×5 cm",
       "mosaicsUpsDown10x10": "3D-Mosaik 10×10 cm"
-    }
+    },
+    "eyebrow": "Auf Bestellung",
+    "intro": "Architekturelemente, Gartenelemente und Mosaike, in unseren eigenen Werken aus ägyptischem Marmor und Kalkstein geschnitten und gemeißelt.",
+    "statElements": "Architekturelemente",
+    "statMosaics": "Mosaikmuster",
+    "statCustomLabel": "Maße & Oberflächen",
+    "statCustom": "Nach Maß",
+    "quote": "Angebot anfragen",
+    "howTitle": "So funktionieren Sonderanfertigungen",
+    "how1Title": "Zeichnung senden",
+    "how1Text": "Maße, Form, Menge und der gewünschte Stein.",
+    "how2Title": "Angebot & Muster erhalten",
+    "how2Text": "Wir bestätigen Stein, Oberfläche und Preis und senden ein Muster.",
+    "how3Title": "Gefertigt & versandt",
+    "how3Text": "In unseren Werken geschnitten und gemeißelt, exportfertig verpackt.",
+    "bandTitle": "Brauchen Sie ein Stück nach Ihrer Zeichnung?",
+    "bandText": "Senden Sie uns Maße, Form und Stein: Wir schicken ein Angebot und ein Muster."
   },
   "patterns": {
     "pageTitle": "Marmor-Pflaster & Steinmuster | Wadi Degla",

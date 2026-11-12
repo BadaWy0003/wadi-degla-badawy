@@ -1,0 +1,513 @@
+/* Stone Creations page (redesigned 2026-11-12, design B "Showroom viewer"): dark + gold like the
+   other redesigned pages. Everything is scoped under .sc; smaller screens at the end. */
+.sc {
+  --sc-bg: #0c0b0a;
+  --sc-surface: #15130f;
+  --sc-line: rgba(232, 214, 186, 0.1);
+  --sc-line-strong: rgba(232, 214, 186, 0.22);
+  --sc-text: #f3eee6;
+  --sc-body: #d6d0c6;
+  --sc-muted: #a8a196;
+  --sc-gold: #ad9571;
+  --sc-gold-hi: #cdb48b;
+  --sc-on-gold: #16130f;
+  --sc-header: 84px; /* the fixed site header */
+  background: var(--sc-bg);
+  color: var(--sc-text);
+}
+
+.sc *,
+.sc *::before,
+.sc *::after {
+  box-sizing: border-box;
+}
+
+.sc h1,
+.sc h2,
+.sc p,
+.sc dl,
+.sc dd {
+  margin: 0;
+  padding: 0;
+}
+
+.sc h1,
+.sc h2 {
+  font-family: inherit;
+  color: var(--sc-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.sc h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.sc h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.sc-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.sc-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--sc-muted);
+  margin-bottom: 34px;
+}
+
+.sc-crumb a {
+  color: var(--sc-muted);
+  text-decoration: none;
+}
+
+.sc-crumb a:hover,
+.sc-crumb-here {
+  color: var(--sc-gold-hi);
+}
+
+html[dir='rtl'] .sc-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.sc-eyebrow {
+  color: var(--sc-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.sc-hero {
+  padding: calc(var(--sc-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.sc-lead {
+  color: var(--sc-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.sc .sc-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.sc-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.sc-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--sc-gold-hi);
+}
+
+.sc-stats dt {
+  color: var(--sc-muted);
+  font-size: 13px;
+}
+
+.sc h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 10px;
+}
+
+.sc h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.15;
+  color: var(--sc-text);
+  text-transform: none;
+  margin: 0 0 12px;
+}
+
+.sc-section {
+  padding-top: 64px;
+}
+
+.sc .sc-intro {
+  color: var(--sc-body);
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 780px;
+  margin-bottom: 10px;
+}
+
+/* ---------- the viewer ---------- */
+.sc-viewer {
+  margin-top: 24px;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.sc-stage {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-line);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* the renders have a cream background: the photo side keeps it */
+.sc-stage-photo {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: #efe9df;
+  aspect-ratio: 1080 / 608;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.sc-stage-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.6s ease,
+    transform 1.2s ease;
+}
+
+.sc-stage-photo img.is-on {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sc-stage-text {
+  padding: 34px;
+  display: flex;
+  align-items: center;
+}
+
+.sc-info.is-on {
+  animation: sc-in 0.6s ease both;
+}
+
+@keyframes sc-in {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+.sc-info .sc-eyebrow {
+  margin-bottom: 10px !important;
+}
+
+.sc .sc-text {
+  color: var(--sc-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.sc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.sc-more {
+  color: var(--sc-gold-hi);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.sc-more:hover {
+  color: var(--sc-text);
+}
+
+/* row of small pictures */
+.sc-picker {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+}
+
+.sc-picker-sizes {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.sc-picker button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--sc-muted);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.sc-picker img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: #efe9df;
+  opacity: 0.6;
+  transition:
+    opacity 0.25s,
+    border-color 0.25s,
+    transform 0.25s;
+}
+
+.sc-picker button:hover img {
+  opacity: 0.9;
+  transform: translateY(-3px);
+}
+
+.sc-picker button.is-on {
+  color: var(--sc-gold-hi);
+}
+
+.sc-picker button.is-on img {
+  opacity: 1;
+  border-color: var(--sc-gold);
+}
+
+/* ---------- how custom orders work ---------- */
+.sc-how {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--sc-line);
+  border: 1px solid var(--sc-line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.sc-how li {
+  background: var(--sc-surface);
+  padding: 24px;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.sc-how li:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.sc-how li:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+.sc-how span {
+  display: block;
+  color: var(--sc-gold-hi);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.sc .sc-how h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.sc-how p {
+  color: var(--sc-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* fade-up when scrolled to (class added by useReveal after load) */
+.sc-reveal.sc-hidden {
+  opacity: 0;
+  translate: 0 36px;
+}
+
+/* ---------- buttons, final call to action ---------- */
+.sc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--sc-gold);
+  color: var(--sc-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sc-btn:hover {
+  background: var(--sc-gold-hi);
+  color: var(--sc-on-gold);
+}
+
+.sc-btn svg {
+  font-size: 19px;
+}
+
+.sc-band {
+  margin-top: 88px;
+  background: var(--sc-surface);
+  border-top: 1px solid var(--sc-line);
+  padding: 48px 0;
+}
+
+.sc-band .sc-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.sc .sc-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.sc-band p {
+  color: var(--sc-muted);
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.sc) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.sc) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc *,
+  .sc *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .sc-reveal.sc-hidden {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .sc {
+    --sc-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 1000px) {
+  .sc-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-stage-text {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sc-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sc-hero {
+    padding: calc(var(--sc-header) + 16px) 0 32px;
+  }
+
+  .sc-crumb {
+    margin-bottom: 20px;
+  }
+
+  .sc-lead {
+    font-size: 15.5px;
+  }
+
+  .sc .sc-stats {
+    gap: 24px;
+  }
+
+  .sc-stats dd {
+    font-size: 22px;
+  }
+
+  .sc-stats dt {
+    font-size: 11px;
+  }
+
+  .sc-section {
+    padding-top: 48px;
+  }
+
+  .sc-stage-text {
+    padding: 20px;
+  }
+
+  .sc-picker,
+  .sc-picker-sizes {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .sc-picker-sizes {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .sc-how {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-band {
+    margin-top: 56px;
+  }
+
+  .sc-band .sc-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
