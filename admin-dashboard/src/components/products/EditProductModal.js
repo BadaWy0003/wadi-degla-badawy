@@ -5,7 +5,15 @@ import AddIcon from '@mui/icons-material/Add';
 import apiClient from '../../util/client';
 import imageCompression from 'browser-image-compression';
 
-const PREDEFINED_CATEGORIES = ['Egyptian Marble', 'Egyptian Granite', 'Imported Marble', 'Imported Granite'];
+// The website shows these categories (client-next/src/util/product-types.js). A custom
+// category is saved, but doesn't appear on the website until it's added there too.
+const PREDEFINED_CATEGORIES = [
+  'Egyptian Marble',
+  'Egyptian Limestone',
+  'Egyptian Granite',
+  'Imported Marble',
+  'Imported Granite',
+];
 
 const PREDEFINED_FINISHES = [
   { label: 'Polished', value: 'Polished' },
@@ -64,7 +72,7 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
     if (product) {
       setProductData({
         name: product.name,
-        category: product.type,
+        category: (product.type || '').trim(),
         finish: product.finishes.map(f => ({
           finishName: f.finish,
           imageUrl: f.link,
@@ -73,9 +81,10 @@ export default function EditProductModal({ open, onClose, onSubmit, product }) {
       });
 
       // Check if category is custom
-      if (!PREDEFINED_CATEGORIES.includes(product.type)) {
+      // trimmed: some categories were typed with a space ("Egyptian Limestone ")
+      if (!PREDEFINED_CATEGORIES.includes((product.type || '').trim())) {
         setIsCustomCategory(true);
-        setCustomCategory(product.type);
+        setCustomCategory((product.type || '').trim());
       }
     }
   }, [product]);
@@ -190,7 +199,7 @@ const handleFinishAdd = async () => {
 
         // Add base fields
         formData.append('name', productData.name);
-        formData.append('type', productData.category);
+        formData.append('type', productData.category.trim());
 
         // Add files for each finish
         productData.finish.forEach(finish => {

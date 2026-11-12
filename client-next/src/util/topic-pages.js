@@ -12,8 +12,16 @@ export const TOPIC_PAGES = {
     slug: 'egyptian-marble',
     // Strips of our own stones' photos, made by tools/make-topic-heroes.js (also the next three).
     hero: '/Assets/Media/Hero/egyptian-marble-hero.webp',
-    products: (p) => p.type === 'Egyptian Marble',
-    related: ['galalaMarble', 'egyptianGranite', 'importedMarble', 'buyGuide'],
+    // Galala, Sunny, Triesta… are limestone (category "Egyptian Limestone" since 2026-11-12),
+    // but the trade and buyers call them Egyptian marble, so this page keeps listing them.
+    products: (p) => p.type === 'Egyptian Marble' || p.type === 'Egyptian Limestone',
+    related: ['egyptianLimestone', 'galalaMarble', 'egyptianGranite', 'importedMarble', 'buyGuide'],
+  },
+  egyptianLimestone: {
+    slug: 'egyptian-limestone',
+    hero: '/Assets/Media/Hero/egyptian-limestone-hero.webp',
+    products: (p) => p.type === 'Egyptian Limestone',
+    related: ['egyptianMarble', 'galalaMarble', 'egyptianGranite', 'buyGuide'],
   },
   egyptianGranite: {
     slug: 'egyptian-granite',
@@ -45,6 +53,7 @@ export const TOPIC_PAGES = {
     products: null, // no stone list: links to the category pages instead
     related: [
       'egyptianMarble',
+      'egyptianLimestone',
       'egyptianGranite',
       'importedMarble',
       'importedGranite',
@@ -74,6 +83,7 @@ export const OTHER_LINKS = {
 // Firestore category -> its topic page (used by the products list and product pages).
 export const CATEGORY_TOPIC = {
   'Egyptian Marble': 'egyptian-marble',
+  'Egyptian Limestone': 'egyptian-limestone',
   'Egyptian Granite': 'egyptian-granite',
   'Imported Marble': 'imported-marble',
   'Imported Granite': 'imported-granite',

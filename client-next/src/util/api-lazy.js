@@ -1,4 +1,5 @@
 'use client';
+import { normalizeProducts } from './product-types';
 
 // The API client (axios + qs, ~32 KB gzipped) is only downloaded when a call is really made.
 // Use these in components that are on every page (header, search, login state), so pages that
@@ -13,7 +14,7 @@ export function loadSearchProducts() {
   if (!searchProducts) {
     searchProducts = getApiClient()
       .then((api) => api.get('/api/storage/all'))
-      .then(({ data }) => data.data || [])
+      .then(({ data }) => normalizeProducts(data.data || []))
       .catch((error) => {
         console.error('Error fetching products:', error);
         searchProducts = null; // try again next time

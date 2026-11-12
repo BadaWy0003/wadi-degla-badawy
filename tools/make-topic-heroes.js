@@ -7,6 +7,7 @@
 // 2. the home page's "Choose your stone" cards: one stone each, <tile>.webp 480x640.
 // Run again if a stone's photo changes, then use new file names (photos are cached 30 days):
 //   cd tools && NODE_USE_ENV_PROXY=1 node make-topic-heroes.js   (NODE_USE_ENV_PROXY: cloud only)
+//   ONLY=egyptian-limestone-hero node make-topic-heroes.js   makes just one of them
 const path = require('path');
 const sharp = require('sharp');
 
@@ -15,6 +16,7 @@ const OUT = path.join(__dirname, '../client-next/public/Assets/Media/Hero');
 
 const HEROES = {
   'egyptian-marble-hero': ['Galala', 'Sunny Dark', 'Emperador', 'Creamy White Pearl', 'Triesta Grey'],
+  'egyptian-limestone-hero': ['Sunny Light', 'Galala Extra', 'Triesta Beige', 'Cleopatra', 'Melly Grey'],
   'egyptian-granite-hero': ['Black Aswan', 'Red Aswan', 'Halayeb', 'Rosa El Nasr', 'Karnak Grey'],
   'imported-marble-hero': [
     'Calacatta Italy',
@@ -59,7 +61,10 @@ async function strips(buffers, stripW, height) {
     return Buffer.from(await (await fetch(encodeURI(finish.link))).arrayBuffer());
   };
 
+  // ONLY=<name> makes just that photo (the others stay byte-identical, so no cache change)
+  const only = process.env.ONLY;
   for (const [name, stones] of Object.entries(HEROES)) {
+    if (only && name !== only) continue;
     const buffers = [];
     for (const stone of stones) buffers.push(await photo(stone));
     await (await strips(buffers, 400, 720))
@@ -73,6 +78,7 @@ async function strips(buffers, stripW, height) {
   }
 
   for (const [name, stone] of Object.entries(TILES)) {
+    if (only && name !== only) continue;
     await sharp(await photo(stone))
       .resize(480, 640, { fit: 'cover' })
       .webp({ quality: 70 })

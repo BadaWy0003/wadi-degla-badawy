@@ -34,6 +34,13 @@ const STATIC_PAGES = [
     files: TOPIC_FILES,
   },
   {
+    path: '/egyptian-limestone',
+    priority: 0.9,
+    changeFrequency: 'monthly',
+    topic: 'egyptianLimestone',
+    files: TOPIC_FILES,
+  },
+  {
     path: '/egyptian-granite',
     priority: 0.9,
     changeFrequency: 'monthly',

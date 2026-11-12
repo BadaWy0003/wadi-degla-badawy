@@ -1,7 +1,7 @@
 // Shared by the login, signup and account pages (src/components/Auth, MyAccount).
 import countryList from 'react-select-country-list';
 import { getApiClient } from '../../util/api-lazy';
-import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
+import { PRODUCT_TYPE_KEYS, normalizeProducts } from '../../util/product-types';
 
 export const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
 
@@ -42,7 +42,7 @@ export function loadStones() {
   stonesPromise ||= getApiClient()
     .then((api) => api.get('/api/storage/all'))
     .then(({ data }) =>
-      (data?.data || [])
+      normalizeProducts(data?.data || [])
         .filter((p) => PRODUCT_TYPE_KEYS[p.type])
         .map((p) => {
           const f = p.finishes?.find((x) => x.finish === 'Polished') || p.finishes?.[0];

@@ -1,3 +1,4 @@
+import { normalizeProducts } from './product-types';
 // Product URL slugs, shared by the product pages (generateStaticParams) and the sitemap.
 // Products live in Firestore and are read from the live API at build time.
 
@@ -120,7 +121,7 @@ export async function getProducts() {
   try {
     const res = await fetch(PRODUCTS_API_URL);
     const json = await res.json();
-    return (json?.data || []).filter((p) => p.type !== 'Gallery');
+    return normalizeProducts((json?.data || []).filter((p) => p.type !== 'Gallery'));
   } catch (e) {
     // Never fail silently: without the API, product pages fall back to the slug list
     // below and are built WITHOUT their content. Printed once per build process.

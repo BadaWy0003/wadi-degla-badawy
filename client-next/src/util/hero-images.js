@@ -12,6 +12,7 @@ export const MOBILE_HEROES = new Set([
   'projects-hero-mobile',
   // Topic page headers made by tools/make-topic-heroes.js
   'egyptian-marble-hero',
+  'egyptian-limestone-hero',
   'egyptian-granite-hero',
   'imported-marble-hero',
   'imported-granite-hero',
