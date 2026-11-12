@@ -29,6 +29,7 @@ export const PRODUCTS_MENU = {
       title: 'navigation.groupStones',
       items: [
         { href: '/egyptian-marble', label: 'visualizer.egyptianMarble' },
+        { href: '/egyptian-limestone', label: 'visualizer.egyptianLimestone' },
         { href: '/egyptian-granite', label: 'visualizer.egyptianGranite' },
         { href: '/imported-marble', label: 'visualizer.importedMarble' },
         { href: '/imported-granite', label: 'visualizer.importedGranite' },

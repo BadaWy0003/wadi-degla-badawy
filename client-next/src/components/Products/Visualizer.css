@@ -82,7 +82,7 @@
 }
 
 .products-categories .btn2 {
-    min-width: 23%;
+    min-width: 18.5%; /* 5 categories in one row */
     border-color: transparent;
 }
 

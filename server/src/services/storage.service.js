@@ -163,6 +163,10 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
 // lists, so they disappear from the website. Admins see everything (fetchAllForAdmin).
 const isVisible = (doc) => doc.hidden !== true;
 
+// Categories are typed in the admin panel; older ones can have spaces around them
+// ("Egyptian Limestone "), so they are returned trimmed.
+const withCleanType = (doc) => (typeof doc.type === 'string' ? { ...doc, type: doc.type.trim() } : doc);
+
 StorageService.fetchMaterialsByType = async (type) => {
   const materialsRef = firestore.collection(col('materials'));
   const querySnapshot = await materialsRef.where('type', '==', type).get();
@@ -177,7 +181,8 @@ StorageService.fetchMaterialsByType = async (type) => {
       id: doc.id,
       ...doc.data(),
     }))
-    .filter(isVisible);
+    .filter(isVisible)
+    .map(withCleanType);
 
   return materials;
 };
@@ -191,10 +196,12 @@ StorageService.fetchAllProducts = async ({ includeHidden = false } = {}) => {
   }
 
   // Map through the query snapshot and extract material data
-  const products = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+  const products = querySnapshot.docs.map((doc) =>
+    withCleanType({
+      id: doc.id,
+      ...doc.data(),
+    }),
+  );
 
   return includeHidden ? products : products.filter(isVisible);
 };

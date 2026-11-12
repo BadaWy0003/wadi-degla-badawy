@@ -257,7 +257,7 @@
 }
 
 .products-categories-2 .btn2 {
-  min-width: 23%;
+  min-width: 18.5%; /* 5 categories in one row (Egyptian Limestone added 2026-11-12) */
   border-color: transparent;
 }
 

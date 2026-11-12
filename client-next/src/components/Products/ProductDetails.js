@@ -23,6 +23,7 @@ import { finishLabel } from '../../util/finishes';
 import { productSlug } from '../../util/product-slugs';
 import Product from './Product';
 import { cardImageProps } from '../../util/responsive-img';
+import { normalizeProducts } from '../../util/product-types';
 
 // Default finish: "Polished" if available, else the first one.
 const defaultFinish = (product) =>
@@ -50,6 +51,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
         const { data } = await apiClient.get(`/api/storage/all`);
 
         if (data.data) {
+          data.data = normalizeProducts(data.data);
           // Find the product: by id when the page was built with it (so a product renamed
           // in the admin panel keeps working until the next deploy), else by its address.
           const foundProduct =

@@ -24,8 +24,8 @@ StorageController.uploadMaterial = async (req, res) => {
     
     const response = await StorageService.handleMaterialUpload({
       id,
-      name,
-      type,
+      name: String(name).trim(),
+      type: String(type).trim(), // "Egyptian Limestone " (typed with a space) was a separate category
       finishes: finishesArray,
       files,
     });

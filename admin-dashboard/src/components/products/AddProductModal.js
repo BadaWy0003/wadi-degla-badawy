@@ -5,7 +5,15 @@ import AddIcon from '@mui/icons-material/Add';
 import apiClient from '../../util/client';
 import imageCompression from 'browser-image-compression';
 
-const PREDEFINED_CATEGORIES = ['Egyptian Marble', 'Egyptian Granite', 'Imported Marble', 'Imported Granite'];
+// The website shows these categories (client-next/src/util/product-types.js). A custom
+// category is saved, but doesn't appear on the website until it's added there too.
+const PREDEFINED_CATEGORIES = [
+  'Egyptian Marble',
+  'Egyptian Limestone',
+  'Egyptian Granite',
+  'Imported Marble',
+  'Imported Granite',
+];
 
 const PREDEFINED_FINISHES = [
   { label: 'Polished', value: 'Polished' },
@@ -181,7 +189,7 @@ const handleFinishAdd = async () => {
 
             // Add required fields
             formData.append('name', productData.name); // Product name
-            formData.append('type', productData.category); // Product category
+            formData.append('type', productData.category.trim()); // Product category
 
             // Prepare finishes array
             const finishesArray = productData.finish.map(finish => ({

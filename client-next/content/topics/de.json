@@ -56,6 +56,44 @@
       }
     ]
   },
+  "egyptianLimestone": {
+    "pageTitle": "Ägyptischer Kalkstein – Galala, Sunny & Triesta | Wadi Degla",
+    "metaDescription": "Ägyptischer Kalkstein von Wadi Degla: Galala, Sunny, Triesta, Cleopatra, Melly Grey u. a. Platten, Fliesen und Blöcke aus Ägypten, weltweit.",
+    "heading": "Ägyptischer Kalkstein",
+    "intro": "Ägyptischer Kalkstein ist ein in Ägypten gewonnener Naturstein in warmen Beige-, Creme-, Elfenbein- und Grautönen mit ruhigem, gleichmäßigem Bild. Im Steinhandel sind viele dieser Steine als ägyptischer Marmor bekannt und gehören zu Ägyptens bekanntesten Exporten.\n\nWadi Degla gewinnt und verarbeitet ägyptischen Stein seit 1980, angefangen mit dem ersten Steinbruch am Galala-Gebirge. Wir schneiden und veredeln ihn in unseren eigenen Werken in Ägypten und liefern ihn als Platten, Fliesen und Blöcke an Projekte weltweit.",
+    "sections": [
+      {
+        "title": "Unsere ägyptischen Kalksteine",
+        "text": "Galala und Galala Extra, Sunny Light, Sunny Dark und Fantazia Sunny, Triesta Beige und Triesta Grey, Melly Grey (hell und dunkel), Cleopatra, Creamy White Pearl, Imperial und Katrina.\n\nJeder Stein hat eine eigene Seite mit Fotos, verfügbaren Oberflächen und den Projekten, in denen er verwendet wurde."
+      },
+      {
+        "title": "Wo ägyptischer Kalkstein verwendet wird",
+        "text": "Böden, Wandverkleidungen, Fassaden, Treppen, Fensterbänke und Außenanlagen, in Villen, Hotels, Resorts, Wohnanlagen und Geschäftsgebäuden."
+      },
+      {
+        "title": "Kalkstein oder Marmor?",
+        "text": "Geologisch sind diese Steine Kalksteine; im Handel heißen sie oft Marmor (zum Beispiel „Galala-Marmor“). Beide Namen bezeichnen dieselben Steine, Sie können sie also unter beiden Namen anfragen."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Ist Galala-Marmor ein Kalkstein?",
+        "a": "Ja. Galala ist ein feinkörniger ägyptischer Kalkstein, den der Handel Galala-Marmor nennt. Er wird im Gebiet des Galala-Gebirges gewonnen, wo Wadi Degla seinen ersten Steinbruch eröffnet hat."
+      },
+      {
+        "q": "Kann ägyptischer Kalkstein im Außenbereich verwendet werden?",
+        "a": "Viele unserer Kalksteine werden für Fassaden und Außenverkleidungen verwendet. Der passende Stein und die Oberfläche hängen von Klima und Nutzung ab; unser Team empfiehlt Ihnen einen für Ihr Projekt."
+      },
+      {
+        "q": "Kann ich ein Muster bekommen?",
+        "a": "Ja. Öffnen Sie die Seite eines Steins und klicken Sie auf „Muster anfordern“, oder kontaktieren Sie unser Vertriebsteam."
+      },
+      {
+        "q": "Wie erhalte ich einen Preis?",
+        "a": "Die Preise hängen von Stein, Oberfläche, Stärke, Formaten, Menge und Zielort ab. Senden Sie uns Ihre Anforderungen, und unser Vertrieb antwortet mit einem Angebot."
+      }
+    ]
+  },
   "egyptianGranite": {
     "pageTitle": "Ägyptischer Granit – Platten, Fliesen, Bordsteine & Pflaster | Wadi Degla",
     "metaDescription": "Ägyptischer Granit von Wadi Degla: Black Aswan, Red Aswan, New Halayeb, Gandolla, Royal Red, Rosa El Nasr und mehr. Rohplatten, Fliesen, Blöcke, Bordsteine und Pflastersteine, weltweit exportiert.",

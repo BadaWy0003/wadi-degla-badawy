@@ -8,6 +8,7 @@ import apiClient from "../../util/client.js";
 import ContactBubble from "../Contact/ContactBubble.js";
 import { PRODUCT_TYPE_KEYS } from "../../util/product-types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
+import { normalizeProducts } from '../../util/product-types';
 
 export default function Visualizer() {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ export default function Visualizer() {
     apiClient
     .get(`/api/storage/all`)
     .then(({ data }) => {
-      const products = data.data || [];
+      const products = normalizeProducts(data.data || []);
   
       // Mockups are no longer preloaded all at once (that downloaded ~36 MB on open).
       // Each one loads when its product is hovered/touched (preloadMockup) or clicked.
@@ -169,6 +170,12 @@ const handleProductClick = (item, type) => {
             {t('visualizer.egyptianMarble')}
           </button>
           <button
+            className={`btn2 ${selectedCategory === "Egyptian Limestone" ? "active" : ""}`}
+            onClick={() => setSelectedCategory("Egyptian Limestone")}
+          >
+            {t('visualizer.egyptianLimestone')}
+          </button>
+          <button
             className={`btn2 ${selectedCategory === "Imported Granite" ? "active" : ""}`}
             onClick={() => setSelectedCategory("Imported Granite")}
           >
@@ -188,6 +195,7 @@ const handleProductClick = (item, type) => {
         <div className="category-description-2">
           <p>
             {selectedCategory === "Egyptian Marble" && t('visualizer.egyptianMarbleDescription')}
+            {selectedCategory === "Egyptian Limestone" && t('products.egyptianLimestoneDescription')}
             {selectedCategory === "Imported Marble" && t('visualizer.importedMarbleDescription')}
             {selectedCategory === "Egyptian Granite" && t('visualizer.egyptianGraniteDescription')}
             {selectedCategory === "Imported Granite" && t('visualizer.importedGraniteDescription')}

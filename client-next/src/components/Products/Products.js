@@ -8,10 +8,10 @@ import apiClient from '../../util/client.js';
 import ContactBubble from '../Contact/ContactBubble.js';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 import LangLink from '../LangLink';
-import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
+import { PRODUCT_TYPE_KEYS, PRODUCT_CATEGORIES, normalizeProducts } from '../../util/product-types';
 import { CATEGORY_TOPIC } from '../../util/topic-pages';
 
-const CATEGORIES = ['Egyptian Marble', 'Imported Marble', 'Egyptian Granite', 'Imported Granite'];
+const CATEGORIES = PRODUCT_CATEGORIES;
 
 // initialProducts comes from the build (the page fetches the API), so the product cards are
 // in the static HTML for Google. The list is refreshed from the API in the browser, so
@@ -35,7 +35,7 @@ export default function Products({ initialProducts = [] }) {
     try {
       const { data } = await apiClient.get(`/api/storage/all`);
       if (data.data) {
-        setData(data.data);
+        setData(normalizeProducts(data.data));
       }
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -89,6 +89,8 @@ export default function Products({ initialProducts = [] }) {
           <div className="category-description-2">
             <p>
               {selectedCategory === 'Egyptian Marble' && t('products.egyptianMarbleDescription')}
+              {selectedCategory === 'Egyptian Limestone' &&
+                t('products.egyptianLimestoneDescription')}
               {selectedCategory === 'Imported Marble' && t('products.importedMarbleDescription')}
               {selectedCategory === 'Egyptian Granite' && t('products.egyptianGraniteDescription')}
               {selectedCategory === 'Imported Granite' && t('products.importedGraniteDescription')}
