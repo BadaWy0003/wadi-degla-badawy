@@ -1,0 +1,433 @@
+/* Packing page (redesigned 2026-11-12, design A "Slabs + tiles cards"): dark + gold like the home, stone and
+   products pages. Everything is scoped under .pk; smaller screens at the end. */
+.pk {
+  --pk-bg: #0c0b0a;
+  --pk-surface: #15130f;
+  --pk-line: rgba(232, 214, 186, 0.1);
+  --pk-line-strong: rgba(232, 214, 186, 0.22);
+  --pk-text: #f3eee6;
+  --pk-body: #d6d0c6;
+  --pk-muted: #a8a196;
+  --pk-gold: #ad9571;
+  --pk-gold-hi: #cdb48b;
+  --pk-on-gold: #16130f;
+  --pk-header: 84px; /* the fixed site header */
+  background: var(--pk-bg);
+  color: var(--pk-text);
+}
+
+.pk *,
+.pk *::before,
+.pk *::after {
+  box-sizing: border-box;
+}
+
+.pk h1,
+.pk h2,
+.pk p,
+.pk dl,
+.pk dd {
+  margin: 0;
+  padding: 0;
+}
+
+.pk h1,
+.pk h2 {
+  font-family: inherit;
+  color: var(--pk-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.pk h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.pk h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.pk-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.pk-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--pk-muted);
+  margin-bottom: 34px;
+}
+
+.pk-crumb a {
+  color: var(--pk-muted);
+  text-decoration: none;
+}
+
+.pk-crumb a:hover,
+.pk-crumb-here {
+  color: var(--pk-gold-hi);
+}
+
+html[dir='rtl'] .pk-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.pk-eyebrow {
+  color: var(--pk-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.pk-hero {
+  padding: calc(var(--pk-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.pk-lead {
+  color: var(--pk-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.pk .pk-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.pk-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.pk-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--pk-gold-hi);
+}
+
+.pk-stats dt {
+  color: var(--pk-muted);
+  font-size: 13px;
+}
+
+/* ---------- sections ---------- */
+.pk-section {
+  padding-top: 72px;
+}
+
+.pk-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.pk-method {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-line);
+  border-radius: 18px;
+  padding: 12px 12px 22px;
+  min-width: 0;
+}
+
+.pk-method h3,
+.pk-method .pk-checks {
+  padding: 0 8px;
+}
+
+.pk h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--pk-text);
+  margin: 16px 0 10px;
+  text-transform: none;
+}
+
+.pk-method-img,
+.pk-tile {
+  padding: 0;
+  border: 0;
+  background: var(--pk-bg);
+  cursor: zoom-in;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.pk-method-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  aspect-ratio: 16 / 10;
+}
+
+.pk-method-img img,
+.pk-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.pk-method-img:hover img,
+.pk-tile:hover img {
+  transform: scale(1.04);
+}
+
+.pk-tag {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  background: var(--pk-gold);
+  color: var(--pk-on-gold);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.pk-checks {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  gap: 9px;
+}
+
+.pk-checks li {
+  position: relative;
+  padding-inline-start: 24px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--pk-body);
+}
+
+.pk-checks li::before {
+  content: '✓';
+  position: absolute;
+  inset-inline-start: 8px;
+  color: var(--pk-gold);
+}
+
+.pk-method .pk-checks li::before {
+  inset-inline-start: 0;
+}
+
+.pk-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--pk-line);
+  border: 1px solid var(--pk-line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.pk-benefits li {
+  background: var(--pk-surface);
+  padding: 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.pk-tick {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--pk-gold);
+  color: var(--pk-gold-hi);
+  flex-shrink: 0;
+}
+
+.pk-gallery {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 170px;
+  gap: 8px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.pk-tile:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.pk-all {
+  position: absolute;
+  inset-inline-end: 14px;
+  bottom: 14px;
+  background: var(--pk-text);
+  color: var(--pk-on-gold);
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* the shared "Related pages" links */
+.pk .related-pages {
+  padding-top: 72px;
+  margin: 0;
+  background: transparent;
+}
+
+/* ---------- final call to action ---------- */
+.pk-band {
+  margin-top: 88px;
+  background: var(--pk-surface);
+  border-top: 1px solid var(--pk-line);
+  padding: 48px 0;
+}
+
+.pk-band .pk-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.pk .pk-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.pk-band p {
+  color: var(--pk-muted);
+}
+
+.pk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--pk-gold);
+  color: var(--pk-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pk-btn:hover {
+  background: var(--pk-gold-hi);
+  color: var(--pk-on-gold);
+}
+
+.pk-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.pk) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.pk) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .pk {
+    --pk-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 900px) {
+  .pk-methods,
+  .pk-benefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pk-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .pk-hero {
+    padding: calc(var(--pk-header) + 16px) 0 32px;
+  }
+
+  .pk-crumb {
+    margin-bottom: 20px;
+  }
+
+  .pk-lead {
+    font-size: 15.5px;
+  }
+
+  .pk .pk-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .pk-stats dd {
+    font-size: 22px;
+  }
+
+  .pk-stats dt {
+    font-size: 11px;
+  }
+
+  .pk-section {
+    padding-top: 48px;
+  }
+
+  .pk-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 120px;
+  }
+
+  .pk .related-pages {
+    padding-top: 48px;
+  }
+
+  .pk-band {
+    margin-top: 56px;
+  }
+
+  .pk-band .pk-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

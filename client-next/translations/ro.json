@@ -548,7 +548,19 @@
     "packingAlt28": "Ladă etichetată cu plăci de piatră naturală, gata de expediere",
     "packingAlt29": "Lăzi cu plăci de marmură înfoliate și legate în zona de export",
     "packingAlt30": "Lăzi Wadi Degla cu etichete de export în curtea fabricii",
-    "packingAlt31": "Angajat Wadi Degla inspectând lăzile de export în curte"
+    "packingAlt31": "Angajat Wadi Degla inspectând lăzile de export în curte",
+    "eyebrow": "Ambalare pentru export",
+    "intro": "Fiecare placă și dală este ambalată ca să ajungă așa cum a plecat din fabrică: baloți din lemn, lăzi căptușite cu spumă și paleți legați, încărcați în containere de 20 de picioare.",
+    "statBundle": "plăci pe balot",
+    "statMethods": "metode de ambalare",
+    "statContainer": "containere",
+    "group_slabs": "Plăci",
+    "group_tiles": "Dale",
+    "woodenBundleTag": "Încărcare cu macaraua",
+    "normalPackingTag": "Încărcare manuală",
+    "woodenCratesTag": "Căptușite cu spumă",
+    "woodenPalletTag": "Pentru dale mari",
+    "galleryTitle": "Din depozitul nostru în containerul tău"
   },
   "history": {
     "pageTitle": "Istoria noastră: marmură egipteană din 1980 | Wadi Degla",

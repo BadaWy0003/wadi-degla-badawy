@@ -548,7 +548,19 @@
     "packingAlt28": "Caisse étiquetée de carreaux de pierre naturelle prête à expédier",
     "packingAlt29": "Caisses de carreaux de marbre filmées et cerclées dans la zone d'export",
     "packingAlt30": "Caisses Wadi Degla avec étiquettes d'export dans la cour de l'usine",
-    "packingAlt31": "Employé de Wadi Degla inspectant les caisses d'export dans la cour"
+    "packingAlt31": "Employé de Wadi Degla inspectant les caisses d'export dans la cour",
+    "eyebrow": "Emballage export",
+    "intro": "Chaque tranche et chaque carreau est emballé pour arriver dans l’état où il a quitté notre usine : ballots en bois, caisses doublées de mousse et palettes cerclées, chargés en conteneurs 20 pieds.",
+    "statBundle": "tranches par ballot",
+    "statMethods": "méthodes d’emballage",
+    "statContainer": "conteneurs",
+    "group_slabs": "Tranches",
+    "group_tiles": "Carreaux",
+    "woodenBundleTag": "Chargement à la grue",
+    "normalPackingTag": "Chargement manuel",
+    "woodenCratesTag": "Doublées de mousse",
+    "woodenPalletTag": "Grands carreaux",
+    "galleryTitle": "De notre dépôt à votre conteneur"
   },
   "history": {
     "pageTitle": "Notre histoire : le marbre égyptien depuis 1980 | Wadi Degla",

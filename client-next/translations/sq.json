@@ -548,7 +548,19 @@
     "packingAlt28": "Arkë me etiketë me pllaka guri natyror gati për dërgesë",
     "packingAlt29": "Arka pllakash mermeri të mbështjella dhe të lidhura në zonën e eksportit",
     "packingAlt30": "Arka Wadi Degla me etiketa eksporti në oborrin e fabrikës",
-    "packingAlt31": "Punonjës i Wadi Degla duke kontrolluar arkat e eksportit"
+    "packingAlt31": "Punonjës i Wadi Degla duke kontrolluar arkat e eksportit",
+    "eyebrow": "Paketim për eksport",
+    "intro": "Çdo pllakë paketohet që të arrijë në gjendjen kur doli nga fabrika jonë: tufa druri, arka të veshura me shkumë dhe paleta të lidhura, në kontejnerë 20 këmbë.",
+    "statBundle": "pllaka për tufë",
+    "statMethods": "mënyra paketimi",
+    "statContainer": "kontejnerë",
+    "group_slabs": "Pllaka",
+    "group_tiles": "Pllakëza",
+    "woodenBundleTag": "Për ngarkim me vinç",
+    "normalPackingTag": "Për ngarkim me dorë",
+    "woodenCratesTag": "Me shkumë",
+    "woodenPalletTag": "Për pllakëza të mëdha",
+    "galleryTitle": "Nga sheshi ynë te kontejneri juaj"
   },
   "history": {
     "pageTitle": "Historia jonë: mermer egjiptian që nga 1980 | Wadi Degla",

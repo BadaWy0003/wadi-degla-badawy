@@ -548,7 +548,19 @@
     "packingAlt28": "贴有标签、准备发运的天然石材瓷砖木箱",
     "packingAlt29": "出口堆场中经缠膜和打包带加固的大理石瓷砖木箱",
     "packingAlt30": "工厂堆场中贴有出口标签的瓦迪·德格拉木箱",
-    "packingAlt31": "瓦迪·德格拉员工在堆场检查出口木箱"
+    "packingAlt31": "瓦迪·德格拉员工在堆场检查出口木箱",
+    "eyebrow": "出口级包装",
+    "intro": "每块大板和规格板都按原样完好送达：木捆、内衬泡沫的木箱和打带托盘，装入 20 英尺集装箱。",
+    "statBundle": "片/木捆",
+    "statMethods": "种包装方式",
+    "statContainer": "集装箱",
+    "group_slabs": "大板",
+    "group_tiles": "规格板",
+    "woodenBundleTag": "吊车装柜",
+    "normalPackingTag": "人工装柜",
+    "woodenCratesTag": "内衬泡沫",
+    "woodenPalletTag": "大尺寸规格板",
+    "galleryTitle": "从堆场到您的集装箱"
   },
   "history": {
     "pageTitle": "瓦迪·德格拉历史 — 三代埃及大理石卓越传承",

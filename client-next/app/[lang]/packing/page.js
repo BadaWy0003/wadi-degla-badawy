@@ -16,9 +16,8 @@ export function generateMetadata({ params }) {
 
 export default function PackingPage({ params }) {
   return (
-    <>
-      <Packing />
+    <Packing>
       <RelatedPages lang={params.lang} page="packing" />
-    </>
+    </Packing>
   );
 }

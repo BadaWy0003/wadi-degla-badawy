@@ -548,7 +548,19 @@
     "packingAlt28": "Labelled crate of natural stone tiles ready for shipment",
     "packingAlt29": "Wrapped and strapped crates of marble tiles in the export yard",
     "packingAlt30": "Wadi Degla crates with export labels in the factory yard",
-    "packingAlt31": "Wadi Degla worker inspecting export crates in the yard"
+    "packingAlt31": "Wadi Degla worker inspecting export crates in the yard",
+    "eyebrow": "Export-grade packing",
+    "intro": "Every slab and tile is packed to arrive in the same condition it left our factory: wooden bundles, foam-lined crates and strapped pallets, loaded into 20 ft containers.",
+    "statBundle": "slabs per bundle",
+    "statMethods": "packing methods",
+    "statContainer": "containers",
+    "group_slabs": "Slabs",
+    "group_tiles": "Tiles",
+    "woodenBundleTag": "For crane loading",
+    "normalPackingTag": "For manual loading",
+    "woodenCratesTag": "Foam-lined",
+    "woodenPalletTag": "For large tiles",
+    "galleryTitle": "From our yard to your container"
   },
   "history": {
     "pageTitle": "Our History: Egyptian Marble Since 1980 | Wadi Degla",

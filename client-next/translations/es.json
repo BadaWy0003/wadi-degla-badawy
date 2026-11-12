@@ -548,7 +548,19 @@
     "packingAlt28": "Caja etiquetada de baldosas de piedra natural lista para el envío",
     "packingAlt29": "Cajas de baldosas de mármol envueltas y flejadas en el patio de exportación",
     "packingAlt30": "Cajas de Wadi Degla con etiquetas de exportación en el patio de la fábrica",
-    "packingAlt31": "Operario de Wadi Degla revisando cajas de exportación en el patio"
+    "packingAlt31": "Operario de Wadi Degla revisando cajas de exportación en el patio",
+    "eyebrow": "Embalaje de exportación",
+    "intro": "Cada plancha y baldosa se embala para llegar como salió de nuestra fábrica: atados de madera, cajas forradas de espuma y palés flejados, cargados en contenedores de 20 pies.",
+    "statBundle": "planchas por atado",
+    "statMethods": "métodos de embalaje",
+    "statContainer": "contenedores",
+    "group_slabs": "Planchas",
+    "group_tiles": "Baldosas",
+    "woodenBundleTag": "Carga con grúa",
+    "normalPackingTag": "Carga manual",
+    "woodenCratesTag": "Forradas de espuma",
+    "woodenPalletTag": "Baldosas grandes",
+    "galleryTitle": "De nuestro patio a su contenedor"
   },
   "history": {
     "pageTitle": "Nuestra historia: mármol egipcio desde 1980 | Wadi Degla",

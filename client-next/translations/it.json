@@ -548,7 +548,19 @@
     "packingAlt28": "Cassa etichettata di piastrelle di pietra naturale pronta per la spedizione",
     "packingAlt29": "Casse di piastrelle di marmo filmate e reggiate nell'area export",
     "packingAlt30": "Casse Wadi Degla con etichette export nel piazzale della fabbrica",
-    "packingAlt31": "Operatore Wadi Degla che controlla le casse per l'export nel piazzale"
+    "packingAlt31": "Operatore Wadi Degla che controlla le casse per l'export nel piazzale",
+    "eyebrow": "Imballaggio per l’export",
+    "intro": "Ogni lastra e piastrella è imballata per arrivare come ha lasciato la nostra fabbrica: fasci in legno, casse imbottite di schiuma e pallet reggiati, caricati in container da 20 piedi.",
+    "statBundle": "lastre per fascio",
+    "statMethods": "metodi di imballaggio",
+    "statContainer": "container",
+    "group_slabs": "Lastre",
+    "group_tiles": "Piastrelle",
+    "woodenBundleTag": "Carico con gru",
+    "normalPackingTag": "Carico manuale",
+    "woodenCratesTag": "Imbottite di schiuma",
+    "woodenPalletTag": "Per piastrelle grandi",
+    "galleryTitle": "Dal nostro piazzale al tuo container"
   },
   "history": {
     "pageTitle": "La nostra storia: marmo egiziano dal 1980 | Wadi Degla",
