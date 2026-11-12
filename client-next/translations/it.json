@@ -777,7 +777,22 @@
     "use_staircases": "Scale",
     "use_windowSills": "Davanzali",
     "use_countertops": "Piani di lavoro",
-    "use_landscaping": "Paesaggistica e pavimentazioni esterne"
+    "use_landscaping": "Paesaggistica e pavimentazioni esterne",
+    "ctaPrice": "Chiedi un prezzo su WhatsApp",
+    "ctaPriceShort": "Chiedi un prezzo",
+    "ctaSample": "Richiedi un campione gratuito",
+    "ctaSampleShort": "Campione gratuito",
+    "finishesCount": "{{count}} finiture",
+    "trustSamples": "Piccoli campioni gratuiti",
+    "trustSince": "Esportiamo dal 1980",
+    "trustCountries": "Spedizioni in {{count}} paesi",
+    "aboutTitle": "Informazioni su {{name}}",
+    "inSpaceTitle": "{{name}} in un ambiente",
+    "interior": "Interno",
+    "exterior": "Esterno",
+    "bandTitle": "Un progetto con {{name}}?",
+    "bandText": "Inviaci quantità e misure. Ti rispondiamo con prezzo e tempi di consegna.",
+    "bandCta": "Scrivici su WhatsApp"
   },
   "sampleRequestForm": {
     "successMessage": "Messaggio inviato con successo!",

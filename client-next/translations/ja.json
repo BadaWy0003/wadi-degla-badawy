@@ -777,7 +777,22 @@
     "use_staircases": "階段",
     "use_windowSills": "窓台",
     "use_countertops": "カウンター",
-    "use_landscaping": "造園・屋外舗装"
+    "use_landscaping": "造園・屋外舗装",
+    "ctaPrice": "WhatsAppで価格を問い合わせる",
+    "ctaPriceShort": "価格を問い合わせる",
+    "ctaSample": "無料サンプルを依頼",
+    "ctaSampleShort": "無料サンプル",
+    "finishesCount": "仕上げ {{count}} 種",
+    "trustSamples": "小さなサンプルは無料",
+    "trustSince": "1980年から輸出",
+    "trustCountries": "{{count}}か国へ出荷",
+    "aboutTitle": "{{name}}について",
+    "inSpaceTitle": "{{name}}の施工イメージ",
+    "interior": "室内",
+    "exterior": "屋外",
+    "bandTitle": "{{name}}を使うプロジェクトをご計画中ですか？",
+    "bandText": "数量とサイズをお送りください。価格と納期をご返信します。",
+    "bandCta": "WhatsAppで相談"
   },
   "sampleRequestForm": {
     "successMessage": "メッセージが正常に送信されました！",

@@ -777,7 +777,22 @@
     "use_staircases": "Treppen",
     "use_windowSills": "Fensterbänke",
     "use_countertops": "Arbeitsplatten",
-    "use_landscaping": "Gartengestaltung & Außenpflaster"
+    "use_landscaping": "Gartengestaltung & Außenpflaster",
+    "ctaPrice": "Preis per WhatsApp anfragen",
+    "ctaPriceShort": "Preis anfragen",
+    "ctaSample": "Kostenloses Muster anfordern",
+    "ctaSampleShort": "Gratis-Muster",
+    "finishesCount": "{{count}} Oberflächen",
+    "trustSamples": "Kostenlose kleine Muster",
+    "trustSince": "Export seit 1980",
+    "trustCountries": "Lieferung in {{count}} Länder",
+    "aboutTitle": "Über {{name}}",
+    "inSpaceTitle": "{{name}} im Raum",
+    "interior": "Innen",
+    "exterior": "Außen",
+    "bandTitle": "Ein Projekt mit {{name}} geplant?",
+    "bandText": "Senden Sie uns Menge und Maße. Wir antworten mit Preis und Lieferzeit.",
+    "bandCta": "Per WhatsApp schreiben"
   },
   "sampleRequestForm": {
     "successMessage": "Nachricht erfolgreich gesendet!",

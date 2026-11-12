@@ -777,7 +777,22 @@
     "use_staircases": "계단",
     "use_windowSills": "창턱",
     "use_countertops": "상판",
-    "use_landscaping": "조경 및 실외 포장"
+    "use_landscaping": "조경 및 실외 포장",
+    "ctaPrice": "WhatsApp으로 가격 문의",
+    "ctaPriceShort": "가격 문의",
+    "ctaSample": "무료 샘플 요청",
+    "ctaSampleShort": "무료 샘플",
+    "finishesCount": "마감 {{count}}종",
+    "trustSamples": "소형 샘플 무료",
+    "trustSince": "1980년부터 수출",
+    "trustCountries": "{{count}}개국 배송",
+    "aboutTitle": "{{name}} 소개",
+    "inSpaceTitle": "공간 속 {{name}}",
+    "interior": "실내",
+    "exterior": "실외",
+    "bandTitle": "{{name}}(으)로 프로젝트를 계획 중이신가요?",
+    "bandText": "수량과 규격을 보내 주시면 가격과 납기를 알려 드립니다.",
+    "bandCta": "WhatsApp 상담"
   },
   "sampleRequestForm": {
     "successMessage": "메시지가 성공적으로 전송되었습니다!",

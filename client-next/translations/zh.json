@@ -777,7 +777,22 @@
     "use_staircases": "楼梯",
     "use_windowSills": "窗台",
     "use_countertops": "台面",
-    "use_landscaping": "景观与室外铺装"
+    "use_landscaping": "景观与室外铺装",
+    "ctaPrice": "通过 WhatsApp 询价",
+    "ctaPriceShort": "询价",
+    "ctaSample": "申请免费样品",
+    "ctaSampleShort": "免费样品",
+    "finishesCount": "{{count}} 种表面处理",
+    "trustSamples": "免费提供小样",
+    "trustSince": "自 1980 年起出口",
+    "trustCountries": "发货至 {{count}} 个国家",
+    "aboutTitle": "关于{{name}}",
+    "inSpaceTitle": "{{name}}实景效果",
+    "interior": "室内",
+    "exterior": "室外",
+    "bandTitle": "计划使用{{name}}的项目？",
+    "bandText": "请发送数量和规格，我们会回复价格和交货期。",
+    "bandCta": "WhatsApp 咨询"
   },
   "sampleRequestForm": {
     "successMessage": "消息发送成功！",

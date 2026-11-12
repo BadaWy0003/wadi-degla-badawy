@@ -777,7 +777,22 @@
     "use_staircases": "Scări",
     "use_windowSills": "Glafuri",
     "use_countertops": "Blaturi",
-    "use_landscaping": "Amenajări peisagistice și pavaje exterioare"
+    "use_landscaping": "Amenajări peisagistice și pavaje exterioare",
+    "ctaPrice": "Cere un preț pe WhatsApp",
+    "ctaPriceShort": "Cere un preț",
+    "ctaSample": "Cere o mostră gratuită",
+    "ctaSampleShort": "Mostră gratuită",
+    "finishesCount": "{{count}} finisaje",
+    "trustSamples": "Mostre mici gratuite",
+    "trustSince": "Exportăm din 1980",
+    "trustCountries": "Livrăm în {{count}} țări",
+    "aboutTitle": "Despre {{name}}",
+    "inSpaceTitle": "{{name}} într-un spațiu real",
+    "interior": "Interior",
+    "exterior": "Exterior",
+    "bandTitle": "Plănuiești un proiect cu {{name}}?",
+    "bandText": "Trimite-ne cantitatea și dimensiunile. Îți răspundem cu prețul și termenul de livrare.",
+    "bandCta": "Scrie-ne pe WhatsApp"
   },
   "sampleRequestForm": {
     "successMessage": "Mesaj trimis cu succes!",

@@ -777,7 +777,22 @@
     "use_staircases": "Лестницы",
     "use_windowSills": "Подоконники",
     "use_countertops": "Столешницы",
-    "use_landscaping": "Ландшафт и уличное мощение"
+    "use_landscaping": "Ландшафт и уличное мощение",
+    "ctaPrice": "Узнать цену в WhatsApp",
+    "ctaPriceShort": "Узнать цену",
+    "ctaSample": "Запросить бесплатный образец",
+    "ctaSampleShort": "Бесплатный образец",
+    "finishesCount": "Отделок: {{count}}",
+    "trustSamples": "Бесплатные небольшие образцы",
+    "trustSince": "Экспортируем с 1980 года",
+    "trustCountries": "Доставка в {{count}} стран",
+    "aboutTitle": "О камне {{name}}",
+    "inSpaceTitle": "{{name}} в интерьере",
+    "interior": "Интерьер",
+    "exterior": "Экстерьер",
+    "bandTitle": "Планируете проект с {{name}}?",
+    "bandText": "Пришлите количество и размеры. Мы ответим ценой и сроком поставки.",
+    "bandCta": "Написать в WhatsApp"
   },
   "sampleRequestForm": {
     "successMessage": "Сообщение успешно отправлено!",
