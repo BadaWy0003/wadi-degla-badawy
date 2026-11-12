@@ -1,0 +1,434 @@
+/* Exports page (redesigned 2026-11-12, design A "Terms first"): dark + gold like the home, stone and
+   products pages. Everything is scoped under .ex; smaller screens at the end. */
+.ex {
+  --ex-bg: #0c0b0a;
+  --ex-surface: #15130f;
+  --ex-line: rgba(232, 214, 186, 0.1);
+  --ex-line-strong: rgba(232, 214, 186, 0.22);
+  --ex-text: #f3eee6;
+  --ex-body: #d6d0c6;
+  --ex-muted: #a8a196;
+  --ex-gold: #ad9571;
+  --ex-gold-hi: #cdb48b;
+  --ex-on-gold: #16130f;
+  --ex-header: 84px; /* the fixed site header */
+  background: var(--ex-bg);
+  color: var(--ex-text);
+}
+
+.ex *,
+.ex *::before,
+.ex *::after {
+  box-sizing: border-box;
+}
+
+.ex h1,
+.ex h2,
+.ex p,
+.ex dl,
+.ex dd {
+  margin: 0;
+  padding: 0;
+}
+
+.ex h1,
+.ex h2 {
+  font-family: inherit;
+  color: var(--ex-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.ex h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.ex h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.ex-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.ex-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ex-muted);
+  margin-bottom: 34px;
+}
+
+.ex-crumb a {
+  color: var(--ex-muted);
+  text-decoration: none;
+}
+
+.ex-crumb a:hover,
+.ex-crumb-here {
+  color: var(--ex-gold-hi);
+}
+
+html[dir='rtl'] .ex-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.ex-eyebrow {
+  color: var(--ex-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.ex-hero {
+  padding: calc(var(--ex-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.ex-lead {
+  color: var(--ex-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.ex .ex-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.ex-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.ex-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--ex-gold-hi);
+}
+
+.ex-stats dt {
+  color: var(--ex-muted);
+  font-size: 13px;
+}
+
+/* ---------- sections ---------- */
+.ex-section {
+  padding-top: 72px;
+}
+
+.ex-terms {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ex-line);
+  border: 1px solid var(--ex-line);
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.ex-terms > div {
+  background: var(--ex-surface);
+  padding: 22px;
+}
+
+.ex-terms dt {
+  color: var(--ex-gold);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ex-terms strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 8px 0 6px;
+}
+
+.ex-terms span {
+  display: block;
+  color: var(--ex-muted);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.ex-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--ex-gold-hi);
+  font-size: 14.5px;
+  text-decoration: none;
+}
+
+.ex-link:hover {
+  color: var(--ex-text);
+}
+
+.ex-arrow {
+  display: inline-block;
+}
+
+html[dir='rtl'] .ex-arrow {
+  transform: scaleX(-1);
+}
+
+.ex-dept {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.ex-dept > * {
+  min-width: 0;
+}
+
+.ex-dept-img,
+.ex-tile {
+  padding: 0;
+  border: 0;
+  background: var(--ex-surface);
+  cursor: zoom-in;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.ex-dept-img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  aspect-ratio: 4 / 3;
+}
+
+.ex-dept-img img,
+.ex-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ex-dept-img:hover img,
+.ex-tile:hover img {
+  transform: scale(1.03);
+}
+
+.ex-text {
+  color: var(--ex-body);
+  line-height: 1.7;
+  margin: 0 0 16px !important;
+}
+
+.ex-checks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.ex-checks li {
+  position: relative;
+  padding-inline-start: 24px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.ex-checks li::before {
+  content: '✓';
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--ex-gold);
+}
+
+/* the shared Global Markets block (OurMarkets, styled by Exports.css) */
+.ex-markets {
+  padding-top: 40px;
+}
+
+.ex-gallery {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 170px;
+  gap: 8px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.ex-tile:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.ex-all {
+  position: absolute;
+  inset-inline-end: 14px;
+  bottom: 14px;
+  background: var(--ex-text);
+  color: var(--ex-on-gold);
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ---------- final call to action ---------- */
+.ex-band {
+  margin-top: 88px;
+  background: var(--ex-surface);
+  border-top: 1px solid var(--ex-line);
+  padding: 48px 0;
+}
+
+.ex-band .ex-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ex .ex-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.ex-band p {
+  color: var(--ex-muted);
+}
+
+.ex-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--ex-gold);
+  color: var(--ex-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ex-btn:hover {
+  background: var(--ex-gold-hi);
+  color: var(--ex-on-gold);
+}
+
+.ex-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.ex) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.ex) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .ex {
+    --ex-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 900px) {
+  .ex-terms {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ex-dept {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ex-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .ex-hero {
+    padding: calc(var(--ex-header) + 16px) 0 32px;
+  }
+
+  .ex-crumb {
+    margin-bottom: 20px;
+  }
+
+  .ex-lead {
+    font-size: 15.5px;
+  }
+
+  .ex .ex-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .ex-stats dd {
+    font-size: 22px;
+  }
+
+  .ex-stats dt {
+    font-size: 11px;
+  }
+
+  .ex-section {
+    padding-top: 48px;
+  }
+
+  .ex-terms > div {
+    padding: 16px;
+  }
+
+  .ex-terms strong {
+    font-size: 16px;
+  }
+
+  .ex-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 120px;
+  }
+
+  .ex-band {
+    margin-top: 56px;
+  }
+
+  .ex-band .ex-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

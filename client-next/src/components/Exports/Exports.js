@@ -1,129 +1,154 @@
 'use client';
-import React from "react";
-import './Exports.css';
-import 'react-multi-carousel/lib/styles.css';
+import React from 'react';
+import './ExportsPage.css';
 import { useTranslation } from 'react-i18next';
-import MasonryGrid from "../MasonryGrid/MasonryGrid";
-// const exports = '/Assets/Media/Exports/exports2.webp';
-import OurMarkets from "./OurMarkets";
-import ContactBubble from "../Contact/ContactBubble";
+import { FaWhatsapp } from 'react-icons/fa';
+import OurMarkets from './OurMarkets';
 import LangLink from '../LangLink';
+import usePhotoZoom from '../usePhotoZoom';
+import { WHATSAPP_URL } from '../Contact/contactData';
 
-const exports1 = '/Assets/Media/Packing/packing3.webp';
-const exports2 = '/Assets/Media/Packing/packing7.webp';
-const exports3 = '/Assets/Media/Exports/exports3.webp';
-const exports4 = '/Assets/Media/Exports/exports4.webp';
-const exports5 = '/Assets/Media/Exports/exports5.webp';
-const exports6 = '/Assets/Media/Exports/exports6.webp';
-// const exports7 = '/Assets/Media/Exports/exports7.webp';
-const exports8 = '/Assets/Media/Exports/exports8.webp';
-const exports9 = '/Assets/Media/Exports/exports9.webp';
-const exports10 = '/Assets/Media/Exports/exports10.webp';
-const exports11 = '/Assets/Media/Exports/exports11.webp';
-const exports12 = '/Assets/Media/Exports/exports12.webp';
-const exports13 = '/Assets/Media/Exports/exports13.webp';
-const exports14 = '/Assets/Media/Exports/exports14.webp';
-const exports15 = '/Assets/Media/Exports/exports15.webp';
-const exports16 = '/Assets/Media/Exports/exports16.webp';
-const exports17 = '/Assets/Media/Exports/exports17.webp';
-const exports18 = '/Assets/Media/Exports/exports18.webp';
-const exports19 = '/Assets/Media/Exports/exports19.webp';
-const exports20 = '/Assets/Media/Exports/exports20.webp';
-const exports21 = '/Assets/Media/Exports/exports21.webp';
-const exports22 = '/Assets/Media/Exports/exports22.webp';
-const exports23 = '/Assets/Media/Exports/exports23.webp';
-const exports24 = '/Assets/Media/Exports/exports24.webp';
-const exports25 = '/Assets/Media/Exports/exports25.webp';
-const exports26 = '/Assets/Media/Exports/exports26.webp';
-const exports27 = '/Assets/Media/Exports/exports27.webp';
-const exports28 = '/Assets/Media/Exports/exports28.webp';
-const exports29 = '/Assets/Media/Exports/exports29.webp';
-const exports30 = '/Assets/Media/Exports/exports30.webp';
-const exports31 = '/Assets/Media/Exports/exports31.webp';
-const exports32 = '/Assets/Media/Exports/exports32.webp';
-const exports33 = '/Assets/Media/Exports/exports33.webp';
-const exports34 = '/Assets/Media/Exports/exports34.webp';
-const exports35 = '/Assets/Media/Exports/exports35.webp';
+// Exports (redesigned 2026-11-12, design A "Terms first"): header with numbers, the export
+// terms a buyer asks first (the client's confirmed answers, same as the buying guide), what
+// the export department handles, the shared Global Markets globe (OurMarkets, also on the
+// home page), a grid of 9 loading photos (all 34 open in the zoom viewer) and a WhatsApp band.
 
+const PHOTO = (n) => `/Assets/Media/Exports/exports${n}.webp`;
+// [photo, number of its exports.gallery.galleryAlt<N> text]
+const PHOTOS = [
+  [PHOTO(26), 25],
+  [PHOTO(3), 3],
+  [PHOTO(4), 4],
+  [PHOTO(5), 5],
+  [PHOTO(9), 8],
+  [PHOTO(12), 11],
+  [PHOTO(15), 14],
+  [PHOTO(20), 19],
+  [PHOTO(23), 22],
+  ...[24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35].map((n) => [PHOTO(n), n - 1]),
+  ['/Assets/Media/Packing/packing3.webp', 1],
+  ['/Assets/Media/Packing/packing7.webp', 2],
+  [PHOTO(6), 6],
+  [PHOTO(8), 7],
+  ...[10, 11, 13, 14, 16, 17, 18, 19, 21, 22].map((n) => [PHOTO(n), n - 1]),
+];
+const SHOWN = 9;
+const TERMS = ['MinOrder', 'Production', 'Shipping', 'Ports', 'Payment', 'Samples'];
+const BULLETS = [1, 2, 3, 4, 5];
+const EXPORT_COUNTRIES = '31+'; // same as the home page's trust strip (Home.js)
 
-export default function Exports(){
-        const { t } = useTranslation();
-        const images = [
-            { src: exports24, alt: t('exports.gallery.galleryAlt23') },
-            { src: exports25, alt: t('exports.gallery.galleryAlt24') },
-            { src: exports26, alt: t('exports.gallery.galleryAlt25') },
-            { src: exports27, alt: t('exports.gallery.galleryAlt26') },
-            { src: exports28, alt: t('exports.gallery.galleryAlt27') },
-            { src: exports29, alt: t('exports.gallery.galleryAlt28') },
-            { src: exports30, alt: t('exports.gallery.galleryAlt29') },
-            { src: exports31, alt: t('exports.gallery.galleryAlt30') },
-            { src: exports32, alt: t('exports.gallery.galleryAlt31') },
-            { src: exports33, alt: t('exports.gallery.galleryAlt32') },
-            { src: exports34, alt: t('exports.gallery.galleryAlt33') },
-            { src: exports35, alt: t('exports.gallery.galleryAlt34') },
-            { src: exports1, alt: t('exports.gallery.galleryAlt1') },
-            { src: exports2, alt: t('exports.gallery.galleryAlt2') },
-            { src: exports3, alt: t('exports.gallery.galleryAlt3') },
-            { src: exports4, alt: t('exports.gallery.galleryAlt4') },
-            { src: exports5, alt: t('exports.gallery.galleryAlt5') },
-            { src: exports6, alt: t('exports.gallery.galleryAlt6') },
-            { src: exports8, alt: t('exports.gallery.galleryAlt7') },
-            { src: exports9, alt: t('exports.gallery.galleryAlt8') },
-            { src: exports10, alt: t('exports.gallery.galleryAlt9') },
-            { src: exports11, alt: t('exports.gallery.galleryAlt10') },
-            { src: exports12, alt: t('exports.gallery.galleryAlt11') },
-            { src: exports13, alt: t('exports.gallery.galleryAlt12') },
-            { src: exports14, alt: t('exports.gallery.galleryAlt13') },
-            { src: exports15, alt: t('exports.gallery.galleryAlt14') },
-            { src: exports16, alt: t('exports.gallery.galleryAlt15') },
-            { src: exports17, alt: t('exports.gallery.galleryAlt16') },
-            { src: exports18, alt: t('exports.gallery.galleryAlt17') },
-            { src: exports19, alt: t('exports.gallery.galleryAlt18') },
-            { src: exports20, alt: t('exports.gallery.galleryAlt19') },
-            { src: exports21, alt: t('exports.gallery.galleryAlt20') },
-            { src: exports22, alt: t('exports.gallery.galleryAlt21') },
-            { src: exports23, alt: t('exports.gallery.galleryAlt22') },
-                    ];
-    
-    return(
-        <>
+export default function Exports() {
+  const { t } = useTranslation();
+  const [openPhoto, zoom] = usePhotoZoom();
+  const slides = PHOTOS.map(([src, n]) => ({ src, alt: t(`exports.gallery.galleryAlt${n}`) }));
 
-        <div className='exports-container'>
-        {/* 🌟 Hero Section */}
-        <div className="quarries-hero">
-                        <h1>{t('exports.heroTitle')}</h1>
-                        <div className="breadcrumb">
-                        <LangLink href="/">{t('exports.breadcrumbHome')}</LangLink>
-                        <p>{'>'} {t('exports.breadcrumbCurrent')}</p>
-                        </div>
-                </div>  
-                <div className="export-department">
-                    <div className="export-department-content">
-                        <h2>{t('exports.departmentTitle')}</h2>
-                        <p>{t('exports.departmentIntro')}</p>
-                        <p>{t('exports.departmentSupport')}</p>
-                        <p className="export-ensures-title">{t('exports.exportEnsures')}</p>
-                        <ul className="export-bullet-list">
-                            <li>{t('exports.bulletPoint1')}</li>
-                            <li>{t('exports.bulletPoint2')}</li>
-                            <li>{t('exports.bulletPoint3')}</li>
-                            <li>{t('exports.bulletPoint4')}</li>
-                            <li>{t('exports.bulletPoint5')}</li>
-                        </ul>
-                        <p className="export-mission">{t('exports.missionText')}</p>
-                        <p>{t('exports.missionGoal')}</p>
-                    </div>
-                    <img loading="lazy" src={exports26} alt={t('exports.departmentImageAlt')}/>
-                </div>   
-                <OurMarkets />
-                <div className="image-grid">
-            <MasonryGrid props={images}/>
-
+  return (
+    <div className="ex">
+      <div className="ex-hero">
+        <div className="ex-wrap">
+          <div className="ex-crumb">
+            <LangLink href="/">{t('exports.breadcrumbHome')}</LangLink>
+            <span aria-hidden="true">›</span>
+            <span className="ex-crumb-here">{t('exports.breadcrumbCurrent')}</span>
+          </div>
+          <p className="ex-eyebrow">{t('exports.eyebrow')}</p>
+          <h1>{t('exports.heroTitle')}</h1>
+          <p className="ex-lead">{t('exports.departmentIntro')}</p>
+          <dl className="ex-stats">
+            <div>
+              <dt>{t('exports.statCountries')}</dt>
+              <dd>{EXPORT_COUNTRIES}</dd>
             </div>
+            <div>
+              <dt>{t('exports.statPorts')}</dt>
+              <dd>3</dd>
+            </div>
+            <div>
+              <dt>{t('exports.statSince')}</dt>
+              <dd>1980</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
 
-                <ContactBubble />
+      <div className="ex-wrap">
+        <section className="ex-section">
+          <h2>{t('exports.termsTitle')}</h2>
+          <dl className="ex-terms">
+            {TERMS.map((key) => (
+              <div key={key}>
+                <dt>{t(`exports.term${key}Label`)}</dt>
+                <dd>
+                  <strong>{t(`exports.term${key}Value`)}</strong>
+                  <span>{t(`exports.term${key}Note`)}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <LangLink href="/buy-marble-from-egypt/" className="ex-link">
+            {t('exports.buyGuideLink')}{' '}
+            <span className="ex-arrow" aria-hidden="true">
+              →
+            </span>
+          </LangLink>
+        </section>
 
-            </div>  
-            </>  
-            )
+        <section className="ex-section ex-dept">
+          <button type="button" className="ex-dept-img" onClick={() => openPhoto(0)}>
+            <img loading="lazy" src={PHOTOS[0][0]} alt={t('exports.departmentImageAlt')} />
+          </button>
+          <div>
+            <p className="ex-eyebrow">{t('exports.departmentTitle')}</p>
+            <h2>{t('exports.deptHeading')}</h2>
+            <p className="ex-text">{t('exports.departmentSupport')}</p>
+            <ul className="ex-checks">
+              {BULLETS.map((n) => (
+                <li key={n}>{t(`exports.bulletPoint${n}`)}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <div className="ex-markets">
+        <OurMarkets />
+      </div>
+
+      <div className="ex-wrap">
+        <section className="ex-section">
+          <h2>{t('exports.galleryTitle')}</h2>
+          <div className="ex-gallery">
+            {PHOTOS.slice(0, SHOWN).map(([src, n], i) => (
+              <button
+                type="button"
+                key={src}
+                className="ex-tile"
+                onClick={() => openPhoto(i)}
+                aria-label={t(`exports.gallery.galleryAlt${n}`)}
+              >
+                <img loading="lazy" src={src} alt={t(`exports.gallery.galleryAlt${n}`)} />
+              </button>
+            ))}
+            <button type="button" className="ex-all" onClick={() => openPhoto(0)}>
+              {t('projects.allPhotos').replace('{{count}}', PHOTOS.length)}
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <div className="ex-band">
+        <div className="ex-wrap">
+          <div>
+            <h2>{t('exports.bandTitle')}</h2>
+            <p>{t('exports.bandText')}</p>
+          </div>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="ex-btn">
+            <FaWhatsapp aria-hidden="true" /> {t('productDetails.bandCta')}
+          </a>
+        </div>
+      </div>
+
+      {zoom(slides)}
+    </div>
+  );
 }
