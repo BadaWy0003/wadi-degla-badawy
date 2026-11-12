@@ -5,7 +5,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Autoplay } from 'swiper/modules';
-import { partnerLogos } from '../Partners/Partners.js';
+import { partnerLogos } from '../Partners/PartnersData';
 
 export default function PartnersSlider({ isRTL, alt }) {
   return (

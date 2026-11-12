@@ -821,7 +821,24 @@
     "breadcrumbCurrent": "파트너 및 고객",
     "imageAlt": "파트너 로고 {{number}}",
     "cta": "우리의 파트너가 되십시오",
-    "introText": "Wadi Degla는 수년간 이집트 국내외의 주요 개발사, 호텔 그룹, 시공사 및 기관과 함께해 왔습니다. 다음은 저희 파트너와 고객의 일부입니다."
+    "introText": "Wadi Degla는 수년간 이집트 국내외의 주요 개발사, 호텔 그룹, 시공사 및 기관과 함께해 왔습니다. 다음은 저희 파트너와 고객의 일부입니다.",
+    "eyebrow": "신뢰하는 고객사",
+    "pageHeading": "파트너 & 고객사",
+    "statPartners": "파트너",
+    "statProjects": "프로젝트",
+    "statCountries": "수출국",
+    "storiesTitle": "파트너 사례",
+    "projectOne": "프로젝트 1건",
+    "projectMany": "프로젝트 {{count}}건",
+    "alsoTitle": "함께한 기업",
+    "bandText": "개발사, 시공사, 수입업체 여러분, 다음 프로젝트를 알려주세요.",
+    "stories": {
+      "wyndham": "카리브해의 윈덤 리조트 3곳에 석재를 공급했으며, 도미니쿠스 팰리스와 비바 탠저린의 전면 리모델링도 포함됩니다. 비바 미체스에서는 와디 데글라가 모든 대리석의 독점 공급업체였습니다.",
+      "emaar": "카이로에 있는 이마르 미스르의 개발 단지 미비다의 업무용 건물 석재.",
+      "mountain-view": "이집트 북부 해안 마운틴 뷰 라스 엘헤크마 석재.",
+      "egy-consulate-kuwait": "쿠웨이트시티 주재 이집트 대사관 석재.",
+      "wd-developments": "홍해 아인 소크나에 있는 와디 데글라 디벨롭먼츠의 리조트 무라노 석재."
+    }
   },
   "news": {
     "pageTitle": "Wadi Degla 뉴스 | 대리석 및 천연석 산업 업데이트",

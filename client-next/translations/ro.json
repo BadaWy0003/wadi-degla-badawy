@@ -821,7 +821,24 @@
     "breadcrumbCurrent": "Parteneri și Clienți",
     "imageAlt": "Logo Partener {{number}}",
     "cta": "Deveniți unul dintre partenerii noștri",
-    "introText": "De-a lungul anilor, Wadi Degla a colaborat cu dezvoltatori importanți, grupuri hoteliere, constructori și instituții din Egipt și din străinătate. Iată câțiva dintre partenerii și clienții noștri."
+    "introText": "De-a lungul anilor, Wadi Degla a colaborat cu dezvoltatori importanți, grupuri hoteliere, constructori și instituții din Egipt și din străinătate. Iată câțiva dintre partenerii și clienții noștri.",
+    "eyebrow": "Au încredere în noi",
+    "pageHeading": "Partenerii și clienții noștri",
+    "statPartners": "parteneri",
+    "statProjects": "proiecte",
+    "statCountries": "țări de export",
+    "storiesTitle": "Povești ale partenerilor",
+    "projectOne": "1 proiect",
+    "projectMany": "{{count}} proiecte",
+    "alsoTitle": "Au încredere în noi și",
+    "bandText": "Dezvoltatori, constructori și importatori: spuneți-ne despre următorul proiect.",
+    "stories": {
+      "wyndham": "Piatră livrată pentru trei resorturi Wyndham din Caraibe, inclusiv renovarea completă a Dominicus Palace și Viva Tangerine. La Viva Miches, Wadi Degla a fost furnizorul exclusiv al întregii marmure.",
+      "emaar": "Piatră pentru clădirile de birouri Mivida, proiectul Emaar Misr din Cairo.",
+      "mountain-view": "Piatră pentru Mountain View Ras El-Hekma, pe coasta de nord a Egiptului.",
+      "egy-consulate-kuwait": "Piatră pentru Ambasada Egiptului din Kuweit City.",
+      "wd-developments": "Piatră pentru Murano, resortul Wadi Degla Developments din Ain Sokhna, la Marea Roșie."
+    }
   },
   "news": {
     "pageTitle": "Știri Wadi Degla | Marmură și piatră naturală",

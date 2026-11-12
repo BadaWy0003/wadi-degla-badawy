@@ -1,92 +1,135 @@
 'use client';
-import React from "react";
-import './Partners.css';
-import ContactBubble from "../Contact/ContactBubble";
+import React, { useRef } from 'react';
+import './PartnersPage.css';
 import { useTranslation } from 'react-i18next';
-
-const otrovato = '/Assets/Icons/partners/otrovato.webp';
-const orascom = '/Assets/Icons/partners/orascom.png';
-const emaar = '/Assets/Icons/partners/emaar.svg';
-const hydepark = '/Assets/Icons/partners/hydepark.webp';
-const wyndham = '/Assets/Icons/partners/wyndham.webp';
-const majid_alfuttaim = '/Assets/Icons/partners/majid-alfuttaim.png';
-const trade_logistics = '/Assets/Icons/partners/trade-logistics.webp';
-const egy_consulate_kuwait = '/Assets/Icons/partners/egy-consulate-kuwait.jpeg';
-const ckpc = '/Assets/Icons/partners/ckpc.jpeg';
-const wd_developments = '/Assets/Icons/partners/wd-developments.jpeg';
-const mountain_view = '/Assets/Icons/partners/mountain-view.png';
-import { useRouter } from 'next/navigation';
-import { useLang } from '../../context/LangContext';
+import { FaWhatsapp } from 'react-icons/fa';
 import LangLink from '../LangLink';
+import useReveal from '../News/useReveal';
+import { WHATSAPP_URL } from '../Contact/contactData';
+import { PARTNERS, clearLogo } from './PartnersData';
+import { cardImageProps } from '../../util/responsive-img';
 
-    // Array of partner logo image URLs
-    export const partnerLogos = [
-        otrovato,
-        orascom,
-        emaar,
-        egy_consulate_kuwait,
-        wyndham,
-        hydepark,
-        majid_alfuttaim,
-        trade_logistics,
-        ckpc,
-        wd_developments,
-        mountain_view,
-    ];
+// Partners & clients (redesigned 2026-11-12, design B "Partner stories"): header with numbers
+// and a slowly moving strip of every logo, one "story" per partner we did projects for (logo,
+// one line, its project cards linking to the project pages), the other logos under "Also
+// trusted by", and a WhatsApp band.
+// projects: { id: card } for the partners' projects, from the build (app/[lang]/partners/page.js);
+// projectCount: all projects on the site.
+const EXPORT_COUNTRIES = '31+'; // same as the home, products, projects and exports pages
 
-// Company names for the logos' descriptions (same order as partnerLogos; empty = generic text).
-export const PARTNER_NAMES = [
-    'Otrovato',
-    'Orascom',
-    'Emaar',
-    'Consulate General of Egypt in Kuwait',
-    'Wyndham',
-    'Hyde Park Developments',
-    'Majid Al Futtaim',
-    'Trade Logistics',
-    'CKPC',
-    'WD Developments',
-    'Mountain View',
-];
+export default function Partners({ projects = {}, projectCount = 0 }) {
+  const { t } = useTranslation();
+  const pageRef = useRef(null);
+  useReveal(pageRef, [], 'pa');
 
-export default function Partners() {
-    const router = useRouter();
-  const lang = useLang();
-    const { t } = useTranslation();
+  const withWork = PARTNERS.map((p) => ({
+    ...p,
+    cards: p.projects.map((id) => projects[id]).filter(Boolean),
+  }));
+  const stories = withWork.filter((p) => p.cards.length);
+  const others = withWork.filter((p) => !p.cards.length);
 
-    
-    const handleButtonClick = () => {
-        router.push(`/${lang}/contact`); // Navigate to the contact page
-    };
+  const logo = (p, lazy = true) => (
+    <img src={clearLogo(p.id)} alt={p.name} loading={lazy ? 'lazy' : 'eager'} />
+  );
 
-    return (
-        <>
-        
-        <div className='partners-container'>
-            <h1>{t('partners.heroTitle')}</h1>
-            <div className="breadcrumb">
+  return (
+    <div className="pa" ref={pageRef}>
+      <div className="pa-hero">
+        <div className="pa-wrap">
+          <div className="pa-crumb">
             <LangLink href="/">{t('partners.breadcrumbHome')}</LangLink>
-            <p>{'>'} {t('partners.breadcrumbCurrent')}</p>
+            <span aria-hidden="true">›</span>
+            <span className="pa-crumb-here">{t('partners.breadcrumbCurrent')}</span>
+          </div>
+          <p className="pa-eyebrow">{t('partners.eyebrow')}</p>
+          <h1>{t('partners.pageHeading')}</h1>
+          <p className="pa-lead">{t('partners.introText')}</p>
+          <dl className="pa-stats">
+            <div>
+              <dt>{t('partners.statPartners')}</dt>
+              <dd>{PARTNERS.length}</dd>
             </div>
-
-            <p className="partners-intro">{t('partners.introText')}</p>
-
-            <div className="partners">
-                {partnerLogos.map((logo, index) => (
-                    <img loading="lazy"
-                        id={`partner-logo-${index + 1}`}
-                        key={index} // Unique key for each logo
-                        src={logo}
-                        alt={PARTNER_NAMES[index] || t('partners.imageAlt', { number: index + 1 })}
-                    />
-                ))}
+            {projectCount > 0 && (
+              <div>
+                <dt>{t('partners.statProjects')}</dt>
+                <dd>{projectCount}</dd>
+              </div>
+            )}
+            <div>
+              <dt>{t('partners.statCountries')}</dt>
+              <dd>
+                <bdi>{EXPORT_COUNTRIES}</bdi>
+              </dd>
             </div>
-
-            <button className="btn1" onClick={handleButtonClick}>
-                {t('partners.cta')}
-            </button>
-            <ContactBubble />
+          </dl>
         </div>
-        </>
-    );
+
+        {/* every logo, sliding slowly (the second copy makes the loop seamless) */}
+        <div className="pa-ticker">
+          <ul className="pa-ticker-row">
+            {[...PARTNERS, ...PARTNERS].map((p, i) => (
+              <li key={`${p.id}-${i}`} aria-hidden={i >= PARTNERS.length || undefined}>
+                {logo(p, false)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="pa-wrap">
+        <section className="pa-section">
+          <h2>{t('partners.storiesTitle')}</h2>
+          {stories.map((p) => (
+            <article className="pa-story pa-reveal" key={p.id}>
+              <div className="pa-story-logo">{logo(p)}</div>
+              <div>
+                <p className="pa-eyebrow">
+                  {p.cards.length === 1
+                    ? t('partners.projectOne')
+                    : t('partners.projectMany').replace('{{count}}', p.cards.length)}
+                </p>
+                <h3>{p.name}</h3>
+                <p className="pa-text">{t(`partners.stories.${p.id}`)}</p>
+                <div className="pa-projects">
+                  {p.cards.map((c) => (
+                    <LangLink href={`/projects/${c.id}`} className="pa-project" key={c.id}>
+                      <img loading="lazy" alt={c.name} {...cardImageProps(c.thumbnail)} />
+                      <span>
+                        <b dir="auto">{c.name}</b>
+                        <small>{[c.city, c.country].filter(Boolean).join(' · ')}</small>
+                      </span>
+                    </LangLink>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="pa-section">
+          <h2>{t('partners.alsoTitle')}</h2>
+          <ul className="pa-also">
+            {others.map((p) => (
+              <li key={p.id} className="pa-reveal" title={p.name}>
+                {logo(p)}
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <div className="pa-band">
+        <div className="pa-wrap">
+          <div>
+            <h2>{t('partners.cta')}</h2>
+            <p>{t('partners.bandText')}</p>
+          </div>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="pa-btn">
+            <FaWhatsapp aria-hidden="true" /> {t('productDetails.bandCta')}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
 }

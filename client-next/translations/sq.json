@@ -821,7 +821,24 @@
     "breadcrumbCurrent": "Partnerët dhe Klientët",
     "imageAlt": "Logoja e Partnerit {{number}}",
     "cta": "Bëhuni një nga partnerët tanë",
-    "introText": "Ndër vite, Wadi Degla ka bashkëpunuar me zhvillues kryesorë, grupe hotelesh, kontraktorë dhe institucione në Egjipt dhe jashtë tij. Këta janë disa nga partnerët dhe klientët tanë."
+    "introText": "Ndër vite, Wadi Degla ka bashkëpunuar me zhvillues kryesorë, grupe hotelesh, kontraktorë dhe institucione në Egjipt dhe jashtë tij. Këta janë disa nga partnerët dhe klientët tanë.",
+    "eyebrow": "Na besojnë",
+    "pageHeading": "Partnerët dhe klientët tanë",
+    "statPartners": "partnerë",
+    "statProjects": "projekte",
+    "statCountries": "vende eksporti",
+    "storiesTitle": "Historitë e partnerëve",
+    "projectOne": "1 projekt",
+    "projectMany": "{{count}} projekte",
+    "alsoTitle": "Na besojnë gjithashtu",
+    "bandText": "Zhvillues, ndërtues dhe importues: na tregoni për projektin tuaj të radhës.",
+    "stories": {
+      "wyndham": "Gur i furnizuar për tre resorte Wyndham në Karaibe, përfshirë rinovimin e plotë të Dominicus Palace dhe Viva Tangerine. Në Viva Miches, Wadi Degla ishte furnizuesi ekskluziv i gjithë mermerit.",
+      "emaar": "Gur për ndërtesat e zyrave të Mivida, projekti i Emaar Misr në Kajro.",
+      "mountain-view": "Gur për Mountain View Ras El-Hekma në bregun verior të Egjiptit.",
+      "egy-consulate-kuwait": "Gur për Ambasadën e Egjiptit në Kuvajt.",
+      "wd-developments": "Gur për Murano, resortin e Wadi Degla Developments në Ain Sokhna, në Detin e Kuq."
+    }
   },
   "news": {
     "pageTitle": "Lajmet e Wadi Degla | Mermer dhe gur natyror",

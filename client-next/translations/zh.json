@@ -821,7 +821,24 @@
     "breadcrumbCurrent": "合作伙伴与客户",
     "imageAlt": "合作伙伴标志 {{number}}",
     "cta": "成为我们的合作伙伴之一",
-    "introText": "多年来，Wadi Degla 与埃及及海外的知名开发商、酒店集团、承包商和机构开展合作。以下是我们的部分合作伙伴和客户。"
+    "introText": "多年来，Wadi Degla 与埃及及海外的知名开发商、酒店集团、承包商和机构开展合作。以下是我们的部分合作伙伴和客户。",
+    "eyebrow": "合作伙伴",
+    "pageHeading": "我们的合作伙伴与客户",
+    "statPartners": "合作伙伴",
+    "statProjects": "个项目",
+    "statCountries": "出口国家",
+    "storiesTitle": "合作案例",
+    "projectOne": "1个项目",
+    "projectMany": "{{count}}个项目",
+    "alsoTitle": "其他合作客户",
+    "bandText": "开发商、承包商和进口商：欢迎告诉我们您的下一个项目。",
+    "stories": {
+      "wyndham": "为加勒比地区的三家温德姆度假村供应石材，包括多米尼克斯宫和Viva Tangerine的全面翻新。在Viva Miches项目中，Wadi Degla是全部大理石的独家供应商。",
+      "emaar": "为Emaar Misr在开罗的Mivida项目商务楼供应石材。",
+      "mountain-view": "为埃及北海岸的Mountain View Ras El-Hekma供应石材。",
+      "egy-consulate-kuwait": "为科威特城的埃及大使馆供应石材。",
+      "wd-developments": "为Wadi Degla Developments在红海艾因苏赫纳的度假项目Murano供应石材。"
+    }
   },
   "news": {
     "pageTitle": "瓦迪·德格拉新闻 | 大理石与天然石材行业动态",
