@@ -34,6 +34,11 @@ async function fetchProjects() {
 // Arabic site: Arabic text when it was written, otherwise English. Other languages: English.
 const pick = (field, lang) => (lang === 'ar' && field?.ar?.trim() ? field.ar : field?.en || '');
 
+// A name typed all in lower case in the admin panel ("viva tangerine by wyndham") is shown
+// with capitals; any other name is shown as written.
+const capitalize = (text) =>
+  text && text === text.toLowerCase() ? text.replace(/(^|[\s(])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()) : text;
+
 const shorten = (text, max = 160) => {
   const clean = String(text || '')
     .replace(/\s+/g, ' ')
@@ -58,7 +63,7 @@ export async function getProjects(lang = 'en') {
     const description = pick(p.description, lang);
     return {
       id: String(p.id),
-      name: pick(p.name, lang),
+      name: capitalize(pick(p.name, lang)),
       city: pick(p.city, lang),
       country: pick(p.country?.name, lang),
       countryId: p.country?.id,
@@ -77,6 +82,26 @@ export async function getProjects(lang = 'en') {
 // The languages a project page is really written in: English, plus Arabic when its Arabic
 // description exists. Other language pages only translate the labels around English names,
 // so they are noindex and not in the sitemap; they stay visible to visitors.
+// What a project card shows (projects list, "more projects" on a project page): photo,
+// name, place, number of photos and up to 4 stone swatches.
+export function projectCard(p) {
+  return {
+    id: p.id,
+    name: p.name,
+    city: p.city,
+    country: p.country,
+    countryId: p.countryId,
+    thumbnail: p.thumbnail || p.images[0]?.src || '',
+    photoCount: p.images.length,
+    stoneCount: p.materials.length,
+    stones: p.materials.slice(0, 4).map((m) => ({
+      id: m.id,
+      name: m.name,
+      thumb: m.finishes[0]?.thumb || m.finishes[0]?.link || '',
+    })),
+  };
+}
+
 export async function getProjectIndexedLangs(id) {
   const p = (await fetchProjects()).find((x) => String(x.id) === String(id));
   if (!p) return [];

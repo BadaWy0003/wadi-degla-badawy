@@ -1,20 +1,15 @@
 'use client';
-import React, { useRef } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import './ProjectDetails.css';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import Product from '../Products/Product';
-import { useNearScreen, useLazyComponent } from '../../util/near-screen';
+import { FaWhatsapp } from 'react-icons/fa';
+import './ProjectsPage.css';
 import usePhotoZoom from '../usePhotoZoom';
-import ContactBubble from '../Contact/ContactBubble.js';
-import '../Products/Products.css';
-import { useRouter } from 'next/navigation';
-import { useLang } from '../../context/LangContext';
 import LangLink from '../LangLink';
-
-const loadSlider = () => import('./ProjectSlider');
+import ProjectCard from './ProjectCard';
+import { WHATSAPP_URL } from '../Contact/contactData';
+import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
+import { productSlug } from '../../util/product-slugs';
+import { cardImageProps } from '../../util/responsive-img';
 
 // Paragraphs are separated by an empty line (same rule as the news articles).
 const toParagraphs = (text) =>
@@ -23,115 +18,155 @@ const toParagraphs = (text) =>
     .map((p) => p.trim())
     .filter(Boolean);
 
+// Project page (redesigned 2026-11-12): title + facts, a photo grid (up to 5 photos; any photo
+// or "All N photos" opens the full-screen viewer), the stones used (links to their pages), the
+// description when written, more projects and a WhatsApp band.
 // project: from the admin panel, read at build time (src/util/projects-data.js), already in
-// the page's language, with its materials as product cards.
-export default function ProjectDetails({ project }) {
-  const router = useRouter();
-  const lang = useLang();
+// the page's language. related: cards of other projects (same country first).
+export default function ProjectDetails({ project, related = [], relatedSameCountry = false }) {
   const { t } = useTranslation();
-  const sliderRef = useRef(null);
-  const Slider = useLazyComponent(useNearScreen(sliderRef), loadSlider);
   const [openPhoto, zoom] = usePhotoZoom();
 
   if (!project) {
-    return <div className="error-message">{t('projects.projectNotFound')}</div>;
+    return (
+      <div className="pj">
+        <div className="pj-wrap pj-missing">{t('projects.projectNotFound')}</div>
+      </div>
+    );
   }
 
-  const images = project.images || [];
+  const images = project.images?.length
+    ? project.images
+    : project.thumbnail
+      ? [{ src: project.thumbnail, alt: project.name }]
+      : [];
   const slides = images.map((img) => ({ src: img.src, alt: img.alt }));
   const paragraphs = toParagraphs(project.description);
+  const place = [project.city, project.country].filter(Boolean).join(' · ');
+  const tiles = images.slice(0, 5);
 
   return (
-    <div className="project-details-page">
-      <div className="breadcrumb">
-        <LangLink href="/">{t('projects.breadcrumbHome')}</LangLink>
-        <p>
-          {'>'} {t('projects.breadcrumbExplore')}
-        </p>
-        <LangLink href="/projects/">
-          {'>'} {t('projects.breadcrumbCurrent')}
-        </LangLink>
-        <p>
-          {'>'} {project.name}
-        </p>
-      </div>
-      <p className="project-hint">{t('projects.tapToView')}</p>
-      <div className="project-details-container">
-        <div className="project-details-left">
-          {images.length > 0 ? (
-            Slider ? (
-              <Slider images={images} name={project.name} onOpen={openPhoto} />
-            ) : (
-              // Until the slider code arrives: the same markup without Swiper (same size).
-              <div className="swiper project-gallery-swiper" ref={sliderRef}>
-                <div className="swiper-wrapper">
-                  {images.map((image, index) => (
-                    <div className="swiper-slide" key={index} onClick={() => openPhoto(index)}>
-                      <img
-                        loading={index === 0 ? undefined : 'lazy'}
-                        src={image.src}
-                        alt={image.alt || `${project.name} ${index + 1}`}
-                        className="project-image"
-                      />
-                    </div>
-                  ))}
-                </div>
+    <div className="pj pj-detail">
+      <div className="pj-wrap">
+        <div className="pj-crumb">
+          <LangLink href="/">{t('projects.breadcrumbHome')}</LangLink>
+          <span aria-hidden="true">›</span>
+          <LangLink href="/projects/">{t('projects.breadcrumbCurrent')}</LangLink>
+          <span aria-hidden="true">›</span>
+          <span className="pj-crumb-here">{project.name}</span>
+        </div>
+
+        <div className="pj-head">
+          <div>
+            {project.country && <p className="pj-eyebrow">{project.country}</p>}
+            <h1>{project.name}</h1>
+          </div>
+          <dl className="pj-facts">
+            {place && (
+              <div>
+                <dt>{t('projects.factLocation')}</dt>
+                <dd>{place}</dd>
               </div>
-            )
-          ) : (
-            <img
-              loading="lazy"
-              src={project.thumbnail}
-              alt={project.name}
-              className="project-image"
-            />
-          )}
+            )}
+            <div>
+              <dt>{t('projects.factStones')}</dt>
+              <dd>{project.materials.length}</dd>
+            </div>
+            <div>
+              <dt>{t('projects.factPhotos')}</dt>
+              <dd>{images.length}</dd>
+            </div>
+          </dl>
         </div>
 
-        <div className="project-details-right">
-          <h1 className="project-details-title">{project.name}</h1>
-          <p className="project-details-description">
-            {t('projects.location')}{' '}
-            <strong>
-              {project.city}
-              {project.city ? ' - ' : ''}
-              {project.country}
-            </strong>
-          </p>
+        {tiles.length > 0 && (
+          <div className={`pj-gallery pj-gallery-${tiles.length}`}>
+            {tiles.map((img, i) => (
+              <button
+                type="button"
+                key={img.src + i}
+                className="pj-tile"
+                onClick={() => openPhoto(i)}
+                aria-label={img.alt || `${project.name} ${i + 1}`}
+              >
+                <img
+                  {...(i === 0
+                    ? { fetchPriority: 'high', src: img.src }
+                    : { loading: 'lazy', ...cardImageProps(img.src, '25vw') })}
+                  alt={img.alt || `${project.name} ${i + 1}`}
+                />
+              </button>
+            ))}
+            {images.length > 1 && (
+              <button type="button" className="pj-all" onClick={() => openPhoto(0)}>
+                {t('projects.allPhotos').replace('{{count}}', images.length)}
+              </button>
+            )}
+          </div>
+        )}
 
-          {paragraphs.length > 0 && (
-            <div className="project-details-text">
-              {/* dir="auto": English text shown on the Arabic page (no Arabic written yet)
-                  keeps its left-to-right punctuation */}
-              {paragraphs.map((text, i) => (
-                <p key={i} dir="auto">
-                  {text}
-                </p>
+        {paragraphs.length > 0 && (
+          <section className="pj-section pj-text">
+            {/* dir="auto": English text on the Arabic page keeps its punctuation */}
+            {paragraphs.map((text, i) => (
+              <p key={i} dir="auto">
+                {text}
+              </p>
+            ))}
+          </section>
+        )}
+
+        {project.materials.length > 0 && (
+          <section className="pj-section">
+            <h2>{t('projects.stonesTitle')}</h2>
+            <div className="pj-stones">
+              {project.materials.map((m) => {
+                const photo = m.finishes[0];
+                return (
+                  <LangLink key={m.id} href={`/products/${productSlug(m.name)}`} className="pj-stone">
+                    <span className="pj-stone-img">
+                      {photo && (
+                        <img loading="lazy" src={photo.thumb || photo.link} alt={m.name} />
+                      )}
+                    </span>
+                    <span className="pj-stone-name">{m.name}</span>
+                    {PRODUCT_TYPE_KEYS[m.type] && (
+                      <span className="pj-stone-type">{t(PRODUCT_TYPE_KEYS[m.type])}</span>
+                    )}
+                  </LangLink>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {related.length > 0 && (
+          <section className="pj-section">
+            <h2>
+              {relatedSameCountry
+                ? t('projects.moreIn').replace('{{country}}', project.country)
+                : t('projects.moreProjects')}
+            </h2>
+            <div className="pj-grid">
+              {related.map((p) => (
+                <ProjectCard key={p.id} card={p} />
               ))}
             </div>
-          )}
+          </section>
+        )}
+      </div>
 
-          <p>{t('projects.materialSupplied')}</p>
-          {project.materials.length > 0 ? (
-            <div className="materials-supplied-container">
-              {project.materials.map((product) => (
-                <Product key={product.id} item={product} />
-              ))}
-            </div>
-          ) : (
-            <p id="no-materials">{t('projects.noMaterials')}</p>
-          )}
-
-          <button
-            className="btn1"
-            onClick={() => router.push(`/${lang}/contact`)}
-            style={{ width: '100%', marginTop: '2rem' }}
-          >
-            {t('projects.learnMore')}
-          </button>
+      <div className="pj-band">
+        <div className="pj-wrap">
+          <div>
+            <h2>{t('projects.detailBandTitle')}</h2>
+            <p>{t('projects.bandText')}</p>
+          </div>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="pj-btn">
+            <FaWhatsapp aria-hidden="true" /> {t('productDetails.bandCta')}
+          </a>
         </div>
       </div>
-      <ContactBubble />
 
       {zoom(slides)}
     </div>
