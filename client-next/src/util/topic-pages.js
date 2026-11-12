@@ -12,9 +12,12 @@ export const TOPIC_PAGES = {
     slug: 'egyptian-marble',
     // Strips of our own stones' photos, made by tools/make-topic-heroes.js (also the next three).
     hero: '/Assets/Media/Hero/egyptian-marble-hero.webp',
-    // Galala, Sunny, Triesta… are limestone (category "Egyptian Limestone" since 2026-11-12),
-    // but the trade and buyers call them Egyptian marble, so this page keeps listing them.
-    products: (p) => p.type === 'Egyptian Marble' || p.type === 'Egyptian Limestone',
+    products: (p) => p.type === 'Egyptian Marble',
+    // Galala, Sunny, Triesta… are limestone (category "Egyptian Limestone" since 2026-11-12), but
+    // the trade and buyers call them Egyptian marble: listed in a second group under their own
+    // heading (`<key>.alsoTitle`), with a link to their page (owner's choice, 2026-11-12).
+    alsoProducts: (p) => p.type === 'Egyptian Limestone',
+    alsoLink: 'egyptianLimestone',
     related: ['egyptianLimestone', 'galalaMarble', 'egyptianGranite', 'importedMarble', 'buyGuide'],
   },
   egyptianLimestone: {

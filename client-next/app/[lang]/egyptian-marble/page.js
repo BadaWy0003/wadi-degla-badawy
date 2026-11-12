@@ -10,14 +10,20 @@ export function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { lang } = params;
-  const { products, projects } = await topicData(lang, KEY);
+  const { products, alsoProducts, projects } = await topicData(lang, KEY);
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(topicBreadcrumb(lang, KEY)) }}
       />
-      <TopicPage lang={lang} topicKey={KEY} products={products} projects={projects} />
+      <TopicPage
+        lang={lang}
+        topicKey={KEY}
+        products={products}
+        alsoProducts={alsoProducts}
+        projects={projects}
+      />
     </>
   );
 }
