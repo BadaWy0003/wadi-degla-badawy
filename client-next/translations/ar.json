@@ -777,7 +777,22 @@
     "use_staircases": "السلالم",
     "use_windowSills": "أعتاب الشبابيك",
     "use_countertops": "أسطح المطابخ",
-    "use_landscaping": "تنسيق الحدائق والأرضيات الخارجية"
+    "use_landscaping": "تنسيق الحدائق والأرضيات الخارجية",
+    "ctaPrice": "اطلب السعر عبر واتساب",
+    "ctaPriceShort": "اطلب السعر",
+    "ctaSample": "اطلب عينة مجانية",
+    "ctaSampleShort": "عينة مجانية",
+    "finishesCount": "{{count}} تشطيبات",
+    "trustSamples": "عينات صغيرة مجانية",
+    "trustSince": "نُصدِّر منذ 1980",
+    "trustCountries": "نشحن إلى أكثر من {{count}} دولة",
+    "aboutTitle": "عن {{name}}",
+    "inSpaceTitle": "شاهد {{name}} في مساحة حقيقية",
+    "interior": "داخلي",
+    "exterior": "خارجي",
+    "bandTitle": "تخطط لمشروع باستخدام {{name}}؟",
+    "bandText": "أرسل لنا الكمية والمقاسات، وسنرد عليك بالسعر وموعد التسليم.",
+    "bandCta": "تواصل عبر واتساب"
   },
   "sampleRequestForm": {
     "successMessage": "تم إرسال الرسالة بنجاح!",

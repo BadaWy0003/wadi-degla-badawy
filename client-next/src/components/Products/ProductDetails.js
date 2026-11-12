@@ -1,6 +1,9 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import './Products.css';
+import './ProductDetailsPage.css';
+import { WHATSAPP_URL } from '../Contact/contactData';
+import { FaWhatsapp } from 'react-icons/fa';
 import LangLink from '../LangLink';
 const block = '/Assets/Icons/product-icons/block.svg';
 const exterior_cladding = '/Assets/Icons/product-icons/exterior-cladding.svg';
@@ -25,9 +28,19 @@ import Product from './Product';
 import { cardImageProps } from '../../util/responsive-img';
 import { normalizeProducts } from '../../util/product-types';
 
-// Default finish: "Polished" if available, else the first one.
+// Photos of the stone in a room; shown as "in a space" photos, not as finishes.
+const ROOM_FINISHES = ['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'];
+// The short facts shown next to the photo (translation keys of their labels).
+const QUICK_SPECS = ['specOrigin', 'specForms', 'specThickness', 'specSizes'];
+// Export countries, also in the home page's trust strip (Home.js): keep both the same.
+const EXPORT_COUNTRIES = '31+';
+
+// Default finish: "Polished" if available, else the first one (never a room photo).
 const defaultFinish = (product) =>
-  product?.finishes?.find((f) => f.finish === 'Polished') || product?.finishes?.[0] || null;
+  product?.finishes?.find((f) => f.finish === 'Polished') ||
+  product?.finishes?.find((f) => !ROOM_FINISHES.includes(f.finish)) ||
+  product?.finishes?.[0] ||
+  null;
 
 // initialProduct comes from the server at build time (so the page HTML has the product for
 // Google); it is refreshed from the API below so admin-panel changes still show up.
@@ -43,6 +56,8 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
   const [loading, setLoading] = useState(!initialProduct);
   const [selectedFinish, setSelectedFinish] = useState(() => defaultFinish(initialProduct));
   const [isFormOpen, setIsFormOpen] = useState(false);
+  // a room photo (interior/exterior) shown in the big frame instead of the finish photo
+  const [roomPhoto, setRoomPhoto] = useState(null);
 
   useEffect(() => {
     const fetchProductFromAll = async () => {
@@ -68,15 +83,9 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
               );
               return;
             }
-            // Set default finish to "Polished" or the first finish if "Polished" doesn't exist
-            const polishedFinish = foundProduct.finishes.find((f) => f.finish === 'Polished');
-            if (polishedFinish) {
-              setSelectedFinish(polishedFinish);
-            } else if (foundProduct.finishes.length > 0) {
-              setSelectedFinish(foundProduct.finishes[0]);
-            } else {
-              throw new Error('No finishes available for this product');
-            }
+            const finish = defaultFinish(foundProduct);
+            if (!finish) throw new Error('No finishes available for this product');
+            setSelectedFinish(finish);
           } else {
             throw new Error('Product not found');
           }
@@ -116,210 +125,275 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
     return <div className="error-message">{t('productDetails.notFound')}</div>;
   }
 
-  return (
-    <>
-      {/* */}
+  const k = (key, vars = {}) =>
+    Object.entries(vars).reduce(
+      (text, [name, value]) => text.replaceAll(`{{${name}}}`, value),
+      t(`productDetails.${key}`),
+    );
+  const heading = seo?.heading || product.name;
+  const finishes = product.finishes.filter((f) => !ROOM_FINISHES.includes(f.finish));
+  const rooms = [
+    ['indoorMockup', 'mockup'],
+    ['outdoorMockup', 'mockupOutdoor'],
+  ]
+    .map((names, i) => {
+      const photo = product.finishes.find((f) => names.includes(f.finish));
+      return photo && { ...photo, label: k(i === 0 ? 'interior' : 'exterior') };
+    })
+    .filter(Boolean);
+  const shown = roomPhoto || selectedFinish;
+  const typeLabel = PRODUCT_TYPE_KEYS[product.type] ? t(PRODUCT_TYPE_KEYS[product.type]) : product.type;
+  const specs = seo?.details?.specs || [];
+  // the four short facts next to the photo (origin, available as, thickness, sizes)
+  const quick = specs.filter((row) => QUICK_SPECS.some((key) => row.label === t(`productDetails.${key}`)));
+  // uses set in the admin panel, else the general application names
+  const uses = seo?.details?.uses?.length
+    ? seo.details.uses
+    : applicationIcons
+        .filter((app) => !seo?.details?.icons || seo.details.icons.includes(app.name))
+        .map((app) => t(`productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`));
+  const openSample = () => setIsFormOpen(true);
+  const whatsapp = (label, className) => (
+    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={className}>
+      <FaWhatsapp aria-hidden="true" /> {label}
+    </a>
+  );
 
-      <div className="product-details-page">
-        <div className="breadcrumb">
+  return (
+    <div className="spd">
+      <div className="spd-wrap">
+        <div className="spd-crumb">
           <LangLink href="/">{t('productDetails.breadcrumbHome')}</LangLink>
-          <p>
-            {'>'} {t('productDetails.breadcrumbExplore')}
-          </p>
-          <LangLink href="/products">
-            {'>'} {t('productDetails.breadcrumbProducts')}
-          </LangLink>
-          <p>
-            {'>'} {product.name}
-          </p>
+          <span aria-hidden="true">›</span>
+          <LangLink href="/products">{t('productDetails.breadcrumbProducts')}</LangLink>
+          {CATEGORY_TOPIC[product.type] && (
+            <>
+              <span aria-hidden="true">›</span>
+              <LangLink href={`/${CATEGORY_TOPIC[product.type]}/`}>{typeLabel}</LangLink>
+            </>
+          )}
+          <span aria-hidden="true">›</span>
+          <span className="spd-crumb-here">{product.name}</span>
         </div>
 
-        <div className="product-details-container">
-          <div className="details-left">
-            {/* The page's main photo: loaded first, and width/height (most stone photos are 3:2)
-                reserve its space so the page doesn't jump when it appears */}
-            <img
-              fetchPriority="high"
-              width={1200}
-              height={800}
-              src={selectedFinish?.link}
-              // phones download the small copy (640 px) when there is one
-              {...(selectedFinish?.thumb
-                ? {
-                    srcSet: `${selectedFinish.thumb} 640w, ${selectedFinish.link} 1600w`,
-                    sizes: '(max-width: 768px) 100vw, 45vw',
-                  }
-                : {})}
-              alt={product.name}
-              className="product-image"
-            />
+        <div className="spd-top">
+          <div className="spd-media">
+            <div className="spd-main">
+              {/* The page's main photo: loaded first, and width/height (most stone photos are 3:2)
+                  reserve its space so the page doesn't jump when it appears */}
+              <img
+                fetchPriority="high"
+                width={1200}
+                height={800}
+                src={shown?.link}
+                // phones download the small copy (640 px) when there is one
+                {...(shown?.thumb
+                  ? {
+                      srcSet: `${shown.thumb} 640w, ${shown.link} 1600w`,
+                      sizes: '(max-width: 768px) 100vw, 55vw',
+                    }
+                  : {})}
+                alt={
+                  roomPhoto
+                    ? `${heading} - ${roomPhoto.label}`
+                    : `${heading} - ${finishLabel(t, selectedFinish?.finish)}`
+                }
+              />
+            </div>
+            {rooms.length > 0 && (
+              <div className="spd-thumbs">
+                <button
+                  type="button"
+                  className={!roomPhoto ? 'is-on' : ''}
+                  onClick={() => setRoomPhoto(null)}
+                  aria-label={finishLabel(t, selectedFinish?.finish)}
+                >
+                  <img loading="lazy" src={selectedFinish?.thumb || selectedFinish?.link} alt="" />
+                </button>
+                {rooms.map((room) => (
+                  <button
+                    type="button"
+                    key={room.finish}
+                    className={roomPhoto?.finish === room.finish ? 'is-on' : ''}
+                    onClick={() => setRoomPhoto(room)}
+                    aria-label={room.label}
+                  >
+                    <img loading="lazy" src={room.thumb || room.link} alt="" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div className="details-right">
-            <h1 className="details-title">{seo?.heading || product.name}</h1>
+          <div className="spd-panel">
+            <p className="spd-eyebrow">{typeLabel}</p>
+            <h1 className="spd-title">{heading}</h1>
             {seo?.details?.otherNames?.length > 0 && (
-              <p className="details-aka">
+              <p className="spd-aka">
                 {t('productDetails.alsoKnownAs')}: {seo.details.otherNames.join(', ')}
               </p>
             )}
 
-            <div className="info-grid">
-              <div className="info-label">{t('productDetails.category')}</div>
-              <div className="info-value" style={{ color: 'var(--blueColor)' }}>
-                {/* links to the category's own page (e.g. /egyptian-marble/) */}
-                {CATEGORY_TOPIC[product.type] ? (
-                  <LangLink
-                    href={`/${CATEGORY_TOPIC[product.type]}/`}
-                    className="category-topic-link"
-                  >
-                    {t(PRODUCT_TYPE_KEYS[product.type])}
-                  </LangLink>
-                ) : PRODUCT_TYPE_KEYS[product.type] ? (
-                  t(PRODUCT_TYPE_KEYS[product.type])
-                ) : (
-                  product.type
-                )}
-              </div>
-
-              <div className="info-label">{t('productDetails.finish')}</div>
-              <div className="info-value">
-                <select
-                  className="modal-select"
-                  value={selectedFinish?.finish || ''}
-                  onChange={(e) => {
-                    const newFinish = product.finishes.find((f) => f.finish === e.target.value);
-                    setSelectedFinish(newFinish);
-                  }}
-                >
-                  {product.finishes
-                    .filter(
-                      (finish) =>
-                        !['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'].includes(
-                          finish.finish,
-                        ),
-                    )
-                    .map((finish) => (
-                      <option key={finish.finish} value={finish.finish}>
-                        {finishLabel(t, finish.finish)}
-                      </option>
-                    ))}
-                </select>
-              </div>
-            </div>
-
-            <div className="applications-section">
-              <h3>{t('productDetails.applications')}</h3>
-              <div className="applications-grid">
-                {/* only the forms/uses that apply, once they were set in the admin panel */}
-                {applicationIcons
-                  .filter((app) => !seo?.details?.icons || seo.details.icons.includes(app.name))
-                  .map((app, index) => (
-                    <div key={index} className="application-icon-wrapper">
-                      {/* one translated name (the English one used to be shown on top of it) */}
-                      <img
-                        loading="lazy"
-                        src={app.src}
-                        alt={t(
-                          `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
-                        )}
-                        className="application-icon"
-                      />
-                      <div className="hover-name">
-                        {t(
-                          `productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`,
-                        )}
-                      </div>
-                    </div>
+            {finishes.length > 0 && (
+              <>
+                <p className="spd-label">
+                  {t('productDetails.finish')} <b>{finishLabel(t, selectedFinish?.finish)}</b>
+                  {finishes.length > 1 && <> · {k('finishesCount', { count: finishes.length })}</>}
+                </p>
+                <div className="spd-finishes">
+                  {finishes.map((f) => (
+                    <button
+                      type="button"
+                      key={f.finish}
+                      className={`spd-finish${!roomPhoto && selectedFinish?.finish === f.finish ? ' is-on' : ''}`}
+                      onClick={() => {
+                        setSelectedFinish(f);
+                        setRoomPhoto(null);
+                      }}
+                      aria-pressed={selectedFinish?.finish === f.finish}
+                    >
+                      <img loading="lazy" src={f.thumb || f.link} alt="" />
+                      <span>{finishLabel(t, f.finish)}</span>
+                    </button>
                   ))}
-              </div>
-            </div>
+                </div>
+              </>
+            )}
 
-            <button
-              className="btn1"
-              onClick={() => setIsFormOpen(true)}
-              style={{ width: '100%', marginTop: '2rem' }}
-            >
-              {t('productDetails.requestSample')}
+            {quick.length > 0 && (
+              <dl className="spd-quick">
+                {quick.map((row) => (
+                  <div key={row.label}>
+                    <dt>{row.label}</dt>
+                    <dd>{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+
+            {whatsapp(k('ctaPrice'), 'spd-btn spd-btn-gold')}
+            <button type="button" className="spd-btn spd-btn-line" onClick={openSample}>
+              {k('ctaSample')}
             </button>
-            <SampleRequestForm
-              isOpen={isFormOpen}
-              onClose={() => setIsFormOpen(false)}
-              productName={product.name}
-              productFinish={selectedFinish?.finish}
-              productFinishLabel={finishLabel(t, selectedFinish?.finish)}
-            />
+            <ul className="spd-trust">
+              <li>{k('trustSamples')}</li>
+              <li>{k('trustSince')}</li>
+              <li>{k('trustCountries', { count: EXPORT_COUNTRIES })}</li>
+            </ul>
           </div>
         </div>
 
-        {seo && (
-          <div className="product-seo">
-            <div className="product-seo-intro">
-              {seo.intro.map((text, i) => (
-                <p key={i}>{text}</p>
+        <div className="spd-about">
+          <section>
+            <h2>{k('aboutTitle', { name: heading })}</h2>
+            {(seo?.intro || []).map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
+          </section>
+          {uses.length > 0 && (
+            <section>
+              <h2>{t('productDetails.usesTitle')}</h2>
+              <ul className="spd-chips">
+                {uses.map((u) => (
+                  <li key={u}>{u}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
+
+        {specs.length > 0 && (
+          <section className="spd-section">
+            <h2>{t('productDetails.specsTitle')}</h2>
+            <dl className="spd-specs">
+              {specs.map((row) => (
+                <div key={row.label}>
+                  <dt>{row.label}</dt>
+                  <dd>{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )}
+
+        {rooms.length > 0 && (
+          <section className="spd-section">
+            <h2>{k('inSpaceTitle', { name: heading })}</h2>
+            <div className="spd-rooms">
+              {rooms.map((room) => (
+                <figure key={room.finish}>
+                  <img
+                    loading="lazy"
+                    src={room.link}
+                    {...(room.thumb
+                      ? { srcSet: `${room.thumb} 640w, ${room.link} 1600w`, sizes: '(max-width: 768px) 100vw, 50vw' }
+                      : {})}
+                    alt={`${heading} - ${room.label}`}
+                  />
+                  <figcaption>{room.label}</figcaption>
+                </figure>
               ))}
             </div>
-
-            {(seo.details?.specs?.length > 0 || seo.details?.uses?.length > 0) && (
-              <div className="product-seo-block product-specs">
-                {seo.details.specs.length > 0 && (
-                  <>
-                    <h2>{t('productDetails.specsTitle')}</h2>
-                    <dl className="product-specs-table">
-                      {seo.details.specs.map((row) => (
-                        <div key={row.label}>
-                          <dt>{row.label}</dt>
-                          <dd>{row.value}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </>
-                )}
-                {seo.details.uses.length > 0 && (
-                  <>
-                    <h2>{t('productDetails.usesTitle')}</h2>
-                    <ul className="product-uses">
-                      {seo.details.uses.map((u) => (
-                        <li key={u}>{u}</li>
-                      ))}
-                    </ul>
-                  </>
-                )}
-              </div>
-            )}
-
-            {seo.projects.length > 0 && (
-              <div className="product-seo-block">
-                <h2>{t('productDetails.usedInProjects').replace('{{heading}}', seo.heading)}</h2>
-                <ul className="product-seo-projects">
-                  {seo.projects.map((p) => (
-                    <li key={p.id}>
-                      <LangLink href={`/projects/${p.id}/`}>
-                        <img loading="lazy" {...cardImageProps(p.thumbnail)} alt={p.name} />
-                        <span>
-                          <strong>{p.name}</strong>
-                          {[p.city, p.country].filter(Boolean).join(' - ')}
-                        </span>
-                      </LangLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {seo.related.length > 0 && (
-              <div className="product-seo-block">
-                <h2>{t('productDetails.related').replace('{{type}}', seo.typeLabel)}</h2>
-                <div className="product-cards-2 product-seo-related">
-                  {seo.related.map((item) => (
-                    <Product key={item.id} item={item} />
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+          </section>
         )}
-        <ContactBubble />
+
+        {seo?.projects?.length > 0 && (
+          <section className="spd-section">
+            <h2>{t('productDetails.usedInProjects').replace('{{heading}}', heading)}</h2>
+            <ul className="spd-projects">
+              {seo.projects.map((p) => (
+                <li key={p.id}>
+                  <LangLink href={`/projects/${p.id}/`}>
+                    <img loading="lazy" {...cardImageProps(p.thumbnail)} alt={p.name} />
+                    <span>
+                      <strong>{p.name}</strong>
+                      {[p.city, p.country].filter(Boolean).join(' · ')}
+                    </span>
+                  </LangLink>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {seo?.related?.length > 0 && (
+          <section className="spd-section">
+            <h2>{t('productDetails.related').replace('{{type}}', seo.typeLabel)}</h2>
+            <div className="spd-related">
+              {seo.related.map((item) => (
+                <Product key={item.id} item={item} />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
-    </>
+
+      <div className="spd-band">
+        <div className="spd-wrap">
+          <div>
+            <h2>{k('bandTitle', { name: heading })}</h2>
+            <p>{k('bandText')}</p>
+          </div>
+          {whatsapp(k('bandCta'), 'spd-btn spd-btn-gold')}
+        </div>
+      </div>
+
+      {/* phones: price / sample buttons stay at the bottom of the screen */}
+      <div className="spd-sticky">
+        {whatsapp(k('ctaPriceShort'), 'spd-btn spd-btn-gold')}
+        <button type="button" className="spd-btn spd-btn-line" onClick={openSample}>
+          {k('ctaSampleShort')}
+        </button>
+      </div>
+
+      <SampleRequestForm
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        productName={product.name}
+        productFinish={selectedFinish?.finish}
+        productFinishLabel={finishLabel(t, selectedFinish?.finish)}
+      />
+      <ContactBubble />
+    </div>
   );
 }

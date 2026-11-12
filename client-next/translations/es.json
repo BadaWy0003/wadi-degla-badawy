@@ -777,7 +777,22 @@
     "use_staircases": "Escaleras",
     "use_windowSills": "Alféizares",
     "use_countertops": "Encimeras",
-    "use_landscaping": "Paisajismo y pavimento exterior"
+    "use_landscaping": "Paisajismo y pavimento exterior",
+    "ctaPrice": "Pedir precio por WhatsApp",
+    "ctaPriceShort": "Pedir precio",
+    "ctaSample": "Solicitar una muestra gratis",
+    "ctaSampleShort": "Muestra gratis",
+    "finishesCount": "{{count}} acabados",
+    "trustSamples": "Muestras pequeñas gratis",
+    "trustSince": "Exportando desde 1980",
+    "trustCountries": "Envíos a {{count}} países",
+    "aboutTitle": "Sobre {{name}}",
+    "inSpaceTitle": "{{name}} en un espacio real",
+    "interior": "Interior",
+    "exterior": "Exterior",
+    "bandTitle": "¿Planea un proyecto con {{name}}?",
+    "bandText": "Envíenos la cantidad y las medidas. Le respondemos con precio y plazo de entrega.",
+    "bandCta": "Hablar por WhatsApp"
   },
   "sampleRequestForm": {
     "successMessage": "¡Mensaje enviado exitosamente!",

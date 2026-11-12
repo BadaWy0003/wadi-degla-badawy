@@ -1,0 +1,650 @@
+/* Stone page (design "Showroom", 2026-11-12): dark + gold like the home page.
+   Everything is scoped under .spd. Phone sizes are in the media query at the end. */
+.spd {
+  --spd-bg: #0c0b0a;
+  --spd-surface: #15130f;
+  --spd-line: rgba(232, 214, 186, 0.1);
+  --spd-line-strong: rgba(232, 214, 186, 0.22);
+  --spd-text: #f3eee6;
+  --spd-body: #d6d0c6;
+  --spd-muted: #a8a196;
+  --spd-gold: #ad9571;
+  --spd-gold-hi: #cdb48b;
+  --spd-on-gold: #16130f;
+  background: var(--spd-bg);
+  color: var(--spd-text);
+  padding-top: 110px; /* below the fixed header */
+}
+
+.spd *,
+.spd *::before,
+.spd *::after {
+  box-sizing: border-box;
+}
+
+.spd h1,
+.spd h2,
+.spd p,
+.spd dl,
+.spd dd,
+.spd ul,
+.spd figure {
+  margin: 0;
+  padding: 0;
+}
+
+.spd h1,
+.spd h2 {
+  font-family: inherit;
+  color: var(--spd-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.spd h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.spd-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* breadcrumb */
+.spd-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--spd-muted);
+  padding: 18px 0 22px;
+}
+
+.spd-crumb a {
+  color: var(--spd-muted);
+  text-decoration: none;
+}
+
+.spd-crumb a:hover {
+  color: var(--spd-gold-hi);
+}
+
+.spd-crumb-here {
+  color: var(--spd-gold-hi);
+}
+
+html[dir='rtl'] .spd-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+/* photo + panel */
+.spd-top {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.spd-top > * {
+  min-width: 0;
+}
+
+.spd-main {
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--spd-surface);
+}
+
+.spd-main img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spd-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.spd-thumbs button {
+  padding: 0;
+  border: 1px solid var(--spd-line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  width: 92px;
+  height: 70px;
+}
+
+.spd-thumbs button.is-on {
+  border: 2px solid var(--spd-gold);
+}
+
+.spd-thumbs img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spd-panel {
+  position: sticky;
+  top: 100px;
+}
+
+.spd-eyebrow {
+  color: var(--spd-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.spd .spd-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  margin: 10px 0;
+}
+
+.spd-aka {
+  color: var(--spd-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.spd-label {
+  font-size: 13px;
+  color: var(--spd-muted);
+  margin: 22px 0 10px !important;
+}
+
+.spd-label b {
+  color: var(--spd-text);
+  font-weight: 500;
+}
+
+.spd-finishes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.spd-finish {
+  background: none;
+  border: 1px solid var(--spd-line);
+  border-radius: 10px;
+  padding: 4px;
+  color: var(--spd-muted);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.spd-finish:hover {
+  border-color: var(--spd-line-strong);
+}
+
+.spd-finish img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.spd-finish span {
+  display: block;
+  padding: 5px 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spd-finish.is-on {
+  border-color: var(--spd-gold);
+  box-shadow: 0 0 0 1px var(--spd-gold);
+  color: var(--spd-text);
+}
+
+.spd-quick {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--spd-line);
+  border: 1px solid var(--spd-line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 22px 0 !important;
+}
+
+.spd-quick div {
+  background: var(--spd-surface);
+  padding: 12px 14px;
+}
+
+.spd-quick dt {
+  color: var(--spd-muted);
+  font-size: 11px;
+  margin-bottom: 3px;
+}
+
+.spd-quick dd {
+  font-weight: 500;
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+/* buttons */
+.spd-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.spd-btn svg {
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.spd-btn-gold {
+  background: var(--spd-gold);
+  color: var(--spd-on-gold);
+  border: 0;
+}
+
+.spd-btn-gold:hover {
+  background: var(--spd-gold-hi);
+  color: var(--spd-on-gold);
+}
+
+.spd-btn-line {
+  background: transparent;
+  color: var(--spd-text);
+  border: 1px solid var(--spd-line-strong);
+  margin-top: 10px;
+}
+
+.spd-btn-line:hover {
+  border-color: var(--spd-gold);
+}
+
+.spd-trust {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  color: var(--spd-muted);
+  font-size: 12.5px;
+  margin-top: 16px !important;
+}
+
+.spd-trust li::before {
+  content: '✓';
+  color: var(--spd-gold);
+  margin-inline-end: 6px;
+}
+
+/* about + uses */
+.spd-about {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  padding-top: 72px;
+}
+
+.spd-about > * {
+  min-width: 0;
+}
+
+.spd-about p {
+  color: var(--spd-body);
+  font-size: 16.5px;
+  line-height: 1.75;
+  max-width: 720px;
+}
+
+.spd-about p + p {
+  margin-top: 14px;
+}
+
+.spd-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.spd-chips li {
+  border: 1px solid var(--spd-line-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.spd-section {
+  padding-top: 72px;
+}
+
+.spd-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.spd-specs div {
+  background: var(--spd-surface);
+  border: 1px solid var(--spd-line);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.spd-specs dt {
+  color: var(--spd-gold);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.spd-specs dd {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* room photos */
+.spd-rooms {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* one photo takes half the width */
+  gap: 16px;
+}
+
+.spd-rooms figure {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--spd-surface);
+}
+
+.spd-rooms img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.spd-rooms figcaption {
+  position: absolute;
+  inset-inline-start: 16px;
+  bottom: 14px;
+  background: rgba(12, 11, 10, 0.75);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* projects */
+.spd-projects {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.spd-projects a {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: var(--spd-surface);
+  border: 1px solid var(--spd-line);
+  border-radius: 14px;
+  padding: 10px;
+  padding-inline-end: 22px;
+  color: var(--spd-muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+
+.spd-projects a:hover {
+  border-color: var(--spd-gold);
+}
+
+.spd-projects img {
+  width: 84px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.spd-projects strong {
+  display: block;
+  color: var(--spd-text);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+/* related stones (the shared product card, restyled here) */
+.spd-related {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.spd-related .product-card-2 {
+  align-items: stretch;
+  padding: 0;
+  width: auto;
+}
+
+.spd-related .img-div-2 {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.spd-related .product-card-2 img {
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+}
+
+.spd-related .product-card-2 h3 {
+  text-align: start;
+  font-size: 14px;
+  color: var(--spd-text);
+  margin-top: 8px;
+}
+
+/* final call to action */
+.spd-band {
+  margin-top: 88px;
+  background: var(--spd-surface);
+  border-top: 1px solid var(--spd-line);
+  padding: 48px 0;
+}
+
+.spd-band .spd-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.spd .spd-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.spd-band p {
+  color: var(--spd-muted);
+}
+
+.spd-band .spd-btn {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.spd-sticky {
+  display: none;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the home and Contact pages). */
+html body:has(.spd) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.spd) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 900px) {
+  .spd-top,
+  .spd-about {
+    grid-template-columns: 1fr;
+  }
+
+  .spd-top {
+    gap: 22px;
+  }
+
+  .spd-about {
+    gap: 40px;
+  }
+
+  .spd-panel {
+    position: static;
+  }
+
+  .spd-related {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .spd {
+    padding-top: 64px;
+    padding-bottom: 72px; /* room for the sticky buttons */
+  }
+
+  .spd-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .spd-crumb {
+    padding: 14px 0 16px;
+  }
+
+  .spd-thumbs button {
+    width: 64px;
+    height: 50px;
+  }
+
+  /* finishes scroll sideways in one row */
+  .spd-finishes {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .spd-finish {
+    flex: 0 0 74px;
+  }
+
+  .spd-about,
+  .spd-section {
+    padding-top: 48px;
+  }
+
+  .spd-about p {
+    font-size: 16px;
+  }
+
+  .spd-related {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .spd-related .product-card-2 {
+    flex: 0 0 42%;
+  }
+
+  .spd-projects a {
+    width: 100%;
+  }
+
+  .spd-rooms {
+    grid-template-columns: 1fr;
+  }
+
+  .spd-band {
+    margin-top: 56px;
+  }
+
+  .spd-band .spd-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .spd-band .spd-btn {
+    width: 100%;
+  }
+
+  .spd-sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(12, 11, 10, 0.92);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--spd-line);
+  }
+
+  .spd-sticky .spd-btn {
+    min-height: 48px;
+    font-size: 14px;
+    padding: 0 12px;
+    margin: 0;
+  }
+
+  /* the sticky buttons replace the floating contact bubble on phones */
+  .spd .contact-bubble-container {
+    display: none;
+  }
+}

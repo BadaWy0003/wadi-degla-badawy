@@ -777,7 +777,22 @@
     "use_staircases": "Escaliers",
     "use_windowSills": "Appuis de fenêtre",
     "use_countertops": "Plans de travail",
-    "use_landscaping": "Aménagement paysager et dallage extérieur"
+    "use_landscaping": "Aménagement paysager et dallage extérieur",
+    "ctaPrice": "Demander un prix sur WhatsApp",
+    "ctaPriceShort": "Demander un prix",
+    "ctaSample": "Demander un échantillon gratuit",
+    "ctaSampleShort": "Échantillon gratuit",
+    "finishesCount": "{{count}} finitions",
+    "trustSamples": "Petits échantillons gratuits",
+    "trustSince": "Exportateur depuis 1980",
+    "trustCountries": "Livraison dans {{count}} pays",
+    "aboutTitle": "À propos du {{name}}",
+    "inSpaceTitle": "Le {{name}} en situation",
+    "interior": "Intérieur",
+    "exterior": "Extérieur",
+    "bandTitle": "Un projet avec du {{name}} ?",
+    "bandText": "Envoyez-nous les quantités et les dimensions. Nous répondons avec un prix et un délai.",
+    "bandCta": "Discuter sur WhatsApp"
   },
   "sampleRequestForm": {
     "successMessage": "Message envoyé avec succès !",

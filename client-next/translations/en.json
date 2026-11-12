@@ -777,7 +777,22 @@
     "use_staircases": "Staircases",
     "use_windowSills": "Window sills",
     "use_countertops": "Countertops",
-    "use_landscaping": "Landscaping & outdoor paving"
+    "use_landscaping": "Landscaping & outdoor paving",
+    "ctaPrice": "Get a price on WhatsApp",
+    "ctaPriceShort": "Get a price",
+    "ctaSample": "Request a free sample",
+    "ctaSampleShort": "Free sample",
+    "finishesCount": "{{count}} finishes",
+    "trustSamples": "Free small samples",
+    "trustSince": "Exporting since 1980",
+    "trustCountries": "Ships to {{count}} countries",
+    "aboutTitle": "About {{name}}",
+    "inSpaceTitle": "See {{name}} in a space",
+    "interior": "Interior",
+    "exterior": "Exterior",
+    "bandTitle": "Planning a project with {{name}}?",
+    "bandText": "Send us the quantity and sizes. We reply with a price and lead time.",
+    "bandCta": "Chat on WhatsApp"
   },
   "sampleRequestForm": {
     "successMessage": "Message sent successfully!",
