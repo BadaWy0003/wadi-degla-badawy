@@ -1,0 +1,637 @@
+/* Cobbles page (redesigned 2026-11-12, design A "Photo header + two surfaces"): dark + gold like the
+   other redesigned pages. Everything is scoped under .co; smaller screens at the end. */
+.co {
+  --co-bg: #0c0b0a;
+  --co-surface: #15130f;
+  --co-line: rgba(232, 214, 186, 0.1);
+  --co-line-strong: rgba(232, 214, 186, 0.22);
+  --co-text: #f3eee6;
+  --co-body: #d6d0c6;
+  --co-muted: #a8a196;
+  --co-gold: #ad9571;
+  --co-gold-hi: #cdb48b;
+  --co-on-gold: #16130f;
+  --co-header: 84px; /* the fixed site header */
+  background: var(--co-bg);
+  color: var(--co-text);
+}
+
+.co *,
+.co *::before,
+.co *::after {
+  box-sizing: border-box;
+}
+
+.co h1,
+.co h2,
+.co p,
+.co dl,
+.co dd {
+  margin: 0;
+  padding: 0;
+}
+
+.co h1,
+.co h2 {
+  font-family: inherit;
+  color: var(--co-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.co h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.co h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.co-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.co-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--co-muted);
+  margin-bottom: 34px;
+}
+
+.co-crumb a {
+  color: var(--co-muted);
+  text-decoration: none;
+}
+
+.co-crumb a:hover,
+.co-crumb-here {
+  color: var(--co-gold-hi);
+}
+
+html[dir='rtl'] .co-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.co-eyebrow {
+  color: var(--co-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.co-hero {
+  padding: calc(var(--co-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.co-lead {
+  color: var(--co-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.co .co-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.co-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.co-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--co-gold-hi);
+}
+
+.co-stats dt {
+  color: var(--co-muted);
+  font-size: 13px;
+}
+
+/* the header is a photo: the shared header rules above are adjusted here */
+.co-hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--co-header) + 56px) 0 64px;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  background: var(--co-bg);
+}
+
+.co-hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: co-zoom 14s ease-out both;
+}
+
+@keyframes co-zoom {
+  from {
+    transform: scale(1.1);
+  }
+}
+
+.co-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(12, 11, 10, 0.94),
+    rgba(12, 11, 10, 0.6) 55%,
+    rgba(12, 11, 10, 0.3)
+  );
+}
+
+html[dir='rtl'] .co-hero::after {
+  background: linear-gradient(
+    270deg,
+    rgba(12, 11, 10, 0.94),
+    rgba(12, 11, 10, 0.6) 55%,
+    rgba(12, 11, 10, 0.3)
+  );
+}
+
+.co-hero .co-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.co-hero .co-crumb,
+.co-hero .co-crumb a {
+  color: #d6d0c6;
+}
+
+.co h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.co h3,
+.co h4 {
+  font-family: inherit;
+  text-transform: none;
+  color: var(--co-text);
+  margin: 0;
+}
+
+.co-section {
+  padding-top: 64px;
+}
+
+.co .co-text {
+  color: var(--co-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.co .co-small {
+  color: var(--co-muted);
+  font-size: 13.5px;
+  margin-bottom: 8px;
+}
+
+/* ---------- benefits ---------- */
+.co-benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--co-line);
+  border: 1px solid var(--co-line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.co-benefits li {
+  background: var(--co-surface);
+  padding: 24px 22px;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.co-benefits li:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.co-benefits li:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.co-benefits li:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.co-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--co-gold);
+  color: var(--co-gold-hi);
+  margin-bottom: 14px;
+}
+
+.co-benefits h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.co-benefits p {
+  color: var(--co-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---------- two surfaces ---------- */
+.co-surfaces {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.co-surface {
+  background: var(--co-surface);
+  border: 1px solid var(--co-line);
+  border-radius: 20px;
+  overflow: hidden;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.co-surface:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.co-surface-photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--co-bg);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.co-surface-photo img,
+.co-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.co-surface-photo:hover img,
+.co-tile:hover img {
+  transform: scale(1.06);
+}
+
+.co-surface-text {
+  padding: 24px;
+}
+
+.co-surface-text .co-eyebrow {
+  margin-bottom: 8px !important;
+}
+
+.co .co-surface-title {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.co-surface h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 20px 0 6px;
+}
+
+.co-checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.co-checks li {
+  position: relative;
+  padding-inline-start: 24px;
+  color: var(--co-body);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.co-checks li::before {
+  content: '✓';
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--co-gold);
+}
+
+/* ---------- where flamed paving works best ---------- */
+.co-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.co-chips li {
+  border: 1px solid var(--co-line-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--co-body);
+}
+
+/* ---------- technical options ---------- */
+.co-tech {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--co-surface);
+  border: 1px solid var(--co-line);
+  border-radius: 20px;
+  padding: 32px;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.co-tech h2 {
+  margin-bottom: 12px;
+}
+
+.co .co-compliance {
+  margin-top: 12px;
+}
+
+.co-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.co-options li {
+  border: 1px solid var(--co-line);
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 14.5px;
+}
+
+/* ---------- gallery ---------- */
+.co-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 210px 210px;
+  gap: 10px;
+}
+
+.co-tile {
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--co-surface);
+  cursor: zoom-in;
+  min-height: 0;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.co-tile:first-child {
+  grid-row: span 2;
+}
+
+/* the shared "Related pages" links */
+.co .related-pages {
+  padding-top: 64px;
+  margin: 0;
+  background: transparent;
+}
+
+/* fade-up when scrolled to (class added by useReveal after load) */
+.co-reveal.co-hidden {
+  opacity: 0;
+  translate: 0 36px;
+}
+
+/* ---------- final call to action ---------- */
+.co-band {
+  margin-top: 88px;
+  background: var(--co-surface);
+  border-top: 1px solid var(--co-line);
+  padding: 48px 0;
+}
+
+.co-band .co-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.co .co-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.co-band p {
+  color: var(--co-muted);
+  max-width: 760px;
+}
+
+.co-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--co-gold);
+  color: var(--co-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.co-btn:hover {
+  background: var(--co-gold-hi);
+  color: var(--co-on-gold);
+}
+
+.co-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.co) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.co) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .co * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .co-reveal.co-hidden {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .co {
+    --co-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 1000px) {
+  .co-benefits {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .co-surfaces,
+  .co-tech {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .co-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .co-hero {
+    min-height: 520px;
+    padding: calc(var(--co-header) + 16px) 0 32px;
+  }
+
+  .co-hero::after,
+  html[dir='rtl'] .co-hero::after {
+    background: linear-gradient(
+      0deg,
+      rgba(12, 11, 10, 0.96),
+      rgba(12, 11, 10, 0.75) 60%,
+      rgba(12, 11, 10, 0.45)
+    );
+  }
+
+  .co-crumb {
+    margin-bottom: 20px;
+  }
+
+  .co-lead {
+    font-size: 15px;
+  }
+
+  .co .co-stats {
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .co-stats dd {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+
+  .co-stats dt {
+    font-size: 11px;
+  }
+
+  .co-section {
+    padding-top: 48px;
+  }
+
+  .co-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .co-surface-text,
+  .co-tech {
+    padding: 20px;
+  }
+
+  .co-tech {
+    gap: 20px;
+  }
+
+  .co-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 130px 130px;
+    gap: 8px;
+  }
+
+  .co-tile:first-child {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .co .related-pages {
+    padding-top: 48px;
+  }
+
+  .co-band {
+    margin-top: 56px;
+  }
+
+  .co-band .co-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

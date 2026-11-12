@@ -249,7 +249,16 @@
     "technicalCompliance": "Todos los productos cumplen con los estándares internacionales para pavimentación exterior y aplicaciones de trabajo pesado.",
     "ctaTitle": "Construya un Espacio Exterior Intemporal",
     "ctaText": "Ya sea que su proyecto requiera el encanto rústico de los adoquines de granito o el desempeño elegante del pavimento de granito flameado, nuestras soluciones ofrecen la resistencia, belleza y valor a largo plazo que su paisaje merece.\nContáctenos hoy para solicitar muestras, catálogos de productos o una cotización personalizada.",
-    "ctaButton": "Solicitar una muestra o presupuesto"
+    "ctaButton": "Solicitar una muestra o presupuesto",
+    "eyebrow": "Pavimento exterior",
+    "statSurfaces": "acabados: partido y flameado",
+    "statSizesLabel": "medidas y espesor",
+    "statSizes": "A medida",
+    "statCountries": "países de exportación",
+    "surfacesTitle": "Dos superficies, una piedra",
+    "splitEyebrow": "Superficie partida natural",
+    "flamedEyebrow": "Superficie tratada con calor",
+    "galleryTitle": "Fotos"
   },
   "footer": {
     "getInTouch": "PONTE EN CONTACTO",
