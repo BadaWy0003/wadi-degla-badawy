@@ -1,90 +1,143 @@
 'use client';
-import React from "react";
-import './About.css';
-const logo_color_stroke_notext = '/Assets/Media/logo-color-stroke-notext.svg'
-const expertise_square_image = '/Assets/Media/about-expertise.webp'
-import MissionVisionSection from "./MissionVisionSection";
-import CounterSection from "./CounterSection";
-import ContactBubble from "../Contact/ContactBubble";
+import React from 'react';
+import './AboutPage.css';
 import { useTranslation } from 'react-i18next';
-
-import 'react-multi-carousel/lib/styles.css';
+import { FaWhatsapp } from 'react-icons/fa';
 import LangLink from '../LangLink';
+import StatCounter from './StatCounter';
+import { WHATSAPP_URL } from '../Contact/contactData';
 
+const EXPERTISE_PHOTO = '/Assets/Media/about-expertise.webp';
 
+// Why Choose Us (redesigned 2026-11-12, design B "Photo header + numbered list"): photo header
+// with the H1, a row of numbers over its bottom edge, vision & mission, six numbered reasons,
+// "Our expertise" (photo + what we supply stone for) and a WhatsApp band.
+// The numbers are the rounded ones the owner chose (same as the home page); 46 years is also
+// YEARS in Home.js and home.legacy45Years: update them together every year.
+const NUMBERS = [
+  { end: 46, suffix: '', label: 'statYears' },
+  { end: 500, suffix: '+', label: 'statWorkers' },
+  { end: 3000, suffix: ' m²', label: 'statPerDay' },
+  { end: 300, suffix: '+', label: 'statProjects' },
+  { end: 14, suffix: '', label: 'statQuarries' },
+  { end: 31, suffix: '+', label: 'statCountries' },
+];
+// [title key, text key]
+const REASONS = [
+  ['about.reasonTechnology', 'about.counters.technologyText'],
+  ['about.reasonCraftsmanship', 'about.counters.craftsmanshipText'],
+  ['about.reasonSupplyChain', 'about.counters.supplyChainText'],
+  ['about.globalReachTitle', 'about.globalReachText'],
+  ['about.partnershipsTitle', 'about.partnershipsText'],
+  ['about.solutionsTitle', 'about.solutionsText'],
+];
 
-export default function About(){
-    const { t } = useTranslation();
+// "Global Reach:" -> "Global Reach"
+const noColon = (text) => String(text).replace(/\s*[:：]\s*$/, '');
+const oneLine = (text) => String(text).replace(/\s*\n\s*/g, ' ').trim();
+// the "- " lines of a text
+const listItems = (text) =>
+  String(text)
+    .split('\n')
+    .map((l) => l.trim())
+    .filter((l) => l.startsWith('- '))
+    .map((l) => l.slice(2).trim());
 
-    return(
-        <>
-        <div className='about-container'>
-            {/* 🌟 Hero Section */}
-            <div className="quarries-hero" role="img" aria-label={t('about.heroImageAlt')}>
-                <h1>{t('about.heroTitle')}</h1>
-                <div className="breadcrumb">
-                <LangLink href="/">{t('about.breadcrumbHome')}</LangLink>
-                <p>{'>'} {t('about.breadcrumbCurrent')}</p>
-                </div>
-            </div>  
-            {/* Intro Section */}
-            <div className="about-intro-section">
-                <div className="about-intro-section-content">
-                    <h2>{t('about.introTitle')}</h2>
-                    <p> {t('about.introText1')}
-                        <br/><br/>
-                        {t('about.introText2')}
-                    </p>
-                </div>
+export default function About() {
+  const { t } = useTranslation();
 
-                <div className="about-intro-section-image">
-                    <img loading="lazy" src={logo_color_stroke_notext} alt={t('about.logoAlt')}/>
-                </div>
+  return (
+    <div className="ab">
+      <div className="ab-hero" role="img" aria-label={t('about.heroImageAlt')}>
+        <div className="ab-wrap">
+          <div className="ab-crumb">
+            <LangLink href="/">{t('about.breadcrumbHome')}</LangLink>
+            <span aria-hidden="true">›</span>
+            <span className="ab-crumb-here">{t('about.breadcrumbCurrent')}</span>
+          </div>
+          <p className="ab-eyebrow">{t('about.introTitle')}</p>
+          <h1>{t('about.whyTitle')}</h1>
+          <p className="ab-lead">{oneLine(t('about.introText1'))}</p>
+        </div>
+      </div>
+
+      <div className="ab-wrap">
+        <dl className="ab-numbers">
+          {NUMBERS.map(({ end, suffix, label }) => (
+            <div key={label}>
+              <dt>{t(`about.${label}`)}</dt>
+              <dd>
+                <bdi>
+                  <StatCounter end={end} suffix={suffix} className="ab-number" />
+                </bdi>
+              </dd>
             </div>
+          ))}
+        </dl>
 
-            < MissionVisionSection />
-            <div className="our-expertise-section">
-                <div className="our-expertise-title">
-                    <hr/>
-                    <h2>{t('about.expertiseTitle')}</h2>
-                    <p>{t('about.expertiseSubtitle')}</p>
+        <div className="ab-vm">
+          <div>
+            <h2 className="ab-vm-title">{t('about.visionTitle')}</h2>
+            <p>{t('about.visionText')}</p>
+          </div>
+          <div>
+            <h2 className="ab-vm-title">{t('about.missionTitle')}</h2>
+            <p>{t('about.missionText')}</p>
+          </div>
+        </div>
+
+        <section className="ab-section">
+          <h2>{t('about.counters.sectionTitle2')}</h2>
+          <p className="ab-section-lead">{oneLine(t('about.introText2'))}</p>
+          <ol className="ab-reasons">
+            {REASONS.map(([title, text], i) => (
+              <li key={title}>
+                <span className="ab-reason-n" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3>{noColon(t(title))}</h3>
+                  <p>{oneLine(t(text))}</p>
                 </div>
-                <div className="our-expertise-section-content">
-                    <div className="our-expertise-section-content-image">
-                        <img loading="lazy" src={expertise_square_image} alt={t('about.expertiseImageAlt')}/>
-                    </div>
-                    <div className="our-expertise-section-content-text">
-                        <p>{t('about.expertiseIntro')}</p>
-                        <li><strong>{t('about.globalReachTitle')}</strong> <br/>{t('about.globalReachText')}</li>
-                        <li><strong>{t('about.resourcesTitle')}</strong> <br/>{t('about.resourcesText')}</li>
-                        <li>
-                            <strong>{t('about.graniteTitle')}</strong> <br/>
-                            {t('about.graniteText').split('\n').map((line, index) => {
-                                const trimmedLine = line.trim();
-                                if (!trimmedLine) return null;
-                                return (
-                                    <React.Fragment key={index}>
-                                        {trimmedLine.startsWith('-') ? trimmedLine : trimmedLine}
-                                        {index < t('about.graniteText').split('\n').length - 1 && trimmedLine !== '' && <br/>}
-                                    </React.Fragment>
-                                );
-                            })}
-                        </li>
-                        <li><strong>{t('about.partnershipsTitle')}</strong> <br/>{t('about.partnershipsText')}</li>
-                        <li><strong>{t('about.solutionsTitle')}</strong> <br/>{t('about.solutionsText')}</li>
-                    </div>
-                </div>
-            </div>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-            <CounterSection />
+        <section className="ab-section ab-expertise">
+          <img loading="lazy" src={EXPERTISE_PHOTO} alt={t('about.expertiseImageAlt')} />
+          <div>
+            <p className="ab-eyebrow">{t('about.expertiseSubtitle')}</p>
+            <h2>{t('about.expertiseTitle')}</h2>
+            <p className="ab-text">{oneLine(t('about.expertiseIntro'))}</p>
+            <p className="ab-text">{oneLine(t('about.resourcesText'))}</p>
+            <p className="ab-label">{t('about.supplyFor')}</p>
+            <ul className="ab-chips">
+              {listItems(t('about.graniteText')).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <LangLink href="/projects/" className="ab-link">
+              {t('about.seeProjects')}{' '}
+              <span className="ab-arrow" aria-hidden="true">
+                →
+              </span>
+            </LangLink>
+          </div>
+        </section>
+      </div>
 
-            <div className="thanks-section">
-                <h2>{t('about.thanksTitle')}</h2>
-                <h4>{t('about.thanksText')}</h4>
-            </div>
-            <ContactBubble />
-
-        </div>   
-        </> 
-            )
+      <div className="ab-band">
+        <div className="ab-wrap">
+          <div>
+            <h2>{t('about.bandTitle')}</h2>
+            <p>{t('about.bandText')}</p>
+          </div>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="ab-btn">
+            <FaWhatsapp aria-hidden="true" /> {t('productDetails.bandCta')}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
 }

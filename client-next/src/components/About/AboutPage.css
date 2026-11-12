@@ -1,0 +1,471 @@
+/* Why Choose Us page (redesigned 2026-11-12, design B): dark + gold like the home, stone and
+   products pages. Everything is scoped under .ab; smaller screens at the end. */
+.ab {
+  --ab-bg: #0c0b0a;
+  --ab-surface: #15130f;
+  --ab-line: rgba(232, 214, 186, 0.1);
+  --ab-line-strong: rgba(232, 214, 186, 0.22);
+  --ab-text: #f3eee6;
+  --ab-body: #d6d0c6;
+  --ab-muted: #a8a196;
+  --ab-gold: #ad9571;
+  --ab-gold-hi: #cdb48b;
+  --ab-on-gold: #16130f;
+  --ab-header: 84px; /* the fixed site header */
+  background: var(--ab-bg);
+  color: var(--ab-text);
+}
+
+.ab *,
+.ab *::before,
+.ab *::after {
+  box-sizing: border-box;
+}
+
+.ab h1,
+.ab h2,
+.ab p,
+.ab dl,
+.ab dd {
+  margin: 0;
+  padding: 0;
+}
+
+.ab h1,
+.ab h2 {
+  font-family: inherit;
+  color: var(--ab-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.ab h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.ab h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.ab-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.ab-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ab-muted);
+  margin-bottom: 34px;
+}
+
+.ab-crumb a {
+  color: var(--ab-muted);
+  text-decoration: none;
+}
+
+.ab-crumb a:hover,
+.ab-crumb-here {
+  color: var(--ab-gold-hi);
+}
+
+html[dir='rtl'] .ab-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.ab-eyebrow {
+  color: var(--ab-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- photo header ---------- */
+.ab-hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--ab-header) + 40px) 0 120px;
+  background:
+    linear-gradient(180deg, rgba(12, 11, 10, 0.72) 0%, rgba(12, 11, 10, 0.6) 45%, var(--ab-bg) 100%),
+    url('/Assets/Media/Hero/about-hero.webp') center 30% / cover;
+}
+
+.ab-hero .ab-wrap {
+  width: 100%;
+}
+
+.ab-hero .ab-crumb,
+.ab-hero .ab-crumb a {
+  color: var(--ab-body);
+}
+
+.ab-hero .ab-eyebrow {
+  color: var(--ab-gold-hi);
+}
+
+.ab-hero h1 {
+  font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+  max-width: 900px;
+}
+
+.ab-lead {
+  color: var(--ab-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+/* ---------- numbers (over the bottom of the photo) ---------- */
+.ab .ab-numbers {
+  position: relative;
+  z-index: 2;
+  margin-top: -64px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--ab-line);
+  border: 1px solid var(--ab-line-strong);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.ab-numbers div {
+  background: rgba(21, 19, 15, 0.94);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.ab-numbers dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--ab-gold-hi);
+}
+
+.ab-numbers dt {
+  color: var(--ab-muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* ---------- vision & mission ---------- */
+.ab-vm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.ab-vm > div {
+  border: 1px solid var(--ab-line-strong);
+  border-radius: 18px;
+  padding: 28px;
+  background: linear-gradient(135deg, rgba(173, 149, 113, 0.12), transparent);
+}
+
+.ab .ab-vm-title {
+  color: var(--ab-gold);
+  font-size: 12px !important; /* mobile.css sets every h2 to 22px on phones */
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase !important;
+  margin-bottom: 12px;
+}
+
+.ab-vm p {
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+/* ---------- reasons ---------- */
+.ab-section {
+  padding-top: 72px;
+}
+
+.ab .ab-section h2 {
+  margin-bottom: 12px;
+}
+
+.ab-section-lead {
+  color: var(--ab-muted);
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 760px;
+  margin-bottom: 18px !important;
+}
+
+.ab-reasons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 56px;
+}
+
+.ab-reasons li {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--ab-line);
+}
+
+.ab-reason-n {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ab-gold);
+  flex-shrink: 0;
+  min-width: 46px;
+}
+
+.ab h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--ab-text);
+  margin: 0;
+  text-transform: none;
+}
+
+.ab-reasons p {
+  color: var(--ab-body);
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin-top: 8px !important;
+}
+
+/* ---------- expertise ---------- */
+.ab-expertise {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.ab-expertise > * {
+  min-width: 0;
+}
+
+.ab-expertise img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.ab-text {
+  color: var(--ab-body);
+  line-height: 1.7;
+  margin-top: 12px !important;
+}
+
+.ab-label {
+  color: var(--ab-muted);
+  font-size: 13px;
+  margin: 20px 0 10px !important;
+}
+
+.ab-chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ab-chips li {
+  border: 1px solid var(--ab-line-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.ab-link {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--ab-gold-hi);
+  font-size: 14.5px;
+  text-decoration: none;
+}
+
+.ab-link:hover {
+  color: var(--ab-text);
+}
+
+.ab-arrow {
+  display: inline-block;
+}
+
+html[dir='rtl'] .ab-arrow {
+  transform: scaleX(-1);
+}
+
+/* ---------- final call to action ---------- */
+.ab-band {
+  margin-top: 88px;
+  background: var(--ab-surface);
+  border-top: 1px solid var(--ab-line);
+  padding: 48px 0;
+}
+
+.ab-band .ab-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ab .ab-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.ab-band p {
+  color: var(--ab-muted);
+}
+
+.ab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--ab-gold);
+  color: var(--ab-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ab-btn:hover {
+  background: var(--ab-gold-hi);
+  color: var(--ab-on-gold);
+}
+
+.ab-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.ab) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.ab) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .ab {
+    --ab-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 1000px) {
+  .ab .ab-numbers {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ab-reasons {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ab-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .ab-hero {
+    min-height: 520px;
+    padding-bottom: 96px;
+  }
+
+  .ab-crumb {
+    margin-bottom: 20px;
+  }
+
+  .ab-lead {
+    font-size: 15.5px;
+  }
+
+  .ab .ab-numbers {
+    grid-template-columns: 1fr 1fr;
+    margin-top: -56px;
+  }
+
+  .ab-numbers div {
+    padding: 16px 14px;
+  }
+
+  .ab-numbers dd {
+    font-size: 22px;
+  }
+
+  .ab-numbers dt {
+    font-size: 12px;
+  }
+
+  .ab-vm {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+
+  .ab-vm > div {
+    padding: 22px;
+  }
+
+  .ab-vm p {
+    font-size: 16.5px;
+  }
+
+  .ab-section {
+    padding-top: 48px;
+  }
+
+  .ab-reason-n {
+    font-size: 26px;
+    min-width: 36px;
+  }
+
+  .ab-expertise {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .ab-band {
+    margin-top: 56px;
+  }
+
+  .ab-band .ab-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
