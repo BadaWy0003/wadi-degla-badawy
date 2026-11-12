@@ -723,7 +723,19 @@
     "importedMarbleDisplay": "Marbre Importé",
     "egyptianGraniteDisplay": "Granit Égyptien",
     "importedGraniteDisplay": "Granit Importé",
-    "aboutCategory": "À propos du {{category}}"
+    "aboutCategory": "À propos du {{category}}",
+    "eyebrow": "Collection de pierres Wadi Degla",
+    "collectionTitle": "Marbre, granit et calcaire",
+    "intro": "Pierres naturelles égyptiennes et importées en tranches, carreaux et blocs, issues de nos carrières et de carrières partenaires, pour villas, hôtels et grands projets.",
+    "statStones": "pierres",
+    "statCategories": "catégories",
+    "statQuarries": "carrières",
+    "statCountries": "pays d’export",
+    "searchAll": "Rechercher toutes les pierres…",
+    "noResults": "Aucune pierre ne correspond à « {{query}} ».",
+    "finishOne": "1 finition",
+    "bandTitle": "Vous hésitez sur la pierre de votre projet ?",
+    "bandText": "Indiquez l’usage, la quantité et le budget. Nous proposons des pierres et envoyons les prix."
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Fournisseur égyptien, tranches et carreaux",

@@ -723,7 +723,19 @@
     "importedMarbleDisplay": "Mermeri i Importuar",
     "egyptianGraniteDisplay": "Graniti Egjiptian",
     "importedGraniteDisplay": "Graniti i Importuar",
-    "aboutCategory": "Rreth {{category}}"
+    "aboutCategory": "Rreth {{category}}",
+    "eyebrow": "Koleksioni i gurëve Wadi Degla",
+    "collectionTitle": "Mermer, granit dhe gur gëlqeror",
+    "intro": "Gur natyror egjiptian dhe i importuar në pllaka, pllakëza dhe blloqe, nga guroret tona dhe ato të partnerëve, për vila, hotele dhe projekte të mëdha.",
+    "statStones": "gurë",
+    "statCategories": "kategori",
+    "statQuarries": "gurore",
+    "statCountries": "vende eksporti",
+    "searchAll": "Kërko në të gjithë gurët…",
+    "noResults": "Asnjë gur nuk përputhet me “{{query}}”.",
+    "finishOne": "1 përfundim",
+    "bandTitle": "Nuk jeni i sigurt cili gur i përshtatet projektit tuaj?",
+    "bandText": "Na tregoni përdorimin, sasinë dhe buxhetin. Ju sugjerojmë gurë dhe ju dërgojmë çmimet."
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Furnizues egjiptian, pllaka dhe pllakëza",
