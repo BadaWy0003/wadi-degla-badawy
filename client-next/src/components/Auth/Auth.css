@@ -1,0 +1,1023 @@
+/* Login, signup and account pages (redesigned 2026-11, concept "From our quarry to your port").
+   Dark + gold like the home and contact pages; everything scoped under .au. */
+.au {
+  --au-bg: #0c0b0a;
+  --au-surface: #15130f;
+  --au-line: rgba(232, 214, 186, 0.12);
+  --au-line-2: rgba(232, 214, 186, 0.24);
+  --au-text: #f3eee6;
+  --au-muted: #a8a196;
+  --au-gold: #ad9571;
+  --au-gold-hi: #cdb48b;
+  --au-on-gold: #16130f;
+  --au-error: #f0a08c;
+  background: var(--au-bg);
+  color: var(--au-text);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.au *,
+.au *::before,
+.au *::after {
+  box-sizing: border-box;
+}
+
+.au h1,
+.au h2,
+.au p {
+  margin: 0;
+  color: inherit;
+}
+
+/* the site's global heading styles (capitals, own font sizes) don't apply here */
+.au h1,
+.au h2 {
+  font-family: inherit;
+  text-transform: none !important; /* index.css makes every h2 upper case with !important */
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.au-login,
+.au-signup {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+}
+
+/* Story panel (left) */
+.au-story {
+  position: relative;
+  padding: 140px 56px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background:
+    radial-gradient(80% 60% at 20% 10%, rgba(173, 149, 113, 0.16), transparent 70%),
+    var(--au-surface);
+  border-inline-end: 1px solid var(--au-line);
+}
+
+.au-story h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  font-weight: 600;
+  max-width: 14ch;
+}
+
+.au-story-text {
+  color: var(--au-muted);
+  max-width: 44ch;
+  line-height: 1.55;
+}
+
+.au-photo {
+  justify-content: flex-end;
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 11, 10, 0.35),
+      rgba(12, 11, 10, 0.1) 40%,
+      rgba(12, 11, 10, 0.88)
+    ),
+    url('/Assets/Media/Hero/home-hero-4.webp') center / cover;
+}
+
+.au-eyebrow {
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--au-gold-hi);
+}
+
+/* The journey: four stations, the line fills up to the current one */
+.au-journey {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+
+.au-journey::before,
+.au-journey::after {
+  content: '';
+  position: absolute;
+  top: 27px;
+  inset-inline-start: 12.5%;
+  height: 2px;
+  background: var(--au-line-2);
+  width: 75%;
+}
+
+.au-journey::after {
+  background: var(--au-gold-hi);
+  width: calc(75% * var(--au-progress, 0));
+  transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.au-journey li {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--au-muted);
+}
+
+.au-journey-ic {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  background: var(--au-bg);
+  border: 1px solid var(--au-line-2);
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.au-journey .is-done,
+.au-journey .is-now {
+  color: var(--au-gold-hi);
+}
+
+.au-journey .is-done .au-journey-ic {
+  border-color: var(--au-gold);
+  color: var(--au-gold-hi);
+}
+
+.au-journey .is-now .au-journey-ic {
+  background: var(--au-gold);
+  color: var(--au-on-gold);
+  border-color: var(--au-gold);
+  box-shadow: 0 0 0 6px rgba(173, 149, 113, 0.18);
+}
+
+/* The route card */
+.au-route {
+  margin-top: auto;
+  border: 1px solid var(--au-line);
+  border-radius: 20px;
+  padding: 18px 20px;
+  background: rgba(12, 11, 10, 0.5);
+}
+
+.au-route svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+html[dir='rtl'] .au-route svg {
+  transform: scaleX(-1);
+}
+
+.au-route-line {
+  fill: none;
+  stroke: var(--au-gold-hi);
+  stroke-width: 2;
+  stroke-dasharray: 5 6;
+}
+
+.au-route-dest {
+  fill: rgba(243, 238, 230, 0.35);
+  transition: fill 0.4s ease;
+}
+
+.au-route-dest.is-set {
+  fill: var(--au-text);
+}
+
+.au-ship {
+  fill: var(--au-gold-hi);
+  stroke: var(--au-gold-hi);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+  opacity: 0;
+  offset-path: path('M300 128 Q196 -8 92 52');
+  offset-rotate: 0deg;
+}
+
+.au-ship.is-sailing {
+  opacity: 1;
+  animation: au-sail 2.6s cubic-bezier(0.45, 0, 0.25, 1) forwards;
+}
+
+@keyframes au-sail {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.au-route-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--au-muted);
+}
+
+.au-route-labels b {
+  color: var(--au-text);
+  font-weight: 500;
+}
+
+.au-route-labels img {
+  vertical-align: -1px;
+  border-radius: 2px;
+}
+
+/* Form pane (right) */
+.au-pane {
+  padding: 140px 56px 64px;
+  display: flex;
+  align-items: center;
+}
+
+.au-card {
+  width: 100%;
+  max-width: 460px;
+  display: grid;
+  gap: 18px;
+}
+
+.au-card h1 {
+  font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+  font-weight: 600;
+  outline: none;
+  scroll-margin-top: 90px; /* below the fixed header */
+}
+
+.au-muted {
+  color: var(--au-muted) !important;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.au-small {
+  font-size: 0.8rem;
+}
+
+.au-field {
+  display: grid;
+  gap: 7px;
+}
+
+.au-field label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--au-muted);
+}
+
+.au input:not([type='checkbox']),
+.au select {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: 1px solid var(--au-line-2);
+  background: rgba(12, 11, 10, 0.6);
+  color: var(--au-text);
+  padding: 0 16px;
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.au select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--au-gold-hi) 50%),
+    linear-gradient(135deg, var(--au-gold-hi) 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) 22px,
+    calc(100% - 16px) 22px;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+html[dir='rtl'] .au select {
+  background-position:
+    16px 22px,
+    22px 22px;
+}
+
+.au select option {
+  background: var(--au-surface);
+  color: var(--au-text);
+}
+
+.au input:focus,
+.au select:focus {
+  border-color: var(--au-gold-hi);
+  box-shadow: 0 0 0 3px rgba(205, 180, 139, 0.18);
+}
+
+.au input[aria-invalid='true'],
+.au select[aria-invalid='true'] {
+  border-color: var(--au-error);
+}
+
+.au-error {
+  color: var(--au-error) !important;
+  font-size: 0.85rem;
+}
+
+.au-error-box {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(240, 160, 140, 0.08);
+  border: 1px solid rgba(240, 160, 140, 0.3);
+}
+
+.au-ok {
+  color: #9fd8a8;
+  font-size: 0.85rem;
+}
+
+.au-pw {
+  position: relative;
+}
+
+.au-pw input {
+  padding-inline-end: 72px !important;
+}
+
+.au-pw-toggle {
+  position: absolute;
+  inset-inline-end: 6px;
+  top: 6px;
+  height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--au-muted);
+  font: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.au-pw-toggle:hover,
+.au-pw-toggle:focus-visible {
+  color: var(--au-gold-hi);
+}
+
+.au-rules {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 0.78rem;
+  color: var(--au-muted);
+}
+
+.au-rules li::before {
+  content: '○ ';
+}
+
+.au-rules li.is-ok {
+  color: var(--au-gold-hi);
+}
+
+.au-rules li.is-ok::before {
+  content: '✓ ';
+}
+
+.au-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--au-muted);
+  cursor: pointer;
+}
+
+.au-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--au-gold);
+}
+
+/* Phone input (react-phone-input-2) in the dark style */
+.au .au-phone .form-control {
+  width: 100%;
+  height: 50px;
+  padding-inline-start: 58px;
+  direction: ltr;
+}
+
+.au .au-phone .flag-dropdown {
+  background: transparent;
+  border: 0;
+  border-inline-end: 1px solid var(--au-line-2);
+  border-radius: 12px 0 0 12px;
+}
+
+.au .au-phone .selected-flag,
+.au .au-phone .selected-flag:hover,
+.au .au-phone .flag-dropdown.open .selected-flag {
+  background: transparent;
+  border-radius: 12px 0 0 12px;
+  width: 50px;
+  padding-left: 14px;
+}
+
+.au .au-phone .country-list {
+  background: var(--au-surface);
+  color: var(--au-text);
+  border-radius: 12px;
+  border: 1px solid var(--au-line-2);
+}
+
+.au .au-phone .country-list .country:hover,
+.au .au-phone .country-list .country.highlight {
+  background: rgba(205, 180, 139, 0.14);
+}
+
+.au .au-phone .country-list .dial-code {
+  color: var(--au-muted);
+}
+
+html[dir='rtl'] .au .au-phone {
+  direction: ltr;
+}
+
+/* Buttons and links */
+.au-btn {
+  height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 1px solid var(--au-gold);
+  background: var(--au-gold);
+  color: var(--au-on-gold) !important;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.au-btn:hover {
+  background: var(--au-gold-hi);
+}
+
+.au-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.au-btn-ghost {
+  background: transparent;
+  color: var(--au-text) !important;
+  border-color: var(--au-line-2);
+}
+
+.au-btn-ghost:hover {
+  background: rgba(205, 180, 139, 0.1);
+}
+
+.au-btn:focus-visible,
+.au a:focus-visible,
+.au button:focus-visible {
+  outline: 2px solid var(--au-gold-hi);
+  outline-offset: 3px;
+}
+
+.au-card > .au-btn,
+.au-actions .au-btn {
+  width: 100%;
+}
+
+.au-actions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+}
+
+.au-actions.is-single {
+  grid-template-columns: 1fr;
+}
+
+.au-link {
+  color: var(--au-gold-hi) !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.au-link:hover {
+  text-decoration: underline;
+}
+
+.au-arrow {
+  display: inline-block;
+}
+
+html[dir='rtl'] .au-arrow {
+  transform: scaleX(-1);
+}
+
+.au-wa {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--au-muted);
+}
+
+.au-wa > i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3ccf6e;
+}
+
+/* Stone picker */
+.au-picker {
+  display: grid;
+  gap: 12px;
+}
+
+.au-picker-bar {
+  display: grid;
+  gap: 10px;
+}
+
+.au-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.au-chips button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--au-line-2);
+  background: transparent;
+  color: var(--au-muted);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.au-chips button.is-on {
+  background: var(--au-gold);
+  border-color: var(--au-gold);
+  color: var(--au-on-gold);
+}
+
+.au .au-search {
+  height: 44px;
+}
+
+.au-count {
+  font-size: 0.8rem;
+}
+
+.au-stones {
+  list-style: none;
+  margin: 0;
+  padding: 2px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 10px;
+  max-height: 380px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.au-stone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 1px solid var(--au-line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--au-surface);
+  cursor: pointer;
+  display: block;
+  font: inherit;
+}
+
+.au-stone.is-loading {
+  animation: au-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes au-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.au-stone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.au-stone span {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 18px 8px 7px;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-align: start;
+  color: #fff;
+  background: linear-gradient(180deg, transparent, rgba(12, 11, 10, 0.85));
+}
+
+.au-stone.is-on {
+  border-color: var(--au-gold-hi);
+  box-shadow: 0 0 0 2px var(--au-gold-hi);
+}
+
+.au-stone-check {
+  position: absolute;
+  top: 6px;
+  inset-inline-end: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+  background: var(--au-gold);
+  color: var(--au-on-gold);
+}
+
+/* Account page */
+.au-account {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 140px 32px 80px;
+  display: grid;
+  gap: 28px;
+}
+
+.au-account.is-loading {
+  min-height: 100vh;
+}
+
+.au-hello {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--au-line);
+}
+
+.au-hello > div:first-child {
+  display: grid;
+  gap: 8px;
+}
+
+.au-hello h1 {
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 600;
+}
+
+.au-hello img {
+  vertical-align: -1px;
+  border-radius: 2px;
+}
+
+.au-hello-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.au-panel {
+  border: 1px solid var(--au-line);
+  border-radius: 22px;
+  padding: 28px;
+  background: var(--au-surface);
+  display: grid;
+  gap: 20px;
+}
+
+.au-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.au-panel-head h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.au-panel-tools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.au-panel-tools .au-btn {
+  height: 44px;
+}
+
+.au-saved {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.au-saved li {
+  position: relative;
+}
+
+.au-saved-card {
+  display: grid;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--au-line);
+  background: var(--au-bg);
+  text-decoration: none;
+  color: var(--au-text);
+  transition: border-color 0.2s ease;
+}
+
+.au-saved-card:hover {
+  border-color: var(--au-gold);
+}
+
+.au-saved-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  height: auto;
+}
+
+.au-saved-body {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px 14px;
+}
+
+.au-saved-body small {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--au-muted);
+}
+
+.au-saved-body b {
+  font-weight: 500;
+}
+
+.au-saved-body .au-link {
+  font-size: 0.82rem;
+}
+
+.au-remove {
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 11, 10, 0.75);
+  color: var(--au-text);
+  cursor: pointer;
+}
+
+.au-remove:hover {
+  background: var(--au-error);
+  color: var(--au-on-gold);
+}
+
+.au-empty {
+  padding: 28px;
+  border: 1px dashed var(--au-line-2);
+  border-radius: 16px;
+  color: var(--au-muted);
+  text-align: center;
+}
+
+.au-meter {
+  position: relative;
+  font-size: 0.8rem;
+  color: var(--au-muted);
+  padding-bottom: 10px;
+}
+
+.au-meter::before,
+.au-meter::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  inset-inline-start: 0;
+  height: 4px;
+  border-radius: 4px;
+  width: 100%;
+  background: var(--au-line-2);
+}
+
+.au-meter::after {
+  width: calc(100% * var(--au-meter, 0));
+  background: var(--au-gold-hi);
+}
+
+.au-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 18px;
+}
+
+.au-fixed {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 40px;
+  margin: 4px 0 0;
+}
+
+.au-fixed dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--au-muted);
+}
+
+.au-fixed dd {
+  margin: 4px 0 0;
+}
+
+.au-grid-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+}
+
+/* The footer's "Get in touch" banner is hidden here (as on Contact and the home page) */
+html body:has(.au) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.au) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* Arabic: no capitals or letter spacing (they break joined letters) */
+body[lang='ar'] .au .au-eyebrow,
+body[lang='ar'] .au .au-field label,
+body[lang='ar'] .au .au-journey li,
+body[lang='ar'] .au .au-pw-toggle,
+body[lang='ar'] .au .au-fixed dt,
+body[lang='ar'] .au .au-saved-body small {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .au-ship.is-sailing {
+    animation: none;
+    offset-distance: 100%;
+  }
+
+  .au-journey::after,
+  .au-journey-ic {
+    transition: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .au-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Phones and small tablets: one column, the story becomes a short header */
+@media (max-width: 900px) {
+  .au-login,
+  .au-signup {
+    grid-template-columns: 1fr;
+  }
+
+  .au-story {
+    padding: 88px 16px 24px;
+    gap: 18px;
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--au-line);
+  }
+
+  .au-story h2 {
+    font-size: 1.6rem;
+  }
+
+  .au-story-text {
+    display: none;
+  }
+
+  .au-photo {
+    min-height: 260px;
+  }
+
+  .au-signup .au-route {
+    margin-top: 0;
+    padding: 12px 14px;
+  }
+
+  .au-route svg {
+    max-height: 110px;
+  }
+
+  .au-journey-ic {
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+    border-radius: 14px;
+  }
+
+  .au-journey::before,
+  .au-journey::after {
+    top: 22px;
+  }
+
+  .au-journey li {
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+  }
+
+  .au-pane {
+    padding: 28px 16px 56px;
+  }
+
+  .au-account {
+    padding: 96px 16px 56px;
+    gap: 20px;
+  }
+
+  .au-panel {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .au-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .au-hello-actions,
+  .au-hello-actions .au-btn {
+    width: 100%;
+  }
+
+  .au-saved {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .au-stones {
+    grid-template-columns: repeat(3, 1fr);
+    max-height: 340px;
+  }
+}

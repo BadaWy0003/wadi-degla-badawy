@@ -2,7 +2,8 @@ const AuthController = {};
 const AuthService = require('../services/auth.service');
 
 AuthController.customerRegister = async (req, res) => {
-  const { fullName, companyName, rnc, email, phone, whatsapp, country, countryCode, address, port, password } = req.body;
+  const { fullName, companyName, rnc, email, phone, whatsapp, country, countryCode, address, port, savedStones, password } =
+    req.body;
 
   try {
     const data = await AuthService.createCustomerAndGenerateToken({
@@ -16,6 +17,7 @@ AuthController.customerRegister = async (req, res) => {
       countryCode,
       address,
       port,
+      savedStones,
       password,
     });
     res.status(201).cookie('auth', data.token, { httpOnly: true }).json({
@@ -30,6 +32,7 @@ AuthController.customerRegister = async (req, res) => {
       countryCode: data.newCustomer.countryCode,
       address: data.newCustomer.address,
       port: data.newCustomer.port,
+      savedStones: data.newCustomer.savedStones || [],
       token: data.token,
     });
   } catch (err) {
@@ -67,6 +70,7 @@ AuthController.customerLogin = async (req, res) => {
         countryCode: data.customer.countryCode,
         address: data.customer.address,
         port: data.customer.port,
+      savedStones: data.customer.savedStones || [],
         token: data.token,
       });
   } catch (err) {
@@ -92,6 +96,7 @@ AuthController.customerCheckAuth = async (req, res) => {
       countryCode: data.countryCode,
       address: data.address,
       port: data.port,
+      savedStones: data.savedStones || [],
     });
   } catch (err) {
     console.log(err.message);

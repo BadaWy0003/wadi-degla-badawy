@@ -22,7 +22,8 @@ apiClient.interceptors.request.use((axiosConfig) => {
 apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (typeof window !== 'undefined' && error.response?.data) {
+    // `quiet: true` in a request's config: the page shows its own message (login, signup, account)
+    if (typeof window !== 'undefined' && error.response?.data && !error.config?.quiet) {
       const toast = await getToast();
       if (error.response.data instanceof Blob && error.response.data.type === 'application/json') {
         toast.error(JSON.parse(await error.response.data.text()));
@@ -31,7 +32,7 @@ apiClient.interceptors.response.use(
       }
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default apiClient;
