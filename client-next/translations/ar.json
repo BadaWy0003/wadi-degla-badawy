@@ -723,7 +723,19 @@
     "importedMarbleDisplay": "الرخام المستورد",
     "egyptianGraniteDisplay": "الجرانيت المصري",
     "importedGraniteDisplay": "الجرانيت المستورد",
-    "aboutCategory": "عن {{category}}"
+    "aboutCategory": "عن {{category}}",
+    "eyebrow": "مجموعة أحجار وادي دجلة",
+    "collectionTitle": "الرخام والجرانيت والحجر الجيري",
+    "intro": "أحجار طبيعية مصرية ومستوردة في ألواح وبلاطات وبلوكات، من محاجرنا ومن محاجر شركائنا الموثوقين، للفيلات والفنادق والمشروعات الكبيرة.",
+    "statStones": "حجرًا",
+    "statCategories": "فئات",
+    "statQuarries": "محجرًا",
+    "statCountries": "دولة نُصدِّر إليها",
+    "searchAll": "ابحث في كل الأحجار…",
+    "noResults": "لا توجد أحجار تطابق «{{query}}».",
+    "finishOne": "تشطيب واحد",
+    "bandTitle": "لست متأكدًا من الحجر المناسب لمشروعك؟",
+    "bandText": "أخبرنا بالاستخدام والكمية والميزانية، وسنقترح الأحجار ونرسل الأسعار."
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "مورد مصري، ألواح وبلاطات",

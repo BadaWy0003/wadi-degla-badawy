@@ -723,7 +723,19 @@
     "importedMarbleDisplay": "輸入大理石",
     "egyptianGraniteDisplay": "エジプト花崗岩",
     "importedGraniteDisplay": "輸入花崗岩",
-    "aboutCategory": "{{category}}について"
+    "aboutCategory": "{{category}}について",
+    "eyebrow": "ワディ・デグラ ストーンコレクション",
+    "collectionTitle": "大理石・花崗岩・石灰岩",
+    "intro": "エジプト産と輸入の天然石をスラブ、タイル、ブロックで。自社採石場と提携採石場から、ヴィラ、ホテル、大型プロジェクトへ。",
+    "statStones": "種類の石材",
+    "statCategories": "カテゴリー",
+    "statQuarries": "採石場",
+    "statCountries": "輸出国",
+    "searchAll": "すべての石材を検索…",
+    "noResults": "「{{query}}」に一致する石材はありません。",
+    "finishOne": "仕上げ 1 種",
+    "bandTitle": "プロジェクトに合う石材でお迷いですか？",
+    "bandText": "用途、数量、ご予算をお知らせください。石材をご提案し、価格をお送りします。"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "エジプトのサプライヤー、スラブ・タイル",

@@ -723,7 +723,19 @@
     "importedMarbleDisplay": "Marmo Importato",
     "egyptianGraniteDisplay": "Granito Egiziano",
     "importedGraniteDisplay": "Granito Importato",
-    "aboutCategory": "Scopri il {{category}}"
+    "aboutCategory": "Scopri il {{category}}",
+    "eyebrow": "Collezione di pietre Wadi Degla",
+    "collectionTitle": "Marmo, granito e calcare",
+    "intro": "Pietra naturale egiziana e importata in lastre, piastrelle e blocchi, dalle nostre cave e da cave partner, per ville, hotel e grandi progetti.",
+    "statStones": "pietre",
+    "statCategories": "categorie",
+    "statQuarries": "cave",
+    "statCountries": "paesi di esportazione",
+    "searchAll": "Cerca tra tutte le pietre…",
+    "noResults": "Nessuna pietra corrisponde a «{{query}}».",
+    "finishOne": "1 finitura",
+    "bandTitle": "Non sai quale pietra scegliere per il tuo progetto?",
+    "bandText": "Indicaci uso, quantità e budget. Ti suggeriamo le pietre e inviamo i prezzi."
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Fornitore egiziano, lastre e piastrelle",

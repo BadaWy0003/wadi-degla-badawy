@@ -723,7 +723,19 @@
     "importedMarbleDisplay": "进口大理石",
     "egyptianGraniteDisplay": "埃及花岗岩",
     "importedGraniteDisplay": "进口花岗岩",
-    "aboutCategory": "了解{{category}}"
+    "aboutCategory": "了解{{category}}",
+    "eyebrow": "Wadi Degla 石材系列",
+    "collectionTitle": "大理石、花岗岩与石灰石",
+    "intro": "埃及及进口天然石材，提供大板、瓷砖规格板和荒料，来自自有矿山及合作矿山，适用于别墅、酒店和大型项目。",
+    "statStones": "种石材",
+    "statCategories": "个类别",
+    "statQuarries": "座矿山",
+    "statCountries": "个出口国家",
+    "searchAll": "搜索全部石材…",
+    "noResults": "没有与“{{query}}”匹配的石材。",
+    "finishOne": "1 种表面处理",
+    "bandTitle": "不确定哪种石材适合您的项目？",
+    "bandText": "告诉我们用途、数量和预算，我们会推荐石材并报价。"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "埃及供应商，大板与板材",

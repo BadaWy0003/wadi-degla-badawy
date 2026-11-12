@@ -723,7 +723,19 @@
     "importedMarbleDisplay": "Mármol Importado",
     "egyptianGraniteDisplay": "Granito Egipcio",
     "importedGraniteDisplay": "Granito Importado",
-    "aboutCategory": "Sobre el {{category}}"
+    "aboutCategory": "Sobre el {{category}}",
+    "eyebrow": "Colección de piedras Wadi Degla",
+    "collectionTitle": "Mármol, granito y piedra caliza",
+    "intro": "Piedra natural egipcia e importada en planchas, baldosas y bloques, de nuestras canteras y de canteras socias, para villas, hoteles y grandes proyectos.",
+    "statStones": "piedras",
+    "statCategories": "categorías",
+    "statQuarries": "canteras",
+    "statCountries": "países de exportación",
+    "searchAll": "Buscar en todas las piedras…",
+    "noResults": "Ninguna piedra coincide con «{{query}}».",
+    "finishOne": "1 acabado",
+    "bandTitle": "¿No sabe qué piedra encaja en su proyecto?",
+    "bandText": "Indíquenos el uso, la cantidad y el presupuesto. Le sugerimos piedras y le enviamos precios."
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Proveedor egipcio, planchas y baldosas",

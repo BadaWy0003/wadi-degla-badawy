@@ -723,7 +723,19 @@
     "importedMarbleDisplay": "Marmură Importată",
     "egyptianGraniteDisplay": "Granit Egiptean",
     "importedGraniteDisplay": "Granit Importat",
-    "aboutCategory": "Despre {{category}}"
+    "aboutCategory": "Despre {{category}}",
+    "eyebrow": "Colecția de piatră Wadi Degla",
+    "collectionTitle": "Marmură, granit și calcar",
+    "intro": "Piatră naturală egipteană și importată în plăci, dale și blocuri, din carierele noastre și ale partenerilor, pentru vile, hoteluri și proiecte mari.",
+    "statStones": "pietre",
+    "statCategories": "categorii",
+    "statQuarries": "cariere",
+    "statCountries": "țări de export",
+    "searchAll": "Caută în toate pietrele…",
+    "noResults": "Nicio piatră nu corespunde cu „{{query}}”.",
+    "finishOne": "1 finisaj",
+    "bandTitle": "Nu știi ce piatră se potrivește proiectului tău?",
+    "bandText": "Spune-ne utilizarea, cantitatea și bugetul. Îți sugerăm pietre și trimitem prețuri."
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Furnizor egiptean, plăci și dale",
