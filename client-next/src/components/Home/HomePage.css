@@ -233,7 +233,7 @@ html[dir='rtl'] .hp-hero {
   margin: 56px auto 0;
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.4fr 1fr; /* the 4th is ISO 9001:2015 */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr 1fr; /* the 5th is ISO 9001:2015 */
   border-top: 1px solid var(--hp-line-strong);
 }
 
@@ -853,26 +853,28 @@ html[dir='rtl'] .hp-hero {
     padding-inline-start: 0;
   }
 
-  .hp-trust li:nth-child(even) {
-    padding-inline-start: 16px;
-    border-inline-start: 1px solid var(--hp-line);
-  }
-
-  .hp-trust li:nth-child(n + 3) {
-    border-top: 1px solid var(--hp-line);
-  }
-
-  /* five items: ISO (the longest) moves to the end, across both columns */
+  /* six items in three rows: years | quarries, countries | m²/day, ISO | factories
+     (ISO and factories move to the end on phones) */
   .hp-trust li.hp-trust-iso {
     order: 1;
-    grid-column: 1 / -1;
-    padding-inline-start: 0;
-    border-inline-start: 0;
   }
 
-  .hp-trust li:last-child {
+  .hp-trust li.hp-trust-factories {
+    order: 2;
+  }
+
+  .hp-trust li.hp-trust-quarries,
+  .hp-trust li.hp-trust-production,
+  .hp-trust li.hp-trust-factories {
     padding-inline-start: 16px;
     border-inline-start: 1px solid var(--hp-line);
+  }
+
+  .hp-trust li.hp-trust-countries,
+  .hp-trust li.hp-trust-production,
+  .hp-trust li.hp-trust-iso,
+  .hp-trust li.hp-trust-factories {
+    border-top: 1px solid var(--hp-line);
   }
 
   .hp-head {
