@@ -172,7 +172,7 @@ export default function Home({ featured = [] }) {
             <span>{t('home.trustFactories')}</span>
           </li>
           <li className="hp-trust-countries">
-            <StatCounter end={26} suffix="+" className="hp-trust-value" />
+            <StatCounter end={31} suffix="+" className="hp-trust-value" />
             <span>{t('home.trustCountries')}</span>
           </li>
           <li className="hp-trust-iso">
