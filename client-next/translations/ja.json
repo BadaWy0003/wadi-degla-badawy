@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "ブリッジカッターは、タイル、ステップ、およびカスタマイズされた石の形式を製造する際の精度のために設計されています。",
       "tumblingMachineDesc": "ランドスケープデザインと素朴な建築設計で使用されるアンティーク、タンブル、テクスチャの仕上げ専用ライン。",
       "splittingStripsDesc": "薄いタイル、クラッディングピース、装飾的な石要素のストリップ分割機。"
-    }
+    },
+    "eyebrow": "工場の内部",
+    "pageHeading": "設備紹介",
+    "statMachines": "台の設備",
+    "statThickness": "スラブ最大厚",
+    "flowTitle": "ブロックからタイルまで",
+    "stage1Title": "ブロック",
+    "stage1Text": "ブロックをスラブに切断",
+    "stage2Title": "スラブ",
+    "stage2Text": "研磨と樹脂処理",
+    "stage3Title": "タイル",
+    "stage3Text": "寸法カットと特殊仕上げ",
+    "stage4Title": "運搬",
+    "stage4Text": "クレーンとフォークリフト",
+    "bandTitle": "特注サイズや仕上げが必要ですか？",
+    "bandText": "図面をお送りください。工場でプロジェクトに合わせて切断・仕上げします。"
   },
   "myAccount": {
     "pageTitle": "マイアカウント | ワディ・デグラ",

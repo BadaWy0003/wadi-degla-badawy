@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "桥式切割机专为生产瓷砖、台阶和定制石材格式的精度而设计。",
       "tumblingMachineDesc": "专用于景观设计和乡村建筑设计中使用的仿古、滚磨和纹理饰面的生产线。",
       "splittingStripsDesc": "用于薄瓷砖、装饰板和装饰石材元素的条材劈切机。"
-    }
+    },
+    "eyebrow": "走进我们的工厂",
+    "pageHeading": "我们的设备",
+    "statMachines": "台设备",
+    "statThickness": "最大板材厚度",
+    "flowTitle": "从荒料到瓷砖规格板",
+    "stage1Title": "荒料",
+    "stage1Text": "将荒料锯切成大板",
+    "stage2Title": "大板",
+    "stage2Text": "抛光与树脂处理",
+    "stage3Title": "规格板",
+    "stage3Text": "定尺切割与特殊表面",
+    "stage4Title": "搬运",
+    "stage4Text": "起重机与叉车",
+    "bandTitle": "需要特殊尺寸或表面处理？",
+    "bandText": "请发送图纸，我们的工厂会按您的项目切割和加工。"
   },
   "myAccount": {
     "pageTitle": "我的账户 | Wadidegla",

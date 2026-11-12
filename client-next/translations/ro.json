@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "Cutter-ele de poduri sunt proiectate pentru precizie în producerea gresiei, trepte și formate de piatră personalizate.",
       "tumblingMachineDesc": "O linie dedicată pentru finisaje antice, tobogane și texturate utilizate în proiectarea peisajului și arhitectura rustică.",
       "splittingStripsDesc": "Mașini de divizare de benzi pentru gresie subțiri, piese de placare și elemente decorative din piatră."
-    }
+    },
+    "eyebrow": "În fabricile noastre",
+    "pageHeading": "Utilajele noastre",
+    "statMachines": "utilaje",
+    "statThickness": "grosime max. a plăcilor",
+    "flowTitle": "De la bloc la dală",
+    "stage1Title": "De la bloc",
+    "stage1Text": "Debitarea blocurilor în plăci",
+    "stage2Title": "La placă",
+    "stage2Text": "Lustruire și tratare cu rășină",
+    "stage3Title": "La dală",
+    "stage3Text": "Tăiere la dimensiune și finisaje speciale",
+    "stage4Title": "Totul în mișcare",
+    "stage4Text": "Macarale și stivuitoare",
+    "bandTitle": "Ai nevoie de o dimensiune sau un finisaj special?",
+    "bandText": "Trimite-ne desenele. Fabricile noastre taie și finisează pentru proiectul tău."
   },
   "myAccount": {
     "pageTitle": "Contul Meu | Wadidegla",

@@ -1,0 +1,566 @@
+/* Machinery page (redesigned 2026-11-12, design A "Production line"): dark + gold like the home, stone and
+   products pages. Everything is scoped under .mc; smaller screens at the end. */
+.mc {
+  --mc-bg: #0c0b0a;
+  --mc-surface: #15130f;
+  --mc-line: rgba(232, 214, 186, 0.1);
+  --mc-line-strong: rgba(232, 214, 186, 0.22);
+  --mc-text: #f3eee6;
+  --mc-body: #d6d0c6;
+  --mc-muted: #a8a196;
+  --mc-gold: #ad9571;
+  --mc-gold-hi: #cdb48b;
+  --mc-on-gold: #16130f;
+  --mc-header: 84px; /* the fixed site header */
+  background: var(--mc-bg);
+  color: var(--mc-text);
+}
+
+.mc *,
+.mc *::before,
+.mc *::after {
+  box-sizing: border-box;
+}
+
+.mc h1,
+.mc h2,
+.mc p,
+.mc dl,
+.mc dd {
+  margin: 0;
+  padding: 0;
+}
+
+.mc h1,
+.mc h2 {
+  font-family: inherit;
+  color: var(--mc-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.mc h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.mc h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.mc-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.mc-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--mc-muted);
+  margin-bottom: 34px;
+}
+
+.mc-crumb a {
+  color: var(--mc-muted);
+  text-decoration: none;
+}
+
+.mc-crumb a:hover,
+.mc-crumb-here {
+  color: var(--mc-gold-hi);
+}
+
+html[dir='rtl'] .mc-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.mc-eyebrow {
+  color: var(--mc-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.mc-hero {
+  padding: calc(var(--mc-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.mc-lead {
+  color: var(--mc-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.mc .mc-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.mc-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.mc-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--mc-gold-hi);
+}
+
+.mc-stats dt {
+  color: var(--mc-muted);
+  font-size: 13px;
+}
+
+/* ---------- from block to tile ---------- */
+.mc-section {
+  padding-top: 64px;
+}
+
+.mc-flow-wrap {
+  position: relative;
+}
+
+.mc-flow {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.mc-flow-line {
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 34px;
+  height: 2px;
+  background: var(--mc-line-strong);
+}
+
+.mc-flow-line i {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--mc-gold-hi);
+  box-shadow: 0 0 16px 4px rgba(205, 180, 139, 0.6);
+  animation: mc-run 4s linear infinite;
+}
+
+html[dir='rtl'] .mc-flow-line i {
+  animation-name: mc-run-rtl;
+}
+
+@keyframes mc-run {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes mc-run-rtl {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.mc-node {
+  display: block;
+  text-align: center;
+  color: var(--mc-text);
+  text-decoration: none;
+}
+
+.mc-node-n {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--mc-surface);
+  border: 1px solid var(--mc-gold);
+  color: var(--mc-gold-hi);
+  font-weight: 600;
+  font-size: 18px;
+  animation: mc-pulse 4s infinite;
+  transition: background 0.2s;
+}
+
+.mc-flow li:nth-child(2) .mc-node-n {
+  animation-delay: 1s;
+}
+
+.mc-flow li:nth-child(3) .mc-node-n {
+  animation-delay: 2s;
+}
+
+.mc-flow li:nth-child(4) .mc-node-n {
+  animation-delay: 3s;
+}
+
+@keyframes mc-pulse {
+  0%,
+  20% {
+    box-shadow: 0 0 0 0 rgba(173, 149, 113, 0.6);
+  }
+  40%,
+  100% {
+    box-shadow: 0 0 0 14px rgba(173, 149, 113, 0);
+  }
+}
+
+.mc-node:hover .mc-node-n {
+  background: var(--mc-gold);
+  color: var(--mc-on-gold);
+}
+
+.mc-node strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.mc-node small {
+  display: block;
+  color: var(--mc-muted);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* ---------- stages ---------- */
+.mc-stage {
+  padding-top: 80px;
+  scroll-margin-top: calc(var(--mc-header) + 16px);
+}
+
+.mc-stage-head {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.mc-stage-n {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--mc-gold);
+  flex-shrink: 0;
+}
+
+.mc .mc-stage-head h2 {
+  margin: 6px 0 8px;
+}
+
+.mc-caption {
+  color: var(--mc-muted);
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+.mc-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.mc-card {
+  background: var(--mc-surface);
+  border: 1px solid var(--mc-line);
+  border-radius: 18px;
+  padding: 10px 10px 20px;
+  min-width: 0;
+}
+
+.mc-card h3,
+.mc-card p {
+  padding: 0 8px;
+}
+
+.mc h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--mc-text);
+  margin: 14px 0 6px;
+  text-transform: none;
+}
+
+.mc-card p {
+  color: var(--mc-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mc-card-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--mc-bg);
+  cursor: zoom-in;
+}
+
+.mc-card-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.mc-card:hover .mc-card-img img {
+  transform: scale(1.08);
+}
+
+.mc-count {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  background: var(--mc-gold);
+  color: var(--mc-on-gold);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.mc-photos {
+  position: absolute;
+  bottom: 12px;
+  inset-inline-end: 12px;
+  background: rgba(12, 11, 10, 0.72);
+  color: var(--mc-text);
+  border-radius: 999px;
+  padding: 5px 11px;
+  font-size: 12px;
+}
+
+/* fade-in when scrolled to (class added by the script, so the HTML shows everything) */
+.mc-reveal {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.mc-reveal.mc-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.mc-cards .mc-reveal:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.mc-cards .mc-reveal:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc *,
+  .mc *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .mc-reveal.mc-hidden {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* the shared "Related pages" links */
+.mc .related-pages {
+  padding-top: 72px;
+  margin: 0;
+  background: transparent;
+}
+
+/* ---------- final call to action ---------- */
+.mc-band {
+  margin-top: 88px;
+  background: var(--mc-surface);
+  border-top: 1px solid var(--mc-line);
+  padding: 48px 0;
+}
+
+.mc-band .mc-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mc .mc-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.mc-band p {
+  color: var(--mc-muted);
+}
+
+.mc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--mc-gold);
+  color: var(--mc-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mc-btn:hover {
+  background: var(--mc-gold-hi);
+  color: var(--mc-on-gold);
+}
+
+.mc-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.mc) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.mc) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .mc {
+    --mc-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 1000px) {
+  .mc-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mc-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mc-hero {
+    padding: calc(var(--mc-header) + 16px) 0 32px;
+  }
+
+  .mc-crumb {
+    margin-bottom: 20px;
+  }
+
+  .mc-lead {
+    font-size: 15.5px;
+  }
+
+  .mc .mc-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 8px;
+  }
+
+  .mc-stats dd {
+    font-size: 22px;
+  }
+
+  .mc-stats dt {
+    font-size: 12px;
+  }
+
+  .mc-section {
+    padding-top: 48px;
+  }
+
+  .mc-flow {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+  }
+
+  .mc-flow-line {
+    display: none;
+  }
+
+  .mc-node-n {
+    width: 56px;
+    height: 56px;
+    font-size: 16px;
+  }
+
+  .mc-stage {
+    padding-top: 56px;
+  }
+
+  .mc-stage-head {
+    gap: 14px;
+  }
+
+  .mc-stage-n {
+    font-size: 44px;
+  }
+
+  .mc-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .mc .related-pages {
+    padding-top: 48px;
+  }
+
+  .mc-band {
+    margin-top: 56px;
+  }
+
+  .mc-band .mc-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

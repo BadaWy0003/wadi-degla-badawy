@@ -695,8 +695,8 @@
     },
     "slabs": {
       "caption": "Polishing and treatment lines engineered to deliver premium finishes with consistent gloss, texture, and durability.",
-      "polishingLines": "3 polishing lines",
-      "risinLine": "1 risin treating line",
+      "polishingLines": "3 Polishing lines",
+      "risinLine": "1 Resin treating line",
       "polishingLinesDesc": "Capable of producing a wide range of finishes—polished, honed, brushed, leather, etc.—with thicknesses up to 8 cm.",
       "risinLineDesc": "A specialized resin line improving surface strength, durability, and visual appearance of slabs—especially premium stones."
     },
@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "Bridge cutters are engineered for accuracy in producing tiles, steps, and customized stone formats.",
       "tumblingMachineDesc": "A dedicated line for antique, tumbled, and textured finishes used in landscaping and rustic architectural designs.",
       "splittingStripsDesc": "Strip-splitting machines for thin tiles, cladding pieces, and decorative stone elements."
-    }
+    },
+    "eyebrow": "Inside our factories",
+    "pageHeading": "Our Machinery",
+    "statMachines": "machines",
+    "statThickness": "max slab thickness",
+    "flowTitle": "From block to tile",
+    "stage1Title": "From block",
+    "stage1Text": "Cutting blocks into slabs",
+    "stage2Title": "To slab",
+    "stage2Text": "Polishing and resin treatment",
+    "stage3Title": "To tile",
+    "stage3Text": "Cutting to size and special finishes",
+    "stage4Title": "Moving it all",
+    "stage4Text": "Cranes and forklifts",
+    "bandTitle": "Need a custom size or finish?",
+    "bandText": "Send us your drawings. Our factories cut and finish to your project."
   },
   "myAccount": {
     "pageTitle": "My Account | Wadidegla",

@@ -708,7 +708,22 @@
       "bridgeCuttersDesc": "Les scies de pontage sont conçues pour la précision dans la production de carreaux, marches et formats de pierre personnalisés.",
       "tumblingMachineDesc": "Une ligne dédiée aux finitions antiques, polies et texturées utilisées dans la conception paysagère et l'architecture rustique.",
       "splittingStripsDesc": "Machines de division de bandes pour carreaux minces, pièces de revêtement et éléments de pierre décorative."
-    }
+    },
+    "eyebrow": "Dans nos usines",
+    "pageHeading": "Nos machines",
+    "statMachines": "machines",
+    "statThickness": "épaisseur max. des tranches",
+    "flowTitle": "Du bloc au carreau",
+    "stage1Title": "Du bloc",
+    "stage1Text": "Découpe des blocs en tranches",
+    "stage2Title": "À la tranche",
+    "stage2Text": "Polissage et traitement à la résine",
+    "stage3Title": "Au carreau",
+    "stage3Text": "Découpe sur mesure et finitions spéciales",
+    "stage4Title": "Tout déplacer",
+    "stage4Text": "Grues et chariots élévateurs",
+    "bandTitle": "Besoin d’un format ou d’une finition sur mesure ?",
+    "bandText": "Envoyez-nous vos plans. Nos usines découpent et finissent pour votre projet."
   },
   "myAccount": {
     "pageTitle": "Mon Compte | Wadidegla",
