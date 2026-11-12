@@ -548,7 +548,19 @@
     "packingAlt28": "선적 준비가 된 라벨 부착 천연석 타일 상자",
     "packingAlt29": "수출 야적장의 랩 포장 및 결속된 대리석 타일 상자",
     "packingAlt30": "공장 야적장의 수출 라벨이 붙은 와디 데글라 상자",
-    "packingAlt31": "야적장에서 수출 상자를 점검하는 와디 데글라 직원"
+    "packingAlt31": "야적장에서 수출 상자를 점검하는 와디 데글라 직원",
+    "eyebrow": "수출용 포장",
+    "intro": "모든 슬래브와 타일은 공장 출고 때와 같은 상태로 도착하도록 포장됩니다. 목재 번들, 폼 내장 크레이트, 밴딩 팔레트에 담아 20피트 컨테이너에 적재합니다.",
+    "statBundle": "번들당 슬래브",
+    "statMethods": "포장 방식",
+    "statContainer": "컨테이너",
+    "group_slabs": "슬래브",
+    "group_tiles": "타일",
+    "woodenBundleTag": "크레인 적재용",
+    "normalPackingTag": "수작업 적재용",
+    "woodenCratesTag": "폼 내장",
+    "woodenPalletTag": "대형 타일용",
+    "galleryTitle": "야드에서 컨테이너까지"
   },
   "history": {
     "pageTitle": "와디 데글라 역사 — 이집트 대리석 우수성의 3세대",

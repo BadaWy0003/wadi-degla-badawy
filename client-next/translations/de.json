@@ -548,7 +548,19 @@
     "packingAlt28": "Beschriftete Kiste mit Natursteinfliesen, versandbereit",
     "packingAlt29": "Folierte und umreifte Kisten mit Marmorfliesen im Exportbereich",
     "packingAlt30": "Wadi-Degla-Kisten mit Exportetiketten auf dem Werksgelände",
-    "packingAlt31": "Wadi-Degla-Mitarbeiter prüft Exportkisten auf dem Gelände"
+    "packingAlt31": "Wadi-Degla-Mitarbeiter prüft Exportkisten auf dem Gelände",
+    "eyebrow": "Exportgerechte Verpackung",
+    "intro": "Jede Platte und jede Fliese wird so verpackt, dass sie im selben Zustand ankommt, in dem sie unser Werk verlassen hat: Holzbündel, schaumgepolsterte Kisten und umreifte Paletten im 20-Fuß-Container.",
+    "statBundle": "Platten pro Bündel",
+    "statMethods": "Verpackungsarten",
+    "statContainer": "Container",
+    "group_slabs": "Rohplatten",
+    "group_tiles": "Fliesen",
+    "woodenBundleTag": "Für Kranverladung",
+    "normalPackingTag": "Für Handverladung",
+    "woodenCratesTag": "Schaumgepolstert",
+    "woodenPalletTag": "Für große Fliesen",
+    "galleryTitle": "Vom Lager in Ihren Container"
   },
   "history": {
     "pageTitle": "Unsere Geschichte: ägyptischer Marmor seit 1980 | Wadi Degla",

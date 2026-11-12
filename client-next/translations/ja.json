@@ -548,7 +548,19 @@
     "packingAlt28": "出荷準備が整ったラベル付き天然石タイルの木箱",
     "packingAlt29": "輸出ヤードでラップと結束が施された大理石タイルの木箱",
     "packingAlt30": "工場ヤードの輸出ラベル付きワディ・デグラの木箱",
-    "packingAlt31": "ヤードで輸出用木箱を点検するワディ・デグラの作業員"
+    "packingAlt31": "ヤードで輸出用木箱を点検するワディ・デグラの作業員",
+    "eyebrow": "輸出仕様の梱包",
+    "intro": "すべてのスラブとタイルは工場出荷時の状態で届くよう梱包します。木製バンドル、フォーム内張りの木箱、バンド留めパレットで20フィートコンテナに積み込みます。",
+    "statBundle": "枚／バンドル",
+    "statMethods": "梱包方法",
+    "statContainer": "コンテナ",
+    "group_slabs": "スラブ",
+    "group_tiles": "タイル",
+    "woodenBundleTag": "クレーン積み用",
+    "normalPackingTag": "手積み用",
+    "woodenCratesTag": "フォーム内張り",
+    "woodenPalletTag": "大判タイル用",
+    "galleryTitle": "ヤードからコンテナへ"
   },
   "history": {
     "pageTitle": "ワディ・デグラの歴史 — エジプト大理石卓越性の3世代",
