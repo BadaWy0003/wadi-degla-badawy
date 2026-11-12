@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "Façade Despicée {{number}}",
     "splitFaceMainAlt": "Façade Despicée Sélectionnée",
     "patternsTitle": "Motifs en Pierre",
-    "introText": "Wadi Degla produit des dalles de pavage en marbre, du marbre éclaté (split-face) et des motifs décoratifs en pierre pour terrasses, allées, plages de piscine, jardins et façades. Choisissez une pierre ci-dessous pour la voir en situation réelle, et contactez-nous pour les formats, finitions et quantités de votre projet."
+    "introText": "Wadi Degla produit des dalles de pavage en marbre, du marbre éclaté (split-face) et des motifs décoratifs en pierre pour terrasses, allées, plages de piscine, jardins et façades. Choisissez une pierre ci-dessous pour la voir en situation réelle, et contactez-nous pour les formats, finitions et quantités de votre projet.",
+    "eyebrow": "Pierre d’extérieur",
+    "paversEyebrow": "Plages de piscine, terrasses, allées",
+    "splitFaceEyebrow": "Façades et murs décoratifs",
+    "statPavers": "pierres de pavage",
+    "statSplitFace": "pierres éclatées",
+    "statPatterns": "motifs",
+    "pickTitle": "Choisissez une pierre",
+    "stoneN": "Pierre {{number}}",
+    "stoneOf": "Pierre {{number}} sur {{count}}",
+    "ask": "Demander pour cette pierre",
+    "patternsText": "Poses en chevrons et en zigzag pour allées et entrées.",
+    "bandTitle": "Vous préparez une terrasse, une piscine ou une façade ?",
+    "bandText": "Indiquez-nous la surface et le style souhaité : nous proposerons la pierre, le format et la finition."
   },
   "home": {
     "pageTitle": "Export de Marbre, Granit et Calcaire Égyptiens | Wadi Degla",

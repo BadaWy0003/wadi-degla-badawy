@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "Split Face {{number}}",
     "splitFaceMainAlt": "Selected Split Face",
     "patternsTitle": "Stone Patterns",
-    "introText": "Wadi Degla produces marble paving tiles, split-face marble and decorative stone patterns for terraces, walkways, pool decks, gardens and façades. Pick a stone below to see it in a real setting, and contact us for sizes, finishes and quantities for your project."
+    "introText": "Wadi Degla produces marble paving tiles, split-face marble and decorative stone patterns for terraces, walkways, pool decks, gardens and façades. Pick a stone below to see it in a real setting, and contact us for sizes, finishes and quantities for your project.",
+    "eyebrow": "Outdoor stone",
+    "paversEyebrow": "Pool decks, terraces, walkways",
+    "splitFaceEyebrow": "Façades and feature walls",
+    "statPavers": "paving stones",
+    "statSplitFace": "split-face stones",
+    "statPatterns": "patterns",
+    "pickTitle": "Pick a stone",
+    "stoneN": "Stone {{number}}",
+    "stoneOf": "Stone {{number}} of {{count}}",
+    "ask": "Ask about this stone",
+    "patternsText": "Herringbone and zigzag layouts for paths and driveways.",
+    "bandTitle": "Planning a terrace, pool deck or façade?",
+    "bandText": "Tell us the area and the look you like: we’ll suggest the stone, size and finish."
   },
   "home": {
     "pageTitle": "Egyptian Marble, Granite & Limestone Exporter | Wadi Degla",

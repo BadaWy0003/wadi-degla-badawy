@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "劈裂面 {{number}}",
     "splitFaceMainAlt": "所选劈裂面",
     "patternsTitle": "石材图案",
-    "introText": "Wadi Degla 生产大理石铺路砖、劈裂面大理石和装饰石材拼花，适用于露台、步道、泳池边、花园和外立面。在下方选择一种石材即可查看实景效果，如需了解适合您项目的规格、表面处理和数量，请联系我们。"
+    "introText": "Wadi Degla 生产大理石铺路砖、劈裂面大理石和装饰石材拼花，适用于露台、步道、泳池边、花园和外立面。在下方选择一种石材即可查看实景效果，如需了解适合您项目的规格、表面处理和数量，请联系我们。",
+    "eyebrow": "户外石材",
+    "paversEyebrow": "泳池边、露台、步道",
+    "splitFaceEyebrow": "外立面与特色墙",
+    "statPavers": "种铺地石",
+    "statSplitFace": "种劈裂面石材",
+    "statPatterns": "种铺装图案",
+    "pickTitle": "选择石材",
+    "stoneN": "石材 {{number}}",
+    "stoneOf": "石材 {{number}} / {{count}}",
+    "ask": "咨询这款石材",
+    "patternsText": "适用于步道和车道的人字形与之字形铺装。",
+    "bandTitle": "正在规划露台、泳池边或外立面吗？",
+    "bandText": "告诉我们面积和喜欢的风格：我们会推荐石材、尺寸和表面处理。"
   },
   "home": {
     "pageTitle": "埃及大理石、花岗岩和石灰石出口商 | 瓦迪·德格拉",

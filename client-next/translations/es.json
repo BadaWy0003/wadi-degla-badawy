@@ -1154,7 +1154,20 @@
     "splitFaceAlt": "Split Face {{number}}",
     "splitFaceMainAlt": "Split Face seleccionado",
     "patternsTitle": "Patrones de Piedra",
-    "introText": "Wadi Degla fabrica baldosas de pavimento de mármol, mármol split-face y patrones decorativos de piedra para terrazas, caminos, bordes de piscina, jardines y fachadas. Elija una piedra abajo para verla en un entorno real y contáctenos para conocer medidas, acabados y cantidades para su proyecto."
+    "introText": "Wadi Degla fabrica baldosas de pavimento de mármol, mármol split-face y patrones decorativos de piedra para terrazas, caminos, bordes de piscina, jardines y fachadas. Elija una piedra abajo para verla en un entorno real y contáctenos para conocer medidas, acabados y cantidades para su proyecto.",
+    "eyebrow": "Piedra para exteriores",
+    "paversEyebrow": "Bordes de piscina, terrazas, caminos",
+    "splitFaceEyebrow": "Fachadas y muros decorativos",
+    "statPavers": "piedras de pavimento",
+    "statSplitFace": "piedras de cara partida",
+    "statPatterns": "patrones",
+    "pickTitle": "Elija una piedra",
+    "stoneN": "Piedra {{number}}",
+    "stoneOf": "Piedra {{number}} de {{count}}",
+    "ask": "Consultar por esta piedra",
+    "patternsText": "Disposiciones en espiga y zigzag para caminos y accesos.",
+    "bandTitle": "¿Planea una terraza, piscina o fachada?",
+    "bandText": "Cuéntenos la superficie y el estilo que le gusta: le sugeriremos piedra, medida y acabado."
   },
   "home": {
     "pageTitle": "Exportador de Mármol, Granito y Caliza Egipcios | Wadi Degla",
