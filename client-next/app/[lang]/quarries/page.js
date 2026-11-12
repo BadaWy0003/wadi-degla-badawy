@@ -1,6 +1,5 @@
 import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Quarries from '../../../src/components/Quarries/Quarries';
-import HeroPreload from '../../../src/components/HeroPreload';
 import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
 export function generateMetadata({ params }) {
@@ -17,10 +16,8 @@ export function generateMetadata({ params }) {
 
 export default function QuarriesPage({ params }) {
   return (
-    <>
-      <HeroPreload page="quarries" />
-      <Quarries />
+    <Quarries>
       <RelatedPages lang={params.lang} page="quarries" />
-    </>
+    </Quarries>
   );
 }
