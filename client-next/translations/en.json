@@ -1,7 +1,7 @@
 {
   "certificates": {
-    "pageTitle": "Marble & Granite Certifications | ISO & International Standards | Wadi Degla",
-    "metaDescription": "Wadi Degla is certified by ISO, IAF, UAF, EOS, and CBMI, ensuring international quality, safety, and export compliance for marble and granite production worldwide.",
+    "pageTitle": "Certificates & Quality Standards | Wadi Degla",
+    "metaDescription": "Wadi Degla is ISO 9001:2015 certified, with IAF, UAF, EOS and CBMI accreditations for quality, safety and export compliance.",
     "heroTitle": "OUR CERTIFICATES",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Certificates",
@@ -39,8 +39,8 @@
       "sectionTitle": "Our Achievements in Numbers",
       "sectionTitle2": "Why Wadi Degla Stands Out"
     },
-    "pageTitle": "Why Choose Wadi Degla Marble & Granite | 46+ Years of Excellence",
-    "metaDescription": "Discover why global developers trust Wadi Degla Marble & Granite. 46+ years of expertise, premium natural stone, advanced technology, and unmatched global supply capabilities.",
+    "pageTitle": "Why Choose Wadi Degla | 46 Years in Marble & Granite",
+    "metaDescription": "Why developers choose Wadi Degla: 46 years in marble and granite, 14 quarries, 3 factories, 500+ skilled workers and exports to 31+ countries.",
     "heroTitle": "WHY CHOOSE US",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Why Choose Us",
@@ -124,7 +124,7 @@
     "errorRegistration": "Registration failed. Please try again.",
     "errorNetwork": "Network error. Please try again.",
     "pageTitle": "Sign Up | Create Wadi Degla Account",
-    "metaDescription": "Create a Wadi Degla account to inquire about marble, granite, and natural stone products. Join architects, developers, and importers accessing premium stone solutions globally."
+    "metaDescription": "Create a free Wadi Degla account to save the stones you like and keep your company details ready for quotes."
   },
   "login": {
     "title": "Wadi Degla",
@@ -231,7 +231,7 @@
   },
   "contact": {
     "title": "Contact Wadi Degla | Marble & Natural Stone Supplier Worldwide",
-    "metaDescription": "Get in touch with Wadi Degla for marble and natural stone solutions. Contact our team for project inquiries, technical support, specifications, and international supply.",
+    "metaDescription": "Contact Wadi Degla for marble, granite and limestone: prices, samples, specifications and worldwide supply by WhatsApp, phone, email or form.",
     "heroHeading": "CONTACT US",
     "breadcrumbHome": "Home",
     "breadcrumbContact": "Contact",
@@ -289,8 +289,8 @@
     "sendAnother": "Send another message"
   },
   "gallery": {
-    "pageTitle": "Wadi Degla Factory & Yard Gallery | Marble Production, Storage & Export Operations",
-    "metaDescription": "Explore Wadi Degla's marble and limestone factories, stockyards, machinery, and export operations. Real images showcasing production capacity, packing standards, and large-scale stone logistics.",
+    "pageTitle": "Factory & Yard Gallery | Wadi Degla",
+    "metaDescription": "Photos of Wadi Degla's marble and limestone factories, stockyards, machinery, packing and export loading in Egypt.",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Gallery",
     "imageAlt": "Gallery Image {{number}}",
@@ -307,7 +307,7 @@
     "heroAlt": "Wadi Degla participation in international marble, natural stone, and construction exhibitions"
   },
   "exports": {
-    "pageTitle": "Egyptian Marble & Limestone Exporter | Wadi Degla Global Exports",
+    "pageTitle": "Egyptian Marble & Limestone Exports | Wadi Degla",
     "metaDescription": "Premium Egyptian marble & limestone exports with secure packing, global logistics, and compliant documentation. Ship to GCC, Europe, Africa & Americas.",
     "heroTitle": "Global Export Services for Egyptian Marble & Limestone",
     "breadcrumbHome": "Home",
@@ -560,8 +560,8 @@
     "finalSectionAlt": "Egyptian marble quarry teams — Wadi Degla historical photo"
   },
   "inspiration": {
-    "pageTitle": "Natural Stone Design Inspiration | Marble & Granite Interior & Exterior Ideas | Wadi Degla",
-    "metaDescription": "Explore natural stone design inspiration using premium marble and granite. Interior and exterior stone applications for villas, hotels, and architectural projects worldwide by Wadi Degla.",
+    "pageTitle": "Marble & Granite Design Ideas | Wadi Degla",
+    "metaDescription": "Marble and granite design ideas for floors, walls, kitchens, bathrooms and façades, with natural stone from Wadi Degla.",
     "heroTitle": "Natural Stone Design Inspiration",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Inspiration",
@@ -697,7 +697,7 @@
   },
   "partners": {
     "pageTitle": "Global Partners & Clients | Wadi Degla Natural Stone",
-    "metaDescription": "Wadi Degla is trusted by international developers, architects, construction firms, and stone importers. Explore our global network of partners and clients across GCC, Europe, Africa, and the Americas.",
+    "metaDescription": "Developers, architects, contractors and stone importers who work with Wadi Degla across the Gulf, Europe, Africa and the Americas.",
     "heroTitle": "OUR PARTNERS & CLIENTS",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Partners & Clients",
@@ -707,7 +707,7 @@
   },
   "news": {
     "pageTitle": "Wadi Degla News | Marble & Natural Stone Industry Updates",
-    "metaDescription": "Stay updated with Wadi Degla news covering marble quarry expansions, stone factories, international projects, exhibitions, and natural stone industry developments worldwide.",
+    "metaDescription": "Wadi Degla news: project openings, client and partner visits, and updates from our marble quarries and factories in Egypt.",
     "heroTitle": "Wadi Degla News",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "News",
@@ -720,8 +720,8 @@
     "noResults": "No articles found for \"%s\"."
   },
   "products": {
-    "pageTitle": "Egyptian Marble, Granite & Limestone | Slabs, Tiles & Blocks | Wadi Degla",
-    "metaDescription": "Explore premium Egyptian marble (Galala, Sunny, Rosa, Cleopatra, Halayeb), Egyptian limestone (Shelly), Egyptian granite (Black Aswan, Red Aswan), and imported stone. Slabs, tiles, and blocks from Wadi Degla for residential, commercial, and international projects.",
+    "pageTitle": "Marble, Granite & Limestone Slabs and Tiles | Wadi Degla",
+    "metaDescription": "All Wadi Degla stones: Egyptian marble, limestone and granite such as Galala, Sunny and Red Aswan, plus imported marble and granite. Slabs, tiles, blocks.",
     "heroTitle": "Our Marble & Granite Products",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Products",
@@ -851,8 +851,8 @@
     "scrollToIndoor": "Scroll to Indoor ↑",
     "comingSoon": "{{category}} Coming soon.",
     "noProducts": "No products available for your search in {{category}}.",
-    "pageTitle": "Marble & Granite Visualizer | Kitchen, Bathroom & Flooring Preview Tool | Wadi Degla",
-    "metaDescription": "Preview marble and granite instantly with Wadi Degla's online Visualizer. Try Egyptian and imported stone on kitchen countertops, bathroom walls, flooring, and living rooms. Free, fast, global access.",
+    "pageTitle": "Marble & Granite Visualizer | Wadi Degla",
+    "metaDescription": "Try Wadi Degla marble and granite on kitchens, bathrooms, floors and walls with our free online visualizer.",
     "egyptianMarbleDescription": "Premium Egyptian marble known for warm tones, durability, and versatile finishes—ideal for flooring, wall cladding, staircases, and luxury interiors.",
     "importedMarbleDescription": "Carefully selected international marble varieties offering premium finishes and unique color ranges for luxury interiors.",
     "egyptianGraniteDescription": "Strong, elegant, heat-resistant stone ideal for outdoor applications, countertops, heavy-traffic flooring, and urban projects.",
@@ -906,8 +906,8 @@
     "bandText": "Tell us the stone, size and quantity. We reply with a price and lead time."
   },
   "stoneCreation": {
-    "pageTitle": "Stone Creations | Architectural & Landscaping Stone Products | Wadi Degla Marble",
-    "metaDescription": "Explore handcrafted stone creations made from Egyptian granite and limestone. Custom designs, premium finishes, artistic cuts, and durable architectural stone elements for luxury projects. Made by Wadi Degla Marble.",
+    "pageTitle": "Stone Creations | Architectural Stone | Wadi Degla",
+    "metaDescription": "Architectural and landscaping stone products by Wadi Degla: carved elements, custom cuts and finishes in Egyptian granite and limestone.",
     "heroTitle": "Stone Creations",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Stone Creations",
@@ -1044,7 +1044,7 @@
   },
   "projects": {
     "pageTitle": "Marble & Stone Projects Worldwide | Wadi Degla",
-    "metaDescription": "Explore Wadi Degla's completed projects worldwide featuring premium Egyptian marble, limestone, and granite. Villas, hotels, resorts, commercial buildings, and landmark developments across GCC, Europe, Africa, and beyond.",
+    "metaDescription": "Hotels, homes, offices and embassies built with Wadi Degla stone in the Caribbean, Kenya, Kuwait, Romania, Egypt, Australia and Latin America.",
     "heroHeading": "SOME OF OUR PROJECTS",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Projects",

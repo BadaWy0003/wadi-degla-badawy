@@ -1,7 +1,7 @@
 {
   "certificates": {
-    "pageTitle": "Certifikimet e Marmorit dhe Granitit | Standardet ISO dhe Ndërkombëtare | Wadi Degla",
-    "metaDescription": "Wadi Degla është e sertifikuar nga ISO, IAF, UAF, EOS dhe CBMI, duke siguruar cilësi ndërkombëtare, siguri dhe përputhje eksporti për prodhimin e marmorit dhe granitit në të gjithë botën.",
+    "pageTitle": "Certifikatat dhe standardet | Wadi Degla",
+    "metaDescription": "Wadi Degla është e certifikuar ISO 9001:2015, me akreditime IAF, UAF, EOS dhe CBMI për cilësi, siguri dhe eksport.",
     "heroTitle": "CERTIFIKATAT TONA",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Certifikatat",
@@ -39,8 +39,8 @@
       "sectionTitle": "Arritjet Tona në Numra",
       "sectionTitle2": "Pse Wadi Degla Dallohet"
     },
-    "pageTitle": "Pse të zgjedhësh Wadi Degla Mermeri dhe Graniti | 46+ vjet përsosmërie",
-    "metaDescription": "Zbuloni pse zhvilluesit globalë besojnë Wadi Degla Mermeri dhe Graniti. 46+ vjet përvojë, gur natyror premium, teknologji e avancuar dhe aftësi të pashqyrtuar të furnizimit global.",
+    "pageTitle": "Pse Wadi Degla | 46 vjet në mermer dhe granit",
+    "metaDescription": "Pse Wadi Degla: 46 vjet në mermer dhe granit, 14 gurore, 3 fabrika, mbi 500 punëtorë të kualifikuar dhe eksport në 31+ vende.",
     "heroTitle": "PSE TË NA ZGJIDHNI NE",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Pse Të Na Zgjidhni Ne",
@@ -124,7 +124,7 @@
     "errorRegistration": "Regjistrimi dështoi. Ju lutemi provoni përsëri.",
     "errorNetwork": "Gabim në rrjet. Ju lutemi provoni përsëri.",
     "pageTitle": "Regjistrohu | Krijo llogari Wadi Degla",
-    "metaDescription": "Krijo një llogari Wadi Degla për të pyetur për produktet e marmorit, granitit dhe gurit natyral. Bashkohu me arkitektët, zhvilluesit dhe importatorët që qasje në zgjidhje të gurit premium në të gjithë botën."
+    "metaDescription": "Krijoni një llogari falas në Wadi Degla për të ruajtur gurët që ju pëlqejnë dhe të dhënat e kompanisë për oferta."
   },
   "login": {
     "title": "Wadi Degla",
@@ -231,7 +231,7 @@
   },
   "contact": {
     "title": "Kontaktoni Wadi Degla | Furnizuesi Botëror i Marmorit dhe Gurit Natyral",
-    "metaDescription": "Kontaktoni Wadi Degla për zgjidhje marmori dhe guri natyral. Kontaktoni ekipin tonë për pyetjet e projektit, mbështetjen teknike, specifikat dhe furnizimin ndërkombëtar.",
+    "metaDescription": "Kontaktoni Wadi Degla për mermer, granit dhe gur gëlqeror: çmime, mostra, specifikime dhe furnizim në mbarë botën.",
     "heroHeading": "NA KONTAKTONI",
     "breadcrumbHome": "Ballina",
     "breadcrumbContact": "Kontakti",
@@ -289,8 +289,8 @@
     "sendAnother": "Dërgoni një mesazh tjetër"
   },
   "gallery": {
-    "pageTitle": "Galeria e Fabrikës dhe Oborrit Wadi Degla | Prodhim Marmori, Depozitim dhe Operacione Eksporti",
-    "metaDescription": "Eksploroni fabrikat e marmorit dhe gëlqeres, oborre deponimi, makinerinë dhe operacionet e eksportit të Wadi Degla. Imazhe reale që tregojnë kapacitetin e prodhimit, standardet e paketimit dhe logjistikën e gurit në shkallë të gjerë.",
+    "pageTitle": "Galeria e fabrikave | Wadi Degla",
+    "metaDescription": "Foto të fabrikave të mermerit dhe gurit gëlqeror të Wadi Degla, depove, makinerive, paketimit dhe ngarkimit për eksport në Egjipt.",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Galeria",
     "imageAlt": "Imazhi i Galerisë {{number}}",
@@ -307,8 +307,8 @@
     "heroAlt": "Pjesëmarrja e Wadi Degla në ekspozitat ndërkombëtare të marmorit, gurit natyral dhe ndërtimit"
   },
   "exports": {
-    "pageTitle": "Eksportues i Marmorit dhe Gurit të Gëlqerit Egjiptian | Wadi Degla Eksporte Globale",
-    "metaDescription": "Eksporte premium marmorash dhe guri i gëlqerit egjiptian me paketim të sigurt, logjistikë globale dhe dokumentacion në përputhje. Shpërndarje në GCC, Europë, Afrikë dhe Amerikë.",
+    "pageTitle": "Eksport mermeri dhe guri gëlqeror egjiptian | Wadi Degla",
+    "metaDescription": "Eksport mermeri dhe guri gëlqeror egjiptian me paketim të sigurt, logjistikë globale dhe dokumente të rregullta. Gjiri, Evropa, Afrika, Amerika.",
     "heroTitle": "Shërbime Eksporti Globale për Marmor dhe Gur Gëlqeri Egjiptian",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Eksportet",
@@ -560,8 +560,8 @@
     "finalSectionAlt": "Ekipet e karrierave të marmorit egjiptian — foto historike e Wadi Degla"
   },
   "inspiration": {
-    "pageTitle": "Inspirim në Dizajnin e Gurit Natyral | Ideja të Marmorit dhe Granitit në Brendësi dhe Jashtë | Wadi Degla",
-    "metaDescription": "Eksploroni inspirimin në dizajnin e gurit natyral duke përdorur marmor dhe granit premium. Aplikimit i gurit brenda dhe jashtë për vila, hotele dhe projekte arkitektonike në të gjithë botën nga Wadi Degla.",
+    "pageTitle": "Ide dizajni me mermer dhe granit | Wadi Degla",
+    "metaDescription": "Ide dizajni me mermer dhe granit për dysheme, mure, kuzhina, banjo dhe fasada, me gur natyror nga Wadi Degla.",
     "heroTitle": "Inspirim në Dizajnin e Gurit Natyral",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Frymezimi",
@@ -623,7 +623,7 @@
   },
   "machinery": {
     "pageTitle": "Makineritë për mermer dhe granit | Wadi Degla",
-    "metaDescription": "Sharra me shumë fletë, prerëse blloqesh, linja lustrimi dhe sharra urë: makineritë e fabrikave të Wadi Degla në Egjipt që presin dhe përpunojnë mermer e granit.",
+    "metaDescription": "Sharra me shumë fletë, prerëse blloqesh, linja lustrimi dhe sharra urë: makineritë e Wadi Degla në Egjipt për mermer e granit.",
     "heroTitle": "MAKINERIA JONË",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Makineri",
@@ -706,8 +706,8 @@
     "introText": "Ndër vite, Wadi Degla ka bashkëpunuar me zhvillues kryesorë, grupe hotelesh, kontraktorë dhe institucione në Egjipt dhe jashtë tij. Këta janë disa nga partnerët dhe klientët tanë."
   },
   "news": {
-    "pageTitle": "Lajmet Wadi Degla | Përditesimet e industrisë së marmorit dhe gurit natyral",
-    "metaDescription": "Qëndroni të përditësuar me lajmet e Wadi Degla që mbulojnë zgjerime të minierës së marmorit, fabrika guri, projekte ndërkombëtare, ekspozita dhe zhvillimet e industrisë mondiale të gurit natyral.",
+    "pageTitle": "Lajmet e Wadi Degla | Mermer dhe gur natyror",
+    "metaDescription": "Lajme nga Wadi Degla: inaugurime projektesh, vizita klientësh dhe partnerësh, të reja nga guroret dhe fabrikat tona në Egjipt.",
     "heroTitle": "Lajmet Wadi Degla",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Lajme",
@@ -720,8 +720,8 @@
     "noResults": "Nuk u gjetën artikuj për \"%s\"."
   },
   "products": {
-    "pageTitle": "Mermer Egjiptian, Granit dhe Gur Gëlqeror | Pllaka, Karola & Blloqe | Wadi Degla",
-    "metaDescription": "Eksploroni mermer egjiptian premium (Galala, Sunny, Rosa, Kleopatra, Halayeb), gur gëlqeror egjiptian (Shelly), granit egjiptian (Asuan i Zi, Asuan i Kuq) dhe gur të importuar. Pllaka, karola dhe blloqe nga Wadi Degla për projekte rezidenciale, tregtare dhe ndërkombëtare.",
+    "pageTitle": "Mermer, granit dhe gur gëlqeror në pllaka | Wadi Degla",
+    "metaDescription": "Të gjithë gurët e Wadi Degla: mermer, gur gëlqeror dhe granit egjiptian (Galala, Sunny, Red Aswan) dhe të importuar. Pllaka dhe blloqe.",
     "heroTitle": "Produktet Tona nga Mermer dhe Granit",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Produktet",
@@ -851,8 +851,8 @@
     "scrollToIndoor": "Lëviz te Interieri ↑",
     "comingSoon": "{{category}} Vjen së shpejti.",
     "noProducts": "Nuk ka produkte të disponueshme për kërkimin tuaj në {{category}}.",
-    "pageTitle": "Vizualizatori i Marmorit dhe Granitit | Mjet Parashikimi Kuzhine, Banjo dhe Dysheme | Wadi Degla",
-    "metaDescription": "Parashikimi i marmorit dhe granitit menjëherë me Vizualizatorin online të Wadi Degla. Provoni gurën egjiptian dhe të importuar në blatot e kuzhinës, muret e banjës, dyshemetë dhe dhomën e jetesës. Qasje falas, e shpejtë, globale.",
+    "pageTitle": "Vizualizuesi i mermerit dhe granitit | Wadi Degla",
+    "metaDescription": "Provoni mermerin dhe granitin e Wadi Degla në kuzhina, banjo, dysheme dhe mure me vizualizuesin tonë falas në internet.",
     "egyptianMarbleDescription": "Mermer egjiptian premium i njohur për tonat e ngrohtë, qëndrueshmërinë dhe përfundimet e ndryshme—ideal për dysheme, plakim muri, shkallë dhe interiore luksoze.",
     "importedMarbleDescription": "Varietete mermer ndërkombëtare të zgjedhura me kujdes që ofrojnë përfundimet premium dhe diapazoni i ngjyrave unik për interiore luksoze.",
     "egyptianGraniteDescription": "Gur i fortë, i elegantë, rezistent ndaj nxehtësisë ideal për aplikacione të jashtme, blat, dysheme me trafik të lartë dhe projekte urbane.",
@@ -906,8 +906,8 @@
     "bandText": "Na tregoni gurin, përmasën dhe sasinë. Ju përgjigjemi me çmimin dhe afatin."
   },
   "stoneCreation": {
-    "pageTitle": "Krijimet në Gur | Produktet e Gurit Arkitektonik dhe Peizagjistik | Mermer Wadi Degla",
-    "metaDescription": "Eksploroni krijimet e punuara me dorë në gur nga graniti dhe guri var egjiptian. Dizajne të personalizuara, përfundime premium, prerje artistike dhe elemente të gurit arkitektonik të qëndrueshme për projekte luksoze. Bërë nga Mermer Wadi Degla.",
+    "pageTitle": "Stone Creations | Gur arkitektonik | Wadi Degla",
+    "metaDescription": "Produkte guri për arkitekturë dhe peizazh nga Wadi Degla: elemente të gdhendura, prerje me porosi, granit dhe gur gëlqeror egjiptian.",
     "heroTitle": "Krijime me Gur",
     "breadcrumbHome": "Ballina",
     "breadcrumbCurrent": "Krijime me Gur",
@@ -972,7 +972,7 @@
     "introText": "Wadi Degla prodhon pllaka shtrimi prej mermeri, mermer split-face dhe modele dekorative guri për tarraca, shtigje, buzë pishinash, kopshte dhe fasada. Zgjidhni një gur më poshtë për ta parë në një mjedis real dhe na kontaktoni për përmasat, përfundimet dhe sasitë për projektin tuaj."
   },
   "home": {
-    "pageTitle": "Eksportues i Mermerit, Granitit dhe Gëlqerorit Egjiptian | Wadi Degla",
+    "pageTitle": "Mermer, granit dhe gur gëlqeror egjiptian | Wadi Degla",
     "metaDescription": "Wadi Degla — eksportues i mermerit egjiptian, guri gëlqeror & granitit. Galala, Sunny, Shelly, Rosa, Kleopatra. Pllaka, karolo & blloqe në të gjithë botën.",
     "companyName": "Wadi Degla Co.",
     "heroH1": "Wadi Degla: eksportues i mermerit dhe granitit egjiptian që nga 1980",

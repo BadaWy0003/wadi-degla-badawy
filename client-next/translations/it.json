@@ -1,7 +1,7 @@
 {
   "certificates": {
-    "pageTitle": "Certificazioni Marmo e Granito | Standard ISO e Internazionali | Wadi Degla",
-    "metaDescription": "Wadi Degla è certificata da ISO, IAF, UAF, EOS e CBMI, garantendo qualità internazionale, sicurezza e conformità all'esportazione per la produzione di marmo e granito in tutto il mondo.",
+    "pageTitle": "Certificati e standard di qualità | Wadi Degla",
+    "metaDescription": "Wadi Degla è certificata ISO 9001:2015, con accreditamenti IAF, UAF, EOS e CBMI per qualità, sicurezza ed esportazione.",
     "heroTitle": "I NOSTRI CERTIFICATI",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Certificati",
@@ -39,8 +39,8 @@
       "sectionTitle": "I Nostri Successi in Numeri",
       "sectionTitle2": "Perché Wadi Degla Si Distingue"
     },
-    "pageTitle": "Perché scegliere Wadi Degla Marmo e Granito | 46+ anni di eccellenza",
-    "metaDescription": "Scopri perché gli sviluppatori globali si fidano di Wadi Degla Marmo e Granito. 46+ anni di esperienza, pietra naturale premium, tecnologia avanzata e capacità di fornitura globale senza pari.",
+    "pageTitle": "Perché Wadi Degla | 46 anni di marmo e granito",
+    "metaDescription": "Perché scegliere Wadi Degla: 46 anni di marmo e granito, 14 cave, 3 fabbriche, oltre 500 lavoratori qualificati ed export in 31+ paesi.",
     "heroTitle": "PERCHÉ SCEGLIERCI",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Perché Sceglierci",
@@ -124,7 +124,7 @@
     "errorRegistration": "Registrazione fallita. Riprova.",
     "errorNetwork": "Errore di rete. Riprova.",
     "pageTitle": "Registrati | Crea account Wadi Degla",
-    "metaDescription": "Crea un account Wadi Degla per informarti su prodotti in marmo, granito e pietra naturale. Unisciti ad architetti, sviluppatori e importatori che accedono a soluzioni di pietra premium a livello mondiale."
+    "metaDescription": "Crea un account Wadi Degla gratuito per salvare le pietre che ti piacciono e avere i dati aziendali pronti per i preventivi."
   },
   "login": {
     "title": "Wadi Degla",
@@ -231,7 +231,7 @@
   },
   "contact": {
     "title": "Contatta Wadi Degla | Fornitore di Marmo e Pietra Naturale Mondiale",
-    "metaDescription": "Contatta Wadi Degla per soluzioni in marmo e pietra naturale. Contatta il nostro team per richieste di progetti, supporto tecnico, specifiche e fornitura internazionale.",
+    "metaDescription": "Contatta Wadi Degla per marmo, granito e calcare: prezzi, campioni, schede tecniche e forniture in tutto il mondo.",
     "heroHeading": "CONTATTACI",
     "breadcrumbHome": "Home",
     "breadcrumbContact": "Contatti",
@@ -289,8 +289,8 @@
     "sendAnother": "Invia un altro messaggio"
   },
   "gallery": {
-    "pageTitle": "Galleria di Fabbrica e Cantiere Wadi Degla | Produzione di Marmo, Stoccaggio e Operazioni di Esportazione",
-    "metaDescription": "Esplora le fabbriche di marmo e calcare, i piazzali di stoccaggio, i macchinari e le operazioni di esportazione di Wadi Degla. Immagini reali che mostrano la capacità di produzione, gli standard di imballaggio e la logistica della pietra su larga scala.",
+    "pageTitle": "Galleria fabbriche e piazzali | Wadi Degla",
+    "metaDescription": "Foto delle fabbriche di marmo e calcare di Wadi Degla, dei piazzali, dei macchinari, dell’imballaggio e del carico export in Egitto.",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Galleria",
     "imageAlt": "Immagine Galleria {{number}}",
@@ -307,8 +307,8 @@
     "heroAlt": "Partecipazione di Wadi Degla alle esposizioni internazionali di marmo, pietra naturale e costruzione"
   },
   "exports": {
-    "pageTitle": "Esportatore di Marmo e Calcare Egiziano | Wadi Degla Esportazioni Globali",
-    "metaDescription": "Esportazioni di marmo e calcare egiziano premium con imballaggio sicuro, logistica globale e documentazione conforme. Spedizioni ai paesi del GCC, Europa, Africa e Americhe.",
+    "pageTitle": "Export di marmo e calcare egiziani | Wadi Degla",
+    "metaDescription": "Export di marmo e calcare egiziani con imballaggio sicuro, logistica globale e documenti in regola. Verso Golfo, Europa, Africa e Americhe.",
     "heroTitle": "Servizi di esportazione globale per marmo e calcare egiziano",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Esportazioni",
@@ -462,7 +462,7 @@
   },
   "packing": {
     "pageTitle": "Imballaggio per export di marmo e granito | Wadi Degla",
-    "metaDescription": "Come imballiamo marmo e granito per l'export: fasci in legno per le lastre, casse e pallet per le piastrelle, caricati in sicurezza in container da 20 piedi.",
+    "metaDescription": "Come imballiamo marmo e granito per l’export: fasci in legno per le lastre, casse e pallet per le piastrelle, in container da 20 piedi.",
     "heroTitle": "Standard di Imballaggio per Marmo e Granito",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Imballaggio",
@@ -560,8 +560,8 @@
     "finalSectionAlt": "Team di cave di marmo egiziane — foto storica di Wadi Degla"
   },
   "inspiration": {
-    "pageTitle": "Ispirazione nel Design di Pietra Naturale | Idee in Marmo e Granito Interno ed Esterno | Wadi Degla",
-    "metaDescription": "Esplora l'ispirazione nel design di pietra naturale utilizzando marmo e granito premium. Applicazioni di pietra interna ed esterna per ville, hotel e progetti architettonici in tutto il mondo da Wadi Degla.",
+    "pageTitle": "Idee di design in marmo e granito | Wadi Degla",
+    "metaDescription": "Idee di design in marmo e granito per pavimenti, pareti, cucine, bagni e facciate, con pietra naturale di Wadi Degla.",
     "heroTitle": "Ispirazione nel Design di Pietra Naturale",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Ispirazione",
@@ -706,8 +706,8 @@
     "introText": "Nel corso degli anni Wadi Degla ha lavorato con importanti sviluppatori immobiliari, gruppi alberghieri, imprese edili e istituzioni in Egitto e all’estero. Ecco alcuni dei nostri partner e clienti."
   },
   "news": {
-    "pageTitle": "Notizie Wadi Degla | Aggiornamenti dell'industria del marmo e della pietra naturale",
-    "metaDescription": "Rimani aggiornato con le notizie di Wadi Degla che coprono espansioni di cave di marmo, fabbriche di pietra, progetti internazionali, mostre e sviluppi dell'industria della pietra naturale in tutto il mondo.",
+    "pageTitle": "Notizie Wadi Degla | Marmo e pietra naturale",
+    "metaDescription": "Notizie da Wadi Degla: inaugurazioni di progetti, visite di clienti e partner, aggiornamenti dalle nostre cave e fabbriche in Egitto.",
     "heroTitle": "Notizie Wadi Degla",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Notizie",
@@ -720,8 +720,8 @@
     "noResults": "Nessun articolo trovato per \"%s\"."
   },
   "products": {
-    "pageTitle": "Marmo Egiziano, Granito e Calcare | Lastre, Piastrelle & Blocchi | Wadi Degla",
-    "metaDescription": "Esplora marmo egiziano premium (Galala, Sunny, Rosa, Cleopatra, Halayeb), calcare egiziano (Shelly), granito egiziano (Assuan Nero, Assuan Rosso) e pietra importata. Lastre, piastrelle e blocchi da Wadi Degla per progetti residenziali, commerciali e internazionali.",
+    "pageTitle": "Marmo, granito e calcare in lastre | Wadi Degla",
+    "metaDescription": "Tutte le pietre Wadi Degla: marmo, calcare e granito egiziani (Galala, Sunny, Rosso Assuan) e marmo e granito importati. Lastre, piastrelle, blocchi.",
     "heroTitle": "I Nostri Prodotti in Marmo e Granito",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Prodotti",
@@ -851,8 +851,8 @@
     "scrollToIndoor": "Scorri a Interno ↑",
     "comingSoon": "{{category}} Prossimamente.",
     "noProducts": "Nessun prodotto disponibile per la tua ricerca in {{category}}.",
-    "pageTitle": "Visualizzatore di Marmo e Granito | Strumento di Anteprima Cucina, Bagno e Pavimento | Wadi Degla",
-    "metaDescription": "Anteprima di marmo e granito istantaneamente con il Visualizzatore online di Wadi Degla. Prova la pietra egiziana e importata sui piani cottura della cucina, sulle pareti del bagno, sui pavimenti e nei soggiorni. Accesso gratuito, veloce e globale.",
+    "pageTitle": "Visualizzatore marmo e granito | Wadi Degla",
+    "metaDescription": "Prova il marmo e il granito Wadi Degla su cucine, bagni, pavimenti e pareti con il nostro visualizzatore online gratuito.",
     "egyptianMarbleDescription": "Marmo egiziano premium noto per i toni caldi, la durabilità e le finiture versatili—ideale per pavimenti, rivestimenti murali, scale e interni lussuosi.",
     "importedMarbleDescription": "Varietà di marmo internazionale selezionate con cura che offrono finiture premium e gamme di colori uniche per interni lussuosi.",
     "egyptianGraniteDescription": "Pietra forte, elegante e resistente al calore ideale per applicazioni esterne, piani di lavoro, pavimenti ad alto traffico e progetti urbani.",
@@ -906,8 +906,8 @@
     "bandText": "Indicaci pietra, misura e quantità. Rispondiamo con prezzo e tempi di consegna."
   },
   "stoneCreation": {
-    "pageTitle": "Creazioni in Pietra | Prodotti Architettonici e Paesaggistici | Marmo Wadi Degla",
-    "metaDescription": "Esplora creazioni in pietra artigianali realizzate in granito e calcare egiziano. Design personalizzati, finiture premium, tagli artistici ed elementi architettonici in pietra durevole per progetti di lusso. By Wadi Degla Marble.",
+    "pageTitle": "Stone Creations | Pietra architettonica | Wadi Degla",
+    "metaDescription": "Prodotti in pietra per architettura e paesaggio di Wadi Degla: elementi lavorati, tagli su misura e finiture in granito e calcare egiziani.",
     "heroTitle": "Creazioni in Pietra",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Creazioni in Pietra",
@@ -957,7 +957,7 @@
   },
   "patterns": {
     "pageTitle": "Pavimenti in marmo e decori in pietra | Wadi Degla",
-    "metaDescription": "Piastrelle in marmo per pavimenti, marmo spaccato e decori in pietra per terrazze, vialetti, bordi piscina, giardini e facciate, prodotti in Egitto da Wadi Degla.",
+    "metaDescription": "Piastrelle in marmo, marmo spaccato e decori in pietra per terrazze, vialetti, bordi piscina, giardini e facciate, prodotti in Egitto.",
     "heroTitle": "Piastrelle per Pavimentazione in Marmo e Motivi in Pietra",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Motivi / Pavimenti",
@@ -972,8 +972,8 @@
     "introText": "Wadi Degla produce lastre da pavimentazione in marmo, marmo a spacco (split-face) e motivi decorativi in pietra per terrazze, vialetti, bordi piscina, giardini e facciate. Scegli una pietra qui sotto per vederla in un ambiente reale e contattaci per formati, finiture e quantità per il tuo progetto."
   },
   "home": {
-    "pageTitle": "Esportatore di Marmo, Granito e Calcare Egiziani | Wadi Degla",
-    "metaDescription": "Wadi Degla — marmo egiziano, calcare & granito premium. Galala, Sunny, Shelly, Rosa, Cleopatra. Esportatore diretto di lastre, piastrelle & blocchi nel mondo.",
+    "pageTitle": "Marmo, granito e calcare egiziani | Wadi Degla",
+    "metaDescription": "Wadi Degla: marmo, calcare e granito egiziani. Galala, Sunny, Shelly, Rosa, Cleopatra. Esportatore diretto di lastre, piastrelle e blocchi.",
     "companyName": "Wadi Degla Co.",
     "heroH1": "Wadi Degla: esportatore di marmo e granito egiziano dal 1980",
     "heroHeadline": "Esportatore di Marmo, Granito e Pietra Calcarea Egiziani dal 1980",
