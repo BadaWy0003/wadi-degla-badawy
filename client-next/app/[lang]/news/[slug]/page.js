@@ -1,7 +1,12 @@
 import { t, buildAlternates, buildSocial } from '../../../../src/util/meta';
 import { SUPPORTED_LANGS } from '../../../../src/util/supported-langs';
 import NewsDetail from '../../../../src/components/News/NewsDetail';
-import { getNewsSlugs, getNewsArticle, getNewsIndexedLangs } from '../../../../src/util/news-data';
+import {
+  getNewsSlugs,
+  getNewsArticle,
+  getNewsArticles,
+  getNewsIndexedLangs,
+} from '../../../../src/util/news-data';
 
 // One page per article and language, from the admin panel (read at build time).
 // With no visible articles (e.g. all hidden), a static export can't have an empty dynamic
@@ -36,5 +41,9 @@ export async function generateMetadata({ params }) {
 
 export default async function NewsDetailPage({ params }) {
   const article = await getNewsArticle(params.slug, params.lang);
-  return <NewsDetail article={article} />;
+  // "More news": the three newest other articles.
+  const more = (await getNewsArticles(params.lang))
+    .filter((a) => a.slug !== params.slug)
+    .slice(0, 3);
+  return <NewsDetail article={article} more={more} lang={params.lang} />;
 }
