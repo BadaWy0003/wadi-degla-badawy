@@ -1,7 +1,6 @@
 import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Projects from '../../../src/components/Projects/Projects';
-import { getProjects } from '../../../src/util/projects-data';
-import HeroPreload from '../../../src/components/HeroPreload';
+import { getProjects, projectCard } from '../../../src/util/projects-data';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -15,23 +14,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-// Projects from the admin panel, read at build time. The cards only need these fields
-// (the photos and descriptions stay on the project pages).
+// Projects from the admin panel, read at build time. The cards only need what projectCard()
+// keeps (the photos and descriptions stay on the project pages).
 export default async function ProjectsPage({ params }) {
-  const projects = (await getProjects(params.lang)).map(
-    ({ id, name, city, country, countryId, thumbnail }) => ({
-      id,
-      name,
-      city,
-      country,
-      countryId,
-      thumbnail,
-    }),
-  );
-  return (
-    <>
-      <HeroPreload page="projects" />
-      <Projects projects={projects} />
-    </>
-  );
+  const projects = (await getProjects(params.lang)).map(projectCard);
+  return <Projects projects={projects} />;
 }

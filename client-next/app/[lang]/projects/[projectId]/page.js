@@ -5,6 +5,8 @@ import {
   getProjectIds,
   getProject,
   getProjectIndexedLangs,
+  getProjects,
+  projectCard,
 } from '../../../../src/util/projects-data';
 
 // One page per project and language, from the admin panel (read at build time). The
@@ -45,7 +47,19 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// "More projects": the other projects of the same country, or else 3 others.
 export default async function ProjectDetailsPage({ params }) {
   const project = await getProject(params.projectId, params.lang);
-  return <ProjectDetails project={project} />;
+  const others = project
+    ? (await getProjects(params.lang)).filter((p) => p.id !== project.id)
+    : [];
+  const sameCountry = others.filter((p) => p.countryId === project?.countryId);
+  const related = (sameCountry.length ? sameCountry : others).slice(0, 6).map(projectCard);
+  return (
+    <ProjectDetails
+      project={project}
+      related={related}
+      relatedSameCountry={sameCountry.length > 0}
+    />
+  );
 }
