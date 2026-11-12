@@ -20,7 +20,11 @@ export default function OurMarkets(){
         "North & South America": [
           { name: "USA", code: "US", flag: "https://flagcdn.com/us.svg", translationKey: "countries.usa" },
           { name: "Brazil", code: "BR", flag: "https://flagcdn.com/br.svg", translationKey: "countries.brazil" },
-          { name: "Panama", code: "PA", flag: "https://flagcdn.com/pa.svg", translationKey: "countries.panama" }
+          { name: "Panama", code: "PA", flag: "https://flagcdn.com/pa.svg", translationKey: "countries.panama" },
+          { name: "Venezuela", code: "VE", flag: "https://flagcdn.com/ve.svg", translationKey: "countries.venezuela" },
+          { name: "Mexico", code: "MX", flag: "https://flagcdn.com/mx.svg", translationKey: "countries.mexico" },
+          { name: "Dominican Republic", code: "DO", flag: "https://flagcdn.com/do.svg", translationKey: "countries.dominicanRepublic" },
+          { name: "Bahamas", code: "BS", flag: "https://flagcdn.com/bs.svg", translationKey: "countries.bahamas" }
         ],
         Europe: [
           { name: "Romania", code: "RO", flag: "https://flagcdn.com/ro.svg", translationKey: "countries.romania" },
@@ -30,7 +34,9 @@ export default function OurMarkets(){
           { name: "Slovakia", code: "SK", flag: "https://flagcdn.com/sk.svg", translationKey: "countries.slovakia" },
           { name: "Slovenia", code: "SI", flag: "https://flagcdn.com/si.svg", translationKey: "countries.slovenia" },
           { name: "Germany", code: "DE", flag: "https://flagcdn.com/de.svg", translationKey: "countries.germany" },
-          { name: "Malta", code: "MT", flag: "https://flagcdn.com/mt.svg", translationKey: "countries.malta" }
+          { name: "Malta", code: "MT", flag: "https://flagcdn.com/mt.svg", translationKey: "countries.malta" },
+          { name: "Greece", code: "GR", flag: "https://flagcdn.com/gr.svg", translationKey: "countries.greece" },
+          { name: "United Kingdom", code: "GB", flag: "https://flagcdn.com/gb.svg", translationKey: "countries.unitedKingdom" }
         ],
         Asia: [
           { name: "China", code: "CN", flag: "https://flagcdn.com/cn.svg", translationKey: "countries.china" },
