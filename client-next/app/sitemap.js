@@ -22,7 +22,7 @@ const STATIC_PAGES = [
     priority: 1.0,
     changeFrequency: 'weekly',
     sections: ['home'],
-    files: ['src/components/Home', 'src/components/About/CounterSection.js'],
+    files: ['src/components/Home'],
   },
   { path: '/products', priority: 0.9, changeFrequency: 'weekly', sections: ['products'] },
   // Topic pages (src/util/topic-pages.js)
