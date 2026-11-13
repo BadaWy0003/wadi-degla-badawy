@@ -1,0 +1,603 @@
+/* Kerbstone page (redesigned 2026-11-12, design A "Profile cards that flip"): dark + gold like the
+   other redesigned pages. Everything is scoped under .kb; smaller screens at the end.
+   The header, section and band rules follow the Cobbles page (CobblePage.css). */
+.kb {
+  --kb-bg: #0c0b0a;
+  --kb-surface: #15130f;
+  --kb-line: rgba(232, 214, 186, 0.1);
+  --kb-line-strong: rgba(232, 214, 186, 0.22);
+  --kb-text: #f3eee6;
+  --kb-body: #d6d0c6;
+  --kb-muted: #a8a196;
+  --kb-gold: #ad9571;
+  --kb-gold-hi: #cdb48b;
+  --kb-on-gold: #16130f;
+  --kb-header: 84px; /* the fixed site header */
+  background: var(--kb-bg);
+  color: var(--kb-text);
+}
+
+.kb *,
+.kb *::before,
+.kb *::after {
+  box-sizing: border-box;
+}
+
+.kb h1,
+.kb h2,
+.kb p,
+.kb dl,
+.kb dd {
+  margin: 0;
+  padding: 0;
+}
+
+.kb h1,
+.kb h2 {
+  font-family: inherit;
+  color: var(--kb-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.kb h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  max-width: 860px;
+}
+
+.kb h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.kb-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.kb-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--kb-muted);
+  margin-bottom: 34px;
+}
+
+.kb-crumb a {
+  color: var(--kb-muted);
+  text-decoration: none;
+}
+
+.kb-crumb a:hover,
+.kb-crumb-here {
+  color: var(--kb-gold-hi);
+}
+
+html[dir='rtl'] .kb-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.kb-eyebrow {
+  color: var(--kb-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- header ---------- */
+.kb-hero {
+  padding: calc(var(--kb-header) + 48px) 0 44px;
+  background: radial-gradient(1200px 420px at 80% -10%, rgba(173, 149, 113, 0.16), transparent);
+}
+
+.kb-lead {
+  color: var(--kb-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-top: 16px !important;
+}
+
+.kb .kb-stats {
+  display: flex;
+  gap: 44px;
+  margin-top: 30px;
+}
+
+.kb-stats div {
+  display: flex;
+  flex-direction: column-reverse; /* the number above its label */
+}
+
+.kb-stats dd {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--kb-gold-hi);
+}
+
+.kb-stats dt {
+  color: var(--kb-muted);
+  font-size: 13px;
+}
+
+/* the header is a photo: the shared header rules above are adjusted here */
+.kb-hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--kb-header) + 56px) 0 64px;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  background: var(--kb-bg);
+}
+
+.kb-hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: kb-zoom 14s ease-out both;
+}
+
+@keyframes kb-zoom {
+  from {
+    transform: scale(1.1);
+  }
+}
+
+.kb-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(12, 11, 10, 0.94),
+    rgba(12, 11, 10, 0.6) 55%,
+    rgba(12, 11, 10, 0.3)
+  );
+}
+
+html[dir='rtl'] .kb-hero::after {
+  background: linear-gradient(
+    270deg,
+    rgba(12, 11, 10, 0.94),
+    rgba(12, 11, 10, 0.6) 55%,
+    rgba(12, 11, 10, 0.3)
+  );
+}
+
+.kb-hero .kb-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.kb-hero .kb-crumb,
+.kb-hero .kb-crumb a {
+  color: #d6d0c6;
+}
+
+.kb h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.kb h3,
+.kb h4 {
+  font-family: inherit;
+  text-transform: none;
+  color: var(--kb-text);
+  margin: 0;
+}
+
+.kb-section {
+  padding-top: 64px;
+}
+
+.kb .kb-text {
+  color: var(--kb-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.kb .kb-small {
+  color: var(--kb-muted);
+  font-size: 13.5px;
+  margin-bottom: 8px;
+}
+
+/* the shared "Related pages" links */
+.kb .related-pages {
+  padding-top: 64px;
+  margin: 0;
+  background: transparent;
+}
+
+/* fade-up when scrolled to (class added by useReveal after load) */
+.kb-reveal.kb-hidden {
+  opacity: 0;
+  translate: 0 36px;
+}
+
+/* ---------- final call to action ---------- */
+.kb-band {
+  margin-top: 88px;
+  background: var(--kb-surface);
+  border-top: 1px solid var(--kb-line);
+  padding: 48px 0;
+}
+
+.kb-band .kb-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.kb .kb-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.kb-band p {
+  color: var(--kb-muted);
+  max-width: 760px;
+}
+
+.kb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--kb-gold);
+  color: var(--kb-on-gold);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.kb-btn:hover {
+  background: var(--kb-gold-hi);
+  color: var(--kb-on-gold);
+}
+
+.kb-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.kb) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.kb) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kb * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .kb-reveal.kb-hidden {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .kb {
+    --kb-header: 60px; /* hamburger header */
+  }
+}
+
+@media (max-width: 1000px) {
+}
+
+@media (max-width: 768px) {
+  .kb-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .kb-hero {
+    min-height: 520px;
+    padding: calc(var(--kb-header) + 16px) 0 32px;
+  }
+
+  .kb-hero::after,
+  html[dir='rtl'] .kb-hero::after {
+    background: linear-gradient(
+      0deg,
+      rgba(12, 11, 10, 0.96),
+      rgba(12, 11, 10, 0.75) 60%,
+      rgba(12, 11, 10, 0.45)
+    );
+  }
+
+  .kb-crumb {
+    margin-bottom: 20px;
+  }
+
+  .kb-lead {
+    font-size: 15px;
+  }
+
+  .kb .kb-stats {
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .kb-stats dd {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+
+  .kb-stats dt {
+    font-size: 11px;
+  }
+
+  .kb-section {
+    padding-top: 48px;
+  }
+
+  .kb .related-pages {
+    padding-top: 48px;
+  }
+
+  .kb-band {
+    margin-top: 56px;
+  }
+
+  .kb-band .kb-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* ---------- kerbstone: profile cards ---------- */
+.kb .kb-intro {
+  color: var(--kb-body);
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 780px;
+  margin: -8px 0 24px;
+}
+
+.kb-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.kb-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--kb-surface);
+  border: 1px solid var(--kb-line);
+  border-radius: 20px;
+  overflow: hidden;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.kb-card:nth-child(3n + 2) {
+  transition-delay: 0.1s;
+}
+
+.kb-card:nth-child(3n) {
+  transition-delay: 0.2s;
+}
+
+/* the photo turns over to show the drawing */
+.kb-flip {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  perspective: 1200px;
+}
+
+.kb-face {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
+  backface-visibility: hidden;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.kb-face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kb-front {
+  background: #2a2826;
+}
+
+.kb-back {
+  background: #fff;
+  transform: rotateY(180deg);
+}
+
+.kb-back img {
+  object-fit: contain;
+  padding: 14px;
+}
+
+.kb-card.is-flipped .kb-front {
+  transform: rotateY(-180deg);
+}
+
+.kb-card.is-flipped .kb-back {
+  transform: rotateY(0deg);
+}
+
+@media (hover: hover) {
+  .kb-card.has-drawing:hover .kb-front {
+    transform: rotateY(-180deg);
+  }
+
+  .kb-card.has-drawing:hover .kb-back {
+    transform: rotateY(0deg);
+  }
+
+  /* pointing back at the card shows the photo again when it was turned by its button */
+  .kb-card.has-drawing.is-flipped:hover .kb-front {
+    transform: rotateY(0deg);
+  }
+
+  .kb-card.has-drawing.is-flipped:hover .kb-back {
+    transform: rotateY(180deg);
+  }
+}
+
+.kb-toggle {
+  position: absolute;
+  bottom: 10px;
+  inset-inline-end: 10px;
+  z-index: 2;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: rgba(12, 11, 10, 0.8);
+  color: var(--kb-text);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.kb-toggle:hover {
+  background: var(--kb-gold);
+  color: var(--kb-on-gold);
+}
+
+.kb-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  padding: 18px 20px 20px;
+}
+
+.kb .kb-num {
+  color: var(--kb-gold-hi);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+
+.kb-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.kb .kb-desc {
+  color: var(--kb-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.kb-quote {
+  margin-top: auto;
+  padding-top: 6px;
+  color: var(--kb-gold-hi);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.kb-quote:hover {
+  color: var(--kb-text);
+}
+
+.kb-arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.kb-quote:hover .kb-arrow {
+  transform: translateX(4px);
+}
+
+html[dir='rtl'] .kb-arrow {
+  transform: scaleX(-1);
+}
+
+html[dir='rtl'] .kb-quote:hover .kb-arrow {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* sizes, finishes & materials */
+.kb-sizes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease;
+}
+
+.kb-sizes img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.kb-sizes h2 {
+  margin-bottom: 14px;
+}
+
+.kb .kb-text-p {
+  color: var(--kb-body);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kb-face {
+    transition: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .kb-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kb-sizes {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kb-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
