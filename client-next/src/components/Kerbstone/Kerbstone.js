@@ -1,85 +1,173 @@
 'use client';
-import React from "react";
-import './Kerbstone.css';
-import Section from "../Section/Section";
-import { str,
-        full_batter,
-        bullnose,
-        roundtop,
-        channel,
-        transition } from "./KerbstoneImageData";
-const kerb_intro_img = '/Assets/Media/Kerb-and-Cobbles/kerb/kerb-bg.webp';
-import ContactBubble from "../Contact/ContactBubble";
+import React, { useRef, useState } from 'react';
+import './KerbstonePage.css';
 import { useTranslation } from 'react-i18next';
+import { FaWhatsapp } from 'react-icons/fa';
 import LangLink from '../LangLink';
+import usePhotoZoom from '../usePhotoZoom';
+import useReveal from '../News/useReveal';
+import { WHATSAPP_URL } from '../Contact/contactData';
 
-export default function Kerbstone(){
-    const { t } = useTranslation();
-    return(
-        <>
-        
-    <div className='kerbstone-container'>
-            {/* 🌟 Hero Section */}
-        <div className="quarries-hero">
-                        <h1>{t('kerbstone.heroTitle')}</h1>
-                        <div className="breadcrumb">
-                        <LangLink href="/">{t('kerbstone.breadcrumbHome')}</LangLink>
-                        <p>{'>'} {t('kerbstone.breadcrumbCurrent')}</p>
-                        </div>
-                </div>  
-            <div className="kerbstone-section">   
-                <section className="kerb-intro"> 
-                    <h2>{t('kerbstone.introTitle')}</h2>
-                    <img loading="lazy" className="kerb-intro-img-mobile" src={kerb_intro_img} alt={t('kerbstone.introImageAlt')} />
-                    <p>{t('kerbstone.introText1')}<br/><br/>{t('kerbstone.introText2')}</p>
-                    </section>
-            <Section 
-                    title={t('kerbstone.str.title')} 
-                    text={t('kerbstone.str.text')}
-                    images={str} 
-                    imagePosition="left" 
-                />
-                <Section 
-                    title={t('kerbstone.fullBatter.title')} 
-                    text={t('kerbstone.fullBatter.text')}
-                    images={full_batter} 
-                    imagePosition="right" 
-                />
-                <Section 
-                    title={t('kerbstone.bullnose.title')} 
-                    text={t('kerbstone.bullnose.text')}
-                    images={bullnose} 
-                    imagePosition="left" 
-                />
-                <Section 
-                    title={t('kerbstone.roundTop.title')} 
-                    text={t('kerbstone.roundTop.text')}
-                    images={roundtop} 
-                    imagePosition="right" 
-                />
-    
-                <Section 
-                    title={t('kerbstone.channel.title')} 
-                    text={t('kerbstone.channel.text')}
-                    images={channel} 
-                    imagePosition="left" 
-                />
+// Kerbstone (redesigned 2026-11-12, design A "Profile cards that flip"): photo header with the
+// intro and numbers, the 6 kerb profiles as cards (photo, name, text, quote link; pointing at a
+// card, or tapping its button, turns the photo over to show the profile's drawing), "sizes,
+// finishes & materials", the Related pages block (children, from the page) and a WhatsApp band.
+const DIR = '/Assets/Media/Kerb-and-Cobbles/kerb';
+const HERO = `${DIR}/kerb-hero.webp`;
+const PROFILES = [
+  { key: 'str', photo: 'str1', drawing: 'str2' },
+  { key: 'fullBatter', photo: 'full-batter1', drawing: 'full-batter2' },
+  { key: 'bullnose', photo: 'bullnose1', drawing: 'bullnose2' },
+  { key: 'roundTop', photo: 'roundtop1', drawing: 'roundtop2' },
+  { key: 'channel', photo: 'channel1', drawing: 'channel2' },
+  { key: 'transition', photo: 'transition1', drawing: null },
+].map((p) => ({
+  ...p,
+  photo: `${DIR}/${p.photo}.webp`,
+  drawing: p.drawing && `${DIR}/${p.drawing}.webp`,
+}));
 
-                <Section 
-                    title={t('kerbstone.transition.title')} 
-                    text={t('kerbstone.transition.text')}
-                    images={transition} 
-                    imagePosition="right" 
-                />
-                <section className="kerb-final"> 
-                    <h2>{t('kerbstone.finalTitle')}</h2>
-                    <p>{t('kerbstone.finalText1')}<br/><br/>{t('kerbstone.finalText2')}<br/><br/>{t('kerbstone.finalText3')}</p>
+function ProfileCard({ profile, index, t, onZoom }) {
+  const [flipped, setFlipped] = useState(false);
+  const title = t(`kerbstone.${profile.key}.title`);
+  return (
+    <article
+      className={`kb-card kb-reveal${flipped ? ' is-flipped' : ''}${profile.drawing ? ' has-drawing' : ''}`}
+    >
+      <div className="kb-flip">
+        <button type="button" className="kb-face kb-front" onClick={() => onZoom(profile)}>
+          <img src={profile.photo} alt={title} loading="lazy" />
+        </button>
+        {profile.drawing && (
+          <button type="button" className="kb-face kb-back" onClick={() => onZoom(profile, true)}>
+            <img
+              src={profile.drawing}
+              alt={`${title} – ${t('kerbstone.drawing')}`}
+              loading="lazy"
+            />
+          </button>
+        )}
+        {profile.drawing && (
+          <button
+            type="button"
+            className="kb-toggle"
+            aria-pressed={flipped}
+            onClick={() => setFlipped(!flipped)}
+          >
+            {flipped ? t('kerbstone.showPhoto') : t('kerbstone.showDrawing')}{' '}
+            <span aria-hidden="true">⟲</span>
+          </button>
+        )}
+      </div>
+      <div className="kb-text">
+        <p className="kb-num">
+          <bdi>0{index + 1}</bdi>
+        </p>
+        <h3>{title}</h3>
+        <p className="kb-desc">{t(`kerbstone.${profile.key}.text`)}</p>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="kb-quote">
+          {t('kerbstone.quote')}{' '}
+          <span className="kb-arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+      </div>
+    </article>
+  );
+}
 
-                    </section>
+export default function Kerbstone({ children }) {
+  const { t } = useTranslation();
+  const pageRef = useRef(null);
+  const [openPhoto, zoom] = usePhotoZoom();
+  useReveal(pageRef, [], 'kb');
 
+  // every photo and drawing in one viewer, in card order
+  const slides = PROFILES.flatMap((p) => {
+    const title = t(`kerbstone.${p.key}.title`);
+    return [
+      { src: p.photo, alt: title },
+      ...(p.drawing ? [{ src: p.drawing, alt: `${title} – ${t('kerbstone.drawing')}` }] : []),
+    ];
+  });
+  const zoomTo = (profile, drawing = false) =>
+    openPhoto(
+      Math.max(
+        0,
+        slides.findIndex((s) => s.src === (drawing ? profile.drawing : profile.photo)),
+      ),
+    );
+
+  return (
+    <div className="kb" ref={pageRef}>
+      <div className="kb-hero">
+        <img className="kb-hero-photo" src={HERO} alt="" fetchPriority="high" />
+        <div className="kb-wrap">
+          <div className="kb-crumb">
+            <LangLink href="/">{t('kerbstone.breadcrumbHome')}</LangLink>
+            <span aria-hidden="true">›</span>
+            <span className="kb-crumb-here">{t('kerbstone.breadcrumbCurrent')}</span>
+          </div>
+          <p className="kb-eyebrow">{t('kerbstone.eyebrow')}</p>
+          <h1>{t('kerbstone.introTitle')}</h1>
+          <p className="kb-lead">{t('kerbstone.introText1')}</p>
+          <dl className="kb-stats">
+            <div>
+              <dt>{t('kerbstone.statProfiles')}</dt>
+              <dd>{PROFILES.length}</dd>
             </div>
-            <ContactBubble />
-            </div>  
-            </>  
-            )
+            <div>
+              <dt>{t('kerbstone.statStones')}</dt>
+              <dd>2</dd>
+            </div>
+            <div>
+              <dt>{t('kerbstone.statSizesLabel')}</dt>
+              <dd>{t('kerbstone.statSizes')}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div className="kb-wrap">
+        <section className="kb-section">
+          <p className="kb-eyebrow">{t('kerbstone.profilesHint')}</p>
+          <h2>{t('kerbstone.profilesTitle')}</h2>
+          <p className="kb-intro">{t('kerbstone.introText2')}</p>
+          <div className="kb-cards">
+            {PROFILES.map((p, i) => (
+              <ProfileCard key={p.key} profile={p} index={i} t={t} onZoom={zoomTo} />
+            ))}
+          </div>
+        </section>
+
+        <section className="kb-section">
+          <div className="kb-sizes kb-reveal">
+            <img src={`${DIR}/kerb-bg.webp`} alt={t('kerbstone.introImageAlt')} loading="lazy" />
+            <div>
+              <h2>{t('kerbstone.finalTitle')}</h2>
+              <p className="kb-text-p">{t('kerbstone.finalText1')}</p>
+              <p className="kb-text-p">{t('kerbstone.finalText2')}</p>
+              <p className="kb-text-p">{t('kerbstone.finalText3')}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* the "Related pages" links (server component from the page) */}
+        {children}
+      </div>
+
+      <div className="kb-band">
+        <div className="kb-wrap">
+          <div>
+            <h2>{t('kerbstone.bandTitle')}</h2>
+            <p>{t('kerbstone.bandText')}</p>
+          </div>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="kb-btn">
+            <FaWhatsapp aria-hidden="true" /> {t('productDetails.bandCta')}
+          </a>
+        </div>
+      </div>
+      {zoom(slides)}
+    </div>
+  );
 }
