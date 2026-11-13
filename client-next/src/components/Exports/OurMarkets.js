@@ -18,45 +18,45 @@ export default function OurMarkets(){
       // 🌍 Data: Continents, Countries & Flags
       const continentData = {
         "North & South America": [
-          { name: "USA", code: "US", flag: "https://flagcdn.com/us.svg", translationKey: "countries.usa" },
-          { name: "Brazil", code: "BR", flag: "https://flagcdn.com/br.svg", translationKey: "countries.brazil" },
-          { name: "Panama", code: "PA", flag: "https://flagcdn.com/pa.svg", translationKey: "countries.panama" },
-          { name: "Venezuela", code: "VE", flag: "https://flagcdn.com/ve.svg", translationKey: "countries.venezuela" },
-          { name: "Mexico", code: "MX", flag: "https://flagcdn.com/mx.svg", translationKey: "countries.mexico" },
-          { name: "Dominican Republic", code: "DO", flag: "https://flagcdn.com/do.svg", translationKey: "countries.dominicanRepublic" },
-          { name: "Bahamas", code: "BS", flag: "https://flagcdn.com/bs.svg", translationKey: "countries.bahamas" }
+          { name: "USA", code: "US", flag: "/Assets/Icons/flags/us.svg", translationKey: "countries.usa" },
+          { name: "Brazil", code: "BR", flag: "/Assets/Icons/flags/br.svg", translationKey: "countries.brazil" },
+          { name: "Panama", code: "PA", flag: "/Assets/Icons/flags/pa.svg", translationKey: "countries.panama" },
+          { name: "Venezuela", code: "VE", flag: "/Assets/Icons/flags/ve.svg", translationKey: "countries.venezuela" },
+          { name: "Mexico", code: "MX", flag: "/Assets/Icons/flags/mx.svg", translationKey: "countries.mexico" },
+          { name: "Dominican Republic", code: "DO", flag: "/Assets/Icons/flags/do.svg", translationKey: "countries.dominicanRepublic" },
+          { name: "Bahamas", code: "BS", flag: "/Assets/Icons/flags/bs.svg", translationKey: "countries.bahamas" }
         ],
         Europe: [
-          { name: "Romania", code: "RO", flag: "https://flagcdn.com/ro.svg", translationKey: "countries.romania" },
-          { name: "Albania", code: "AL", flag: "https://flagcdn.com/al.svg", translationKey: "countries.albania" },
-          { name: "Bulgaria", code: "BG", flag: "https://flagcdn.com/bg.svg", translationKey: "countries.bulgaria" },
-          { name: "Kosovo", code: "XK", flag: "https://flagcdn.com/xk.svg", translationKey: "countries.kosovo" },
-          { name: "Slovakia", code: "SK", flag: "https://flagcdn.com/sk.svg", translationKey: "countries.slovakia" },
-          { name: "Slovenia", code: "SI", flag: "https://flagcdn.com/si.svg", translationKey: "countries.slovenia" },
-          { name: "Germany", code: "DE", flag: "https://flagcdn.com/de.svg", translationKey: "countries.germany" },
-          { name: "Malta", code: "MT", flag: "https://flagcdn.com/mt.svg", translationKey: "countries.malta" },
-          { name: "Greece", code: "GR", flag: "https://flagcdn.com/gr.svg", translationKey: "countries.greece" },
-          { name: "United Kingdom", code: "GB", flag: "https://flagcdn.com/gb.svg", translationKey: "countries.unitedKingdom" }
+          { name: "Romania", code: "RO", flag: "/Assets/Icons/flags/ro.svg", translationKey: "countries.romania" },
+          { name: "Albania", code: "AL", flag: "/Assets/Icons/flags/al.svg", translationKey: "countries.albania" },
+          { name: "Bulgaria", code: "BG", flag: "/Assets/Icons/flags/bg.svg", translationKey: "countries.bulgaria" },
+          { name: "Kosovo", code: "XK", flag: "/Assets/Icons/flags/xk.svg", translationKey: "countries.kosovo" },
+          { name: "Slovakia", code: "SK", flag: "/Assets/Icons/flags/sk.svg", translationKey: "countries.slovakia" },
+          { name: "Slovenia", code: "SI", flag: "/Assets/Icons/flags/si.svg", translationKey: "countries.slovenia" },
+          { name: "Germany", code: "DE", flag: "/Assets/Icons/flags/de.svg", translationKey: "countries.germany" },
+          { name: "Malta", code: "MT", flag: "/Assets/Icons/flags/mt.svg", translationKey: "countries.malta" },
+          { name: "Greece", code: "GR", flag: "/Assets/Icons/flags/gr.svg", translationKey: "countries.greece" },
+          { name: "United Kingdom", code: "GB", flag: "/Assets/Icons/flags/gb.svg", translationKey: "countries.unitedKingdom" }
         ],
         Asia: [
-          { name: "China", code: "CN", flag: "https://flagcdn.com/cn.svg", translationKey: "countries.china" },
-          { name: "South Korea", code: "KR", flag: "https://flagcdn.com/kr.svg", translationKey: "countries.southKorea" },
-          { name: "Russia", code: "RU", flag: "https://flagcdn.com/ru.svg", translationKey: "countries.russia" },
-          { name: "Lebanon", code: "LB", flag: "https://flagcdn.com/lb.svg", translationKey: "countries.lebanon" },
-          { name: "Kuwait", code: "KW", flag: "https://flagcdn.com/kw.svg", translationKey: "countries.kuwait" },
-          { name: "Jordan", code: "JO", flag: "https://flagcdn.com/jo.svg", translationKey: "countries.jordan" },
-          { name: "Iraq", code: "IQ", flag: "https://flagcdn.com/iq.svg", translationKey: "countries.iraq" },
-          { name: "Saudi Arabia", code: "SA", flag: "https://flagcdn.com/sa.svg", translationKey: "countries.saudiArabia" },
-          { name: "UAE", code: "AE", flag: "https://flagcdn.com/ae.svg", translationKey: "countries.uae" }
+          { name: "China", code: "CN", flag: "/Assets/Icons/flags/cn.svg", translationKey: "countries.china" },
+          { name: "South Korea", code: "KR", flag: "/Assets/Icons/flags/kr.svg", translationKey: "countries.southKorea" },
+          { name: "Russia", code: "RU", flag: "/Assets/Icons/flags/ru.svg", translationKey: "countries.russia" },
+          { name: "Lebanon", code: "LB", flag: "/Assets/Icons/flags/lb.svg", translationKey: "countries.lebanon" },
+          { name: "Kuwait", code: "KW", flag: "/Assets/Icons/flags/kw.svg", translationKey: "countries.kuwait" },
+          { name: "Jordan", code: "JO", flag: "/Assets/Icons/flags/jo.svg", translationKey: "countries.jordan" },
+          { name: "Iraq", code: "IQ", flag: "/Assets/Icons/flags/iq.svg", translationKey: "countries.iraq" },
+          { name: "Saudi Arabia", code: "SA", flag: "/Assets/Icons/flags/sa.svg", translationKey: "countries.saudiArabia" },
+          { name: "UAE", code: "AE", flag: "/Assets/Icons/flags/ae.svg", translationKey: "countries.uae" }
         ],
         Africa: [
-          { name: "Senegal", code: "SN", flag: "https://flagcdn.com/sn.svg", translationKey: "countries.senegal" },
-          { name: "Kenya", code: "KE", flag: "https://flagcdn.com/ke.svg", translationKey: "countries.kenya" },
-          { name: "Gambia", code: "GM", flag: "https://flagcdn.com/gm.svg", translationKey: "countries.gambia" },
-          { name: "Libya", code: "LY", flag: "https://flagcdn.com/ly.svg", translationKey: "countries.libya" }
+          { name: "Senegal", code: "SN", flag: "/Assets/Icons/flags/sn.svg", translationKey: "countries.senegal" },
+          { name: "Kenya", code: "KE", flag: "/Assets/Icons/flags/ke.svg", translationKey: "countries.kenya" },
+          { name: "Gambia", code: "GM", flag: "/Assets/Icons/flags/gm.svg", translationKey: "countries.gambia" },
+          { name: "Libya", code: "LY", flag: "/Assets/Icons/flags/ly.svg", translationKey: "countries.libya" }
         ],
         Australia: [
-          { name: "Australia", code: "AU", flag: "https://flagcdn.com/au.svg", translationKey: "countries.australia" }
+          { name: "Australia", code: "AU", flag: "/Assets/Icons/flags/au.svg", translationKey: "countries.australia" }
         ]
       };
     

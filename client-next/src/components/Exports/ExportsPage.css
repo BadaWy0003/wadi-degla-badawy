@@ -151,7 +151,7 @@ html[dir='rtl'] .ex-crumb span[aria-hidden] {
 
 .ex-terms dt {
   color: var(--ex-gold);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -403,7 +403,7 @@ html body:has(.ex) .footer-right:not(#m) {
   }
 
   .ex-stats dt {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .ex-section {

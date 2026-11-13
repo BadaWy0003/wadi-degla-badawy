@@ -422,7 +422,7 @@ html body:has(.pl) .footer-right:not(#m) {
   }
 
   .pl-stats dt {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .pl-bar .pl-wrap {

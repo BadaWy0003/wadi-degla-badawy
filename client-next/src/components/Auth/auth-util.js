@@ -34,7 +34,9 @@ export function getCountries(lang) {
     .sort((a, b) => a.name.localeCompare(b.name, lang));
 }
 
-export const flagUrl = (code) => (code ? `https://flagcdn.com/${code.toLowerCase()}.svg` : '');
+// Flags are in the site itself (public/Assets/Icons/flags, from the MIT-licensed flag-icons set),
+// not loaded from an outside site.
+export const flagUrl = (code) => (code ? `/Assets/Icons/flags/${code.toLowerCase()}.svg` : '');
 
 // Stones for the pickers: one request, shared by the page.
 let stonesPromise;

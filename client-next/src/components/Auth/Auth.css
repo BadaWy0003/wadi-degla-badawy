@@ -85,7 +85,7 @@
 }
 
 .au-eyebrow {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--au-gold-hi);
@@ -125,7 +125,7 @@
   justify-items: center;
   gap: 10px;
   text-align: center;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--au-muted);
@@ -278,7 +278,7 @@ html[dir='rtl'] .au-route svg {
 }
 
 .au-field label {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--au-muted);
@@ -653,7 +653,7 @@ html[dir='rtl'] .au-arrow {
   position: absolute;
   inset: auto 0 0 0;
   padding: 18px 8px 7px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   line-height: 1.2;
   text-align: start;
   color: #fff;
@@ -879,7 +879,7 @@ html[dir='rtl'] .au-arrow {
 }
 
 .au-fixed dt {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--au-muted);
@@ -984,7 +984,7 @@ body[lang='ar'] .au .au-saved-body small {
   }
 
   .au-journey li {
-    font-size: 0.64rem;
+    font-size: 0.75rem;
     letter-spacing: 0.06em;
   }
 

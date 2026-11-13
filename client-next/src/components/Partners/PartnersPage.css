@@ -511,7 +511,7 @@ html body:has(.pa) .footer-right:not(#m) {
   }
 
   .pa-stats dt {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .pa-ticker {

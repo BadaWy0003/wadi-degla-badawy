@@ -579,7 +579,7 @@ html body:has(.ce) .footer-right:not(#m) {
   }
 
   .ce-stats dt {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .ce-section {
