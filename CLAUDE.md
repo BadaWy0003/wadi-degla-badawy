@@ -226,7 +226,7 @@ docker run -p 8080:80 wd-site
 - admin-dashboard: `REACT_APP_BASE_API_URL`.
 
 ## Third parties
-GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the Wadi Degla business account, from 2026-11-05); both are configured in `RootHtml.js` and every event goes to both. Plan: drop the old one after 3-6 months. Google Maps embed, WhatsApp `wa.me` link, flagcdn.com, amCharts, Zoho SMTP, Firebase.
+GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the Wadi Degla business account, from 2026-11-05); both are configured in `RootHtml.js` and every event goes to both. Plan: drop the old one after 3-6 months. Google Maps embed, WhatsApp `wa.me` link, amCharts, Zoho SMTP, Firebase.
 
 ## Gotchas
 - `client/` duplicates most of client-next. Edit **client-next only**.
