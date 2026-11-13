@@ -406,7 +406,7 @@ html body:has(.pk) .footer-right:not(#m) {
   }
 
   .pk-stats dt {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .pk-section {

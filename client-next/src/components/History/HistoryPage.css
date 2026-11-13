@@ -454,7 +454,7 @@ html body:has(.hi) .footer-right:not(#m) {
   }
 
   .hi-stats dt {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .hi-section {

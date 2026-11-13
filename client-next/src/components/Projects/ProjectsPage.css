@@ -314,7 +314,7 @@ html[dir='rtl'] .pj-crumb span[aria-hidden] {
 
 .pj-facts dt {
   color: var(--pj-muted);
-  font-size: 11px;
+  font-size: 12px;
   margin-bottom: 3px;
 }
 
@@ -578,7 +578,7 @@ html body:has(.pj) .footer-right:not(#m) {
   }
 
   .pj-stats dt {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .pj-bar .pj-wrap {
