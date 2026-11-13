@@ -1,0 +1,1512 @@
+/* Visualizer (redesigned 2026-11-13, design A "Studio"): dark + gold like the other redesigned
+   pages. Everything is scoped under .vz; smaller screens at the end.
+   The stage shows one scene of a room photo: .vz-view is the scene's box (the photo's aspect
+   ratio), its <img> is twice as wide and slides left to show the right-hand scene. */
+@property --vz-split {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 50%;
+}
+
+.vz {
+  --vz-bg: #0c0b0a;
+  --vz-surface: #15130f;
+  --vz-surface-2: #1c1915;
+  --vz-line: rgba(232, 214, 186, 0.1);
+  --vz-line-strong: rgba(232, 214, 186, 0.22);
+  --vz-text: #f3eee6;
+  --vz-body: #d6d0c6;
+  --vz-muted: #a8a196;
+  --vz-gold: #ad9571;
+  --vz-gold-hi: #cdb48b;
+  --vz-on-gold: #16130f;
+  --vz-glass: rgba(12, 11, 10, 0.58);
+  --vz-glass-line: rgba(255, 255, 255, 0.13);
+  --vz-header: 84px; /* the fixed site header */
+  --vz-ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --vz-out: cubic-bezier(0.22, 1, 0.36, 1);
+  background: var(--vz-bg);
+  color: var(--vz-text);
+}
+
+.vz *,
+.vz *::before,
+.vz *::after {
+  box-sizing: border-box;
+}
+
+:where(.vz) h1,
+:where(.vz) h2,
+:where(.vz) h3,
+:where(.vz) p,
+:where(.vz) ul {
+  margin: 0;
+  padding: 0;
+}
+
+:where(.vz) ul {
+  list-style: none;
+}
+
+:where(.vz) button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.vz h1,
+.vz h2,
+.vz h3 {
+  font-family: inherit;
+  color: var(--vz-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.vz h1 {
+  font-size: clamp(1.9rem, 2.6vw, 2.55rem);
+  margin: 8px 0 12px;
+}
+
+.vz h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: 22px;
+}
+
+.vz-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.vz-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--vz-muted);
+  margin-bottom: 16px;
+}
+
+.vz-crumb a {
+  color: var(--vz-muted);
+  text-decoration: none;
+}
+
+.vz-crumb a:hover,
+.vz-crumb-here {
+  color: var(--vz-gold-hi);
+}
+
+html[dir='rtl'] .vz-crumb span[aria-hidden] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.vz-eyebrow {
+  color: var(--vz-gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.vz-intro {
+  color: var(--vz-body);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* ---------- the studio: stage (left) + panel (right) ---------- */
+.vz-studio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(380px, 31vw, 500px);
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-areas:
+    'stage head'
+    'stage panel';
+  column-gap: 28px;
+  row-gap: 18px;
+  padding: calc(var(--vz-header) + 44px) 24px 20px; /* the header floats 32px from the top */
+  height: 100vh;
+  height: 100svh;
+  min-height: 680px;
+  max-height: 1180px;
+}
+
+.vz-head {
+  grid-area: head;
+}
+
+.vz-head > * {
+  animation: vz-up 0.8s var(--vz-out) both;
+}
+
+.vz-head > :nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.vz-head > :nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.vz-head > :nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+@keyframes vz-up {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+/* ---------- stage ---------- */
+.vz-stage {
+  grid-area: stage;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #050505;
+  isolation: isolate;
+  container: vzstage / inline-size;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.vz-shot {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* the photo, blurred and dark, fills the space around a scene that doesn't fill the stage */
+.vz-amb {
+  position: absolute;
+  inset: -40px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(30px) brightness(0.42) saturate(1.1);
+  transform: scale(1.1);
+}
+
+.vz-frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vz-view {
+  position: relative;
+  flex: none;
+  height: 100%;
+  aspect-ratio: 960 / 810;
+  overflow: hidden;
+  direction: ltr;
+}
+
+/* side by side with the list, a scene always fills the stage (a little of its top and bottom
+   is cut when the stage is wider than the scene) */
+@media (min-width: 1001px) {
+  .vz-view:not(.is-kitchen) {
+    min-width: 100%;
+  }
+}
+
+/* granite: one kitchen scene, the dark bars on its sides cut off; the whole kitchen fits */
+.vz-view.is-kitchen {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  aspect-ratio: 1451 / 810;
+}
+
+.vz-view img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200%;
+  max-width: none;
+  object-fit: cover;
+  transition: transform 1s var(--vz-ease);
+}
+
+.vz-view.is-right img {
+  transform: translateX(-50%);
+}
+
+.vz-view.is-kitchen img {
+  width: 132.33%;
+  left: -16.17%;
+}
+
+/* a small blurred copy shows at once; the full photo fades in over it when loaded */
+.vz-low {
+  filter: blur(12px);
+}
+
+.vz-js .vz-full {
+  opacity: 0;
+  transition:
+    opacity 0.45s ease,
+    transform 1s var(--vz-ease);
+}
+
+.vz-js .vz-full.is-ready {
+  opacity: 1;
+}
+
+/* the photo settles in when the page opens */
+.vz-stage:not(.is-live) .vz-view {
+  animation: vz-settle 1.8s var(--vz-out) both;
+}
+
+@keyframes vz-settle {
+  from {
+    scale: 1.045;
+  }
+}
+
+/* a new stone sweeps across the room (left to right; right to left in Arabic) */
+.vz-shot.is-wipe {
+  -webkit-mask-image: linear-gradient(100deg, #000 33.3%, transparent 40%);
+  mask-image: linear-gradient(100deg, #000 33.3%, transparent 40%);
+  -webkit-mask-size: 300% 100%;
+  mask-size: 300% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 60% 0;
+  mask-position: 60% 0;
+  animation: vz-wipe 1s var(--vz-ease) forwards;
+}
+
+@keyframes vz-wipe {
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+html[dir='rtl'] .vz-shot.is-wipe {
+  -webkit-mask-image: linear-gradient(80deg, transparent 60%, #000 66.7%);
+  mask-image: linear-gradient(80deg, transparent 60%, #000 66.7%);
+  -webkit-mask-position: 40% 0;
+  mask-position: 40% 0;
+  animation-name: vz-wipe-rtl;
+}
+
+@keyframes vz-wipe-rtl {
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+/* the soft light line that travels with the edge of the new stone */
+.vz-glint {
+  position: absolute;
+  z-index: 2;
+  top: -10%;
+  bottom: -10%;
+  left: -10%;
+  width: 120px;
+  translate: -50% 0;
+  transform: skewX(-10deg);
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 238, 205, 0.16) 30%,
+    rgba(255, 238, 205, 0.55) 50%,
+    rgba(255, 238, 205, 0.16) 70%,
+    transparent
+  );
+  mix-blend-mode: screen;
+  animation: vz-glint 1s var(--vz-ease) forwards;
+}
+
+@keyframes vz-glint {
+  from {
+    left: -10%;
+  }
+  to {
+    left: 110%;
+  }
+}
+
+html[dir='rtl'] .vz-glint {
+  transform: skewX(10deg);
+  animation-name: vz-glint-rtl;
+}
+
+@keyframes vz-glint-rtl {
+  from {
+    left: 110%;
+  }
+  to {
+    left: -10%;
+  }
+}
+
+/* the other photo of the same stone (interior <-> exterior) fades in */
+.vz-shot.is-fade {
+  animation: vz-fade 0.7s ease forwards;
+}
+
+@keyframes vz-fade {
+  from {
+    opacity: 0;
+    scale: 1.03;
+  }
+}
+
+.vz-loading {
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  animation: vz-show 0.2s 0.15s forwards; /* only if loading takes a moment */
+}
+
+.vz-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, var(--vz-gold-hi), transparent);
+  animation: vz-load 1s linear infinite;
+}
+
+@keyframes vz-show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vz-load {
+  from {
+    left: -40%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.vz-failed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  color: var(--vz-muted);
+}
+
+/* ---------- compare: the pinned stone on the left, the chosen one on the right ---------- */
+.vz-side-b {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 0 var(--vz-split));
+}
+
+.vz-stage.is-compare {
+  cursor: ew-resize;
+}
+
+.vz-handle {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: var(--vz-split);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--vz-text);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.vz-handle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--vz-text);
+  color: var(--vz-on-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s var(--vz-out);
+}
+
+.vz-handle:focus-visible span,
+.vz-stage.is-compare:active .vz-handle span {
+  transform: scale(1.1);
+}
+
+.vz-handle:focus-visible span {
+  box-shadow:
+    0 0 0 3px var(--vz-gold),
+    0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* the handle moves a little once, so it's clear it can be dragged */
+.vz-stage.is-nudge {
+  animation: vz-nudge 1.3s var(--vz-ease);
+}
+
+@keyframes vz-nudge {
+  0%,
+  100% {
+    --vz-split: 50%;
+  }
+  35% {
+    --vz-split: 40%;
+  }
+  70% {
+    --vz-split: 57%;
+  }
+}
+
+.vz-tag {
+  position: absolute;
+  z-index: 4;
+  top: 72px;
+  max-width: 42%;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--vz-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+.vz-tag.is-a {
+  left: 16px;
+}
+
+.vz-tag.is-b {
+  right: 16px;
+}
+
+/* ---------- controls over the photo ---------- */
+.vz-rooms,
+.vz-tools button,
+.vz-label,
+.vz-step button,
+.vz-step span {
+  background: var(--vz-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--vz-glass-line);
+}
+
+.vz-rooms {
+  position: absolute;
+  z-index: 5;
+  top: 16px;
+  inset-inline-start: 16px;
+  max-width: calc(100% - 430px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 999px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.vz-rooms::-webkit-scrollbar {
+  display: none;
+}
+
+.vz-rooms button {
+  flex-shrink: 0;
+  padding: 8px 15px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  color: #ebe5da;
+  white-space: nowrap;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.vz-rooms button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.vz-rooms button.is-on {
+  background: var(--vz-text);
+  color: var(--vz-on-gold);
+}
+
+.vz-rooms-gap {
+  flex-shrink: 0;
+  width: 1px;
+  align-self: stretch;
+  margin: 6px 3px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.vz-tools {
+  position: absolute;
+  z-index: 5;
+  top: 16px;
+  inset-inline-end: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.vz-tools button {
+  height: 42px;
+  padding: 0 15px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  color: #f3eee6;
+  white-space: nowrap;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.vz-tools button:hover {
+  background: rgba(30, 27, 23, 0.8);
+}
+
+.vz-tools button span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.vz-tools em {
+  font-style: normal;
+}
+
+.vz-tools button.is-on,
+.vz-tools .vz-share.is-copied {
+  background: var(--vz-gold);
+  border-color: var(--vz-gold);
+  color: var(--vz-on-gold);
+}
+
+.vz-card {
+  position: absolute;
+  z-index: 5;
+  bottom: 16px;
+  inset-inline: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  pointer-events: none;
+}
+
+.vz-card > * {
+  pointer-events: auto;
+}
+
+.vz-label {
+  padding: 16px 20px 18px;
+  border-radius: 18px;
+  max-width: 100%;
+  animation: vz-up 0.6s var(--vz-out) both;
+}
+
+.vz-label small {
+  display: block;
+  color: var(--vz-gold-hi);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.vz-label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 4px 0 14px;
+}
+
+.vz-label strong {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.vz-label-link {
+  color: var(--vz-gold-hi);
+  font-size: 13.5px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.vz-label-link:hover {
+  color: var(--vz-text);
+}
+
+.vz-label-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vz-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.vz-step button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f3eee6;
+  transition: background 0.3s;
+}
+
+.vz-step .is-next svg,
+html[dir='rtl'] .vz-step button svg {
+  transform: scaleX(-1);
+}
+
+html[dir='rtl'] .vz-step .is-next svg {
+  transform: none;
+}
+
+.vz-step button:hover {
+  background: rgba(30, 27, 23, 0.8);
+}
+
+.vz-step > span {
+  font-size: 13px;
+  line-height: 30px;
+  padding: 0 11px;
+  border-radius: 999px;
+  color: #ebe5da;
+}
+
+/* narrower stages: tools as round icons, a smaller label */
+@container vzstage (max-width: 860px) {
+  .vz-tools em {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .vz-tools button {
+    width: 42px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .vz-rooms {
+    max-width: calc(100% - 190px);
+  }
+
+  .vz-label strong {
+    font-size: 25px;
+  }
+}
+
+@container vzstage (max-width: 640px) {
+  .vz-step > span {
+    display: none;
+  }
+}
+
+/* ---------- buttons ---------- */
+.vz-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--vz-gold);
+  background: var(--vz-gold);
+  color: var(--vz-on-gold);
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    color 0.25s;
+}
+
+.vz-btn:hover {
+  background: var(--vz-gold-hi);
+  border-color: var(--vz-gold-hi);
+  color: var(--vz-on-gold);
+}
+
+.vz-btn svg {
+  font-size: 17px;
+}
+
+.vz-btn.vz-btn-line {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--vz-text);
+}
+
+.vz-btn.vz-btn-line:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: var(--vz-text);
+}
+
+.vz-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--vz-out);
+}
+
+a:hover > .vz-arrow {
+  transform: translateX(4px);
+}
+
+html[dir='rtl'] .vz-arrow {
+  transform: scaleX(-1);
+}
+
+html[dir='rtl'] a:hover > .vz-arrow {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* ---------- panel: categories, search, stones ---------- */
+.vz-panel {
+  grid-area: panel;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.vz-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.vz-chips button {
+  flex-shrink: 0;
+  border: 1px solid var(--vz-line-strong);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 13px;
+  white-space: nowrap;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+}
+
+.vz-chips button:hover {
+  border-color: var(--vz-gold);
+}
+
+.vz-chips i {
+  font-style: normal;
+  color: var(--vz-muted);
+  font-size: 11.5px;
+  margin-inline-start: 3px;
+}
+
+.vz-chips button.is-on {
+  background: var(--vz-gold);
+  border-color: var(--vz-gold);
+  color: var(--vz-on-gold);
+}
+
+.vz-chips button.is-on i {
+  color: #3b3226;
+}
+
+.vz-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--vz-line-strong);
+  border-radius: 12px;
+  padding: 0 12px;
+  margin-bottom: 6px;
+  color: var(--vz-muted);
+  transition: border-color 0.25s;
+}
+
+.vz-search:focus-within {
+  border-color: var(--vz-gold);
+}
+
+.vz-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--vz-text);
+  font: inherit;
+  font-size: 14px;
+}
+
+.vz-search input::placeholder {
+  color: var(--vz-muted);
+}
+
+.vz-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.vz-search button {
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px;
+  color: var(--vz-muted);
+}
+
+.vz-picker {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0 -6px;
+  padding: 8px 6px 28px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(232, 214, 186, 0.25) transparent;
+  -webkit-mask-image: linear-gradient(#000 calc(100% - 32px), transparent);
+  mask-image: linear-gradient(#000 calc(100% - 32px), transparent);
+}
+
+.vz-group + .vz-group {
+  margin-top: 18px;
+}
+
+.vz-group-title {
+  color: var(--vz-muted);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--vz-line);
+  padding-bottom: 7px;
+  margin-bottom: 12px !important;
+}
+
+.vz-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px 10px;
+}
+
+.vz-sw {
+  display: block;
+  width: 100%;
+  text-align: center;
+  outline: none;
+}
+
+.vz-sw-ph {
+  display: block;
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--vz-surface-2);
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  transition:
+    outline-color 0.3s,
+    transform 0.35s var(--vz-out);
+}
+
+.vz-sw-ph img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--vz-out);
+}
+
+@media (hover: hover) {
+  .vz-sw:not(:disabled):hover .vz-sw-ph {
+    transform: translateY(-3px);
+  }
+
+  .vz-sw:not(:disabled):hover .vz-sw-ph img {
+    transform: scale(1.08);
+  }
+
+  .vz-sw:not(:disabled):hover .vz-sw-name {
+    color: var(--vz-text);
+  }
+}
+
+.vz-sw:focus-visible .vz-sw-ph {
+  outline-color: var(--vz-text);
+}
+
+.vz-sw.is-on .vz-sw-ph {
+  outline-color: var(--vz-gold-hi);
+}
+
+.vz-sw.is-on .vz-sw-ph::after {
+  content: '✓';
+  position: absolute;
+  top: 6px;
+  inset-inline-end: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--vz-gold-hi);
+  color: var(--vz-on-gold);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: vz-pop 0.4s var(--vz-out);
+}
+
+@keyframes vz-pop {
+  from {
+    transform: scale(0);
+  }
+}
+
+.vz-sw.is-pinned .vz-sw-ph {
+  outline: 2px dashed var(--vz-gold);
+}
+
+.vz-sw:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.vz-sw-name {
+  display: block;
+  margin-top: 7px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--vz-body);
+  transition: color 0.25s;
+}
+
+.vz-sw.is-on .vz-sw-name {
+  color: var(--vz-gold-hi);
+}
+
+.vz-empty {
+  padding: 24px 4px;
+  color: var(--vz-muted);
+}
+
+.vz-empty p {
+  margin-bottom: 10px;
+}
+
+.vz-link {
+  color: var(--vz-gold-hi);
+  font-size: 14px;
+  text-decoration: none;
+  text-align: start;
+}
+
+.vz-link:hover {
+  color: var(--vz-text);
+}
+
+.vz-link-muted {
+  color: var(--vz-muted);
+  font-size: 13.5px;
+}
+
+/* phones only: the buttons under the stones */
+.vz-mobile-actions {
+  display: none;
+}
+
+/* ---------- explore by category ---------- */
+.vz-section {
+  padding-top: 72px;
+}
+
+.vz-cats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.vz-cat {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--vz-surface);
+  border: 1px solid var(--vz-line);
+  border-radius: 18px;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s var(--vz-out),
+    border-color 0.3s;
+}
+
+.vz-cat:hover {
+  border-color: var(--vz-line-strong);
+}
+
+.vz-cat-swatches {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.vz-cat-swatches img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--vz-surface);
+  transition: transform 0.4s var(--vz-out);
+}
+
+.vz-cat-swatches img + img {
+  margin-inline-start: -12px;
+}
+
+.vz-cat:hover .vz-cat-swatches img:nth-child(2) {
+  transform: translateX(6px);
+}
+
+.vz-cat:hover .vz-cat-swatches img:nth-child(3) {
+  transform: translateX(12px);
+}
+
+html[dir='rtl'] .vz-cat:hover .vz-cat-swatches img:nth-child(2) {
+  transform: translateX(-6px);
+}
+
+html[dir='rtl'] .vz-cat:hover .vz-cat-swatches img:nth-child(3) {
+  transform: translateX(-12px);
+}
+
+.vz .vz-cat h3 {
+  font-size: 18px;
+}
+
+.vz-cat-count {
+  color: var(--vz-gold-hi);
+  font-size: 13px;
+  margin-top: 4px !important;
+}
+
+.vz-cat-text {
+  flex: 1;
+  color: var(--vz-muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 10px 0 16px !important;
+}
+
+.vz-cat-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* fade-up when scrolled to (class added by useReveal after load) */
+.vz-reveal.vz-hidden {
+  opacity: 0;
+  translate: 0 36px;
+}
+
+/* ---------- final call to action ---------- */
+.vz-band {
+  margin-top: 88px;
+  background: var(--vz-surface);
+  border-top: 1px solid var(--vz-line);
+  padding: 48px 0;
+}
+
+.vz-band .vz-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.vz .vz-band h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.vz-band p {
+  color: var(--vz-muted);
+  max-width: 760px;
+}
+
+.vz-band .vz-btn {
+  min-height: 52px;
+  padding: 0 28px;
+  font-size: 15px;
+}
+
+.vz-band .vz-btn svg {
+  font-size: 19px;
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.vz) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.vz) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vz *,
+  .vz *::before,
+  .vz *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .vz-reveal.vz-hidden {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1230px) {
+  .vz {
+    --vz-header: 60px; /* hamburger header */
+  }
+
+  .vz-cats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1240px) and (min-width: 1001px) {
+  .vz-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* one column: title, stage, categories, a row of stones, buttons */
+@media (max-width: 1000px) {
+  .vz-studio {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: calc(var(--vz-header) + 14px) 0 0;
+  }
+
+  /* the intro goes under the stones and buttons, so the room and the stones fit one screen */
+  .vz-head {
+    display: contents;
+  }
+
+  .vz-head > * {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .vz-crumb {
+    margin-bottom: 10px;
+  }
+
+  .vz h1 {
+    font-size: 26px;
+    margin: 4px 0 14px;
+  }
+
+  .vz-head .vz-intro {
+    order: 1;
+    padding-top: 18px;
+    color: var(--vz-muted);
+  }
+
+  .vz-stage {
+    width: 100%;
+    aspect-ratio: 960 / 810;
+    max-height: 64svh;
+    border-radius: 0;
+  }
+
+  .vz-panel {
+    padding-top: 14px;
+  }
+
+  .vz-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 24px;
+    margin-bottom: 4px;
+  }
+
+  .vz-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .vz-search {
+    margin: 6px 24px;
+  }
+
+  .vz-picker {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 10px 24px 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .vz-picker::-webkit-scrollbar {
+    display: none;
+  }
+
+  .vz-group,
+  .vz-list {
+    display: contents;
+  }
+
+  .vz-group-title {
+    display: none;
+  }
+
+  .vz-list li {
+    flex: 0 0 76px;
+    scroll-snap-align: center;
+  }
+
+  .vz-sw-name {
+    font-size: 11.5px;
+  }
+
+  .vz-empty {
+    padding: 12px 0;
+  }
+
+  .vz-card {
+    inset-inline: 12px auto;
+    bottom: 12px;
+  }
+
+  .vz-label {
+    padding: 8px 13px 9px;
+    border-radius: 12px;
+  }
+
+  .vz-label small {
+    font-size: 9.5px;
+  }
+
+  .vz .vz-label strong {
+    font-size: 17px;
+    margin: 2px 0 0;
+  }
+
+  .vz-label-row {
+    margin: 0;
+  }
+
+  .vz-label-link,
+  .vz-label-actions,
+  .vz-step {
+    display: none;
+  }
+
+  .vz-rooms {
+    top: 12px;
+    inset-inline-start: 12px;
+    max-width: calc(100% - 24px);
+  }
+
+  /* tools: round icons down the right edge */
+  .vz-tools {
+    top: auto;
+    bottom: 12px;
+    inset-inline-end: 12px;
+    flex-direction: column;
+  }
+
+  .vz-tag {
+    top: 62px;
+  }
+
+  .vz-mobile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 24px 0;
+  }
+
+  .vz-mobile-actions .vz-btn {
+    flex: 1 1 140px;
+  }
+
+  .vz-more {
+    flex-basis: 100%;
+    text-align: center;
+    color: var(--vz-gold-hi);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 6px 0 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vz-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .vz-head > * {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .vz-crumb {
+    display: none;
+  }
+
+  .vz-eyebrow {
+    font-size: 10.5px;
+  }
+
+  .vz h1 {
+    font-size: 23px;
+    margin: 4px 0 12px;
+  }
+
+  .vz-intro {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .vz-chips {
+    padding: 0 16px;
+  }
+
+  .vz-search {
+    display: none;
+  }
+
+  .vz-picker {
+    padding: 10px 16px 6px;
+  }
+
+  .vz-list li {
+    flex-basis: 70px;
+  }
+
+  .vz-rooms {
+    padding: 4px;
+  }
+
+  .vz-rooms button {
+    padding: 7px 11px;
+    font-size: 12.5px;
+  }
+
+  .vz-tools {
+    gap: 6px;
+  }
+
+  .vz-tools button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .vz-tag {
+    top: 56px;
+    font-size: 12px;
+  }
+
+  .vz-handle span {
+    width: 44px;
+    height: 44px;
+  }
+
+  .vz-mobile-actions {
+    padding: 8px 16px 0;
+  }
+
+  .vz-mobile-actions .vz-btn {
+    padding: 0 12px;
+  }
+
+  .vz-section {
+    padding-top: 56px;
+  }
+
+  .vz-cats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .vz-cat {
+    padding: 16px;
+  }
+
+  .vz-band {
+    margin-top: 56px;
+  }
+
+  .vz-band .vz-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
