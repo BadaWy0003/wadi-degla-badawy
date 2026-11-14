@@ -808,7 +808,7 @@ html[dir='rtl'] .hp-hero {
         rgba(12, 11, 10, 0.55) 45%,
         var(--hp-bg) 100%
       ),
-      url('/Assets/Media/Hero/home-hero-factory-m.webp') center / cover; /* owner's photo, 2026-11-12 */
+      url('/Assets/Media/Hero/home-hero-yard-m.webp') center / cover; /* owner's stockyard photo, 2026-11-14 */
   }
 
   html[dir='rtl'] .hp-hero {
@@ -819,7 +819,7 @@ html[dir='rtl'] .hp-hero {
         rgba(12, 11, 10, 0.55) 45%,
         var(--hp-bg) 100%
       ),
-      url('/Assets/Media/Hero/home-hero-factory-m.webp') center / cover; /* owner's photo, 2026-11-12 */
+      url('/Assets/Media/Hero/home-hero-yard-m.webp') center / cover; /* owner's stockyard photo, 2026-11-14 */
   }
 
   /* phones: the company name bigger, the headline a little smaller (owner, 2026-11-11) */
