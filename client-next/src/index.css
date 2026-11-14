@@ -222,8 +222,3 @@ h2 {
   text-decoration: none;
 }
 
-/* Section photos load only near the screen (useLazyBackgrounds in src/util/lazy-bg.js).
-   The :not(#m) beats the phone-photo rules in mobile.css. */
-html body .lazy-bg:not(.bg-ready):not(#m) {
-  background-image: none !important;
-}
