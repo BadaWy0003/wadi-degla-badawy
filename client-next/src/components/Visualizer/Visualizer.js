@@ -53,7 +53,9 @@ const Chevron = () => (
 // visible part of a scrolling list: root). Returns a cleanup function.
 function loadNear(container, root) {
   if (!container) return undefined;
-  const imgs = [...container.querySelectorAll('img[data-src]')].filter((i) => !i.getAttribute('src'));
+  const imgs = [...container.querySelectorAll('img[data-src]')].filter(
+    (i) => !i.getAttribute('src'),
+  );
   const load = (img) => img.setAttribute('src', img.dataset.src);
   if (!('IntersectionObserver' in window)) {
     imgs.forEach(load);
@@ -82,6 +84,14 @@ const reducedMotion = () =>
 function Shot({ stone, room, anim, alt, loaded, onLoaded, onDone, priority }) {
   const photo = stone[room.photo];
   const ready = loaded[photo.src];
+  // the small blurred copy is removed once the full photo has faded in over it (a blurred
+  // layer costs a lot of memory on phones, more so while comparing two stones)
+  const [settled, setSettled] = useState(false);
+  useEffect(() => {
+    if (!ready) return undefined;
+    const timer = setTimeout(() => setSettled(true), 700); // after the 0.45 s fade
+    return () => clearTimeout(timer);
+  }, [ready]);
   const markIfLoaded = (img) => {
     if (img && img.complete && img.naturalWidth && !ready) onLoaded(photo.src);
   };
@@ -99,7 +109,9 @@ function Shot({ stone, room, anim, alt, loaded, onLoaded, onDone, priority }) {
       />
       <div className="vz-frame">
         <div className={`vz-view is-${room.part}`}>
-          {photo.low && <img className="vz-low" src={photo.low} alt="" aria-hidden="true" />}
+          {photo.low && !(ready && settled) && (
+            <img className="vz-low" src={photo.low} alt="" aria-hidden="true" />
+          )}
           <img
             className={`vz-full${ready ? ' is-ready' : ''}`}
             src={photo.src}
@@ -150,6 +162,8 @@ export default function Visualizer({ initialStones = [] }) {
   const lastId = useRef(null);
   const warmed = useRef(new Set());
   const drag = useRef(null);
+  const splitRef = useRef(50); // the compare handle while it is dragged (see moveSplit)
+  const splitFrame = useRef(0);
 
   const byId = useMemo(() => new Map(stones.map((s) => [s.id, s])), [stones]);
   const stone = byId.get(currentId) || firstStone(stones);
@@ -341,6 +355,7 @@ export default function Visualizer({ initialStones = [] }) {
     setVsId(stone.id);
     setCurrentId(other.id);
     setSplit(50);
+    splitRef.current = 50;
     setNudge(!reducedMotion());
   };
 
@@ -377,12 +392,29 @@ export default function Visualizer({ initialStones = [] }) {
     drag.current = { x: e.clientX, y: e.clientY, id: e.pointerId };
     if (vs) {
       e.currentTarget.setPointerCapture(e.pointerId);
+      e.currentTarget.classList.add('is-dragging');
+      setNudge(false);
       moveSplit(e.clientX);
     }
   };
+  // While dragging, the handle moves by setting the CSS value on the stage directly (once per
+  // frame), not through React state: re-rendering the whole page on every finger move, with the
+  // big photos repainted each time, made iPhone Safari run out of memory and reload the page.
+  // The state is updated when the finger is lifted.
   const moveSplit = (x) => {
-    const r = stageRef.current.getBoundingClientRect();
-    setSplit(Math.min(100, Math.max(0, ((x - r.left) / r.width) * 100)));
+    const stage = stageRef.current;
+    const r = stage.getBoundingClientRect();
+    splitRef.current = Math.min(100, Math.max(0, ((x - r.left) / r.width) * 100));
+    if (splitFrame.current) return;
+    splitFrame.current = requestAnimationFrame(() => {
+      splitFrame.current = 0;
+      stage.style.setProperty('--vz-split', `${splitRef.current}%`);
+    });
+  };
+  const endSplitDrag = () => {
+    if (!stageRef.current?.classList.contains('is-dragging')) return;
+    stageRef.current.classList.remove('is-dragging');
+    setSplit(splitRef.current);
   };
   const onPointerMove = (e) => {
     if (vs && drag.current) moveSplit(e.clientX);
@@ -390,6 +422,7 @@ export default function Visualizer({ initialStones = [] }) {
   const onPointerUp = (e) => {
     const d = drag.current;
     drag.current = null;
+    endSplitDrag();
     if (!d || vs) return;
     const dx = e.clientX - d.x;
     const dy = e.clientY - d.y;
@@ -411,7 +444,10 @@ export default function Visualizer({ initialStones = [] }) {
     const k = { ArrowLeft: -5, ArrowRight: 5, Home: -100, End: 100 }[e.key];
     if (k === undefined) return;
     e.preventDefault();
-    setSplit((s) => Math.min(100, Math.max(0, s + k)));
+    setSplit((s) => {
+      splitRef.current = Math.min(100, Math.max(0, s + k));
+      return splitRef.current;
+    });
   };
 
   const showCategory = (type) => {
@@ -528,7 +564,10 @@ export default function Visualizer({ initialStones = [] }) {
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
-          onPointerCancel={() => (drag.current = null)}
+          onPointerCancel={() => {
+            drag.current = null;
+            endSplitDrag();
+          }}
           style={{ '--vz-split': `${split}%` }}
         >
           {failed && <p className="vz-failed">{t('visualizer.loadError')}</p>}

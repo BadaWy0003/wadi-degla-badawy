@@ -428,6 +428,25 @@ html[dir='rtl'] .vz-glint {
   clip-path: inset(0 0 0 var(--vz-split));
 }
 
+/* comparing: the right side shows the same blurred surround as the left (one big blurred layer
+   instead of two), and while the handle is dragged the frosted controls over the photo become
+   plain (their blur is recalculated on every move otherwise). Both keep iPhone Safari from
+   running out of memory. */
+.vz-side-b .vz-amb {
+  display: none;
+}
+
+.vz-stage.is-dragging .vz-rooms,
+.vz-stage.is-dragging .vz-tools button,
+.vz-stage.is-dragging .vz-label,
+.vz-stage.is-dragging .vz-step button,
+.vz-stage.is-dragging .vz-step span,
+.vz-stage.is-dragging .vz-tag {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: rgba(12, 11, 10, 0.78);
+}
+
 .vz-stage.is-compare {
   cursor: ew-resize;
 }
