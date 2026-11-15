@@ -8,7 +8,28 @@
     "ctaTitle": "Request a quote or a sample",
     "ctaText": "Tell us the stone, finish, thickness, sizes, quantity and destination, and our sales team will reply with a quotation.",
     "ctaButton": "Contact our sales team",
-    "relatedTitle": "Related pages"
+    "relatedTitle": "Related pages",
+    "eyebrowStones": "Stone guide",
+    "eyebrowGuide": "Export guide",
+    "onThisPage": "On this page",
+    "facts": [
+      {
+        "label": "Minimum order",
+        "value": "One 20 ft container"
+      },
+      {
+        "label": "Production time",
+        "value": "3–4 weeks"
+      },
+      {
+        "label": "Shipping terms",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "Samples",
+        "value": "Free"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "Egyptian Marble – Slabs, Tiles & Blocks from Egypt | Wadi Degla",

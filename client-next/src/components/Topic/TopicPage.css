@@ -1,279 +1,747 @@
-/* Topic pages (Egyptian Marble, Egyptian Granite, Galala Marble, buying guide…) */
-
-/* Cover photo with the title (same look as the other pages' covers; defined here because
-   the shared .quarries-hero rules live in stylesheets these pages don't load) */
-.topic-page .topic-hero {
-  position: relative;
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), var(--topic-hero) center / cover
-    no-repeat;
-  height: 70vh;
-  min-height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 1rem;
+/* Topic pages (the 6 stone guides + the buying guide), redesigned 2026-11-15, design A
+   "Reading guide": dark + gold like the other redesigned pages. Everything is scoped under
+   .tp; smaller screens at the end. Moving parts: TopicEnhance.js. */
+.tp {
+  --tp-bg: #0c0b0a;
+  --tp-surface: #15130f;
+  --tp-line: rgba(232, 214, 186, 0.1);
+  --tp-line-strong: rgba(232, 214, 186, 0.22);
+  --tp-text: #f3eee6;
+  --tp-body: #d6d0c6;
+  --tp-muted: #a8a196;
+  --tp-gold: #ad9571;
+  --tp-gold-hi: #cdb48b;
+  --tp-on-gold: #16130f;
+  --tp-header: 84px; /* the fixed site header */
+  background: var(--tp-bg);
+  color: var(--tp-text);
+  padding-bottom: 96px;
 }
 
-.topic-page .topic-hero h1 {
-  color: var(--whiteColor);
-  margin: 4rem 0 1rem;
-  max-width: 900px;
+.tp *,
+.tp *::before,
+.tp *::after {
+  box-sizing: border-box;
 }
 
-.topic-page .topic-hero .breadcrumb {
-  flex-wrap: wrap;
-}
-
-.topic-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 2rem 6rem;
-}
-
-.topic-intro p,
-.topic-block p {
-  color: var(--lightGrayColor);
-  font-size: 17px;
-  line-height: 1.85;
-  margin: 0 0 1rem;
-  max-width: 860px;
-}
-
-.topic-intro p:first-child {
-  color: var(--whiteColor);
-  font-size: 19px;
-}
-
-.topic-block {
-  margin-top: 3.5rem;
-}
-
-.topic-block h2 {
-  color: var(--goldColor);
-  font-size: 1.7rem;
-  text-transform: uppercase;
-  margin: 0 0 1.25rem;
-}
-
-/* Buying guide steps */
-.topic-steps {
-  list-style: none;
-  counter-reset: step;
-  padding: 0;
+.tp h1,
+.tp h2,
+.tp h3,
+.tp p,
+.tp dl,
+.tp dd,
+.tp ol,
+.tp ul {
   margin: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-.topic-steps li {
-  counter-increment: step;
-  position: relative;
-  border: 1px solid rgba(173, 149, 113, 0.35);
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem 0.5rem 4.5rem;
-}
-
-.topic-steps li::before {
-  content: counter(step);
-  position: absolute;
-  left: 1.25rem;
-  top: 1.2rem;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  background: var(--goldColor);
-  color: var(--whiteColor);
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-html[dir='rtl'] .topic-steps li {
-  padding: 1.25rem 4.5rem 0.5rem 1.5rem;
-}
-
-html[dir='rtl'] .topic-steps li::before {
-  left: auto;
-  right: 1.25rem;
-}
-
-.topic-steps h3 {
-  color: var(--whiteColor);
-  font-size: 1.1rem;
-  margin: 0.2rem 0 0.5rem;
-}
-
-/* Stones of this topic: same cards as the products page */
-.topic-products {
-  margin-top: 0.5rem;
-}
-
-/* Projects that used these stones (same look as on product pages) */
-.topic-projects {
-  list-style: none;
   padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
 }
 
-.topic-projects a {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-decoration: none;
-  color: var(--lightGrayColor);
-  border: 1px solid rgba(173, 149, 113, 0.4);
-  border-radius: 10px;
-  padding: 0.5rem;
-  transition: border-color 0.3s ease;
-}
-
-.topic-projects a:hover {
-  border-color: var(--goldColor);
-}
-
-.topic-projects img {
-  width: 96px;
-  height: 64px;
-  object-fit: cover;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
-
-.topic-projects span {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-}
-
-.topic-projects strong {
-  color: var(--whiteColor);
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-/* Questions & answers */
-.topic-faq details {
-  border-bottom: 1px solid rgba(173, 149, 113, 0.35);
-  padding: 1rem 0;
-}
-
-.topic-faq summary {
-  color: var(--whiteColor);
-  font-size: 17px;
-  font-weight: 600;
-  cursor: pointer;
-  list-style-position: outside;
-}
-
-.topic-faq details p {
-  margin-top: 0.75rem;
-}
-
-/* Request a quote */
-.topic-cta {
-  border: 1px solid var(--goldColor);
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-}
-
-.topic-cta p {
-  margin: 0 auto 1.5rem;
-}
-
-.topic-cta .btn1 {
-  display: inline-block;
-  text-decoration: none;
-}
-
-/* Related pages */
-.topic-related {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.topic-related a {
-  display: inline-block;
-  color: var(--goldColor);
-  border: 1px solid rgba(173, 149, 113, 0.5);
-  border-radius: 999px;
-  padding: 0.6rem 1.2rem;
-  text-decoration: none;
-}
-
-.topic-related a:hover {
-  background: var(--goldColor);
-  color: var(--whiteColor);
-}
-
-@media screen and (max-width: 768px) {
-  .topic-page .topic-hero {
-    height: 46vh;
-    min-height: 300px;
-  }
-
-  .topic-page .topic-hero h1 {
-    font-size: 30px;
-    margin-top: 3rem;
-  }
-
-  .topic-content {
-    padding: 2.5rem 16px 4rem;
-  }
-
-  .topic-intro p,
-  .topic-block p {
-    font-size: 16px;
-  }
-
-  .topic-intro p:first-child {
-    font-size: 17px;
-  }
-
-  .topic-block {
-    margin-top: 2.5rem;
-  }
-
-  .topic-block h2 {
-    font-size: 22px;
-  }
-
-  .topic-steps li {
-    padding-left: 3.75rem;
-  }
-
-  html[dir='rtl'] .topic-steps li {
-    padding-left: 1.5rem;
-    padding-right: 3.75rem;
-  }
-
-  .topic-cta {
-    padding: 1.5rem 1rem;
-  }
-}
-
-/* Link under a second stone group (e.g. "Egyptian Limestone →" on the Egyptian marble page) */
-.topic-also-link {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.topic-also-link a {
-  color: var(--goldColor, #ad9571);
-  text-decoration: none;
+.tp h1,
+.tp h2,
+.tp h3 {
+  font-family: inherit;
+  color: var(--tp-text);
+  text-transform: none !important; /* index.css makes every h2 upper case */
+  letter-spacing: -0.01em;
+  line-height: 1.1;
   font-weight: 500;
 }
 
-.topic-also-link a:hover {
-  text-decoration: underline;
+.tp a {
+  text-decoration: none;
+}
+
+.tp-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.tp-eyebrow {
+  color: var(--tp-gold);
+  font-size: 13px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  font-weight: 500;
+}
+
+/* header: the photo with the text on the left (right in Arabic) */
+.tp-hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--tp-header) + 48px) 0 64px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 11, 10, 0.92) 0%,
+      rgba(12, 11, 10, 0.6) 48%,
+      rgba(12, 11, 10, 0.12) 100%
+    ),
+    linear-gradient(0deg, var(--tp-bg) 0%, rgba(12, 11, 10, 0) 32%),
+    var(--tp-hero) 60% 40% / cover no-repeat,
+    var(--tp-bg);
+}
+
+html[dir='rtl'] .tp-hero {
+  background:
+    linear-gradient(
+      270deg,
+      rgba(12, 11, 10, 0.92) 0%,
+      rgba(12, 11, 10, 0.6) 48%,
+      rgba(12, 11, 10, 0.12) 100%
+    ),
+    linear-gradient(0deg, var(--tp-bg) 0%, rgba(12, 11, 10, 0) 32%),
+    var(--tp-hero) 40% 40% / cover no-repeat,
+    var(--tp-bg);
+}
+
+.tp-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--tp-muted);
+  margin-bottom: 26px;
+}
+
+.tp-crumb a {
+  color: var(--tp-gold-hi);
+}
+
+.tp-crumb-here {
+  color: var(--tp-muted);
+}
+
+.tp-hero h1 {
+  font-size: clamp(40px, 5.2vw, 70px);
+  line-height: 1.03;
+  margin: 14px 0 20px;
+  max-width: 680px;
+}
+
+.tp-lead {
+  color: var(--tp-body);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+.tp-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  max-width: 860px;
+  margin-top: 36px !important;
+  background: var(--tp-line-strong);
+  border: 1px solid var(--tp-line-strong);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tp-facts div {
+  background: rgba(16, 14, 12, 0.84);
+  backdrop-filter: blur(6px);
+  padding: 18px 20px;
+}
+
+.tp-facts dt {
+  color: var(--tp-muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tp-facts dd {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--tp-gold-hi);
+}
+
+/* body: "On this page" beside the content */
+.tp-body {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 64px;
+  margin-top: 80px;
+}
+
+.tp-toc {
+  position: sticky;
+  top: calc(var(--tp-header) + 32px);
+  align-self: start;
+}
+
+.tp-toc-links {
+  margin-top: 14px;
+}
+
+.tp-toc-links a {
+  display: block;
+  padding: 9px 0;
+  padding-inline-start: 16px;
+  border-inline-start: 2px solid var(--tp-line-strong);
+  color: var(--tp-muted);
+  font-size: 14.5px;
+  line-height: 1.4;
+  transition:
+    color 0.25s,
+    border-color 0.25s;
+}
+
+.tp-toc-links a:hover,
+.tp-toc-links a.is-on {
+  color: var(--tp-text);
+  border-color: var(--tp-gold);
+}
+
+.tp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--tp-gold);
+  color: var(--tp-on-gold) !important;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.tp-btn:hover {
+  background: var(--tp-gold-hi);
+}
+
+.tp-btn-line {
+  background: none;
+  color: var(--tp-text) !important;
+  border: 1px solid var(--tp-line-strong);
+}
+
+.tp-btn-line:hover {
+  background: rgba(232, 214, 186, 0.06);
+}
+
+.tp-toc .tp-btn {
+  margin-top: 26px;
+  width: 100%;
+  font-size: 14px;
+  padding: 12px 16px;
+}
+
+.tp-main {
+  min-width: 0;
+}
+
+.tp-intro p,
+.tp-block p {
+  color: var(--tp-body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.tp-intro p + p,
+.tp-block p + p {
+  margin-top: 14px;
+}
+
+.tp-intro {
+  margin-bottom: 56px;
+}
+
+.tp-intro p {
+  font-size: 18px;
+}
+
+.tp-block {
+  scroll-margin-top: calc(var(--tp-header) + 24px);
+}
+
+.tp-block + .tp-block,
+.tp-intro + .tp-block {
+  margin-top: 56px;
+  padding-top: 56px;
+  border-top: 1px solid var(--tp-line);
+}
+
+.tp-block h2 {
+  font-size: clamp(26px, 3vw, 38px);
+  margin-bottom: 20px;
+}
+
+/* the ordering steps as a timeline that fills with gold */
+.tp-steps {
+  --tp-fill: 1;
+  position: relative;
+  list-style: none;
+  margin-top: 32px !important;
+}
+
+.tp-steps::before,
+.tp-steps::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 23px;
+  top: 8px;
+  width: 2px;
+}
+
+.tp-steps::before {
+  bottom: 8px;
+  background: var(--tp-line-strong);
+}
+
+.tp-steps::after {
+  height: calc((100% - 16px) * var(--tp-fill));
+  background: linear-gradient(var(--tp-gold-hi), var(--tp-gold));
+  box-shadow: 0 0 12px rgba(205, 180, 139, 0.55);
+}
+
+.tp-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 220px;
+  gap: 24px;
+  padding-bottom: 44px;
+}
+
+.tp-step:last-child {
+  padding-bottom: 0;
+}
+
+.tp-step-num {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--tp-gold);
+  background: var(--tp-bg);
+  color: var(--tp-gold-hi);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  transition:
+    background 0.4s,
+    color 0.4s,
+    box-shadow 0.4s;
+}
+
+.tp-step.is-done .tp-step-num {
+  background: var(--tp-gold);
+  color: var(--tp-on-gold);
+  box-shadow: 0 0 0 6px rgba(173, 149, 113, 0.15);
+}
+
+.tp-step h3 {
+  font-size: 21px;
+  margin: 11px 0 10px;
+}
+
+.tp-step p {
+  font-size: 15.5px;
+}
+
+.tp-step-img {
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--tp-line);
+}
+
+/* stones of this topic */
+.tp-stones {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px 18px;
+  margin-top: 8px;
+}
+
+.tp-stone {
+  display: block;
+  color: var(--tp-text);
+  min-width: 0;
+}
+
+.tp-stone-img {
+  display: block;
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--tp-surface);
+}
+
+.tp-stone-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tp-stone:hover .tp-stone-img img {
+  transform: scale(1.05);
+}
+
+.tp-stone-name {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.tp-stone:hover .tp-stone-name {
+  color: var(--tp-gold-hi);
+}
+
+.tp-more {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 24px;
+  color: var(--tp-gold-hi);
+  font-weight: 500;
+}
+
+html[dir='rtl'] .tp-more span,
+html[dir='rtl'] .tp-related a span {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+/* projects that used these stones */
+.tp-projects {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 18px;
+  margin-top: 8px !important;
+}
+
+.tp-projects a {
+  display: block;
+  color: var(--tp-text);
+}
+
+.tp-project-img {
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--tp-surface);
+}
+
+.tp-project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tp-projects a:hover img {
+  transform: scale(1.05);
+}
+
+.tp-projects strong {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 15.5px;
+}
+
+.tp-projects strong + span {
+  display: block;
+  color: var(--tp-muted);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* questions & answers */
+.tp-faq details {
+  border-bottom: 1px solid var(--tp-line);
+  padding: 20px 0;
+}
+
+.tp-faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 17.5px;
+  font-weight: 500;
+  color: var(--tp-text);
+}
+
+.tp-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.tp-faq summary::after {
+  content: '+';
+  color: var(--tp-gold);
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.3s;
+}
+
+.tp-faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.tp-faq details p {
+  margin-top: 12px;
+  font-size: 15.5px;
+}
+
+/* WhatsApp band */
+#tp-quote {
+  margin-top: 96px;
+  scroll-margin-top: calc(var(--tp-header) + 24px);
+}
+
+.tp-band {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 44px;
+  border: 1px solid var(--tp-line-strong);
+  border-radius: 20px;
+  background: linear-gradient(120deg, #1a1712, #0f0e0c);
+}
+
+.tp-band > div {
+  flex: 1;
+  margin-inline-end: 16px;
+}
+
+.tp-band h2 {
+  font-size: 30px;
+}
+
+.tp-band p {
+  color: var(--tp-body);
+  margin-top: 10px !important;
+  line-height: 1.6;
+}
+
+/* related pages */
+.tp-related {
+  margin-top: 64px;
+}
+
+.tp-related ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px !important;
+}
+
+.tp-related a {
+  display: inline-flex;
+  gap: 6px;
+  border: 1px solid var(--tp-line-strong);
+  border-radius: 99px;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: var(--tp-body);
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.tp-related a:hover {
+  color: var(--tp-text);
+  border-color: var(--tp-gold);
+}
+
+.tp h2.tp-eyebrow {
+  text-transform: uppercase !important;
+  color: var(--tp-gold);
+}
+
+/* The page ends with its own call to action, so the footer's "Get in touch" banner is
+   hidden here (same as on the other redesigned pages). */
+html body:has(.tp) .footer-left:not(#m) {
+  display: none;
+}
+
+html body:has(.tp) .footer-right:not(#m) {
+  width: 100%;
+  border-top: 1px solid rgba(232, 214, 186, 0.1);
+}
+
+/* fade-up when scrolled to (class added by TopicEnhance.js after the page loads) */
+.tp-reveal {
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.tp-reveal.tp-hidden {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tp-reveal,
+  .tp-step-num,
+  .tp-stone-img img,
+  .tp-project-img img {
+    transition: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .tp-body {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 40px;
+  }
+  .tp-step {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+  .tp-step-img {
+    grid-column: 2;
+    width: 100%;
+    height: 200px;
+  }
+  .tp-stones {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .tp-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tp-band {
+    flex-wrap: wrap;
+  }
+  .tp-band > div {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .tp {
+    --tp-header: 60px;
+    padding-bottom: 64px;
+  }
+  .tp-wrap {
+    padding: 0 16px;
+  }
+  .tp-hero,
+  html[dir='rtl'] .tp-hero {
+    min-height: 0;
+    padding: calc(var(--tp-header) + 40px) 0 32px;
+    background:
+      linear-gradient(0deg, var(--tp-bg) 6%, rgba(12, 11, 10, 0.6) 55%, rgba(12, 11, 10, 0.3)),
+      var(--tp-hero-phone) center 30% / cover no-repeat,
+      var(--tp-bg);
+  }
+  .tp-hero h1 {
+    font-size: 34px;
+  }
+  .tp-lead {
+    font-size: 15px;
+  }
+  .tp-facts {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 28px !important;
+  }
+  .tp-facts div {
+    padding: 14px 16px;
+  }
+  .tp-facts dd {
+    font-size: 16px;
+  }
+  .tp-body {
+    display: block;
+    margin-top: 32px;
+  }
+  /* "On this page" becomes a sticky row of chips under the header */
+  .tp-toc {
+    top: var(--tp-header);
+    z-index: 5;
+    margin: 0 -16px 24px;
+    padding: 10px 0;
+    background: rgba(12, 11, 10, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--tp-line);
+  }
+  .tp-toc > .tp-eyebrow,
+  .tp-toc > .tp-btn {
+    display: none;
+  }
+  .tp-toc-links {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tp-toc-links::-webkit-scrollbar {
+    display: none;
+  }
+  .tp-toc-links a {
+    flex: none;
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid var(--tp-line-strong);
+    border-radius: 99px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+  .tp-toc-links a.is-on {
+    background: var(--tp-gold);
+    border-color: var(--tp-gold);
+    color: var(--tp-on-gold);
+  }
+  .tp-block {
+    scroll-margin-top: calc(var(--tp-header) + 72px);
+  }
+  .tp-intro p {
+    font-size: 16px;
+  }
+  .tp-block + .tp-block,
+  .tp-intro + .tp-block {
+    margin-top: 40px;
+    padding-top: 40px;
+  }
+  .tp-block h2 {
+    font-size: 26px;
+  }
+  .tp-step {
+    gap: 16px;
+    padding-bottom: 36px;
+  }
+  .tp-step-img {
+    height: 180px;
+  }
+  .tp-stones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+  .tp-projects {
+    grid-template-columns: 1fr;
+  }
+  #tp-quote {
+    margin-top: 64px;
+    scroll-margin-top: calc(var(--tp-header) + 72px);
+  }
+  .tp-band {
+    padding: 28px 20px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tp-band h2 {
+    font-size: 24px;
+  }
 }

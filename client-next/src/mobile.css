@@ -571,9 +571,4 @@
       linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)),
       url('/Assets/Media/Hero/quarries-home-m.webp') !important;
   }
-  html body .topic-page .topic-hero:not(#m) {
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-      var(--topic-hero-phone) !important;
-  }
 }
