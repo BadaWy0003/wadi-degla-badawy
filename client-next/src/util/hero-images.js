@@ -9,7 +9,7 @@ export const MOBILE_HEROES = new Set([
   'quarries-home',
   'exports-hero',
   'home-hero-4',
-  'home-hero-yard', // only the phone copy exists (home page header on phones)
+  'home-hero-yard-window', // only the phone copy exists (home page header on phones)
   'projects-hero-mobile',
   // Topic page headers made by tools/make-topic-heroes.js
   'egyptian-marble-hero',
@@ -20,7 +20,7 @@ export const MOBILE_HEROES = new Set([
 ]);
 
 export const PAGE_HEROES = {
-  home: { desktop: 'home-hero-4', phone: 'home-hero-yard' }, // phone: owner's stockyard photo
+  home: { desktop: 'home-hero-4', phone: 'home-hero-yard-window' }, // phone: owner's stockyard photo (clear window at the top)
   about: { desktop: 'about-hero' },
   history: { desktop: 'history-hero' },
   quarries: { desktop: 'quarries-hero' },

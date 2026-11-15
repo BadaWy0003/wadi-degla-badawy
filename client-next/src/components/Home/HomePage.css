@@ -798,28 +798,42 @@ html[dir='rtl'] .hp-hero {
     padding: 64px 16px 0;
   }
 
+  /* Phones (owner's stockyard photo, 2026-11-15): the photo is shown at full width at the top,
+     almost untouched, as a clear "window" on the crane with the Wadi Degla sign and the blue
+     factory roof; it fades into the dark background where the text starts. The text starts
+     below the crane (padding-top follows the photo's height, 125vw). */
   .hp-hero {
-    padding: 110px 16px 0;
-    min-height: 92svh;
+    padding: calc(60px + 56vw) 16px 0;
+    min-height: 0;
     background:
       linear-gradient(
-        180deg,
-        rgba(12, 11, 10, 0.5) 0%,
-        rgba(12, 11, 10, 0.55) 45%,
-        var(--hp-bg) 100%
-      ),
-      url('/Assets/Media/Hero/home-hero-yard-m.webp') center / cover; /* owner's stockyard photo, 2026-11-14 */
+          180deg,
+          rgba(12, 11, 10, 0.3) 0%,
+          rgba(12, 11, 10, 0) 10%,
+          rgba(12, 11, 10, 0) 44%,
+          rgba(12, 11, 10, 0.72) 58%,
+          rgba(12, 11, 10, 0.94) 70%,
+          var(--hp-bg) 82%
+        )
+        top / 100% calc(125vw + 4px) no-repeat,
+      url('/Assets/Media/Hero/home-hero-yard-window-m.webp') top / 100% auto no-repeat,
+      var(--hp-bg);
   }
 
   html[dir='rtl'] .hp-hero {
     background:
       linear-gradient(
-        180deg,
-        rgba(12, 11, 10, 0.5) 0%,
-        rgba(12, 11, 10, 0.55) 45%,
-        var(--hp-bg) 100%
-      ),
-      url('/Assets/Media/Hero/home-hero-yard-m.webp') center / cover; /* owner's stockyard photo, 2026-11-14 */
+          180deg,
+          rgba(12, 11, 10, 0.3) 0%,
+          rgba(12, 11, 10, 0) 10%,
+          rgba(12, 11, 10, 0) 44%,
+          rgba(12, 11, 10, 0.72) 58%,
+          rgba(12, 11, 10, 0.94) 70%,
+          var(--hp-bg) 82%
+        )
+        top / 100% calc(125vw + 4px) no-repeat,
+      url('/Assets/Media/Hero/home-hero-yard-window-m.webp') top / 100% auto no-repeat,
+      var(--hp-bg);
   }
 
   /* phones: the company name bigger, the headline a little smaller (owner, 2026-11-11) */
