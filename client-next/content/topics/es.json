@@ -8,7 +8,28 @@
     "ctaTitle": "Solicite un presupuesto o una muestra",
     "ctaText": "Indíquenos la piedra, el acabado, el espesor, las medidas, la cantidad y el destino, y nuestro equipo comercial le responderá con un presupuesto.",
     "ctaButton": "Contactar con el equipo comercial",
-    "relatedTitle": "Páginas relacionadas"
+    "relatedTitle": "Páginas relacionadas",
+    "eyebrowStones": "Guía de piedras",
+    "eyebrowGuide": "Guía de exportación",
+    "onThisPage": "En esta página",
+    "facts": [
+      {
+        "label": "Pedido mínimo",
+        "value": "Un contenedor de 20 pies"
+      },
+      {
+        "label": "Plazo de producción",
+        "value": "3–4 semanas"
+      },
+      {
+        "label": "Condiciones de envío",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "Muestras",
+        "value": "Gratis"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "Mármol egipcio – Planchas, baldosas y bloques de Egipto | Wadi Degla",

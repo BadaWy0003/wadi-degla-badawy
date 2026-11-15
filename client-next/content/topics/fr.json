@@ -8,7 +8,28 @@
     "ctaTitle": "Demander un devis ou un échantillon",
     "ctaText": "Indiquez-nous la pierre, la finition, l'épaisseur, les dimensions, la quantité et la destination : notre équipe commerciale vous répondra avec un devis.",
     "ctaButton": "Contacter notre équipe commerciale",
-    "relatedTitle": "Pages associées"
+    "relatedTitle": "Pages associées",
+    "eyebrowStones": "Guide des pierres",
+    "eyebrowGuide": "Guide export",
+    "onThisPage": "Sur cette page",
+    "facts": [
+      {
+        "label": "Commande minimum",
+        "value": "Un conteneur 20 pieds"
+      },
+      {
+        "label": "Délai de production",
+        "value": "3 à 4 semaines"
+      },
+      {
+        "label": "Conditions d'expédition",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "Échantillons",
+        "value": "Gratuits"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "Marbre égyptien – Tranches, carreaux et blocs d'Égypte | Wadi Degla",

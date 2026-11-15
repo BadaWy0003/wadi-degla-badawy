@@ -53,6 +53,15 @@ export const TOPIC_PAGES = {
   buyGuide: {
     slug: 'buy-marble-from-egypt',
     hero: '/Assets/Media/Hero/buy-guide-hero.webp', // the client's loading-yard photo (2026-11-15)
+    // one photo per ordering step (steps in content/topics), shown beside each step
+    stepPhotos: [
+      '/Assets/Media/visualizer-home.webp',
+      '/Assets/Media/products-hero-1.webp',
+      '/Assets/Media/about-expertise.webp',
+      '/Assets/Media/Machinery/polishing-line.webp',
+      '/Assets/Media/Packing/packing1.webp',
+      '/Assets/Media/Exports/exports28.webp',
+    ],
     products: null, // no stone list: links to the category pages instead
     related: [
       'egyptianMarble',

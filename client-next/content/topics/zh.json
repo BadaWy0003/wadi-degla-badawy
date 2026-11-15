@@ -8,7 +8,28 @@
     "ctaTitle": "索取报价或样品",
     "ctaText": "请告诉我们石材、表面处理、厚度、尺寸、数量和目的地，我们的销售团队会回复报价。",
     "ctaButton": "联系销售团队",
-    "relatedTitle": "相关页面"
+    "relatedTitle": "相关页面",
+    "eyebrowStones": "石材指南",
+    "eyebrowGuide": "出口指南",
+    "onThisPage": "本页内容",
+    "facts": [
+      {
+        "label": "最小订单",
+        "value": "一个20英尺集装箱"
+      },
+      {
+        "label": "生产周期",
+        "value": "3–4周"
+      },
+      {
+        "label": "运输条款",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "样品",
+        "value": "免费"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "埃及大理石 – 来自埃及的大板、板材与荒料 | 瓦迪·德格拉",

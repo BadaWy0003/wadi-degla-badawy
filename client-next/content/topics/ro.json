@@ -8,7 +8,28 @@
     "ctaTitle": "Solicitați o ofertă sau o mostră",
     "ctaText": "Spuneți-ne piatra, finisajul, grosimea, dimensiunile, cantitatea și destinația, iar echipa noastră de vânzări vă va răspunde cu o ofertă.",
     "ctaButton": "Contactați echipa de vânzări",
-    "relatedTitle": "Pagini similare"
+    "relatedTitle": "Pagini similare",
+    "eyebrowStones": "Ghid pietre",
+    "eyebrowGuide": "Ghid de export",
+    "onThisPage": "Pe această pagină",
+    "facts": [
+      {
+        "label": "Comandă minimă",
+        "value": "Un container de 20 ft"
+      },
+      {
+        "label": "Timp de producție",
+        "value": "3–4 săptămâni"
+      },
+      {
+        "label": "Condiții de livrare",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "Mostre",
+        "value": "Gratuite"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "Marmură egipteană – Plăci, dale și blocuri din Egipt | Wadi Degla",

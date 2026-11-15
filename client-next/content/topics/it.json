@@ -8,7 +8,28 @@
     "ctaTitle": "Richiedi un preventivo o un campione",
     "ctaText": "Indicaci pietra, finitura, spessore, misure, quantità e destinazione: il nostro team commerciale ti risponderà con un preventivo.",
     "ctaButton": "Contatta il team commerciale",
-    "relatedTitle": "Pagine correlate"
+    "relatedTitle": "Pagine correlate",
+    "eyebrowStones": "Guida alle pietre",
+    "eyebrowGuide": "Guida all'export",
+    "onThisPage": "In questa pagina",
+    "facts": [
+      {
+        "label": "Ordine minimo",
+        "value": "Un container da 20 piedi"
+      },
+      {
+        "label": "Tempi di produzione",
+        "value": "3–4 settimane"
+      },
+      {
+        "label": "Condizioni di spedizione",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "Campioni",
+        "value": "Gratuiti"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "Marmo egiziano: fornitore ed esportatore dal 1980 | Wadi Degla",

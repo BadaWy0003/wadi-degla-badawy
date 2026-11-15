@@ -8,7 +8,28 @@
     "ctaTitle": "견적 또는 샘플 요청",
     "ctaText": "석재, 마감, 두께, 규격, 수량, 도착지를 알려 주시면 영업팀이 견적을 보내 드립니다.",
     "ctaButton": "영업팀에 문의하기",
-    "relatedTitle": "관련 페이지"
+    "relatedTitle": "관련 페이지",
+    "eyebrowStones": "석재 가이드",
+    "eyebrowGuide": "수출 가이드",
+    "onThisPage": "이 페이지 목차",
+    "facts": [
+      {
+        "label": "최소 주문",
+        "value": "20피트 컨테이너 1대"
+      },
+      {
+        "label": "생산 기간",
+        "value": "3–4주"
+      },
+      {
+        "label": "운송 조건",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "샘플",
+        "value": "무료"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "이집트 대리석 – 이집트산 슬래브, 타일, 블록 | Wadi Degla",

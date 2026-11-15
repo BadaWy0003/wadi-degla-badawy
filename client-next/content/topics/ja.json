@@ -8,7 +8,28 @@
     "ctaTitle": "お見積り・サンプルのご依頼",
     "ctaText": "石材、仕上げ、厚さ、サイズ、数量、仕向け地をお知らせいただければ、営業チームがお見積りをお送りします。",
     "ctaButton": "営業チームに問い合わせる",
-    "relatedTitle": "関連ページ"
+    "relatedTitle": "関連ページ",
+    "eyebrowStones": "石材ガイド",
+    "eyebrowGuide": "輸出ガイド",
+    "onThisPage": "このページの内容",
+    "facts": [
+      {
+        "label": "最小注文",
+        "value": "20フィートコンテナ1本"
+      },
+      {
+        "label": "生産期間",
+        "value": "3〜4週間"
+      },
+      {
+        "label": "出荷条件",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "サンプル",
+        "value": "無料"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "エジプト大理石 – エジプト産スラブ・タイル・ブロック | Wadi Degla",

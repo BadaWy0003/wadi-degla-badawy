@@ -8,7 +8,28 @@
     "ctaTitle": "Angebot oder Muster anfordern",
     "ctaText": "Nennen Sie uns Stein, Oberfläche, Stärke, Maße, Menge und Bestimmungsort, und unser Vertriebsteam antwortet Ihnen mit einem Angebot.",
     "ctaButton": "Vertriebsteam kontaktieren",
-    "relatedTitle": "Verwandte Seiten"
+    "relatedTitle": "Verwandte Seiten",
+    "eyebrowStones": "Steinratgeber",
+    "eyebrowGuide": "Export-Ratgeber",
+    "onThisPage": "Auf dieser Seite",
+    "facts": [
+      {
+        "label": "Mindestbestellung",
+        "value": "Ein 20-Fuß-Container"
+      },
+      {
+        "label": "Produktionszeit",
+        "value": "3–4 Wochen"
+      },
+      {
+        "label": "Lieferbedingungen",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "Muster",
+        "value": "Kostenlos"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "Ägyptischer Marmor – Rohplatten, Fliesen & Blöcke aus Ägypten | Wadi Degla",

@@ -8,7 +8,28 @@
     "ctaTitle": "Kërkoni një ofertë ose një mostër",
     "ctaText": "Na tregoni gurin, përfundimin, trashësinë, përmasat, sasinë dhe destinacionin, dhe ekipi ynë i shitjeve do t'ju përgjigjet me një ofertë.",
     "ctaButton": "Kontaktoni ekipin e shitjeve",
-    "relatedTitle": "Faqe të ngjashme"
+    "relatedTitle": "Faqe të ngjashme",
+    "eyebrowStones": "Udhëzues gurësh",
+    "eyebrowGuide": "Udhëzues eksporti",
+    "onThisPage": "Në këtë faqe",
+    "facts": [
+      {
+        "label": "Porosia minimale",
+        "value": "Një kontejner 20 këmbë"
+      },
+      {
+        "label": "Koha e prodhimit",
+        "value": "3–4 javë"
+      },
+      {
+        "label": "Kushtet e transportit",
+        "value": "FOB · CFR · CIF"
+      },
+      {
+        "label": "Mostrat",
+        "value": "Falas"
+      }
+    ]
   },
   "egyptianMarble": {
     "pageTitle": "Mermer egjiptian – Pllaka dhe blloqe nga Egjipti | Wadi Degla",
