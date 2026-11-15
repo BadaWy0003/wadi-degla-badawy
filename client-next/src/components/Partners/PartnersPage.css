@@ -154,6 +154,8 @@ html[dir='rtl'] .pa-crumb span[aria-hidden] {
   display: block;
   max-width: 100%;
   max-height: 100%;
+  min-width: 0;
+  min-height: 0;
   object-fit: contain;
   filter: brightness(0) invert(0.9) sepia(0.2);
   opacity: 0.85;
@@ -240,6 +242,20 @@ html[dir='rtl'] .pa-ticker-row {
   border: 1px solid var(--pa-line);
   border-radius: 18px;
   transition: background 0.3s ease;
+}
+
+/* Pixel limits as well as the % ones: iPhone Safari ignored max-height: 100% here and showed
+   the tall Mountain View logo at its full size, spilling out of its box (fixed 2026-11-16). */
+.pa-ticker img {
+  max-height: 54px;
+}
+
+.pa-story-logo img {
+  max-height: 78px; /* 130px box - 2 x 26px padding */
+}
+
+.pa-also img {
+  max-height: 64px; /* 96px box - 2 x 16px padding */
 }
 
 .pa-story:hover .pa-story-logo {
@@ -528,6 +544,10 @@ html body:has(.pa) .footer-right:not(#m) {
     height: 40px;
   }
 
+  .pa-ticker img {
+    max-height: 40px;
+  }
+
   .pa-section {
     padding-top: 44px;
   }
@@ -540,6 +560,11 @@ html body:has(.pa) .footer-right:not(#m) {
 
   .pa-story-logo {
     height: 100px;
+    padding: 20px;
+  }
+
+  .pa-story-logo img {
+    max-height: 60px; /* 100px box - 2 x 20px padding */
   }
 
   .pa-projects {
@@ -560,6 +585,10 @@ html body:has(.pa) .footer-right:not(#m) {
   .pa-also li {
     height: 76px;
     padding: 12px;
+  }
+
+  .pa-also img {
+    max-height: 52px; /* 76px box - 2 x 12px padding */
   }
 
   .pa-band {
