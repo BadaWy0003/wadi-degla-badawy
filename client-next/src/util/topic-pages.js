@@ -52,7 +52,7 @@ export const TOPIC_PAGES = {
   },
   buyGuide: {
     slug: 'buy-marble-from-egypt',
-    hero: '/Assets/Media/Hero/exports-hero.webp',
+    hero: '/Assets/Media/Hero/buy-guide-hero.webp', // the client's loading-yard photo (2026-11-15)
     products: null, // no stone list: links to the category pages instead
     related: [
       'egyptianMarble',

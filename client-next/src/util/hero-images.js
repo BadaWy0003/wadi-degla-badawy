@@ -8,6 +8,7 @@ export const MOBILE_HEROES = new Set([
   'quarries-hero',
   'quarries-home',
   'exports-hero',
+  'buy-guide-hero',
   'home-hero-4',
   'home-hero-yard-window', // only the phone copy exists (home page header on phones)
   'projects-hero-mobile',
