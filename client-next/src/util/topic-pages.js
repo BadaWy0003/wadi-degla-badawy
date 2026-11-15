@@ -52,6 +52,7 @@ export const TOPIC_PAGES = {
   },
   buyGuide: {
     slug: 'buy-marble-from-egypt',
+    noFacts: true, // no key-terms box in the header (owner, 2026-11-16)
     hero: '/Assets/Media/Hero/buy-guide-hero.webp', // the client's loading-yard photo (2026-11-15)
     // one photo per ordering step (steps in content/topics), shown beside each step
     stepPhotos: [
