@@ -233,9 +233,9 @@ html[dir='rtl'] .hi-crumb span[aria-hidden] {
 }
 
 .hi-portrait {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto; /* the whole photo, at its own shape (owner, 2026-11-16: heads were cut off) */
   border-radius: 12px;
 }
 
@@ -261,46 +261,46 @@ html[dir='rtl'] .hi-crumb span[aria-hidden] {
   color: var(--hi-gold);
 }
 
+/* small photos and archive photos: justified rows, every photo whole. Each one's width grows
+   with its shape (--r = width / height, set in History.js), so a row's photos share one height. */
 .hi-mini {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: 16px;
 }
 
 .hi-mini img {
+  flex: var(--r, 1) 1 calc(var(--r, 1) * 110px);
+  min-width: 0;
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  height: auto;
   border-radius: 10px;
 }
 
 /* ---------- archive photos ---------- */
 .hi-archive {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 160px;
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  border-radius: 18px;
-  overflow: hidden;
   margin-top: 22px;
 }
 
 .hi-tile {
+  flex: var(--r, 1) 1 calc(var(--r, 1) * 190px);
+  min-width: 0;
   padding: 0;
   border: 0;
+  border-radius: 12px;
   background: var(--hi-surface);
   cursor: zoom-in;
   overflow: hidden;
-  min-height: 0;
 }
 
 .hi-tile img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   transition: transform 0.5s ease;
 }
 
@@ -309,9 +309,8 @@ html[dir='rtl'] .hi-crumb span[aria-hidden] {
 }
 
 .hi-all {
-  position: absolute;
-  inset-inline-end: 14px;
-  bottom: 14px;
+  display: block;
+  margin: 14px auto 0;
   background: var(--hi-text);
   color: var(--hi-on-gold);
   border: 0;
@@ -421,7 +420,7 @@ html body:has(.hi) .footer-right:not(#m) {
 
   .hi-portrait {
     order: -1;
-    max-height: 260px;
+    max-width: 360px; /* the whole photo; a tall one doesn't fill the screen */
   }
 }
 
@@ -486,9 +485,12 @@ html body:has(.hi) .footer-right:not(#m) {
     padding: 18px;
   }
 
-  .hi-archive {
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 120px;
+  .hi-tile {
+    flex-basis: calc(var(--r, 1) * 130px);
+  }
+
+  .hi-mini img {
+    flex-basis: calc(var(--r, 1) * 100px);
   }
 
   .hi .related-pages {

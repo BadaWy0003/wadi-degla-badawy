@@ -4,6 +4,7 @@ import './HistoryPage.css';
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp } from 'react-icons/fa';
 import { HistoryImages } from './HistoryImages';
+import { HISTORY_SIZES } from './historySizes';
 import LangLink from '../LangLink';
 import StatCounter from '../About/StatCounter';
 import usePhotoZoom from '../usePhotoZoom';
@@ -25,7 +26,11 @@ const STEPS = [
     photo: PHOTO('history16'),
     alt: 'history.firstGenAlt',
   },
-  { year: 'history.tlQuarriesYear', title: 'history.familyExpansionTitle', text: 'history.familyExpansionText' },
+  {
+    year: 'history.tlQuarriesYear',
+    title: 'history.familyExpansionTitle',
+    text: 'history.familyExpansionText',
+  },
   {
     year: '2000',
     title: 'history.tl2000Title',
@@ -49,6 +54,20 @@ const STEPS = [
   },
 ];
 const ARCHIVE_SHOWN = 8;
+
+// Photos are shown whole (never cropped): their real width/height keep their space before
+// they load, and --r (width / height) sizes them in the justified rows (see HistoryPage.css).
+function photoProps(src) {
+  const size =
+    HISTORY_SIZES[
+      src
+        .split('/')
+        .pop()
+        .replace(/\.webp$/, '')
+    ];
+  if (!size) return {};
+  return { width: size[0], height: size[1], style: { '--r': (size[0] / size[1]).toFixed(3) } };
+}
 
 // A text with paragraphs (empty lines) and "•"/"-" lines -> paragraphs + a checklist
 function RichText({ text }) {
@@ -77,7 +96,10 @@ function RichText({ text }) {
 export default function History({ children }) {
   const { t } = useTranslation();
   const [openPhoto, zoom] = usePhotoZoom();
-  const slides = HistoryImages.map((src, i) => ({ src, alt: `${t('history.legacyTitle')} ${i + 1}` }));
+  const slides = HistoryImages.map((src, i) => ({
+    src,
+    alt: `${t('history.legacyTitle')} ${i + 1}`,
+  }));
   const tr = (key) => (key.startsWith('history.') ? t(key) : key);
   const values = String(t('history.finalText2'))
     .split('\n')
@@ -101,7 +123,13 @@ export default function History({ children }) {
               <dt>{t('history.statFounded')}</dt>
               <dd>
                 {/* in the HTML as 1980; counts down from 2025 in the browser */}
-                <StatCounter from={2025} end={1980} separator={false} suffix="" className="hi-num" />
+                <StatCounter
+                  from={2025}
+                  end={1980}
+                  separator={false}
+                  suffix=""
+                  className="hi-num"
+                />
               </dd>
             </div>
             <div>
@@ -130,13 +158,25 @@ export default function History({ children }) {
                     {step.gallery && (
                       <div className="hi-mini">
                         {step.gallery.map(([src, alt]) => (
-                          <img key={src} loading="lazy" src={src} alt={t(alt)} />
+                          <img
+                            key={src}
+                            loading="lazy"
+                            src={src}
+                            alt={t(alt)}
+                            {...photoProps(src)}
+                          />
                         ))}
                       </div>
                     )}
                   </div>
                   {step.photo && (
-                    <img className="hi-portrait" loading="lazy" src={step.photo} alt={t(step.alt)} />
+                    <img
+                      className="hi-portrait"
+                      loading="lazy"
+                      src={step.photo}
+                      alt={t(step.alt)}
+                      {...photoProps(step.photo)}
+                    />
                   )}
                 </div>
               </li>
@@ -149,21 +189,31 @@ export default function History({ children }) {
           <p className="hi-text">{t('history.legacyIntroText')}</p>
           <p className="hi-text">{t('history.legacyText2')}</p>
           <div className="hi-archive">
-            {HistoryImages.slice(0, ARCHIVE_SHOWN).map((src, i) => (
-              <button
-                type="button"
-                key={src}
-                className="hi-tile"
-                onClick={() => openPhoto(i)}
-                aria-label={`${t('history.legacyTitle')} ${i + 1}`}
-              >
-                <img loading="lazy" src={src} alt={`${t('history.legacyTitle')} ${i + 1}`} />
-              </button>
-            ))}
-            <button type="button" className="hi-all" onClick={() => openPhoto(0)}>
-              {t('projects.allPhotos').replace('{{count}}', HistoryImages.length)}
-            </button>
+            {HistoryImages.slice(0, ARCHIVE_SHOWN).map((src, i) => {
+              const props = photoProps(src);
+              return (
+                <button
+                  type="button"
+                  key={src}
+                  className="hi-tile"
+                  style={props.style}
+                  onClick={() => openPhoto(i)}
+                  aria-label={`${t('history.legacyTitle')} ${i + 1}`}
+                >
+                  <img
+                    loading="lazy"
+                    src={src}
+                    alt={`${t('history.legacyTitle')} ${i + 1}`}
+                    width={props.width}
+                    height={props.height}
+                  />
+                </button>
+              );
+            })}
           </div>
+          <button type="button" className="hi-all" onClick={() => openPhoto(0)}>
+            {t('projects.allPhotos').replace('{{count}}', HistoryImages.length)}
+          </button>
         </section>
 
         <section className="hi-section">
