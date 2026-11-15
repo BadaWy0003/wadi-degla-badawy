@@ -117,7 +117,7 @@ export default function TopicPage({
           </p>
           <h1>{heading}</h1>
           {intro[0] && <p className="tp-lead">{intro[0]}</p>}
-          {facts.length > 0 && (
+          {facts.length > 0 && !page.noFacts && (
             <dl className="tp-facts">
               {facts.map((f) => (
                 <div key={f.label}>
