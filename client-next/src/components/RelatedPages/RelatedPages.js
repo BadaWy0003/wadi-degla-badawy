@@ -23,6 +23,7 @@ export const RELATED = {
     'history',
     'products',
   ],
+  fairs: ['exports', 'partners', 'buyGuide', 'egyptianMarble', 'projects', 'contact'],
   history: ['quarries', 'galalaMarble', 'machinery', 'egyptianMarble', 'projects', 'products'],
 };
 

@@ -92,6 +92,7 @@ const STATIC_PAGES = [
   { path: '/certificates', priority: 0.6, changeFrequency: 'yearly', sections: ['certificates'] },
   { path: '/history', priority: 0.6, changeFrequency: 'yearly', sections: ['history'] },
   { path: '/partners', priority: 0.6, changeFrequency: 'monthly', sections: ['partners'] },
+  { path: '/fairs', priority: 0.6, changeFrequency: 'monthly', sections: ['fairs'] },
   { path: '/inspiration', priority: 0.6, changeFrequency: 'monthly', sections: ['inspiration'] },
   { path: '/patterns', priority: 0.6, changeFrequency: 'monthly', sections: ['patterns'] },
   {

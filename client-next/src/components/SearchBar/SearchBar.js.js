@@ -97,6 +97,7 @@ const SearchBar = () => {
     products: '/products',
     projects: '/projects',
     partners: '/partners',
+    fairs: '/fairs',
     news: '/news',
     kerbstone: '/kerbstone',
     cobbles: '/cobbles',

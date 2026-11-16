@@ -1,8 +1,6 @@
 // The site's menus, shared by the Navbar (dropdowns) and the Footer (columns), so both always
 // list the same pages. `label` is a translation key. Page addresses never change here: moving
 // a link between menus doesn't affect SEO.
-// /fairs is left out on purpose (empty "Coming soon" page; it is also noindex and out of the
-// sitemap). Put it back here and in app/sitemap.js once it has real content.
 
 export const COMPANY_MENU = {
   label: 'navigation.wadiDegla',
@@ -63,6 +61,7 @@ export const RESOURCES_MENU = {
         { href: '/inspiration', label: 'navigation.inspiration' },
         { href: '/news', label: 'navigation.news' },
         { href: '/partners', label: 'navigation.partners' },
+        { href: '/fairs', label: 'navigation.fairs' },
       ],
     },
   ],
