@@ -226,6 +226,16 @@ const SearchBarMobile = () => {
       </button>
 
       {open && (
+        <div
+          className="mobile-search-scrim"
+          aria-hidden="true"
+          onClick={() => {
+            setOpen(false);
+            setResults([]);
+          }}
+        />
+      )}
+      {open && (
         <div className="mobile-search-dropdown">
           <input
             ref={inputRef}

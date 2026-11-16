@@ -31,6 +31,7 @@ const TOP = [
   { menu: PRODUCTS_MENU },
   { href: '/projects', label: 'navigation.projects' },
   { menu: RESOURCES_MENU },
+  { href: '/fairs', label: 'navigation.fairs' }, // on its own (owner, 2026-11-17)
   { href: '/contact', label: 'navigation.contact' },
 ];
 

@@ -84,7 +84,6 @@ export const RESOURCES_MENU = {
         { href: '/inspiration', label: 'navigation.inspiration' },
         { href: '/news', label: 'navigation.news' },
         { href: '/partners', label: 'navigation.partners' },
-        { href: '/fairs', label: 'navigation.fairs' },
       ],
     },
   ],
@@ -102,7 +101,6 @@ export const menuLinks = (menu) => [
 // path: the address without the language ('/egyptian-marble', '/products/galala'…).
 const EXTRA = {
   [PRODUCTS_MENU.label]: ['/products', '/galala-marble'],
-  [RESOURCES_MENU.label]: ['/fairs'],
 };
 export function menuOfPath(path) {
   const clean = `/${String(path || '')
@@ -112,6 +110,7 @@ export function menuOfPath(path) {
   const hit = (href) => clean === href || clean.startsWith(`${href}/`);
   if (hit('/projects')) return 'navigation.projects';
   if (hit('/contact')) return 'navigation.contact';
+  if (hit('/fairs')) return 'navigation.fairs';
   for (const menu of DROPDOWN_MENUS) {
     const hrefs = menu.groups.flatMap((g) => g.items.map((i) => i.href));
     if ([...hrefs, ...(EXTRA[menu.label] || [])].some(hit)) return menu.label;
