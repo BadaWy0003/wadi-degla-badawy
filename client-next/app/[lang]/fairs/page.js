@@ -1,21 +1,47 @@
-import { t, buildAlternates, buildSocial } from '../../../src/components/../util/meta';
+import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Fairs from '../../../src/components/Fairs/Fairs';
+import { FAQ_KEYS } from '../../../src/components/Fairs/FairsData';
+import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
-  const title = t(lang, 'fairs.pageTitle', 'Fairs | Wadi Degla');
+  const title = t(lang, 'fairs.pageTitle', 'Fairs & Exhibitions | Wadi Degla');
   const description = t(lang, 'fairs.metaDescription', '');
   return {
     title,
     description,
     alternates: buildAlternates('/fairs', lang),
-    ...buildSocial({ title, description, path: '/fairs', lang }),
-    // Empty "Coming soon" page: kept out of Google (and out of the menu and sitemap) until it
-    // has real fairs. Then remove this line and add it back to app/sitemap.js and site-menu.js.
-    robots: { index: false, follow: true },
+    ...buildSocial({
+      title,
+      description,
+      path: '/fairs',
+      lang,
+      image: '/Assets/Media/Fairs/marble-izmir.webp',
+    }),
   };
 }
 
 export default function FairsPage({ params }) {
-  return <Fairs />;
+  const { lang } = params;
+  // the questions & answers shown on the page, for Google
+  const faq = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_KEYS.map((k) => ({
+      '@type': 'Question',
+      name: t(lang, `fairs.faq${k}Q`),
+      acceptedAnswer: { '@type': 'Answer', text: t(lang, `fairs.faq${k}A`) },
+    })),
+  };
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
+      />
+      <Fairs>
+        <RelatedPages lang={lang} page="fairs" />
+      </Fairs>
+    </>
+  );
 }
