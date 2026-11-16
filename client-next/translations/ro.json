@@ -211,7 +211,12 @@
     "groupStones": "Pietre",
     "groupStoneProducts": "Produse din piatră",
     "groupTools": "Instrumente",
-    "viewAllProducts": "Vezi toate produsele"
+    "viewAllProducts": "Vezi toate produsele",
+    "openMenu": "Deschide meniul",
+    "closeMenu": "Închide meniul",
+    "mainMenu": "Meniul principal",
+    "language": "Limba",
+    "searchPlaceholder": "Caută pietre și pagini…"
   },
   "cobbles": {
     "pageTitle": "Pavele din granit pentru exterior | Wadi Degla",

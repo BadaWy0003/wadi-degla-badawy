@@ -16,11 +16,17 @@ import LangLink from '../LangLink';
 import { useLang } from '../../context/LangContext';
 import { COMPANY_MENU, PRODUCTS_MENU, RESOURCES_MENU, menuLinks } from '../../util/site-menu';
 
-// Footer columns: the 3 menus; Projects (a top-level link in the menu) is listed under Resources.
+// Footer columns: the 3 menus; Projects and Fairs (top-level links in the menu) are listed under Resources.
 const FOOTER_COLUMNS = [
   { menu: COMPANY_MENU, extra: [] },
   { menu: PRODUCTS_MENU, extra: [] },
-  { menu: RESOURCES_MENU, extra: [{ href: '/projects', label: 'navigation.projects' }] },
+  {
+    menu: RESOURCES_MENU,
+    extra: [
+      { href: '/projects', label: 'navigation.projects' },
+      { href: '/fairs', label: 'navigation.fairs' },
+    ],
+  },
 ];
 
 function Footer() {

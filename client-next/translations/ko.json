@@ -211,7 +211,12 @@
     "groupStones": "석재",
     "groupStoneProducts": "석재 제품",
     "groupTools": "도구",
-    "viewAllProducts": "전체 제품 보기"
+    "viewAllProducts": "전체 제품 보기",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기",
+    "mainMenu": "주 메뉴",
+    "language": "언어",
+    "searchPlaceholder": "석재와 페이지 검색…"
   },
   "cobbles": {
     "pageTitle": "화강암 포석과 불 처리 포장 | 내구성 있는 외부 석재 솔루션 | Wadi Degla",

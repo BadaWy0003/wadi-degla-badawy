@@ -211,7 +211,12 @@
     "groupStones": "石材",
     "groupStoneProducts": "石材製品",
     "groupTools": "ツール",
-    "viewAllProducts": "すべての製品を見る"
+    "viewAllProducts": "すべての製品を見る",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "mainMenu": "メインメニュー",
+    "language": "言語",
+    "searchPlaceholder": "石材とページを検索…"
   },
   "cobbles": {
     "pageTitle": "花崗岩コブル石とフレーム舗装 | 耐久的な屋外石ソリューション | Wadi Degla",

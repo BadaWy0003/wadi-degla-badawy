@@ -211,7 +211,12 @@
     "groupStones": "Pietre",
     "groupStoneProducts": "Prodotti in pietra",
     "groupTools": "Strumenti",
-    "viewAllProducts": "Vedi tutti i prodotti"
+    "viewAllProducts": "Vedi tutti i prodotti",
+    "openMenu": "Apri il menu",
+    "closeMenu": "Chiudi il menu",
+    "mainMenu": "Menu principale",
+    "language": "Lingua",
+    "searchPlaceholder": "Cerca pietre e pagine…"
   },
   "cobbles": {
     "pageTitle": "Cubetti in granito per esterni | Wadi Degla",

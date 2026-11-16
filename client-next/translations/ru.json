@@ -211,7 +211,12 @@
     "groupStones": "Камень",
     "groupStoneProducts": "Изделия из камня",
     "groupTools": "Инструменты",
-    "viewAllProducts": "Все продукты"
+    "viewAllProducts": "Все продукты",
+    "openMenu": "Открыть меню",
+    "closeMenu": "Закрыть меню",
+    "mainMenu": "Главное меню",
+    "language": "Язык",
+    "searchPlaceholder": "Поиск камней и страниц…"
   },
   "cobbles": {
     "pageTitle": "Гранитная брусчатка для улицы | Wadi Degla",

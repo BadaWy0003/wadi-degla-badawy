@@ -211,7 +211,12 @@
     "groupStones": "Pierres",
     "groupStoneProducts": "Produits en pierre",
     "groupTools": "Outils",
-    "viewAllProducts": "Voir tous les produits"
+    "viewAllProducts": "Voir tous les produits",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "mainMenu": "Menu principal",
+    "language": "Langue",
+    "searchPlaceholder": "Rechercher des pierres et des pages…"
   },
   "cobbles": {
     "pageTitle": "Pavés en granit pour l'extérieur | Wadi Degla",
