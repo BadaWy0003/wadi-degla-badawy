@@ -211,7 +211,12 @@
     "groupStones": "Stones",
     "groupStoneProducts": "Stone products",
     "groupTools": "Tools",
-    "viewAllProducts": "View all products"
+    "viewAllProducts": "View all products",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainMenu": "Main menu",
+    "language": "Language",
+    "searchPlaceholder": "Search stones and pages…"
   },
   "cobbles": {
     "pageTitle": "Granite Cobbles & Outdoor Paving Stones | Wadi Degla",

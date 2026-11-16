@@ -43,6 +43,13 @@ const SearchBarMobile = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // The phone menu's search field opens this box (and closes the menu)
+  useEffect(() => {
+    const openFromMenu = () => setOpen(true);
+    window.addEventListener('wd:open-search', openFromMenu);
+    return () => window.removeEventListener('wd:open-search', openFromMenu);
+  }, []);
+
   useEffect(() => {
     if (open) {
       setTimeout(() => inputRef.current?.focus(), 150);

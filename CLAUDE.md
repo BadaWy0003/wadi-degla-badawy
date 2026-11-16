@@ -142,13 +142,8 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
   - a tighter footer
 - Every selector is `html body <target>:not(#m)`. The `:not(#m)` matches everything; it only raises the specificity to id level, so the rule beats the components' own mobile rules.
 - Add new phone fixes there, not in the component CSS.
-- The **header** block at the end of `mobile.css` applies up to 1230px, the Navbar's hamburger breakpoint:
-  - 60px tall, with 16px side padding and 44px tap targets
-  - frosted glass once scrolled: `rgba(10,10,10,.86)` + `blur(20px)`
-  - The frosting is drawn on `header::before`, never on `header` itself. A `backdrop-filter`/`filter`/`transform` on `header` makes it the containing block of the fixed full-screen menu (`header nav`) and breaks it.
-  - Don't target `.navbar-search` broadly: the menu contains a desktop search (`hide-on-mobile`) that must stay hidden.
+- **The header** (redesigned 2026-11-17, owner chose design A "Clean list") is styled only in `src/components/Navbar/Navbar.css`, scoped under `.wn` (the old header block in `mobile.css` and the global `header`/`nav` rules were removed). Desktop (1231px+): a floating bar 80px tall, 32px from the top (pages keep their space for it), full width and frosted once scrolled; Wadi Degla / Products / Resources open a dropdown on hover, click or keyboard (Esc closes; Products shows a small stone photo per category, `img` in `site-menu.js`, files in `Assets/Media/Menu/`); on the right the search, the language picker ("🌐 EN ▾", languages written in their own script, real links to the same page) and a small person icon (login; accounts are not used for now, owner). Phone/tablet (up to 1230px): a 60px bar (logo, search, ☰) and a full-screen menu sheet with the same top bar (logo + ✕), a search field (opens the header search via the `wd:open-search` event), one section open at a time (the current page's section opens first), and Language + Login at the bottom; the page behind doesn't scroll, Esc/✕/any link closes it. The menu of the current page is marked in gold (`menuOfPath()` in `site-menu.js`). The frosting is drawn on `.wn::before`, never on `.wn` itself (a `backdrop-filter` there would break the fixed menu sheet). No WhatsApp button in the header (owner). Texts: `navigation.openMenu/closeMenu/mainMenu/language/searchPlaceholder` in all 12 files.
 - Some spacing comes from inline styles (e.g. `style={{ marginTop: '5rem' }}` on the home buttons) or from component `!important` rules (e.g. `.product-details-page`). Overriding those in `mobile.css` needs `!important`.
-- `body:has(.certificates-page, .partners-container)` gives the header its dark frosted background at the top of those white pages.
 - Mobile audit method (2026-11-02): Playwright on iPhone 13 and a 360px phone, EN + AR, every page. It looks for:
   - overlapping text (text-node rectangles)
   - elements wider than the screen

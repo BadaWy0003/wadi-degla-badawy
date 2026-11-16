@@ -211,7 +211,12 @@
     "groupStones": "石材",
     "groupStoneProducts": "石材制品",
     "groupTools": "工具",
-    "viewAllProducts": "查看全部产品"
+    "viewAllProducts": "查看全部产品",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "mainMenu": "主菜单",
+    "language": "语言",
+    "searchPlaceholder": "搜索石材和页面…"
   },
   "cobbles": {
     "pageTitle": "花岗岩鹅卵石与火烧面铺路 | 耐用户外石材解决方案 | 瓦迪·德格拉",

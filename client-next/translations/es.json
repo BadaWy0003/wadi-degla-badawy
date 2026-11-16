@@ -211,7 +211,12 @@
     "groupStones": "Piedras",
     "groupStoneProducts": "Productos de piedra",
     "groupTools": "Herramientas",
-    "viewAllProducts": "Ver todos los productos"
+    "viewAllProducts": "Ver todos los productos",
+    "openMenu": "Abrir el menú",
+    "closeMenu": "Cerrar el menú",
+    "mainMenu": "Menú principal",
+    "language": "Idioma",
+    "searchPlaceholder": "Buscar piedras y páginas…"
   },
   "cobbles": {
     "pageTitle": "Adoquines de granito para exteriores | Wadi Degla",

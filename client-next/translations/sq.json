@@ -211,7 +211,12 @@
     "groupStones": "Gurë",
     "groupStoneProducts": "Produkte guri",
     "groupTools": "Mjete",
-    "viewAllProducts": "Shihni të gjitha produktet"
+    "viewAllProducts": "Shihni të gjitha produktet",
+    "openMenu": "Hap menunë",
+    "closeMenu": "Mbyll menunë",
+    "mainMenu": "Menuja kryesore",
+    "language": "Gjuha",
+    "searchPlaceholder": "Kërko gurë dhe faqe…"
   },
   "cobbles": {
     "pageTitle": "Kube graniti për ambiente të jashtme | Wadi Degla",

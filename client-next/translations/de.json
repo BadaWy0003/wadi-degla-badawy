@@ -211,7 +211,12 @@
     "groupStones": "Natursteine",
     "groupStoneProducts": "Steinprodukte",
     "groupTools": "Tools",
-    "viewAllProducts": "Alle Produkte ansehen"
+    "viewAllProducts": "Alle Produkte ansehen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "mainMenu": "Hauptmenü",
+    "language": "Sprache",
+    "searchPlaceholder": "Steine und Seiten suchen…"
   },
   "cobbles": {
     "pageTitle": "Granitpflastersteine für außen | Wadi Degla",

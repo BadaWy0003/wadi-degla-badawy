@@ -211,7 +211,12 @@
     "groupStones": "الأحجار",
     "groupStoneProducts": "منتجات حجرية",
     "groupTools": "أدوات",
-    "viewAllProducts": "عرض جميع المنتجات"
+    "viewAllProducts": "عرض جميع المنتجات",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "mainMenu": "القائمة الرئيسية",
+    "language": "اللغة",
+    "searchPlaceholder": "ابحث عن الأحجار والصفحات…"
   },
   "cobbles": {
     "pageTitle": "أحجار الجرانيت المكعبة للأرضيات الخارجية | وادي دجلة",
