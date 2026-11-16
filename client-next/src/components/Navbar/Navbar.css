@@ -408,7 +408,25 @@ html[dir='rtl'] .wn-all span {
 }
 
 .wn .search-results {
-  background: var(--wn-surface);
+  position: static;
+  margin-top: 10px;
+  max-height: 380px;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: none;
+  transform: none;
+  width: auto;
+}
+
+.wn .search-input:focus,
+.wn .mobile-search-input:focus {
+  border-color: var(--wn-gold);
+}
+
+.wn .search-input::placeholder,
+.wn .mobile-search-input::placeholder {
+  color: var(--wn-muted);
 }
 
 .wn .result-title {
