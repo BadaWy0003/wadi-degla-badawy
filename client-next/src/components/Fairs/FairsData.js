@@ -1,7 +1,8 @@
 // The international fairs Wadi Degla's team visited (owner, 2026-11-16), newest first.
 // name/city are proper names (not translated); the country is shown in the page's language
 // (Intl.DisplayNames), the date as "2026" or "April 2024" (Intl.DateTimeFormat).
-// Texts: fairs.items.<id> in all 12 translation files. city: null until the client confirms it.
+// Texts: fairs.items.<id> in all 12 translation files (facts from the organisers' sites,
+// checked 2026-11-16).
 // photos: [file in /Assets/Media/Fairs/, width, height]. To add a fair: add it here (and its
 // text in the 12 files); the numbers at the top are counted from this list.
 const PHOTO = (name) => `/Assets/Media/Fairs/${name}.webp`;
@@ -14,24 +15,27 @@ export const FAIRS = [
     country: 'IT',
     continent: 'europe',
     year: 2026,
+    month: 9, // 60th edition, Veronafiere, 22-25 September 2026
     photos: [[PHOTO('marmomac'), 900, 1200]],
   },
   {
     id: 'coverings',
     name: 'Coverings',
-    city: null,
+    city: 'Las Vegas',
     country: 'US',
     continent: 'northAmerica',
     year: 2026,
+    month: 3, // Las Vegas Convention Center, 30 March - 2 April 2026
     photos: [[PHOTO('coverings'), 899, 1200]],
   },
   {
     id: 'futurescape',
     name: 'FutureScape',
-    city: null,
+    city: 'Farnborough',
     country: 'GB',
     continent: 'europe',
     year: 2026,
+    month: 10, // Farnborough International, 13-14 October 2026
     photos: [
       [PHOTO('futurescape'), 900, 1200],
       [PHOTO('futurescape-2'), 1200, 900],
@@ -44,7 +48,7 @@ export const FAIRS = [
     country: 'TR',
     continent: 'asia',
     year: 2024,
-    month: 4,
+    month: 4, // fuarizmir, 17-20 April 2024 (29th edition)
     photos: [[PHOTO('marble-izmir'), 900, 1200]],
   },
 ];
