@@ -380,11 +380,12 @@
 }
 
 .fa-faq summary {
+  /* not a flex row: in Arabic on phones the "+" pushed the page 5px wider than the screen */
+  position: relative;
+  display: block;
+  padding-inline-end: 36px;
   list-style: none;
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
   font-size: 17.5px;
   font-weight: 500;
 }
@@ -395,6 +396,9 @@
 
 .fa-faq summary::after {
   content: '+';
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
   color: var(--fa-gold);
   font-size: 24px;
   line-height: 1;
