@@ -27,7 +27,6 @@
 
 .main>.main-content {
   flex: 1;
-  /* Fills the remaining space between navbar and footer */
 }
 
 .route-wrapper {
@@ -35,13 +34,6 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.page-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Breadcrumb Navigation */
@@ -68,26 +60,15 @@
   color: var(--whiteColor);
 }
 
-
 /* Disable parallax on touch screens (any size), enable only for real pointer/mouse devices */
 .hero,
-.quarries-hero,
-.quarries-home-section,
-.inspiration-home-section,
-.visualizer-home-inner,
-.projects-home-section,
-.history-final-section {
+.quarries-hero {
     background-attachment: scroll !important;
 }
 
 @media (hover: hover) and (pointer: fine) {
     .hero,
-    .quarries-hero,
-    .quarries-home-section,
-    .inspiration-home-section,
-    .visualizer-home-inner,
-    .projects-home-section,
-    .history-final-section {
+    .quarries-hero {
         background-attachment: fixed !important;
     }
 }
@@ -95,12 +76,7 @@
 /* Force scroll on tablet/iPad even if pointer: fine is detected (e.g. iPad + keyboard) */
 @media screen and (max-width: 1024px) {
     .hero,
-    .quarries-hero,
-    .quarries-home-section,
-    .inspiration-home-section,
-    .visualizer-home-inner,
-    .projects-home-section,
-    .history-final-section {
+    .quarries-hero {
         background-attachment: scroll !important;
     }
 }

@@ -97,8 +97,4 @@
 .mobile-search-result-item .result-content {
   font-size: 12px;
   color: var(--darkGrayColor);
-}
-
-.scrolled .navbar-search .mobile-search-icon{
-  color: var(--goldColor);
 } 
