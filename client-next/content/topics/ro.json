@@ -35,7 +35,7 @@
     "pageTitle": "Marmură egipteană – Plăci, dale și blocuri | Wadi Degla",
     "metaDescription": "Marmură egipteană de la Wadi Degla: Galala, Sunny, Triesta, Emperador, Cleopatra și altele. Plăci, dale și blocuri din carierele noastre, export din 1980.",
     "heading": "Marmură egipteană",
-    "intro": "Marmura egipteană este o piatră naturală extrasă în Egipt, cunoscută pentru nuanțele calde de bej, crem, gri și maro și pentru calitatea constantă. Este folosită în locuințe, hoteluri, stațiuni și clădiri comerciale din întreaga lume.\n\nWadi Degla lucrează în carierele egiptene din 1980, când fondatorul nostru a deschis prima carieră pe Muntele Galala. Astăzi tăiem și finisăm marmura egipteană în propriile fabrici din Egipt, pe peste 27.000 de metri pătrați, și o livrăm sub formă de plăci, dale și blocuri către proiecte din toată lumea. Mai jos găsiți toate tipurile de marmură egipteană pe care le furnizăm și răspunsuri la cele mai frecvente întrebări.",
+    "intro": "Marmura egipteană este o piatră naturală extrasă în Egipt, cunoscută pentru nuanțele calde de bej, crem, gri și maro și pentru calitatea constantă. Este folosită în locuințe, hoteluri, stațiuni și clădiri comerciale din întreaga lume.\n\nWadi Degla lucrează în carierele egiptene din 1980, când fondatorul nostru a deschis prima carieră pe Muntele Galala. Astăzi tăiem și finisăm marmura egipteană în propriile fabrici din Egipt, pe peste {{facts.factoryArea}} de metri pătrați, și o livrăm sub formă de plăci, dale și blocuri către proiecte din toată lumea. Mai jos găsiți toate tipurile de marmură egipteană pe care le furnizăm și răspunsuri la cele mai frecvente întrebări.",
     "alsoTitle": "Calcar egiptean, vândut și ca marmură egipteană ({{count}})",
     "sections": [
       {
@@ -52,7 +52,7 @@
       },
       {
         "title": "De ce să cumpărați marmură egipteană de la Wadi Degla",
-        "text": "Trei generații în industria carierelor din Egipt, 14 cariere, începând cu muntele Galala, și trei fabrici (deschise în 2000, 2011 și 2015, peste 27.000 m²) cu linii moderne de debitare, lustruire, tratare cu rășină, CNC și tăiere cu jet de apă. Sistemul nostru de management al calității este certificat ISO 9001:2015, fiecare comandă este ambalată în baloți, lăzi sau paleți de lemn pentru export, iar noi livrăm în țările din Golf, Europa, Africa, Asia și cele două Americi."
+        "text": "Trei generații în industria carierelor din Egipt, {{facts.quarries}} cariere, începând cu muntele Galala, și trei fabrici (deschise în 2000, 2011 și 2015, peste {{facts.factoryArea}} m²) cu linii moderne de debitare, lustruire, tratare cu rășină, CNC și tăiere cu jet de apă. Sistemul nostru de management al calității este certificat ISO 9001:2015, fiecare comandă este ambalată în baloți, lăzi sau paleți de lemn pentru export, iar noi livrăm în țările din Golf, Europa, Africa, Asia și cele două Americi."
       }
     ],
     "faq": [

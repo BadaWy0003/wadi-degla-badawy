@@ -35,7 +35,7 @@
     "pageTitle": "Ägyptischer Marmor – Platten, Fliesen & Blöcke | Wadi Degla",
     "metaDescription": "Ägyptischer Marmor von Wadi Degla: Galala, Sunny, Triesta, Emperador, Cleopatra und mehr. Platten, Fliesen und Blöcke aus eigenen Brüchen, seit 1980.",
     "heading": "Ägyptischer Marmor",
-    "intro": "Ägyptischer Marmor ist ein in Ägypten abgebauter Naturstein, bekannt für seine warmen Beige-, Creme-, Grau- und Brauntöne und seine gleichbleibende Qualität. Er wird in Häusern, Hotels, Resorts und Geschäftsgebäuden auf der ganzen Welt verwendet.\n\nWadi Degla arbeitet seit 1980 in ägyptischen Steinbrüchen, als unser Gründer den ersten Steinbruch am Galala-Berg eröffnete. Heute schneiden und veredeln wir ägyptischen Marmor in unseren eigenen Werken in Ägypten auf über 27.000 Quadratmetern und liefern ihn als Rohplatten, Fliesen und Blöcke an Projekte weltweit. Unten finden Sie alle ägyptischen Marmorsorten, die wir liefern, und Antworten auf die häufigsten Fragen.",
+    "intro": "Ägyptischer Marmor ist ein in Ägypten abgebauter Naturstein, bekannt für seine warmen Beige-, Creme-, Grau- und Brauntöne und seine gleichbleibende Qualität. Er wird in Häusern, Hotels, Resorts und Geschäftsgebäuden auf der ganzen Welt verwendet.\n\nWadi Degla arbeitet seit 1980 in ägyptischen Steinbrüchen, als unser Gründer den ersten Steinbruch am Galala-Berg eröffnete. Heute schneiden und veredeln wir ägyptischen Marmor in unseren eigenen Werken in Ägypten auf über {{facts.factoryArea}} Quadratmetern und liefern ihn als Rohplatten, Fliesen und Blöcke an Projekte weltweit. Unten finden Sie alle ägyptischen Marmorsorten, die wir liefern, und Antworten auf die häufigsten Fragen.",
     "alsoTitle": "Ägyptischer Kalkstein, auch als ägyptischer Marmor gehandelt ({{count}})",
     "sections": [
       {
@@ -52,7 +52,7 @@
       },
       {
         "title": "Warum ägyptischen Marmor bei Wadi Degla kaufen",
-        "text": "Drei Generationen in der ägyptischen Steinbruchindustrie, 14 Steinbrüche, angefangen mit dem Galala-Gebirge, und drei Werke (eröffnet 2000, 2011 und 2015, über 27.000 m²) mit modernen Säge-, Polier-, Harz-, CNC- und Wasserstrahllinien. Unser Qualitätsmanagement ist nach ISO 9001:2015 zertifiziert, jede Bestellung wird in exportgerechten Holzbündeln, Kisten oder Paletten verpackt, und wir liefern in die Golfstaaten, nach Europa, Afrika, Asien und Amerika."
+        "text": "Drei Generationen in der ägyptischen Steinbruchindustrie, {{facts.quarries}} Steinbrüche, angefangen mit dem Galala-Gebirge, und drei Werke (eröffnet 2000, 2011 und 2015, über {{facts.factoryArea}} m²) mit modernen Säge-, Polier-, Harz-, CNC- und Wasserstrahllinien. Unser Qualitätsmanagement ist nach ISO 9001:2015 zertifiziert, jede Bestellung wird in exportgerechten Holzbündeln, Kisten oder Paletten verpackt, und wir liefern in die Golfstaaten, nach Europa, Afrika, Asien und Amerika."
       }
     ],
     "faq": [
