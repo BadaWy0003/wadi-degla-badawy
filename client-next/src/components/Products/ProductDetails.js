@@ -208,7 +208,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                   onClick={() => setRoomPhoto(null)}
                   aria-label={finishLabel(t, selectedFinish?.finish)}
                 >
-                  <img loading="lazy" src={selectedFinish?.thumb || selectedFinish?.link} alt="" />
+                  <img loading="lazy" fetchPriority="low" src={selectedFinish?.thumb || selectedFinish?.link} alt="" />
                 </button>
                 {rooms.map((room) => (
                   <button
@@ -218,7 +218,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                     onClick={() => setRoomPhoto(room)}
                     aria-label={room.label}
                   >
-                    <img loading="lazy" src={room.thumb || room.link} alt="" />
+                    <img loading="lazy" fetchPriority="low" src={room.thumb || room.link} alt="" />
                   </button>
                 ))}
               </div>
@@ -252,7 +252,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                       }}
                       aria-pressed={selectedFinish?.finish === f.finish}
                     >
-                      <img loading="lazy" src={f.thumb || f.link} alt="" />
+                      <img loading="lazy" fetchPriority="low" src={f.thumb || f.link} alt="" />
                       <span>{finishLabel(t, f.finish)}</span>
                     </button>
                   ))}

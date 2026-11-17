@@ -41,8 +41,10 @@ const pathWithoutLang = (pathname) =>
     .slice(2)
     .join('/')}`;
 
-// The links of one dropdown (desktop panel and phone section share it)
-function MenuLinks({ menu, t, current, onNavigate, compact }) {
+// The links of one dropdown (desktop panel and phone section share it). The small stone
+// pictures are only added once the menu has been opened (showImg), so closed menus don't
+// download them on every page.
+function MenuLinks({ menu, t, current, onNavigate, compact, showImg }) {
   return (
     <>
       {menu.groups.map((group, gi) => (
@@ -64,9 +66,12 @@ function MenuLinks({ menu, t, current, onNavigate, compact }) {
                     className={here ? 'is-here' : undefined}
                     aria-current={here ? 'page' : undefined}
                   >
-                    {item.img && (
-                      <img src={item.img} alt="" width="32" height="32" loading="lazy" />
-                    )}
+                    {item.img &&
+                      (showImg ? (
+                        <img src={item.img} alt="" width="32" height="32" />
+                      ) : (
+                        <span className="wn-img-slot" aria-hidden="true" />
+                      ))}
                     <span>{t(item.label)}</span>
                   </LangLink>
                 </li>
@@ -89,10 +94,15 @@ function DeskMenu({ menu, t, active, current, onNavigate }) {
   const [open, setOpen] = useState(false);
   const timer = useRef(null);
   const ref = useRef(null);
+  // becomes true the first time the menu opens (then its pictures load and stay)
+  const [seen, setSeen] = useState(false);
   const show = () => {
     clearTimeout(timer.current);
     setOpen(true);
   };
+  useEffect(() => {
+    if (open) setSeen(true);
+  }, [open]);
   const hide = () => {
     clearTimeout(timer.current);
     timer.current = setTimeout(() => setOpen(false), 140);
@@ -136,6 +146,7 @@ function DeskMenu({ menu, t, active, current, onNavigate }) {
             menu={menu}
             t={t}
             current={current}
+            showImg={seen}
             onNavigate={() => {
               setOpen(false);
               onNavigate();
@@ -408,6 +419,7 @@ export default function Navbar() {
                         current={current}
                         onNavigate={onNavigate}
                         compact
+                        showImg={isOpen}
                       />
                     </div>
                   </div>

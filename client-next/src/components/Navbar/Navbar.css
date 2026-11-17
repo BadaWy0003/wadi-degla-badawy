@@ -276,12 +276,18 @@
   color: var(--wn-gold-hi);
 }
 
-.wn-group img {
+.wn-group img,
+.wn-img-slot {
   width: 32px;
   height: 32px;
   border-radius: 8px;
   object-fit: cover;
   flex: none;
+}
+
+.wn-img-slot {
+  display: block;
+  background: var(--wn-surface);
 }
 
 .wn-all {
@@ -693,7 +699,8 @@ html[dir='rtl'] .wn-all span {
     background: var(--wn-gold-hi);
   }
 
-  .wn-sec .wn-group img {
+  .wn-sec .wn-group img,
+  .wn-sec .wn-img-slot {
     width: 36px;
     height: 36px;
   }
