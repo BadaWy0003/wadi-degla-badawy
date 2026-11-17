@@ -302,6 +302,23 @@
   max-height: none;
 }
 
+/* 5+ small photos: rows of 3; a last row of 2 (or 1) is widened to fill the row */
+.fa-photos.is-rows {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.fa-photos.is-rows .fa-photo + .fa-photo {
+  grid-column: span 2;
+}
+
+.fa-photos.is-rows.rest-2 .fa-photo:nth-last-child(-n + 2) {
+  grid-column: span 3;
+}
+
+.fa-photos.is-rows.rest-1 .fa-photo:last-child {
+  grid-column: span 6;
+}
+
 .fa-place {
   display: inline-flex;
   align-items: center;
@@ -564,6 +581,13 @@
   /* 4+ small photos: two per row on phones (four in a row would be too small) */
   .fa-photos.is-many {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .fa-photos.is-many .fa-photo + .fa-photo,
+  .fa-photos.is-many.rest-2 .fa-photo:nth-last-child(-n + 2) {
+    grid-column: span 1;
+  }
+  .fa-photos.is-many.is-odd .fa-photo:last-child {
+    grid-column: 1 / -1;
   }
   .fa-section {
     margin-top: 72px;
