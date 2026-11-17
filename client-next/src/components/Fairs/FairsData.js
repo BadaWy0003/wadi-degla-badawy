@@ -4,7 +4,7 @@
 // Texts: fairs.items.<id> in all 12 translation files (facts from the organisers' sites,
 // checked 2026-11-16).
 // photos: [file in /Assets/Media/Fairs/, width, height]: 1 photo, 2 (the second overlaps the
-// first's corner) or 3+ (a big first photo with a row of small ones under it). To add a fair: add it here (and its
+// first's corner) or 3+ (a big first photo with the small ones under it: one row up to 4, then rows of 3). To add a fair: add it here (and its
 // text in the 12 files); the numbers at the top are counted from this list.
 const PHOTO = (name) => `/Assets/Media/Fairs/${name}.webp`;
 
@@ -17,13 +17,14 @@ export const FAIRS = [
     continent: 'europe',
     year: 2026,
     month: 9, // 60th edition, Veronafiere, 22-25 September 2026
-    // the team photo and the three meeting photos were taken at Marmomac (owner, 2026-11-17); not our own stand
+    // the team photo and the four meeting photos were taken at Marmomac (owner, 2026-11-17); not our own stand
     photos: [
       [PHOTO('marmomac'), 900, 1200],
       [PHOTO('marmomac-4'), 1200, 900],
       [PHOTO('fair-meeting'), 1200, 900],
       [PHOTO('marmomac-2'), 1200, 900],
       [PHOTO('marmomac-3'), 1200, 900],
+      [PHOTO('marmomac-5'), 1200, 900],
     ],
   },
   {

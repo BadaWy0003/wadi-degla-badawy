@@ -20,6 +20,19 @@ import './FairsPage.css';
 
 const WHY = ['Buyers', 'Trends', 'Tech', 'Partners'];
 
+// The photo block's layout: 1 photo; 2 = the second overlaps the first; 3+ = a big first photo
+// with the small ones under it (one row up to 4; 5+ in rows of 3, the last row filled; on
+// phones 4+ small ones show two per row, an odd last one full width).
+function photoClass(n) {
+  const small = n - 1;
+  const c = ['fa-photos'];
+  if (n === 2) c.push('is-pair');
+  if (n > 2) c.push('is-group');
+  if (small >= 4) c.push('is-many', small % 2 ? 'is-odd' : '');
+  if (small >= 5) c.push('is-rows', small % 3 ? `rest-${small % 3}` : '');
+  return c.filter(Boolean).join(' ');
+}
+
 // "Italy" / "إيطاليا"… and "2026" / "April 2024" in the page's language
 function useFormat(lang) {
   let regions = null;
@@ -119,7 +132,7 @@ export default function Fairs({ children }) {
         {FAIRS.map((f) => (
           <section className="fa-chapter fa-reveal" id={`fair-${f.id}`} key={f.id}>
             <div
-              className={`fa-photos${f.photos.length === 2 ? ' is-pair' : ''}${f.photos.length > 2 ? ' is-group' : ''}${f.photos.length > 4 ? ' is-many' : ''}`}
+              className={photoClass(f.photos.length)}
               style={f.photos.length > 2 ? { '--fa-n': f.photos.length - 1 } : undefined}
             >
               {f.photos.map(([src, w, h]) => {
