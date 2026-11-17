@@ -7,6 +7,7 @@ import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { siteData } from '../../util/site-content';
 
 // Patterns / pavers (redesigned 2026-11-12, design A "Pick a stone"): header with numbers, two
 // "try the stone" scenes (pool deck with 4 paving stones, house front with 10 split-face stones:
@@ -15,6 +16,9 @@ import { WHATSAPP_URL } from '../Contact/contactData';
 // The stones have no names yet ("Stone 1"...): add a `name` to a sample below when the client
 // gives them.
 const DIR = '/Assets/Media/Patterns';
+// The stones' names, written in the admin panel ("Website" → "Patterns & pavers"); a stone
+// without a name is shown as "Stone 1", "Stone 2"...
+const NAMES = siteData('patterns');
 const SCENES = [
   {
     id: 'pavers',
@@ -23,6 +27,7 @@ const SCENES = [
     samples: [1, 2, 3, 4].map((n) => ({
       swatch: `${DIR}/p${n}.webp`,
       scene: `${DIR}/pavers${n}.webp`,
+      name: NAMES[`paver${n}`] || undefined,
     })),
     width: 918,
     height: 697,
@@ -34,6 +39,7 @@ const SCENES = [
     samples: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
       swatch: `${DIR}/${n}.webp`,
       scene: `${DIR}/split-face-${n}.webp`,
+      name: NAMES[`split${n}`] || undefined,
     })),
     width: 946,
     height: 718,

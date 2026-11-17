@@ -6,7 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import LangLink from '../LangLink';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
-import { PARTNERS, clearLogo } from './PartnersData';
+import { PARTNERS } from './PartnersData';
 import { cardImageProps } from '../../util/responsive-img';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 
@@ -19,7 +19,8 @@ import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 // "31+": the export-country number from the admin panel (src/util/company.js)
 const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 
-export default function Partners({ projects = {}, projectCount = 0 }) {
+// stories: each partner's story in the page's language (by id), from the page (build time).
+export default function Partners({ projects = {}, projectCount = 0, stories: storyTexts = {} }) {
   const { t } = useTranslation();
   const pageRef = useRef(null);
   useReveal(pageRef, [], 'pa');
@@ -32,7 +33,7 @@ export default function Partners({ projects = {}, projectCount = 0 }) {
   const others = withWork.filter((p) => !p.cards.length);
 
   const logo = (p, lazy = true) => (
-    <img src={clearLogo(p.id)} alt={p.name} loading={lazy ? 'lazy' : 'eager'} />
+    <img src={p.clear} alt={p.name} loading={lazy ? 'lazy' : 'eager'} />
   );
 
   return (
@@ -92,7 +93,7 @@ export default function Partners({ projects = {}, projectCount = 0 }) {
                     : t('partners.projectMany').replace('{{count}}', p.cards.length)}
                 </p>
                 <h3>{p.name}</h3>
-                <p className="pa-text">{t(`partners.stories.${p.id}`)}</p>
+                <p className="pa-text">{storyTexts[p.id] ?? t(`partners.stories.${p.id}`)}</p>
                 <div className="pa-projects">
                   {p.cards.map((c) => (
                     <LangLink href={`/projects/${c.id}`} className="pa-project" key={c.id}>
