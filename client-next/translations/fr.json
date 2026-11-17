@@ -330,7 +330,8 @@
     "sendMessage": "Envoyer le message",
     "privacyNote": "Vos coordonnées servent uniquement à répondre à votre demande.",
     "fasterReply": "Discuter sur WhatsApp",
-    "sendAnother": "Envoyer un autre message"
+    "sendAnother": "Envoyer un autre message",
+    "phoneCountry": "Choisir l'indicatif du pays"
   },
   "gallery": {
     "pageTitle": "Galerie usines et dépôts | Wadi Degla",
@@ -1322,7 +1323,9 @@
     "faqQ4": "Quelles finitions sont disponibles?",
     "faqA4": "Poli, adouci, brossé, flammé, roulé, bouchardé et finitions personnalisées.",
     "faqQ5": "Comment puis-je demander un devis?",
-    "faqA5": "Contactez notre équipe de vente pour les devis et le support technique."
+    "faqA5": "Contactez notre équipe de vente pour les devis et le support technique.",
+    "quarriesLink": "Découvrir nos carrières et usines",
+    "exportsLink": "Voir nos marchés d'exportation"
   },
   "common": {
     "search": "Rechercher...",

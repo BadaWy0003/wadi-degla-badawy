@@ -330,7 +330,8 @@
     "sendMessage": "Dërgoni mesazhin",
     "privacyNote": "Të dhënat tuaja përdoren vetëm për t’iu përgjigjur kërkesës suaj.",
     "fasterReply": "Bisedoni në WhatsApp",
-    "sendAnother": "Dërgoni një mesazh tjetër"
+    "sendAnother": "Dërgoni një mesazh tjetër",
+    "phoneCountry": "Zgjidhni prefiksin e vendit"
   },
   "gallery": {
     "pageTitle": "Galeria e fabrikave | Wadi Degla",
@@ -1322,7 +1323,9 @@
     "faqQ4": "Cilat përfundime janë në dispozicion?",
     "faqA4": "Lustrim, lëmim, tutje, flakë, rrotullim, çekiçim dhe përfundime të personalizuara.",
     "faqQ5": "Si mund të kërkojë çmimet?",
-    "faqA5": "Kontaktoni ekipin tonë të shitjeve për oferta dhe mbështetje teknike."
+    "faqA5": "Kontaktoni ekipin tonë të shitjeve për oferta dhe mbështetje teknike.",
+    "quarriesLink": "Zbuloni guroret dhe fabrikat tona",
+    "exportsLink": "Shihni tregjet tona të eksportit"
   },
   "common": {
     "search": "Kërko...",

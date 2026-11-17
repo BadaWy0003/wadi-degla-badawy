@@ -980,6 +980,8 @@ body[lang='ar'] .cx-page .cx-card-title {
 }
 
 .cx-page .cx-list-value {
+  display: inline-block;
+  padding: 4px 0; /* a taller tap area for the phone and email links */
   color: var(--cx-text);
   font-size: 15.5px;
   font-weight: 500;

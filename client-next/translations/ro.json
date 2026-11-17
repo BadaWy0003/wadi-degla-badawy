@@ -330,7 +330,8 @@
     "sendMessage": "Trimiteți mesajul",
     "privacyNote": "Folosim datele dvs. doar pentru a vă răspunde.",
     "fasterReply": "Discutați pe WhatsApp",
-    "sendAnother": "Trimiteți alt mesaj"
+    "sendAnother": "Trimiteți alt mesaj",
+    "phoneCountry": "Alegeți prefixul țării"
   },
   "gallery": {
     "pageTitle": "Galerie fabrici și depozite | Wadi Degla",
@@ -1325,7 +1326,9 @@
     "faqQ4": "Ce finisaje sunt disponibile?",
     "faqA4": "Lustruit, satinat, periat, flamat, rulat, bușardat și finisaje personalizate.",
     "faqQ5": "Cum pot solicita prețuri?",
-    "faqA5": "Contactați echipa noastră de vânzări pentru oferte și suport tehnic."
+    "faqA5": "Contactați echipa noastră de vânzări pentru oferte și suport tehnic.",
+    "quarriesLink": "Descoperiți carierele și fabricile noastre",
+    "exportsLink": "Vedeți piețele noastre de export"
   },
   "common": {
     "search": "Căutare...",

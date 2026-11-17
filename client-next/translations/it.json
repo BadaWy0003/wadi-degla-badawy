@@ -330,7 +330,8 @@
     "sendMessage": "Invia messaggio",
     "privacyNote": "Usiamo i tuoi dati solo per rispondere alla tua richiesta.",
     "fasterReply": "Chatta su WhatsApp",
-    "sendAnother": "Invia un altro messaggio"
+    "sendAnother": "Invia un altro messaggio",
+    "phoneCountry": "Scegli il prefisso del paese"
   },
   "gallery": {
     "pageTitle": "Galleria fabbriche e piazzali | Wadi Degla",
@@ -1322,7 +1323,9 @@
     "faqQ4": "Quali finiture sono disponibili?",
     "faqA4": "Lucido, levigato, spazzolato, fiammato, arrotolato, bocciardato e finiture personalizzate.",
     "faqQ5": "Come posso richiedere i prezzi?",
-    "faqA5": "Contatta il nostro team di vendita per preventivi e supporto tecnico."
+    "faqA5": "Contatta il nostro team di vendita per preventivi e supporto tecnico.",
+    "quarriesLink": "Scopri le nostre cave e i nostri stabilimenti",
+    "exportsLink": "Scopri i nostri mercati di esportazione"
   },
   "common": {
     "search": "Cerca...",

@@ -330,7 +330,8 @@
     "sendMessage": "Nachricht senden",
     "privacyNote": "Wir verwenden Ihre Angaben nur zur Beantwortung Ihrer Anfrage.",
     "fasterReply": "Per WhatsApp chatten",
-    "sendAnother": "Weitere Nachricht senden"
+    "sendAnother": "Weitere Nachricht senden",
+    "phoneCountry": "Ländervorwahl wählen"
   },
   "gallery": {
     "pageTitle": "Galerie: Werke & Lager | Wadi Degla",
@@ -1322,7 +1323,9 @@
     "faqQ4": "Welche Veredelungen sind verfügbar?",
     "faqA4": "Poliert, geschliffen, gebürstet, geflammt, tumbled, bossiert und maßgeschneiderte Veredelungen.",
     "faqQ5": "Wie kann ich eine Preisanfrage stellen?",
-    "faqA5": "Kontaktieren Sie unser Verkaufsteam für Angebote und technische Unterstützung."
+    "faqA5": "Kontaktieren Sie unser Verkaufsteam für Angebote und technische Unterstützung.",
+    "quarriesLink": "Unsere Steinbrüche und Werke entdecken",
+    "exportsLink": "Unsere Exportmärkte ansehen"
   },
   "common": {
     "search": "Suchen...",

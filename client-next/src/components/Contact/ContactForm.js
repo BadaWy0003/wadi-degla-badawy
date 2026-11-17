@@ -50,6 +50,14 @@ export default function ContactForm() {
   const fileRef = useRef(null);
   const formRef = useRef(null);
 
+  // The phone fields' country-flag buttons (react-phone-input-2) have no name of their own;
+  // give them one for screen readers.
+  useEffect(() => {
+    formRef.current
+      ?.querySelectorAll('.selected-flag')
+      .forEach((el) => el.setAttribute('aria-label', t('contactForm.phoneCountry')));
+  });
+
   // Pre-fill for logged-in customers
   useEffect(() => {
     if (!loading && globalState.isLoggedIn) {

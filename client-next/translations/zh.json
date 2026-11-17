@@ -330,7 +330,8 @@
     "sendMessage": "发送消息",
     "privacyNote": "您的信息仅用于回复您的咨询。",
     "fasterReply": "通过 WhatsApp 聊天",
-    "sendAnother": "再发一条消息"
+    "sendAnother": "再发一条消息",
+    "phoneCountry": "选择国家区号"
   },
   "gallery": {
     "pageTitle": "瓦迪·德格拉工厂与厂区画廊 | 大理石生产、储存与出口运营",
@@ -1322,7 +1323,9 @@
     "faqQ4": "有哪些饰面可选？",
     "faqA4": "抛光、磨砂、拉丝、火烧、滚磨、锤击和定制饰面。",
     "faqQ5": "如何申请报价？",
-    "faqA5": "联系我们的销售团队获取报价单和技术支持。"
+    "faqA5": "联系我们的销售团队获取报价单和技术支持。",
+    "quarriesLink": "了解我们的采石场和工厂",
+    "exportsLink": "查看我们的出口市场"
   },
   "common": {
     "search": "搜索...",
