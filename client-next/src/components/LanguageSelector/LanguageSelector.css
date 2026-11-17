@@ -64,6 +64,11 @@
   animation: lang-in 0.18s ease;
 }
 
+.lang-picker.is-up .lang-pop {
+  top: auto;
+  bottom: calc(100% + 10px);
+}
+
 @keyframes lang-in {
   from {
     opacity: 0;

@@ -266,16 +266,12 @@
     "galleryTitle": "Foto"
   },
   "footer": {
-    "getInTouch": "CONTATTACI",
-    "footerParagraph": "A Wadi Degla for Marble & Granite, apprezziamo le richieste e i feedback dei nostri clienti. Il nostro team dedicato è qui per assisterti e fornirti le informazioni di cui hai bisogno.",
-    "contactUs": "CONTATTACI",
-    "welcomePrefix": "Benvenuto in",
     "companyName": "Wadi Degla",
-    "welcomeSuffix": "per Marmo & Granito, il tuo partner di fiducia nel settore del marmo dal 1980.",
-    "explore": "ESPLORA",
-    "resources": "RISORSE",
-    "contactHeading": "CONTATTACI",
-    "copyRights": "©{{year}} Wadi Degla | Realizzato da PyraDev"
+    "tagline": "Esportatore di marmo, granito e calcare egiziani dal 1980: cave, stabilimenti e team export di proprietà.",
+    "rights": "© {{year}} Wadi Degla Co. Tutti i diritti riservati.",
+    "iso": "Certificata ISO 9001:2015",
+    "backToTop": "Torna su",
+    "follow": "Segui Wadi Degla"
   },
   "contact": {
     "title": "Contatta Wadi Degla | Fornitore di Marmo e Pietra Naturale Mondiale",

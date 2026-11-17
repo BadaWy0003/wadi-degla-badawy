@@ -3,6 +3,7 @@
 // script ("English", "العربية"…) and is a real link to the same page in that language.
 // variant="desktop": a "🌐 EN ▾" button with a small list under it.
 // variant="sheet": the list inside the phone menu (shown by the menu itself).
+// up: the list opens above the button (used in the footer).
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -71,7 +72,7 @@ export function LanguageList({ onPick }) {
   );
 }
 
-export default function LanguageSelector() {
+export default function LanguageSelector({ up = false }) {
   const { t } = useTranslation();
   const { current } = useLanguageLinks();
   const [open, setOpen] = useState(false);
@@ -92,7 +93,7 @@ export default function LanguageSelector() {
   }, [open]);
 
   return (
-    <div className="lang-picker" ref={ref}>
+    <div className={`lang-picker${up ? ' is-up' : ''}`} ref={ref}>
       <button
         type="button"
         className="lang-btn"

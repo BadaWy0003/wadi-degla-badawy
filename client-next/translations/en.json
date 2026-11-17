@@ -266,16 +266,12 @@
     "galleryTitle": "Photos"
   },
   "footer": {
-    "getInTouch": "GET IN TOUCH",
-    "footerParagraph": "At Wadi Degla for Marble & Granite, we value our customers' inquiries and feedback. Our dedicated team is here to assist you and provide the information you need.",
-    "contactUs": "CONTACT US",
-    "welcomePrefix": "Welcome to",
     "companyName": "Wadi Degla",
-    "welcomeSuffix": "for Marble & Granite, your trusted partner in the marble business since 1980.",
-    "explore": "EXPLORE",
-    "resources": "RESOURCES",
-    "contactHeading": "CONTACT US",
-    "copyRights": "©{{year}} Wadi Degla | Powered by PyraDev"
+    "tagline": "Egyptian marble, granite & limestone exporter since 1980: our own quarries, factories and export team.",
+    "rights": "© {{year}} Wadi Degla Co. All rights reserved.",
+    "iso": "ISO 9001:2015 certified",
+    "backToTop": "Back to top",
+    "follow": "Follow Wadi Degla"
   },
   "contact": {
     "title": "Contact Wadi Degla | Marble & Natural Stone Supplier Worldwide",
