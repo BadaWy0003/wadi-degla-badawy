@@ -303,7 +303,7 @@ export default function Home({ featured = [] }) {
           <h2>{t('home.globalQuarries')}</h2>
           <p>{t('home.globalQuarriesDesc')}</p>
           <LangLink href="/quarries" className="hp-btn hp-btn-ghost">
-            {t('home.learnMore')}
+            {t('home.quarriesLink')}
           </LangLink>
         </div>
       </section>
@@ -363,7 +363,7 @@ export default function Home({ featured = [] }) {
         <OurMarkets />
         <div className="hp-center">
           <LangLink href="/exports" className="hp-btn hp-btn-ghost">
-            {t('home.learnMore')}
+            {t('home.exportsLink')}
           </LangLink>
         </div>
       </section>

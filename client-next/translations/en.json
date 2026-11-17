@@ -330,7 +330,8 @@
     "sendMessage": "Send message",
     "privacyNote": "We only use your details to reply to your enquiry.",
     "fasterReply": "Chat on WhatsApp",
-    "sendAnother": "Send another message"
+    "sendAnother": "Send another message",
+    "phoneCountry": "Choose the country code"
   },
   "gallery": {
     "pageTitle": "Factory & Yard Gallery | Wadi Degla",
@@ -1322,7 +1323,9 @@
     "faqQ4": "What finishes are available?",
     "faqA4": "Polished, honed, brushed, flamed, tumbled, bush hammered and custom finishes.",
     "faqQ5": "How can I request pricing?",
-    "faqA5": "Contact our sales team for quotations and technical support."
+    "faqA5": "Contact our sales team for quotations and technical support.",
+    "quarriesLink": "Explore our quarries & factories",
+    "exportsLink": "See our export markets"
   },
   "common": {
     "search": "Search...",

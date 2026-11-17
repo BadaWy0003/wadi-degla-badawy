@@ -330,7 +330,8 @@
     "sendMessage": "메시지 보내기",
     "privacyNote": "고객님의 정보는 문의에 답변하는 데에만 사용됩니다.",
     "fasterReply": "WhatsApp으로 채팅",
-    "sendAnother": "다른 메시지 보내기"
+    "sendAnother": "다른 메시지 보내기",
+    "phoneCountry": "국가 번호 선택"
   },
   "gallery": {
     "pageTitle": "Wadi Degla 공장 및 야드 갤러리 | 대리석 생산, 저장 및 수출 작업",
@@ -1322,7 +1323,9 @@
     "faqQ4": "어떤 마감이 가능합니까?",
     "faqA4": "광택, 헤어라인, 브러시, 불꽃, 텀블드, 부시해머드 및 맞춤형 마감.",
     "faqQ5": "가격을 요청하려면 어떻게 해야 합니까?",
-    "faqA5": "견적 및 기술 지원은 당사 영업 팀에 문의하세요."
+    "faqA5": "견적 및 기술 지원은 당사 영업 팀에 문의하세요.",
+    "quarriesLink": "채석장과 공장 둘러보기",
+    "exportsLink": "수출 시장 보기"
   },
   "common": {
     "search": "검색...",

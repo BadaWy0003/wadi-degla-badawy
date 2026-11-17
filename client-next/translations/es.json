@@ -330,7 +330,8 @@
     "sendMessage": "Enviar mensaje",
     "privacyNote": "Solo usamos sus datos para responder a su consulta.",
     "fasterReply": "Chatear por WhatsApp",
-    "sendAnother": "Enviar otro mensaje"
+    "sendAnother": "Enviar otro mensaje",
+    "phoneCountry": "Elegir el prefijo del país"
   },
   "gallery": {
     "pageTitle": "Galería de fábricas y patios | Wadi Degla",
@@ -1322,7 +1323,9 @@
     "faqQ4": "¿Qué acabados están disponibles?",
     "faqA4": "Pulido, afinado, cepillado, flambeado, rodillos, abujardado y acabados personalizados.",
     "faqQ5": "¿Cómo puedo solicitar precios?",
-    "faqA5": "Póngase en contacto con nuestro equipo de ventas para cotizaciones y apoyo técnico."
+    "faqA5": "Póngase en contacto con nuestro equipo de ventas para cotizaciones y apoyo técnico.",
+    "quarriesLink": "Conozca nuestras canteras y fábricas",
+    "exportsLink": "Ver nuestros mercados de exportación"
   },
   "common": {
     "search": "Buscar...",
