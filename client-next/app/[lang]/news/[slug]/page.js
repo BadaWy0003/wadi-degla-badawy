@@ -23,8 +23,11 @@ export async function generateMetadata({ params }) {
   const { lang, slug } = params;
   const article = await getNewsArticle(slug, lang);
   const langs = await getNewsIndexedLangs(slug);
+  // " | Wadi Degla" is left off when the title would pass 60 characters (Google cuts the rest)
   const title = article
-    ? `${article.title} | Wadi Degla`
+    ? `${article.title} | Wadi Degla`.length > 60
+      ? article.title
+      : `${article.title} | Wadi Degla`
     : t(lang, 'news.pageTitle', 'NewsDetail | Wadi Degla');
   const description = article?.excerpt || t(lang, 'news.metaDescription', '');
   return {
