@@ -246,6 +246,81 @@ export function ProjectsInput({ value, onChange }) {
   );
 }
 
+// Stones (products) in a chosen order: a list with arrows to move them, and a search box to add one.
+let productsCache = null;
+export function ProductsInput({ value, onChange, field }) {
+  const [products, setProducts] = useState(productsCache || []);
+  useEffect(() => {
+    if (productsCache) return;
+    apiClient
+      .get('/api/storage/admin/all')
+      .then(({ data }) => {
+        // stones only: this list also holds the gallery photos
+        productsCache = (data.data || [])
+          .filter(p => p.type && String(p.type).trim() !== 'Gallery')
+          .map(p => ({ id: String(p.id), name: String(p.name || '').trim(), type: String(p.type || '').trim(), hidden: !!p.hidden }))
+          .sort((a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name));
+        setProducts(productsCache);
+      })
+      .catch(() => {});
+  }, []);
+  const list = value || [];
+  const info = id => products.find(p => p.id === id);
+  const move = (i, d) => {
+    const next = [...list];
+    [next[i], next[i + d]] = [next[i + d], next[i]];
+    onChange(next);
+  };
+  const full = list.length >= (field.max || 50);
+  return (
+    <Box>
+      <Box component="ol" sx={{ m: 0, mb: 1.5, pl: 3 }}>
+        {list.map((id, i) => {
+          const p = info(id);
+          return (
+            <Box component="li" key={id} sx={{ py: 0.25 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
+                <Typography sx={{ flexGrow: 1, minWidth: 140 }}>
+                  {p ? p.name : products.length ? 'Deleted stone (not shown)' : '…'}
+                  {p && (
+                    <Typography component="span" variant="body2" color="text.secondary">
+                      {' '}
+                      · {p.type}
+                      {p.hidden ? ' · hidden, not shown' : ''}
+                    </Typography>
+                  )}
+                </Typography>
+                <IconButton size="small" aria-label="Move up" disabled={i === 0} onClick={() => move(i, -1)}>
+                  <ArrowUpwardIcon fontSize="small" />
+                </IconButton>
+                <IconButton size="small" aria-label="Move down" disabled={i === list.length - 1} onClick={() => move(i, 1)}>
+                  <ArrowDownwardIcon fontSize="small" />
+                </IconButton>
+                <IconButton size="small" aria-label="Remove" onClick={() => onChange(list.filter(x => x !== id))}>
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
+              </Box>
+            </Box>
+          );
+        })}
+      </Box>
+      <Autocomplete
+        size="small"
+        disabled={full}
+        options={products.filter(p => !list.includes(p.id) && !p.hidden)}
+        groupBy={p => p.type}
+        getOptionLabel={p => p.name}
+        value={null}
+        blurOnSelect
+        onChange={(e, p) => p && onChange([...list, p.id])}
+        renderInput={params => (
+          <TextField {...params} placeholder={full ? `At most ${field.max} stones` : 'Add a stone…'} sx={{ maxWidth: 420 }} />
+        )}
+      />
+    </Box>
+  );
+}
+
 // A repeatable list (fairs, partners...): each item is a card with its own fields, which can
 // be moved up/down, removed, and opened/closed. New items get an id from their name.
 export function ListInput({ value, onChange, field, renderInput, showErrors }) {

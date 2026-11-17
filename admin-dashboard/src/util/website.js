@@ -55,8 +55,13 @@ const checkMore = (f, value) => {
       if (v.length > (f.max || 120)) return `At most ${f.max || 120} characters.`;
       return /[<>]/.test(v) ? '< and > are not allowed.' : '';
     }
-    case 'image':
-      return value?.src ? '' : 'Upload a photo.';
+    case 'image': {
+      if (!value?.src) return 'Upload a photo.';
+      const r = value.width / value.height;
+      if (f.ratio && !value.src.startsWith('/Assets/') && !(r >= f.ratio[0] && r <= f.ratio[1]))
+        return `This photo is ${value.width} × ${value.height}: ${f.ratioHelp || 'wrong shape.'}`;
+      return '';
+    }
     case 'images':
       return (value || []).length >= (f.min || 0) ? '' : `Add at least ${f.min} photo${f.min === 1 ? '' : 's'}.`;
     case 'i18n':
@@ -67,6 +72,11 @@ const checkMore = (f, value) => {
       return /^[A-Z]{2}$/.test(String(value || '')) ? '' : 'Choose a country.';
     case 'projects':
       return (value || []).length || f.optional ? '' : 'Choose at least one project.';
+    case 'products': {
+      const n = (value || []).length;
+      if (n < (f.min || 0)) return `Choose at least ${f.min} stones.`;
+      return n > (f.max || 50) ? `At most ${f.max || 50} stones.` : '';
+    }
     case 'list': {
       const items = value || [];
       if (items.length < (f.min || 0)) return `Add at least ${f.min} ${f.itemLabel || 'item'}.`;
