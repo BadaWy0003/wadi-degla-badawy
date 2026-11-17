@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon, Button, IconButton, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Menu as MenuIcon, Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, Newspaper, Apartment } from '@mui/icons-material';
+import { Menu as MenuIcon, Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, Newspaper, Apartment, Web } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../GlobalStateContext'; // Ensure this exists
 import apiClient from '../../util/client';
@@ -24,9 +24,10 @@ export default function Layout() {
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
     { text: 'Products', icon: <Inventory />, path: '/products' },
     { text: 'Gallery', icon: <Collections />, path: '/gallery' },
-    // News and Projects: Admins and Super Admins only (the server enforces the same rule)
+    // Website, News and Projects: Admins and Super Admins only (the server enforces the same rule)
     ...(canManageNews(globalState.role)
       ? [
+          { text: 'Website', icon: <Web />, path: '/website' },
           { text: 'News', icon: <Newspaper />, path: '/news' },
           { text: 'Projects', icon: <Apartment />, path: '/projects' },
         ]
@@ -130,6 +131,9 @@ export default function Layout() {
               button
               key={item.text}
               onClick={() => {
+                // a Website page with unsaved changes (BlockEditor.js) asks first
+                if (window.wdUnsavedChanges && !window.confirm('You have unsaved changes. Leave without saving?')) return;
+                window.wdUnsavedChanges = false;
                 navigate(item.path);
                 setMenuOpen(false);
               }}

@@ -9,6 +9,7 @@ import {
   SOCIALS,
 } from './Contact/contactData';
 import { SITE_URL, ORG_ID, WEBSITE_ID } from '../util/schema-ids';
+import { t } from '../util/meta';
 
 // Staging build (fly.staging.toml): hidden from search engines and no Google Analytics,
 // so tests never show up in Google or in the visitor statistics.
@@ -76,7 +77,8 @@ const [support] = phone('contactInfo.phoneSupport');
 const LANGS = ['English', 'Arabic'];
 const ADDRESS = {
   '@type': 'PostalAddress',
-  streetAddress: '36, 241D Shaq Al-Thoaban Industrial Area for Marble & Granite, Tourrah',
+  // the English address from the admin panel (or the site's own), without ", Cairo, Egypt"
+  streetAddress: t('en', 'contactInfo.addressLine').replace(/,\s*Cairo,\s*Egypt\s*$/i, ''),
   addressLocality: 'Cairo',
   addressRegion: 'Cairo',
   addressCountry: 'EG',

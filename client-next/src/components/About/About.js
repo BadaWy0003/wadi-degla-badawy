@@ -6,21 +6,21 @@ import { FaWhatsapp } from 'react-icons/fa';
 import LangLink from '../LangLink';
 import StatCounter from './StatCounter';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { COMPANY, YEARS } from '../../util/company';
 
 const EXPERTISE_PHOTO = '/Assets/Media/about-expertise.webp';
 
 // Why Choose Us (redesigned 2026-11-12, design B "Photo header + numbered list"): photo header
 // with the H1, a row of numbers over its bottom edge, vision & mission, six numbered reasons,
 // "Our expertise" (photo + what we supply stone for) and a WhatsApp band.
-// The numbers are the rounded ones the owner chose (same as the home page); 46 years is also
-// YEARS in Home.js and home.legacy45Years: update them together every year.
+// The numbers come from the admin panel (src/util/company.js); the years count themselves.
 const NUMBERS = [
-  { end: 46, suffix: '', label: 'statYears' },
-  { end: 500, suffix: '+', label: 'statWorkers' },
-  { end: 3000, suffix: ' m²', label: 'statPerDay' },
-  { end: 300, suffix: '+', label: 'statProjects' },
-  { end: 14, suffix: '', label: 'statQuarries' },
-  { end: 31, suffix: '+', label: 'statCountries' },
+  { end: YEARS, suffix: '', label: 'statYears' },
+  { end: COMPANY.workers, suffix: '+', label: 'statWorkers' },
+  { end: COMPANY.dailyCapacity, suffix: ' m²', label: 'statPerDay' },
+  { end: COMPANY.projects, suffix: '+', label: 'statProjects' },
+  { end: COMPANY.quarries, suffix: '', label: 'statQuarries' },
+  { end: COMPANY.exportCountries, suffix: '+', label: 'statCountries' },
 ];
 // [title key, text key]
 const REASONS = [

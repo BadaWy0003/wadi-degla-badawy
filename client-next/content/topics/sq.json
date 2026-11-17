@@ -35,7 +35,7 @@
     "pageTitle": "Mermer egjiptian – Pllaka dhe blloqe | Wadi Degla",
     "metaDescription": "Mermer egjiptian nga Wadi Degla: Galala, Sunny, Triesta, Emperador, Cleopatra dhe të tjerë. Pllaka dhe blloqe nga guroret tona, eksport që nga viti 1980.",
     "heading": "Mermer egjiptian",
-    "intro": "Mermeri egjiptian është gur natyror i nxjerrë në Egjipt, i njohur për ngjyrat e ngrohta bezhë, krem, gri dhe kafe dhe për cilësinë e qëndrueshme. Përdoret në shtëpi, hotele, resorte dhe ndërtesa tregtare në mbarë botën.\n\nWadi Degla punon në guroret egjiptiane që nga viti 1980, kur themeluesi ynë hapi gurorën e parë në malin Galala. Sot e presim dhe e përpunojmë mermerin egjiptian në fabrikat tona në Egjipt, mbi 27.000 metra katrorë, dhe e dërgojmë si pllaka të mëdha, pllaka të prera dhe blloqe në projekte në mbarë botën. Më poshtë gjeni të gjitha llojet e mermerit egjiptian që furnizojmë dhe përgjigje për pyetjet më të shpeshta.",
+    "intro": "Mermeri egjiptian është gur natyror i nxjerrë në Egjipt, i njohur për ngjyrat e ngrohta bezhë, krem, gri dhe kafe dhe për cilësinë e qëndrueshme. Përdoret në shtëpi, hotele, resorte dhe ndërtesa tregtare në mbarë botën.\n\nWadi Degla punon në guroret egjiptiane që nga viti 1980, kur themeluesi ynë hapi gurorën e parë në malin Galala. Sot e presim dhe e përpunojmë mermerin egjiptian në fabrikat tona në Egjipt, mbi {{facts.factoryArea}} metra katrorë, dhe e dërgojmë si pllaka të mëdha, pllaka të prera dhe blloqe në projekte në mbarë botën. Më poshtë gjeni të gjitha llojet e mermerit egjiptian që furnizojmë dhe përgjigje për pyetjet më të shpeshta.",
     "alsoTitle": "Gur gëlqeror egjiptian, i shitur edhe si mermer egjiptian ({{count}})",
     "sections": [
       {
@@ -52,7 +52,7 @@
       },
       {
         "title": "Pse të blini mermer egjiptian nga Wadi Degla",
-        "text": "Tre breza në industrinë e guroreve në Egjipt, 14 gurore duke filluar nga mali Galala, dhe tre fabrika (të hapura në 2000, 2011 dhe 2015, mbi 27.000 m²) me linja moderne prerjeje, lustrimi, rrëshire, CNC dhe prerjeje me rrymë uji. Sistemi ynë i menaxhimit të cilësisë është i certifikuar sipas ISO 9001:2015, çdo porosi paketohet në pako, arka ose paleta druri për eksport, dhe dërgojmë në vendet e Gjirit, Evropë, Afrikë, Azi dhe në të dy Amerikat."
+        "text": "Tre breza në industrinë e guroreve në Egjipt, {{facts.quarries}} gurore duke filluar nga mali Galala, dhe tre fabrika (të hapura në 2000, 2011 dhe 2015, mbi {{facts.factoryArea}} m²) me linja moderne prerjeje, lustrimi, rrëshire, CNC dhe prerjeje me rrymë uji. Sistemi ynë i menaxhimit të cilësisë është i certifikuar sipas ISO 9001:2015, çdo porosi paketohet në pako, arka ose paleta druri për eksport, dhe dërgojmë në vendet e Gjirit, Evropë, Afrikë, Azi dhe në të dy Amerikat."
       }
     ],
     "faq": [

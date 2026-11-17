@@ -8,6 +8,7 @@ import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { PARTNERS, clearLogo } from './PartnersData';
 import { cardImageProps } from '../../util/responsive-img';
+import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 
 // Partners & clients (redesigned 2026-11-12, design B "Partner stories"): header with numbers
 // and a slowly moving strip of every logo, one "story" per partner we did projects for (logo,
@@ -15,7 +16,8 @@ import { cardImageProps } from '../../util/responsive-img';
 // trusted by", and a WhatsApp band.
 // projects: { id: card } for the partners' projects, from the build (app/[lang]/partners/page.js);
 // projectCount: all projects on the site.
-const EXPORT_COUNTRIES = '31+'; // same as the home, products, projects and exports pages
+// "31+": the export-country number from the admin panel (src/util/company.js)
+const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 
 export default function Partners({ projects = {}, projectCount = 0 }) {
   const { t } = useTranslation();

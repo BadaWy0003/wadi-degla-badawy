@@ -35,7 +35,7 @@
     "pageTitle": "Egyptian Marble – Slabs, Tiles & Blocks | Wadi Degla",
     "metaDescription": "Egyptian marble from Wadi Degla: Galala, Sunny, Triesta, Emperador, Cleopatra and more. Slabs, tiles and blocks from our own quarries, exported since 1980.",
     "heading": "Egyptian Marble",
-    "intro": "Egyptian marble is natural stone quarried in Egypt, known for its warm beige, cream, grey and brown tones and its consistent quality. It is used in homes, hotels, resorts and commercial buildings around the world.\n\nWadi Degla has worked Egyptian quarries since 1980, when our founder opened the first quarry on Galala Mountain. Today we cut and finish Egyptian marble in our own factories in Egypt, covering more than 27,000 square meters, and ship it as slabs, tiles and blocks to projects worldwide. Below you will find every Egyptian marble we supply, followed by answers to the questions buyers ask most.",
+    "intro": "Egyptian marble is natural stone quarried in Egypt, known for its warm beige, cream, grey and brown tones and its consistent quality. It is used in homes, hotels, resorts and commercial buildings around the world.\n\nWadi Degla has worked Egyptian quarries since 1980, when our founder opened the first quarry on Galala Mountain. Today we cut and finish Egyptian marble in our own factories in Egypt, covering more than {{facts.factoryArea}} square meters, and ship it as slabs, tiles and blocks to projects worldwide. Below you will find every Egyptian marble we supply, followed by answers to the questions buyers ask most.",
     "alsoTitle": "Egyptian limestone, also sold as Egyptian marble ({{count}})",
     "sections": [
       {
@@ -52,7 +52,7 @@
       },
       {
         "title": "Why buy Egyptian marble from Wadi Degla",
-        "text": "Three generations in Egypt's quarrying industry, 14 quarries starting with Galala Mountain, and three factories (opened in 2000, 2011 and 2015, more than 27,000 m²) with modern sawing, polishing, resin, CNC and waterjet lines. Our quality management is certified to ISO 9001:2015, every order is packed in export-grade wooden bundles, crates or pallets, and we ship to the GCC, Europe, Africa, Asia and the Americas."
+        "text": "Three generations in Egypt's quarrying industry, {{facts.quarries}} quarries starting with Galala Mountain, and three factories (opened in 2000, 2011 and 2015, more than {{facts.factoryArea}} m²) with modern sawing, polishing, resin, CNC and waterjet lines. Our quality management is certified to ISO 9001:2015, every order is packed in export-grade wooden bundles, crates or pallets, and we ship to the GCC, Europe, Africa, Asia and the Americas."
       }
     ],
     "faq": [

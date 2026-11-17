@@ -17,6 +17,7 @@ import { WHATSAPP_URL } from '../Contact/contactData';
 import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
 import '../Certificates/Certificates.css';
 import './HomePage.css';
+import { COMPANY, YEARS } from '../../util/company';
 
 const ICONS = '/Assets/Icons';
 // Partner and certificate logos with a transparent background (tools/make-transparent-logos.js),
@@ -24,9 +25,7 @@ const ICONS = '/Assets/Icons';
 const clearLogo = (src) =>
   `${ICONS}/logos-transparent/${src.split('/').pop().replace(/\.\w+$/, '')}.webp`;
 const HERO = '/Assets/Media/Hero';
-// Years since 1980, shown as a plain number (owner, 2026-11-11). Also in home.legacy45Years
-// ("46 Years Shaping…") in all 12 translation files: update both each year.
-const YEARS = 46;
+// The numbers come from the admin panel (src/util/company.js); the years count themselves.
 
 // The four stone ranges, each linking to its topic page (same header photos as those pages).
 const RANGES = [
@@ -164,15 +163,15 @@ export default function Home({ featured = [] }) {
             <span>{counters('experienceTitle')}</span>
           </li>
           <li className="hp-trust-quarries">
-            <span className="hp-trust-value">14</span>
+            <span className="hp-trust-value">{COMPANY.quarries}</span>
             <span>{t('home.trustQuarries')}</span>
           </li>
           <li className="hp-trust-factories">
-            <span className="hp-trust-value">3</span>
+            <span className="hp-trust-value">{COMPANY.factories}</span>
             <span>{t('home.trustFactories')}</span>
           </li>
           <li className="hp-trust-countries">
-            <StatCounter end={31} suffix="+" className="hp-trust-value" />
+            <StatCounter end={COMPANY.exportCountries} suffix="+" className="hp-trust-value" />
             <span>{t('home.trustCountries')}</span>
           </li>
           <li className="hp-trust-iso">
@@ -180,7 +179,7 @@ export default function Home({ featured = [] }) {
             <span>{t('home.trustIso')}</span>
           </li>
           <li className="hp-trust-production">
-            <StatCounter end={3000} suffix="" className="hp-trust-value" />
+            <StatCounter end={COMPANY.dailyCapacity} suffix="" className="hp-trust-value" />
             <span>{counters('productionTitle')}</span>
           </li>
         </ul>
@@ -263,9 +262,9 @@ export default function Home({ featured = [] }) {
           <ul className="hp-stats">
             {[
               [YEARS, 'experienceTitle', ''],
-              [500, 'manpowerTitle', '+'],
-              [3000, 'productionTitle', '+'],
-              [300, 'projectsTitle', '+'],
+              [COMPANY.workers, 'manpowerTitle', '+'],
+              [COMPANY.dailyCapacity, 'productionTitle', '+'],
+              [COMPANY.projects, 'projectsTitle', '+'],
             ].map(([n, key, plus]) => (
               <li key={key}>
                 <StatCounter end={n} suffix={plus} className="hp-stat-value" />

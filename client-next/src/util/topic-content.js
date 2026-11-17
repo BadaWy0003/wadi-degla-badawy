@@ -5,6 +5,7 @@
 // A text missing in a language falls back to English.
 
 import { t } from './meta';
+import { fillFactsDeep } from './site-text';
 import { SUPPORTED_LANGS } from './supported-langs';
 import en from '../../content/topics/en.json';
 import ar from '../../content/topics/ar.json';
@@ -27,7 +28,8 @@ const get = (obj, path) => path.split('.').reduce((v, k) => (v == null ? v : v[k
 export function topicText(lang, path) {
   const lang2 = SUPPORTED_LANGS.includes(lang) ? lang : 'en';
   const value = get(CONTENT[lang2], path);
-  return value === undefined || value === '' ? get(CONTENT.en, path) : value;
+  // {{facts.*}} placeholders: the company numbers from the admin panel (src/util/company.js)
+  return fillFactsDeep(value === undefined || value === '' ? get(CONTENT.en, path) : value, lang2);
 }
 
 export const fillText = (text, values) =>

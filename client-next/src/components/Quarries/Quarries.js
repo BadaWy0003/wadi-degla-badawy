@@ -16,6 +16,7 @@ import usePhotoZoom from '../usePhotoZoom';
 import { cardImageProps } from '../../util/responsive-img';
 import { productSlug } from '../../util/product-slugs';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { FACTS } from '../../util/company';
 
 // Quarries & Factories (redesigned 2026-11-12, design A "Quarries + factory cards"): header
 // with numbers, the 3 quarries (photo mosaic + text + checklist, alternating sides), the 3
@@ -35,10 +36,10 @@ const FACTORIES = [
 ];
 // Same numbers as the home page's trust strip (Home.js).
 const STATS = [
-  ['14', 'statQuarries'],
-  ['3', 'statFactories'],
-  ['27,000 m²', 'statFactoryArea'],
-  ['3,000 m²', 'statPerDay'],
+  [FACTS.quarries, 'statQuarries'],
+  [FACTS.factories, 'statFactories'],
+  [`${FACTS.factoryArea} m²`, 'statFactoryArea'],
+  [`${FACTS.dailyCapacity} m²`, 'statPerDay'],
 ];
 const STEPS = [1, 2, 3, 4];
 

@@ -7,6 +7,7 @@ import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 
 // Cobbles (redesigned 2026-11-12, design A "Photo header + two surfaces"): photo header with the
 // intro and numbers, the 4 benefits, "two surfaces, one stone" (natural split cobbles and flamed
@@ -17,7 +18,8 @@ const HERO = `${DIR}/cobble-hero.webp`;
 const PHOTOS = ['cobble6', 'cobble7', 'cobble8', 'cobble1', 'cobble-hero'].map(
   (n) => `${DIR}/${n}.webp`,
 );
-const EXPORT_COUNTRIES = '31+'; // same as the home, products, projects and exports pages
+// "31+": the export-country number from the admin panel (src/util/company.js)
+const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 const BENEFIT_ICONS = ['◆', '≈', '✓', '▦'];
 
 const lines = (text) =>

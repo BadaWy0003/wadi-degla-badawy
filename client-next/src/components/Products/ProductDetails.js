@@ -27,13 +27,15 @@ import { productSlug } from '../../util/product-slugs';
 import Product from './Product';
 import { cardImageProps } from '../../util/responsive-img';
 import { normalizeProducts } from '../../util/product-types';
+import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 
 // Photos of the stone in a room; shown as "in a space" photos, not as finishes.
 const ROOM_FINISHES = ['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'];
 // The short facts shown next to the photo (translation keys of their labels).
 const QUICK_SPECS = ['specOrigin', 'specForms', 'specThickness', 'specSizes'];
 // Export countries, also in the home page's trust strip (Home.js): keep both the same.
-const EXPORT_COUNTRIES = '31+';
+// "31+": the export-country number from the admin panel (src/util/company.js)
+const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 
 // Default finish: "Polished" if available, else the first one (never a room photo).
 const defaultFinish = (product) =>

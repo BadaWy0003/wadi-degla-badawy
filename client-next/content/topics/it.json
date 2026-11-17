@@ -35,7 +35,7 @@
     "pageTitle": "Marmo egiziano: esportatore dal 1980 | Wadi Degla",
     "metaDescription": "Marmo egiziano di Wadi Degla, esportatore dal 1980: Galala, Sunny, Emperador e altri, in lastre, piastrelle e blocchi. Campioni gratuiti su richiesta.",
     "heading": "Marmo egiziano",
-    "intro": "Il marmo egiziano è una pietra naturale estratta in Egitto, nota per i suoi caldi toni beige, crema, grigi e marroni e per la sua qualità costante. Si trova in case, hotel, resort ed edifici commerciali di tutto il mondo.\n\nWadi Degla lavora nelle cave egiziane dal 1980, quando il nostro fondatore aprì la prima cava sul monte Galala. Oggi tagliamo e rifiniamo il marmo egiziano nei nostri stabilimenti in Egitto, su oltre 27.000 metri quadrati, e lo spediamo in lastre, piastrelle e blocchi a progetti in tutto il mondo. Qui sotto trovi tutti i marmi egiziani che forniamo e le risposte alle domande più frequenti.",
+    "intro": "Il marmo egiziano è una pietra naturale estratta in Egitto, nota per i suoi caldi toni beige, crema, grigi e marroni e per la sua qualità costante. Si trova in case, hotel, resort ed edifici commerciali di tutto il mondo.\n\nWadi Degla lavora nelle cave egiziane dal 1980, quando il nostro fondatore aprì la prima cava sul monte Galala. Oggi tagliamo e rifiniamo il marmo egiziano nei nostri stabilimenti in Egitto, su oltre {{facts.factoryArea}} metri quadrati, e lo spediamo in lastre, piastrelle e blocchi a progetti in tutto il mondo. Qui sotto trovi tutti i marmi egiziani che forniamo e le risposte alle domande più frequenti.",
     "alsoTitle": "Calcare egiziano, venduto anche come marmo egiziano ({{count}})",
     "sections": [
       {
@@ -52,7 +52,7 @@
       },
       {
         "title": "Perché acquistare marmo egiziano da Wadi Degla",
-        "text": "Tre generazioni nell'industria estrattiva egiziana, 14 cave a partire dal monte Galala e tre stabilimenti (aperti nel 2000, 2011 e 2015, oltre 27.000 m²) con moderne linee di segagione, lucidatura, resinatura, CNC e taglio a getto d'acqua. Il nostro sistema di gestione della qualità è certificato ISO 9001:2015, ogni ordine è imballato in fasci, casse o pallet di legno per l'esportazione e spediamo nei paesi del Golfo, in Europa, Africa, Asia e nelle Americhe."
+        "text": "Tre generazioni nell'industria estrattiva egiziana, {{facts.quarries}} cave a partire dal monte Galala e tre stabilimenti (aperti nel 2000, 2011 e 2015, oltre {{facts.factoryArea}} m²) con moderne linee di segagione, lucidatura, resinatura, CNC e taglio a getto d'acqua. Il nostro sistema di gestione della qualità è certificato ISO 9001:2015, ogni ordine è imballato in fasci, casse o pallet di legno per l'esportazione e spediamo nei paesi del Golfo, in Europa, Africa, Asia e nelle Americhe."
       }
     ],
     "faq": [

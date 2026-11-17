@@ -7,6 +7,7 @@ import OurMarkets from './OurMarkets';
 import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 
 // Exports (redesigned 2026-11-12, design A "Terms first"): header with numbers, the export
 // terms a buyer asks first (the client's confirmed answers, same as the buying guide), what
@@ -35,7 +36,8 @@ const PHOTOS = [
 const SHOWN = 9;
 const TERMS = ['MinOrder', 'Production', 'Shipping', 'Ports', 'Payment', 'Samples'];
 const BULLETS = [1, 2, 3, 4, 5];
-const EXPORT_COUNTRIES = '31+'; // same as the home page's trust strip (Home.js)
+// "31+": the export-country number from the admin panel (src/util/company.js)
+const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 
 export default function Exports() {
   const { t } = useTranslation();
