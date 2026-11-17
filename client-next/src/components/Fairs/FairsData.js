@@ -17,9 +17,10 @@ export const FAIRS = [
     continent: 'europe',
     year: 2026,
     month: 9, // 60th edition, Veronafiere, 22-25 September 2026
-    // the three meeting photos were taken at Marmomac (owner, 2026-11-17); not our own stand
+    // the team photo and the three meeting photos were taken at Marmomac (owner, 2026-11-17); not our own stand
     photos: [
       [PHOTO('marmomac'), 900, 1200],
+      [PHOTO('marmomac-4'), 1200, 900],
       [PHOTO('fair-meeting'), 1200, 900],
       [PHOTO('marmomac-2'), 1200, 900],
       [PHOTO('marmomac-3'), 1200, 900],

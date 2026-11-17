@@ -561,6 +561,10 @@
   .fa-photos.is-group .fa-photo:first-child img {
     max-height: 420px;
   }
+  /* 4+ small photos: two per row on phones (four in a row would be too small) */
+  .fa-photos.is-many {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .fa-section {
     margin-top: 72px;
   }
