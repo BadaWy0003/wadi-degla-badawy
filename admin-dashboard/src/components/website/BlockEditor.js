@@ -42,7 +42,9 @@ const yearsNote = (f, value) =>
     </Typography>
   ) : null;
 
-function HistoryDialog({ id, open, onClose, onRestored }) {
+const changedCount = v => Object.keys(v?.texts || {}).length + Object.keys(v?.data || {}).length;
+
+function HistoryDialog({ id, open, onClose, onRestored, current }) {
   const [versions, setVersions] = useState(null);
   const [busy, setBusy] = useState(false);
 
@@ -55,7 +57,8 @@ function HistoryDialog({ id, open, onClose, onRestored }) {
   }, [id, open]);
 
   const restore = async v => {
-    if (!window.confirm(`Put back the version saved ${timeAgo(v.savedAt)}? The current version is kept in the history too.`)) return;
+    const what = v.original ? "the website's original (every change on this page undone)" : `the version saved ${timeAgo(v.savedAt)}`;
+    if (!window.confirm(`Put back ${what}? The current version is kept in the history too.`)) return;
     setBusy(true);
     try {
       await restoreVersion(id, v.id);
@@ -73,16 +76,30 @@ function HistoryDialog({ id, open, onClose, onRestored }) {
       <DialogTitle>History</DialogTitle>
       <DialogContent>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-          Every save keeps the version before it (the last 30). Restoring one puts it back in the form; then publish.
+          Every save keeps the version before it (the last 30). Click one to put it back, then publish. Publishing adds no line here: the
+          Publish panel shows when the website was last updated.
         </Typography>
+        {current?.updatedAt ? (
+          <Alert severity="info" icon={false} sx={{ mb: 1 }}>
+            <b>Now:</b> saved {new Date(current.updatedAt).toLocaleString()}
+            {current.updatedBy ? ` by ${current.updatedBy}` : ''} · {changedCount(current)} changed item
+            {changedCount(current) === 1 ? '' : 's'}
+          </Alert>
+        ) : (
+          <Alert severity="info" icon={false} sx={{ mb: 1 }}>
+            <b>Now:</b> the website's original (nothing saved yet).
+          </Alert>
+        )}
         {!versions && <CircularProgress size={24} />}
-        {versions && !versions.length && <Typography>No earlier versions yet.</Typography>}
+        {versions && !versions.length && <Typography>No earlier versions yet: nothing has been saved on this page.</Typography>}
         <List dense>
           {(versions || []).map(v => (
             <ListItemButton key={v.id} disabled={busy} onClick={() => restore(v)}>
               <ListItemText
-                primary={`${new Date(v.savedAt).toLocaleString()}${v.savedBy ? ` · ${v.savedBy}` : ''}`}
-                secondary={`${v.changedFields} changed item${v.changedFields === 1 ? '' : 's'} · click to restore`}
+                primary={v.original ? "The website's original" : `${new Date(v.savedAt).toLocaleString()}${v.savedBy ? ` · ${v.savedBy}` : ''}`}
+                secondary={
+                  v.original ? 'Before any change on this page · click to restore' : `${v.changedFields} changed item${v.changedFields === 1 ? '' : 's'} · click to restore`
+                }
               />
             </ListItemButton>
           ))}
@@ -266,7 +283,7 @@ export default function BlockEditor() {
         </Button>
       </Paper>
 
-      <HistoryDialog id={id} open={historyOpen} onClose={() => setHistoryOpen(false)} onRestored={load} />
+      <HistoryDialog id={id} open={historyOpen} onClose={() => setHistoryOpen(false)} onRestored={load} current={state.saved} />
     </Box>
   );
 }

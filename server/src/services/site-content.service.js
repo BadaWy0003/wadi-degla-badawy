@@ -294,9 +294,15 @@ SiteContentService.saveBlock = async (id, body, by) => {
   return { texts: next.texts, data: next.data, updatedAt: now, updatedBy: by || null };
 };
 
+// The earlier versions, newest first, then "the website's original" (no changes at all) once
+// something was saved, so even the first change can be undone.
 SiteContentService.listVersions = async (id) => {
   if (!getBlock(id)) throw httpError(404, 'Unknown page.');
-  const snap = await contentCol().doc(id).collection('versions').orderBy('savedAt', 'desc').limit(KEEP_VERSIONS).get();
+  const [snap, current] = await Promise.all([
+    contentCol().doc(id).collection('versions').orderBy('savedAt', 'desc').limit(KEEP_VERSIONS).get(),
+    readDoc(id),
+  ]);
+  const original = current.updatedAt ? [{ id: 'original', original: true, savedAt: null, savedBy: null, changedFields: 0 }] : [];
   return snap.docs.map((d) => {
     const v = d.data();
     return {
@@ -305,12 +311,13 @@ SiteContentService.listVersions = async (id) => {
       savedBy: v.savedBy,
       changedFields: Object.keys(v.texts || {}).length + Object.keys(v.data || {}).length,
     };
-  });
+  }).concat(original);
 };
 
 // Puts an older version back (the current one is kept as a version too, so this can be undone).
 SiteContentService.restoreVersion = async (id, versionId, by) => {
   if (!getBlock(id)) throw httpError(404, 'Unknown page.');
+  if (versionId === 'original') return SiteContentService.saveBlock(id, { texts: {}, data: {} }, by);
   const v = await contentCol().doc(id).collection('versions').doc(versionId).get();
   if (!v.exists) throw httpError(404, 'This version no longer exists.');
   const { texts, data } = v.data();
