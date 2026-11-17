@@ -9,13 +9,13 @@ import LangLink from '../LangLink';
 import StatCounter from '../About/StatCounter';
 import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { YEARS } from '../../util/company';
 
 // History (redesigned 2026-11-12, design A "Timeline"): header with numbers, the family story
 // as a dated timeline (1951 → today, with the three generations' photos), "A living legacy"
 // (8 of the 29 archive photos; all open in the zoom viewer), "From Galala to the World" with
 // the family's values, the Related pages links (children) and a WhatsApp band.
-// 46 years: also YEARS in Home.js, home.legacy45Years and About.js — update every January.
-const YEARS = 46;
+// YEARS: counted from the founding year (src/util/company.js).
 const PHOTO = (name) => `/Assets/Media/History/${name}.webp`;
 const STEPS = [
   { year: '1951', title: 'history.tl1951Title', text: 'history.firstGenIntro' },

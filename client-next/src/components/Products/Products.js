@@ -11,6 +11,7 @@ import { CATEGORY_TOPIC } from '../../util/topic-pages';
 import { productSlug } from '../../util/product-slugs';
 import { finishLabel } from '../../util/finishes';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { COMPANY, EXPORT_COUNTRIES_LABEL } from '../../util/company';
 
 // Products list (redesigned 2026-11-12, design A "Grouped by category"): every stone, in one
 // section per category, so all of them (and their links) are in the static HTML for Google.
@@ -29,8 +30,8 @@ const DESCRIPTION_KEYS = {
   'Imported Granite': 'products.importedGraniteDescription',
 };
 // Numbers in the header; keep them the same as the home page's trust strip (Home.js).
-const QUARRIES = 14;
-const EXPORT_COUNTRIES = '31+';
+const QUARRIES = COMPANY.quarries;
+const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 
 const sectionId = (category) => `pl-${category.toLowerCase().replace(/\s+/g, '-')}`;
 const order = (a, b) => {

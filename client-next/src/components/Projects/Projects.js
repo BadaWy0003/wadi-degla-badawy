@@ -6,12 +6,14 @@ import './ProjectsPage.css';
 import ProjectCard from './ProjectCard';
 import LangLink from '../LangLink';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 
 // Projects list (redesigned 2026-11-12, design A "Grid with country filter").
 // projects: cards from the admin panel (read at build time, projectCard() in
 // src/util/projects-data.js), already in page order (countries in their order, then the
 // projects inside each). All cards are in the static HTML; the buttons only filter them.
-const EXPORT_COUNTRIES = '31+'; // same as the home page's trust strip (Home.js)
+// "31+": the export-country number from the admin panel (src/util/company.js)
+const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 
 export default function Projects({ projects = [] }) {
   const { t } = useTranslation();

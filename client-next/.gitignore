@@ -5,6 +5,9 @@ node_modules/
 .next/
 out/
 
+# admin-panel content fetched before each build (scripts/fetch-site-content.js)
+content/.generated/
+
 # env files
 .env*.local
 

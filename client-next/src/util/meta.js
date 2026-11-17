@@ -5,6 +5,7 @@
  */
 
 import { SUPPORTED_LANGS, BASE_URL } from './supported-langs';
+import { applySiteTexts } from './site-text';
 export { SUPPORTED_LANGS };
 
 // Import all translation JSON files directly
@@ -21,7 +22,18 @@ import ru from '../../translations/ru.json';
 import ja from '../../translations/ja.json';
 import zh from '../../translations/zh.json';
 
-const translations = { en, ar, fr, es, de, it, ro, ko, sq, ru, ja, zh };
+const RAW = { en, ar, fr, es, de, it, ro, ko, sq, ru, ja, zh };
+
+// Each language's texts with the client's admin-panel changes and the company numbers
+// filled in (src/util/site-text.js), worked out once per language.
+const prepared = {};
+const translations = new Proxy(RAW, {
+  get(target, lang) {
+    if (typeof lang !== 'string' || !target[lang]) return undefined;
+    if (!prepared[lang]) prepared[lang] = applySiteTexts(target[lang], lang, RAW.en);
+    return prepared[lang];
+  },
+});
 
 /**
  * Get a nested translation value. Key format: "section.key" e.g. "home.pageTitle"

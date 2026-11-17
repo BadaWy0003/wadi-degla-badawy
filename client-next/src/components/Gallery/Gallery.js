@@ -8,6 +8,7 @@ import apiClient from '../../util/client';
 import LangLink from '../LangLink';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { COMPANY, FACTS } from '../../util/company';
 
 // Gallery (redesigned 2026-11-12, design B "Grouped by area"): header with numbers, a bar of
 // group buttons (they jump to their section; the one on screen is highlighted), one section per
@@ -26,8 +27,8 @@ const GROUPS = [
   { id: 'yard', link: '/quarries', names: ['28', '3', '4', '27', '22', '26'] },
   { id: 'packing', link: '/packing', names: ['24', '29', '30', '31', '21'] },
 ];
-const FACTORIES = 3;
-const OUTPUT = '3,000 m²'; // per day, same as the About and Quarries pages
+const FACTORIES = COMPANY.factories;
+const OUTPUT = `${FACTS.dailyCapacity} m²`; // per day, from the admin panel (src/util/company.js)
 
 const photoOf = (item) => {
   const f = item.finishes?.[0];
