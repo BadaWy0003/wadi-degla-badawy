@@ -33,6 +33,10 @@ jobs:
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: |
-          # NEXT_PUBLIC_ vars must be passed at build time (they are baked into the JS bundle)
+          # NEXT_PUBLIC_ vars must be passed at build time (they are baked into the JS bundle).
+          # PUBLISH_ID changes every run, so the build step is never reused from the builder's
+          # cache: a "Publish to website" with no code change must still fetch the latest
+          # news, projects and admin-panel content.
           flyctl deploy --remote-only -a client-next-wadi-degla \
-            --build-arg NEXT_PUBLIC_BASE_API_URL=https://server-withered-wildflower-1595.fly.dev
+            --build-arg NEXT_PUBLIC_BASE_API_URL=https://server-withered-wildflower-1595.fly.dev \
+            --build-arg PUBLISH_ID=${{ github.run_id }}-${{ github.run_attempt }}
