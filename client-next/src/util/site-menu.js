@@ -37,7 +37,7 @@ export const PRODUCTS_MENU = {
         {
           href: '/egyptian-limestone',
           label: 'visualizer.egyptianLimestone',
-          img: MENU_IMG('egyptian-limestone'),
+          img: MENU_IMG('egyptian-limestone-2'), // one stone (Galala); the old file showed several
         },
         {
           href: '/egyptian-granite',
