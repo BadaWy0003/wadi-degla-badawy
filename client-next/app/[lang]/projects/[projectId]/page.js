@@ -25,8 +25,11 @@ export async function generateMetadata({ params }) {
   const { lang, projectId } = params;
   const project = await getProject(projectId, lang);
   const langs = await getProjectIndexedLangs(projectId);
+  // " | Wadi Degla" is left off when the title would pass 60 characters (Google cuts the rest)
   const title = project
-    ? `${project.name} | Wadi Degla`
+    ? `${project.name} | Wadi Degla`.length > 60
+      ? project.name
+      : `${project.name} | Wadi Degla`
     : t(lang, 'projects.pageTitle', 'ProjectDetails | Wadi Degla');
   const description = project?.metaDescription || t(lang, 'projects.metaDescription', '');
   return {
