@@ -119,7 +119,7 @@ export default function Fairs({ children }) {
         {FAIRS.map((f) => (
           <section className="fa-chapter fa-reveal" id={`fair-${f.id}`} key={f.id}>
             <div
-              className={`fa-photos${f.photos.length === 2 ? ' is-pair' : ''}${f.photos.length > 2 ? ' is-group' : ''}`}
+              className={`fa-photos${f.photos.length === 2 ? ' is-pair' : ''}${f.photos.length > 2 ? ' is-group' : ''}${f.photos.length > 4 ? ' is-many' : ''}`}
               style={f.photos.length > 2 ? { '--fa-n': f.photos.length - 1 } : undefined}
             >
               {f.photos.map(([src, w, h]) => {
