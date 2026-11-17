@@ -237,27 +237,6 @@
     height: 240px;
   }
 
-  /* ---------- Footer ---------- */
-  html body .footer-nav:not(#m) {
-    row-gap: 1.5rem;
-  }
-
-  html body .footer-nav h4:not(#m) {
-    margin: 0 0 0.75rem;
-  }
-
-  html body .footer-nav .col a:not(#m) {
-    margin-bottom: 0.6rem;
-  }
-
-  html body .footer-left-bg:not(#m) {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-
-  html body .footer-right-content:not(#m) {
-    padding-top: 40px;
-  }
 }
 
 /* ---------- Mobile audit fixes (all pages) ---------- */

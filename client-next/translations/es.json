@@ -266,16 +266,12 @@
     "galleryTitle": "Fotos"
   },
   "footer": {
-    "getInTouch": "PONTE EN CONTACTO",
-    "footerParagraph": "En Wadi Degla para Mármol y Granito valoramos las consultas y comentarios de nuestros clientes. Nuestro equipo está aquí para ayudarle y proporcionar la información que necesita.",
-    "contactUs": "CONTÁCTANOS",
-    "welcomePrefix": "Bienvenido a",
     "companyName": "Wadi Degla",
-    "welcomeSuffix": "para Mármol y Granito, su socio de confianza en el negocio del mármol desde 1980.",
-    "explore": "EXPLORAR",
-    "resources": "RECURSOS",
-    "contactHeading": "CONTÁCTANOS",
-    "copyRights": "©{{year}} Wadi Degla | Desarrollado por PyraDev"
+    "tagline": "Exportador de mármol, granito y piedra caliza egipcios desde 1980: canteras, fábricas y equipo de exportación propios.",
+    "rights": "© {{year}} Wadi Degla Co. Todos los derechos reservados.",
+    "iso": "Certificación ISO 9001:2015",
+    "backToTop": "Volver arriba",
+    "follow": "Siga a Wadi Degla"
   },
   "contact": {
     "title": "Contacte a Wadi Degla | Proveedor de Mármol y Piedra Natural en todo el mundo",

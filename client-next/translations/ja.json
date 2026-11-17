@@ -266,16 +266,12 @@
     "galleryTitle": "写真"
   },
   "footer": {
-    "getInTouch": "お問い合わせ",
-    "footerParagraph": "ワディ・デグラ・マーブル＆グラナイト（Wadi Degla for Marble & Granite）では、お客様のお問い合わせやフィードバックを大切にしています。当社の専任チームがお客様をサポートし、必要な情報を提供いたします。",
-    "contactUs": "お問い合わせ",
-    "welcomePrefix": "ようこそ",
     "companyName": "ワディ・デグラ",
-    "welcomeSuffix": "for Marble & Graniteへ。1980年以来、マーブルビジネスにおける信頼できるパートナーです。",
-    "explore": "探す",
-    "resources": "リソース",
-    "contactHeading": "お問い合わせ",
-    "copyRights": "©{{year}} ワディ・デグラ | Powered by PyraDev"
+    "tagline": "1980年からエジプト産大理石・花崗岩・石灰岩を輸出。自社の採石場、工場、輸出チームを持っています。",
+    "rights": "© {{year}} Wadi Degla Co. All rights reserved.",
+    "iso": "ISO 9001:2015 認証取得",
+    "backToTop": "ページの先頭へ",
+    "follow": "Wadi Degla をフォロー"
   },
   "contact": {
     "title": "Wadi Deglaにお問い合わせください | 大理石および天然石の世界的なサプライヤー",

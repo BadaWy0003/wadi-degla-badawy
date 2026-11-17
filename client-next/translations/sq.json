@@ -266,16 +266,12 @@
     "galleryTitle": "Foto"
   },
   "footer": {
-    "getInTouch": "NA KONTAKTONI",
-    "footerParagraph": "Në Wadi Degla për Mermer & Granit, ne vlerësojmë pyetjet dhe reagimet e klientëve tanë. Ekipi ynë i përkushtuar është këtu për t'ju ndihmuar dhe për t'ju ofruar informacionin që ju nevojitet.",
-    "contactUs": "NA KONTAKTONI",
-    "welcomePrefix": "Mirë se vini në",
     "companyName": "Wadi Degla",
-    "welcomeSuffix": "për Mermer & Granit, partneri juaj i besuar në biznesin e mermerit që nga viti 1980.",
-    "explore": "EKSPLORO",
-    "resources": "BURIMET",
-    "contactHeading": "NA KONTAKTONI",
-    "copyRights": "©{{year}} Wadi Degla | Mundësuar nga PyraDev"
+    "tagline": "Eksportues i mermerit, granitit dhe gurit gëlqeror egjiptian që nga viti 1980: gurore, fabrika dhe ekip eksporti tonat.",
+    "rights": "© {{year}} Wadi Degla Co. Të gjitha të drejtat e rezervuara.",
+    "iso": "Certifikuar ISO 9001:2015",
+    "backToTop": "Kthehu lart",
+    "follow": "Ndiqni Wadi Degla"
   },
   "contact": {
     "title": "Kontaktoni Wadi Degla | Furnizuesi Botëror i Marmorit dhe Gurit Natyral",

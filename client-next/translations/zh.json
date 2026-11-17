@@ -266,16 +266,12 @@
     "galleryTitle": "照片"
   },
   "footer": {
-    "getInTouch": "联系我们",
-    "footerParagraph": "在瓦迪·德格拉大理石与花岗岩公司，我们重视客户的询问和反馈。我们专注的团队随时为您提供所需的协助和信息。",
-    "contactUs": "联系我们",
-    "welcomePrefix": "欢迎来到",
     "companyName": "瓦迪·德格拉",
-    "welcomeSuffix": "大理石与花岗岩，自1980年以来您在大理石业务中值得信赖的合作伙伴。",
-    "explore": "探索",
-    "resources": "资源",
-    "contactHeading": "联系我们",
-    "copyRights": "©{{year}} 瓦迪·德格拉 | 由PyraDev提供支持"
+    "tagline": "自1980年起出口埃及大理石、花岗岩和石灰石：拥有自己的采石场、工厂和出口团队。",
+    "rights": "© {{year}} Wadi Degla Co. 版权所有。",
+    "iso": "通过 ISO 9001:2015 认证",
+    "backToTop": "返回顶部",
+    "follow": "关注 Wadi Degla"
   },
   "contact": {
     "title": "联系瓦迪·德格拉 | 全球大理石与天然石材供应商",

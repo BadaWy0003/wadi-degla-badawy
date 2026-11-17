@@ -266,16 +266,12 @@
     "galleryTitle": "사진"
   },
   "footer": {
-    "getInTouch": "문의하기",
-    "footerParagraph": "와디 데글라 마블 & 그라나이트(Wadi Degla for Marble & Granite)는 고객의 문의와 피드백을 소중히 여깁니다. 우리의 전담 팀은 귀하를 돕고 필요한 정보를 제공하기 위해 여기 있습니다.",
-    "contactUs": "문의하기",
-    "welcomePrefix": "환영합니다",
     "companyName": "와디 데글라",
-    "welcomeSuffix": "for Marble & Granite, 1980년부터 신뢰할 수 있는 대리석 사업 파트너입니다.",
-    "explore": "탐색",
-    "resources": "자료",
-    "contactHeading": "문의하기",
-    "copyRights": "©{{year}} 와디 데글라 | Powered by PyraDev"
+    "tagline": "1980년부터 이집트 대리석, 화강암, 석회암을 수출해 왔습니다. 자체 채석장, 공장, 수출팀을 보유하고 있습니다.",
+    "rights": "© {{year}} Wadi Degla Co. All rights reserved.",
+    "iso": "ISO 9001:2015 인증",
+    "backToTop": "맨 위로",
+    "follow": "Wadi Degla 팔로우"
   },
   "contact": {
     "title": "Wadi Degla에 문의하세요 | 대리석 및 천연석 세계 공급업체",

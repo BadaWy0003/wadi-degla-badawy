@@ -266,16 +266,12 @@
     "galleryTitle": "Fotografii"
   },
   "footer": {
-    "getInTouch": "CONTACTAȚI-NE",
-    "footerParagraph": "La Wadi Degla pentru Marmură și Granit, prețuim întrebările și feedback-ul clienților noștri. Echipa noastră dedicată este aici pentru a vă asista și a vă oferi informațiile de care aveți nevoie.",
-    "contactUs": "CONTACTAȚI-NE",
-    "welcomePrefix": "Bine ați venit la",
     "companyName": "Wadi Degla",
-    "welcomeSuffix": "pentru Marmură și Granit, partenerul dumneavoastră de încredere în afacerile cu marmură din 1980.",
-    "explore": "EXPLORAȚI",
-    "resources": "RESURSE",
-    "contactHeading": "CONTACTAȚI-NE",
-    "copyRights": "©{{year}} Wadi Degla | Realizat de PyraDev"
+    "tagline": "Exportator de marmură, granit și calcar egiptean din 1980: cariere, fabrici și echipă de export proprii.",
+    "rights": "© {{year}} Wadi Degla Co. Toate drepturile rezervate.",
+    "iso": "Certificat ISO 9001:2015",
+    "backToTop": "Înapoi sus",
+    "follow": "Urmăriți Wadi Degla"
   },
   "contact": {
     "title": "Contactați Wadi Degla | Furnizor de Marmură și Piatră Naturală Mondial",
