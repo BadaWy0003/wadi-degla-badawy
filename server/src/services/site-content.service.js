@@ -78,7 +78,7 @@ const cleanText = (value, field) => {
 };
 
 // A photo: { src, width, height }; src is our own upload or a website photo.
-const cleanImage = (value, bad) => {
+const cleanImage = (value, bad, field = {}) => {
   const v = value && typeof value === 'object' ? value : {};
   const src = String(v.src || '');
   if (!StorageService.isOwnStorageUrl(src) && !/^\/Assets\/[A-Za-z0-9._\-/]+$/.test(src))
@@ -86,6 +86,11 @@ const cleanImage = (value, bad) => {
   const width = Math.round(Number(v.width));
   const height = Math.round(Number(v.height));
   if (!(width > 0 && width < 20000 && height > 0 && height < 20000)) throw bad('the photo size is missing; upload it again.');
+  // Some places need a photo of a given shape (e.g. the home page's phone header).
+  if (field.ratio && !src.startsWith('/Assets/')) {
+    const r = width / height;
+    if (r < field.ratio[0] || r > field.ratio[1]) throw bad(field.ratioHelp || 'the photo has the wrong shape.');
+  }
   return { src, width, height };
 };
 
@@ -135,7 +140,7 @@ const cleanData = (value, field) => {
       return v;
     }
     case 'image':
-      return cleanImage(value, bad);
+      return cleanImage(value, bad, field);
     case 'images': {
       if (!Array.isArray(value)) throw bad('invalid photos.');
       if (value.length < (field.min || 0)) throw bad(`add at least ${field.min} photo${field.min === 1 ? '' : 's'}.`);
@@ -170,6 +175,15 @@ const cleanData = (value, field) => {
       if (list.some((n) => !/^\d{1,6}$/.test(n))) throw bad('invalid project.');
       if (!list.length && !field.optional) throw bad('choose at least one project.');
       return [...new Set(list)];
+    }
+    case 'products': {
+      // product ids (Firestore "materials" doc ids), in the chosen order
+      const list = Array.isArray(value) ? value.map(String) : [];
+      if (list.some((id) => !/^[A-Za-z0-9_-]{1,64}$/.test(id))) throw bad('invalid stone.');
+      const ids = [...new Set(list)];
+      if (ids.length < (field.min || 0)) throw bad(`choose at least ${field.min} stones.`);
+      if (ids.length > (field.max || 50)) throw bad(`at most ${field.max || 50} stones.`);
+      return ids;
     }
     case 'list': {
       if (!Array.isArray(value)) throw bad('invalid list.');

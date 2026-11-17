@@ -18,36 +18,46 @@ import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
 import '../Certificates/Certificates.css';
 import './HomePage.css';
 import { COMPANY, YEARS } from '../../util/company';
+import { HOME_PHOTOS, HOME_PHOTOS_DEFAULTS } from './homeData';
 
 const ICONS = '/Assets/Icons';
 // Partner and certificate logos with a transparent background (tools/make-transparent-logos.js),
 // shown in one light colour and in colour on hover (HomePage.css).
 const clearLogo = (src) =>
   `${ICONS}/logos-transparent/${src.split('/').pop().replace(/\.\w+$/, '')}.webp`;
-const HERO = '/Assets/Media/Hero';
 // The numbers come from the admin panel (src/util/company.js); the years count themselves.
+// Photos and featured stones too (homeData.js); a replaced header photo is set as a CSS
+// variable read by HomePage.css.
+const heroStyle = Object.fromEntries(
+  [
+    ['--hp-hero-desktop', 'heroDesktop'],
+    ['--hp-hero-phone', 'heroPhone'],
+  ]
+    .filter(([, k]) => HOME_PHOTOS[k].src !== HOME_PHOTOS_DEFAULTS[k].src)
+    .map(([v, k]) => [v, `url("${HOME_PHOTOS[k].src.replace(/["\\]/g, '')}")`]),
+);
 
 // The four stone ranges, each linking to its topic page (same header photos as those pages).
 const RANGES = [
   {
     href: '/egyptian-marble',
     label: 'home.rangeEgyptianMarbleLimestone', // the page lists both (owner, 2026-11-12)
-    img: `${HERO}/stone-tile-egyptian-marble-2.webp`,
+    img: HOME_PHOTOS.tileEgyptianMarble.src,
   },
   {
     href: '/egyptian-granite',
     label: 'visualizer.egyptianGranite',
-    img: `${HERO}/stone-tile-egyptian-granite.webp`,
+    img: HOME_PHOTOS.tileEgyptianGranite.src,
   },
   {
     href: '/imported-marble',
     label: 'visualizer.importedMarble',
-    img: `${HERO}/stone-tile-imported-marble.webp`,
+    img: HOME_PHOTOS.tileImportedMarble.src,
   },
   {
     href: '/imported-granite',
     label: 'visualizer.importedGranite',
-    img: `${HERO}/stone-tile-imported-granite.webp`,
+    img: HOME_PHOTOS.tileImportedGranite.src,
   },
 ];
 
@@ -139,7 +149,7 @@ export default function Home({ featured = [] }) {
   return (
     <div className="hp">
       {/* 1. Hero: who we are, the main action (WhatsApp) and proof at a glance */}
-      <section className="hp-hero">
+      <section className="hp-hero" style={heroStyle}>
         <div className="hp-hero-inner">
           <h1 className="hero-heading hp-hero-title">
             <span className="hp-eyebrow">{t('home.companyName')}</span>
@@ -294,7 +304,7 @@ export default function Home({ featured = [] }) {
         <img
           loading="lazy"
           className="hp-split-img"
-          src={`${HERO}/quarries-home-card.webp`}
+          src={HOME_PHOTOS.quarriesPhoto.src}
           alt={t('home.globalQuarriesAlt')}
         />
         <div>
@@ -313,7 +323,7 @@ export default function Home({ featured = [] }) {
           {[
             [
               '/projects',
-              'projects-hero-card',
+              HOME_PHOTOS.projectsPhoto.src,
               'projectsAlt',
               'experienceWork',
               null,
@@ -322,7 +332,7 @@ export default function Home({ featured = [] }) {
             ],
             [
               '/inspiration',
-              'inspo-home-hero-card',
+              HOME_PHOTOS.inspirationPhoto.src,
               'inspirationAlt',
               'inspiration',
               'inspirationTitle',
@@ -331,7 +341,7 @@ export default function Home({ featured = [] }) {
             ],
             [
               '/visualizer',
-              'visualizer-home-card',
+              HOME_PHOTOS.visualizerPhoto.src,
               'visualizerAlt',
               'bringVisionToLife',
               null,
@@ -341,7 +351,7 @@ export default function Home({ featured = [] }) {
           ].map(([href, img, alt, title, eyebrow, desc, cta]) => (
             <li key={href}>
               <LangLink href={href} className="hp-explore-card">
-                <img loading="lazy" src={`${HERO}/${img}.webp`} alt={t(`home.${alt}`)} />
+                <img loading="lazy" src={img} alt={t(`home.${alt}`)} />
                 <span className="hp-explore-body">
                   {eyebrow && <span className="hp-eyebrow">{t(`home.${eyebrow}`)}</span>}
                   <h2>{t(`home.${title}`)}</h2>

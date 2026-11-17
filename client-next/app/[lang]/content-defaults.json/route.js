@@ -8,6 +8,11 @@ import { COMPANY_DEFAULTS } from '../../../src/util/company';
 import { CERTIFICATES_DEFAULTS } from '../../../src/components/Certificates/certificateDocs';
 import { fairsForAdmin } from '../../../src/components/Fairs/FairsData';
 import { partnersForAdmin } from '../../../src/components/Partners/PartnersData';
+import {
+  FEATURED_DEFAULT_NAMES,
+  HOME_PHOTOS_DEFAULTS,
+} from '../../../src/components/Home/homeData';
+import { getProducts } from '../../../src/util/product-slugs';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -29,12 +34,18 @@ const patterns = Object.fromEntries([
   ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => [`split${n}`, '']),
 ]);
 
-export function GET(request, { params }) {
+export async function GET(request, { params }) {
   const texts = params.lang === 'ar' ? ar : en;
+  // the home page's featured stones are saved as product ids
+  const products = (await getProducts()) || [];
+  const featured = FEATURED_DEFAULT_NAMES.map(
+    (name) => products.find((p) => String(p.name).trim() === name)?.id,
+  ).filter(Boolean);
   return Response.json({
     texts,
     data: {
       company: COMPANY_DEFAULTS,
+      home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
       certificates: CERTIFICATES_DEFAULTS,
       fairs: { fairs: fairsForAdmin((id) => textOf(`fairs.items.${id}`)) },
       patterns,

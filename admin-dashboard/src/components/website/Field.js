@@ -14,7 +14,7 @@ import {
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { DAY_NAMES, FACT_LABELS, WEEKDAYS, checkAny, factsIn, isChanged, originalOf } from '../../util/website';
-import { CountryInput, I18nInput, ImageInput, ImagesInput, ListInput, ProjectsInput, SelectInput } from './Inputs';
+import { CountryInput, I18nInput, ImageInput, ImagesInput, ListInput, ProductsInput, ProjectsInput, SelectInput } from './Inputs';
 
 const hourLabel = h => `${String(h).padStart(2, '0')}:00`;
 
@@ -25,6 +25,7 @@ const originalText = (f, orig) => {
   if (f.type === 'hour') return hourLabel(orig);
   if (f.type === 'number') return `${Number(orig).toLocaleString('en-US')}${f.suffix || ''}`;
   if (f.type === 'list') return `${(orig || []).length} items`;
+  if (f.type === 'products') return `${(orig || []).length} stones`;
   if (f.type === 'image') return orig?.src ? "the website's own photo" : '—';
   return String(orig || '—');
 };
@@ -44,6 +45,8 @@ export function renderInput(f, value, onChange, showErrors) {
       return <CountryInput value={value} onChange={onChange} />;
     case 'projects':
       return <ProjectsInput value={value} onChange={onChange} />;
+    case 'products':
+      return <ProductsInput value={value} onChange={onChange} field={f} />;
     case 'list':
       return <ListInput value={value} onChange={onChange} field={f} showErrors={showErrors} renderInput={renderInput} />;
     case 'line':
@@ -100,7 +103,7 @@ export default function Field({ field: f, value, onChange, defaults, showErrors,
         />
       </Box>
     );
-  } else if (['image', 'images', 'i18n', 'select', 'country', 'projects', 'list'].includes(f.type)) {
+  } else if (['image', 'images', 'i18n', 'select', 'country', 'projects', 'products', 'list'].includes(f.type)) {
     input = renderInput(f, value, onChange, showErrors);
   } else if (f.type === 'days') {
     input = (
