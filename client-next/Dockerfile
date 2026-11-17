@@ -13,6 +13,10 @@ ENV NEXT_PUBLIC_BASE_API_URL=$NEXT_PUBLIC_BASE_API_URL
 # "staging" on the staging app (noindex, no analytics); empty for production.
 ARG NEXT_PUBLIC_SITE_ENV=""
 ENV NEXT_PUBLIC_SITE_ENV=$NEXT_PUBLIC_SITE_ENV
+# A new value on every deploy (set by the workflow), so the build below always runs again
+# and fetches the latest content from the API, even when the code hasn't changed.
+ARG PUBLISH_ID=""
+RUN echo "publish $PUBLISH_ID"
 
 RUN npm run build
 

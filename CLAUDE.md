@@ -37,6 +37,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
     - **If the API is unreachable, the build fails on purpose,** so the live site keeps its news.
     - `src/components/News/newsList.js` is no longer used (kept for reference).
   - **New articles reach the site only with "Publish to website"**, or any client-next deploy.
+  - **Every deploy rebuilds** (fixed 2026-11-17): the workflow passes `PUBLISH_ID` (run id) to the Dockerfile, so Fly's builder never reuses the cached `npm run build` step. Before that, a Publish with no code change re-used the previous build and the new content never reached the site.
   - **Admin panel** (`admin-dashboard/src/components/news/`, helpers in `src/util/news.js`):
     - **Visibility:** the News menu and page show for ADMIN/SUPER_ADMIN only, via `canManageNews(role)`.
     - **Page:** the list (pin, hide, delete when hidden, open on the site), the add/edit form with English/Arabic/Photos & date/Preview tabs, the one-time Import button (shown while empty), and the Publish panel, which refreshes every 20s while a build runs.
