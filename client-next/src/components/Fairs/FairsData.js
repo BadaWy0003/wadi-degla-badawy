@@ -3,7 +3,8 @@
 // (Intl.DisplayNames), the date as "2026" or "April 2024" (Intl.DateTimeFormat).
 // Texts: fairs.items.<id> in all 12 translation files (facts from the organisers' sites,
 // checked 2026-11-16).
-// photos: [file in /Assets/Media/Fairs/, width, height]. To add a fair: add it here (and its
+// photos: [file in /Assets/Media/Fairs/, width, height]: 1 photo, 2 (the second overlaps the
+// first's corner) or 3+ (a big first photo with a row of small ones under it). To add a fair: add it here (and its
 // text in the 12 files); the numbers at the top are counted from this list.
 const PHOTO = (name) => `/Assets/Media/Fairs/${name}.webp`;
 
@@ -16,7 +17,13 @@ export const FAIRS = [
     continent: 'europe',
     year: 2026,
     month: 9, // 60th edition, Veronafiere, 22-25 September 2026
-    photos: [[PHOTO('marmomac'), 900, 1200]],
+    // the three meeting photos were taken at Marmomac (owner, 2026-11-17); not our own stand
+    photos: [
+      [PHOTO('marmomac'), 900, 1200],
+      [PHOTO('fair-meeting'), 1200, 900],
+      [PHOTO('marmomac-2'), 1200, 900],
+      [PHOTO('marmomac-3'), 1200, 900],
+    ],
   },
   {
     id: 'coverings',
@@ -49,12 +56,12 @@ export const FAIRS = [
     continent: 'asia',
     year: 2024,
     month: 4, // fuarizmir, 17-20 April 2024 (29th edition)
-    photos: [[PHOTO('marble-izmir'), 900, 1200]],
+    photos: [
+      [PHOTO('marble-izmir'), 900, 1200],
+      [PHOTO('marble-izmir-2'), 1200, 900],
+    ],
   },
 ];
-
-// A photo of the team meeting partners between the halls (not our own stand; fair not named).
-export const MEETING_PHOTO = [PHOTO('fair-meeting'), 1200, 900];
 
 // The questions & answers on the page (fairs.faq<Key>Q / A), also used by the page's FAQPage
 // JSON-LD in app/[lang]/fairs/page.js (this file is not a client component, so both can import it).

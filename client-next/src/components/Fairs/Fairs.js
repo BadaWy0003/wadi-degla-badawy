@@ -2,7 +2,7 @@
 // Fairs & Exhibitions page (redesigned 2026-11-16, owner chose design A "Passport"): header with
 // the numbers (fairs, countries, continents, counted from FairsData.js) and one "stamp" per fair
 // on a dotted route; then one chapter per fair (photo, flag + city, name, text, date) on
-// alternating sides; meeting partners at the fairs; why we go; questions & answers (also in the
+// alternating sides (Marmomac has 4 photos, the team meeting partners among them); why we go; questions & answers (also in the
 // page's FAQPage JSON-LD); the Related pages block (children) and a WhatsApp band.
 // Animations: the stamps press in one by one as the page opens (CSS) and the chapters fade up
 // when scrolled to (the
@@ -15,7 +15,7 @@ import ContactBubble from '../Contact/ContactBubble';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import useReveal from '../News/useReveal';
 import usePhotoZoom from '../usePhotoZoom';
-import { FAIRS, MEETING_PHOTO, FAQ_KEYS } from './FairsData';
+import { FAIRS, FAQ_KEYS } from './FairsData';
 import './FairsPage.css';
 
 const WHY = ['Buyers', 'Trends', 'Tech', 'Partners'];
@@ -67,7 +67,6 @@ export default function Fairs({ children }) {
         alt: t('fairs.photoAlt', { fair: f.name, place: place(f) }),
       })),
     ),
-    { src: MEETING_PHOTO[0], alt: t('fairs.meetTitle') },
   ];
   let slide = 0;
 
@@ -119,7 +118,10 @@ export default function Fairs({ children }) {
       <div className="fa-wrap">
         {FAIRS.map((f) => (
           <section className="fa-chapter fa-reveal" id={`fair-${f.id}`} key={f.id}>
-            <div className={`fa-photos${f.photos.length > 1 ? ' is-pair' : ''}`}>
+            <div
+              className={`fa-photos${f.photos.length === 2 ? ' is-pair' : ''}${f.photos.length > 2 ? ' is-group' : ''}`}
+              style={f.photos.length > 2 ? { '--fa-n': f.photos.length - 1 } : undefined}
+            >
               {f.photos.map(([src, w, h]) => {
                 const index = slide++;
                 return (
@@ -153,30 +155,6 @@ export default function Fairs({ children }) {
             </div>
           </section>
         ))}
-
-        <section className="fa-chapter fa-reveal">
-          <div className="fa-photos">
-            <button
-              type="button"
-              className="fa-photo"
-              onClick={() => openPhoto(slides.length - 1)}
-              aria-label={t('fairs.meetTitle')}
-            >
-              <img
-                loading="lazy"
-                src={MEETING_PHOTO[0]}
-                alt={t('fairs.meetAlt')}
-                width={MEETING_PHOTO[1]}
-                height={MEETING_PHOTO[2]}
-              />
-            </button>
-          </div>
-          <div className="fa-text">
-            <span className="fa-place">{t('fairs.meetEyebrow')}</span>
-            <h2>{t('fairs.meetTitle')}</h2>
-            <p>{t('fairs.meetText')}</p>
-          </div>
-        </section>
 
         <section className="fa-section">
           <h2>{t('fairs.whyTitle')}</h2>
