@@ -6,9 +6,11 @@
 // photos: [file in /Assets/Media/Fairs/, width, height]: 1 photo, 2 (the second overlaps the
 // first's corner) or 3+ (a big first photo with the small ones under it: one row up to 4, then rows of 3). To add a fair: add it here (and its
 // text in the 12 files); the numbers at the top are counted from this list.
+import { siteData } from '../../util/site-content';
+
 const PHOTO = (name) => `/Assets/Media/Fairs/${name}.webp`;
 
-export const FAIRS = [
+export const FAIRS_DEFAULT = [
   {
     id: 'marmomac',
     name: 'Marmomac',
@@ -64,6 +66,38 @@ export const FAIRS = [
     ],
   },
 ];
+
+// The admin panel's list ("Website" → "Fairs & exhibitions") replaces the default list once
+// the client changed it: same fields; photos are { src, width, height } there; text { en, ar }
+// (resolved per language at build time by app/[lang]/fairs/page.js).
+const CMS_FAIRS = siteData('fairs').fairs;
+export const FAIRS = CMS_FAIRS
+  ? CMS_FAIRS.map((f) => ({
+      id: f.id,
+      name: f.name,
+      city: f.city || null,
+      country: f.country,
+      continent: f.continent,
+      year: f.year,
+      month: f.month || null,
+      text: f.text,
+      photos: (f.photos || []).map((ph) => [ph.src, ph.width, ph.height]),
+    }))
+  : FAIRS_DEFAULT;
+
+// The default list in the admin panel's shape (for /<lang>/content-defaults.json).
+export const fairsForAdmin = (textOf) =>
+  FAIRS_DEFAULT.map((f) => ({
+    id: f.id,
+    name: f.name,
+    city: f.city || '',
+    country: f.country,
+    continent: f.continent,
+    year: f.year,
+    month: f.month || 0,
+    text: textOf(f.id),
+    photos: f.photos.map(([src, width, height]) => ({ src, width, height })),
+  }));
 
 // The questions & answers on the page (fairs.faq<Key>Q / A), also used by the page's FAQPage
 // JSON-LD in app/[lang]/fairs/page.js (this file is not a client component, so both can import it).

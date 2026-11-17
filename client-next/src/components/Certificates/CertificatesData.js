@@ -1,16 +1,18 @@
+import { CERTIFICATES } from './certificateDocs';
 
 
-const iso_certificate = '/Assets/Media/Certificates/iso-certificate.webp';
+
+const iso_certificate = CERTIFICATES.isoDoc.src;
 const iso_logo = '/Assets/Media/Certificates/iso-logo.webp';
 
 const uaf_logo = '/Assets/Media/Certificates/uaf-logo.webp';
 
 const iaf_logo = '/Assets/Media/Certificates/iaf-logo.webp';
 
-const eos_certificate = '/Assets/Media/Certificates/eos-certificate.webp';
+const eos_certificate = CERTIFICATES.eosDoc.src;
 const eos_logo = '/Assets/Media/Certificates/eos-logo.svg';
 
-const cbmi_certificate = '/Assets/Media/Certificates/cbmi-certificate.webp';
+const cbmi_certificate = CERTIFICATES.cbmiDoc.src;
 const cbmi_logo = '/Assets/Media/Certificates/cbmi-logo.webp';
 
       // thumbWidth/thumbHeight: the logo's real size, so the page keeps its space before it loads.

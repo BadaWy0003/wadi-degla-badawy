@@ -77,6 +77,18 @@ const cleanText = (value, field) => {
   return out;
 };
 
+// A photo: { src, width, height }; src is our own upload or a website photo.
+const cleanImage = (value, bad) => {
+  const v = value && typeof value === 'object' ? value : {};
+  const src = String(v.src || '');
+  if (!StorageService.isOwnStorageUrl(src) && !/^\/Assets\/[A-Za-z0-9._\-/]+$/.test(src))
+    throw bad('upload the photo through the admin panel.');
+  const width = Math.round(Number(v.width));
+  const height = Math.round(Number(v.height));
+  if (!(width > 0 && width < 20000 && height > 0 && height < 20000)) throw bad('the photo size is missing; upload it again.');
+  return { src, width, height };
+};
+
 const cleanData = (value, field) => {
   const bad = (msg) => httpError(400, `${field.label}: ${msg}`);
   switch (field.type) {
@@ -113,11 +125,69 @@ const cleanData = (value, field) => {
         throw bad('choose at least one day.');
       return WEEKDAYS.filter((d) => value.includes(d));
     }
-    case 'image': {
-      const v = String(value || '');
-      if (!StorageService.isOwnStorageUrl(v) && !/^\/Assets\/Media\/[A-Za-z0-9._\-/]+$/.test(v))
-        throw bad('upload the photo through the admin panel.');
+    case 'line': {
+      const v = String(value ?? '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (!v && !field.optional) throw bad("can't be empty.");
+      if (v.length > (field.max || 120)) throw bad(`at most ${field.max || 120} characters.`);
+      if (/[<>]/.test(v)) throw bad('< and > are not allowed.');
       return v;
+    }
+    case 'image':
+      return cleanImage(value, bad);
+    case 'images': {
+      if (!Array.isArray(value)) throw bad('invalid photos.');
+      if (value.length < (field.min || 0)) throw bad(`add at least ${field.min} photo${field.min === 1 ? '' : 's'}.`);
+      if (value.length > (field.max || 30)) throw bad(`at most ${field.max || 30} photos.`);
+      return value.map((v) => cleanImage(v, bad));
+    }
+    case 'i18n': {
+      const v = value && typeof value === 'object' ? value : {};
+      const max = field.max || (field.multiline ? 5000 : 500);
+      const out = {};
+      for (const lang of ['en', 'ar']) {
+        const t = typeof v[lang] === 'string' ? v[lang].replace(/\r\n/g, '\n').trim() : '';
+        if (t.length > max) throw bad(`at most ${max} characters.`);
+        if (/<\s*\/?\s*script/i.test(t)) throw bad('HTML scripts are not allowed.');
+        out[lang] = t;
+      }
+      if (!out.en && !field.optional) throw bad("the English text can't be empty.");
+      return out;
+    }
+    case 'select': {
+      const opt = (field.options || []).find((o) => String(o.value) === String(value));
+      if (!opt) throw bad('choose one of the options.');
+      return opt.value;
+    }
+    case 'country': {
+      const v = String(value || '').toUpperCase();
+      if (!/^[A-Z]{2}$/.test(v)) throw bad('choose a country.');
+      return v;
+    }
+    case 'projects': {
+      const list = Array.isArray(value) ? value.map(String) : [];
+      if (list.some((n) => !/^\d{1,6}$/.test(n))) throw bad('invalid project.');
+      if (!list.length && !field.optional) throw bad('choose at least one project.');
+      return [...new Set(list)];
+    }
+    case 'list': {
+      if (!Array.isArray(value)) throw bad('invalid list.');
+      if (value.length < (field.min || 0)) throw bad(`add at least ${field.min} ${field.itemLabel || 'item'}.`);
+      if (value.length > (field.max || 100)) throw bad(`at most ${field.max || 100} items.`);
+      const ids = new Set();
+      return value.map((item, i) => {
+        if (!item || typeof item !== 'object') throw bad('invalid item.');
+        const id = String(item.id || '');
+        if (!/^[a-z0-9-]{1,60}$/.test(id) || ids.has(id)) throw bad(`item ${i + 1} has an invalid id.`);
+        ids.add(id);
+        const out = { id };
+        for (const sub of field.fields) {
+          const label = `${field.label} ${i + 1} (${item[field.titleField] || field.itemLabel || 'item'}) › ${sub.label}`;
+          out[sub.name] = cleanData(item[sub.name], { ...sub, label });
+        }
+        return out;
+      });
     }
     default:
       throw bad('unknown field.');

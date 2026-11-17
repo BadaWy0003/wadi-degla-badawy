@@ -12,7 +12,7 @@ import OurMarkets from '../Exports/OurMarkets.js';
 import StatCounter from '../About/StatCounter';
 import CertificateLightBox from '../Certificates/CertificateLightBox';
 import { certificatesData } from '../Certificates/CertificatesData';
-import { partnerLogos, PARTNER_NAMES } from '../Partners/PartnersData';
+import { HOME_PARTNERS } from '../Partners/PartnersData';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
 import '../Certificates/Certificates.css';
@@ -374,17 +374,9 @@ export default function Home({ featured = [] }) {
           <p>{t('home.partnersDescription')}</p>
         </div>
         <ul className="hp-logos">
-          {partnerLogos.map((logo, i) => (
+          {HOME_PARTNERS.map(({ logo, name }) => (
             <li key={logo}>
-              <img
-                loading="lazy"
-                src={clearLogo(logo)}
-                alt={
-                  PARTNER_NAMES[i]
-                    ? `${PARTNER_NAMES[i]} – ${t('home.partnersAlt')}`
-                    : t('home.partnersAlt')
-                }
-              />
+              <img loading="lazy" src={logo} alt={`${name} – ${t('home.partnersAlt')}`} />
             </li>
           ))}
         </ul>

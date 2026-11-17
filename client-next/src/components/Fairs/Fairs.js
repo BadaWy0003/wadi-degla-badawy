@@ -52,7 +52,8 @@ function useFormat(lang) {
   };
 }
 
-export default function Fairs({ children }) {
+// texts: each fair's text in the page's language (by id), from the page (build time).
+export default function Fairs({ children, texts = {} }) {
   const { t, i18n } = useTranslation();
   const pageRef = useRef(null);
   const [openPhoto, zoom] = usePhotoZoom();
@@ -163,7 +164,7 @@ export default function Fairs({ children }) {
               <h2>
                 <bdi>{f.name}</bdi>
               </h2>
-              <p>{t(`fairs.items.${f.id}`)}</p>
+              <p>{texts[f.id] ?? t(`fairs.items.${f.id}`)}</p>
               <p className="fa-when">{t('fairs.visited', { date: fmt.date(f) })}</p>
             </div>
           </section>

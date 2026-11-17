@@ -12,7 +12,11 @@
 // (its "original", read from /<lang>/content-defaults.json on the website).
 //
 // Field types: text (+ multiline, max), number (+ min, max, suffix), phone, email, url,
-// hour (0-24), days (list of weekday codes).
+// hour (0-24), days (list of weekday codes), line (short plain text, + optional, max),
+// image ({ src, width, height }, uploaded in the admin panel), images (list of images),
+// i18n ({ en, ar } inside a list item; + multiline, optional, max), select (+ options),
+// country (2-letter code), projects (list of project numbers), list (+ fields, itemLabel,
+// titleField, min, max: repeatable items, each with an id).
 
 const WEEKDAYS = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
@@ -117,6 +121,232 @@ const BLOCKS = [
         fields: [
           { type: 'url', name: 'profileUrl', label: 'Company profile (PDF link)' },
           { type: 'url', name: 'catalogueUrl', label: 'Special products catalogue (PDF link)' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'certificates',
+    title: 'Certificates',
+    description: 'The certificate photos (upload the renewed copies here), their numbers and the texts of the Certificates page.',
+    usedOn: ['Certificates', 'Home (certificate logos)'],
+    sections: [
+      {
+        id: 'docs',
+        title: 'Certificate photos',
+        help: "A clear photo or scan of each certificate (JPG, PNG or WebP). They open full size on the Certificates page and from the logos on the home page. Only facts that don't expire are written on the page, so no dates are needed.",
+        fields: [
+          { type: 'image', name: 'isoDoc', label: 'ISO 9001:2015 certificate' },
+          { type: 'image', name: 'eosDoc', label: 'EOS registration' },
+          { type: 'image', name: 'cbmiDoc', label: 'CBMI membership' },
+        ],
+      },
+      {
+        id: 'iso',
+        title: 'ISO 9001:2015',
+        fields: [
+          { type: 'line', name: 'isoNumber', label: 'Certificate number', max: 60 },
+          { type: 'line', name: 'isoIssuer', label: 'Issued by', max: 80 },
+          { type: 'text', key: 'certificates.isoText', label: 'Text', multiline: true, max: 1200 },
+          { type: 'text', key: 'certificates.isoScope', label: 'Scope', multiline: true, max: 400 },
+          { type: 'text', key: 'certificates.isoAccredited', label: 'Accreditation', max: 200 },
+        ],
+      },
+      {
+        id: 'egypt',
+        title: 'Registered in Egypt',
+        fields: [
+          { type: 'line', name: 'eosNumber', label: 'EOS registration number', max: 60 },
+          { type: 'text', key: 'certificates.eosText', label: 'EOS text', multiline: true, max: 800 },
+          { type: 'line', name: 'cbmiNumber', label: 'CBMI membership number', max: 60 },
+          { type: 'text', key: 'certificates.cbmiText', label: 'CBMI text', multiline: true, max: 800 },
+          { type: 'text', key: 'certificates.cbmiActivity', label: 'CBMI activity', max: 200 },
+        ],
+      },
+      {
+        id: 'page',
+        title: 'Page header & Google',
+        fields: [
+          { type: 'text', key: 'certificates.pageHeading', label: 'Page title (H1)', max: 120 },
+          { type: 'text', key: 'certificates.intro', label: 'Introduction', multiline: true, max: 600 },
+          { type: 'text', key: 'certificates.pageTitle', label: 'Google title', max: 60 },
+          { type: 'text', key: 'certificates.metaDescription', label: 'Google description', multiline: true, max: 155 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'fairs',
+    title: 'Fairs & exhibitions',
+    description: 'The fairs the team visited (add, change, reorder or remove a fair, with its photos), and the page texts.',
+    usedOn: ['Fairs'],
+    sections: [
+      {
+        id: 'list',
+        title: 'Fairs',
+        help: 'Newest first. The numbers at the top of the page (fairs, countries, continents) are counted from this list. Write only that the team visited, never "our stand".',
+        fields: [
+          {
+            type: 'list',
+            name: 'fairs',
+            label: 'Fairs',
+            itemLabel: 'fair',
+            titleField: 'name',
+            min: 1,
+            max: 40,
+            fields: [
+              { type: 'line', name: 'name', label: 'Fair name', max: 80 },
+              {
+                type: 'line',
+                name: 'city',
+                label: 'City',
+                optional: true,
+                max: 60,
+                help: 'Leave empty to show only the country.',
+              },
+              { type: 'country', name: 'country', label: 'Country' },
+              {
+                type: 'select',
+                name: 'continent',
+                label: 'Continent',
+                options: [
+                  { value: 'europe', label: 'Europe' },
+                  { value: 'asia', label: 'Asia' },
+                  { value: 'africa', label: 'Africa' },
+                  { value: 'northAmerica', label: 'North America' },
+                  { value: 'southAmerica', label: 'South America' },
+                  { value: 'oceania', label: 'Oceania' },
+                ],
+              },
+              { type: 'number', name: 'year', label: 'Year visited', min: 1980, max: 2100 },
+              {
+                type: 'select',
+                name: 'month',
+                label: 'Month visited',
+                options: [
+                  { value: 0, label: '(only the year)' },
+                  ...[
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                  ].map((m, i) => ({ value: i + 1, label: m })),
+                ],
+              },
+              { type: 'i18n', name: 'text', label: 'About the fair', multiline: true, max: 1500 },
+              { type: 'images', name: 'photos', label: 'Photos', min: 1, max: 12, help: 'The first photo is the big one.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'page',
+        title: 'Page header & Google',
+        fields: [
+          { type: 'text', key: 'fairs.heading', label: 'Page title (H1)', max: 120 },
+          { type: 'text', key: 'fairs.intro', label: 'Introduction', multiline: true, max: 600 },
+          { type: 'text', key: 'fairs.pageTitle', label: 'Google title', max: 60 },
+          { type: 'text', key: 'fairs.metaDescription', label: 'Google description', multiline: true, max: 155 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'patterns',
+    title: 'Patterns & pavers',
+    description:
+      'The names of the paving and split-face stones on the Patterns page (shown as "Stone 1, 2…" until named), and the page texts.',
+    usedOn: ['Patterns / Pavers'],
+    sections: [
+      {
+        id: 'pavers',
+        title: 'Paving stones (pool deck)',
+        help: 'In the order of the small pictures on the page. Leave a name empty to show "Stone 1", "Stone 2"...',
+        fields: [1, 2, 3, 4].map((n) => ({
+          type: 'line',
+          name: `paver${n}`,
+          label: `Paving stone ${n}`,
+          optional: true,
+          max: 60,
+        })),
+      },
+      {
+        id: 'splitFace',
+        title: 'Split-face stones (house front)',
+        help: 'In the order of the small pictures on the page.',
+        fields: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
+          type: 'line',
+          name: `split${n}`,
+          label: `Split-face stone ${n}`,
+          optional: true,
+          max: 60,
+        })),
+      },
+      {
+        id: 'page',
+        title: 'Page header & Google',
+        fields: [
+          { type: 'text', key: 'patterns.heroTitle', label: 'Page title (H1)', max: 120 },
+          { type: 'text', key: 'patterns.introText', label: 'Introduction', multiline: true, max: 800 },
+          { type: 'text', key: 'patterns.pageTitle', label: 'Google title', max: 60 },
+          { type: 'text', key: 'patterns.metaDescription', label: 'Google description', multiline: true, max: 155 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'partners',
+    title: 'Partners & clients',
+    description:
+      'The partners and clients (logo, name, the projects done for them and a short story), used on the Partners page and the home page.',
+    usedOn: ['Partners', 'Home'],
+    sections: [
+      {
+        id: 'list',
+        title: 'Partners',
+        help: 'In page order. A partner with projects gets a "partner story" (its logo, story and project cards); the others are shown under "Also trusted by". Logos look best as a PNG or WebP with a transparent background.',
+        fields: [
+          {
+            type: 'list',
+            name: 'partners',
+            label: 'Partners',
+            itemLabel: 'partner',
+            titleField: 'name',
+            min: 1,
+            max: 60,
+            fields: [
+              { type: 'line', name: 'name', label: 'Name', max: 80 },
+              { type: 'image', name: 'logo', label: 'Logo' },
+              { type: 'projects', name: 'projects', label: 'Projects done for them', optional: true },
+              {
+                type: 'i18n',
+                name: 'story',
+                label: 'Partner story (one or two sentences)',
+                multiline: true,
+                optional: true,
+                max: 400,
+                help: 'Shown when the partner has projects.',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'page',
+        title: 'Page header & Google',
+        fields: [
+          { type: 'text', key: 'partners.pageHeading', label: 'Page title (H1)', max: 120 },
+          { type: 'text', key: 'partners.introText', label: 'Introduction', multiline: true, max: 600 },
+          { type: 'text', key: 'partners.pageTitle', label: 'Google title', max: 60 },
+          { type: 'text', key: 'partners.metaDescription', label: 'Google description', multiline: true, max: 155 },
         ],
       },
     ],

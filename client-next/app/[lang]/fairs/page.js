@@ -1,6 +1,6 @@
-import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
+import { t, listText, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Fairs from '../../../src/components/Fairs/Fairs';
-import { FAQ_KEYS } from '../../../src/components/Fairs/FairsData';
+import { FAIRS, FAQ_KEYS } from '../../../src/components/Fairs/FairsData';
 import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
 export function generateMetadata({ params }) {
@@ -23,6 +23,10 @@ export function generateMetadata({ params }) {
 
 export default function FairsPage({ params }) {
   const { lang } = params;
+  // each fair's text in this language (admin-panel text or the translation file's)
+  const texts = Object.fromEntries(
+    FAIRS.map((f) => [f.id, listText(f.text, lang, `fairs.items.${f.id}`)]),
+  );
   // the questions & answers shown on the page, for Google
   const faq = {
     '@context': 'https://schema.org',
@@ -39,7 +43,7 @@ export default function FairsPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
       />
-      <Fairs>
+      <Fairs texts={texts}>
         <RelatedPages lang={lang} page="fairs" />
       </Fairs>
     </>

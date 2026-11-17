@@ -7,6 +7,7 @@ import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { CERTIFICATES } from './certificateDocs';
 
 // Certificates (redesigned 2026-11-12, design B "ISO spotlight"): header with numbers, ISO
 // 9001:2015 as the main section (facts + the certificate, which tilts toward the mouse), the two
@@ -15,33 +16,18 @@ import { WHATSAPP_URL } from '../Contact/contactData';
 //
 // Only facts that never expire are shown (numbers, scope, issuer): the dates printed on the
 // documents are not repeated here. Replace a document by giving it a new file name.
-const DIR = '/Assets/Media/Certificates';
 const LOGOS = '/Assets/Icons/logos-transparent';
+// the documents (photo + size) and numbers come from certificateDocs.js (admin panel)
 const DOCS = {
-  iso: {
-    src: `${DIR}/iso-certificate.webp`,
-    width: 763,
-    height: 1080,
-    alt: 'certificates.isoTitle',
-  },
-  eos: {
-    src: `${DIR}/eos-certificate.webp`,
-    width: 746,
-    height: 1080,
-    alt: 'certificates.eosTitle',
-  },
-  cbmi: {
-    src: `${DIR}/cbmi-certificate.webp`,
-    width: 1080,
-    height: 802,
-    alt: 'certificates.cbmiTitle',
-  },
+  iso: { ...CERTIFICATES.isoDoc, alt: 'certificates.isoTitle' },
+  eos: { ...CERTIFICATES.eosDoc, alt: 'certificates.eosTitle' },
+  cbmi: { ...CERTIFICATES.cbmiDoc, alt: 'certificates.cbmiTitle' },
 };
 const ORDER = ['iso', 'eos', 'cbmi'];
-const ISO_NUMBER = 'UAF181296569';
-const ISO_ISSUER = 'SAGACI Certifications';
-const EOS_NUMBER = '09865/01';
-const CBMI_NUMBER = '08807';
+const ISO_NUMBER = CERTIFICATES.isoNumber;
+const ISO_ISSUER = CERTIFICATES.isoIssuer;
+const EOS_NUMBER = CERTIFICATES.eosNumber;
+const CBMI_NUMBER = CERTIFICATES.cbmiNumber;
 const LOGO_LIST = [
   ['iso-logo', 'certificates.isoTitle'],
   ['iaf-logo', 'certificates.iafTitle'],

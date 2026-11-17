@@ -5,6 +5,9 @@
 import en from '../../../translations/en.json';
 import ar from '../../../translations/ar.json';
 import { COMPANY_DEFAULTS } from '../../../src/util/company';
+import { CERTIFICATES_DEFAULTS } from '../../../src/components/Certificates/certificateDocs';
+import { fairsForAdmin } from '../../../src/components/Fairs/FairsData';
+import { partnersForAdmin } from '../../../src/components/Partners/PartnersData';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -13,7 +16,34 @@ export function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'ar' }];
 }
 
+const textOf = (key) => ({
+  en: key.split('.').reduce((v, k) => v?.[k], en) || '',
+  ar: key.split('.').reduce((v, k) => v?.[k], ar) || '',
+});
+
+// Partner logos are shown by CSS size; the admin panel needs a size for each photo.
+const LOGO_SIZE = { width: 400, height: 200 };
+
+const patterns = Object.fromEntries([
+  ...[1, 2, 3, 4].map((n) => [`paver${n}`, '']),
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => [`split${n}`, '']),
+]);
+
 export function GET(request, { params }) {
   const texts = params.lang === 'ar' ? ar : en;
-  return Response.json({ texts, data: { company: COMPANY_DEFAULTS } });
+  return Response.json({
+    texts,
+    data: {
+      company: COMPANY_DEFAULTS,
+      certificates: CERTIFICATES_DEFAULTS,
+      fairs: { fairs: fairsForAdmin((id) => textOf(`fairs.items.${id}`)) },
+      patterns,
+      partners: {
+        partners: partnersForAdmin(
+          (id) => textOf(`partners.stories.${id}`),
+          () => LOGO_SIZE,
+        ),
+      },
+    },
+  });
 }

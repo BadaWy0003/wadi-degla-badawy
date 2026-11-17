@@ -21,7 +21,18 @@ import SaveIcon from '@mui/icons-material/Save';
 import { toast } from 'react-toastify';
 import Field from './Field';
 import PublishPanel from '../publish/PublishPanel';
-import { buildSaveBody, checkField, fieldId, initialValues, loadBlock, loadVersions, restoreVersion, saveBlock, timeAgo } from '../../util/website';
+import {
+  buildSaveBody,
+  checkAny,
+  fieldId,
+  nameNewItems,
+  initialValues,
+  loadBlock,
+  loadVersions,
+  restoreVersion,
+  saveBlock,
+  timeAgo,
+} from '../../util/website';
 
 // The founding year field also shows the years it gives (the website counts them itself).
 const yearsNote = (f, value) =>
@@ -142,7 +153,7 @@ export default function BlockEditor() {
   };
 
   const save = async () => {
-    const problems = fields.filter(f => checkField(f, values[fieldId(f)]));
+    const problems = fields.filter(f => checkAny(f, values[fieldId(f)]));
     if (problems.length) {
       setShowErrors(true);
       toast.error(`Please check: ${problems.map(f => f.label).join(', ')}`);
@@ -150,7 +161,7 @@ export default function BlockEditor() {
     }
     setSaving(true);
     try {
-      await saveBlock(id, buildSaveBody(fields, values, state.defaults));
+      await saveBlock(id, buildSaveBody(fields, nameNewItems(fields, values), state.defaults));
       toast.success('Saved. Press "Publish to website" to put the changes on the live site.');
       await load();
       setRefreshKey(k => k + 1);

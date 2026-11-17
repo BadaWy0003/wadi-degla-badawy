@@ -1,4 +1,4 @@
-import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
+import { t, listText, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Partners from '../../../src/components/Partners/Partners';
 import { PARTNERS } from '../../../src/components/Partners/PartnersData';
 import { getProjects, projectCard } from '../../../src/util/projects-data';
@@ -23,5 +23,8 @@ export default async function PartnersPage({ params }) {
   const projects = Object.fromEntries(
     all.filter((p) => wanted.has(String(p.id))).map((p) => [String(p.id), projectCard(p)]),
   );
-  return <Partners projects={projects} projectCount={all.length} />;
+  const stories = Object.fromEntries(
+    PARTNERS.map((p) => [p.id, listText(p.story, params.lang, `partners.stories.${p.id}`)]),
+  );
+  return <Partners projects={projects} projectCount={all.length} stories={stories} />;
 }

@@ -13,7 +13,8 @@ import {
 } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { DAY_NAMES, FACT_LABELS, WEEKDAYS, checkField, factsIn, isChanged, originalOf } from '../../util/website';
+import { DAY_NAMES, FACT_LABELS, WEEKDAYS, checkAny, factsIn, isChanged, originalOf } from '../../util/website';
+import { CountryInput, I18nInput, ImageInput, ImagesInput, ListInput, ProjectsInput, SelectInput } from './Inputs';
 
 const hourLabel = h => `${String(h).padStart(2, '0')}:00`;
 
@@ -23,15 +24,52 @@ const originalText = (f, orig) => {
   if (f.type === 'days') return (orig || []).join(', ');
   if (f.type === 'hour') return hourLabel(orig);
   if (f.type === 'number') return `${Number(orig).toLocaleString('en-US')}${f.suffix || ''}`;
+  if (f.type === 'list') return `${(orig || []).length} items`;
+  if (f.type === 'image') return orig?.src ? "the website's own photo" : '—';
   return String(orig || '—');
 };
+
+// The inputs of the list/photo field types (also used inside list items).
+export function renderInput(f, value, onChange, showErrors) {
+  switch (f.type) {
+    case 'image':
+      return <ImageInput value={value} onChange={onChange} />;
+    case 'images':
+      return <ImagesInput value={value} onChange={onChange} field={f} />;
+    case 'i18n':
+      return <I18nInput value={value} onChange={onChange} field={f} />;
+    case 'select':
+      return <SelectInput value={value} onChange={onChange} field={f} />;
+    case 'country':
+      return <CountryInput value={value} onChange={onChange} />;
+    case 'projects':
+      return <ProjectsInput value={value} onChange={onChange} />;
+    case 'list':
+      return <ListInput value={value} onChange={onChange} field={f} showErrors={showErrors} renderInput={renderInput} />;
+    case 'line':
+    case 'number':
+      return (
+        <TextField
+          fullWidth
+          size="small"
+          type={f.type === 'number' ? 'number' : 'text'}
+          value={value ?? ''}
+          onChange={e => onChange(f.type === 'number' ? (e.target.value === '' ? '' : Number(e.target.value)) : e.target.value)}
+          inputProps={f.type === 'number' ? { min: f.min, max: f.max, step: 1 } : { maxLength: f.max || 120 }}
+          sx={{ maxWidth: f.type === 'number' ? 200 : 'none' }}
+        />
+      );
+    default:
+      return null;
+  }
+}
 
 // One editable item of a website page. value / onChange: the current value; defaults: the
 // website's originals (for "Changed" and "Reset to original"); showErrors: after a save attempt.
 export default function Field({ field: f, value, onChange, defaults, showErrors, extra }) {
   const orig = originalOf(f, defaults);
   const changed = isChanged(f, f.type === 'number' || f.type === 'hour' ? Number(value) : value, orig);
-  const error = checkField(f, value);
+  const error = checkAny(f, value);
   const showError = !!error && (showErrors || changed);
   const facts = f.type === 'text' ? factsIn(value?.en) : [];
 
@@ -62,6 +100,8 @@ export default function Field({ field: f, value, onChange, defaults, showErrors,
         />
       </Box>
     );
+  } else if (['image', 'images', 'i18n', 'select', 'country', 'projects', 'list'].includes(f.type)) {
+    input = renderInput(f, value, onChange, showErrors);
   } else if (f.type === 'days') {
     input = (
       <ToggleButtonGroup
@@ -94,7 +134,7 @@ export default function Field({ field: f, value, onChange, defaults, showErrors,
       </TextField>
     );
   } else {
-    const type = f.type === 'number' ? 'number' : f.type === 'email' ? 'email' : f.type === 'url' ? 'url' : 'tel';
+    const type = { number: 'number', email: 'email', url: 'url', phone: 'tel' }[f.type] || 'text';
     input = (
       <TextField
         fullWidth
@@ -103,7 +143,7 @@ export default function Field({ field: f, value, onChange, defaults, showErrors,
         value={value ?? ''}
         onChange={e => onChange(f.type === 'number' ? (e.target.value === '' ? '' : Number(e.target.value)) : e.target.value)}
         error={showError}
-        inputProps={f.type === 'number' ? { min: f.min, max: f.max, step: 1 } : { dir: 'ltr' }}
+        inputProps={f.type === 'number' ? { min: f.min, max: f.max, step: 1 } : f.type === 'line' ? { maxLength: f.max || 120 } : { dir: 'ltr' }}
         InputProps={{
           endAdornment:
             f.suffix || (f.type === 'url' && value) ? (

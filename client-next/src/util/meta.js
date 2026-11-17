@@ -59,6 +59,18 @@ export function t(lang, key, fallback = '') {
   return typeof val === 'string' ? val : fallback;
 }
 
+// A text inside an admin-panel list (a fair's text, a partner's story: { en, ar }) in one
+// language, with the same rule as the site texts: EN/AR show the client's text; the other
+// languages keep the translation file's text (key) while the client's English is unchanged,
+// otherwise the client's English. `value` empty = not edited: the translation file's text.
+export function listText(value, lang, key) {
+  if (!value || !value.en) return t(lang, key);
+  if (lang === 'en') return value.en;
+  if (lang === 'ar' && value.ar) return value.ar;
+  const originalEn = key.split('.').reduce((v, k) => v?.[k], RAW.en);
+  return typeof originalEn === 'string' && value.en === originalEn ? t(lang, key) : value.en;
+}
+
 /**
  * Build hreflang alternates and canonical URL for a given path (e.g. "/products")
  */
