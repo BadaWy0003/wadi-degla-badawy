@@ -897,16 +897,6 @@ html[dir='rtl'] .au-arrow {
   gap: 16px;
 }
 
-/* The footer's "Get in touch" banner is hidden here (as on Contact and the home page) */
-html body:has(.au) .footer-left:not(#m) {
-  display: none;
-}
-
-html body:has(.au) .footer-right:not(#m) {
-  width: 100%;
-  border-top: 1px solid rgba(232, 214, 186, 0.1);
-}
-
 /* Arabic: no capitals or letter spacing (they break joined letters) */
 body[lang='ar'] .au .au-eyebrow,
 body[lang='ar'] .au .au-field label,

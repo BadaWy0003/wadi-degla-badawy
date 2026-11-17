@@ -1214,17 +1214,6 @@ html[dir='rtl'] .vz-cat:hover .vz-cat-swatches img:nth-child(3) {
   font-size: 19px;
 }
 
-/* The page ends with its own call to action, so the footer's "Get in touch" banner is
-   hidden here (same as on the other redesigned pages). */
-html body:has(.vz) .footer-left:not(#m) {
-  display: none;
-}
-
-html body:has(.vz) .footer-right:not(#m) {
-  width: 100%;
-  border-top: 1px solid rgba(232, 214, 186, 0.1);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .vz *,
   .vz *::before,

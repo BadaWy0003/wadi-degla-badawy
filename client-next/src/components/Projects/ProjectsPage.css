@@ -519,17 +519,6 @@ html[dir='rtl'] .pj-crumb span[aria-hidden] {
   font-size: 19px;
 }
 
-/* These pages end with their own call to action, so the footer's "Get in touch" banner is
-   hidden here (same as on the home, Contact, products and stone pages). */
-html body:has(.pj) .footer-left:not(#m) {
-  display: none;
-}
-
-html body:has(.pj) .footer-right:not(#m) {
-  width: 100%;
-  border-top: 1px solid rgba(232, 214, 186, 0.1);
-}
-
 /* ---------- smaller screens ---------- */
 @media (max-width: 1230px) {
   .pj {
