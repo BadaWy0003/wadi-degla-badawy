@@ -487,9 +487,22 @@ const BLOCKS = [
   {
     id: 'quarries',
     title: "Quarries & factories",
-    description: "The quarries, factories and \"From quarry to port\" steps of the Quarries & Factories page.",
+    description: "The quarries and factories (texts and photos) and the \"From quarry to port\" steps of the Quarries & Factories page.",
     usedOn: ["Quarries & factories"],
     sections: [
+      {
+        id: 'photos',
+        title: 'Photos',
+        help: 'Quarries: the first 3 photos make the picture group on the page (the first one big). Factories: the first photo is shown on the card. Every photo opens in the full-screen viewer. Use the arrows to change the order.',
+        fields: [
+          { type: 'images', name: 'galalaPhotos', label: 'Galala quarry', min: 1, max: 30 },
+          { type: 'images', name: 'creamyPhotos', label: 'Creamy White Pearl quarry', min: 1, max: 30 },
+          { type: 'images', name: 'beigeSinaiPearlPhotos', label: 'Beige Sinai Pearl quarry', min: 1, max: 30 },
+          { type: 'images', name: 'factory2000Photos', label: 'First factory (2000)', min: 1, max: 30 },
+          { type: 'images', name: 'factory2011Photos', label: 'Second factory (2011)', min: 1, max: 30 },
+          { type: 'images', name: 'factory2015Photos', label: 'Third factory (2015)', min: 1, max: 30 },
+        ],
+      },
       {
         id: 'header',
         title: "Header",

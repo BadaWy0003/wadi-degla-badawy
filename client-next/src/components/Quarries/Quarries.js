@@ -3,14 +3,7 @@ import React from 'react';
 import './QuarriesPage.css';
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp } from 'react-icons/fa';
-import {
-  galalaQuarryImages,
-  creamyQuarryImages,
-  beigeSinaiPearlQuarryImages,
-  firstFactoryImages,
-  secondFactoryImages,
-  thirdFactoryImages,
-} from './QuarriesImageData';
+import { QUARRY_PHOTOS } from './quarriesPhotos';
 import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import { cardImageProps } from '../../util/responsive-img';
@@ -25,14 +18,14 @@ import { FACTS } from '../../util/company';
 // then "- " lines shown as a checklist).
 
 const QUARRIES = [
-  { key: 'galala', images: galalaQuarryImages, stone: 'Galala' },
-  { key: 'creamy', images: creamyQuarryImages, stone: 'Creamy White Pearl' },
-  { key: 'beigeSinaiPearl', images: beigeSinaiPearlQuarryImages },
+  { key: 'galala', images: QUARRY_PHOTOS.galalaPhotos, stone: 'Galala' },
+  { key: 'creamy', images: QUARRY_PHOTOS.creamyPhotos, stone: 'Creamy White Pearl' },
+  { key: 'beigeSinaiPearl', images: QUARRY_PHOTOS.beigeSinaiPearlPhotos },
 ];
 const FACTORIES = [
-  { year: '2000', images: firstFactoryImages },
-  { year: '2011', images: secondFactoryImages },
-  { year: '2015', images: thirdFactoryImages },
+  { year: '2000', images: QUARRY_PHOTOS.factory2000Photos },
+  { year: '2011', images: QUARRY_PHOTOS.factory2011Photos },
+  { year: '2015', images: QUARRY_PHOTOS.factory2015Photos },
 ];
 // Same numbers as the home page's trust strip (Home.js).
 const STATS = [

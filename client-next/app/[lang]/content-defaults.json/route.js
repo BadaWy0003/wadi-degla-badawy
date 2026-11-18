@@ -16,6 +16,8 @@ import {
 } from '../../../src/components/Home/homeData';
 import { countsForAdmin } from '../../../src/components/Machinery/machineryCounts';
 import { TOPIC_PAGES } from '../../../src/util/topic-pages';
+import { QUARRY_PHOTOS_DEFAULTS } from '../../../src/components/Quarries/quarriesPhotos';
+import { photoWithSize } from '../../../src/util/image-size';
 import { getProducts } from '../../../src/util/product-slugs';
 
 export const dynamic = 'force-static';
@@ -74,6 +76,9 @@ export async function GET(request, { params }) {
     texts,
     data: {
       company: COMPANY_DEFAULTS,
+      quarries: Object.fromEntries(
+        Object.entries(QUARRY_PHOTOS_DEFAULTS).map(([k, list]) => [k, list.map(photoWithSize)]),
+      ),
       about: heroOf(`${H}about-hero.webp`),
       contactPage: heroOf(`${H}contact-hero.webp`),
       cobbles: heroOf('/Assets/Media/Kerb-and-Cobbles/cobble/cobble-hero.webp'),

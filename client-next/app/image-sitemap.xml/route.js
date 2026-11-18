@@ -5,14 +5,7 @@
 import { getProducts, getGalleryItems, productSlug } from '../../src/util/product-slugs';
 import { getProjects } from '../../src/util/projects-data';
 import { TOPIC_PAGES } from '../../src/util/topic-pages';
-import {
-  galalaQuarryImages,
-  creamyQuarryImages,
-  beigeSinaiPearlQuarryImages,
-  firstFactoryImages,
-  secondFactoryImages,
-  thirdFactoryImages,
-} from '../../src/components/Quarries/QuarriesImageData';
+import { QUARRY_PHOTOS } from '../../src/components/Quarries/quarriesPhotos';
 
 export const dynamic = 'force-static';
 
@@ -49,14 +42,7 @@ export async function GET() {
       (p.finishes || []).map((f) => f.link),
     );
   }
-  add('/quarries', [
-    ...galalaQuarryImages,
-    ...creamyQuarryImages,
-    ...beigeSinaiPearlQuarryImages,
-    ...firstFactoryImages,
-    ...secondFactoryImages,
-    ...thirdFactoryImages,
-  ]);
+  add('/quarries', Object.values(QUARRY_PHOTOS).flat());
   for (const p of projects) {
     add(`/projects/${p.id}`, [p.thumbnail, ...p.images.map((img) => img.src)]);
   }
