@@ -1,10 +1,8 @@
 name: Deploy Server
+# Manual only (owner's choice, 2026-11-18): merging to main does NOT deploy, to save GitHub
+# build minutes. Deploy when the owner says so: GitHub > Actions > this workflow > Run workflow
+# (branch main), or Claude starts it (actions_run_trigger).
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "server/**"
   workflow_dispatch:
 
 # Never cancel a deploy halfway; queue the next one instead.
