@@ -18,6 +18,7 @@ import { countsForAdmin } from '../../../src/components/Machinery/machineryCount
 import { TOPIC_PAGES } from '../../../src/util/topic-pages';
 import { QUARRY_PHOTOS_DEFAULTS } from '../../../src/components/Quarries/quarriesPhotos';
 import { photoWithSize } from '../../../src/util/image-size';
+import { MACHINERY_PHOTOS_DEFAULTS } from '../../../src/components/Machinery/machineryPhotos';
 import { getProducts } from '../../../src/util/product-slugs';
 
 export const dynamic = 'force-static';
@@ -84,7 +85,12 @@ export async function GET(request, { params }) {
       cobbles: heroOf('/Assets/Media/Kerb-and-Cobbles/cobble/cobble-hero.webp'),
       kerbstone: heroOf('/Assets/Media/Kerb-and-Cobbles/kerb/kerb-hero.webp'),
       ...topicHeroes,
-      machinery: countsForAdmin(),
+      machinery: {
+        ...countsForAdmin(),
+        ...Object.fromEntries(
+          Object.entries(MACHINERY_PHOTOS_DEFAULTS).map(([k, list]) => [k, list.map(photoWithSize)]),
+        ),
+      },
       home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
       certificates: CERTIFICATES_DEFAULTS,
       fairs: { fairs: fairsForAdmin((id) => textOf(`fairs.items.${id}`)) },
