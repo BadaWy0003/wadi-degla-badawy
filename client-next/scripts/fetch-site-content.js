@@ -3,6 +3,8 @@
 // content/.generated/site-content/ (not in git):
 //   texts.json  { "contact.hours": { en, ar }, ... }  website texts by translation key
 //   data.json   { company: { quarries: 15, ... }, ... } everything else, by block
+//   changed.json  when each of them was last changed (ms), for the sitemap's <lastmod>
+//                 (src/util/page-dates.js): { texts: { key: { en, ar } }, data: { block: { name } } }
 // next.config.js points the "@site-content" import there, or to content/site-content-default/
 // (empty) when the folder doesn't exist (local "next dev" without a fetch).
 //
@@ -19,13 +21,17 @@ const OUT = path.join(__dirname, '..', 'content', '.generated', 'site-content');
 const write = (blocks) => {
   const texts = {};
   const data = {};
+  const changed = { texts: {}, data: {} };
   for (const [id, block] of Object.entries(blocks || {})) {
     Object.assign(texts, block.texts || {});
     if (block.data && Object.keys(block.data).length) data[id] = block.data;
+    Object.assign(changed.texts, block.changedAt?.texts || {});
+    if (block.changedAt?.data) changed.data[id] = block.changedAt.data;
   }
   fs.mkdirSync(OUT, { recursive: true });
   fs.writeFileSync(path.join(OUT, 'texts.json'), JSON.stringify(texts));
   fs.writeFileSync(path.join(OUT, 'data.json'), JSON.stringify(data));
+  fs.writeFileSync(path.join(OUT, 'changed.json'), JSON.stringify(changed));
   console.log(
     `[site-content] ${Object.keys(texts).length} texts and ${Object.keys(data).length} data blocks from the admin panel`,
   );
