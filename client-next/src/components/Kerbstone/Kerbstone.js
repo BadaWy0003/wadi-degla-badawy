@@ -8,6 +8,7 @@ import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { sitePhoto } from '../../util/site-content';
+import { PROFILES } from './kerbPhotos';
 
 // Kerbstone (redesigned 2026-11-12, design A "Profile cards that flip"): photo header with the
 // intro and numbers, the 6 kerb profiles as cards (photo, name, text, quote link; pointing at a
@@ -16,18 +17,7 @@ import { sitePhoto } from '../../util/site-content';
 const DIR = '/Assets/Media/Kerb-and-Cobbles/kerb';
 // the header photo can be replaced in the admin panel (Website → Kerbstones)
 const HERO = sitePhoto('kerbstone', 'heroPhoto', `${DIR}/kerb-hero.webp`);
-const PROFILES = [
-  { key: 'str', photo: 'str1', drawing: 'str2' },
-  { key: 'fullBatter', photo: 'full-batter1', drawing: 'full-batter2' },
-  { key: 'bullnose', photo: 'bullnose1', drawing: 'bullnose2' },
-  { key: 'roundTop', photo: 'roundtop1', drawing: 'roundtop2' },
-  { key: 'channel', photo: 'channel1', drawing: 'channel2' },
-  { key: 'transition', photo: 'transition1', drawing: null },
-].map((p) => ({
-  ...p,
-  photo: `${DIR}/${p.photo}.webp`,
-  drawing: p.drawing && `${DIR}/${p.drawing}.webp`,
-}));
+// each profile's photo and drawing (kerbPhotos.js, editable in the admin panel)
 
 function ProfileCard({ profile, index, t, onZoom }) {
   const [flipped, setFlipped] = useState(false);

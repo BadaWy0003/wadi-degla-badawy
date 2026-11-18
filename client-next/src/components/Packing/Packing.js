@@ -6,44 +6,28 @@ import { FaWhatsapp } from 'react-icons/fa';
 import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { E, GALLERY, P, SHOWN, methodPhoto } from './packingPhotos';
 
 // Packing (redesigned 2026-11-12, design A "Slabs + tiles cards"): header with numbers, the two
 // slab methods and the two tile methods as cards (photo, label, the steps as a checklist),
 // "Why our packing matters", a grid of 9 photos (all 31 open in the zoom viewer), the Related
 // pages links (children) and a WhatsApp band.
 
-const P = (n) => `/Assets/Media/Packing/packing${n}.webp`;
-const E = (n) => `/Assets/Media/Exports/exports${n}.webp`;
-// [photo, number of its packing.packingAlt<N> text]
-const PHOTOS = [
-  [P(16), 16],
-  [P(3), 3],
-  [P(7), 7],
-  [E(26), 22],
-  [P(12), 12],
-  [E(29), 25],
-  [P(15), 15],
-  [E(31), 27],
-  [P(13), 13],
-  ...[1, 2, 4, 5, 6, 8, 9, 10, 11, 14, 17].map((n) => [P(n), n]),
-  ...[22, 23, 24, 25, 27, 28, 30, 32, 33, 34, 35].map((n) => [E(n), n - 4]),
-];
-const SHOWN = 9;
 const GROUPS = [
   {
     id: 'slabs',
     title: 'packing.slabsTitle',
     methods: [
-      { key: 'woodenBundle', photo: P(16), alt: 16 },
-      { key: 'normalPacking', photo: P(10), alt: 10 },
+      { key: 'woodenBundle', photo: methodPhoto('woodenBundle', P(16)), alt: 16 },
+      { key: 'normalPacking', photo: methodPhoto('normalPacking', P(10)), alt: 10 },
     ],
   },
   {
     id: 'tiles',
     title: 'packing.tilesTitle',
     methods: [
-      { key: 'woodenCrates', photo: E(24), alt: 20 },
-      { key: 'woodenPallet', photo: P(9), alt: 9 },
+      { key: 'woodenCrates', photo: methodPhoto('woodenCrates', E(24)), alt: 20 },
+      { key: 'woodenPallet', photo: methodPhoto('woodenPallet', P(9)), alt: 9 },
     ],
   },
 ];
@@ -58,8 +42,9 @@ const lines = (text) =>
 export default function Packing({ children }) {
   const { t } = useTranslation();
   const [openPhoto, zoom] = usePhotoZoom();
-  const slides = PHOTOS.map(([src, n]) => ({ src, alt: t(`packing.packingAlt${n}`) }));
-  const indexOf = (src) => Math.max(0, PHOTOS.findIndex(([s]) => s === src));
+  const altOf = (n, i) => (n ? t(`packing.packingAlt${n}`) : `${t('packing.galleryTitle')} ${i + 1}`);
+  const slides = GALLERY.map(([src, n], i) => ({ src, alt: altOf(n, i) }));
+  const indexOf = (src) => Math.max(0, GALLERY.findIndex(([s]) => s === src));
 
   return (
     <div className="pk">
@@ -140,19 +125,19 @@ export default function Packing({ children }) {
         <section className="pk-section">
           <h2>{t('packing.galleryTitle')}</h2>
           <div className="pk-gallery">
-            {PHOTOS.slice(0, SHOWN).map(([src, n], i) => (
+            {GALLERY.slice(0, SHOWN).map(([src, n], i) => (
               <button
                 type="button"
                 key={src}
                 className="pk-tile"
                 onClick={() => openPhoto(i)}
-                aria-label={t(`packing.packingAlt${n}`)}
+                aria-label={altOf(n, i)}
               >
-                <img loading="lazy" src={src} alt={t(`packing.packingAlt${n}`)} />
+                <img loading="lazy" src={src} alt={altOf(n, i)} />
               </button>
             ))}
             <button type="button" className="pk-all" onClick={() => openPhoto(0)}>
-              {t('projects.allPhotos').replace('{{count}}', PHOTOS.length)}
+              {t('projects.allPhotos').replace('{{count}}', GALLERY.length)}
             </button>
           </div>
         </section>

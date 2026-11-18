@@ -7,7 +7,9 @@ import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
-import { ancientImageData, interiorImageData, exteriorImageData } from './InspirationImageData';
+import { INSPIRATION_PHOTOS } from './inspirationPhotos';
+// two fixed pictures in "Turn an idea into a project"
+import { interiorImageData } from './InspirationImageData';
 
 // Inspiration (redesigned 2026-11-12, design B "Lookbook"): header with numbers, then one
 // chapter per style (interior, exterior, classic & monumental: a big photo with the text and
@@ -18,17 +20,17 @@ import { ancientImageData, interiorImageData, exteriorImageData } from './Inspir
 const CHAPTERS = [
   {
     id: 'interior',
-    photos: interiorImageData,
-    cover: 7, // index of the big photo
+    photos: INSPIRATION_PHOTOS.interiorPhotos,
+    cover: 0, // the big photo = the first of the list (inspirationPhotos.js)
     uses: 'inspiration.interiorApplicationsList',
   },
   {
     id: 'exterior',
-    photos: exteriorImageData,
-    cover: 2,
+    photos: INSPIRATION_PHOTOS.exteriorPhotos,
+    cover: 0,
     uses: 'inspiration.exteriorApplicationsList',
   },
-  { id: 'ancient', photos: ancientImageData, cover: 3 },
+  { id: 'ancient', photos: INSPIRATION_PHOTOS.ancientPhotos, cover: 0 },
 ];
 const TOTAL = CHAPTERS.reduce((n, c) => n + c.photos.length, 0);
 

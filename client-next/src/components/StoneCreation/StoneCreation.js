@@ -7,7 +7,7 @@ import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
-import { architectureData, mosaicsData } from './StoneCreationData';
+import { ARCHITECTURE as architectureData, MOSAICS as mosaicsData } from './stoneCreationPhotos';
 
 // Stone Creations (redesigned 2026-11-12, design B "Showroom viewer"): header with numbers, then
 // one viewer per range (architectural & landscaping elements, mosaics): a big stage with the
@@ -58,8 +58,8 @@ function Viewer({ id, items, t, showSize = false }) {
               hidden={i !== active}
             >
               <p className="sc-eyebrow">
-                {showSize && sizeOf(item.image) ? (
-                  <bdi>{sizeOf(item.image)}</bdi>
+                {showSize && sizeOf(item.ownImage || item.image) ? (
+                  <bdi>{sizeOf(item.ownImage || item.image)}</bdi>
                 ) : (
                   <bdi>
                     {i + 1} / {items.length}
@@ -97,7 +97,7 @@ function Viewer({ id, items, t, showSize = false }) {
               <img src={item.image} alt="" loading="lazy" width={1080} height={608} />
               {showSize && (
                 <span>
-                  <bdi>{sizeOf(item.image)}</bdi>
+                  <bdi>{sizeOf(item.ownImage || item.image)}</bdi>
                 </span>
               )}
             </button>

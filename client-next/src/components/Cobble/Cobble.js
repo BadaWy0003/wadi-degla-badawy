@@ -9,6 +9,7 @@ import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 import { sitePhoto } from '../../util/site-content';
+import { COBBLE_GALLERY, FLAMED_PHOTO, SPLIT_PHOTO } from './cobblePhotos';
 
 // Cobbles (redesigned 2026-11-12, design A "Photo header + two surfaces"): photo header with the
 // intro and numbers, the 4 benefits, "two surfaces, one stone" (natural split cobbles and flamed
@@ -17,9 +18,8 @@ import { sitePhoto } from '../../util/site-content';
 const DIR = '/Assets/Media/Kerb-and-Cobbles/cobble';
 // the header photo can be replaced in the admin panel (Website → Cobbles)
 const HERO = sitePhoto('cobbles', 'heroPhoto', `${DIR}/cobble-hero.webp`);
-const PHOTOS = ['cobble6', 'cobble7', 'cobble8', 'cobble1', 'cobble-hero'].map(
-  (n) => `${DIR}/${n}.webp`,
-);
+// the gallery and the two surfaces' photos (cobblePhotos.js, editable in the admin panel)
+const PHOTOS = COBBLE_GALLERY;
 // "31+": the export-country number from the admin panel (src/util/company.js)
 const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 const BENEFIT_ICONS = ['◆', '≈', '✓', '▦'];
@@ -45,7 +45,10 @@ export default function Cobble({ children }) {
   const pageRef = useRef(null);
   const [openPhoto, zoom] = usePhotoZoom();
   useReveal(pageRef, [], 'co');
-  const slides = PHOTOS.map((src, i) => ({ src, alt: `${t('cobbles.heroTitle')} ${i + 1}` }));
+  // the gallery, plus the two surfaces' photos when they are not in it (all in one viewer)
+  const all = [...PHOTOS, ...[SPLIT_PHOTO, FLAMED_PHOTO].filter((p, i, l) => !PHOTOS.includes(p) && l.indexOf(p) === i)];
+  const slides = all.map((src, i) => ({ src, alt: `${t('cobbles.heroTitle')} ${i + 1}` }));
+  const at = (src) => Math.max(0, all.indexOf(src));
 
   return (
     <div className="co" ref={pageRef}>
@@ -99,8 +102,12 @@ export default function Cobble({ children }) {
           <h2>{t('cobbles.surfacesTitle')}</h2>
           <div className="co-surfaces">
             <article className="co-surface co-reveal">
-              <button type="button" className="co-surface-photo" onClick={() => openPhoto(1)}>
-                <img src={PHOTOS[1]} alt={slides[1].alt} loading="lazy" />
+              <button
+                type="button"
+                className="co-surface-photo"
+                onClick={() => openPhoto(at(SPLIT_PHOTO))}
+              >
+                <img src={SPLIT_PHOTO} alt={slides[at(SPLIT_PHOTO)].alt} loading="lazy" />
               </button>
               <div className="co-surface-text">
                 <p className="co-eyebrow">{t('cobbles.splitEyebrow')}</p>
@@ -112,8 +119,12 @@ export default function Cobble({ children }) {
               </div>
             </article>
             <article className="co-surface co-reveal">
-              <button type="button" className="co-surface-photo" onClick={() => openPhoto(2)}>
-                <img src={PHOTOS[2]} alt={slides[2].alt} loading="lazy" />
+              <button
+                type="button"
+                className="co-surface-photo"
+                onClick={() => openPhoto(at(FLAMED_PHOTO))}
+              >
+                <img src={FLAMED_PHOTO} alt={slides[at(FLAMED_PHOTO)].alt} loading="lazy" />
               </button>
               <div className="co-surface-text">
                 <p className="co-eyebrow">{t('cobbles.flamedEyebrow')}</p>

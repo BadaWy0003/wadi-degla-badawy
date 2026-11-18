@@ -10,5 +10,12 @@ export const siteData = (blockId) => SITE_DATA[blockId] || {};
 // website's own photo.
 export const sitePhoto = (blockId, name, fallback) => siteData(blockId)[name]?.src || fallback;
 
+// A photo list the client set in the admin panel ([{ src, width, height }] field), as the
+// saved items, or null when it wasn't changed (use the website's own list).
+export const sitePhotoItems = (blockId, name) => {
+  const v = siteData(blockId)[name];
+  return Array.isArray(v) && v.length ? v : null;
+};
+
 // CSS "url(...)" for a photo used as a background (quotes and backslashes removed).
 export const cssUrl = (src) => `url("${String(src).replace(/["\\]/g, '')}")`;
