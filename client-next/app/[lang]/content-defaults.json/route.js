@@ -12,6 +12,7 @@ import {
   FEATURED_DEFAULT_NAMES,
   HOME_PHOTOS_DEFAULTS,
 } from '../../../src/components/Home/homeData';
+import { countsForAdmin } from '../../../src/components/Machinery/machineryCounts';
 import { getProducts } from '../../../src/util/product-slugs';
 
 export const dynamic = 'force-static';
@@ -45,6 +46,7 @@ export async function GET(request, { params }) {
     texts,
     data: {
       company: COMPANY_DEFAULTS,
+      machinery: countsForAdmin(),
       home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
       certificates: CERTIFICATES_DEFAULTS,
       fairs: { fairs: fairsForAdmin((id) => textOf(`fairs.items.${id}`)) },
