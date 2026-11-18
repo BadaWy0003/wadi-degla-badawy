@@ -8,6 +8,7 @@ import LangLink from '../LangLink';
 import StatCounter from '../About/StatCounter';
 import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { COUNTS } from './machineryCounts';
 
 // Machinery (redesigned 2026-11-12, design A "Production line"): header with counting numbers,
 // "From block to tile" (4 stages joined by a line with a moving dot), then one section per
@@ -16,19 +17,7 @@ import { WHATSAPP_URL } from '../Contact/contactData';
 // their device for reduced motion. All texts and photos are in the static HTML: the fade-in
 // only starts once the page's script runs (class "mc-anim" on the page).
 
-// How many of each machine (the translated names also contain the number, which is stripped).
-const COUNTS = {
-  'machinery.generalUse.cranes': 6,
-  'machinery.generalUse.forklifts': 2,
-  'machinery.blocks.gangsaws': 9,
-  'machinery.blocks.blocksCutters': 4,
-  'machinery.blocks.monofilos': 6,
-  'machinery.slabs.polishingLines': 3,
-  'machinery.slabs.risinLine': 1,
-  'machinery.tiles.bridgeCutters': 6,
-  'machinery.tiles.tumblingMachine': 1,
-  'machinery.tiles.splittingStrips': 3,
-};
+// How many of each machine: machineryCounts.js (editable in the admin panel).
 const TOTAL = Object.values(COUNTS).reduce((a, b) => a + b, 0);
 const STAGES = [
   { id: 'blocks', data: mngBlocksData, caption: 'machinery.blocks.caption2' },
