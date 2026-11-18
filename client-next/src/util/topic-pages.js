@@ -7,6 +7,8 @@
 // files, a wrapper app/[lang]/<slug>/page.js (copy an existing one), and the path to
 // STATIC_PAGES in app/sitemap.js.
 
+import { sitePhoto } from './site-content';
+
 export const TOPIC_PAGES = {
   egyptianMarble: {
     slug: 'egyptian-marble',
@@ -75,6 +77,14 @@ export const TOPIC_PAGES = {
     ],
   },
 };
+
+// The header photo the client set in the admin panel (Website → each stone guide →
+// "Header photo"), else the website's own; `defaultHero` keeps the original.
+for (const [key, page] of Object.entries(TOPIC_PAGES)) {
+  page.defaultHero = page.hero;
+  page.hero = sitePhoto(`topic_${key}`, 'heroPhoto', page.hero);
+}
+
 
 // Other pages a topic page or a RelatedPages block can link to (path + translation key of its name).
 export const OTHER_LINKS = {

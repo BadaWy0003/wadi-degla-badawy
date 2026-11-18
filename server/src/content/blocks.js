@@ -296,6 +296,20 @@ const BLOCKS = [
     usedOn: ["Why choose us", "Home"],
     sections: [
       {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'header',
         title: "Header",
         fields: [
@@ -1035,6 +1049,20 @@ const BLOCKS = [
     usedOn: ["Stone guides"],
     sections: [
       {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'header',
         title: "Header & introduction",
         fields: [
@@ -1099,6 +1127,20 @@ const BLOCKS = [
     usedOn: ["Stone guides"],
     sections: [
       {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'header',
         title: "Header & introduction",
         fields: [
@@ -1150,6 +1192,20 @@ const BLOCKS = [
     description: "The texts of the \"Egyptian granite\" page. The stones and projects on it are listed automatically.",
     usedOn: ["Stone guides"],
     sections: [
+      {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'header',
         title: "Header & introduction",
@@ -1205,6 +1261,20 @@ const BLOCKS = [
     usedOn: ["Stone guides"],
     sections: [
       {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'header',
         title: "Header & introduction",
         fields: [
@@ -1257,6 +1327,20 @@ const BLOCKS = [
     usedOn: ["Stone guides"],
     sections: [
       {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'header',
         title: "Header & introduction",
         fields: [
@@ -1304,6 +1388,20 @@ const BLOCKS = [
     description: "The texts of the \"Galala marble\" page. The stones and projects on it are listed automatically.",
     usedOn: ["Stone guides"],
     sections: [
+      {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'header',
         title: "Header & introduction",
@@ -1356,6 +1454,20 @@ const BLOCKS = [
     description: "The texts of the \"Buying guide (How to buy marble from Egypt)\" page. The stones and projects on it are listed automatically.",
     usedOn: ["Stone guides"],
     sections: [
+      {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'header',
         title: "Header & introduction",
@@ -1822,6 +1934,20 @@ const BLOCKS = [
     usedOn: ["Cobbles"],
     sections: [
       {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'top',
         title: "Top of the page",
         fields: [
@@ -1890,6 +2016,20 @@ const BLOCKS = [
     usedOn: ["Kerbstones"],
     sections: [
       {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'top',
         title: "Top of the page",
         fields: [
@@ -1954,6 +2094,20 @@ const BLOCKS = [
     description: "The texts of the Contact page and its form (the phone numbers, emails and address are in \"Company facts & contact\").",
     usedOn: ["Contact"],
     sections: [
+      {
+        id: 'photo',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened behind the text. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'top',
         title: "Top of the page",

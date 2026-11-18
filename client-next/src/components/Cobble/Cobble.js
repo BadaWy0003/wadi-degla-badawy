@@ -8,13 +8,15 @@ import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
+import { sitePhoto } from '../../util/site-content';
 
 // Cobbles (redesigned 2026-11-12, design A "Photo header + two surfaces"): photo header with the
 // intro and numbers, the 4 benefits, "two surfaces, one stone" (natural split cobbles and flamed
 // paving side by side), where flamed paving works best, technical & custom options, a gallery of
 // all photos, the Related pages block (children, from the page) and a WhatsApp band.
 const DIR = '/Assets/Media/Kerb-and-Cobbles/cobble';
-const HERO = `${DIR}/cobble-hero.webp`;
+// the header photo can be replaced in the admin panel (Website → Cobbles)
+const HERO = sitePhoto('cobbles', 'heroPhoto', `${DIR}/cobble-hero.webp`);
 const PHOTOS = ['cobble6', 'cobble7', 'cobble8', 'cobble1', 'cobble-hero'].map(
   (n) => `${DIR}/${n}.webp`,
 );

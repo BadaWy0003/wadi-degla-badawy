@@ -5,7 +5,8 @@ import { PAGE_HEROES, heroPhoneSrc, heroSrc } from '../util/hero-images';
 // Use either page="<key of PAGE_HEROES>" or src="/Assets/Media/Hero/<name>.webp" (+ phone=
 // "<url>" for a phone photo that isn't the desktop photo's -m copy, e.g. one from the admin panel).
 export default function HeroPreload({ page, src, phone: phoneSrc }) {
-  const entry = page ? PAGE_HEROES[page] : null;
+  // src wins over the page's own photo (a photo replaced in the admin panel)
+  const entry = page && !src ? PAGE_HEROES[page] : null;
   const desktop = entry ? heroSrc(entry.desktop) : src;
   if (!desktop) return null;
   const phone = phoneSrc || heroPhoneSrc(entry?.phone ? heroSrc(entry.phone) : desktop);
