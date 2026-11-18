@@ -1,11 +1,10 @@
 name: Deploy client-next to Fly.io
 
+# Manual only (owner's choice, 2026-11-18): merging to main does NOT deploy, to save GitHub
+# build minutes. Deploy when the owner says so: GitHub > Actions > this workflow > Run workflow
+# (branch main), or Claude starts it (actions_run_trigger).
+# The admin panel's "Publish to website" button also starts this workflow (deploys main).
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'client-next/**'
   workflow_dispatch:
 
 # Never cancel a deploy halfway; queue the next one instead.
@@ -14,14 +13,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  checks:
-    uses: ./.github/workflows/checks.yml
-    with:
-      app: client-next
-
+  # No separate checks job: the Docker build on Fly runs the same build (and lint), and a
+  # failed build never replaces the live site. Saves GitHub build minutes on every merge
+  # and every "Publish to website".
   deploy:
     name: Deploy client-next
-    needs: checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

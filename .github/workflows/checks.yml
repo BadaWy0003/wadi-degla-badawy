@@ -1,10 +1,20 @@
 name: Checks
 
-# Runs on every pull request (so problems show up before merging) and is
-# reused by the deploy workflows, so nothing is deployed unless it builds.
+# Runs ONLY when started by hand (owner's choice, 2026-11-18: GitHub bills build minutes for
+# this private repository): GitHub > Actions > "Checks" > Run workflow, pick the branch and
+# the app (or "all"). Claude starts it the same way when the owner asks for a check. Changes
+# are still built and tested in the Claude session before every pull request (free).
+# Also reused by the server deploy (a syntax error would not stop its Docker build). The
+# website and admin deploys don't call it: their Docker build on Fly runs the same build,
+# and a failed build never replaces the live site.
 on:
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      app:
+        description: "Which app to check"
+        type: choice
+        options: [all, client-next, server, admin-dashboard]
+        default: all
   workflow_call:
     inputs:
       app:
@@ -14,7 +24,7 @@ on:
 
 jobs:
   client-next:
-    if: github.event_name == 'pull_request' || inputs.app == 'client-next'
+    if: inputs.app == 'all' || inputs.app == 'client-next'
     name: Build website (client-next)
     runs-on: ubuntu-latest
     defaults:
@@ -34,7 +44,7 @@ jobs:
           NEXT_PUBLIC_BASE_API_URL: https://server-withered-wildflower-1595.fly.dev
 
   server:
-    if: github.event_name == 'pull_request' || inputs.app == 'server'
+    if: inputs.app == 'all' || inputs.app == 'server'
     name: Check server
     runs-on: ubuntu-latest
     defaults:
@@ -55,7 +65,7 @@ jobs:
         run: find src scripts -name '*.js' -print0 | xargs -0 -n1 node --check
 
   admin-dashboard:
-    if: github.event_name == 'pull_request' || inputs.app == 'admin-dashboard'
+    if: inputs.app == 'all' || inputs.app == 'admin-dashboard'
     name: Build admin dashboard
     runs-on: ubuntu-latest
     defaults:

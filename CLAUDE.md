@@ -196,11 +196,15 @@ docker run -p 8080:80 wd-site
 - Tests: none exist.
 
 ## Deployment (Fly.io via GitHub Actions)
-- `.github/workflows/deploy-*.yml` run `flyctl deploy --remote-only` on push to `main` when files in that app's folder change. Secret: `FLY_API_TOKEN`.
-- Each deploy first runs `.github/workflows/checks.yml` for its app and only deploys if that passes. The same checks run on **every pull request**: client-next `npm run build` (includes ESLint), server `node --check` on every file, admin CRA build with `CI=false`. Deploys are queued, never cancelled halfway.
+- `.github/workflows/deploy-*.yml` run `flyctl deploy --remote-only` when started by hand (since 2026-11-18; before, on every push to `main`). Secret: `FLY_API_TOKEN`.
+- **GitHub build minutes cost money** (private repository; on 2026-11-18 the monthly allowance ran out and GitHub stopped every job: "recent account payments have failed or your spending limit needs to be increased", which also stops the admin panel's Publish button). So (owner's choice, 2026-11-18):
+  - **Merging does not deploy.** The 3 deploy workflows are manual only (`workflow_dispatch`): after a merge, deploy when the owner says "deploy" (Actions > Deploy … > Run workflow on `main`, or `actions_run_trigger`). Several merges can go live in one deploy. The admin panel's Publish button starts `deploy-client-next.yml`, so it also puts any merged website code live.
+  - **No automatic checks on pull requests.** `.github/workflows/checks.yml` runs only when started by hand (Actions > Checks > Run workflow, branch + app or "all"), when the owner asks for a check every few builds. Claude can start it (`actions_run_trigger`, workflow `checks.yml`, inputs `{app}`). Every change is still built and tested in the Claude session before its pull request (free).
+  - The website and admin deploys (merge and Publish) don't run the checks first: their Docker build on Fly runs the same build (with lint for the website), and a failed build never replaces the live site. The server deploy still runs its ~1-minute syntax check first (a syntax error would not stop its Docker build and would break the live API).
+  - Group several small changes into one PR when possible. Deploys are queued, never cancelled halfway.
 - `deploy-client.yml` (old site) is manual-only (`workflow_dispatch`).
 - Third-party actions are pinned to a commit SHA (`superfly/flyctl-actions/setup-flyctl@ed8efb3…  # 1.6`).
-- **Merging to main = going live.** Never push to `main` directly. Use a branch + PR, and merge only after the owner says "merge".
+- **Merging to main = going live once deployed** (deploys are manual since 2026-11-18). Never push to `main` directly. Use a branch + PR, and merge only after the owner says "merge".
 - Before a deploy, note the current release: `fly releases -a <app>`.
 - After a deploy: `fly status -a <app>`, `fly logs -a <app> --no-tail`, then check the affected pages in EN + AR.
 - Roll back a release to its earlier image:
