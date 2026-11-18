@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/fetch-site-content.js",
+    "prebuild": "node scripts/write-git-dates.js && node scripts/fetch-site-content.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

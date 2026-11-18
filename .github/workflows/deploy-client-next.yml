@@ -21,6 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history: the sitemap's page dates come from it
+
+      # The Docker build on Fly has no git history, so the page dates for the sitemap
+      # (<lastmod>) are written here and copied into the build with the code.
+      - name: Page dates for the sitemap
+        working-directory: client-next
+        run: node scripts/write-git-dates.js
 
       - uses: superfly/flyctl-actions/setup-flyctl@ed8efb33836e8b2096c7fd3ba1c8afe303ebbff1 # 1.6
 

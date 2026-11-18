@@ -5,74 +5,51 @@
 //  - its own sections of that language's translation file (e.g. "about" in translations/ar.json)
 //    or topic text file (content/topics/<lang>.json): a change to another page's texts in the
 //    same file doesn't count.
-// Returns null when git history isn't available (the Fly Docker build has no .git), and the
-// sitemap then leaves <lastmod> out rather than guessing. Never the build time.
-import { execFileSync } from 'child_process';
+// The dates come from content/.generated/git-dates.json, written before the build by
+// scripts/write-git-dates.js (the Fly Docker build has no .git, so the deploy workflow writes it
+// first and it is copied in with the code). Without that file every date is null and the sitemap
+// leaves <lastmod> out rather than guessing. Never the build time.
 import fs from 'fs';
 import path from 'path';
 
 const ROOT = process.cwd(); // client-next/
 
-function git(args) {
-  try {
-    return execFileSync('git', args, {
-      cwd: ROOT,
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    }).trim();
-  } catch {
-    return null;
+let snapshot;
+function dates() {
+  if (snapshot === undefined) {
+    try {
+      snapshot = JSON.parse(
+        fs.readFileSync(path.join(ROOT, 'content/.generated/git-dates.json'), 'utf8'),
+      );
+    } catch {
+      snapshot = null;
+    }
   }
+  return snapshot;
 }
 
-let available;
-function gitAvailable() {
-  if (available === undefined) available = git(['rev-parse', '--is-inside-work-tree']) === 'true';
-  return available;
-}
-
-// Newest commit date (ISO) touching any of `files` (files or folders, relative to client-next/).
+// Newest commit date (ISO) of any of `files` (files or folders, relative to client-next/).
 const fileDateCache = new Map();
 function lastCommitDate(files) {
   const key = files.join('|');
   if (!fileDateCache.has(key)) {
-    const existing = files.filter((f) => fs.existsSync(path.join(ROOT, f)));
-    const out = existing.length ? git(['log', '-1', '--format=%cI', '--', ...existing]) : null;
-    fileDateCache.set(key, out || null);
+    const all = dates().files;
+    const found = [];
+    for (const f of files) {
+      const folder = f.replace(/\/$/, '') + '/';
+      for (const [file, date] of Object.entries(all)) {
+        if (file === f || file.startsWith(folder)) found.push(date);
+      }
+    }
+    fileDateCache.set(key, newest(found));
   }
   return fileDateCache.get(key);
 }
 
 // For one JSON file: { sectionKey: ISO date of the last commit that changed that section }.
-const sectionCache = new Map();
-function sectionDates(file) {
-  if (sectionCache.has(file)) return sectionCache.get(file);
-  const dates = {};
-  const log = git(['log', '--format=%H %cI', '--', file]);
-  if (log) {
-    // Oldest first: a section's date moves forward each time its content differs.
-    const commits = log.split('\n').filter(Boolean).reverse();
-    let previous = {};
-    for (const line of commits) {
-      const [hash, date] = line.split(' ');
-      const text = git(['show', `${hash}:./${file}`]);
-      if (text == null) continue;
-      let json;
-      try {
-        json = JSON.parse(text);
-      } catch {
-        continue;
-      }
-      for (const [k, v] of Object.entries(json)) {
-        const s = JSON.stringify(v);
-        if (previous[k] !== s) dates[k] = date;
-      }
-      previous = Object.fromEntries(Object.entries(json).map(([k, v]) => [k, JSON.stringify(v)]));
-    }
-  }
-  sectionCache.set(file, dates);
-  return dates;
-}
+const sectionDates = (file) => dates().sections[file] || {};
+
+const newest = (list) => list.filter(Boolean).sort().pop() || null;
 
 // The src/components/<Section>/ folders a route wrapper imports.
 function componentFolders(wrapper) {
@@ -86,14 +63,12 @@ function componentFolders(wrapper) {
   }
 }
 
-const newest = (dates) => dates.filter(Boolean).sort().pop() || null;
-
 /**
  * page: { path, sections?: [translation sections], topic?: topic key, files?: [extra files] }
  * Returns the ISO date of the page's last real change in `lang`, or null when unknown.
  */
 export function pageLastModified(page, lang) {
-  if (!gitAvailable()) return null;
+  if (!dates()) return null;
   const wrapper = `app/[lang]${page.path}/page.js`;
   const codeDate = lastCommitDate([wrapper, ...componentFolders(wrapper), ...(page.files || [])]);
   const texts = page.topic
