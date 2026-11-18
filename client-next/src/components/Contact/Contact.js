@@ -8,6 +8,10 @@ import ContactInfo from './ContactInfo.js';
 import ContactQuick from './ContactQuick.js';
 import { useTranslation } from 'react-i18next';
 import LangLink from '../LangLink';
+import { cssUrl, sitePhoto } from '../../util/site-content';
+
+// the header photo can be replaced in the admin panel (Website → Contact page)
+const HERO = sitePhoto('contactPage', 'heroPhoto', null);
 
 // Contact page: short hero, quick contact buttons, then the form and the company's details.
 // Styles: ContactPage.css (everything is scoped under .cx-page; Contact.css is still used by
@@ -17,7 +21,7 @@ export default function Contact() {
 
   return (
     <div className="contact-container cx-page">
-      <section className="cx-hero">
+      <section className="cx-hero" style={HERO ? { '--cx-hero-img': cssUrl(HERO) } : undefined}>
         <div className="cx-hero-inner">
           <nav className="cx-crumbs" aria-label={t('contact.breadcrumbContact')}>
             <LangLink href="/">{t('contact.breadcrumbHome')}</LangLink>

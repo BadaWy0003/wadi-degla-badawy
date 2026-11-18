@@ -7,6 +7,10 @@ import LangLink from '../LangLink';
 import StatCounter from './StatCounter';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { COMPANY, YEARS } from '../../util/company';
+import { cssUrl, sitePhoto } from '../../util/site-content';
+
+// the header photo can be replaced in the admin panel (Website → Why choose us)
+const HERO = sitePhoto('about', 'heroPhoto', null);
 
 const EXPERTISE_PHOTO = '/Assets/Media/about-expertise.webp';
 
@@ -48,7 +52,12 @@ export default function About() {
 
   return (
     <div className="ab">
-      <div className="ab-hero" role="img" aria-label={t('about.heroImageAlt')}>
+      <div
+        className="ab-hero"
+        role="img"
+        aria-label={t('about.heroImageAlt')}
+        style={HERO ? { '--ab-hero-img': cssUrl(HERO) } : undefined}
+      >
         <div className="ab-wrap">
           <div className="ab-crumb">
             <LangLink href="/">{t('about.breadcrumbHome')}</LangLink>

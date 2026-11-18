@@ -15,6 +15,7 @@ import {
   HOME_PHOTOS_DEFAULTS,
 } from '../../../src/components/Home/homeData';
 import { countsForAdmin } from '../../../src/components/Machinery/machineryCounts';
+import { TOPIC_PAGES } from '../../../src/util/topic-pages';
 import { getProducts } from '../../../src/util/product-slugs';
 
 export const dynamic = 'force-static';
@@ -37,6 +38,29 @@ const patterns = Object.fromEntries([
   ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => [`split${n}`, '']),
 ]);
 
+// The header photos (pages with a "Header photo" field) and their real sizes.
+const H = '/Assets/Media/Hero/';
+const HERO_SIZES = {
+  'about-hero': [1080, 1080],
+  'contact-hero': [1080, 810],
+  'cobble-hero': [1080, 718],
+  'kerb-hero': [1080, 432],
+  'egyptian-marble-hero': [2000, 720],
+  'egyptian-limestone-hero': [2000, 720],
+  'egyptian-granite-hero': [2000, 720],
+  'imported-marble-hero': [2000, 720],
+  'imported-granite-hero': [2000, 720],
+  'quarries-home': [2000, 1000],
+  'buy-guide-hero': [1500, 740],
+};
+const heroOf = (src) => {
+  const [width, height] = HERO_SIZES[src.replace(H, '').replace('.webp', '')] || [1600, 900];
+  return { heroPhoto: { src, width, height } };
+};
+const topicHeroes = Object.fromEntries(
+  Object.entries(TOPIC_PAGES).map(([key, page]) => [`topic_${key}`, heroOf(page.defaultHero)]),
+);
+
 export async function GET(request, { params }) {
   // the topic pages' texts are edited as "topics.<path>"
   const texts =
@@ -50,6 +74,11 @@ export async function GET(request, { params }) {
     texts,
     data: {
       company: COMPANY_DEFAULTS,
+      about: heroOf(`${H}about-hero.webp`),
+      contactPage: heroOf(`${H}contact-hero.webp`),
+      cobbles: heroOf(`${H}cobble-hero.webp`),
+      kerbstone: heroOf(`${H}kerb-hero.webp`),
+      ...topicHeroes,
       machinery: countsForAdmin(),
       home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
       certificates: CERTIFICATES_DEFAULTS,

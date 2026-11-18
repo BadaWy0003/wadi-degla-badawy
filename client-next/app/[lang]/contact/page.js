@@ -1,6 +1,7 @@
 import { t, buildAlternates, buildSocial } from '../../../src/components/../util/meta';
 import Contact from '../../../src/components/Contact/Contact';
 import HeroPreload from '../../../src/components/HeroPreload';
+import { sitePhoto } from '../../../src/util/site-content';
 
 export function generateMetadata({ params }) {
   const { lang } = params;
@@ -17,7 +18,7 @@ export function generateMetadata({ params }) {
 export default function ContactPage({ params }) {
   return (
     <>
-      <HeroPreload page="contact" />
+      <HeroPreload page="contact" src={sitePhoto('contactPage', 'heroPhoto', undefined)} />
       <Contact />
     </>
   );

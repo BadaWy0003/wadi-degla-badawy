@@ -7,13 +7,15 @@ import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { sitePhoto } from '../../util/site-content';
 
 // Kerbstone (redesigned 2026-11-12, design A "Profile cards that flip"): photo header with the
 // intro and numbers, the 6 kerb profiles as cards (photo, name, text, quote link; pointing at a
 // card, or tapping its button, turns the photo over to show the profile's drawing), "sizes,
 // finishes & materials", the Related pages block (children, from the page) and a WhatsApp band.
 const DIR = '/Assets/Media/Kerb-and-Cobbles/kerb';
-const HERO = `${DIR}/kerb-hero.webp`;
+// the header photo can be replaced in the admin panel (Website → Kerbstones)
+const HERO = sitePhoto('kerbstone', 'heroPhoto', `${DIR}/kerb-hero.webp`);
 const PROFILES = [
   { key: 'str', photo: 'str1', drawing: 'str2' },
   { key: 'fullBatter', photo: 'full-batter1', drawing: 'full-batter2' },

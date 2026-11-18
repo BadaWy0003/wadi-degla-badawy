@@ -101,7 +101,7 @@ html[dir='rtl'] .ab-crumb span[aria-hidden] {
   padding: calc(var(--ab-header) + 40px) 0 120px;
   background:
     linear-gradient(180deg, rgba(12, 11, 10, 0.72) 0%, rgba(12, 11, 10, 0.6) 45%, var(--ab-bg) 100%),
-    url('/Assets/Media/Hero/about-hero.webp') center 30% / cover;
+    var(--ab-hero-img, url('/Assets/Media/Hero/about-hero.webp')) center 30% / cover;
 }
 
 .ab-hero .ab-wrap {
