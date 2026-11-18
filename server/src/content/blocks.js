@@ -415,6 +415,14 @@ const BLOCKS = [
     usedOn: ["History"],
     sections: [
       {
+        id: 'photos',
+        title: 'Photos',
+        help: "The family portraits on the timeline are not changed here.",
+        fields: [
+          { type: 'images', name: 'archivePhotos', label: "\"A living legacy\" archive photos", min: 1, max: 60, help: "The first 8 are shown on the page, each whole at its own shape; all of them open in the full-screen viewer." },
+        ],
+      },
+      {
         id: 'header',
         title: "Header",
         help: "The founding year and the years come from \"Company facts\".",
@@ -769,6 +777,18 @@ const BLOCKS = [
     usedOn: ["Packing"],
     sections: [
       {
+        id: 'photos',
+        title: 'Photos',
+        help: "Use the arrows to change the order.",
+        fields: [
+          { type: 'image', name: 'photo_woodenBundle', label: "Wooden bundles: card photo" },
+          { type: 'image', name: 'photo_normalPacking', label: "Standard packing: card photo" },
+          { type: 'image', name: 'photo_woodenCrates', label: "Wooden crates: card photo" },
+          { type: 'image', name: 'photo_woodenPallet', label: "Wooden pallets: card photo" },
+          { type: 'images', name: 'galleryPhotos', label: "Photo gallery", min: 1, max: 60, help: "The first 9 are shown on the page; all of them open in the full-screen viewer." },
+        ],
+      },
+      {
         id: 'header',
         title: "Header",
         fields: [
@@ -850,6 +870,15 @@ const BLOCKS = [
     description: "The export terms, the export team and the texts of the Exports page.",
     usedOn: ["Exports", "Home (world map)"],
     sections: [
+      {
+        id: 'photos',
+        title: 'Photos',
+        help: "Use the arrows to change the order.",
+        fields: [
+          { type: 'image', name: 'teamPhoto', label: "Photo beside \"What our export team handles\"" },
+          { type: 'images', name: 'galleryPhotos', label: "Loading photos", min: 1, max: 60, help: "The first 9 are shown on the page; all of them open in the full-screen viewer." },
+        ],
+      },
       {
         id: 'header',
         title: "Header",
@@ -1862,6 +1891,16 @@ const BLOCKS = [
     usedOn: ["Inspiration"],
     sections: [
       {
+        id: 'photos',
+        title: 'Photos',
+        help: "For each style, the FIRST photo is the big one with the text over it; the others make the row under it. Use the arrows to change the order.",
+        fields: [
+          { type: 'images', name: 'interiorPhotos', label: "Interior photos", min: 2, max: 40 },
+          { type: 'images', name: 'exteriorPhotos', label: "Exterior photos", min: 2, max: 40 },
+          { type: 'images', name: 'ancientPhotos', label: "Classic & monumental photos", min: 2, max: 40 },
+        ],
+      },
+      {
         id: 'top',
         title: "Top of the page",
         fields: [
@@ -1923,6 +1962,31 @@ const BLOCKS = [
     description: "The names and texts of the architectural pieces and mosaics, and the page texts.",
     usedOn: ["Stone creations"],
     sections: [
+      {
+        id: 'photos',
+        title: 'Photos',
+        help: "One picture per piece (a plain background works best, like the current ones).",
+        fields: [
+          { type: 'image', name: 'photo_cobbleStone', label: "Cobblestone" },
+          { type: 'image', name: 'photo_crown', label: "Crown" },
+          { type: 'image', name: 'photo_handrail', label: "Handrail" },
+          { type: 'image', name: 'photo_keystone', label: "Keystone" },
+          { type: 'image', name: 'photo_massiveSteps', label: "Massive Steps" },
+          { type: 'image', name: 'photo_planter', label: "Planter" },
+          { type: 'image', name: 'photo_poolCopingSet', label: "Pool Coping Set" },
+          { type: 'image', name: 'photo_squaredCrown', label: "Squared Crown" },
+          { type: 'image', name: 'photo_stoneSeat', label: "Stone Seat" },
+          { type: 'image', name: 'photo_wallstone', label: "Wallstone" },
+          { type: 'image', name: 'photo_mosaics2x2', label: "Mosaics 2\u00d72 cm", help: "The size shown under the picture stays as it is." },
+          { type: 'image', name: 'photo_mosaics5x5', label: "Mosaics 5\u00d75 cm" },
+          { type: 'image', name: 'photo_mosaics10x10', label: "Mosaics 10\u00d710 cm" },
+          { type: 'image', name: 'photo_mosaicsHexagon5x5', label: "Hexagon Mosaics 5\u00d75 cm" },
+          { type: 'image', name: 'photo_mosaicsTrapezoid5x5', label: "Trapezoid Mosaics 5\u00d75 cm" },
+          { type: 'image', name: 'photo_mosaics10x3', label: "Mosaics 10\u00d73 cm" },
+          { type: 'image', name: 'photo_mosaicsCircular5x5', label: "Circular Mosaics 5\u00d75 cm" },
+          { type: 'image', name: 'photo_mosaicsUpsDown10x10', label: "Ups & Downs Mosaics 10\u00d710 cm" },
+        ],
+      },
       {
         id: 'top',
         title: "Top of the page",
@@ -2041,6 +2105,16 @@ const BLOCKS = [
         ],
       },
       {
+        id: 'photos',
+        title: 'Photos',
+        help: "Every photo opens in the full-screen viewer.",
+        fields: [
+          { type: 'image', name: 'splitPhoto', label: "Photo beside \"natural split cobbles\"" },
+          { type: 'image', name: 'flamedPhoto', label: "Photo beside \"flamed paving\"" },
+          { type: 'images', name: 'galleryPhotos', label: "Photo gallery", min: 1, max: 30 },
+        ],
+      },
+      {
         id: 'top',
         title: "Top of the page",
         fields: [
@@ -2120,6 +2194,24 @@ const BLOCKS = [
             ratio: [0.9, 3.6],
             ratioHelp: 'use a wide (landscape) or square photo.',
           },
+        ],
+      },
+      {
+        id: 'photos',
+        title: 'Photos',
+        help: "Each profile card shows its photo, and its line drawing when the card turns over.",
+        fields: [
+          { type: 'image', name: 'photo_str', label: "Straight: photo" },
+          { type: 'image', name: 'drawing_str', label: "Straight: line drawing", help: "Shown when the card turns over." },
+          { type: 'image', name: 'photo_fullBatter', label: "Full batter: photo" },
+          { type: 'image', name: 'drawing_fullBatter', label: "Full batter: line drawing", help: "Shown when the card turns over." },
+          { type: 'image', name: 'photo_bullnose', label: "Bullnose: photo" },
+          { type: 'image', name: 'drawing_bullnose', label: "Bullnose: line drawing", help: "Shown when the card turns over." },
+          { type: 'image', name: 'photo_roundTop', label: "Round top: photo" },
+          { type: 'image', name: 'drawing_roundTop', label: "Round top: line drawing", help: "Shown when the card turns over." },
+          { type: 'image', name: 'photo_channel', label: "Channel: photo" },
+          { type: 'image', name: 'drawing_channel', label: "Channel: line drawing", help: "Shown when the card turns over." },
+          { type: 'image', name: 'photo_transition', label: "Transition: photo" },
         ],
       },
       {

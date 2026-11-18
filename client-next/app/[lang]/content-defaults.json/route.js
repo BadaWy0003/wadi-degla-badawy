@@ -19,6 +19,13 @@ import { TOPIC_PAGES } from '../../../src/util/topic-pages';
 import { QUARRY_PHOTOS_DEFAULTS } from '../../../src/components/Quarries/quarriesPhotos';
 import { photoWithSize } from '../../../src/util/image-size';
 import { MACHINERY_PHOTOS_DEFAULTS } from '../../../src/components/Machinery/machineryPhotos';
+import { PACKING_PHOTOS_DEFAULTS } from '../../../src/components/Packing/packingPhotos';
+import { EXPORTS_PHOTOS_DEFAULTS } from '../../../src/components/Exports/exportsPhotos';
+import { HISTORY_PHOTOS_DEFAULTS } from '../../../src/components/History/historyPhotos';
+import { INSPIRATION_PHOTOS_DEFAULTS } from '../../../src/components/Inspiration/inspirationPhotos';
+import { COBBLE_PHOTOS_DEFAULTS } from '../../../src/components/Cobble/cobblePhotos';
+import { KERB_PHOTOS_DEFAULTS } from '../../../src/components/Kerbstone/kerbPhotos';
+import { STONE_CREATION_PHOTOS_DEFAULTS } from '../../../src/components/StoneCreation/stoneCreationPhotos';
 import { getProducts } from '../../../src/util/product-slugs';
 
 export const dynamic = 'force-static';
@@ -60,6 +67,12 @@ const heroOf = (src) => {
   const [width, height] = HERO_SIZES[src.split('/').pop().replace('.webp', '')] || [1600, 900];
   return { heroPhoto: { src, width, height } };
 };
+// { name: src | [src] } -> { name: {src,width,height} | [{src,width,height}] } (real sizes)
+const asPhotos = (obj) =>
+  Object.fromEntries(
+    Object.entries(obj).map(([k, v]) => [k, Array.isArray(v) ? v.map(photoWithSize) : photoWithSize(v)]),
+  );
+
 const topicHeroes = Object.fromEntries(
   Object.entries(TOPIC_PAGES).map(([key, page]) => [`topic_${key}`, heroOf(page.defaultHero)]),
 );
@@ -82,8 +95,19 @@ export async function GET(request, { params }) {
       ),
       about: heroOf(`${H}about-hero.webp`),
       contactPage: heroOf(`${H}contact-hero.webp`),
-      cobbles: heroOf('/Assets/Media/Kerb-and-Cobbles/cobble/cobble-hero.webp'),
-      kerbstone: heroOf('/Assets/Media/Kerb-and-Cobbles/kerb/kerb-hero.webp'),
+      cobbles: {
+        ...heroOf('/Assets/Media/Kerb-and-Cobbles/cobble/cobble-hero.webp'),
+        ...asPhotos(COBBLE_PHOTOS_DEFAULTS),
+      },
+      kerbstone: {
+        ...heroOf('/Assets/Media/Kerb-and-Cobbles/kerb/kerb-hero.webp'),
+        ...asPhotos(KERB_PHOTOS_DEFAULTS),
+      },
+      packing: asPhotos(PACKING_PHOTOS_DEFAULTS),
+      exports: asPhotos(EXPORTS_PHOTOS_DEFAULTS),
+      history: asPhotos(HISTORY_PHOTOS_DEFAULTS),
+      inspiration: asPhotos(INSPIRATION_PHOTOS_DEFAULTS),
+      stoneCreations: asPhotos(STONE_CREATION_PHOTOS_DEFAULTS),
       ...topicHeroes,
       machinery: {
         ...countsForAdmin(),

@@ -8,32 +8,13 @@ import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
+import { GALLERY, SHOWN, TEAM_PHOTO } from './exportsPhotos';
 
 // Exports (redesigned 2026-11-12, design A "Terms first"): header with numbers, the export
 // terms a buyer asks first (the client's confirmed answers, same as the buying guide), what
 // the export department handles, the shared Global Markets globe (OurMarkets, also on the
 // home page), a grid of 9 loading photos (all 34 open in the zoom viewer) and a WhatsApp band.
 
-const PHOTO = (n) => `/Assets/Media/Exports/exports${n}.webp`;
-// [photo, number of its exports.gallery.galleryAlt<N> text]
-const PHOTOS = [
-  [PHOTO(26), 25],
-  [PHOTO(3), 3],
-  [PHOTO(4), 4],
-  [PHOTO(5), 5],
-  [PHOTO(9), 8],
-  [PHOTO(12), 11],
-  [PHOTO(15), 14],
-  [PHOTO(20), 19],
-  [PHOTO(23), 22],
-  ...[24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35].map((n) => [PHOTO(n), n - 1]),
-  ['/Assets/Media/Packing/packing3.webp', 1],
-  ['/Assets/Media/Packing/packing7.webp', 2],
-  [PHOTO(6), 6],
-  [PHOTO(8), 7],
-  ...[10, 11, 13, 14, 16, 17, 18, 19, 21, 22].map((n) => [PHOTO(n), n - 1]),
-];
-const SHOWN = 9;
 const TERMS = ['MinOrder', 'Production', 'Shipping', 'Ports', 'Payment', 'Samples'];
 const BULLETS = [1, 2, 3, 4, 5];
 // "31+": the export-country number from the admin panel (src/util/company.js)
@@ -42,7 +23,13 @@ const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 export default function Exports() {
   const { t } = useTranslation();
   const [openPhoto, zoom] = usePhotoZoom();
-  const slides = PHOTOS.map(([src, n]) => ({ src, alt: t(`exports.gallery.galleryAlt${n}`) }));
+  const altOf = (n, i) =>
+    n ? t(`exports.gallery.galleryAlt${n}`) : `${t('exports.galleryTitle')} ${i + 1}`;
+  const slides = GALLERY.map(([src, n], i) => ({ src, alt: altOf(n, i) }));
+  // the team photo opens in the viewer at its place in the gallery, or on its own
+  const teamIndex = slides.findIndex((sl) => sl.src === TEAM_PHOTO);
+  const teamSlides =
+    teamIndex >= 0 ? slides : [{ src: TEAM_PHOTO, alt: t('exports.departmentImageAlt') }, ...slides];
 
   return (
     <div className="ex">
@@ -96,8 +83,12 @@ export default function Exports() {
         </section>
 
         <section className="ex-section ex-dept">
-          <button type="button" className="ex-dept-img" onClick={() => openPhoto(0)}>
-            <img loading="lazy" src={PHOTOS[0][0]} alt={t('exports.departmentImageAlt')} />
+          <button
+            type="button"
+            className="ex-dept-img"
+            onClick={() => openPhoto(Math.max(0, teamIndex))}
+          >
+            <img loading="lazy" src={TEAM_PHOTO} alt={t('exports.departmentImageAlt')} />
           </button>
           <div>
             <p className="ex-eyebrow">{t('exports.departmentTitle')}</p>
@@ -120,19 +111,19 @@ export default function Exports() {
         <section className="ex-section">
           <h2>{t('exports.galleryTitle')}</h2>
           <div className="ex-gallery">
-            {PHOTOS.slice(0, SHOWN).map(([src, n], i) => (
+            {GALLERY.slice(0, SHOWN).map(([src, n], i) => (
               <button
                 type="button"
                 key={src}
                 className="ex-tile"
-                onClick={() => openPhoto(i)}
-                aria-label={t(`exports.gallery.galleryAlt${n}`)}
+                onClick={() => openPhoto(i + (teamIndex >= 0 ? 0 : 1))}
+                aria-label={altOf(n, i)}
               >
-                <img loading="lazy" src={src} alt={t(`exports.gallery.galleryAlt${n}`)} />
+                <img loading="lazy" src={src} alt={altOf(n, i)} />
               </button>
             ))}
-            <button type="button" className="ex-all" onClick={() => openPhoto(0)}>
-              {t('projects.allPhotos').replace('{{count}}', PHOTOS.length)}
+            <button type="button" className="ex-all" onClick={() => openPhoto(teamIndex >= 0 ? 0 : 1)}>
+              {t('projects.allPhotos').replace('{{count}}', GALLERY.length)}
             </button>
           </div>
         </section>
@@ -150,7 +141,7 @@ export default function Exports() {
         </div>
       </div>
 
-      {zoom(slides)}
+      {zoom(teamSlides)}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import './HistoryPage.css';
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp } from 'react-icons/fa';
-import { HistoryImages } from './HistoryImages';
+import { ARCHIVE } from './historyPhotos';
 import { HISTORY_SIZES } from './historySizes';
 import LangLink from '../LangLink';
 import StatCounter from '../About/StatCounter';
@@ -96,7 +96,7 @@ function RichText({ text }) {
 export default function History({ children }) {
   const { t } = useTranslation();
   const [openPhoto, zoom] = usePhotoZoom();
-  const slides = HistoryImages.map((src, i) => ({
+  const slides = ARCHIVE.map(({ src }, i) => ({
     src,
     alt: `${t('history.legacyTitle')} ${i + 1}`,
   }));
@@ -189,8 +189,11 @@ export default function History({ children }) {
           <p className="hi-text">{t('history.legacyIntroText')}</p>
           <p className="hi-text">{t('history.legacyText2')}</p>
           <div className="hi-archive">
-            {HistoryImages.slice(0, ARCHIVE_SHOWN).map((src, i) => {
-              const props = photoProps(src);
+            {ARCHIVE.slice(0, ARCHIVE_SHOWN).map(({ src, width, height }, i) => {
+              // the size comes with the photo (uploads) or from historySizes.js
+              const props = width
+                ? { width, height, style: { '--r': (width / height).toFixed(3) } }
+                : photoProps(src);
               return (
                 <button
                   type="button"
@@ -212,7 +215,7 @@ export default function History({ children }) {
             })}
           </div>
           <button type="button" className="hi-all" onClick={() => openPhoto(0)}>
-            {t('projects.allPhotos').replace('{{count}}', HistoryImages.length)}
+            {t('projects.allPhotos').replace('{{count}}', ARCHIVE.length)}
           </button>
         </section>
 
