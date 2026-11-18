@@ -3,7 +3,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import './MachineryPage.css';
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp } from 'react-icons/fa';
-import { generalUseData, mngBlocksData, mngSlabsData, mngTilesData } from './MachineryData';
+import {
+  GENERAL_USE as generalUseData,
+  BLOCKS_STAGE as mngBlocksData,
+  SLABS_STAGE as mngSlabsData,
+  TILES_STAGE as mngTilesData,
+} from './machineryPhotos';
 import LangLink from '../LangLink';
 import StatCounter from '../About/StatCounter';
 import usePhotoZoom from '../usePhotoZoom';
