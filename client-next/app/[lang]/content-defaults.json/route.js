@@ -54,7 +54,7 @@ const HERO_SIZES = {
   'buy-guide-hero': [1500, 740],
 };
 const heroOf = (src) => {
-  const [width, height] = HERO_SIZES[src.replace(H, '').replace('.webp', '')] || [1600, 900];
+  const [width, height] = HERO_SIZES[src.split('/').pop().replace('.webp', '')] || [1600, 900];
   return { heroPhoto: { src, width, height } };
 };
 const topicHeroes = Object.fromEntries(
@@ -76,8 +76,8 @@ export async function GET(request, { params }) {
       company: COMPANY_DEFAULTS,
       about: heroOf(`${H}about-hero.webp`),
       contactPage: heroOf(`${H}contact-hero.webp`),
-      cobbles: heroOf(`${H}cobble-hero.webp`),
-      kerbstone: heroOf(`${H}kerb-hero.webp`),
+      cobbles: heroOf('/Assets/Media/Kerb-and-Cobbles/cobble/cobble-hero.webp'),
+      kerbstone: heroOf('/Assets/Media/Kerb-and-Cobbles/kerb/kerb-hero.webp'),
       ...topicHeroes,
       machinery: countsForAdmin(),
       home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
