@@ -1,7 +1,7 @@
 # Wadi Degla website
 
 Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): https://www.wadidegla-eg.com/en/
-**`main` is production.** A merge to `main` deploys automatically (see Deployment).
+**`main` is production.** A merge to `main` goes live only when it is deployed (manual since 2026-11-18, see Deployment).
 
 ## Apps in this repo
 | Folder | What | Fly app | Status |
