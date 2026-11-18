@@ -40,4 +40,5 @@
 
 ## Safety
 - Never commit `.env` files, credentials or tokens.
-- Ask before: installing or removing dependencies, major upgrades, deleting files, touching `fly.toml`, Dockerfiles, workflows or nginx config, merging, deploying, or changing Fly secrets or Firebase data.
+- Ask before: installing or removing dependencies, major upgrades, deleting files, touching `fly.toml`, Dockerfiles, workflows or nginx config, or changing Fly secrets or Firebase data.
+- Merging and deploying need no extra OK (owner, 2026-11-18): merge once tested, deploy only apps that changed.
