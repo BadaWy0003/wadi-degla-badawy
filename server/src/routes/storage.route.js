@@ -7,6 +7,7 @@ const { uploadPhotos } = require('../middlewares/upload-photos.middleware');
 const validate = require('../middlewares/request-validator.middleware');
 const ProductDetailsController = require('../controllers/product-details.controller');
 const { productDetailsReqSchema } = require('../validations/product-details.validation.schema');
+const UnusedPhotos = require('../services/unused-photos.service');
 
 const router = express.Router();
 
@@ -33,4 +34,34 @@ router.put(
   validate(productDetailsReqSchema),
   ProductDetailsController.save,
 );
+
+// Unused photos clean-up (admin panel, Website page; ADMIN only). See unused-photos.service.js.
+const handle = (fn) => async (req, res) => {
+  try {
+    res.status(200).json({ data: await fn(req) });
+  } catch (error) {
+    if (error.statusCode) return res.status(error.statusCode).json({ message: error.message });
+    console.error('Unused photos error:', error.message);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+};
+router.get(
+  '/admin/unused-photos',
+  adminAuth,
+  authorize('ADMIN'),
+  handle(() => UnusedPhotos.list()),
+);
+router.post(
+  '/admin/unused-photos/clean',
+  adminAuth,
+  authorize('ADMIN'),
+  handle((req) => UnusedPhotos.clean(req.body?.paths)),
+);
+router.post(
+  '/admin/unused-photos/restore',
+  adminAuth,
+  authorize('ADMIN'),
+  handle(() => UnusedPhotos.restore()),
+);
+
 module.exports = router;

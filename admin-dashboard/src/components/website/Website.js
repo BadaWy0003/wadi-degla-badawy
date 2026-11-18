@@ -4,6 +4,7 @@ import { Alert, Box, Button, Card, CardActions, CardContent, Chip, CircularProgr
 import EditIcon from '@mui/icons-material/Edit';
 import { loadBlocks, timeAgo } from '../../util/website';
 import PublishPanel from '../publish/PublishPanel';
+import UnusedPhotos from './UnusedPhotos';
 
 // "Website" menu: one card per editable part of the website. ADMIN / SUPER_ADMIN only.
 export default function Website() {
@@ -64,6 +65,8 @@ export default function Website() {
           </Card>
         ))}
       </Box>
+
+      <UnusedPhotos />
     </Box>
   );
 }
