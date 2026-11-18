@@ -196,7 +196,10 @@ docker run -p 8080:80 wd-site
 
 ## Deployment (Fly.io via GitHub Actions)
 - `.github/workflows/deploy-*.yml` run `flyctl deploy --remote-only` on push to `main` when files in that app's folder change. Secret: `FLY_API_TOKEN`.
-- Each deploy first runs `.github/workflows/checks.yml` for its app and only deploys if that passes. The same checks run on **every pull request**: client-next `npm run build` (includes ESLint), server `node --check` on every file, admin CRA build with `CI=false`. Deploys are queued, never cancelled halfway.
+- **GitHub build minutes cost money** (private repository; on 2026-11-18 the monthly allowance ran out and GitHub stopped every job: "recent account payments have failed or your spending limit needs to be increased", which also stops the admin panel's Publish button). So nothing runs twice (owner's choice, 2026-11-18):
+  - `.github/workflows/checks.yml` runs on every pull request, but a first `changes` job (reads the PR's file list) runs only the checks of the apps the PR touches: client-next `npm run build` (includes ESLint), server `node --check` on every file, admin CRA build with `CI=false`; a change under `.github/` checks all three; a docs-only PR builds nothing. A newer push to the same PR cancels the older checks run.
+  - The website and admin deploys (merge and Publish) no longer run the checks first: their Docker build on Fly runs the same build, and a failed build never replaces the live site. The server deploy still runs its quick syntax check first (a syntax error would not stop its Docker build).
+  - Group several small changes into one PR when possible. Deploys are queued, never cancelled halfway.
 - `deploy-client.yml` (old site) is manual-only (`workflow_dispatch`).
 - Third-party actions are pinned to a commit SHA (`superfly/flyctl-actions/setup-flyctl@ed8efb3…  # 1.6`).
 - **Merging to main = going live.** Never push to `main` directly. Use a branch + PR, and merge only after the owner says "merge".

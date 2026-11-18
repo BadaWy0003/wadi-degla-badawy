@@ -14,14 +14,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  checks:
-    uses: ./.github/workflows/checks.yml
-    with:
-      app: client-next
-
+  # No separate checks job: the Docker build on Fly runs the same build (and lint), and a
+  # failed build never replaces the live site. Saves GitHub build minutes on every merge
+  # and every "Publish to website".
   deploy:
     name: Deploy client-next
-    needs: checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

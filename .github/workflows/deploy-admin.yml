@@ -13,14 +13,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  checks:
-    uses: ./.github/workflows/checks.yml
-    with:
-      app: admin-dashboard
-
+  # No separate checks job: the Docker build on Fly runs the same build (and lint), and a
+  # failed build never replaces the live site. Saves GitHub build minutes on every merge
+  # and every "Publish to website".
   deploy:
     name: Deploy admin dashboard
-    needs: checks
     runs-on: ubuntu-latest
     defaults:
       run:

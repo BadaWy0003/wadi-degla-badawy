@@ -1,7 +1,10 @@
 name: Checks
 
-# Runs on every pull request (so problems show up before merging) and is
-# reused by the deploy workflows, so nothing is deployed unless it builds.
+# Runs on every pull request (so problems show up before merging), only for the apps the
+# pull request changes. Also reused by the server deploy (a syntax error would not stop its
+# Docker build). The website and admin deploys don't call it: their Docker build on Fly runs
+# the same build, and a failed build never replaces the live site.
+# GitHub bills build minutes for this private repository, so nothing runs twice.
 on:
   pull_request:
     branches: [main]
@@ -12,9 +15,35 @@ on:
         type: string
         required: true
 
+# A newer push to the same pull request stops the older, now useless run.
+concurrency:
+  group: checks-${{ github.event_name }}-${{ github.event.pull_request.number || inputs.app || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
+  # Which apps the pull request changes (any change under .github/ checks all three).
+  changes:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      client-next: ${{ steps.files.outputs.client-next }}
+      server: ${{ steps.files.outputs.server }}
+      admin-dashboard: ${{ steps.files.outputs.admin-dashboard }}
+    steps:
+      - id: files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --paginate "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" --jq '.[].filename' > files.txt
+          for app in client-next server admin-dashboard; do
+            if grep -qE "^($app|\.github)/" files.txt; then echo "$app=true" >> "$GITHUB_OUTPUT"; else echo "$app=false" >> "$GITHUB_OUTPUT"; fi
+          done
+
   client-next:
-    if: github.event_name == 'pull_request' || inputs.app == 'client-next'
+    needs: changes
+    if: always() && (inputs.app == 'client-next' || needs.changes.outputs['client-next'] == 'true')
     name: Build website (client-next)
     runs-on: ubuntu-latest
     defaults:
@@ -34,7 +63,8 @@ jobs:
           NEXT_PUBLIC_BASE_API_URL: https://server-withered-wildflower-1595.fly.dev
 
   server:
-    if: github.event_name == 'pull_request' || inputs.app == 'server'
+    needs: changes
+    if: always() && (inputs.app == 'server' || needs.changes.outputs.server == 'true')
     name: Check server
     runs-on: ubuntu-latest
     defaults:
@@ -55,7 +85,8 @@ jobs:
         run: find src scripts -name '*.js' -print0 | xargs -0 -n1 node --check
 
   admin-dashboard:
-    if: github.event_name == 'pull_request' || inputs.app == 'admin-dashboard'
+    needs: changes
+    if: always() && (inputs.app == 'admin-dashboard' || needs.changes.outputs['admin-dashboard'] == 'true')
     name: Build admin dashboard
     runs-on: ubuntu-latest
     defaults:
