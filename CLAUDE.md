@@ -288,11 +288,9 @@ GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the 
 - Admin dashboard on phones (2026-11-07): below 900 px (`md`) `Layout.js` uses a slide-out menu (☰) instead of the fixed 280 px one; the theme (`src/theme.js`) makes dialogs nearly full-screen and table cells tighter on phones (<600 px); list tables hide minor columns on phones with `display: { xs: 'none', sm: 'table-cell' }` and show their text under the name. Desktop (≥900 px) must stay unchanged. Test without a real login: build with `REACT_APP_BASE_API_URL=http://api.test`, then in Playwright set `localStorage.auth_token` and answer `http://api.test/**` with sample JSON (`check-auth` returns `{username, role}`).
 
 ## Open items (as of 2026-11-18)
-- **Owner:** change the server's `SECRET_KEY` in Fly (Dashboard > server-withered-wildflower-1595 > Secrets; a long random value; everyone gets logged out once). An old value is in the git history (`server/.env.example`), which was public while the repo was public.
-- **Owner:** the repository was made public on 2026-11-18 to get free GitHub build minutes; switch it back to private at the start of the next month (Settings > General > Danger Zone). Deploys and checks are manual, so the private quota should last.
-- **Owner:** share the client guide to the admin panel's Website menu, a Claude Doc in the owner's claude.ai account ("Wadi Degla website: how to edit texts and photos", https://claude.ai/artifact/G4XUwVpqAgow8bb5qRLrdD). An Arabic version was offered. One of its screenshots shows the old yellow Publish message.
-- **Client:** renewed ISO/EOS/CBMI certificates before 17 Dec 2026 (they upload them: Website > Certificates); the names of the Patterns stones (Website > Patterns & pavers); confirm the Coverings and FutureScape fair editions; an iPhone test of the site.
-- **Ideas offered, not started:** admin-panel text edits moving the page's sitemap date; a cleanup button for uploaded-but-unused photos (Storage cost); a Google Cloud budget alert (owner sets it up); renew `GITHUB_DEPLOY_TOKEN` before ~2027-11.
+- **Client:** the names of the Patterns stones (Website > Patterns & pavers); confirm the Coverings and FutureScape fair editions; an iPhone test of the site.
+- **Ideas offered, not started:** admin-panel text edits moving the page's sitemap date; a cleanup button for uploaded-but-unused photos (Storage cost); a Google Cloud budget alert (owner sets it up).
+- Dropped by the owner (2026-11-18), do not bring up again: changing `SECRET_KEY`, making the repo private again, sharing the client guide, the certificate renewals, renewing `GITHUB_DEPLOY_TOKEN`.
 - Latest releases (2026-11-18): website v146, server v280, admin v41.
 
 ## Decisions log
