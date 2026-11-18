@@ -233,22 +233,59 @@ const cleanBlock = (block, body) => {
 };
 
 // ---------- reading and saving ----------
+// When each field was last really changed (for the website's sitemap dates):
+// { texts: { key: { en: ms, ar: ms } }, data: { name: ms } }. Blocks saved before this was
+// kept have none: their saved fields count as changed at the block's last save.
+const changedAtOf = (v) => {
+  if (v.changedAt) return { texts: v.changedAt.texts || {}, data: v.changedAt.data || {} };
+  const at = v.updatedAt;
+  if (!at) return { texts: {}, data: {} };
+  const texts = {};
+  for (const [key, val] of Object.entries(v.texts || {})) {
+    texts[key] = {};
+    for (const lang of ['en', 'ar']) if (val?.[lang]) texts[key][lang] = at;
+  }
+  return { texts, data: Object.fromEntries(Object.keys(v.data || {}).map((name) => [name, at])) };
+};
+
+// The fields that differ between two saves (a removed field = back to the original = a change).
+const markChanges = (before, next, now) => {
+  const out = { texts: { ...before.changedAt.texts }, data: { ...before.changedAt.data } };
+  for (const key of new Set([...Object.keys(before.texts), ...Object.keys(next.texts)])) {
+    for (const lang of ['en', 'ar']) {
+      const a = before.texts[key]?.[lang] || '';
+      const b = next.texts[key]?.[lang] || '';
+      if (a !== b) out.texts[key] = { ...out.texts[key], [lang]: now };
+    }
+  }
+  for (const name of new Set([...Object.keys(before.data), ...Object.keys(next.data)])) {
+    if (JSON.stringify(before.data[name] ?? null) !== JSON.stringify(next.data[name] ?? null)) out.data[name] = now;
+  }
+  return out;
+};
+
 const readDoc = async (id) => {
   const doc = await contentCol().doc(id).get();
   const v = doc.exists ? doc.data() : {};
-  return { texts: v.texts || {}, data: v.data || {}, updatedAt: v.updatedAt || null, updatedBy: v.updatedBy || null };
+  return {
+    texts: v.texts || {},
+    data: v.data || {},
+    updatedAt: v.updatedAt || null,
+    updatedBy: v.updatedBy || null,
+    changedAt: changedAtOf(v),
+  };
 };
 
 const SiteContentService = {};
 
-// Public (website build): { blockId: { texts, data } } for every block that has changes.
+// Public (website build): { blockId: { texts, data, changedAt } } for every block that has changes.
 SiteContentService.listPublic = async () => {
   const snap = await contentCol().get();
   const out = {};
   snap.docs.forEach((d) => {
     if (!getBlock(d.id)) return;
     const v = d.data();
-    out[d.id] = { texts: v.texts || {}, data: v.data || {} };
+    out[d.id] = { texts: v.texts || {}, data: v.data || {}, changedAt: changedAtOf(v) };
   });
   return out;
 };
@@ -296,7 +333,8 @@ SiteContentService.saveBlock = async (id, body, by) => {
     await Promise.all(old.docs.map((d) => d.ref.delete()));
   }
   const now = Date.now();
-  await ref.set({ texts: next.texts, data: next.data, updatedAt: now, updatedBy: by || null });
+  const changedAt = markChanges(before, next, now);
+  await ref.set({ texts: next.texts, data: next.data, updatedAt: now, updatedBy: by || null, changedAt });
   await SiteMeta.markChanged(by);
   return { texts: next.texts, data: next.data, updatedAt: now, updatedBy: by || null };
 };
