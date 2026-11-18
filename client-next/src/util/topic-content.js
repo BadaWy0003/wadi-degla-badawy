@@ -5,7 +5,7 @@
 // A text missing in a language falls back to English.
 
 import { t } from './meta';
-import { fillFactsDeep } from './site-text';
+import { TOPIC_PREFIX, applySiteTexts, fillFactsDeep } from './site-text';
 import { SUPPORTED_LANGS } from './supported-langs';
 import en from '../../content/topics/en.json';
 import ar from '../../content/topics/ar.json';
@@ -20,7 +20,12 @@ import ru from '../../content/topics/ru.json';
 import ja from '../../content/topics/ja.json';
 import zh from '../../content/topics/zh.json';
 
-const CONTENT = { en, ar, fr, es, de, it, ro, ko, sq, ru, ja, zh };
+const RAW = { en, ar, fr, es, de, it, ro, ko, sq, ru, ja, zh };
+// With the client's changes from the admin panel (Website → the topic pages, keys
+// "topics.<path>"): same 12-language rule as the other texts (src/util/site-text.js).
+const CONTENT = Object.fromEntries(
+  Object.entries(RAW).map(([lang, dict]) => [lang, applySiteTexts(dict, lang, en, TOPIC_PREFIX)]),
+);
 
 const get = (obj, path) => path.split('.').reduce((v, k) => (v == null ? v : v[k]), obj);
 

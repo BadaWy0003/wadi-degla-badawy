@@ -4,6 +4,8 @@
 // so they always match the code. English and Arabic only (the languages the client edits).
 import en from '../../../translations/en.json';
 import ar from '../../../translations/ar.json';
+import topicsEn from '../../../content/topics/en.json';
+import topicsAr from '../../../content/topics/ar.json';
 import { COMPANY_DEFAULTS } from '../../../src/util/company';
 import { CERTIFICATES_DEFAULTS } from '../../../src/components/Certificates/certificateDocs';
 import { fairsForAdmin } from '../../../src/components/Fairs/FairsData';
@@ -36,7 +38,9 @@ const patterns = Object.fromEntries([
 ]);
 
 export async function GET(request, { params }) {
-  const texts = params.lang === 'ar' ? ar : en;
+  // the topic pages' texts are edited as "topics.<path>"
+  const texts =
+    params.lang === 'ar' ? { ...ar, topics: topicsAr } : { ...en, topics: topicsEn };
   // the home page's featured stones are saved as product ids
   const products = (await getProducts()) || [];
   const featured = FEATURED_DEFAULT_NAMES.map(

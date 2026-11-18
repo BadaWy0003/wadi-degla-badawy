@@ -59,12 +59,20 @@ export const overrideFor = (key, lang, originalEn) => {
   return o.en !== originalEn ? o.en : undefined;
 };
 
-// A translation file with the client's changes and the numbers filled in.
-export function applySiteTexts(dict, lang, enDict) {
+// The topic pages' texts (content/topics/*.json) are saved under "topics.<path>"; the
+// translation files never get them (they are sent to the browser on every page).
+export const TOPIC_PREFIX = 'topics.';
+
+// A translation file (or, with prefix = TOPIC_PREFIX, a topic texts file) with the client's
+// changes and the numbers filled in.
+export function applySiteTexts(dict, lang, enDict, prefix = '') {
   const out = JSON.parse(JSON.stringify(dict));
   for (const key of Object.keys(SITE_TEXTS)) {
-    const v = overrideFor(key, lang, getPath(enDict, key));
-    if (v !== undefined) setPath(out, key, v);
+    const isTopic = key.startsWith(TOPIC_PREFIX);
+    if (prefix ? !key.startsWith(prefix) : isTopic) continue;
+    const path = key.slice(prefix.length);
+    const v = overrideFor(key, lang, getPath(enDict, path));
+    if (v !== undefined) setPath(out, path, v);
   }
   return fillFactsDeep(out, lang);
 }
