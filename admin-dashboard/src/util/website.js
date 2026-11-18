@@ -21,6 +21,10 @@ export const checkField = (f, value) => {
     if (!value?.en?.trim()) return "The English text can't be empty.";
     const max = f.max || (f.multiline ? 5000 : 500);
     if (value.en.length > max || (value.ar || '').length > max) return `At most ${max} characters.`;
+    for (const ph of f.placeholders || []) {
+      if (!value.en.includes(`{{${ph}}}`)) return `Keep {{${ph}}} in the English text: the website puts the real value there.`;
+      if (value.ar?.trim() && !value.ar.includes(`{{${ph}}}`)) return `Keep {{${ph}}} in the Arabic text too.`;
+    }
     return '';
   }
   if (value === null || value === undefined || value === '') return 'This field is required.';

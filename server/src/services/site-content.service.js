@@ -74,6 +74,13 @@ const cleanText = (value, field) => {
     out[lang] = v;
   }
   if (!out.en) throw httpError(400, `${field.label}: the English text can't be empty.`);
+  // {{name}}-style blanks the website fills in (e.g. the stone's name) must stay in the text
+  for (const ph of field.placeholders || []) {
+    for (const lang of ['en', 'ar']) {
+      if (out[lang] && !out[lang].includes(`{{${ph}}}`))
+        throw httpError(400, `${field.label}: keep {{${ph}}} in the ${lang === 'en' ? 'English' : 'Arabic'} text (the website puts the real value there).`);
+    }
+  }
   return out;
 };
 
