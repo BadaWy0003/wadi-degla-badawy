@@ -68,7 +68,6 @@ export default function TopicPage({
   const sections = k('sections') || [];
   const faq = k('faq') || [];
   const steps = k('steps') || [];
-  const facts = common('facts') || [];
   const related = (page.related || []).map((key) => relatedLink(lang, key)).filter(Boolean);
   const productsTitle = fillText(common('productsTitle'), {
     topic: heading,
@@ -117,16 +116,6 @@ export default function TopicPage({
           </p>
           <h1>{heading}</h1>
           {intro[0] && <p className="tp-lead">{intro[0]}</p>}
-          {facts.length > 0 && !page.noFacts && (
-            <dl className="tp-facts">
-              {facts.map((f) => (
-                <div key={f.label}>
-                  <dt>{f.label}</dt>
-                  <dd>{f.value}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
         </div>
       </div>
 
