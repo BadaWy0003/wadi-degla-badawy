@@ -1139,21 +1139,6 @@ const BLOCKS = [
         ],
       },
       {
-        id: 'facts',
-        title: "Export terms in the header",
-        help: "Shown in the header of the stone pages (not the buying guide). Keep them the same as the export terms on the Exports page.",
-        fields: [
-          { type: 'text', key: 'topics.common.facts.0.label', label: "Term 1: label", max: 40 },
-          { type: 'text', key: 'topics.common.facts.0.value', label: "Term 1: value", max: 40 },
-          { type: 'text', key: 'topics.common.facts.1.label', label: "Term 2: label", max: 40 },
-          { type: 'text', key: 'topics.common.facts.1.value', label: "Term 2: value", max: 40 },
-          { type: 'text', key: 'topics.common.facts.2.label', label: "Term 3: label", max: 40 },
-          { type: 'text', key: 'topics.common.facts.2.value', label: "Term 3: value", max: 40 },
-          { type: 'text', key: 'topics.common.facts.3.label', label: "Term 4: label", max: 40 },
-          { type: 'text', key: 'topics.common.facts.3.value', label: "Term 4: value", max: 40 },
-        ],
-      },
-      {
         id: 'cta',
         title: "Last call to action",
         fields: [
