@@ -27,7 +27,7 @@ const saveReqSchema = {
 };
 const idParams = Joi.object({
   id: Joi.string()
-    .pattern(/^[a-z0-9-]{1,40}$/)
+    .pattern(/^[A-Za-z0-9_-]{1,40}$/)
     .required(),
 });
 
@@ -43,7 +43,7 @@ router.get('/admin/blocks/:id/versions', ...admin, validate({ params: idParams }
 router.post(
   '/admin/blocks/:id/versions/:versionId/restore',
   ...admin,
-  validate({ params: Joi.object({ id: Joi.string().pattern(/^[a-z0-9-]{1,40}$/), versionId: Joi.string().alphanum().max(40) }) }),
+  validate({ params: Joi.object({ id: Joi.string().pattern(/^[A-Za-z0-9_-]{1,40}$/), versionId: Joi.string().alphanum().max(40) }) }),
   SiteContentController.restoreVersion,
 );
 
