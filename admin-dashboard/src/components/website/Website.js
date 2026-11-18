@@ -23,7 +23,7 @@ export default function Website() {
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 3, maxWidth: 760 }}>
         Change the website's texts, numbers and contact details here. Changes are saved here first; press <b>Publish to website</b> to put them on the
-        live site (about 10 minutes). Every save can be undone from the page's History.
+        live site (about 5 to 10 minutes). Every save can be undone from the page's History.
       </Typography>
 
       <PublishPanel />

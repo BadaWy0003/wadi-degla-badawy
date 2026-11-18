@@ -72,10 +72,10 @@ export default function PublishPanel({ refreshKey }) {
           <Alert severity="warning">Publishing is not set up yet (the GitHub key is missing on the server). Saved changes are kept safely.</Alert>
         ) : running ? (
           <Alert severity="info" icon={<CircularProgress size={18} />}>
-            The website is being updated{status.lastPublishAt ? ` (started ${timeAgo(status.lastPublishAt)})` : ''}. It takes about 5 minutes.
+            The website is being updated{status.lastPublishAt ? ` (started ${timeAgo(status.lastPublishAt)})` : ''}. It takes 5 to 10 minutes.
           </Alert>
         ) : status.unpublishedChanges ? (
-          <Alert severity="warning">There are saved changes (news or projects) that are not on the website yet.</Alert>
+          <Alert severity="warning">There are saved changes that are not on the website yet.</Alert>
         ) : failed ? (
           <Alert severity="error">
             The last website update did not finish.{' '}
