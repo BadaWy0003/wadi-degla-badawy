@@ -487,6 +487,10 @@ export default function Visualizer({ initialStones = [] }) {
                 alt=""
                 width={96}
                 height={96}
+                // lazy + low: the first 8 still load at once when on screen, but no longer
+                // compete with the big room photo (they were preloaded before it)
+                loading="lazy"
+                fetchPriority="low"
                 decoding="async"
               />
             )}

@@ -182,7 +182,7 @@ html[dir='rtl'] .ga-crumb span[aria-hidden] {
 }
 
 .ga-chip.is-on i {
-  color: #3b3226;
+  color: #1f1a13; /* readable on the gold button (contrast 5.9:1) */
 }
 
 /* ---------- one section per group ---------- */
