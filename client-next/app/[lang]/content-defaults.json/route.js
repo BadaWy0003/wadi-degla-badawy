@@ -70,17 +70,27 @@ const heroOf = (src) => {
 // { name: src | [src] } -> { name: {src,width,height} | [{src,width,height}] } (real sizes)
 const asPhotos = (obj) =>
   Object.fromEntries(
-    Object.entries(obj).map(([k, v]) => [k, Array.isArray(v) ? v.map(photoWithSize) : photoWithSize(v)]),
+    Object.entries(obj).map(([k, v]) => [
+      k,
+      Array.isArray(v) ? v.map(photoWithSize) : photoWithSize(v),
+    ]),
   );
 
 const topicHeroes = Object.fromEntries(
-  Object.entries(TOPIC_PAGES).map(([key, page]) => [`topic_${key}`, heroOf(page.defaultHero)]),
+  Object.entries(TOPIC_PAGES).map(([key, page]) => [
+    `topic_${key}`,
+    {
+      ...heroOf(page.defaultHero),
+      ...Object.fromEntries(
+        (page.defaultStepPhotos || []).map((src, i) => [`stepPhoto${i + 1}`, photoWithSize(src)]),
+      ),
+    },
+  ]),
 );
 
 export async function GET(request, { params }) {
   // the topic pages' texts are edited as "topics.<path>"
-  const texts =
-    params.lang === 'ar' ? { ...ar, topics: topicsAr } : { ...en, topics: topicsEn };
+  const texts = params.lang === 'ar' ? { ...ar, topics: topicsAr } : { ...en, topics: topicsEn };
   // the home page's featured stones are saved as product ids
   const products = (await getProducts()) || [];
   const featured = FEATURED_DEFAULT_NAMES.map(
@@ -112,7 +122,10 @@ export async function GET(request, { params }) {
       machinery: {
         ...countsForAdmin(),
         ...Object.fromEntries(
-          Object.entries(MACHINERY_PHOTOS_DEFAULTS).map(([k, list]) => [k, list.map(photoWithSize)]),
+          Object.entries(MACHINERY_PHOTOS_DEFAULTS).map(([k, list]) => [
+            k,
+            list.map(photoWithSize),
+          ]),
         ),
       },
       home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
