@@ -313,10 +313,104 @@ export function ProductsInput({ value, onChange, field }) {
         value={null}
         blurOnSelect
         onChange={(e, p) => p && onChange([...list, p.id])}
-        renderInput={params => (
-          <TextField {...params} placeholder={full ? `At most ${field.max} stones` : 'Add a stone…'} sx={{ maxWidth: 420 }} />
-        )}
+        renderInput={params => <TextField {...params} placeholder={full ? `At most ${field.max} stones` : 'Add a stone…'} sx={{ maxWidth: 420 }} />}
       />
+    </Box>
+  );
+}
+
+// Gallery photos picked into a group (a "products" field with kind: 'gallery'): the chosen
+// photos in order (arrows to move, bin to remove), then every gallery photo not chosen yet
+// to click and add, except those already in another group of the page (`taken`).
+let galleryCache = null;
+export function GalleryPhotosInput({ value, onChange, field, taken }) {
+  const [photos, setPhotos] = useState(galleryCache || []);
+  useEffect(() => {
+    if (galleryCache) return;
+    apiClient
+      .get('/api/storage/admin/all')
+      .then(({ data }) => {
+        galleryCache = (data.data || [])
+          .filter(p => String(p.type || '').trim() === 'Gallery' && p.finishes?.[0]?.link)
+          .map(p => ({ id: String(p.id), name: String(p.name || '').trim(), src: p.finishes[0].thumb || p.finishes[0].link }))
+          .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+        setPhotos(galleryCache);
+      })
+      .catch(() => {});
+  }, []);
+  const list = value || [];
+  const info = id => photos.find(p => p.id === id);
+  const move = (i, d) => {
+    const next = [...list];
+    [next[i], next[i + d]] = [next[i + d], next[i]];
+    onChange(next);
+  };
+  const full = list.length >= (field.max || 60);
+  // photos in no group yet (a photo is in one group only: remove it from the other first)
+  const rest = photos.filter(p => !list.includes(p.id) && !(taken || []).includes(p.id));
+  const img = (p, size) => (
+    <Box
+      component="img"
+      src={p ? photoUrl(p.src) : ''}
+      alt={p ? `Photo ${p.name}` : 'Deleted photo'}
+      sx={{ width: size, height: size, objectFit: 'cover', bgcolor: '#2b2824', borderRadius: 1, display: 'block' }}
+    />
+  );
+  return (
+    <Box>
+      {list.length === 0 && (
+        <Typography color="text.secondary" sx={{ mb: 1 }}>
+          No photos in this group.
+        </Typography>
+      )}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, mb: 2 }}>
+        {list.map((id, i) => {
+          const p = info(id);
+          return (
+            <Box key={id} sx={{ width: 110 }}>
+              {img(p, 110)}
+              <Typography variant="caption" color="text.secondary" component="div" sx={{ textAlign: 'center' }}>
+                {p ? `${i === 0 ? 'Big · ' : ''}no. ${p.name}` : photos.length ? 'deleted (not shown)' : '…'}
+              </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <IconButton size="small" aria-label="Move left" disabled={i === 0} onClick={() => move(i, -1)}>
+                  <ArrowBackIcon fontSize="small" />
+                </IconButton>
+                <IconButton size="small" aria-label="Remove photo" onClick={() => onChange(list.filter(x => x !== id))}>
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
+                <IconButton size="small" aria-label="Move right" disabled={i === list.length - 1} onClick={() => move(i, 1)}>
+                  <ArrowForwardIcon fontSize="small" />
+                </IconButton>
+              </Box>
+            </Box>
+          );
+        })}
+      </Box>
+      {rest.length > 0 && !full && (
+        <>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+            Click a photo to add it to this group (photos already in another group are not listed):
+          </Typography>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+            {rest.map(p => (
+              <Box
+                key={p.id}
+                component="button"
+                type="button"
+                onClick={() => onChange([...list, p.id])}
+                title={`No. ${p.name}`}
+                sx={{ p: 0, border: 0, background: 'none', cursor: 'pointer' }}
+              >
+                {img(p, 72)}
+                <Typography variant="caption" component="div">
+                  {p.name}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </>
+      )}
     </Box>
   );
 }

@@ -78,8 +78,9 @@ const checkMore = (f, value) => {
       return (value || []).length || f.optional ? '' : 'Choose at least one project.';
     case 'products': {
       const n = (value || []).length;
-      if (n < (f.min || 0)) return `Choose at least ${f.min} stones.`;
-      return n > (f.max || 50) ? `At most ${f.max || 50} stones.` : '';
+      const unit = f.kind === 'gallery' ? 'photos' : 'stones';
+      if (n < (f.min || 0)) return `Choose at least ${f.min} ${unit}.`;
+      return n > (f.max || 50) ? `At most ${f.max || 50} ${unit}.` : '';
     }
     case 'list': {
       const items = value || [];

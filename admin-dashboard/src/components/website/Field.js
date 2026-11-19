@@ -14,7 +14,7 @@ import {
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { DAY_NAMES, FACT_LABELS, WEEKDAYS, checkAny, factsIn, isChanged, originalOf } from '../../util/website';
-import { CountryInput, I18nInput, ImageInput, ImagesInput, ListInput, ProductsInput, ProjectsInput, SelectInput } from './Inputs';
+import { CountryInput, GalleryPhotosInput, I18nInput, ImageInput, ImagesInput, ListInput, ProductsInput, ProjectsInput, SelectInput } from './Inputs';
 
 const hourLabel = h => `${String(h).padStart(2, '0')}:00`;
 
@@ -25,13 +25,13 @@ const originalText = (f, orig) => {
   if (f.type === 'hour') return hourLabel(orig);
   if (f.type === 'number') return `${Number(orig).toLocaleString('en-US')}${f.suffix || ''}`;
   if (f.type === 'list') return `${(orig || []).length} items`;
-  if (f.type === 'products') return `${(orig || []).length} stones`;
+  if (f.type === 'products') return `${(orig || []).length} ${f.kind === 'gallery' ? 'photos' : 'stones'}`;
   if (f.type === 'image') return orig?.src ? "the website's own photo" : '—';
   return String(orig || '—');
 };
 
 // The inputs of the list/photo field types (also used inside list items).
-export function renderInput(f, value, onChange, showErrors) {
+export function renderInput(f, value, onChange, showErrors, taken) {
   switch (f.type) {
     case 'image':
       return <ImageInput value={value} onChange={onChange} />;
@@ -46,6 +46,7 @@ export function renderInput(f, value, onChange, showErrors) {
     case 'projects':
       return <ProjectsInput value={value} onChange={onChange} />;
     case 'products':
+      if (f.kind === 'gallery') return <GalleryPhotosInput value={value} onChange={onChange} field={f} taken={taken} />;
       return <ProductsInput value={value} onChange={onChange} field={f} />;
     case 'list':
       return <ListInput value={value} onChange={onChange} field={f} showErrors={showErrors} renderInput={renderInput} />;
@@ -69,7 +70,7 @@ export function renderInput(f, value, onChange, showErrors) {
 
 // One editable item of a website page. value / onChange: the current value; defaults: the
 // website's originals (for "Changed" and "Reset to original"); showErrors: after a save attempt.
-export default function Field({ field: f, value, onChange, defaults, showErrors, extra }) {
+export default function Field({ field: f, value, onChange, defaults, showErrors, extra, taken }) {
   const orig = originalOf(f, defaults);
   const changed = isChanged(f, f.type === 'number' || f.type === 'hour' ? Number(value) : value, orig);
   const error = checkAny(f, value);
@@ -104,7 +105,7 @@ export default function Field({ field: f, value, onChange, defaults, showErrors,
       </Box>
     );
   } else if (['image', 'images', 'i18n', 'select', 'country', 'projects', 'products', 'list'].includes(f.type)) {
-    input = renderInput(f, value, onChange, showErrors);
+    input = renderInput(f, value, onChange, showErrors, taken);
   } else if (f.type === 'days') {
     input = (
       <ToggleButtonGroup

@@ -12,7 +12,9 @@ import { cssUrl, sitePhoto } from '../../util/site-content';
 // the header photo can be replaced in the admin panel (Website → Why choose us)
 const HERO = sitePhoto('about', 'heroPhoto', null);
 
-const EXPERTISE_PHOTO = '/Assets/Media/about-expertise.webp';
+// "Our expertise" photo: the client's (Website → Why choose us → Our expertise), else ours
+// (the original is also named in app/[lang]/content-defaults.json/route.js)
+const EXPERTISE_PHOTO = sitePhoto('about', 'expertisePhoto', '/Assets/Media/about-expertise.webp');
 
 // Why Choose Us (redesigned 2026-11-12, design B "Photo header + numbered list"): photo header
 // with the H1, a row of numbers over its bottom edge, vision & mission, six numbered reasons,
@@ -38,7 +40,10 @@ const REASONS = [
 
 // "Global Reach:" -> "Global Reach"
 const noColon = (text) => String(text).replace(/\s*[:：]\s*$/, '');
-const oneLine = (text) => String(text).replace(/\s*\n\s*/g, ' ').trim();
+const oneLine = (text) =>
+  String(text)
+    .replace(/\s*\n\s*/g, ' ')
+    .trim();
 // the "- " lines of a text
 const listItems = (text) =>
   String(text)

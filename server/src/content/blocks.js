@@ -384,6 +384,7 @@ const BLOCKS = [
           { type: 'text', key: 'about.expertiseTitle', label: "Title", max: 40 },
           { type: 'text', key: 'about.expertiseSubtitle', label: "Small title", max: 60 },
           { type: 'text', key: 'about.expertiseIntro', label: "Text", multiline: true, max: 600 },
+          { type: 'image', name: 'expertisePhoto', label: "Photo", help: "Shown as a square (the middle of the photo)." },
           { type: 'text', key: 'about.supplyFor', label: "\"We supply stone for\" label", max: 40 },
           { type: 'text', key: 'about.graniteText', label: "Uses (the \"- \" lines become the chips)", multiline: true, max: 300 },
           { type: 'text', key: 'about.resourcesText', label: "Text after the uses", multiline: true, max: 300 },
@@ -417,8 +418,12 @@ const BLOCKS = [
       {
         id: 'photos',
         title: 'Photos',
-        help: "The family portraits on the timeline are not changed here.",
+        help: "Every photo on this page is shown whole, at its own shape.",
         fields: [
+          { type: 'image', name: 'photo1980', label: "Timeline 1980: portrait (first generation)" },
+          { type: 'image', name: 'photo2000', label: "Timeline 2000: portrait (second generation)" },
+          { type: 'image', name: 'photoToday', label: "Timeline today: portrait (third generation)" },
+          { type: 'images', name: 'todayPhotos', label: "Timeline today: small photos", min: 1, max: 8, help: "Shown in a row under the third generation's text." },
           { type: 'images', name: 'archivePhotos', label: "\"A living legacy\" archive photos", min: 1, max: 60, help: "The first 8 are shown on the page, each whole at its own shape; all of them open in the full-screen viewer." },
         ],
       },
@@ -1834,9 +1839,19 @@ const BLOCKS = [
   {
     id: 'gallery',
     title: "Gallery",
-    description: "The texts of the Gallery page (the photos are edited in Gallery).",
+    description: "The texts of the Gallery page and which photos go in each group (the photos themselves are uploaded in Gallery).",
     usedOn: ["Gallery"],
     sections: [
+      {
+        id: 'groups',
+        title: 'Photo groups',
+        help: 'Which Gallery photos are shown in each group, in order (the first is the big one). A photo in no group is shown under "More photos" at the end. Upload new photos in the Gallery menu first.',
+        fields: [
+          { type: 'products', kind: 'gallery', name: 'groupFactory', label: 'Factory & machinery', min: 1, max: 60 },
+          { type: 'products', kind: 'gallery', name: 'groupYard', label: 'Stockyard', min: 1, max: 60 },
+          { type: 'products', kind: 'gallery', name: 'groupPacking', label: 'Packing & loading', min: 1, max: 60 },
+        ],
+      },
       {
         id: 'top',
         title: "Top of the page",
@@ -2674,32 +2689,34 @@ const BLOCKS = [
     id: 'patterns',
     title: 'Patterns & pavers',
     description:
-      'The names of the paving and split-face stones on the Patterns page (shown as "Stone 1, 2…" until named), and the page texts.',
+      'The paving and split-face stones on the Patterns page (names, small pictures and scene photos), the 4 pattern photos, and the page texts.',
     usedOn: ['Patterns / Pavers'],
     sections: [
       {
         id: 'pavers',
         title: 'Paving stones (pool deck)',
         help: 'In the order of the small pictures on the page. Leave a name empty to show "Stone 1", "Stone 2"...',
-        fields: [1, 2, 3, 4].map((n) => ({
-          type: 'line',
-          name: `paver${n}`,
-          label: `Paving stone ${n}`,
-          optional: true,
-          max: 60,
-        })),
+        fields: [1, 2, 3, 4].flatMap((n) => [
+          { type: 'line', name: `paver${n}`, label: `Paving stone ${n}`, optional: true, max: 60 },
+          { type: 'image', name: `paverSample${n}`, label: `Paving stone ${n}: small picture`, ratio: [0.8, 1.25], ratioHelp: 'the small picture must be square.' },
+          { type: 'image', name: `paverScene${n}`, label: `Paving stone ${n}: pool deck photo`, ratio: [1.2, 1.45], ratioHelp: 'the pool deck photo must be landscape, about 4:3, like the other pool deck photos (the photos fade into each other).' },
+        ]),
       },
       {
         id: 'splitFace',
         title: 'Split-face stones (house front)',
         help: 'In the order of the small pictures on the page.',
-        fields: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
-          type: 'line',
-          name: `split${n}`,
-          label: `Split-face stone ${n}`,
-          optional: true,
-          max: 60,
-        })),
+        fields: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].flatMap((n) => [
+          { type: 'line', name: `split${n}`, label: `Split-face stone ${n}`, optional: true, max: 60 },
+          { type: 'image', name: `splitSample${n}`, label: `Split-face stone ${n}: small picture`, ratio: [0.8, 1.25], ratioHelp: 'the small picture must be square.' },
+          { type: 'image', name: `splitScene${n}`, label: `Split-face stone ${n}: house front photo`, ratio: [1.2, 1.45], ratioHelp: 'the house front photo must be landscape, about 4:3, like the other house front photos (the photos fade into each other).' },
+        ]),
+      },
+      {
+        id: 'patternPhotos',
+        title: 'Pattern photos',
+        help: 'The 4 laying patterns under the stones. Shown as squares.',
+        fields: [1, 2, 3, 4].map((n) => ({ type: 'image', name: `pattern${n}`, label: `Pattern ${n}`, ratio: [0.8, 1.25], ratioHelp: 'the pattern photo must be square.' })),
       },
       {
         id: 'more',

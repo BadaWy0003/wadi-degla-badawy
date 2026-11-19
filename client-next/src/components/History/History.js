@@ -3,7 +3,7 @@ import React from 'react';
 import './HistoryPage.css';
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp } from 'react-icons/fa';
-import { ARCHIVE } from './historyPhotos';
+import { ARCHIVE, TIMELINE } from './historyPhotos';
 import { HISTORY_SIZES } from './historySizes';
 import LangLink from '../LangLink';
 import StatCounter from '../About/StatCounter';
@@ -16,14 +16,20 @@ import { YEARS } from '../../util/company';
 // (8 of the 29 archive photos; all open in the zoom viewer), "From Galala to the World" with
 // the family's values, the Related pages links (children) and a WhatsApp band.
 // YEARS: counted from the founding year (src/util/company.js).
-const PHOTO = (name) => `/Assets/Media/History/${name}.webp`;
+// The photos come from historyPhotos.js (editable in the admin panel: Website → History → Photos).
+const GALLERY_ALTS = [
+  'history.thirdGenGalleryAlt1',
+  'history.thirdGenGalleryAlt2',
+  'history.thirdGenGalleryAlt3',
+  'history.thirdGenGalleryAlt4',
+];
 const STEPS = [
   { year: '1951', title: 'history.tl1951Title', text: 'history.firstGenIntro' },
   {
     year: '1980',
     title: 'history.firstBreakthroughTitle',
     text: 'history.firstBreakthroughText',
-    photo: PHOTO('history16'),
+    photo: TIMELINE.photo1980,
     alt: 'history.firstGenAlt',
   },
   {
@@ -35,7 +41,7 @@ const STEPS = [
     year: '2000',
     title: 'history.tl2000Title',
     text: 'history.secondGenText',
-    photo: PHOTO('sameh-ghanam'),
+    photo: TIMELINE.photo2000,
     alt: 'history.secondGenAlt',
   },
   { year: '2011', title: 'history.tl2011Title', text: 'history.secondGenPartnershipText' },
@@ -43,21 +49,27 @@ const STEPS = [
     year: 'history.tlToday',
     title: 'history.thirdGenTitle',
     text: 'history.thirdGenText',
-    photo: PHOTO('saeed-jr'),
+    photo: TIMELINE.photoToday,
     alt: 'history.thirdGenAlt',
-    gallery: [
-      [PHOTO('saeed-jr-2'), 'history.thirdGenGalleryAlt1'],
-      [PHOTO('saeed-jr-3'), 'history.thirdGenGalleryAlt2'],
-      [PHOTO('saeed-jr-4'), 'history.thirdGenGalleryAlt3'],
-      [PHOTO('saeed-jr-5'), 'history.thirdGenGalleryAlt4'],
-    ],
+    // a photo added by the client after the 4th gets the step's title as its description
+    gallery: TIMELINE.todayPhotos.map((p, i) => [p, GALLERY_ALTS[i] || 'history.thirdGenTitle']),
   },
 ];
 const ARCHIVE_SHOWN = 8;
 
 // Photos are shown whole (never cropped): their real width/height keep their space before
 // they load, and --r (width / height) sizes them in the justified rows (see HistoryPage.css).
-function photoProps(src) {
+function photoProps(photo) {
+  if (photo && typeof photo === 'object') {
+    if (photo.width)
+      return {
+        width: photo.width,
+        height: photo.height,
+        style: { '--r': (photo.width / photo.height).toFixed(3) },
+      };
+    return photoProps(photo.src);
+  }
+  const src = photo;
   const size =
     HISTORY_SIZES[
       src
@@ -157,13 +169,13 @@ export default function History({ children }) {
                     <RichText text={t(step.text)} />
                     {step.gallery && (
                       <div className="hi-mini">
-                        {step.gallery.map(([src, alt]) => (
+                        {step.gallery.map(([p, alt], i) => (
                           <img
-                            key={src}
+                            key={`${p.src}-${i}`}
                             loading="lazy"
-                            src={src}
+                            src={p.src}
                             alt={t(alt)}
-                            {...photoProps(src)}
+                            {...photoProps(p)}
                           />
                         ))}
                       </div>
@@ -173,7 +185,7 @@ export default function History({ children }) {
                     <img
                       className="hi-portrait"
                       loading="lazy"
-                      src={step.photo}
+                      src={step.photo.src}
                       alt={t(step.alt)}
                       {...photoProps(step.photo)}
                     />

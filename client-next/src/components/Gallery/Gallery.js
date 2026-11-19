@@ -9,30 +9,22 @@ import LangLink from '../LangLink';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { COMPANY, FACTS } from '../../util/company';
+import { GALLERY_GROUPS as GROUPS, chosenIds } from './galleryGroups';
 
 // Gallery (redesigned 2026-11-12, design B "Grouped by area"): header with numbers, a bar of
 // group buttons (they jump to their section; the one on screen is highlighted), one section per
 // group (big first photo + the rest; any photo opens all gallery photos in the zoom viewer, at
 // that photo) with a link to the page that explains it, and a WhatsApp band.
 //
-// Gallery photos are uploaded in the admin panel without a category, so the groups are set here
-// by the photo's name (the number typed in the admin panel). A new photo whose name is in no
-// group is shown in "More photos" at the end until its name is added to a group below.
-const GROUPS = [
-  {
-    id: 'factory',
-    link: '/machinery',
-    names: ['25', '6', '18', '7', '2', '8', '1', '11', '19', '15', '32'],
-  },
-  { id: 'yard', link: '/quarries', names: ['28', '3', '4', '27', '22', '26'] },
-  { id: 'packing', link: '/packing', names: ['24', '29', '30', '31', '21'] },
-];
+// The groups and which photos are in them: galleryGroups.js (chosen in the admin panel).
 const FACTORIES = COMPANY.factories;
 const OUTPUT = `${FACTS.dailyCapacity} m²`; // per day, from the admin panel (src/util/company.js)
 
 const photoOf = (item) => {
   const f = item.finishes?.[0];
-  return f?.link ? { name: String(item.name || '').trim(), src: f.link, thumb: f.thumb } : null;
+  return f?.link
+    ? { id: String(item.id), name: String(item.name || '').trim(), src: f.link, thumb: f.thumb }
+    : null;
 };
 
 // How many grid columns each photo takes so the last row is always full. The first photo is big
@@ -77,15 +69,25 @@ export default function Gallery({ initialItems = [] }) {
 
   const photos = items.map(photoOf).filter(Boolean);
   const byName = new Map(photos.map((p) => [p.name, p]));
-  const grouped = new Set(GROUPS.flatMap((g) => g.names));
+  const byId = new Map(photos.map((p) => [p.id, p]));
+  // the admin panel's choice (photo ids), else the photos named in galleryGroups.js
+  const groupPhotos = (g) => {
+    const ids = chosenIds(g);
+    return (ids ? ids.map((id) => byId.get(id)) : g.names.map((n) => byName.get(n))).filter(
+      Boolean,
+    );
+  };
+  const filled = GROUPS.map((g) => ({ ...g, photos: groupPhotos(g) }));
+  const grouped = new Set(filled.flatMap((g) => g.photos));
   const sections = [
-    ...GROUPS.map((g) => ({ ...g, photos: g.names.map((n) => byName.get(n)).filter(Boolean) })),
-    { id: 'more', photos: photos.filter((p) => !grouped.has(p.name)) },
+    ...filled,
+    { id: 'more', photos: photos.filter((p) => !grouped.has(p)) },
   ].filter((s) => s.photos.length);
 
   // one list for the zoom viewer, in page order
   const all = sections.flatMap((s) => s.photos);
-  const slides = all.map((p, i) => ({ src: p.src, alt: altOf(t, p, i) }));
+  const groupOf = new Map(sections.flatMap((sec) => sec.photos.map((p) => [p, sec.id])));
+  const slides = all.map((p, i) => ({ src: p.src, alt: altOf(t, groupOf.get(p), i) }));
   const indexOf = (photo) => all.indexOf(photo);
 
   useReveal(pageRef, [all.length], 'ga');
@@ -202,12 +204,12 @@ export default function Gallery({ initialItems = [] }) {
                       className="ga-photo ga-reveal"
                       style={sizes[i]}
                       onClick={() => openPhoto(n)}
-                      aria-label={altOf(t, p, n)}
+                      aria-label={altOf(t, s.id, n)}
                     >
                       <img
                         loading="lazy"
                         src={i === 0 ? p.src : p.thumb || p.src}
-                        alt={altOf(t, p, n)}
+                        alt={altOf(t, s.id, n)}
                       />
                     </button>
                   );
@@ -235,9 +237,8 @@ export default function Gallery({ initialItems = [] }) {
   );
 }
 
-function altOf(t, photo, index) {
-  const group = GROUPS.find((g) => g.names.includes(photo.name));
-  return `${t(`gallery.${group ? group.id : 'more'}Title`)} – ${t('gallery.imageAlt', {
+function altOf(t, groupId, index) {
+  return `${t(`gallery.${groupId || 'more'}Title`)} – ${t('gallery.imageAlt', {
     number: index + 1,
   })}`;
 }

@@ -8,14 +8,14 @@ import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { siteData } from '../../util/site-content';
+import { PATTERN_PHOTOS, PAVER_PHOTOS, SPLIT_PHOTOS } from './patternsPhotos';
 
 // Patterns / pavers (redesigned 2026-11-12, design A "Pick a stone"): header with numbers, two
 // "try the stone" scenes (pool deck with 4 paving stones, house front with 10 split-face stones:
 // pick a sample and the scene fades to that stone), the 4 pattern photos, the Related pages
 // block (children, from the page) and a WhatsApp band.
-// The stones have no names yet ("Stone 1"...): add a `name` to a sample below when the client
-// gives them.
-const DIR = '/Assets/Media/Patterns';
+// The photos (small pictures, scenes, patterns) can be replaced in the admin panel
+// (patternsPhotos.js).
 // The stones' names, written in the admin panel ("Website" → "Patterns & pavers"); a stone
 // without a name is shown as "Stone 1", "Stone 2"...
 const NAMES = siteData('patterns');
@@ -24,11 +24,7 @@ const SCENES = [
     id: 'pavers',
     title: 'patterns.paversTitle',
     eyebrow: 'patterns.paversEyebrow',
-    samples: [1, 2, 3, 4].map((n) => ({
-      swatch: `${DIR}/p${n}.webp`,
-      scene: `${DIR}/pavers${n}.webp`,
-      name: NAMES[`paver${n}`] || undefined,
-    })),
+    samples: PAVER_PHOTOS.map((p, i) => ({ ...p, name: NAMES[`paver${i + 1}`] || undefined })),
     width: 918,
     height: 697,
   },
@@ -36,16 +32,12 @@ const SCENES = [
     id: 'splitFace',
     title: 'patterns.splitFaceTitle',
     eyebrow: 'patterns.splitFaceEyebrow',
-    samples: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
-      swatch: `${DIR}/${n}.webp`,
-      scene: `${DIR}/split-face-${n}.webp`,
-      name: NAMES[`split${n}`] || undefined,
-    })),
+    samples: SPLIT_PHOTOS.map((p, i) => ({ ...p, name: NAMES[`split${i + 1}`] || undefined })),
     width: 946,
     height: 718,
   },
 ];
-const PATTERNS = [1, 2, 3, 4].map((n) => `${DIR}/pattern${n}.webp`);
+const PATTERNS = PATTERN_PHOTOS;
 
 function Scene({ scene, t }) {
   const [current, setCurrent] = useState(0);
