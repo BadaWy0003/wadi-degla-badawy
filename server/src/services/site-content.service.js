@@ -186,10 +186,12 @@ const cleanData = (value, field) => {
     case 'products': {
       // product ids (Firestore "materials" doc ids), in the chosen order
       const list = Array.isArray(value) ? value.map(String) : [];
-      if (list.some((id) => !/^[A-Za-z0-9_-]{1,64}$/.test(id))) throw bad('invalid stone.');
+      // (kind 'gallery': Gallery photos, also "materials" doc ids)
+      const unit = field.kind === 'gallery' ? 'photos' : 'stones';
+      if (list.some((id) => !/^[A-Za-z0-9_-]{1,64}$/.test(id))) throw bad(`invalid ${unit.slice(0, -1)}.`);
       const ids = [...new Set(list)];
-      if (ids.length < (field.min || 0)) throw bad(`choose at least ${field.min} stones.`);
-      if (ids.length > (field.max || 50)) throw bad(`at most ${field.max || 50} stones.`);
+      if (ids.length < (field.min || 0)) throw bad(`choose at least ${field.min} ${unit}.`);
+      if (ids.length > (field.max || 50)) throw bad(`at most ${field.max || 50} ${unit}.`);
       return ids;
     }
     case 'list': {

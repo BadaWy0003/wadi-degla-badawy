@@ -76,8 +76,8 @@ function HistoryDialog({ id, open, onClose, onRestored, current }) {
       <DialogTitle>History</DialogTitle>
       <DialogContent>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-          Every save keeps the version before it (the last 30). Click one to put it back, then publish. Publishing adds no line here: the
-          Publish panel shows when the website was last updated.
+          Every save keeps the version before it (the last 30). Click one to put it back, then publish. Publishing adds no line here: the Publish
+          panel shows when the website was last updated.
         </Typography>
         {current?.updatedAt ? (
           <Alert severity="info" icon={false} sx={{ mb: 1 }}>
@@ -98,7 +98,9 @@ function HistoryDialog({ id, open, onClose, onRestored, current }) {
               <ListItemText
                 primary={v.original ? "The website's original" : `${new Date(v.savedAt).toLocaleString()}${v.savedBy ? ` · ${v.savedBy}` : ''}`}
                 secondary={
-                  v.original ? 'Before any change on this page · click to restore' : `${v.changedFields} changed item${v.changedFields === 1 ? '' : 's'} · click to restore`
+                  v.original
+                    ? 'Before any change on this page · click to restore'
+                    : `${v.changedFields} changed item${v.changedFields === 1 ? '' : 's'} · click to restore`
                 }
               />
             </ListItemButton>
@@ -114,6 +116,15 @@ function HistoryDialog({ id, open, onClose, onRestored, current }) {
 
 // One website page (block) as a form: its sections in page order, every field with its
 // original and "Reset to original"; Save stores only what differs from the original.
+// Gallery photo groups: the photos already in the page's OTHER groups (one group per photo).
+const takenElsewhere = (block, f, values) =>
+  f.kind === 'gallery'
+    ? block.sections
+        .flatMap(s => s.fields)
+        .filter(g => g.kind === 'gallery' && g.name !== f.name)
+        .flatMap(g => values[fieldId(g)] || [])
+    : undefined;
+
 export default function BlockEditor() {
   const { id } = useParams();
   const [state, setState] = useState(null); // { block, saved, defaults }
@@ -243,6 +254,7 @@ export default function BlockEditor() {
                   showErrors={showErrors}
                   onChange={v => setValues(old => ({ ...old, [fieldId(f)]: v }))}
                   extra={yearsNote(f, values[fieldId(f)])}
+                  taken={takenElsewhere(block, f, values)}
                 />
               ))}
             </Paper>

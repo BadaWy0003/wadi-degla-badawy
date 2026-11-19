@@ -26,7 +26,9 @@ import { INSPIRATION_PHOTOS_DEFAULTS } from '../../../src/components/Inspiration
 import { COBBLE_PHOTOS_DEFAULTS } from '../../../src/components/Cobble/cobblePhotos';
 import { KERB_PHOTOS_DEFAULTS } from '../../../src/components/Kerbstone/kerbPhotos';
 import { STONE_CREATION_PHOTOS_DEFAULTS } from '../../../src/components/StoneCreation/stoneCreationPhotos';
-import { getProducts } from '../../../src/util/product-slugs';
+import { PATTERNS_PHOTOS_DEFAULTS } from '../../../src/components/Patterns/patternsPhotos';
+import { getGalleryItems, getProducts } from '../../../src/util/product-slugs';
+import { galleryGroupsDefaults } from '../../../src/components/Gallery/galleryGroups';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -93,6 +95,7 @@ export async function GET(request, { params }) {
   const texts = params.lang === 'ar' ? { ...ar, topics: topicsAr } : { ...en, topics: topicsEn };
   // the home page's featured stones are saved as product ids
   const products = (await getProducts()) || [];
+  const galleryItems = (await getGalleryItems()) || [];
   const featured = FEATURED_DEFAULT_NAMES.map(
     (name) => products.find((p) => String(p.name).trim() === name)?.id,
   ).filter(Boolean);
@@ -103,7 +106,10 @@ export async function GET(request, { params }) {
       quarries: Object.fromEntries(
         Object.entries(QUARRY_PHOTOS_DEFAULTS).map(([k, list]) => [k, list.map(photoWithSize)]),
       ),
-      about: heroOf(`${H}about-hero.webp`),
+      about: {
+        ...heroOf(`${H}about-hero.webp`),
+        expertisePhoto: photoWithSize('/Assets/Media/about-expertise.webp'),
+      },
       contactPage: heroOf(`${H}contact-hero.webp`),
       cobbles: {
         ...heroOf('/Assets/Media/Kerb-and-Cobbles/cobble/cobble-hero.webp'),
@@ -131,7 +137,8 @@ export async function GET(request, { params }) {
       home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
       certificates: CERTIFICATES_DEFAULTS,
       fairs: { fairs: fairsForAdmin((id) => textOf(`fairs.items.${id}`)) },
-      patterns,
+      patterns: { ...patterns, ...asPhotos(PATTERNS_PHOTOS_DEFAULTS) },
+      gallery: galleryGroupsDefaults(galleryItems),
       partners: {
         partners: partnersForAdmin(
           (id) => textOf(`partners.stories.${id}`),
