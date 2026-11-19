@@ -25,7 +25,7 @@ import { CATEGORY_TOPIC } from '../../util/topic-pages';
 import { finishLabel } from '../../util/finishes';
 import { productSlug } from '../../util/product-slugs';
 import Product from './Product';
-import { cardImageProps } from '../../util/responsive-img';
+import { cardImageProps, smallestStonePhoto } from '../../util/responsive-img';
 import { normalizeProducts } from '../../util/product-types';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 
@@ -210,7 +210,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                   onClick={() => setRoomPhoto(null)}
                   aria-label={finishLabel(t, selectedFinish?.finish)}
                 >
-                  <img loading="lazy" fetchPriority="low" src={selectedFinish?.thumb || selectedFinish?.link} alt="" />
+                  <img loading="lazy" fetchPriority="low" src={smallestStonePhoto(selectedFinish)} alt="" />
                 </button>
                 {rooms.map((room) => (
                   <button
@@ -220,7 +220,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                     onClick={() => setRoomPhoto(room)}
                     aria-label={room.label}
                   >
-                    <img loading="lazy" fetchPriority="low" src={room.thumb || room.link} alt="" />
+                    <img loading="lazy" fetchPriority="low" src={smallestStonePhoto(room)} alt="" />
                   </button>
                 ))}
               </div>
@@ -254,7 +254,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                       }}
                       aria-pressed={selectedFinish?.finish === f.finish}
                     >
-                      <img loading="lazy" fetchPriority="low" src={f.thumb || f.link} alt="" />
+                      <img loading="lazy" fetchPriority="low" src={smallestStonePhoto(f)} alt="" />
                       <span>{finishLabel(t, f.finish)}</span>
                     </button>
                   ))}

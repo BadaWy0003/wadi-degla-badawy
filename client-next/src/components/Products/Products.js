@@ -12,6 +12,7 @@ import { productSlug } from '../../util/product-slugs';
 import { finishLabel } from '../../util/finishes';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { COMPANY, EXPORT_COUNTRIES_LABEL } from '../../util/company';
+import { stoneImgProps } from '../../util/responsive-img';
 
 // Products list (redesigned 2026-11-12, design A "Grouped by category"): every stone, in one
 // section per category, so all of them (and their links) are in the static HTML for Google.
@@ -207,7 +208,7 @@ export default function Products({ initialProducts = [] }) {
                       <span className="pl-card-img">
                         <img
                           loading="lazy"
-                          src={photo.thumb || photo.link}
+                          {...stoneImgProps(photo, '(max-width: 768px) 45vw, 220px')}
                           alt={`${item.name} - ${finishLabel(t, photo.finish)}`}
                         />
                       </span>

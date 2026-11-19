@@ -4,6 +4,7 @@ import LangLink from '../LangLink';
 import { productSlug } from '../../util/product-slugs';
 import { useTranslation } from 'react-i18next';
 import { finishLabel } from '../../util/finishes';
+import { stoneImgProps } from '../../util/responsive-img';
 
 export default function Product({ item }) {
   const { t } = useTranslation();
@@ -27,7 +28,7 @@ export default function Product({ item }) {
       <div className="img-div-2">
         <img
           loading="lazy"
-          src={selectedFinish.thumb || selectedFinish.link} // small copy when there is one
+          {...stoneImgProps(selectedFinish, '(max-width: 768px) 40vw, 280px')}
           alt={`${item.name} - ${finishLabel(t, selectedFinish.finish)}`}
         />
       </div>

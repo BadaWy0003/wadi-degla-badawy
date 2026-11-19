@@ -9,7 +9,7 @@ import ProjectCard from './ProjectCard';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { PRODUCT_TYPE_KEYS } from '../../util/product-types';
 import { productSlug } from '../../util/product-slugs';
-import { cardImageProps } from '../../util/responsive-img';
+import { cardImageProps, stoneImgProps } from '../../util/responsive-img';
 
 // Paragraphs are separated by an empty line (same rule as the news articles).
 const toParagraphs = (text) =>
@@ -126,7 +126,7 @@ export default function ProjectDetails({ project, related = [], relatedSameCount
                   <LangLink key={m.id} href={`/products/${productSlug(m.name)}`} className="pj-stone">
                     <span className="pj-stone-img">
                       {photo && (
-                        <img loading="lazy" src={photo.thumb || photo.link} alt={m.name} />
+                        <img loading="lazy" {...stoneImgProps(photo, '130px')} alt={m.name} />
                       )}
                     </span>
                     <span className="pj-stone-name">{m.name}</span>

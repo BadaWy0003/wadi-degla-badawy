@@ -5,9 +5,10 @@ import apiClient from '../../util/client';
 // Small copies ("thumbs") of the stone photos make the website's product lists and guide pages
 // much lighter. New uploads get one automatically; this button makes them for older photos
 // (15 per request, repeated until none is missing). Originals are never changed.
-// Shown only while some photos have no small copy.
+// Shown only while some photos miss a small copy: `thumb` (640 px) or, since 2026-11-18,
+// `mini` (320 px, for the small cards and swatches).
 export default function SmallPhotosButton({ products, onDone }) {
-  const missing = (products || []).reduce((n, p) => n + (p.finishes || []).filter(f => f?.link && !f.thumb).length, 0);
+  const missing = (products || []).reduce((n, p) => n + (p.finishes || []).filter(f => f?.link && (!f.thumb || !f.mini)).length, 0);
   const [running, setRunning] = useState(false);
   const [progress, setProgress] = useState(null);
   const [error, setError] = useState('');
@@ -44,7 +45,7 @@ export default function SmallPhotosButton({ products, onDone }) {
       </Typography>
       <Typography variant="body2" sx={{ mb: 1 }}>
         {missing} photo{missing === 1 ? '' : 's'} have no small copy yet. Small copies make the website's product lists load faster. Your original
-        photos are not changed. Takes a few minutes; keep this page open. Then click "Publish to website" on the News or Projects page.
+        photos are not changed. Takes a few minutes; keep this page open. Then click "Publish to website" (Website page).
       </Typography>
       <Button variant="contained" onClick={run} disabled={running || !missing}>
         {running ? 'Working…' : 'Create small photos'}
