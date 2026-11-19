@@ -1214,6 +1214,8 @@
   "projects": {
     "pageTitle": "I Nostri Progetti | Wadi Degla",
     "metaDescription": "Esplora i progetti completati di Wadi Degla in tutto il mondo con installazioni di marmo e granito di qualità superiore.",
+    "metaAuto": "{{name}}, {{place}}: progetto realizzato con {{stones}} di Wadi Degla, esportatore egiziano di marmo e granito.",
+    "metaAutoNoStones": "{{name}}, {{place}}: progetto realizzato con pietra naturale di Wadi Degla, esportatore egiziano di marmo e granito.",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Progetti",
     "projectNotFound": "Progetto non trovato",

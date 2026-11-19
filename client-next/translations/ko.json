@@ -1214,6 +1214,8 @@
   "projects": {
     "pageTitle": "우리의 프로젝트 | 와디 데글라",
     "metaDescription": "고품질 대리석 및 화강암 설치를 갖춘 와디 데글라의 전 세계 완성 프로젝트를 탐색하세요.",
+    "metaAuto": "{{name}}, {{place}}: 이집트 대리석·화강암 수출업체 Wadi Degla의 {{stones}}(으)로 완성한 프로젝트입니다.",
+    "metaAutoNoStones": "{{name}}, {{place}}: 이집트 대리석·화강암 수출업체 Wadi Degla의 천연석으로 완성한 프로젝트입니다.",
     "breadcrumbHome": "홈",
     "breadcrumbCurrent": "프로젝트",
     "projectNotFound": "프로젝트를 찾을 수 없습니다",
