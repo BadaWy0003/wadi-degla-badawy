@@ -82,8 +82,14 @@ export const TOPIC_PAGES = {
 for (const [key, page] of Object.entries(TOPIC_PAGES)) {
   page.defaultHero = page.hero;
   page.hero = sitePhoto(`topic_${key}`, 'heroPhoto', page.hero);
+  // the buying guide's step photos (Website → Buying guide → "Step N: photo")
+  if (page.stepPhotos) {
+    page.defaultStepPhotos = page.stepPhotos;
+    page.stepPhotos = page.stepPhotos.map((src, i) =>
+      sitePhoto(`topic_${key}`, `stepPhoto${i + 1}`, src),
+    );
+  }
 }
-
 
 // Other pages a topic page or a RelatedPages block can link to (path + translation key of its name).
 export const OTHER_LINKS = {
