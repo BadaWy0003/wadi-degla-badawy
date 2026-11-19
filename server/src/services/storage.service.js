@@ -53,12 +53,25 @@ const uploadFileToStorage = async (file, type) => {
 // 40-70 KB instead of 150-400 KB), stored next to the original under uploads/<type>/thumbs/.
 // The finish keeps `link` (full photo) and gets `thumb`. A failure never blocks the upload:
 // the website then simply uses the full photo.
+// Since 2026-11-18 there is also a 320 px copy (`mini`, "-320" in the file name) for the small
+// cards and swatches (finish buttons, Visualizer list, project swatches).
 const THUMB_WIDTH = 640;
-const makeThumb = async (buffer, type, baseName) => {
+const MINI_WIDTH = 320;
+const SMALL_COPIES = ['thumb', 'mini'];
+// Both small copies of one photo: { thumb, mini } (each left out when it failed).
+const makeSmallCopies = async (buffer, type, baseName, only = SMALL_COPIES) => {
+  const out = {};
+  if (only.includes('thumb')) out.thumb = await makeThumb(buffer, type, baseName, THUMB_WIDTH);
+  if (only.includes('mini')) out.mini = await makeThumb(buffer, type, baseName, MINI_WIDTH);
+  return Object.fromEntries(Object.entries(out).filter(([, v]) => v));
+};
+const smallLinks = (f) => [f.link, f.thumb, f.mini];
+
+const makeThumb = async (buffer, type, baseName, width = THUMB_WIDTH) => {
   try {
     const out = await sharp(buffer)
       .rotate()
-      .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
+      .resize({ width, withoutEnlargement: true })
       .webp({ quality: 72 })
       .toBuffer();
     const sanitizedType = type.replace(/[^a-zA-Z0-9_-]/g, '');
@@ -66,7 +79,8 @@ const makeThumb = async (buffer, type, baseName) => {
       .replace(/\.[a-z0-9]+$/i, '')
       .replace(/[^a-zA-Z0-9._-]/g, '_')
       .slice(-80);
-    const fileName = storagePath(`uploads/${sanitizedType}/thumbs/${Date.now()}_${safeName}.webp`);
+    const suffix = width === THUMB_WIDTH ? '' : `-${width}`;
+    const fileName = storagePath(`uploads/${sanitizedType}/thumbs/${Date.now()}_${safeName}${suffix}.webp`);
     await bucket.file(fileName).save(out, { contentType: 'image/webp', resumable: false });
     await bucket.file(fileName).makePublic();
     return `https://storage.googleapis.com/${bucket.name}/${fileName}`;
@@ -93,8 +107,8 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
         if (!finish) return null; // Safeguard against mismatched counts
 
         const publicUrl = await uploadFileToStorage(file, type); // Upload the file and get its URL
-        const thumb = await makeThumb(file.buffer, type, file.originalname);
-        return { finish: finish.finish, link: publicUrl, ...(thumb ? { thumb } : {}) };
+        const copies = await makeSmallCopies(file.buffer, type, file.originalname);
+        return { finish: finish.finish, link: publicUrl, ...copies };
       }),
     );
 
@@ -115,16 +129,18 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     const existingData = docSnapshot.data();
     // Copy, so the old links can be compared afterwards.
     let nextFinishes = (existingData.finishes ?? []).map((f) => ({ ...f }));
-    const oldLinks = nextFinishes.flatMap((f) => [f.link, f.thumb]).filter(Boolean);
+    const oldLinks = nextFinishes.flatMap(smallLinks).filter(Boolean);
 
     uploadedFinishes.forEach((uploadedFinish) => {
       const finishIndex = nextFinishes.findIndex((f) => f.finish === uploadedFinish.finish);
 
       if (finishIndex >= 0) {
         nextFinishes[finishIndex].link = uploadedFinish.link; // Update existing finish
-        // the old small copy belongs to the old photo
-        if (uploadedFinish.thumb) nextFinishes[finishIndex].thumb = uploadedFinish.thumb;
-        else delete nextFinishes[finishIndex].thumb;
+        // the old small copies belong to the old photo
+        for (const k of SMALL_COPIES) {
+          if (uploadedFinish[k]) nextFinishes[finishIndex][k] = uploadedFinish[k];
+          else delete nextFinishes[finishIndex][k];
+        }
       } else {
         nextFinishes.push(uploadedFinish); // Add new finish
       }
@@ -145,7 +161,7 @@ StorageService.handleMaterialUpload = async ({ id, name, type, finishes, files }
     );
 
     // Photos that were replaced or whose finish was removed: delete them from storage.
-    const keptLinks = new Set(nextFinishes.flatMap((f) => [f.link, f.thumb]).filter(Boolean));
+    const keptLinks = new Set(nextFinishes.flatMap(smallLinks).filter(Boolean));
     await deleteStorageFiles(oldLinks.filter((link) => !keptLinks.has(link)));
 
     return {
@@ -239,7 +255,7 @@ StorageService.deleteProduct = async (productId) => {
   }
 
   // Delete associated files from Firebase Storage
-  const finishFiles = (product.finishes || []).flatMap((finish) => [finish.link, finish.thumb]);
+  const finishFiles = (product.finishes || []).flatMap(smallLinks);
   const mockupFiles = [product.mockup, product.mockupOutdoor];
 
   const allFiles = [...finishFiles, ...mockupFiles];
@@ -270,7 +286,7 @@ StorageService.deleteProduct = async (productId) => {
 };
 
 // One-time (and safe to repeat) job: small copies for the photos uploaded before thumbnails
-// existed. Handles at most `limit` photos per call (so a request never times out) and returns
+// (640 px) or minis (320 px) existed. Handles at most `limit` photos per call (so a request never times out) and returns
 // how many are still missing; the admin panel calls it until `remaining` is 0. Only photos in
 // our own bucket; originals are never changed.
 StorageService.createMissingThumbs = async ({ limit = 15 } = {}) => {
@@ -278,24 +294,35 @@ StorageService.createMissingThumbs = async ({ limit = 15 } = {}) => {
   const todo = [];
   snap.docs.forEach((doc) => {
     (doc.data().finishes || []).forEach((f, index) => {
-      if (f?.link && !f.thumb && f.link.startsWith(bucketUrlPrefix())) todo.push({ doc, index });
+      const missing = SMALL_COPIES.filter((k) => !f?.[k]);
+      if (f?.link && missing.length && f.link.startsWith(bucketUrlPrefix())) todo.push({ doc, index, missing });
     });
   });
   let done = 0;
   let failed = 0;
-  for (const { doc, index } of todo.slice(0, limit)) {
+  for (const { doc, index, missing } of todo.slice(0, limit)) {
     const finishes = (doc.data().finishes || []).map((f) => ({ ...f }));
     const f = finishes[index];
     try {
       const filePath = decodeURIComponent(f.link.slice(bucketUrlPrefix().length));
       const [buffer] = await bucket.file(filePath).download();
-      const thumb = await makeThumb(buffer, doc.data().type || 'misc', filePath.split('/').pop());
-      if (!thumb) throw new Error('resize failed');
+      const copies = await makeSmallCopies(buffer, doc.data().type || 'misc', filePath.split('/').pop(), missing);
+      if (Object.keys(copies).length < missing.length) {
+        await deleteStorageFiles(Object.values(copies));
+        throw new Error('resize failed');
+      }
       // re-read, so a change made meanwhile in the admin panel is not lost
       const fresh = (await doc.ref.get()).data();
-      const next = (fresh.finishes || []).map((x) =>
-        x.link === f.link && !x.thumb ? { ...x, thumb } : x,
-      );
+      let added = false;
+      const next = (fresh.finishes || []).map((x) => {
+        if (x.link !== f.link || SMALL_COPIES.some((k) => x[k] && copies[k])) return x;
+        added = true;
+        return { ...x, ...copies };
+      });
+      if (!added) {
+        await deleteStorageFiles(Object.values(copies)); // the photo changed meanwhile
+        continue;
+      }
       await doc.ref.update({ finishes: next });
       done += 1;
     } catch (error) {

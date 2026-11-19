@@ -16,7 +16,7 @@ import { WHATSAPP_URL } from '../Contact/contactData';
 import './TopicPage.css';
 import HeroPreload from '../HeroPreload';
 import { heroPhoneSrc } from '../../util/hero-images';
-import { cardImageProps } from '../../util/responsive-img';
+import { cardImageProps, stoneImgProps } from '../../util/responsive-img';
 import TopicEnhance from './TopicEnhance';
 
 const paragraphs = (text) =>
@@ -40,7 +40,7 @@ function StoneGrid({ items, tr }) {
             <span className="tp-stone-img">
               <img
                 loading="lazy"
-                src={photo.thumb || photo.link}
+                {...stoneImgProps(photo, '(max-width: 768px) 45vw, 200px')}
                 alt={`${item.name} - ${finishLabel(tr, photo.finish)}`}
               />
             </span>

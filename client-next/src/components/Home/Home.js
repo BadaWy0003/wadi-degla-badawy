@@ -37,27 +37,38 @@ const heroStyle = Object.fromEntries(
     .map(([v, k]) => [v, `url("${HOME_PHOTOS[k].src.replace(/["\\]/g, '')}")`]),
 );
 
+// The website's own tile photos have a 380 px "-sm" copy for small screens; a photo uploaded in
+// the admin panel has none (it is used as is).
+const tileSrcSet = (p) =>
+  p.src.startsWith('/Assets/Media/Hero/stone-tile-')
+    ? `${p.src.replace(/\.webp$/, '-sm.webp')} 380w, ${p.src} ${p.width}w`
+    : undefined;
+
 // The four stone ranges, each linking to its topic page (same header photos as those pages).
 const RANGES = [
   {
     href: '/egyptian-marble',
     label: 'home.rangeEgyptianMarbleLimestone', // the page lists both (owner, 2026-11-12)
     img: HOME_PHOTOS.tileEgyptianMarble.src,
+    srcSet: tileSrcSet(HOME_PHOTOS.tileEgyptianMarble),
   },
   {
     href: '/egyptian-granite',
     label: 'visualizer.egyptianGranite',
     img: HOME_PHOTOS.tileEgyptianGranite.src,
+    srcSet: tileSrcSet(HOME_PHOTOS.tileEgyptianGranite),
   },
   {
     href: '/imported-marble',
     label: 'visualizer.importedMarble',
     img: HOME_PHOTOS.tileImportedMarble.src,
+    srcSet: tileSrcSet(HOME_PHOTOS.tileImportedMarble),
   },
   {
     href: '/imported-granite',
     label: 'visualizer.importedGranite',
     img: HOME_PHOTOS.tileImportedGranite.src,
+    srcSet: tileSrcSet(HOME_PHOTOS.tileImportedGranite),
   },
 ];
 
@@ -205,7 +216,13 @@ export default function Home({ featured = [] }) {
           {RANGES.map((r) => (
             <li key={r.href}>
               <LangLink href={r.href} className="hp-range">
-                <img loading="lazy" src={r.img} alt={t(r.label)} />
+                <img
+                  loading="lazy"
+                  src={r.img}
+                  srcSet={r.srcSet}
+                  sizes="(max-width: 1024px) calc(50vw - 22px), 300px"
+                  alt={t(r.label)}
+                />
                 <span className="hp-range-body">
                   <h3>{t(r.label)}</h3>
                   <span className="hp-link">

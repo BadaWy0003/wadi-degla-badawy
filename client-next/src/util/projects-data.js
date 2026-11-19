@@ -97,7 +97,7 @@ export function projectCard(p) {
     stones: p.materials.slice(0, 4).map((m) => ({
       id: m.id,
       name: m.name,
-      thumb: m.finishes[0]?.thumb || m.finishes[0]?.link || '',
+      thumb: m.finishes[0]?.mini || m.finishes[0]?.thumb || m.finishes[0]?.link || '',
     })),
   };
 }

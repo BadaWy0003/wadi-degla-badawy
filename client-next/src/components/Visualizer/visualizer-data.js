@@ -39,7 +39,7 @@ export function visualizerStones(products = []) {
           name: String(p.name).trim(),
           type,
           slug: productSlug(p.name),
-          swatch: sample ? sample.thumb || sample.link : null,
+          swatch: sample ? sample.mini || sample.thumb || sample.link : null,
           finish: sample ? sample.finish : null,
           inside: photo(inside),
           outside: photo(findFinish(finishes, OUTSIDE)),
