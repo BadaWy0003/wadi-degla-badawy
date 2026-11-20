@@ -19,7 +19,7 @@ const { db, bucket } = require('../start/firebase');
 const { col, storagePath } = require('../start/data-area');
 
 // Change when the layout changes, so every saved sheet is made again.
-const LAYOUT_VERSION = 1;
+const LAYOUT_VERSION = 2;
 const LANGS = ['en', 'ar'];
 const ROOM_FINISHES = ['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'];
 const SITE = 'https://www.wadidegla-eg.com';
@@ -27,6 +27,8 @@ const SITE = 'https://www.wadidegla-eg.com';
 // Categories are typed in the admin panel ("Egyptian Limestone " with a space, one-off names):
 // the same clean-up as normalizeType() in client-next/src/util/product-types.js.
 const TYPE_ALIASES = { 'Egyptian Emperador': 'Egyptian Marble', 'Egyptian Onyx': 'Egyptian Marble' };
+// Only stones get a sheet (the materials collection also holds the Gallery photos).
+const STONE_CATEGORIES = ['Egyptian Marble', 'Egyptian Limestone', 'Egyptian Granite', 'Imported Marble', 'Imported Granite'];
 const cleanType = (type) => {
   const t = String(type ?? '').trim();
   return TYPE_ALIASES[t] || t;
@@ -189,7 +191,15 @@ async function loadStone(id) {
     db.collection(col('site_content')).doc('company').get(),
   ]);
   const stone = doc.exists ? doc.data() : null;
-  if (!stone || stone.hidden === true || !stone.name || !Array.isArray(stone.finishes)) throw httpError(404, 'Unknown stone.');
+  if (
+    !stone ||
+    stone.hidden === true ||
+    !stone.name ||
+    !Array.isArray(stone.finishes) ||
+    !STONE_CATEGORIES.includes(cleanType(stone.type))
+  ) {
+    throw httpError(404, 'Unknown stone.');
+  }
   return {
     stone: { ...stone, name: String(stone.name).trim(), type: cleanType(stone.type) },
     details: details.exists ? details.data() : {},
@@ -207,8 +217,10 @@ async function buildHtml({ stone, details, contact }, lang) {
   const category = (lang === 'ar' && w.categories[stone.type]) || stone.type || '';
 
   const [mainPhoto, roomPhoto, ...finishPhotos] = await Promise.all([
-    embed(main?.link, 1000, 700),
-    embed(room?.link, 1400),
+    // the 640 px copies are enough for print at this size and far lighter for the small
+    // server than the originals (up to 10 MB)
+    embed(main?.thumb || main?.link, 1000, 700),
+    embed(room?.thumb || room?.link, 1400),
     ...finishes.slice(0, 6).map((f) => embed(f.thumb || f.link, 260, 260)),
   ]);
 
@@ -298,18 +310,52 @@ ${roomPhoto ? `<div class="room"><h2>${esc(w.inSpace)}</h2><img src="${roomPhoto
 </body></html>`;
 }
 
-// one Chromium at a time; the same sheet asked twice at once is made once
+// One Chromium, kept open while sheets are being made and closed after 2 minutes without
+// work (starting it is the slowest part on the small server). One sheet at a time; the same
+// sheet asked twice at once is made once.
 let queue = Promise.resolve();
 const making = new Map();
+let browserPromise = null;
+let closeTimer = null;
+const getBrowser = () => {
+  clearTimeout(closeTimer);
+  if (!browserPromise) {
+    browserPromise = puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], headless: true });
+    browserPromise.catch(() => {
+      browserPromise = null;
+    });
+  }
+  return browserPromise;
+};
+const closeLater = () => {
+  clearTimeout(closeTimer);
+  closeTimer = setTimeout(
+    async () => {
+      const b = browserPromise;
+      browserPromise = null;
+      if (b) (await b.catch(() => null))?.close().catch(() => {});
+    },
+    2 * 60 * 1000,
+  );
+  closeTimer.unref();
+};
 async function render(html) {
   const run = queue.then(async () => {
-    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], headless: true });
+    let page;
     try {
-      const page = await browser.newPage();
+      const browser = await getBrowser();
+      page = await browser.newPage();
       await page.setContent(html, { waitUntil: 'load', timeout: 30000 });
       return await page.pdf({ format: 'A4', printBackground: true, preferCSSPageSize: true });
+    } catch (e) {
+      // a crashed browser is started again next time
+      const b = browserPromise;
+      browserPromise = null;
+      if (b) (await b.catch(() => null))?.close().catch(() => {});
+      throw e;
     } finally {
-      await browser.close();
+      if (page) await page.close().catch(() => {});
+      closeLater();
     }
   });
   queue = run.catch(() => {});
@@ -353,19 +399,28 @@ SpecSheetService.get = async (id, langAsked) => {
   return { buffer: await making.get(jobKey), fileName, made: true };
 };
 
-// After the server starts: makes every visible stone's sheets that are missing or out of
+// After the server starts: makes every visible stone's sheets (15 s apart) that are missing or out of
 // date, one at a time, so visitors rarely wait for one (making one takes ~10-20 s on the
 // server). Sheets already up to date only cost a look at their Storage entry.
 SpecSheetService.warmUp = async () => {
   const snap = await db.collection(col('materials')).get();
-  const ids = snap.docs.filter((d) => d.data()?.hidden !== true && d.data()?.name).map((d) => d.id);
+  const ids = snap.docs
+    .filter((d) => d.data()?.hidden !== true && d.data()?.name && STONE_CATEGORIES.includes(cleanType(d.data().type)))
+    .map((d) => d.id);
   let made = 0;
   let failed = 0;
   for (const id of ids) {
     for (const lang of LANGS) {
       try {
         // eslint-disable-next-line no-await-in-loop
-        if ((await SpecSheetService.get(id, lang)).made) made += 1;
+        if ((await SpecSheetService.get(id, lang)).made) {
+          made += 1;
+          // a pause after each new sheet, so visitors' requests always come first
+          // eslint-disable-next-line no-await-in-loop
+          await new Promise((ok) => {
+            setTimeout(ok, 15000).unref();
+          });
+        }
       } catch (e) {
         failed += 1;
       }
