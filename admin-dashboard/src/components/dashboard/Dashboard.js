@@ -201,7 +201,7 @@ export default function Dashboard() {
                       {e.emailSent === false && <WarningAmber color="warning" sx={{ fontSize: 16 }} />}
                     </Box>
                     <Typography variant="caption" color="text.secondary">
-                      {[e.kind === 'sample' ? 'Sample request' : 'Contact form', e.product, e.country, fmtDate(e.createdAt)]
+                      {[{ sample: 'Sample request', quote: 'Quote request' }[e.kind] || 'Contact form', e.product, e.country, fmtDate(e.createdAt)]
                         .filter(Boolean)
                         .join(' · ')}
                     </Typography>

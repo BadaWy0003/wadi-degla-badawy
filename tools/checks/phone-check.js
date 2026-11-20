@@ -37,7 +37,7 @@ const KNOWN = [
 const STATIC = ['', 'products', 'egyptian-marble', 'egyptian-limestone', 'egyptian-granite', 'imported-marble',
   'imported-granite', 'galala-marble', 'buy-marble-from-egypt', 'quarries', 'projects', 'gallery', 'about',
   'contact', 'exports', 'news', 'machinery', 'packing', 'certificates', 'history', 'partners', 'fairs',
-  'inspiration', 'patterns', 'stone-creations', 'kerbstone', 'cobbles', 'visualizer'];
+  'inspiration', 'patterns', 'stone-creations', 'kerbstone', 'cobbles', 'visualizer', 'quote'];
 
 // one stone, project and news page from the build
 const firstSub = (dir) => {

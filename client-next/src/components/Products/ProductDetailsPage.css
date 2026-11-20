@@ -641,3 +641,52 @@ html[dir='rtl'] .spd-crumb span[aria-hidden] {
     display: none;
   }
 }
+
+/* ---------- "Add to quote list" (src/components/Quote/AddToQuote.js) ---------- */
+.spd .qt-add {
+  border-style: dashed;
+}
+
+.spd .qt-added {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  min-height: 52px;
+  margin-top: 10px;
+  padding: 8px 20px;
+  border: 1px solid var(--spd-line-strong);
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--spd-text);
+}
+
+.spd .qt-added svg {
+  color: var(--spd-gold-hi);
+  margin-inline-end: 4px;
+}
+
+.spd .qt-added-link {
+  color: var(--spd-gold-hi);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.spd .qt-added-link:hover {
+  text-decoration: underline;
+}
+
+.spd .qt-full {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--spd-muted);
+}
+
+.spd .qt-arrow {
+  display: inline-block;
+}
+
+html[dir='rtl'] .spd .qt-arrow {
+  transform: scaleX(-1);
+}

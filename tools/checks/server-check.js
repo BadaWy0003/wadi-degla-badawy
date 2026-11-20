@@ -108,6 +108,8 @@ const CHECKS = [
   // website forms: a bot (honeypot filled) gets a quiet success, a bad email a 400
   ['POST', '/api/send-email', 'none', 200, { name: 'Bot', email: 'b@b.co', message: 'x', website: 'http://spam' }],
   ['POST', '/api/send-email', 'none', 400, { name: 'A', email: 'not-an-email', message: 'x' }],
+  // a quote request from the website's quote list (2026-11-20)
+  ['POST', '/api/send-email', 'none', 200, { name: 'Q', email: 'q@test.co', message: '', kind: 'quote', items: [{ name: 'Galala', finish: 'Polished', quantity: '1 container' }] }],
 ];
 
 const express = require(path.join(NM, 'express'));

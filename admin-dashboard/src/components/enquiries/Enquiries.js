@@ -39,12 +39,15 @@ export const STATUSES = [
   { id: 'spam', label: 'Spam', color: 'default' },
 ];
 const STATUS = Object.fromEntries(STATUSES.map(s => [s.id, s]));
-const KIND = { contact: 'Contact form', sample: 'Sample request' };
+const KIND = { contact: 'Contact form', sample: 'Sample request', quote: 'Quote request' };
 
 const fmtDate = ms =>
   ms ? new Date(ms).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '';
 const digits = s => String(s || '').replace(/[^\d]/g, '');
-const stone = e => [e.product, e.finish].filter(Boolean).join(' · ');
+const stone = e =>
+  e.items?.length ? `${e.items.length} stone${e.items.length === 1 ? '' : 's'}` : [e.product, e.finish].filter(Boolean).join(' · ');
+// A quote request's stones as one line each (Excel export).
+const itemLines = e => (e.items || []).map(i => [i.name, i.finish, i.quantity].filter(Boolean).join(' – ')).join('\n');
 
 // Excel opens a UTF-8 CSV with a BOM correctly (Arabic names included).
 const toCsv = rows => {
@@ -60,7 +63,7 @@ const toCsv = rows => {
     ['Country', e => e.country],
     ['Port', e => e.port],
     ['Address', e => e.address],
-    ['Stone', e => e.product],
+    ['Stone', e => (e.items?.length ? itemLines(e) : e.product)],
     ['Finish', e => e.finish],
     ['Message', e => e.message],
     ['Note', e => e.note],
@@ -91,7 +94,12 @@ function EnquiryDialog({ enquiry, onClose, onSaved }) {
   const [saving, setSaving] = useState(false);
   const changed = status !== enquiry.status || note !== (enquiry.note || '');
   const phone = enquiry.whatsapp || enquiry.phone;
-  const subject = enquiry.kind === 'sample' ? `Your sample request: ${stone(enquiry)}` : 'Your enquiry to Wadi Degla';
+  const subject =
+    enquiry.kind === 'sample'
+      ? `Your sample request: ${stone(enquiry)}`
+      : enquiry.kind === 'quote'
+        ? 'Your quote request to Wadi Degla'
+        : 'Your enquiry to Wadi Degla';
 
   const save = async () => {
     setSaving(true);
@@ -141,7 +149,33 @@ function EnquiryDialog({ enquiry, onClose, onSaved }) {
         <Detail label="Country" value={enquiry.country} />
         <Detail label="Port" value={enquiry.port} dir="auto" />
         <Detail label="Address" value={enquiry.address} dir="auto" />
-        <Detail label="Stone" value={stone(enquiry)} />
+        {enquiry.items?.length ? (
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
+              Stones ({enquiry.items.length})
+            </Typography>
+            <Table size="small">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Stone</TableCell>
+                  <TableCell>Finish</TableCell>
+                  <TableCell>Quantity</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {enquiry.items.map((i, n) => (
+                  <TableRow key={n}>
+                    <TableCell>{i.name}</TableCell>
+                    <TableCell>{i.finish}</TableCell>
+                    <TableCell dir="auto">{i.quantity || '—'}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Box>
+        ) : (
+          <Detail label="Stone" value={stone(enquiry)} />
+        )}
         <Detail label="Sent from" value={[enquiry.page, enquiry.lang && `(${enquiry.lang.toUpperCase()})`].filter(Boolean).join(' ')} />
         {enquiry.message && (
           <Box sx={{ mt: 2, p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
@@ -265,7 +299,7 @@ export default function Enquiries() {
         Enquiries
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 2, maxWidth: 760 }}>
-        Every message from the website's contact form and sample requests. They are also emailed as before. Mark each one as you go, so nothing is
+        Every message from the website's contact form, sample requests and quote requests. They are also emailed as before. Mark each one as you go, so nothing is
         forgotten.
       </Typography>
 
@@ -291,6 +325,7 @@ export default function Enquiries() {
               <MenuItem value="all">All types</MenuItem>
               <MenuItem value="contact">Contact form</MenuItem>
               <MenuItem value="sample">Sample request</MenuItem>
+              <MenuItem value="quote">Quote request</MenuItem>
             </TextField>
             <Button variant="outlined" startIcon={<Download />} onClick={exportCsv} disabled={!shown.length}>
               Export to Excel

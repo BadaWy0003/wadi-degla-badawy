@@ -1345,5 +1345,27 @@
     "save": "Save",
     "savedOk": "Saved",
     "saveError": "Couldn't save. Please try again."
+  },
+  "quote": {
+    "pageTitle": "Your quote list | Wadi Degla",
+    "metaDescription": "The stones you chose, with finishes and quantities, ready to send for a price.",
+    "eyebrow": "Quote list",
+    "heading": "Your quote list",
+    "intro": "Check the stones, add the quantities you need, then send the list. We reply with prices, lead times and shipping options.",
+    "emptyTitle": "Your quote list is empty",
+    "emptyText": "Open any stone and press “Add to quote list”. You can add several stones and send them in one request.",
+    "browse": "Browse stones",
+    "finish": "Finish",
+    "quantity": "Quantity",
+    "quantityPlaceholder": "e.g. 500 m² or 1 container",
+    "remove": "Remove",
+    "addMore": "Add more stones",
+    "formTitle": "Send your quote request",
+    "formSubtitle": "Your details, so we can reply with prices for the stones above.",
+    "send": "Send quote request",
+    "add": "Add to quote list",
+    "added": "In your quote list",
+    "viewList": "View quote list",
+    "full": "Your quote list is full (20 stones)."
   }
 }

@@ -10,7 +10,8 @@ const { db, bucket } = require('../start/firebase');
 const { col, storagePath } = require('../start/data-area');
 
 const STATUSES = ['new', 'replied', 'won', 'lost', 'spam'];
-const KINDS = ['contact', 'sample'];
+const KINDS = ['contact', 'sample', 'quote'];
+const MAX_ITEMS = 20;
 const LIST_LIMIT = 1000;
 
 const enquiriesCol = () => db.collection(col('enquiries'));
@@ -55,12 +56,32 @@ const readLabelled = (html) => {
   return out;
 };
 
+// A quote request's stones (the website's quote list): [{ name, finish, quantity }], sent as a
+// JSON string (multipart form) or an array. Anything else is dropped; at most 20 stones.
+const readItems = (raw) => {
+  let list = raw;
+  if (typeof raw === 'string') {
+    try {
+      list = JSON.parse(raw);
+    } catch {
+      return [];
+    }
+  }
+  if (!Array.isArray(list)) return [];
+  return list
+    .slice(0, MAX_ITEMS)
+    .map((i) => ({ name: clean(i?.name, 100), finish: clean(i?.finish, 80), quantity: clean(i?.quantity, 60) }))
+    .filter((i) => i.name);
+};
+
 // The enquiry as stored, from the form's body (already checked by the email route).
 const fromForm = (body, { name, email, message, extraFields, subject }) => {
   const parsed = { ...readLabelled(extraFields), ...readLabelled(message) };
   const pick = (k, max = 200) => clean(body[k], max) || parsed[k] || '';
   let kind = clean(body.kind, 20);
   if (!KINDS.includes(kind)) kind = /sample/i.test(subject) ? 'sample' : 'contact';
+  const items = kind === 'quote' ? readItems(body.items) : [];
+  if (kind === 'quote' && !items.length) kind = 'contact'; // nothing chosen: a plain message
   return {
     kind,
     status: 'new',
@@ -72,12 +93,13 @@ const fromForm = (body, { name, email, message, extraFields, subject }) => {
     country: pick('country', 80),
     address: pick('address', 300),
     port: pick('port'),
-    product: pick('product'),
+    product: items.length ? items.map((i) => i.name).join(', ').slice(0, 200) : pick('product'),
     finish: pick('finish', 80),
     // the sample form has no message of its own (it only repeats the stone and finish)
     message: kind === 'sample' ? '' : htmlToText(message).slice(0, 5000),
     page: clean(body.page, 300),
     lang: clean(body.lang, 5),
+    items,
     note: '',
     attachment: null,
     emailSent: null,

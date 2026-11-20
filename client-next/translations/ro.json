@@ -1348,5 +1348,27 @@
     "save": "Salvează",
     "savedOk": "Salvat",
     "saveError": "Salvarea a eșuat. Reîncercați."
+  },
+  "quote": {
+    "pageTitle": "Lista ta de ofertă | Wadi Degla",
+    "metaDescription": "Pietrele alese, cu finisaje și cantități, gata de trimis pentru un preț.",
+    "eyebrow": "Listă de ofertă",
+    "heading": "Lista ta de ofertă",
+    "intro": "Verifică pietrele, adaugă cantitățile de care ai nevoie, apoi trimite lista. Răspundem cu prețuri, termene și opțiuni de transport.",
+    "emptyTitle": "Lista ta de ofertă este goală",
+    "emptyText": "Deschide orice piatră și apasă „Adaugă la ofertă”. Poți adăuga mai multe pietre și le poți trimite într-o singură cerere.",
+    "browse": "Vezi pietrele",
+    "finish": "Finisaj",
+    "quantity": "Cantitate",
+    "quantityPlaceholder": "ex. 500 m² sau 1 container",
+    "remove": "Elimină",
+    "addMore": "Adaugă alte pietre",
+    "formTitle": "Trimite cererea de ofertă",
+    "formSubtitle": "Datele tale, ca să îți răspundem cu prețurile pietrelor de mai sus.",
+    "send": "Trimite cererea de ofertă",
+    "add": "Adaugă la ofertă",
+    "added": "În lista ta de ofertă",
+    "viewList": "Vezi lista",
+    "full": "Lista ta de ofertă este plină (20 de pietre)."
   }
 }

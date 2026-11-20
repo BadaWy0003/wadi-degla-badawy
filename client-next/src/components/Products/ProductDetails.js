@@ -25,6 +25,7 @@ import { CATEGORY_TOPIC } from '../../util/topic-pages';
 import { finishLabel } from '../../util/finishes';
 import { productSlug } from '../../util/product-slugs';
 import Product from './Product';
+import AddToQuote from '../Quote/AddToQuote';
 import { cardImageProps, smallestStonePhoto } from '../../util/responsive-img';
 import { normalizeProducts } from '../../util/product-types';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
@@ -277,6 +278,13 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
             <button type="button" className="spd-btn spd-btn-line" onClick={openSample}>
               {k('ctaSample')}
             </button>
+            <AddToQuote
+              name={String(product.name).trim()}
+              slug={productSlug(product.name)}
+              finish={selectedFinish?.finish}
+              finishes={finishes.map((f) => f.finish)}
+              photo={smallestStonePhoto(selectedFinish)}
+            />
             <ul className="spd-trust">
               <li>{k('trustSamples')}</li>
               <li>{k('trustSince')}</li>

@@ -20,6 +20,7 @@ import { getApiClient } from '../../util/api-lazy.js';
 import SearchBar from '../SearchBar/SearchBar.js.js';
 import SearchBarMobile from '../SearchBar/SearchBarMobile.js.js';
 import LanguageSelector, { LanguageList, LANGUAGES } from '../LanguageSelector/LanguageSelector';
+import QuoteLink from '../Quote/QuoteLink';
 import { COMPANY_MENU, PRODUCTS_MENU, RESOURCES_MENU, menuOfPath } from '../../util/site-menu';
 
 const LOGO_WHITE = '/Assets/Logo-Identity/wadi-degla-logo-white.svg';
@@ -336,6 +337,8 @@ export default function Navbar() {
           <div className="wn-phone-only wn-search-mob">
             <SearchBarMobile />
           </div>
+          {/* the quote list (only once a stone has been added) */}
+          <QuoteLink onNavigate={onNavigate} />
           <button
             type="button"
             className="wn-phone-only wn-icon wn-burger"

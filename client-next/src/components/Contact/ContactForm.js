@@ -35,7 +35,10 @@ const EMPTY = {
 // Order used to move the cursor to the first field with a problem.
 const FIELD_ORDER = ['fname', 'email', 'phone', 'country', 'message', 'whatsapp', 'attachment'];
 
-export default function ContactForm() {
+// `quote` (the quote page, src/components/Quote/Quote.js): { items, onSent }. The form then
+// sends the chosen stones with the message (kind "quote"), the message becomes optional and the
+// title and button change. Everything else (fields, checks, file, emails) is the same.
+export default function ContactForm({ quote = null }) {
   const { t } = useTranslation();
   const { globalState, loading } = useGlobalState();
   const lang = useLang();
@@ -90,7 +93,7 @@ export default function ContactForm() {
     if (!formData.phone) e.phone = required;
     else if (!PHONE_RE.test(formData.phone)) e.phone = t('contactForm.errorPhone');
     if (!formData.country) e.country = t('contactForm.errorCountry');
-    if (!formData.message.trim()) e.message = required;
+    if (!quote && !formData.message.trim()) e.message = required;
     if (formData.whatsapp && !PHONE_RE.test(formData.whatsapp)) {
       e.whatsapp = t('contactForm.errorWhatsapp');
     }
@@ -131,7 +134,13 @@ export default function ContactForm() {
     const payload = new FormData();
     payload.append('name', formData.fname.trim());
     payload.append('email', formData.email.trim());
-    payload.append('subject', `Contact Form Submission from ${formData.fname.trim()}`);
+    const items = quote?.items || [];
+    payload.append(
+      'subject',
+      quote
+        ? `Quote request from ${formData.fname.trim()} (${items.length} stone${items.length === 1 ? '' : 's'})`
+        : `Contact Form Submission from ${formData.fname.trim()}`,
+    );
     payload.append('message', formData.message);
     // Spam trap: hidden field that only bots fill in
     payload.append('website', ev.target.elements.website?.value || '');
@@ -144,11 +153,18 @@ export default function ContactForm() {
       <p><strong>Country:</strong> ${formData.country?.label}</p>
       <p><strong>Address:</strong> ${formData.address}</p>
       <p><strong>Port of Destination:</strong> ${formData.port}</p>
+      ${
+        quote
+          ? `<p><strong>Stones:</strong></p><ul>${items
+              .map((i) => `<li>${[i.name, i.finish, i.quantity].filter(Boolean).join(' – ')}</li>`)
+              .join('')}</ul>`
+          : ''
+      }
     `,
     );
     // The same details as separate fields, for the admin panel's Enquiries inbox
     const fields = {
-      kind: 'contact',
+      kind: quote ? 'quote' : 'contact',
       company: formData.cname,
       phone: formData.phone,
       whatsapp: formData.whatsapp,
@@ -159,6 +175,12 @@ export default function ContactForm() {
       lang: document.documentElement.lang || '',
     };
     Object.entries(fields).forEach(([k, v]) => payload.append(k, v || ''));
+    if (quote) {
+      payload.append(
+        'items',
+        JSON.stringify(items.map(({ name, finish, quantity }) => ({ name, finish, quantity }))),
+      );
+    }
     if (formData.attachment) payload.append('attachment', formData.attachment);
 
     try {
@@ -169,7 +191,12 @@ export default function ContactForm() {
       const data = await res.json().catch(() => ({}));
       if (data.success) {
         setStatus('sent');
-        trackEvent('contact_form_sent');
+        if (quote) {
+          trackEvent('quote_request_sent', { stone_count: items.length });
+          quote.onSent?.();
+        } else {
+          trackEvent('contact_form_sent');
+        }
         setFormData(EMPTY);
         if (fileRef.current) fileRef.current.value = '';
         formRef.current
@@ -229,9 +256,9 @@ export default function ContactForm() {
   return (
     <section className="cx-form-card" aria-labelledby="cx-form-title">
       <div className="cx-section-head">
-        <p className="cx-eyebrow">{t('contactForm.eyebrow')}</p>
-        <h2 id="cx-form-title">{t('contactForm.title')}</h2>
-        <p className="cx-section-sub">{t('contactForm.subtitle')}</p>
+        <p className="cx-eyebrow">{t(quote ? 'quote.eyebrow' : 'contactForm.eyebrow')}</p>
+        <h2 id="cx-form-title">{t(quote ? 'quote.formTitle' : 'contactForm.title')}</h2>
+        <p className="cx-section-sub">{t(quote ? 'quote.formSubtitle' : 'contactForm.subtitle')}</p>
       </div>
 
       <form ref={formRef} className="cx-form" onSubmit={handleSubmit} noValidate>
@@ -316,7 +343,9 @@ export default function ContactForm() {
           </div>
 
           <div {...fieldProps('message', 'cx-span-2')}>
-            <label htmlFor="message">{t('contactForm.message')}</label>
+            <label htmlFor="message">
+              {t('contactForm.message')} {quote && optional}
+            </label>
             <textarea
               id="message"
               name="message"
@@ -326,7 +355,7 @@ export default function ContactForm() {
               onChange={(e) => setField('message', e.target.value)}
               aria-invalid={!!errors.message}
               aria-describedby={describedBy('message')}
-              required
+              required={!quote}
             />
             {errorText('message')}
           </div>
@@ -460,7 +489,7 @@ export default function ContactForm() {
               </>
             ) : (
               <>
-                {t('contactForm.sendMessage')}
+                {t(quote ? 'quote.send' : 'contactForm.sendMessage')}
                 <Icon name="send" />
               </>
             )}
