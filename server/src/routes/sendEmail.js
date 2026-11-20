@@ -5,6 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const { IS_STAGING } = require('../start/data-area');
 const { rateLimit } = require('../middlewares/rate-limit.middleware');
+const EnquiriesService = require('../services/enquiries.service');
 
 // Contact + sample-request forms: max 5 messages per visitor per 15 minutes.
 const emailRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 5 });
@@ -108,11 +109,23 @@ router.post('/', emailRateLimit, handleUpload, async (req, res) => {
     ];
   }
 
+  // Save it first (admin panel → Enquiries), so the lead is kept even if the email fails.
+  let enquiryId = null;
+  try {
+    enquiryId = await EnquiriesService.save(body, { name, email, message, extraFields, subject }, req.file);
+  } catch (error) {
+    console.error('Enquiry not saved:', error.message);
+  }
+
   try {
     await transporter.sendMail(mailOptions);
+    await EnquiriesService.markEmail(enquiryId, true).catch(() => {});
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Email error:', error.message);
+    await EnquiriesService.markEmail(enquiryId, false).catch(() => {});
+    // Saved in the inbox: the visitor's message reached us, so it's still a success for them.
+    if (enquiryId) return res.status(200).json({ success: true });
     return res.status(500).json({ success: false, error: 'Could not send the message. Please try again later.' });
   }
 });

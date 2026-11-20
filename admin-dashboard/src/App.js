@@ -11,6 +11,7 @@ import Documents from './components/documents/Documents';
 import News from './components/news/News';
 import Projects from './components/projects/Projects';
 import Website from './components/website/Website';
+import Enquiries from './components/enquiries/Enquiries';
 import BlockEditor from './components/website/BlockEditor';
 import Login from './components/auth/Login';
 import { ProtectedRoute } from './components/ProtectedRoute.js'; // Create this file as described earlier
@@ -50,6 +51,7 @@ function App() {
             <Route path="documents" element={<Documents />} />
             <Route path="news" element={<News />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="enquiries" element={<Enquiries />} />
             <Route path="website" element={<Website />} />
             <Route path="website/:id" element={<BlockEditor />} />
           </Route>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon, Button, IconButton, useMediaQuery } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon, Button, IconButton, useMediaQuery, Badge } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Menu as MenuIcon, Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, Newspaper, Apartment, Web } from '@mui/icons-material';
+import { Menu as MenuIcon, Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, Newspaper, Apartment, Web, MarkEmailUnread } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../GlobalStateContext'; // Ensure this exists
 import apiClient from '../../util/client';
@@ -20,13 +20,39 @@ export default function Layout() {
   const small = useMediaQuery(theme.breakpoints.down('md'));
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // How many enquiries are new (menu badge): checked on every page change, and when the
+  // Enquiries page changes a status.
+  const location = useLocation();
+  const [newEnquiries, setNewEnquiries] = useState(0);
+  const isAdmin = canManageNews(globalState.role);
+  useEffect(() => {
+    if (!isAdmin) return undefined;
+    const load = () =>
+      apiClient
+        .get('/api/enquiries/admin/count-new')
+        .then(({ data }) => setNewEnquiries(data.data.count || 0))
+        .catch(() => {});
+    load();
+    window.addEventListener('wd:enquiries-changed', load);
+    return () => window.removeEventListener('wd:enquiries-changed', load);
+  }, [isAdmin, location.pathname]);
+
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
     { text: 'Products', icon: <Inventory />, path: '/products' },
     { text: 'Gallery', icon: <Collections />, path: '/gallery' },
-    // Website, News and Projects: Admins and Super Admins only (the server enforces the same rule)
+    // Enquiries, Website, News and Projects: Admins and Super Admins only (the server enforces the same rule)
     ...(canManageNews(globalState.role)
       ? [
+          {
+            text: 'Enquiries',
+            icon: (
+              <Badge badgeContent={newEnquiries} color="error" max={99}>
+                <MarkEmailUnread />
+              </Badge>
+            ),
+            path: '/enquiries',
+          },
           { text: 'Website', icon: <Web />, path: '/website' },
           { text: 'News', icon: <Newspaper />, path: '/news' },
           { text: 'Projects', icon: <Apartment />, path: '/projects' },
