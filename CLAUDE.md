@@ -22,7 +22,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 | `server/` | Express 4 API on Node 22: email, products/gallery, auth, PDF export | `server-withered-wildflower-1595` (fra) | live |
 | `admin-dashboard/` | CRA + React 19 + MUI admin panel (products, gallery, users, PDFs) | `admin-dashboard-withered-waterfall-6127` | works at **https://admin.wadidegla-eg.com/login** (Fly certificate issued 2026-11-03; the old https://admin-dashboard-withered-waterfall-6127.fly.dev address still works and stays in the server's CORS list); machines sleep and auto-start on visit |
 | staging (3 apps) | Private test copy: `fly.staging.toml` in `server/`, `admin-dashboard/`, `client-next/` | `wadi-degla-server-staging`, `wadi-degla-admin-staging`, `wadi-degla-site-staging` | see Staging below |
-| `client/` | OLD CRA website, replaced by client-next in March 2026 | `client-rough-dawn-8020` | suspended. Do not edit |
+| (`client/`, deleted 2026-11-20) | OLD CRA website, replaced by client-next in March 2026; the folder was removed (it's in the git history) | `client-rough-dawn-8020` | suspended; `deploy-client.yml` still exists but has nothing to deploy |
 | `tools/` | `optimize-images.js`: sharp batch converter to WebP (max 1600 px, q75) | n/a | n/a |
 
 ## Data
@@ -93,7 +93,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - **Customers / admins / documents**: Firestore collections `customers`, `admins`, `documents`.
 - **Customer accounts (login/signup/account redesigned 2026-11-11, concept "From our quarry to your port")**: pages in `client-next/src/components/Auth/` (`Login.js`, `Signup.js`, shared `Auth.css` scoped `.au`, `StonePicker.js`, `RouteMap.js`, `Journey.js`, `PasswordField.js`, `auth-util.js`) and `MyAccount/MyAccount.js`; texts in the `auth.*` section of all 12 translation files. Signup is 4 steps: account (name, email, password with the server's rules shown live) → company (company, country in the page's language via `Intl.DisplayNames`, phone, WhatsApp) → stones (optional picker) → port/address/tax ID (optional). Customers have `savedStones` (product ids, max 50) set at signup or on the account page (`PUT /api/customer/me/edit`, Joi-validated; email/phone/password can't change there). `port` is optional on the server since then. Auth calls pass `{ quiet: true }` to axios so `src/util/client.js` doesn't also show its error pop-up (the page shows its own message).
 - **Everything else is static in the repo**: page text is in `client-next/translations/*.json`. Data lists such as quarries, machinery and certificates (not news or projects any more) are JS files in `client-next/src/components/<Section>/`. Images are in `client-next/public/Assets/Media/`.
-- No database or volumes on Fly. The Mongo/Prisma code in `server/` is dead.
+- No database or volumes on Fly. The old Mongo code (models, `start/database.js`, the `/api/order` feature, the `mongoose`/`mongodb` packages) was removed on 2026-11-20; Firestore is the only database.
 - Firebase project ID: **`wadi-degla-app`** (bucket `wadi-degla-app.firebasestorage.app`). The owner regained console access on 2026-11-01.
 - **Firebase Storage rules deny everything** (`allow read, write: if false`, set by the owner 2026-11-07): nothing uses the Firebase client SDK. The server uses the Admin SDK (ignores rules) and every photo/PDF link is a public `https://storage.googleapis.com/...` object URL (`makePublic()`), which the rules don't affect. This closed the public file listing (`firebasestorage.googleapis.com/v0/b/<bucket>/o`), which exposed every file name, invoices included.
 - **Documents (invoices, packing/price lists) are private** (2026-11-07): `generate-upload-pdf` saves the PDF straight from memory to `documents/` in Storage with no public link and stores its `path` in Firestore `documents` (older docs have a public `url` instead; the path is derived from it). The admin panel opens a PDF through `GET /api/export-pdf/invoice/:id/file` (MODERATOR+, streamed by the server). At server start `makeOldDocumentsPrivate()` removes public access from every file under `documents/` once, then sets `site_meta/news.documentsPrivateAt`; delete that field to run it again.
@@ -217,7 +217,7 @@ docker run -p 8080:80 wd-site
   - **No automatic checks on pull requests.** `.github/workflows/checks.yml` runs only when started by hand (Actions > Checks > Run workflow, branch + app or "all"), when the owner asks for a check every few builds. Claude can start it (`actions_run_trigger`, workflow `checks.yml`, inputs `{app}`). Every change is still built and tested in the Claude session before its pull request (free).
   - The website and admin deploys (merge and Publish) don't run the checks first: their Docker build on Fly runs the same build (with lint for the website), and a failed build never replaces the live site. The server deploy still runs its ~1-minute syntax check first (a syntax error would not stop its Docker build and would break the live API).
   - Group several small changes into one PR when possible. Deploys are queued, never cancelled halfway.
-- `deploy-client.yml` (old site) is manual-only (`workflow_dispatch`).
+- `deploy-client.yml` (old site) is manual-only (`workflow_dispatch`); since `client/` was deleted (2026-11-20) it has nothing to deploy.
 - Third-party actions are pinned to a commit SHA (`superfly/flyctl-actions/setup-flyctl@ed8efb3…  # 1.6`).
 - **Merging to main = going live once deployed** (deploys are manual since 2026-11-18). Never push to `main` directly. Use a branch + PR; Claude merges it once tested (owner's standing OK, 2026-11-18).
 - Before a deploy, note the current release: `fly releases -a <app>`.
@@ -264,7 +264,6 @@ docker run -p 8080:80 wd-site
 GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the Wadi Degla business account, from 2026-11-05); both are configured in `RootHtml.js` and every event goes to both. Plan: drop the old one after 3-6 months. Google Maps embed, WhatsApp `wa.me` link, amCharts, Zoho SMTP, Firebase.
 
 ## Gotchas
-- `client/` duplicates most of client-next. Edit **client-next only**.
 - Product pages are generated at build time from the live API (fallback: `FALLBACK_PRODUCT_SLUGS`). If the API can't be reached, the build prints `[product-slugs] Products API unreachable…` and product pages are built **without content**: check for that line in the build log.
 - Local builds: Next.js keeps build-time `fetch` results in `client-next/.next/cache/fetch-cache` between builds. After building against a different or empty API, delete that folder first. CI and Fly builds start fresh.
 - In cloud sessions Node's `fetch` ignores the HTTPS proxy, so local builds can't reach the API (silent fallback). Build with `NODE_USE_ENV_PROXY=1` there. GitHub Actions and Fly builders have direct access. A product added in the admin panel only gets its own page after the next client-next deploy.
@@ -286,7 +285,7 @@ GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the 
 - `/api/send-email`: rate limited to 5 per 15 minutes per IP (`Fly-Client-IP`), in memory per machine. It has a honeypot field `website`, and visitor HTML is reduced to `p/strong/ul/li/br` with no attributes.
 - Customer auth on the website is **token-only**: the JWT is stored in `localStorage.auth_token` (raw, no quotes) and sent as `Bearer` by `src/util/client.js`. The server's auth cookie is never sent cross-site. `GlobalStateContext` only calls `check-auth` when a token exists.
 - Internal links in components: use `LangLink` (never `<a href="/...">`). A bulk mechanical change across many files is done with a script, not the Edit tool, to avoid the format hook reformatting every file.
-- Merging a PR that touches several app folders redeploys **each** of those apps (including the admin app; `client/` no longer deploys automatically).
+- Merging a PR that touches several app folders redeploys **each** of those apps (including the admin app).
 - Admin dashboard: CRA treats lint warnings as errors when `CI=true` (GitHub sets it), so CI builds it with `CI=false`.
 - Admin dashboard on phones (2026-11-07): below 900 px (`md`) `Layout.js` uses a slide-out menu (☰) instead of the fixed 280 px one; the theme (`src/theme.js`) makes dialogs nearly full-screen and table cells tighter on phones (<600 px); list tables hide minor columns on phones with `display: { xs: 'none', sm: 'table-cell' }` and show their text under the name. Desktop (≥900 px) must stay unchanged. Test without a real login: build with `REACT_APP_BASE_API_URL=http://api.test`, then in Playwright set `localStorage.auth_token` and answer `http://api.test/**` with sample JSON (`check-auth` returns `{username, role}`).
 
@@ -300,6 +299,7 @@ GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the 
 - 2026-11-19: whole-site check (32 pages × EN/AR × iPhone/360 px/desktop, live): no broken photos, sideways scroll, small text or errors; the overlap warnings were all false alarms. Lighthouse (phone): most pages 85–97; Visualizer 66 (big room photo from Storage), stone page 81. Fixed: Visualizer preloads, Gallery chip count contrast.
 - 2026-11-18: export-terms box removed from the stone guide headers (owner); sitemap `<lastmod>` live; GitHub Actions made manual after the build minutes ran out (PR #132).
 - 2026-10-31: removed a hidden `process.exit` trigger from `server/src/controllers/storage.controller.js` (PR #2, server release v247).
+- 2026-11-20: dead code removed (owner approved): the old `client/` website folder (67 MB, 800+ files), the Mongo models/connection, the `/api/order` feature (mounted but without a database), 4 unused server helpers and the `mongoose`/`mongodb` packages.
 - 2026-10-31: the admin dashboard will be revived. `client/` is considered retired.
 - PR descriptions must **not** include the "Generated with Claude Code" line.
 - 2026-11-02: staging set up as 3 separate Fly apps sharing the production Firebase project with a separate data area (`staging_` collections, `staging/` Storage folder), chosen by the owner to avoid a second Firebase project, which would need the Blaze plan and a card.

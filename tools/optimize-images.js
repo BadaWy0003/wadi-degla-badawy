@@ -11,7 +11,7 @@
  *   node optimize-images.js <input-folder> [output-folder]
  *
  * Examples:
- *   node optimize-images.js ../client/src/Public/Assets/Media/Gallery
+ *   node optimize-images.js ../client-next/public/Assets/Media/Gallery
  *   node optimize-images.js ./raw-photos ./optimized-photos
  *
  * If output-folder is omitted, a sibling folder named "<input-folder>-optimized"
