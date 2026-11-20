@@ -875,7 +875,22 @@
     "noResults": "“{{query}}”와 일치하는 석재가 없습니다.",
     "finishOne": "마감 1종",
     "bandTitle": "프로젝트에 맞는 석재를 고르기 어려우신가요?",
-    "bandText": "용도, 수량, 예산을 알려 주시면 석재를 추천하고 가격을 보내 드립니다."
+    "bandText": "용도, 수량, 예산을 알려 주시면 석재를 추천하고 가격을 보내 드립니다.",
+    "finderTitle": "원하는 석재 찾기",
+    "filterColour": "색상",
+    "filterUse": "용도",
+    "filterOrigin": "원산지",
+    "finderCount": "찾은 석재: {{count}}",
+    "finderClear": "필터 지우기",
+    "finderNone": "이 필터에 맞는 석재가 없습니다.",
+    "colour_white": "화이트",
+    "colour_beige": "베이지 & 크림",
+    "colour_grey": "그레이",
+    "colour_black": "블랙 & 다크",
+    "colour_brown": "브라운",
+    "colour_red": "레드 & 핑크",
+    "colour_gold": "골드 & 옐로",
+    "colour_green": "그린"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "이집트 공급업체, 슬래브 및 타일",

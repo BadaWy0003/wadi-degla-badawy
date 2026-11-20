@@ -1,5 +1,6 @@
 import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
-import { getProducts, productSlug } from '../../../src/util/product-slugs';
+import { getProducts, getProductDetailsMap, productSlug } from '../../../src/util/product-slugs';
+import { stoneFacets } from '../../../src/util/stone-facets';
 import Products from '../../../src/components/Products/Products';
 
 const BASE = 'https://www.wadidegla-eg.com';
@@ -42,6 +43,7 @@ export function generateMetadata({ params }) {
 export default async function ProductsPage({ params }) {
   const lang = params?.lang || 'en';
   const products = (await getProducts()) || [];
+  const details = await getProductDetailsMap();
   // Only what a card shows (its Honed or Polished photo, and how many finishes it has): the
   // full list with every finish is ~75 KB and would be embedded twice in each page's HTML.
   // The browser refresh loads it all.
@@ -52,6 +54,8 @@ export default async function ProductsPage({ params }) {
     type,
     finishCount: finishes.filter((f) => !ROOM.includes(f.finish)).length,
     finishes: finishes.filter((f) => f.finish === 'Honed' || f.finish === 'Polished'),
+    // the stone finder's colour / use / origin (from the stone details)
+    facets: stoneFacets(details[id], type),
   }));
   return (
     <>

@@ -369,6 +369,103 @@ html[dir='rtl'] .pl-crumb span[aria-hidden] {
   font-size: 19px;
 }
 
+/* stone finder (2026-11-20): colour / use / origin, under the header numbers */
+.pl-finder {
+  margin-top: 36px;
+  padding: 22px 24px;
+  border: 1px solid var(--pl-line);
+  border-radius: 16px;
+  background: var(--pl-surface);
+}
+
+.pl .pl-finder-title {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.pl-finder-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 0;
+}
+
+.pl-finder-label {
+  flex: 0 0 72px;
+  font-size: 13px;
+  color: var(--pl-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pl-finder-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.pl-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  color: var(--pl-body);
+  border: 1px solid var(--pl-line-strong);
+  border-radius: 999px;
+  padding: 7px 13px;
+  font: inherit;
+  font-size: 13.5px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.pl-opt:hover {
+  border-color: var(--pl-gold);
+}
+
+.pl-opt.is-on {
+  background: var(--pl-gold);
+  border-color: var(--pl-gold);
+  color: var(--pl-on-gold);
+}
+
+.pl-opt:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.pl-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+}
+
+.pl .pl-finder-status {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--pl-gold-hi);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pl-finder-clear {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--pl-text);
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* ---------- smaller screens ---------- */
 @media (max-width: 1230px) {
   .pl {
@@ -442,6 +539,31 @@ html[dir='rtl'] .pl-crumb span[aria-hidden] {
   .pl-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px 12px;
+  }
+
+  .pl-finder {
+    margin-top: 26px;
+    padding: 16px 14px;
+  }
+
+  .pl-finder-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .pl-finder-label {
+    flex: none;
+    font-size: 12px;
+  }
+
+  /* one swipeable row per filter on phones */
+  .pl-finder-opts {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 -14px;
+    padding: 0 14px 2px;
   }
 
   .pl-band {

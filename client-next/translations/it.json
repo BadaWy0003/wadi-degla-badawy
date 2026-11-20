@@ -875,7 +875,22 @@
     "noResults": "Nessuna pietra corrisponde a «{{query}}».",
     "finishOne": "1 finitura",
     "bandTitle": "Non sai quale pietra scegliere per il tuo progetto?",
-    "bandText": "Indicaci uso, quantità e budget. Ti suggeriamo le pietre e inviamo i prezzi."
+    "bandText": "Indicaci uso, quantità e budget. Ti suggeriamo le pietre e inviamo i prezzi.",
+    "finderTitle": "Trova la tua pietra",
+    "filterColour": "Colore",
+    "filterUse": "Uso",
+    "filterOrigin": "Origine",
+    "finderCount": "Pietre trovate: {{count}}",
+    "finderClear": "Cancella filtri",
+    "finderNone": "Nessuna pietra corrisponde a questi filtri.",
+    "colour_white": "Bianco",
+    "colour_beige": "Beige e crema",
+    "colour_grey": "Grigio",
+    "colour_black": "Nero e scuro",
+    "colour_brown": "Marrone",
+    "colour_red": "Rosso e rosa",
+    "colour_gold": "Oro e giallo",
+    "colour_green": "Verde"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Fornitore egiziano, lastre e piastrelle",

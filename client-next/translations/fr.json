@@ -875,7 +875,22 @@
     "noResults": "Aucune pierre ne correspond à « {{query}} ».",
     "finishOne": "1 finition",
     "bandTitle": "Vous hésitez sur la pierre de votre projet ?",
-    "bandText": "Indiquez l’usage, la quantité et le budget. Nous proposons des pierres et envoyons les prix."
+    "bandText": "Indiquez l’usage, la quantité et le budget. Nous proposons des pierres et envoyons les prix.",
+    "finderTitle": "Trouvez votre pierre",
+    "filterColour": "Couleur",
+    "filterUse": "Usage",
+    "filterOrigin": "Origine",
+    "finderCount": "Pierres trouvées : {{count}}",
+    "finderClear": "Effacer les filtres",
+    "finderNone": "Aucune pierre ne correspond à ces filtres.",
+    "colour_white": "Blanc",
+    "colour_beige": "Beige et crème",
+    "colour_grey": "Gris",
+    "colour_black": "Noir et foncé",
+    "colour_brown": "Marron",
+    "colour_red": "Rouge et rose",
+    "colour_gold": "Or et jaune",
+    "colour_green": "Vert"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Fournisseur égyptien, tranches et carreaux",

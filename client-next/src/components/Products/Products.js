@@ -13,10 +13,14 @@ import { finishLabel } from '../../util/finishes';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { COMPANY, EXPORT_COUNTRIES_LABEL } from '../../util/company';
 import { stoneImgProps } from '../../util/responsive-img';
+import { COLOURS, USES } from '../../util/stone-facets';
 
 // Products list (redesigned 2026-11-12, design A "Grouped by category"): every stone, in one
 // section per category, so all of them (and their links) are in the static HTML for Google.
 // The bar's buttons jump to a section; the search box filters every section.
+// The stone finder (2026-11-20) under the header filters by colour, use and origin (one
+// choice each, from the stone details: `facets`, made at build time by the page); the
+// choice is kept in the address (?colour=white&use=countertops&origin=EG).
 
 // Room photos are not finishes.
 const ROOM_FINISHES = ['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'];
@@ -46,6 +50,12 @@ const cardPhoto = (item) =>
   item.finishes?.find((f) => f.finish === 'Honed') ||
   item.finishes?.find((f) => f.finish === 'Polished') ||
   item.finishes?.find((f) => !ROOM_FINISHES.includes(f.finish));
+const FILTERS = ['colour', 'use', 'origin'];
+const FACET_OF = { colour: 'colours', use: 'uses', origin: 'origins' };
+const matches = (item, filters, skip) =>
+  FILTERS.every(
+    (f) => f === skip || !filters[f] || (item.facets?.[FACET_OF[f]] || []).includes(filters[f]),
+  );
 const finishCount = (item) =>
   item.finishCount ?? (item.finishes || []).filter((f) => !ROOM_FINISHES.includes(f.finish)).length;
 
@@ -53,8 +63,9 @@ const finishCount = (item) =>
 // in the static HTML for Google. The list is refreshed from the API in the browser, so
 // admin-panel changes show up without a redeploy.
 export default function Products({ initialProducts = [] }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [query, setQuery] = useState('');
+  const [filters, setFilters] = useState({});
   const [data, setData] = useState(initialProducts);
   const [active, setActive] = useState(PRODUCT_CATEGORIES[0]);
 
@@ -62,10 +73,72 @@ export default function Products({ initialProducts = [] }) {
     apiClient
       .get(`/api/storage/all`)
       .then(({ data: res }) => {
-        if (res?.data) setData(normalizeProducts(res.data));
+        if (!res?.data) return;
+        // the finder's values come from the build (stone details); keep them
+        const facets = Object.fromEntries(initialProducts.map((p) => [p.id, p.facets]));
+        setData(normalizeProducts(res.data).map((p) => ({ ...p, facets: facets[p.id] })));
       })
       .catch((error) => console.error('Error fetching data:', error));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // the finder's choice from the address, and back into it
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = {};
+    FILTERS.forEach((f) => {
+      if (params.get(f)) fromUrl[f] = params.get(f);
+    });
+    if (Object.keys(fromUrl).length) setFilters(fromUrl);
+  }, []);
+  const choose = (filter, value) => {
+    const next = { ...filters, [filter]: filters[filter] === value ? undefined : value };
+    setFilters(next);
+    const params = new URLSearchParams(window.location.search);
+    FILTERS.forEach((f) => (next[f] ? params.set(f, next[f]) : params.delete(f)));
+    const qs = params.toString();
+    window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
+  };
+  const clearFilters = () => {
+    setFilters({});
+    window.history.replaceState(null, '', window.location.pathname);
+  };
+  const filtering = FILTERS.some((f) => filters[f]);
+
+  // the finder's choices, each with how many stones it would show with the other choices
+  const options = useMemo(() => {
+    const listed = data.filter((p) => PRODUCT_CATEGORIES.includes(p.type) && cardPhoto(p));
+    const count = (filter, value) =>
+      listed.filter(
+        (p) => matches(p, filters, filter) && (p.facets?.[FACET_OF[filter]] || []).includes(value),
+      ).length;
+    let regionName = (code) => code;
+    try {
+      const names = new Intl.DisplayNames([i18n.language || 'en'], { type: 'region' });
+      regionName = (code) => names.of(code) || code;
+    } catch {
+      // older browsers: the country code
+    }
+    const origins = [...new Set(listed.flatMap((p) => p.facets?.origins || []))]
+      .map((code) => ({ value: code, label: regionName(code), count: count('origin', code) }))
+      .sort((a, b) =>
+        a.value === 'EG' ? -1 : b.value === 'EG' ? 1 : a.label.localeCompare(b.label),
+      );
+    return {
+      colour: COLOURS.map((c) => ({
+        value: c.id,
+        label: t(`products.colour_${c.id}`),
+        swatch: c.swatch,
+        count: count('colour', c.id),
+      })),
+      use: USES.map((u) => ({
+        value: u,
+        label: t(`productDetails.use_${u}`),
+        count: count('use', u),
+      })),
+      origin: origins,
+    };
+  }, [data, filters, t, i18n.language]);
 
   const groups = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -75,9 +148,10 @@ export default function Products({ initialProducts = [] }) {
       items: data
         .filter((p) => p.type === category && cardPhoto(p))
         .filter((p) => !q || p.name.toLowerCase().includes(q))
+        .filter((p) => matches(p, filters))
         .sort(order),
     }));
-  }, [data, query]);
+  }, [data, query, filters]);
   const total = groups.reduce((n, g) => n + g.total, 0);
   const shown = groups.reduce((n, g) => n + g.items.length, 0);
 
@@ -137,6 +211,48 @@ export default function Products({ initialProducts = [] }) {
               <dd>{EXPORT_COUNTRIES}</dd>
             </div>
           </dl>
+
+          <div className="pl-finder" role="group" aria-label={t('products.finderTitle')}>
+            <h2 className="pl-finder-title">{t('products.finderTitle')}</h2>
+            {FILTERS.map((filter) =>
+              options[filter].length ? (
+                <div className="pl-finder-row" key={filter}>
+                  <span className="pl-finder-label">
+                    {t(`products.filter${filter[0].toUpperCase()}${filter.slice(1)}`)}
+                  </span>
+                  <div className="pl-finder-opts">
+                    {options[filter].map((o) => (
+                      <button
+                        type="button"
+                        key={o.value}
+                        className={`pl-opt${filters[filter] === o.value ? ' is-on' : ''}`}
+                        aria-pressed={filters[filter] === o.value}
+                        disabled={!o.count && filters[filter] !== o.value}
+                        onClick={() => choose(filter, o.value)}
+                      >
+                        {o.swatch && (
+                          <span
+                            className="pl-swatch"
+                            style={{ background: o.swatch }}
+                            aria-hidden="true"
+                          />
+                        )}
+                        {o.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null,
+            )}
+            {filtering && (
+              <p className="pl-finder-status" aria-live="polite">
+                {t('products.finderCount', { count: shown })}
+                <button type="button" className="pl-finder-clear" onClick={clearFilters}>
+                  {t('products.finderClear')}
+                </button>
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
@@ -167,8 +283,16 @@ export default function Products({ initialProducts = [] }) {
       </div>
 
       <div className="pl-wrap">
-        {shown === 0 && query && (
+        {shown === 0 && query && !filtering && (
           <p className="pl-empty">{t('products.noResults', { query: query.trim() })}</p>
+        )}
+        {shown === 0 && filtering && (
+          <p className="pl-empty">
+            {t('products.finderNone')}{' '}
+            <button type="button" className="pl-finder-clear" onClick={clearFilters}>
+              {t('products.finderClear')}
+            </button>
+          </p>
         )}
         {groups
           .filter((g) => g.items.length > 0)
