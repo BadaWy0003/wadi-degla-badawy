@@ -1345,5 +1345,27 @@
     "save": "Ruaj",
     "savedOk": "U ruajt",
     "saveError": "Ruajtja dështoi. Provoni sërish."
+  },
+  "quote": {
+    "pageTitle": "Lista juaj e ofertës | Wadi Degla",
+    "metaDescription": "Gurët e zgjedhur, me përfundime dhe sasi, gati për t’u dërguar për çmim.",
+    "eyebrow": "Lista e ofertës",
+    "heading": "Lista juaj e ofertës",
+    "intro": "Kontrolloni gurët, shtoni sasitë që ju duhen dhe dërgoni listën. Ju përgjigjemi me çmime, afate dhe mundësi transporti.",
+    "emptyTitle": "Lista juaj e ofertës është bosh",
+    "emptyText": "Hapni çdo gur dhe shtypni “Shto në ofertë”. Mund të shtoni disa gurë dhe t’i dërgoni në një kërkesë të vetme.",
+    "browse": "Shikoni gurët",
+    "finish": "Përfundimi",
+    "quantity": "Sasia",
+    "quantityPlaceholder": "p.sh. 500 m² ose 1 kontejner",
+    "remove": "Hiq",
+    "addMore": "Shtoni gurë të tjerë",
+    "formTitle": "Dërgoni kërkesën për ofertë",
+    "formSubtitle": "Të dhënat tuaja, që t’ju përgjigjemi me çmimet e gurëve më sipër.",
+    "send": "Dërgo kërkesën për ofertë",
+    "add": "Shto në ofertë",
+    "added": "Në listën tuaj të ofertës",
+    "viewList": "Shiko listën",
+    "full": "Lista juaj e ofertës është plot (20 gurë)."
   }
 }

@@ -1345,5 +1345,27 @@
     "save": "Enregistrer",
     "savedOk": "Enregistré",
     "saveError": "Enregistrement impossible. Réessayez."
+  },
+  "quote": {
+    "pageTitle": "Votre liste de devis | Wadi Degla",
+    "metaDescription": "Les pierres choisies, avec finitions et quantités, prêtes à envoyer pour un prix.",
+    "eyebrow": "Liste de devis",
+    "heading": "Votre liste de devis",
+    "intro": "Vérifiez les pierres, indiquez les quantités souhaitées, puis envoyez la liste. Nous répondons avec les prix, délais et options d’expédition.",
+    "emptyTitle": "Votre liste de devis est vide",
+    "emptyText": "Ouvrez une pierre et cliquez sur « Ajouter au devis ». Vous pouvez ajouter plusieurs pierres et les envoyer en une seule demande.",
+    "browse": "Voir les pierres",
+    "finish": "Finition",
+    "quantity": "Quantité",
+    "quantityPlaceholder": "ex. 500 m² ou 1 conteneur",
+    "remove": "Retirer",
+    "addMore": "Ajouter d’autres pierres",
+    "formTitle": "Envoyer votre demande de devis",
+    "formSubtitle": "Vos coordonnées, pour vous répondre avec les prix des pierres ci-dessus.",
+    "send": "Envoyer la demande de devis",
+    "add": "Ajouter au devis",
+    "added": "Dans votre liste de devis",
+    "viewList": "Voir la liste",
+    "full": "Votre liste de devis est pleine (20 pierres)."
   }
 }

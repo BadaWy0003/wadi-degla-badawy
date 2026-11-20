@@ -1345,5 +1345,27 @@
     "save": "Speichern",
     "savedOk": "Gespeichert",
     "saveError": "Speichern fehlgeschlagen. Bitte erneut versuchen."
+  },
+  "quote": {
+    "pageTitle": "Ihre Angebotsliste | Wadi Degla",
+    "metaDescription": "Die gewählten Steine mit Oberflächen und Mengen, bereit für eine Preisanfrage.",
+    "eyebrow": "Angebotsliste",
+    "heading": "Ihre Angebotsliste",
+    "intro": "Prüfen Sie die Steine, tragen Sie die gewünschten Mengen ein und senden Sie die Liste. Wir antworten mit Preisen, Lieferzeiten und Versandoptionen.",
+    "emptyTitle": "Ihre Angebotsliste ist leer",
+    "emptyText": "Öffnen Sie einen Stein und klicken Sie auf „Zur Angebotsliste“. Sie können mehrere Steine hinzufügen und in einer Anfrage senden.",
+    "browse": "Steine ansehen",
+    "finish": "Oberfläche",
+    "quantity": "Menge",
+    "quantityPlaceholder": "z. B. 500 m² oder 1 Container",
+    "remove": "Entfernen",
+    "addMore": "Weitere Steine hinzufügen",
+    "formTitle": "Angebotsanfrage senden",
+    "formSubtitle": "Ihre Angaben, damit wir Ihnen die Preise für die Steine oben senden können.",
+    "send": "Angebotsanfrage senden",
+    "add": "Zur Angebotsliste",
+    "added": "In Ihrer Angebotsliste",
+    "viewList": "Liste ansehen",
+    "full": "Ihre Angebotsliste ist voll (20 Steine)."
   }
 }

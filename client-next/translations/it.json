@@ -1345,5 +1345,27 @@
     "save": "Salva",
     "savedOk": "Salvato",
     "saveError": "Salvataggio non riuscito. Riprova."
+  },
+  "quote": {
+    "pageTitle": "La tua lista preventivo | Wadi Degla",
+    "metaDescription": "Le pietre scelte, con finiture e quantità, pronte per chiedere un prezzo.",
+    "eyebrow": "Lista preventivo",
+    "heading": "La tua lista preventivo",
+    "intro": "Controlla le pietre, aggiungi le quantità che ti servono e invia la lista. Rispondiamo con prezzi, tempi di consegna e opzioni di spedizione.",
+    "emptyTitle": "La tua lista preventivo è vuota",
+    "emptyText": "Apri una pietra e premi «Aggiungi al preventivo». Puoi aggiungere più pietre e inviarle in un’unica richiesta.",
+    "browse": "Sfoglia le pietre",
+    "finish": "Finitura",
+    "quantity": "Quantità",
+    "quantityPlaceholder": "es. 500 m² o 1 container",
+    "remove": "Rimuovi",
+    "addMore": "Aggiungi altre pietre",
+    "formTitle": "Invia la richiesta di preventivo",
+    "formSubtitle": "I tuoi dati, per risponderti con i prezzi delle pietre qui sopra.",
+    "send": "Invia richiesta di preventivo",
+    "add": "Aggiungi al preventivo",
+    "added": "Nella tua lista preventivo",
+    "viewList": "Vedi la lista",
+    "full": "La tua lista preventivo è piena (20 pietre)."
   }
 }

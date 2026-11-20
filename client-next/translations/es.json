@@ -1345,5 +1345,27 @@
     "save": "Guardar",
     "savedOk": "Guardado",
     "saveError": "No se pudo guardar. Inténtelo de nuevo."
+  },
+  "quote": {
+    "pageTitle": "Su lista de presupuesto | Wadi Degla",
+    "metaDescription": "Las piedras elegidas, con acabados y cantidades, listas para pedir precio.",
+    "eyebrow": "Lista de presupuesto",
+    "heading": "Su lista de presupuesto",
+    "intro": "Revise las piedras, añada las cantidades que necesita y envíe la lista. Le respondemos con precios, plazos y opciones de envío.",
+    "emptyTitle": "Su lista de presupuesto está vacía",
+    "emptyText": "Abra cualquier piedra y pulse «Añadir al presupuesto». Puede añadir varias piedras y enviarlas en una sola solicitud.",
+    "browse": "Ver piedras",
+    "finish": "Acabado",
+    "quantity": "Cantidad",
+    "quantityPlaceholder": "p. ej. 500 m² o 1 contenedor",
+    "remove": "Quitar",
+    "addMore": "Añadir más piedras",
+    "formTitle": "Envíe su solicitud de presupuesto",
+    "formSubtitle": "Sus datos, para responderle con los precios de las piedras anteriores.",
+    "send": "Enviar solicitud de presupuesto",
+    "add": "Añadir al presupuesto",
+    "added": "En su lista de presupuesto",
+    "viewList": "Ver la lista",
+    "full": "Su lista de presupuesto está llena (20 piedras)."
   }
 }

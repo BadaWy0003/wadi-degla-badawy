@@ -1345,5 +1345,27 @@
     "save": "保存",
     "savedOk": "已保存",
     "saveError": "保存失败，请重试。"
+  },
+  "quote": {
+    "pageTitle": "询价清单 | Wadi Degla",
+    "metaDescription": "您选择的石材及其表面处理和数量，可一次发送询价。",
+    "eyebrow": "询价清单",
+    "heading": "您的询价清单",
+    "intro": "请核对石材，填写所需数量，然后发送清单。我们将回复价格、交货期和运输方案。",
+    "emptyTitle": "您的询价清单为空",
+    "emptyText": "打开任意石材页面并点击“加入询价清单”。您可以添加多种石材，并在一次询价中发送。",
+    "browse": "浏览石材",
+    "finish": "表面处理",
+    "quantity": "数量",
+    "quantityPlaceholder": "例如：500 平方米或 1 个集装箱",
+    "remove": "移除",
+    "addMore": "添加更多石材",
+    "formTitle": "发送询价",
+    "formSubtitle": "请留下您的联系方式，以便我们回复上述石材的价格。",
+    "send": "发送询价",
+    "add": "加入询价清单",
+    "added": "已在询价清单中",
+    "viewList": "查看清单",
+    "full": "询价清单已满（20 种石材）。"
   }
 }
