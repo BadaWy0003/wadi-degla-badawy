@@ -960,7 +960,8 @@
     "bandTitle": "Plănuiești un proiect cu {{name}}?",
     "bandText": "Trimite-ne cantitatea și dimensiunile. Îți răspundem cu prețul și termenul de livrare.",
     "bandCta": "Scrie-ne pe WhatsApp",
-    "specSheet": "Descarcă fișa tehnică (PDF, engleză)"
+    "specSheet": "Descarcă fișa tehnică (PDF, engleză)",
+    "specSheetWait": "Se pregătește PDF-ul… descărcarea începe în câteva secunde."
   },
   "sampleRequestForm": {
     "successMessage": "Mesaj trimis cu succes!",

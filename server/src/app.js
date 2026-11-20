@@ -38,6 +38,12 @@ const server = app.listen(port, async () => {
   require('./services/pdfExport.service')
     .makeOldDocumentsPrivate()
     .catch((error) => console.error('[documents] make private failed:', error.message));
+  // Spec sheet PDFs: make the missing/out-of-date ones in the background, 2 minutes after start.
+  setTimeout(() => {
+    require('./services/spec-sheet.service')
+      .warmUp()
+      .catch((error) => console.error('[spec-sheets] warm-up failed:', error.message));
+  }, 2 * 60 * 1000).unref();
 });
 
 module.exports = server;

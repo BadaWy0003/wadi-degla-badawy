@@ -24,6 +24,14 @@ const LANGS = ['en', 'ar'];
 const ROOM_FINISHES = ['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'];
 const SITE = 'https://www.wadidegla-eg.com';
 
+// Categories are typed in the admin panel ("Egyptian Limestone " with a space, one-off names):
+// the same clean-up as normalizeType() in client-next/src/util/product-types.js.
+const TYPE_ALIASES = { 'Egyptian Emperador': 'Egyptian Marble', 'Egyptian Onyx': 'Egyptian Marble' };
+const cleanType = (type) => {
+  const t = String(type ?? '').trim();
+  return TYPE_ALIASES[t] || t;
+};
+
 const httpError = (statusCode, message) => Object.assign(new Error(message), { statusCode });
 const esc = (v) =>
   String(v ?? '')
@@ -183,7 +191,7 @@ async function loadStone(id) {
   const stone = doc.exists ? doc.data() : null;
   if (!stone || stone.hidden === true || !stone.name || !Array.isArray(stone.finishes)) throw httpError(404, 'Unknown stone.');
   return {
-    stone,
+    stone: { ...stone, name: String(stone.name).trim(), type: cleanType(stone.type) },
     details: details.exists ? details.data() : {},
     contact: { ...CONTACT, ...(company.exists ? company.data()?.data || {} : {}) },
   };
@@ -324,7 +332,7 @@ SpecSheetService.get = async (id, langAsked) => {
     const [meta] = await file.getMetadata();
     if (meta?.metadata?.key === key) {
       const [buffer] = await file.download();
-      return { buffer, fileName };
+      return { buffer, fileName, made: false };
     }
   } catch {
     // not made yet
@@ -342,7 +350,28 @@ SpecSheetService.get = async (id, langAsked) => {
       })().finally(() => making.delete(jobKey)),
     );
   }
-  return { buffer: await making.get(jobKey), fileName };
+  return { buffer: await making.get(jobKey), fileName, made: true };
+};
+
+// After the server starts: makes every visible stone's sheets that are missing or out of
+// date, one at a time, so visitors rarely wait for one (making one takes ~10-20 s on the
+// server). Sheets already up to date only cost a look at their Storage entry.
+SpecSheetService.warmUp = async () => {
+  const snap = await db.collection(col('materials')).get();
+  const ids = snap.docs.filter((d) => d.data()?.hidden !== true && d.data()?.name).map((d) => d.id);
+  let made = 0;
+  let failed = 0;
+  for (const id of ids) {
+    for (const lang of LANGS) {
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        if ((await SpecSheetService.get(id, lang)).made) made += 1;
+      } catch (e) {
+        failed += 1;
+      }
+    }
+  }
+  console.log(`[spec-sheets] ${ids.length} stones checked, ${made} sheets made, ${failed} failed`);
 };
 
 SpecSheetService.buildHtml = buildHtml; // for local previews

@@ -63,6 +63,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
   const [product, setProduct] = useState(initialProduct);
   const [loading, setLoading] = useState(!initialProduct);
   const [selectedFinish, setSelectedFinish] = useState(() => defaultFinish(initialProduct));
+  const [specWait, setSpecWait] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   // a room photo (interior/exterior) shown in the big frame instead of the finish photo
   const [roomPhoto, setRoomPhoto] = useState(null);
@@ -295,12 +296,20 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
               href={`${API_BASE}/api/storage/spec-sheet/${product.id}?lang=${lang === 'ar' ? 'ar' : 'en'}`}
               rel="nofollow"
               download
-              onClick={() =>
-                trackEvent('spec_sheet_download', { product_name: String(product.name).trim() })
-              }
+              onClick={() => {
+                trackEvent('spec_sheet_download', { product_name: String(product.name).trim() });
+                // a sheet not made yet takes a few seconds: say so until the download starts
+                setSpecWait(true);
+                setTimeout(() => setSpecWait(false), 12000);
+              }}
             >
               <FaFilePdf aria-hidden="true" /> {k('specSheet')}
             </a>
+            {specWait && (
+              <p className="spd-spec-wait" role="status">
+                {k('specSheetWait')}
+              </p>
+            )}
             <ul className="spd-trust">
               <li>{k('trustSamples')}</li>
               <li>{k('trustSince')}</li>

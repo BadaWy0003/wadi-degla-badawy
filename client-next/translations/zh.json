@@ -960,7 +960,8 @@
     "bandTitle": "计划使用{{name}}的项目？",
     "bandText": "请发送数量和规格，我们会回复价格和交货期。",
     "bandCta": "WhatsApp 咨询",
-    "specSheet": "下载规格表（PDF，英文）"
+    "specSheet": "下载规格表（PDF，英文）",
+    "specSheetWait": "正在准备 PDF… 几秒后开始下载。"
   },
   "sampleRequestForm": {
     "successMessage": "消息发送成功！",

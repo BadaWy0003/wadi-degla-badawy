@@ -960,7 +960,8 @@
     "bandTitle": "Po planifikoni një projekt me {{name}}?",
     "bandText": "Na dërgoni sasinë dhe përmasat. Ju përgjigjemi me çmimin dhe afatin e dorëzimit.",
     "bandCta": "Bisedoni në WhatsApp",
-    "specSheet": "Shkarko fletën teknike (PDF, anglisht)"
+    "specSheet": "Shkarko fletën teknike (PDF, anglisht)",
+    "specSheetWait": "Po përgatitet PDF-ja… shkarkimi fillon për pak sekonda."
   },
   "sampleRequestForm": {
     "successMessage": "Mesazh u dërgua me sukses!",
