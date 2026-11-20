@@ -21,6 +21,33 @@ export async function generateStaticParams() {
   return SUPPORTED_LANGS.flatMap((lang) => list.map((projectId) => ({ lang, projectId })));
 }
 
+// A project with no written description gets its own short one (name, place, up to 4 stones),
+// so project pages don't all share the Projects page's description. At most 155 characters:
+// stones are dropped from the end until it fits.
+function autoDescription(lang, project) {
+  const names = (project.materials || []).map((m) => m.name).filter(Boolean);
+  const list = (n) => new Intl.ListFormat(lang, { type: 'conjunction' }).format(n);
+  const fill = (key, stones, place) => {
+    let tpl = t(lang, key, '');
+    if (!place) tpl = tpl.replace(/[,،]\s*\{\{place\}\}|（\{\{place\}\}）/, '');
+    return tpl
+      .replace('{{name}}', project.name)
+      .replace('{{place}}', place)
+      .replace('{{stones}}', stones);
+  };
+  // with the place first; a long project name may need it left out
+  const places = [[project.city, project.country].filter(Boolean).join(', '), ''];
+  for (const place of [...new Set(places)]) {
+    for (let n = Math.min(names.length, 4); n > 0; n -= 1) {
+      const d = fill('projects.metaAuto', list(names.slice(0, n)), place);
+      if (d.length <= 155) return d;
+    }
+    const d = fill('projects.metaAutoNoStones', '', place);
+    if (d.length <= 155) return d;
+  }
+  return '';
+}
+
 export async function generateMetadata({ params }) {
   const { lang, projectId } = params;
   const project = await getProject(projectId, lang);
@@ -31,7 +58,10 @@ export async function generateMetadata({ params }) {
       ? project.name
       : `${project.name} | Wadi Degla`
     : t(lang, 'projects.pageTitle', 'ProjectDetails | Wadi Degla');
-  const description = project?.metaDescription || t(lang, 'projects.metaDescription', '');
+  const description =
+    project?.metaDescription ||
+    (project && autoDescription(lang, project)) ||
+    t(lang, 'projects.metaDescription', '');
   return {
     // Each project gets its own title, description (when written) and canonical URL.
     title,

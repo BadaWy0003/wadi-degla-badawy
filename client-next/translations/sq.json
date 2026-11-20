@@ -225,7 +225,7 @@
     "follow": "Ndiqni Wadi Degla"
   },
   "contact": {
-    "title": "Kontaktoni Wadi Degla | Furnizuesi Botëror i Marmorit dhe Gurit Natyral",
+    "title": "Kontaktoni Wadi Degla | Furnizues mermeri dhe guri",
     "metaDescription": "Kontaktoni Wadi Degla për mermer, granit dhe gur gëlqeror: çmime, mostra, specifikime dhe furnizim në mbarë botën.",
     "heroHeading": "NA KONTAKTONI",
     "breadcrumbHome": "Ballina",
@@ -1214,6 +1214,8 @@
   "projects": {
     "pageTitle": "Projektet Tona | Wadi Degla",
     "metaDescription": "Eksploroni projektet e përfunduara të Wadi Degla në të gjithë botën me instalime mermeri dhe graniti të cilësisë së lartë.",
+    "metaAuto": "{{name}}, {{place}}: projekt i realizuar me {{stones}} nga Wadi Degla, eksportues egjiptian i mermerit dhe granitit.",
+    "metaAutoNoStones": "{{name}}, {{place}}: projekt i realizuar me gur natyror nga Wadi Degla, eksportues egjiptian i mermerit dhe granitit.",
     "breadcrumbHome": "Shtëpi",
     "breadcrumbCurrent": "Projektet",
     "projectNotFound": "Projekti nuk u gjet",

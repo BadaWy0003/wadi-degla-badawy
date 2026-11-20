@@ -1214,6 +1214,8 @@
   "projects": {
     "pageTitle": "我们的项目 | 瓦迪·德格拉",
     "metaDescription": "探索瓦迪·德格拉在全球完成的以优质大理石和花岗岩安装为特色的项目。",
+    "metaAuto": "{{name}}（{{place}}）：采用埃及大理石和花岗岩出口商 Wadi Degla 供应的 {{stones}} 建成的项目。",
+    "metaAutoNoStones": "{{name}}（{{place}}）：采用埃及大理石和花岗岩出口商 Wadi Degla 供应的天然石材建成的项目。",
     "breadcrumbHome": "首页",
     "breadcrumbCurrent": "项目",
     "projectNotFound": "未找到项目",

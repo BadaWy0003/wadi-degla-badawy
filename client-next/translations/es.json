@@ -225,7 +225,7 @@
     "follow": "Siga a Wadi Degla"
   },
   "contact": {
-    "title": "Contacte a Wadi Degla | Proveedor de Mármol y Piedra Natural en todo el mundo",
+    "title": "Contacte a Wadi Degla | Proveedor de mármol y piedra",
     "metaDescription": "Contacte con Wadi Degla para mármol, granito y caliza: precios, muestras, especificaciones y suministro a todo el mundo.",
     "heroHeading": "CONTÁCTANOS",
     "breadcrumbHome": "Inicio",
@@ -1214,6 +1214,8 @@
   "projects": {
     "pageTitle": "Nuestros Proyectos | Wadi Degla",
     "metaDescription": "Explore los proyectos completados de Wadi Degla en todo el mundo con instalaciones de mármol y granito de primera calidad.",
+    "metaAuto": "{{name}}, {{place}}: proyecto realizado con {{stones}} de Wadi Degla, exportador egipcio de mármol y granito.",
+    "metaAutoNoStones": "{{name}}, {{place}}: proyecto realizado con piedra natural de Wadi Degla, exportador egipcio de mármol y granito.",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Proyectos",
     "projectNotFound": "Proyecto no encontrado",

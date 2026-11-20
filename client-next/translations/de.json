@@ -225,7 +225,7 @@
     "follow": "Wadi Degla folgen"
   },
   "contact": {
-    "title": "Kontaktieren Sie Wadi Degla | Marmor- und Natursteinlieferant weltweit",
+    "title": "Kontakt Wadi Degla | Marmor- und Natursteinlieferant",
     "metaDescription": "Kontaktieren Sie Wadi Degla für Marmor, Granit und Kalkstein: Preise, Muster, technische Daten und weltweite Lieferung.",
     "heroHeading": "KONTAKTIEREN SIE UNS",
     "breadcrumbHome": "Startseite",
@@ -1214,6 +1214,8 @@
   "projects": {
     "pageTitle": "Unsere Projekte | Wadi Degla",
     "metaDescription": "Erkunden Sie die abgeschlossenen Projekte von Wadi Degla auf der ganzen Welt mit hochwertigen Marmor- und Granitinstallationen.",
+    "metaAuto": "{{name}}, {{place}}: Projekt mit {{stones}} von Wadi Degla, dem ägyptischen Exporteur von Marmor und Granit.",
+    "metaAutoNoStones": "{{name}}, {{place}}: Projekt mit Naturstein von Wadi Degla, dem ägyptischen Exporteur von Marmor und Granit.",
     "breadcrumbHome": "Startseite",
     "breadcrumbCurrent": "Projekte",
     "projectNotFound": "Projekt nicht gefunden",

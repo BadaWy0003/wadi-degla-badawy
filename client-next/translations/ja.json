@@ -1214,6 +1214,8 @@
   "projects": {
     "pageTitle": "当社のプロジェクト | ワディ デグラ",
     "metaDescription": "高品質の大理石とグラニットの設置を備えたワディ デグラの世界中の完成したプロジェクトを探索してください。",
+    "metaAuto": "{{name}}（{{place}}）：エジプトの大理石・花崗岩輸出企業 Wadi Degla の {{stones}} を使用したプロジェクトです。",
+    "metaAutoNoStones": "{{name}}（{{place}}）：エジプトの大理石・花崗岩輸出企業 Wadi Degla の天然石を使用したプロジェクトです。",
     "breadcrumbHome": "ホーム",
     "breadcrumbCurrent": "プロジェクト",
     "projectNotFound": "プロジェクトが見つかりません",

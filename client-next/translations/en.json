@@ -225,7 +225,7 @@
     "follow": "Follow Wadi Degla"
   },
   "contact": {
-    "title": "Contact Wadi Degla | Marble & Natural Stone Supplier Worldwide",
+    "title": "Contact Wadi Degla | Marble & Natural Stone Supplier",
     "metaDescription": "Contact Wadi Degla for marble, granite and limestone: prices, samples, specifications and worldwide supply by WhatsApp, phone, email or form.",
     "heroHeading": "CONTACT US",
     "breadcrumbHome": "Home",
@@ -1214,6 +1214,8 @@
   "projects": {
     "pageTitle": "Marble & Stone Projects Worldwide | Wadi Degla",
     "metaDescription": "Hotels, homes, offices and embassies built with Wadi Degla stone in the Caribbean, Kenya, Kuwait, Romania, Egypt, Australia and Latin America.",
+    "metaAuto": "{{name}}, {{place}}: a project built with {{stones}} supplied by Wadi Degla, the Egyptian marble and granite exporter.",
+    "metaAutoNoStones": "{{name}}, {{place}}: a project built with natural stone supplied by Wadi Degla, the Egyptian marble and granite exporter.",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Projects",
     "projectNotFound": "Project not found",

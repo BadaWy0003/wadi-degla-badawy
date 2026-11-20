@@ -225,7 +225,7 @@
     "follow": "Urmăriți Wadi Degla"
   },
   "contact": {
-    "title": "Contactați Wadi Degla | Furnizor de Marmură și Piatră Naturală Mondial",
+    "title": "Contactați Wadi Degla | Marmură și piatră naturală",
     "metaDescription": "Contactează Wadi Degla pentru marmură, granit și calcar: prețuri, mostre, specificații și livrare în toată lumea.",
     "heroHeading": "CONTACTAȚI-NE",
     "breadcrumbHome": "Acasă",
@@ -1217,6 +1217,8 @@
   "projects": {
     "pageTitle": "Proiectele Noastre | Wadi Degla",
     "metaDescription": "Explorați proiectele finalizate de Wadi Degla din întreaga lume cu instalații de marmură și granit de calitate superioară.",
+    "metaAuto": "{{name}}, {{place}}: proiect realizat cu {{stones}} de la Wadi Degla, exportator egiptean de marmură și granit.",
+    "metaAutoNoStones": "{{name}}, {{place}}: proiect realizat cu piatră naturală de la Wadi Degla, exportator egiptean de marmură și granit.",
     "breadcrumbHome": "Acasă",
     "breadcrumbCurrent": "Proiecte",
     "projectNotFound": "Proiectul nu a fost găsit",

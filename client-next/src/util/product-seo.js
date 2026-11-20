@@ -129,13 +129,22 @@ export function productMetaDescription(lang, product, details) {
   const own = firstSentence(details?.description?.[lang]);
   const identity = shortIdentity(lang, product);
 
-  const build = (withAlso) => {
+  // In longer languages (e.g. French) the stone's sentence and the whole tail may not fit
+  // together: then only the tail's first sentence ("Exported worldwide since 1980.") is kept,
+  // rather than leaving the stone out.
+  const shortTail = tail.split(stop)[0].trim() + stop;
+  const build = (withAlso, end = tail) => {
     const extra = withAlso && also ? `${/^[(]/.test(also) ? ' ' : ''}${also}` : '';
-    const room = DESCRIPTION_MAX - tail.length - gap.length - extra.length;
+    const room = DESCRIPTION_MAX - end.length - gap.length - extra.length;
     const sentence = fitSentence(own, room, stop) || fitSentence(identity, room, stop);
-    return sentence ? `${sentence.slice(0, -1)}${extra}${stop}${gap}${tail}` : '';
+    return sentence ? `${sentence.slice(0, -1)}${extra}${stop}${gap}${end}` : '';
   };
-  return build(true) || build(false) || tail;
+  return (
+    build(true) ||
+    build(false) ||
+    (shortTail !== tail && (build(true, shortTail) || build(false, shortTail))) ||
+    tail
+  );
 }
 
 export function productIntro(lang, product) {
