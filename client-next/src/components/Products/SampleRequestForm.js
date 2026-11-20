@@ -51,6 +51,12 @@ export default function SampleRequestForm({
         </ul>
       `,
         extraFields: '',
+        // the same details as separate fields, for the admin panel's Enquiries inbox
+        kind: 'sample',
+        product: productName,
+        finish: productFinish,
+        page: window.location.pathname,
+        lang: document.documentElement.lang || '',
         // Spam trap: hidden field that only bots fill in
         website: e.target.elements.website?.value || '',
       }),

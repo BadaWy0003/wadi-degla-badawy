@@ -146,6 +146,19 @@ export default function ContactForm() {
       <p><strong>Port of Destination:</strong> ${formData.port}</p>
     `,
     );
+    // The same details as separate fields, for the admin panel's Enquiries inbox
+    const fields = {
+      kind: 'contact',
+      company: formData.cname,
+      phone: formData.phone,
+      whatsapp: formData.whatsapp,
+      country: formData.country?.label || '',
+      address: formData.address,
+      port: formData.port,
+      page: window.location.pathname,
+      lang: document.documentElement.lang || '',
+    };
+    Object.entries(fields).forEach(([k, v]) => payload.append(k, v || ''));
     if (formData.attachment) payload.append('attachment', formData.attachment);
 
     try {

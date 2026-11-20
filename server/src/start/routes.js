@@ -9,6 +9,7 @@ const NewsRouter = require('../routes/news.route');
 const ProjectsRouter = require('../routes/projects.route');
 const PublishRouter = require('../routes/publish.route');
 const SiteContentRouter = require('../routes/site-content.route');
+const EnquiriesRouter = require('../routes/enquiries.route');
 
 module.exports = (app) => {
   app.use('/api/index', IndexRouter);
@@ -22,5 +23,6 @@ module.exports = (app) => {
   app.use('/api/projects', ProjectsRouter);
   app.use('/api/publish', PublishRouter);
   app.use('/api/content', SiteContentRouter);
+  app.use('/api/enquiries', EnquiriesRouter);
   app.use('/api/send-email', require('../routes/sendEmail'));
 };
