@@ -960,7 +960,8 @@
     "bandTitle": "Planning a project with {{name}}?",
     "bandText": "Send us the quantity and sizes. We reply with a price and lead time.",
     "bandCta": "Chat on WhatsApp",
-    "specSheet": "Download spec sheet (PDF)"
+    "specSheet": "Download spec sheet (PDF)",
+    "specSheetWait": "Preparing the PDF… the download starts in a few seconds."
   },
   "sampleRequestForm": {
     "successMessage": "Message sent successfully!",

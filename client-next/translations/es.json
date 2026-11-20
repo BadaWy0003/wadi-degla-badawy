@@ -960,7 +960,8 @@
     "bandTitle": "¿Planea un proyecto con {{name}}?",
     "bandText": "Envíenos la cantidad y las medidas. Le respondemos con precio y plazo de entrega.",
     "bandCta": "Hablar por WhatsApp",
-    "specSheet": "Descargar la ficha técnica (PDF, inglés)"
+    "specSheet": "Descargar la ficha técnica (PDF, inglés)",
+    "specSheetWait": "Preparando el PDF… la descarga empieza en unos segundos."
   },
   "sampleRequestForm": {
     "successMessage": "¡Mensaje enviado exitosamente!",

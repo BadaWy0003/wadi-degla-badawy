@@ -657,6 +657,12 @@ html[dir='rtl'] .spd-crumb span[aria-hidden] {
   text-decoration: underline;
 }
 
+.spd .spd-spec-wait {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--spd-muted);
+}
+
 /* ---------- "Add to quote list" (src/components/Quote/AddToQuote.js) ---------- */
 .spd .qt-add {
   border-style: dashed;

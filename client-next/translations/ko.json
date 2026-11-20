@@ -960,7 +960,8 @@
     "bandTitle": "{{name}}(으)로 프로젝트를 계획 중이신가요?",
     "bandText": "수량과 규격을 보내 주시면 가격과 납기를 알려 드립니다.",
     "bandCta": "WhatsApp 상담",
-    "specSheet": "사양서 다운로드 (PDF, 영어)"
+    "specSheet": "사양서 다운로드 (PDF, 영어)",
+    "specSheetWait": "PDF를 준비하는 중… 몇 초 후 다운로드가 시작됩니다."
   },
   "sampleRequestForm": {
     "successMessage": "메시지가 성공적으로 전송되었습니다!",
