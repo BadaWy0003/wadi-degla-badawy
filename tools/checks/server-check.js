@@ -82,6 +82,8 @@ const CHECKS = [
   ['GET', '/api/projects', 'none', 200],
   ['GET', '/api/content', 'none', 200],
   ['GET', '/api/order/my-invoices', 'none', 404], // removed 2026-11-20
+  ['GET', '/api/storage/spec-sheet/unknown-stone?lang=ar', 'none', 404], // spec sheet PDF (2026-11-20)
+  ['GET', '/api/storage/spec-sheet/bad!id', 'none', 400],
   // admin pages: refused when logged out
   ['GET', '/api/overview/admin', 'none', 401],
   ['GET', '/api/enquiries/admin', 'none', 401],

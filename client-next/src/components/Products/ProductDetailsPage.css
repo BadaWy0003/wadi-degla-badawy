@@ -642,6 +642,21 @@ html[dir='rtl'] .spd-crumb span[aria-hidden] {
   }
 }
 
+/* ---------- spec sheet PDF link (under "Add to quote list") ---------- */
+.spd .spd-spec {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: var(--spd-gold-hi);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.spd .spd-spec:hover {
+  text-decoration: underline;
+}
+
 /* ---------- "Add to quote list" (src/components/Quote/AddToQuote.js) ---------- */
 .spd .qt-add {
   border-style: dashed;

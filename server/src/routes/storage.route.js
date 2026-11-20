@@ -8,6 +8,8 @@ const validate = require('../middlewares/request-validator.middleware');
 const ProductDetailsController = require('../controllers/product-details.controller');
 const { productDetailsReqSchema } = require('../validations/product-details.validation.schema');
 const UnusedPhotos = require('../services/unused-photos.service');
+const SpecSheet = require('../services/spec-sheet.service');
+const { rateLimit } = require('../middlewares/rate-limit.middleware');
 
 const router = express.Router();
 
@@ -63,5 +65,23 @@ router.post(
   authorize('ADMIN'),
   handle(() => UnusedPhotos.restore()),
 );
+
+// The website's "Download spec sheet" (public): a PDF per stone, kept until its data changes.
+const specSheetLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 30 });
+router.get('/spec-sheet/:id', specSheetLimit, async (req, res) => {
+  try {
+    const { buffer, fileName } = await SpecSheet.get(req.params.id, String(req.query.lang || 'en'));
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `attachment; filename="${fileName}"`,
+      'Cache-Control': 'public, max-age=3600',
+    });
+    return res.send(buffer);
+  } catch (error) {
+    if (error.statusCode) return res.status(error.statusCode).json({ message: error.message });
+    console.error('Spec sheet error:', error.message);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 module.exports = router;
