@@ -959,7 +959,8 @@
     "exterior": "屋外",
     "bandTitle": "{{name}}を使うプロジェクトをご計画中ですか？",
     "bandText": "数量とサイズをお送りください。価格と納期をご返信します。",
-    "bandCta": "WhatsAppで相談"
+    "bandCta": "WhatsAppで相談",
+    "specSheet": "仕様書をダウンロード（PDF・英語）"
   },
   "sampleRequestForm": {
     "successMessage": "メッセージが正常に送信されました！",

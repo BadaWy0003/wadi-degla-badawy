@@ -959,7 +959,8 @@
     "exterior": "Экстерьер",
     "bandTitle": "Планируете проект с {{name}}?",
     "bandText": "Пришлите количество и размеры. Мы ответим ценой и сроком поставки.",
-    "bandCta": "Написать в WhatsApp"
+    "bandCta": "Написать в WhatsApp",
+    "specSheet": "Скачать спецификацию (PDF, англ.)"
   },
   "sampleRequestForm": {
     "successMessage": "Сообщение успешно отправлено!",

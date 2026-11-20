@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './Products.css';
 import './ProductDetailsPage.css';
 import { WHATSAPP_URL } from '../Contact/contactData';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaFilePdf } from 'react-icons/fa';
 import LangLink from '../LangLink';
 const block = '/Assets/Icons/product-icons/block.svg';
 const exterior_cladding = '/Assets/Icons/product-icons/exterior-cladding.svg';
@@ -26,6 +26,7 @@ import { finishLabel } from '../../util/finishes';
 import { productSlug } from '../../util/product-slugs';
 import Product from './Product';
 import AddToQuote from '../Quote/AddToQuote';
+import { trackEvent } from '../../util/analytics';
 import { cardImageProps, smallestStonePhoto } from '../../util/responsive-img';
 import { normalizeProducts } from '../../util/product-types';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
@@ -50,6 +51,10 @@ const defaultFinish = (product) =>
 // seo (built at build time by the page, see src/util/product-seo.js): the search-friendly
 // heading ("Galala Marble"), a short description from the product's data, related stones
 // and the projects that used this stone. Shown under the product, as plain text and links.
+// the spec sheet PDF is made by the server (server/src/services/spec-sheet.service.js)
+const API_BASE =
+  process.env.NEXT_PUBLIC_BASE_API_URL || 'https://server-withered-wildflower-1595.fly.dev';
+
 export default function ProductDetails({ initialProduct = null, seo = null }) {
   const { t } = useTranslation();
   const { productName } = useParams();
@@ -285,6 +290,17 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
               finishes={finishes.map((f) => f.finish)}
               photo={smallestStonePhoto(selectedFinish)}
             />
+            <a
+              className="spd-spec"
+              href={`${API_BASE}/api/storage/spec-sheet/${product.id}?lang=${lang === 'ar' ? 'ar' : 'en'}`}
+              rel="nofollow"
+              download
+              onClick={() =>
+                trackEvent('spec_sheet_download', { product_name: String(product.name).trim() })
+              }
+            >
+              <FaFilePdf aria-hidden="true" /> {k('specSheet')}
+            </a>
             <ul className="spd-trust">
               <li>{k('trustSamples')}</li>
               <li>{k('trustSince')}</li>

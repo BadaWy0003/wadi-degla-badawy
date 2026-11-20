@@ -959,7 +959,8 @@
     "exterior": "Exterior",
     "bandTitle": "Plănuiești un proiect cu {{name}}?",
     "bandText": "Trimite-ne cantitatea și dimensiunile. Îți răspundem cu prețul și termenul de livrare.",
-    "bandCta": "Scrie-ne pe WhatsApp"
+    "bandCta": "Scrie-ne pe WhatsApp",
+    "specSheet": "Descarcă fișa tehnică (PDF, engleză)"
   },
   "sampleRequestForm": {
     "successMessage": "Mesaj trimis cu succes!",
