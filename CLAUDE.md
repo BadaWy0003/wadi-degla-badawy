@@ -12,7 +12,7 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 - One logical change per commit; keep this file updated in the same PR as the change.
 - Never print or commit secrets (list secret *names* only).
 - PR descriptions: plain English sections (Why / Changes / Checks), no "Generated with Claude Code" line.
-- Test before every PR: website = local `npm run build` (in cloud sessions with `NODE_USE_ENV_PROXY=1`) + Playwright screenshots of the changed pages (phone + desktop, EN + AR); admin panel = the mocked-API method in Gotchas; server = load the changed route file and call it with stubbed auth (a mocked API alone missed a real route bug once, 2026-11-18).
+- Test before every PR: website = local `npm run build` (in cloud sessions with `NODE_USE_ENV_PROXY=1`) + `tools/checks/seo-check.py` + `tools/checks/phone-check.js` + Playwright screenshots of the changed pages (phone + desktop, EN + AR); admin panel = the mocked-API method in Gotchas; server = `node tools/checks/server-check.js` (add a line for a new route) plus a test of the changed route with stubbed auth (a mocked API alone missed a real route bug once, 2026-11-18). See `tools/checks/README.md`.
 - Checks on GitHub (`checks.yml`) only when the owner asks.
 
 ## Apps in this repo
@@ -22,8 +22,8 @@ Live site for Wadi Degla (Egyptian marble, granite and limestone exporter): http
 | `server/` | Express 4 API on Node 22: email, products/gallery, auth, PDF export | `server-withered-wildflower-1595` (fra) | live |
 | `admin-dashboard/` | CRA + React 19 + MUI admin panel (products, gallery, users, PDFs) | `admin-dashboard-withered-waterfall-6127` | works at **https://admin.wadidegla-eg.com/login** (Fly certificate issued 2026-11-03; the old https://admin-dashboard-withered-waterfall-6127.fly.dev address still works and stays in the server's CORS list); machines sleep and auto-start on visit |
 | staging (3 apps) | Private test copy: `fly.staging.toml` in `server/`, `admin-dashboard/`, `client-next/` | `wadi-degla-server-staging`, `wadi-degla-admin-staging`, `wadi-degla-site-staging` | see Staging below |
-| (`client/`, deleted 2026-11-20) | OLD CRA website, replaced by client-next in March 2026; the folder was removed (it's in the git history) | `client-rough-dawn-8020` | suspended; `deploy-client.yml` still exists but has nothing to deploy |
-| `tools/` | `optimize-images.js`: sharp batch converter to WebP (max 1600 px, q75) | n/a | n/a |
+| (`client/`, deleted 2026-11-20) | OLD CRA website, replaced by client-next in March 2026; the folder and its `deploy-client.yml` workflow were removed (both are in the git history) | `client-rough-dawn-8020` | suspended |
+| `tools/` | `optimize-images.js`: sharp batch converter to WebP (max 1600 px, q75); photo helpers; **`checks/`**: the server, SEO & links and phone layout checks (`tools/checks/README.md`) | n/a | n/a |
 
 ## Data
 - **Products + gallery**: Firestore collection `materials`, with images in Firebase Storage (`uploads/<type>/...`). They're read at runtime through `GET /api/storage/all` and `GET /api/storage/type/:type`, and edited through the admin dashboard.
@@ -208,7 +208,7 @@ docker run -p 8080:80 wd-site
 ```
 - Lint: `cd client-next && npx next lint` (0 errors and 87 warnings as of 2026-10-31; `next build` fails on lint *errors*). `cd server && npx eslint .` (122 known problems, not yet cleaned up).
 - Format: Prettier per app (`client-next/.prettierrc.json`: single quotes, width 100; `server/.prettierrc.json`; `admin-dashboard/.prettierrc`). A Claude hook (`.claude/hooks/format-edited-file.sh`) formats **only the file just edited**. Don't mass-format the repo.
-- Tests: none exist.
+- Tests: no unit tests; the checks in `tools/checks/` (server routes, SEO & links, phone layout) are run by hand before each PR (2026-11-20).
 
 ## Deployment (Fly.io via GitHub Actions)
 - `.github/workflows/deploy-*.yml` run `flyctl deploy --remote-only` when started by hand (since 2026-11-18; before, on every push to `main`). Secret: `FLY_API_TOKEN`.
@@ -217,7 +217,6 @@ docker run -p 8080:80 wd-site
   - **No automatic checks on pull requests.** `.github/workflows/checks.yml` runs only when started by hand (Actions > Checks > Run workflow, branch + app or "all"), when the owner asks for a check every few builds. Claude can start it (`actions_run_trigger`, workflow `checks.yml`, inputs `{app}`). Every change is still built and tested in the Claude session before its pull request (free).
   - The website and admin deploys (merge and Publish) don't run the checks first: their Docker build on Fly runs the same build (with lint for the website), and a failed build never replaces the live site. The server deploy still runs its ~1-minute syntax check first (a syntax error would not stop its Docker build and would break the live API).
   - Group several small changes into one PR when possible. Deploys are queued, never cancelled halfway.
-- `deploy-client.yml` (old site) is manual-only (`workflow_dispatch`); since `client/` was deleted (2026-11-20) it has nothing to deploy.
 - Third-party actions are pinned to a commit SHA (`superfly/flyctl-actions/setup-flyctl@ed8efb3…  # 1.6`).
 - **Merging to main = going live once deployed** (deploys are manual since 2026-11-18). Never push to `main` directly. Use a branch + PR; Claude merges it once tested (owner's standing OK, 2026-11-18).
 - Before a deploy, note the current release: `fly releases -a <app>`.
