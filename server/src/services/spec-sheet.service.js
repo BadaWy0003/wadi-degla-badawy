@@ -58,8 +58,8 @@ const L = {
     address: '36, 241D Shaq Al-Thoaban Industrial Area for Marble & Granite, Tourrah, Cairo, Egypt',
     company: 'Wadi Degla Co. · Egyptian marble, granite & limestone since 1980 · ISO 9001:2015',
     note: 'Natural stone: colour and veining vary from block to block. Figures are typical values. Ask for a sample before ordering.',
-    forms_: { slabs: 'Slabs', tiles: 'Tiles (cut to size)', blocks: 'Blocks' },
-    uses_: {
+    formNames: { slabs: 'Slabs', tiles: 'Tiles (cut to size)', blocks: 'Blocks' },
+    useNames: {
       flooring: 'Flooring',
       wallCladding: 'Wall cladding',
       exteriorCladding: 'Exterior cladding & facades',
@@ -93,8 +93,8 @@ const L = {
     address: '36، 241د منطقة شق الثعبان الصناعية للرخام والجرانيت، طرة، القاهرة، مصر',
     company: 'شركة وادي دجلة · رخام وجرانيت وحجر جيري مصري منذ 1980 · ISO 9001:2015',
     note: 'حجر طبيعي: يختلف اللون والعروق من بلوك لآخر. الأرقام قيم معتادة. اطلب عينة قبل الطلب.',
-    forms_: { slabs: 'ألواح', tiles: 'بلاطات (مقصوصة على المقاس)', blocks: 'بلوكات' },
-    uses_: {
+    formNames: { slabs: 'ألواح', tiles: 'بلاطات (مقصوصة على المقاس)', blocks: 'بلوكات' },
+    useNames: {
       flooring: 'الأرضيات',
       wallCladding: 'تكسيات الحوائط',
       exteriorCladding: 'تكسيات الواجهات الخارجية',
@@ -210,7 +210,7 @@ async function buildHtml({ stone, details, contact }, lang) {
     [
       w.forms,
       (details.forms || [])
-        .map((f) => w.forms_[f])
+        .map((f) => w.formNames[f])
         .filter(Boolean)
         .join(' · '),
     ],
@@ -221,7 +221,7 @@ async function buildHtml({ stone, details, contact }, lang) {
       typeof details.tech?.[k] === 'number' ? `${details.tech[k].toLocaleString('en-US')} ${unit}` : '',
     ]),
   ].filter(([, v]) => v);
-  const uses = (details.uses || []).map((u) => w.uses_[u]).filter(Boolean);
+  const uses = (details.uses || []).map((u) => w.useNames[u]).filter(Boolean);
   const description = (lang === 'ar' && details.description?.ar) || details.description?.en || '';
   const otherNames = (details.otherNames || []).filter((n) => n.toLowerCase() !== stone.name.toLowerCase());
   const pageUrl = `${SITE}/${lang}/products/${slugOf(stone.name)}/`;
