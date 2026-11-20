@@ -875,7 +875,22 @@
     "noResults": "لا توجد أحجار تطابق «{{query}}».",
     "finishOne": "تشطيب واحد",
     "bandTitle": "لست متأكدًا من الحجر المناسب لمشروعك؟",
-    "bandText": "أخبرنا بالاستخدام والكمية والميزانية، وسنقترح الأحجار ونرسل الأسعار."
+    "bandText": "أخبرنا بالاستخدام والكمية والميزانية، وسنقترح الأحجار ونرسل الأسعار.",
+    "finderTitle": "اعثر على حجرك",
+    "filterColour": "اللون",
+    "filterUse": "الاستخدام",
+    "filterOrigin": "المنشأ",
+    "finderCount": "عدد الأحجار: {{count}}",
+    "finderClear": "مسح الفلاتر",
+    "finderNone": "لا يوجد حجر يطابق هذه الفلاتر.",
+    "colour_white": "أبيض",
+    "colour_beige": "بيج وكريمي",
+    "colour_grey": "رمادي",
+    "colour_black": "أسود وداكن",
+    "colour_brown": "بني",
+    "colour_red": "أحمر ووردي",
+    "colour_gold": "ذهبي وأصفر",
+    "colour_green": "أخضر"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "مورد مصري، ألواح وبلاطات",

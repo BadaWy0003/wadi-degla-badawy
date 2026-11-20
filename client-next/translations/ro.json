@@ -875,7 +875,22 @@
     "noResults": "Nicio piatră nu corespunde cu „{{query}}”.",
     "finishOne": "1 finisaj",
     "bandTitle": "Nu știi ce piatră se potrivește proiectului tău?",
-    "bandText": "Spune-ne utilizarea, cantitatea și bugetul. Îți sugerăm pietre și trimitem prețuri."
+    "bandText": "Spune-ne utilizarea, cantitatea și bugetul. Îți sugerăm pietre și trimitem prețuri.",
+    "finderTitle": "Găsește-ți piatra",
+    "filterColour": "Culoare",
+    "filterUse": "Utilizare",
+    "filterOrigin": "Origine",
+    "finderCount": "Pietre găsite: {{count}}",
+    "finderClear": "Șterge filtrele",
+    "finderNone": "Nicio piatră nu corespunde acestor filtre.",
+    "colour_white": "Alb",
+    "colour_beige": "Bej și crem",
+    "colour_grey": "Gri",
+    "colour_black": "Negru și închis",
+    "colour_brown": "Maro",
+    "colour_red": "Roșu și roz",
+    "colour_gold": "Auriu și galben",
+    "colour_green": "Verde"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Furnizor egiptean, plăci și dale",

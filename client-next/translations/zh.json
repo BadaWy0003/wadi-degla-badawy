@@ -875,7 +875,22 @@
     "noResults": "没有与“{{query}}”匹配的石材。",
     "finishOne": "1 种表面处理",
     "bandTitle": "不确定哪种石材适合您的项目？",
-    "bandText": "告诉我们用途、数量和预算，我们会推荐石材并报价。"
+    "bandText": "告诉我们用途、数量和预算，我们会推荐石材并报价。",
+    "finderTitle": "查找您的石材",
+    "filterColour": "颜色",
+    "filterUse": "用途",
+    "filterOrigin": "产地",
+    "finderCount": "找到的石材：{{count}}",
+    "finderClear": "清除筛选",
+    "finderNone": "没有符合这些筛选条件的石材。",
+    "colour_white": "白色",
+    "colour_beige": "米色和奶油色",
+    "colour_grey": "灰色",
+    "colour_black": "黑色和深色",
+    "colour_brown": "棕色",
+    "colour_red": "红色和粉色",
+    "colour_gold": "金色和黄色",
+    "colour_green": "绿色"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "埃及供应商，大板与板材",

@@ -875,7 +875,22 @@
     "noResults": "Ninguna piedra coincide con «{{query}}».",
     "finishOne": "1 acabado",
     "bandTitle": "¿No sabe qué piedra encaja en su proyecto?",
-    "bandText": "Indíquenos el uso, la cantidad y el presupuesto. Le sugerimos piedras y le enviamos precios."
+    "bandText": "Indíquenos el uso, la cantidad y el presupuesto. Le sugerimos piedras y le enviamos precios.",
+    "finderTitle": "Encuentre su piedra",
+    "filterColour": "Color",
+    "filterUse": "Uso",
+    "filterOrigin": "Origen",
+    "finderCount": "Piedras encontradas: {{count}}",
+    "finderClear": "Borrar filtros",
+    "finderNone": "Ninguna piedra coincide con estos filtros.",
+    "colour_white": "Blanco",
+    "colour_beige": "Beige y crema",
+    "colour_grey": "Gris",
+    "colour_black": "Negro y oscuro",
+    "colour_brown": "Marrón",
+    "colour_red": "Rojo y rosa",
+    "colour_gold": "Dorado y amarillo",
+    "colour_green": "Verde"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Proveedor egipcio, planchas y baldosas",

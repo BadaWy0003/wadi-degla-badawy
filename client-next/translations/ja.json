@@ -875,7 +875,22 @@
     "noResults": "「{{query}}」に一致する石材はありません。",
     "finishOne": "仕上げ 1 種",
     "bandTitle": "プロジェクトに合う石材でお迷いですか？",
-    "bandText": "用途、数量、ご予算をお知らせください。石材をご提案し、価格をお送りします。"
+    "bandText": "用途、数量、ご予算をお知らせください。石材をご提案し、価格をお送りします。",
+    "finderTitle": "石材を探す",
+    "filterColour": "色",
+    "filterUse": "用途",
+    "filterOrigin": "産地",
+    "finderCount": "該当する石材：{{count}}",
+    "finderClear": "フィルターをクリア",
+    "finderNone": "この条件に合う石材はありません。",
+    "colour_white": "ホワイト",
+    "colour_beige": "ベージュ・クリーム",
+    "colour_grey": "グレー",
+    "colour_black": "ブラック・ダーク",
+    "colour_brown": "ブラウン",
+    "colour_red": "レッド・ピンク",
+    "colour_gold": "ゴールド・イエロー",
+    "colour_green": "グリーン"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "エジプトのサプライヤー、スラブ・タイル",

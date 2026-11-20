@@ -875,7 +875,22 @@
     "noResults": "Kein Stein passt zu „{{query}}“.",
     "finishOne": "1 Oberfläche",
     "bandTitle": "Nicht sicher, welcher Stein zu Ihrem Projekt passt?",
-    "bandText": "Nennen Sie uns Einsatz, Menge und Budget. Wir schlagen Steine vor und senden Preise."
+    "bandText": "Nennen Sie uns Einsatz, Menge und Budget. Wir schlagen Steine vor und senden Preise.",
+    "finderTitle": "Finden Sie Ihren Stein",
+    "filterColour": "Farbe",
+    "filterUse": "Verwendung",
+    "filterOrigin": "Herkunft",
+    "finderCount": "Gefundene Steine: {{count}}",
+    "finderClear": "Filter zurücksetzen",
+    "finderNone": "Kein Stein passt zu diesen Filtern.",
+    "colour_white": "Weiß",
+    "colour_beige": "Beige & Creme",
+    "colour_grey": "Grau",
+    "colour_black": "Schwarz & dunkel",
+    "colour_brown": "Braun",
+    "colour_red": "Rot & Rosa",
+    "colour_gold": "Gold & Gelb",
+    "colour_green": "Grün"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Ägyptischer Lieferant, Platten & Fliesen",

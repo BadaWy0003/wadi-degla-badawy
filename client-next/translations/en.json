@@ -875,7 +875,22 @@
     "noResults": "No stones match “{{query}}”.",
     "finishOne": "1 finish",
     "bandTitle": "Not sure which stone fits your project?",
-    "bandText": "Tell us the use, quantity and budget. We suggest stones and send prices."
+    "bandText": "Tell us the use, quantity and budget. We suggest stones and send prices.",
+    "finderTitle": "Find your stone",
+    "filterColour": "Colour",
+    "filterUse": "Use",
+    "filterOrigin": "Origin",
+    "finderCount": "Stones found: {{count}}",
+    "finderClear": "Clear filters",
+    "finderNone": "No stone matches these filters.",
+    "colour_white": "White",
+    "colour_beige": "Beige & cream",
+    "colour_grey": "Grey",
+    "colour_black": "Black & dark",
+    "colour_brown": "Brown",
+    "colour_red": "Red & pink",
+    "colour_gold": "Gold & yellow",
+    "colour_green": "Green"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Egyptian Supplier, Slabs & Tiles",
