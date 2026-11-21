@@ -18,6 +18,7 @@ export const PRIVACY = {
         p: [
           'When you use the contact form, ask for a sample or send a quote request, we receive the details you type: your name, email, phone and WhatsApp number, company, country, address or port, your message, the stones you chose and any file you attach.',
           'If you create an account, we keep your name, email, phone, company, country and the stones you save. Your password is stored encrypted; nobody at Wadi Degla can read it.',
+          'With your enquiry we also save how you found our website (for example a Google search, LinkedIn or a campaign link) and the first page you opened, so we know which channels help buyers find us. Visitors in Europe who did not accept cookies are remembered for that visit only.',
         ],
       },
       {
@@ -65,6 +66,7 @@ export const PRIVACY = {
         p: [
           'عند استخدام نموذج التواصل أو طلب عينة أو إرسال طلب عرض سعر، نستلم البيانات التي تكتبها: الاسم والبريد الإلكتروني ورقم الهاتف وواتساب والشركة والدولة والعنوان أو الميناء ورسالتك والأحجار التي اخترتها وأي ملف ترفقه.',
           'إذا أنشأت حسابًا، نحتفظ باسمك وبريدك الإلكتروني وهاتفك وشركتك ودولتك والأحجار التي تحفظها. تُحفظ كلمة المرور مشفّرة، ولا يستطيع أحد في وادي دجلة قراءتها.',
+          'نحفظ مع استفسارك أيضًا كيف وصلت إلى موقعنا (مثل بحث Google أو LinkedIn أو رابط حملة) وأول صفحة فتحتها، لنعرف القنوات التي تساعد المشترين على إيجادنا. أما زوار أوروبا الذين لم يوافقوا على ملفات تعريف الارتباط فنتذكر ذلك خلال الزيارة نفسها فقط.',
         ],
       },
       {

@@ -5,6 +5,7 @@ import './Products.css';
 import { useGlobalState } from '../GlobalStateContext.js';
 import { trackEvent } from '../../util/analytics';
 import { useTranslation } from 'react-i18next';
+import { sourceForForm } from '../../util/visit-source';
 
 // productFinish (English) goes into the email to the company; productFinishLabel is the
 // visitor's translated label shown in the form.
@@ -57,6 +58,7 @@ export default function SampleRequestForm({
         finish: productFinish,
         page: window.location.pathname,
         lang: document.documentElement.lang || '',
+        source: sourceForForm(),
         // Spam trap: hidden field that only bots fill in
         website: e.target.elements.website?.value || '',
       }),
