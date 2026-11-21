@@ -8,6 +8,7 @@
 
 const { IS_STAGING } = require('../start/data-area');
 const SiteMeta = require('./site-meta.service');
+const Alerts = require('./alerts.service');
 
 const REPO = process.env.GITHUB_REPO || 'BadaWy0003/wadi-degla-badawy';
 const WORKFLOW = process.env.GITHUB_DEPLOY_WORKFLOW || 'deploy-client-next.yml';
@@ -52,8 +53,38 @@ PublishService.publish = async (by) => {
 
   const startedAt = Date.now();
   await SiteMeta.set({ lastPublishAt: startedAt, lastPublishBy: by || null });
+  watchRun(startedAt, by);
   return { startedAt };
 };
+
+// After a publish: look at the GitHub run every 2 minutes (for up to 40 minutes) and email
+// the tech team if the website update failed. In memory: a server restart stops the watch.
+function watchRun(startedAt, by) {
+  let tries = 0;
+  const check = async () => {
+    tries += 1;
+    try {
+      const res = await github(`/actions/workflows/${WORKFLOW}/runs?event=workflow_dispatch&per_page=1`);
+      const run = res.ok ? (await res.json()).workflow_runs?.[0] : null;
+      const isOurs = run && Date.parse(run.created_at) >= startedAt - 60 * 1000;
+      if (isOurs && run.status === 'completed') {
+        if (run.conclusion !== 'success') {
+          Alerts.send('publish-failed', 'The website update ("Publish to website") failed', [
+            `The website update started${by ? ` by ${by}` : ''} from the admin panel ended with: ${run.conclusion}.`,
+            'The live website did not change (it still shows the previous version).',
+            `Details on GitHub: ${run.html_url}`,
+            'Try "Publish to website" once more; if it fails again, check the build log on GitHub.',
+          ]);
+        }
+        return;
+      }
+    } catch (e) {
+      console.error('Publish watch: GitHub unreachable:', e.message);
+    }
+    if (tries < 20) setTimeout(check, 2 * 60 * 1000).unref();
+  };
+  setTimeout(check, 2 * 60 * 1000).unref();
+}
 
 // Last website build started from the admin panel (or by hand on GitHub) and whether
 // there are changes that are not on the website yet.

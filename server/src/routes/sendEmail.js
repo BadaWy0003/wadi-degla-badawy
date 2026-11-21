@@ -5,6 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const { IS_STAGING } = require('../start/data-area');
 const { rateLimit } = require('../middlewares/rate-limit.middleware');
+const Alerts = require('../services/alerts.service');
 const EnquiriesService = require('../services/enquiries.service');
 
 // Contact + sample-request forms: max 5 messages per visitor per 15 minutes.
@@ -124,6 +125,20 @@ router.post('/', emailRateLimit, handleUpload, async (req, res) => {
   } catch (error) {
     console.error('Email error:', error.message);
     await EnquiriesService.markEmail(enquiryId, false).catch(() => {});
+    Alerts.send(
+      enquiryId ? 'enquiry-email' : 'enquiry-lost',
+      enquiryId ? 'A website enquiry could not be emailed' : 'A website enquiry was NOT received',
+      enquiryId
+        ? [
+            'A visitor sent the contact / sample / quote form, but the email to the company could not be sent.',
+            'The enquiry is saved: open the admin panel → Enquiries (it shows a warning sign).',
+            `Email error: ${error.message}`,
+          ]
+        : [
+            'A visitor sent a form, but it could neither be saved nor emailed: the visitor saw an error.',
+            `Email error: ${error.message}`,
+          ],
+    );
     // Saved in the inbox: the visitor's message reached us, so it's still a success for them.
     if (enquiryId) return res.status(200).json({ success: true });
     return res.status(500).json({ success: false, error: 'Could not send the message. Please try again later.' });
