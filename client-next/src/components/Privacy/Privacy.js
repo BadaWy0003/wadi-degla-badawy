@@ -1,7 +1,6 @@
 // Privacy & cookies page (server component: the text is in the HTML and never in the browser
 // bundles). Texts in privacyTexts.js.
-import { PRIVACY, PRIVACY_UPDATED } from './privacyTexts';
-import { COMPANY } from '../../util/company';
+import { PRIVACY, PRIVACY_UPDATED, PRIVACY_EMAIL } from './privacyTexts';
 import './PrivacyPage.css';
 
 export default function Privacy({ lang }) {
@@ -29,7 +28,7 @@ export default function Privacy({ lang }) {
                   {before}
                   {after !== undefined && (
                     <>
-                      <a href={`mailto:${COMPANY.emailInfo}`}>{COMPANY.emailInfo}</a>
+                      <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>
                       {after}
                     </>
                   )}

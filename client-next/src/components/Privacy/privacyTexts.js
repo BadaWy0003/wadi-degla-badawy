@@ -1,8 +1,10 @@
 // Privacy & cookies page text (2026-11-21). Written in English and Arabic; the other 10
 // languages show the English text (and those copies are noindex). Kept out of the translation
-// files so it is never sent to the browser on other pages. {email} = the company's main email.
+// files so it is never sent to the browser on other pages. {email} = PRIVACY_EMAIL.
 // Only state what the website really does (see CLAUDE.md: enquiries, alerts, consent).
 export const PRIVACY_UPDATED = '2026-11-21';
+// Privacy requests go to the tech team (owner, 2026-11-21).
+export const PRIVACY_EMAIL = 'tech@wadidegla-eg.com';
 
 export const PRIVACY = {
   en: {
