@@ -561,6 +561,12 @@ html[dir='rtl'] .wn-all span {
     transform: translateX(-24px);
   }
 
+  /* a closed (fading) sheet never catches taps */
+  .wn:not(.is-open) .wn-sheet,
+  .wn:not(.is-open) .wn-sheet * {
+    pointer-events: none;
+  }
+
   .wn.is-open .wn-sheet {
     visibility: visible;
     opacity: 1;
@@ -669,7 +675,10 @@ html[dir='rtl'] .wn-all span {
     transition: visibility 0s linear 0.3s;
   }
 
-  .wn-acc > li.is-open .wn-sec-in {
+  /* only while the sheet is open: a child's "visibility: visible" overrides its hidden parent,
+     so the current page's section stayed tappable (invisible) over the page after the menu
+     closed, and taps on photos opened menu links (fixed 2026-11-21) */
+  .wn.is-open .wn-acc > li.is-open .wn-sec-in {
     visibility: visible;
     transition: none;
     padding-bottom: 14px;
