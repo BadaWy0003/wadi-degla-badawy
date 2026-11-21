@@ -38,6 +38,8 @@ const server = app.listen(port, async () => {
   require('./services/pdfExport.service')
     .makeOldDocumentsPrivate()
     .catch((error) => console.error('[documents] make private failed:', error.message));
+  // Daily reminder of enquiries still "New" after 2 days (followup.service.js).
+  require('./services/followup.service').startDailyReminder();
   // Spec sheet PDFs: make the missing/out-of-date ones in the background, 2 minutes after start.
   setTimeout(() => {
     require('./services/spec-sheet.service')
