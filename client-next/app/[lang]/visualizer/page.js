@@ -3,7 +3,8 @@ import { getProducts } from '../../../src/util/product-slugs';
 import Visualizer from '../../../src/components/Visualizer/Visualizer';
 import { visualizerStones } from '../../../src/components/Visualizer/visualizer-data';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'visualizer.pageTitle', 'Visualizer | Wadi Degla');
   const description = t(lang, 'visualizer.metaDescription', '');

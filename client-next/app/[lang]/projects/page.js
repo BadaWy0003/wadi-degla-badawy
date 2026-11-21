@@ -2,7 +2,8 @@ import { t, buildAlternates, buildSocial } from '../../../src/util/meta';
 import Projects from '../../../src/components/Projects/Projects';
 import { getProjects, projectCard } from '../../../src/util/projects-data';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'projects.pageTitle', 'Projects | Wadi Degla');
   const description = t(lang, 'projects.metaDescription', '');
@@ -16,7 +17,8 @@ export function generateMetadata({ params }) {
 
 // Projects from the admin panel, read at build time. The cards only need what projectCard()
 // keeps (the photos and descriptions stay on the project pages).
-export default async function ProjectsPage({ params }) {
+export default async function ProjectsPage(props) {
+  const params = await props.params;
   const projects = (await getProjects(params.lang)).map(projectCard);
   return <Projects projects={projects} />;
 }

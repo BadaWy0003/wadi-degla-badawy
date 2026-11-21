@@ -2,7 +2,8 @@ import { t, buildAlternates, buildSocial } from '../../../src/components/../util
 import Cobble from '../../../src/components/Cobble/Cobble';
 import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'cobbles.pageTitle', 'Cobble | Wadi Degla');
   const description = t(lang, 'cobbles.metaDescription', '');
@@ -14,7 +15,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function CobblePage({ params }) {
+export default async function CobblePage(props) {
+  const params = await props.params;
   return (
     <Cobble>
       <RelatedPages lang={params.lang} page="cobbles" />

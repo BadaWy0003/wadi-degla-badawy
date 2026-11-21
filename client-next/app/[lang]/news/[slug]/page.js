@@ -19,7 +19,8 @@ export async function generateStaticParams() {
   return SUPPORTED_LANGS.flatMap((lang) => list.map((slug) => ({ lang, slug })));
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang, slug } = params;
   const article = await getNewsArticle(slug, lang);
   const langs = await getNewsIndexedLangs(slug);
@@ -42,7 +43,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function NewsDetailPage({ params }) {
+export default async function NewsDetailPage(props) {
+  const params = await props.params;
   const article = await getNewsArticle(params.slug, params.lang);
   // "More news": the three newest other articles.
   const more = (await getNewsArticles(params.lang))

@@ -2,7 +2,8 @@ import { t, buildAlternates, buildSocial } from '../../../src/components/../util
 import Patterns from '../../../src/components/Patterns/Patterns';
 import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'patterns.pageTitle', 'Patterns | Wadi Degla');
   const description = t(lang, 'patterns.metaDescription', '');
@@ -14,7 +15,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function PatternsPage({ params }) {
+export default async function PatternsPage(props) {
+  const params = await props.params;
   return (
     <Patterns>
       <RelatedPages lang={params.lang} page="patterns" />

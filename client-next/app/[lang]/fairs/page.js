@@ -3,7 +3,8 @@ import Fairs from '../../../src/components/Fairs/Fairs';
 import { FAIRS, FAQ_KEYS } from '../../../src/components/Fairs/FairsData';
 import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'fairs.pageTitle', 'Fairs & Exhibitions | Wadi Degla');
   const description = t(lang, 'fairs.metaDescription', '');
@@ -21,7 +22,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function FairsPage({ params }) {
+export default async function FairsPage(props) {
+  const params = await props.params;
   const { lang } = params;
   // each fair's text in this language (admin-panel text or the translation file's)
   const texts = Object.fromEntries(

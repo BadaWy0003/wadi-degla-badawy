@@ -119,7 +119,7 @@ let warnedApiDown = false;
 // Next.js caches this fetch during the build, so ~1,100 pages share one request.
 export async function getProducts() {
   try {
-    const res = await fetch(PRODUCTS_API_URL);
+    const res = await fetch(PRODUCTS_API_URL, { cache: 'force-cache' });
     const json = await res.json();
     return normalizeProducts((json?.data || []).filter((p) => p.type !== 'Gallery'));
   } catch (e) {
@@ -153,7 +153,7 @@ export const GALLERY_API_URL = `${API_BASE}/api/storage/type/Gallery`;
 // browser), or [] if it can't be reached at build time (the page then loads them in the browser).
 export async function getGalleryItems() {
   try {
-    const res = await fetch(GALLERY_API_URL);
+    const res = await fetch(GALLERY_API_URL, { cache: 'force-cache' });
     const json = await res.json();
     return Array.isArray(json?.data) ? json.data : [];
   } catch (e) {
@@ -173,7 +173,7 @@ let detailsCache = null;
 export async function getProductDetailsMap() {
   if (detailsCache) return detailsCache;
   try {
-    const res = await fetch(DETAILS_API_URL);
+    const res = await fetch(DETAILS_API_URL, { cache: 'force-cache' });
     const json = res.ok ? await res.json() : null;
     detailsCache = json?.data && typeof json.data === 'object' ? json.data : {};
   } catch (e) {

@@ -42,7 +42,8 @@ const faqSchema = (lang) => ({
   })),
 });
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const pageTitle = t(lang, 'home.pageTitle', 'Wadi Degla | Egyptian Natural Stone');
   const description = t(lang, 'home.metaDescription', '');
@@ -54,7 +55,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default async function HomePage({ params }) {
+export default async function HomePage(props) {
+  const params = await props.params;
   const { lang } = params;
   const featured = await featuredStones();
   return (

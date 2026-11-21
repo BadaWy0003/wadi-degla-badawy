@@ -3,7 +3,8 @@ import Partners from '../../../src/components/Partners/Partners';
 import { PARTNERS } from '../../../src/components/Partners/PartnersData';
 import { getProjects, projectCard } from '../../../src/util/projects-data';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'partners.pageTitle', 'Partners | Wadi Degla');
   const description = t(lang, 'partners.metaDescription', '');
@@ -17,7 +18,8 @@ export function generateMetadata({ params }) {
 
 // The partners' projects (cards) come from the admin panel at build time, so their names and
 // links are in the HTML.
-export default async function PartnersPage({ params }) {
+export default async function PartnersPage(props) {
+  const params = await props.params;
   const all = await getProjects(params.lang);
   const wanted = new Set(PARTNERS.flatMap((p) => p.projects));
   const projects = Object.fromEntries(

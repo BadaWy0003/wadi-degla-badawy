@@ -14,7 +14,9 @@ export function generateStaticParams() {
   return SUPPORTED_LANGS.map((lang) => ({ lang }));
 }
 
-export default function LangLayout({ children, params }) {
+export default async function LangLayout(props) {
+  const params = await props.params;
+  const { children } = props;
   return (
     <RootHtml lang={params.lang}>
       <AppShell lang={params.lang} messages={getMessages(params.lang)}>

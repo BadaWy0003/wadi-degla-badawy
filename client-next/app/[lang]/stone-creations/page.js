@@ -1,7 +1,8 @@
 import { t, buildAlternates, buildSocial } from '../../../src/components/../util/meta';
 import StoneCreation from '../../../src/components/StoneCreation/StoneCreation';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'stoneCreation.pageTitle', 'StoneCreation | Wadi Degla');
   const description = t(lang, 'stoneCreation.metaDescription', '');
@@ -13,6 +14,7 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function StoneCreationPage({ params }) {
+export default async function StoneCreationPage(props) {
+  const params = await props.params;
   return <StoneCreation />;
 }
