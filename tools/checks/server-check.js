@@ -85,6 +85,7 @@ const CHECKS = [
   ['GET', '/api/order/my-invoices', 'none', 404], // removed 2026-11-20
   ['GET', '/api/storage/spec-sheet/unknown-stone?lang=ar', 'none', 404], // spec sheet PDF (2026-11-20)
   ['GET', '/api/storage/spec-sheet/bad!id', 'none', 400],
+  ['GET', '/api/storage/catalogue?lang=ar', 'none', 404], // stone catalogue PDF (2026-11-21): 404 while there are no stones
   // admin pages: refused when logged out
   ['GET', '/api/overview/admin', 'none', 401],
   ['GET', '/api/enquiries/admin', 'none', 401],

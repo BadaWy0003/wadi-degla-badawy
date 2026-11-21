@@ -339,14 +339,22 @@ const closeLater = () => {
   );
   closeTimer.unref();
 };
-async function render(html) {
+// opts.footer: page numbers at the bottom of every page (the catalogue).
+const FOOTER =
+  '<div style="width:100%;font-size:7pt;color:#8c7553;font-family:Arial,sans-serif;text-align:center">wadidegla-eg.com · <span class="pageNumber"></span> / <span class="totalPages"></span></div>';
+async function render(html, opts = {}) {
   const run = queue.then(async () => {
     let page;
     try {
       const browser = await getBrowser();
       page = await browser.newPage();
-      await page.setContent(html, { waitUntil: 'load', timeout: 30000 });
-      return await page.pdf({ format: 'A4', printBackground: true, preferCSSPageSize: true });
+      await page.setContent(html, { waitUntil: 'load', timeout: 60000 });
+      return await page.pdf({
+        format: 'A4',
+        printBackground: true,
+        preferCSSPageSize: true,
+        ...(opts.footer ? { displayHeaderFooter: true, headerTemplate: '<span></span>', footerTemplate: FOOTER } : {}),
+      });
     } catch (e) {
       // a crashed browser is started again next time
       const b = browserPromise;
@@ -427,7 +435,12 @@ SpecSheetService.warmUp = async () => {
     }
   }
   console.log(`[spec-sheets] ${ids.length} stones checked, ${made} sheets made, ${failed} failed`);
+  // then the stone catalogue (catalogue.service.js), EN + AR
+  await require('./catalogue.service').warmUp();
 };
 
 SpecSheetService.buildHtml = buildHtml; // for local previews
+// Shared with the stone catalogue (catalogue.service.js): the same photos, fonts, labels and
+// the same single Chromium, so a catalogue and a sheet are never made at the same time.
+SpecSheetService.shared = { L, CONTACT, ROOM_FINISHES, STONE_CATEGORIES, SITE, esc, cleanType, slugOf, embed, assets, render };
 module.exports = SpecSheetService;

@@ -892,7 +892,8 @@
     "colour_brown": "ブラウン",
     "colour_red": "レッド・ピンク",
     "colour_gold": "ゴールド・イエロー",
-    "colour_green": "グリーン"
+    "colour_green": "グリーン",
+    "catalogue": "石材カタログをダウンロード（PDF・英語）"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "エジプトのサプライヤー、スラブ・タイル",
