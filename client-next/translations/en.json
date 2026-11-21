@@ -349,9 +349,9 @@
     "bandCta": "Book a meeting on WhatsApp"
   },
   "exports": {
-    "pageTitle": "Egyptian Marble & Limestone Exports | Wadi Degla",
-    "metaDescription": "Premium Egyptian marble & limestone exports with secure packing, global logistics, and compliant documentation. Ship to GCC, Europe, Africa & Americas.",
-    "heroTitle": "Global Export Services for Egyptian Marble & Limestone",
+    "pageTitle": "Egyptian Marble & Granite Exporter | Wadi Degla",
+    "metaDescription": "Marble exporter from Egypt since 1980: marble, granite and limestone by the container, FOB, CFR or CIF from Ain Sokhna, Alexandria or Damietta.",
+    "heroTitle": "Egyptian Marble & Granite Exporter",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Exports",
     "departmentTitle": "Export Department",
@@ -902,6 +902,9 @@
     "titleBrand": "Wadi Degla",
     "metaDescription": "Discover {{name}} — premium {{type}} available in slabs, tiles, and blocks. View specifications, finishes, and applications. Request a sample from Wadi Degla, Egypt's leading natural stone exporter.",
     "metaAlsoCalled": "(also called {{name}})",
+    "metaOffer": "{{forms}}, {{thickness}} cm thick.",
+    "metaFormsSlabsTiles": "Slabs and tiles",
+    "metaFormsAll": "Slabs, tiles and blocks",
     "metaTail": "Exported worldwide since 1980. Free samples and quotes on request.",
     "breadcrumbHome": "Home",
     "breadcrumbExplore": "Explore",

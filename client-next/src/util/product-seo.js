@@ -80,7 +80,7 @@ function fitSentence(sentence, max, stop = '.') {
   const body = String(sentence || '')
     .replace(/[.!?。！？]+$/, '')
     .trim();
-  if (!body) return '';
+  if (!body || max < 2) return '';
   if (body.length + 1 <= max) return body + stop;
   const breaks = [...body.slice(0, max - 1).matchAll(/\s*[:：–—]\s/g)].map((m) => m.index);
   const at = breaks.filter((b) => b > 12).pop();
@@ -118,6 +118,26 @@ function alsoCalledName(product, details) {
 // fits (or its clause before a colon/dash), else the short generated sentence ("Halayeb
 // Granite is a natural stone quarried in Egypt"). Only if even that is too long is the other
 // name left out. Sentences are never cut in the middle.
+// "Slabs and tiles, 2/3 cm thick.": what the buyer can order, from the stone details (forms
+// and thicknesses). Only for the two usual form sets, and only when a thickness is written.
+function offerSentence(lang, details) {
+  const forms = details?.forms || [];
+  const thickness = String(details?.thicknesses || '')
+    .split(/[,;/]+/)
+    .map((x) => x.trim())
+    .filter(Boolean)
+    .join('/');
+  const has = (f) => forms.includes(f);
+  const key =
+    has('slabs') && has('tiles')
+      ? has('blocks')
+        ? 'productDetails.metaFormsAll'
+        : 'productDetails.metaFormsSlabsTiles'
+      : '';
+  if (!key || !thickness) return '';
+  return fill(t(lang, 'productDetails.metaOffer'), { forms: t(lang, key), thickness });
+}
+
 export function productMetaDescription(lang, product, details) {
   // Japanese and Chinese sentences end with 。 and follow each other without a space.
   const cjk = lang === 'ja' || lang === 'zh';
@@ -128,23 +148,40 @@ export function productMetaDescription(lang, product, details) {
   const also = other ? fill(t(lang, 'productDetails.metaAlsoCalled'), { name: other }) : '';
   const own = firstSentence(details?.description?.[lang]);
   const identity = shortIdentity(lang, product);
+  const offer = offerSentence(lang, details);
 
   // In longer languages (e.g. French) the stone's sentence and the whole tail may not fit
   // together: then only the tail's first sentence ("Exported worldwide since 1980.") is kept,
   // rather than leaving the stone out.
-  const shortTail = tail.split(stop)[0].trim() + stop;
-  const build = (withAlso, end = tail) => {
+  const parts = tail.split(stop).map((x) => x.trim());
+  const shortTail = parts[0] + stop;
+  // "Free samples and quotes on request.": the tail without its first sentence.
+  const restTail = parts.slice(1).filter(Boolean).join(stop + gap) + (parts.length > 1 ? stop : '');
+  const build = (withAlso, end, sentenceOf) => {
     const extra = withAlso && also ? `${/^[(]/.test(also) ? ' ' : ''}${also}` : '';
     const room = DESCRIPTION_MAX - end.length - gap.length - extra.length;
-    const sentence = fitSentence(own, room, stop) || fitSentence(identity, room, stop);
+    const sentence = sentenceOf(room);
     return sentence ? `${sentence.slice(0, -1)}${extra}${stop}${gap}${end}` : '';
   };
-  return (
-    build(true) ||
-    build(false) ||
-    (shortTail !== tail && (build(true, shortTail) || build(false, shortTail))) ||
-    tail
-  );
+  const ownFit = (room) => fitSentence(own, room, stop);
+  const identityFit = (room) => fitSentence(identity, room, stop);
+  // Endings, best first: the offer ("Slabs and tiles, 2/3 cm thick.") with the whole tail,
+  // with its second sentence ("Free samples and quotes on request."), with its first; then
+  // the tail alone, then its first sentence (as before 2026-11-21, when there is no offer).
+  const ends = [
+    ...(offer ? [tail, restTail, shortTail].map((e) => `${offer}${gap}${e}`) : []),
+    tail,
+    shortTail,
+  ].filter((e, i, a) => a.indexOf(e) === i);
+  // The stone's own sentence comes first, so it is kept even when the offer must go; the
+  // generated sentence ("Halayeb Granite is a natural stone quarried in Egypt") after it.
+  for (const sentenceOf of [ownFit, identityFit]) {
+    for (const end of ends) {
+      const out = build(true, end, sentenceOf) || build(false, end, sentenceOf);
+      if (out) return out;
+    }
+  }
+  return tail;
 }
 
 export function productIntro(lang, product) {
