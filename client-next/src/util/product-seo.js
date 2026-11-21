@@ -23,15 +23,19 @@ export function productTypeLabel(lang, type) {
   return PRODUCT_TYPE_KEYS[type] ? t(lang, PRODUCT_TYPE_KEYS[type]) : type || '';
 }
 
-// "Galala Marble" (en), "رخام Galala" (ar)… The kind word is left out when the name
+export const isLimestone = (type) => /limestone/i.test(type || '');
+
+// "Galala Marble" (en), "رخام Galala" (ar), "Cleopatra Limestone" (limestone stones, owner
+// 2026-11-21; before, they were "… Marble" too)… The kind word is left out when the name
 // already contains it (e.g. a product called "Royal Red Granite").
 export function productHeading(lang, product) {
   const name = String(product?.name || '').trim();
-  const kind = t(
-    lang,
-    isGranite(product?.type) ? 'productDetails.kindGranite' : 'productDetails.kindMarble',
-  );
-  const english = isGranite(product?.type) ? 'granite' : 'marble';
+  const [key, english] = isGranite(product?.type)
+    ? ['productDetails.kindGranite', 'granite']
+    : isLimestone(product?.type)
+      ? ['productDetails.kindLimestone', 'limestone']
+      : ['productDetails.kindMarble', 'marble'];
+  const kind = t(lang, key);
   const lower = name.toLowerCase();
   if (lower.includes(english) || lower.includes(kind.toLowerCase())) return name;
   return fill(t(lang, 'productDetails.heading', '{{name}} {{kind}}'), { name, kind });

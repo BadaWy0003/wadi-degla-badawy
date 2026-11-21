@@ -924,6 +924,7 @@
     "heading": "{{kind}} {{name}}",
     "kindMarble": "Marmură",
     "kindGranite": "Granit",
+    "kindLimestone": "Calcar",
     "introEgyptian": "{{heading}} este o piatră naturală extrasă în Egipt ({{type}}), furnizată de Wadi Degla sub formă de plăci, dale și blocuri. Finisaje disponibile: {{finishes}}. Se folosește pentru pardoseli, placări de pereți și fațade, scări, glafuri și amenajări peisagistice.",
     "introImported": "{{heading}} este o piatră naturală importată ({{type}}), furnizată din Egipt de Wadi Degla sub formă de plăci și dale. Finisaje disponibile: {{finishes}}. Se folosește pentru pardoseli, placări de pereți, scări, glafuri și design interior.",
     "introCta": "Solicitați o mostră sau o ofertă de preț pentru {{name}} de la Wadi Degla, companie de marmură din 1980.",

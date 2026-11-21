@@ -924,6 +924,7 @@
     "heading": "{{name}} {{kind}}",
     "kindMarble": "Marble",
     "kindGranite": "Granite",
+    "kindLimestone": "Limestone",
     "introEgyptian": "{{heading}} is a natural stone quarried in Egypt ({{type}}), supplied by Wadi Degla in slabs, tiles and blocks. Available finishes: {{finishes}}. It is used for flooring, wall and exterior cladding, staircases, window sills and landscaping.",
     "introImported": "{{heading}} is an imported natural stone ({{type}}) supplied by Wadi Degla from Egypt in slabs and tiles. Available finishes: {{finishes}}. It is used for flooring, wall cladding, staircases, window sills and interior design.",
     "introCta": "Request a sample or a price quote for {{name}} from Wadi Degla, a marble company since 1980.",

@@ -924,6 +924,7 @@
     "heading": "{{name}}{{kind}}",
     "kindMarble": "大理石",
     "kindGranite": "花岗岩",
+    "kindLimestone": "石灰石",
     "introEgyptian": "{{heading}}是一种开采自埃及的天然石材（{{type}}），由瓦迪·德格拉以大板、板材和荒料形式供应。可选表面处理：{{finishes}}。适用于地面、墙面及外墙装饰、楼梯、窗台和景观工程。",
     "introImported": "{{heading}}是一种进口天然石材（{{type}}），由瓦迪·德格拉从埃及以大板和板材形式供应。可选表面处理：{{finishes}}。适用于地面、墙面装饰、楼梯、窗台和室内设计。",
     "introCta": "欢迎向瓦迪·德格拉（始于1980年的石材公司）索取{{name}}的样品或报价。",

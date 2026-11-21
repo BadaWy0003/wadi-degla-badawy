@@ -924,6 +924,7 @@
     "heading": "{{name}} {{kind}}",
     "kindMarble": "大理石",
     "kindGranite": "花崗岩",
+    "kindLimestone": "石灰岩",
     "introEgyptian": "{{heading}}はエジプトで採掘される天然石（{{type}}）で、Wadi Deglaがスラブ、タイル、ブロックで供給しています。対応仕上げ：{{finishes}}。床材、壁・外壁の仕上げ、階段、窓台、造園に使用されます。",
     "introImported": "{{heading}}は輸入天然石（{{type}}）で、Wadi Deglaがエジプトからスラブとタイルで供給しています。対応仕上げ：{{finishes}}。床材、壁の仕上げ、階段、窓台、インテリアデザインに使用されます。",
     "introCta": "1980年創業の石材会社Wadi Deglaに、{{name}}のサンプルまたはお見積りをご依頼ください。",

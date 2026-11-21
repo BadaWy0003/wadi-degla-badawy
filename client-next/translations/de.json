@@ -924,6 +924,7 @@
     "heading": "{{name}} {{kind}}",
     "kindMarble": "Marmor",
     "kindGranite": "Granit",
+    "kindLimestone": "Kalkstein",
     "introEgyptian": "{{heading}} ist ein in Ägypten abgebauter Naturstein ({{type}}), den Wadi Degla als Rohplatten, Fliesen und Blöcke liefert. Verfügbare Oberflächen: {{finishes}}. Er wird für Böden, Wand- und Fassadenverkleidungen, Treppen, Fensterbänke und die Gartengestaltung verwendet.",
     "introImported": "{{heading}} ist ein importierter Naturstein ({{type}}), den Wadi Degla aus Ägypten als Rohplatten und Fliesen liefert. Verfügbare Oberflächen: {{finishes}}. Er wird für Böden, Wandverkleidungen, Treppen, Fensterbänke und die Innenarchitektur verwendet.",
     "introCta": "Fordern Sie ein Muster oder ein Angebot für {{name}} bei Wadi Degla an, einem Marmorunternehmen seit 1980.",

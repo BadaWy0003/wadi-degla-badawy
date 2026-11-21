@@ -924,6 +924,7 @@
     "heading": "{{kind}} {{name}}",
     "kindMarble": "Mermer",
     "kindGranite": "Granit",
+    "kindLimestone": "Gur gëlqeror",
     "introEgyptian": "{{heading}} është një gur natyror i nxjerrë në Egjipt ({{type}}), i furnizuar nga Wadi Degla në pllaka, pllakëza dhe blloqe. Përfundimet e disponueshme: {{finishes}}. Përdoret për dysheme, veshje muresh dhe fasadash, shkallë, parvaze dritaresh dhe peizazh.",
     "introImported": "{{heading}} është një gur natyror i importuar ({{type}}), i furnizuar nga Egjipti prej Wadi Degla në pllaka dhe pllakëza. Përfundimet e disponueshme: {{finishes}}. Përdoret për dysheme, veshje muresh, shkallë, parvaze dritaresh dhe dizajn të brendshëm.",
     "introCta": "Kërkoni një mostër ose një ofertë çmimi për {{name}} nga Wadi Degla, kompani mermeri që nga viti 1980.",

@@ -924,6 +924,7 @@
     "heading": "{{kind}} {{name}}",
     "kindMarble": "Marbre",
     "kindGranite": "Granit",
+    "kindLimestone": "Calcaire",
     "introEgyptian": "Le {{heading}} est une pierre naturelle extraite en Égypte ({{type}}), fournie par Wadi Degla en tranches, carreaux et blocs. Finitions disponibles : {{finishes}}. Il est utilisé pour les sols, les revêtements muraux et de façade, les escaliers, les appuis de fenêtre et l'aménagement paysager.",
     "introImported": "Le {{heading}} est une pierre naturelle importée ({{type}}), fournie depuis l'Égypte par Wadi Degla en tranches et carreaux. Finitions disponibles : {{finishes}}. Il est utilisé pour les sols, les revêtements muraux, les escaliers, les appuis de fenêtre et la décoration intérieure.",
     "introCta": "Demandez un échantillon ou un devis pour {{name}} à Wadi Degla, entreprise de marbre depuis 1980.",
