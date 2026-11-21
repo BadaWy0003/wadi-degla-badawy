@@ -1,6 +1,7 @@
 // Generates /sitemap.xml at build time (replaces the hand-written public/sitemap.xml).
 // Every public page in all 12 languages, each with hreflang alternates.
 import { SUPPORTED_LANGS } from '../src/util/supported-langs';
+import { PRIVACY_UPDATED } from '../src/components/Privacy/privacyTexts';
 import { getProductSlugs } from '../src/util/product-slugs';
 import { getProjectIds, getProjectIndexedLangs } from '../src/util/projects-data';
 import { getNewsArticles, getNewsIndexedLangs } from '../src/util/news-data';
@@ -236,6 +237,14 @@ export default async function sitemap() {
       ...page,
       lastModified: (lang) => pageLastModified(page, lang),
     })),
+    // Privacy page: written in English and Arabic only (the other copies are noindex).
+    {
+      path: '/privacy',
+      priority: 0.2,
+      changeFrequency: 'yearly',
+      langs: ['en', 'ar'],
+      lastModified: () => new Date(PRIVACY_UPDATED),
+    },
     // Products and projects: the API has no "last changed" date for them, so no <lastmod>.
     ...productSlugs.map((slug) => ({
       path: `/products/${slug}`,

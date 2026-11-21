@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. All rights reserved.",
     "iso": "ISO 9001:2015 인증",
     "backToTop": "맨 위로",
-    "follow": "Wadi Degla 팔로우"
+    "follow": "Wadi Degla 팔로우",
+    "privacy": "개인정보",
+    "cookieSettings": "쿠키 설정"
   },
   "contact": {
     "title": "Wadi Degla에 문의하세요 | 대리석 및 천연석 세계 공급업체",
@@ -1384,5 +1386,12 @@
     "added": "견적 목록에 있음",
     "viewList": "목록 보기",
     "full": "견적 목록이 가득 찼습니다 (석재 20개)."
+  },
+  "cookies": {
+    "title": "이 웹사이트의 쿠키",
+    "text": "구매자가 어떤 페이지와 석재를 보는지 파악해 사이트를 개선하기 위해 통계 쿠키(Google Analytics)를 사용합니다. 동의하신 경우에만 저장됩니다.",
+    "privacy": "개인정보 및 쿠키",
+    "decline": "거부",
+    "accept": "동의"
   }
 }

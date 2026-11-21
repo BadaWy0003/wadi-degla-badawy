@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. 版权所有。",
     "iso": "通过 ISO 9001:2015 认证",
     "backToTop": "返回顶部",
-    "follow": "关注 Wadi Degla"
+    "follow": "关注 Wadi Degla",
+    "privacy": "隐私",
+    "cookieSettings": "Cookie 设置"
   },
   "contact": {
     "title": "联系瓦迪·德格拉 | 全球大理石与天然石材供应商",
@@ -1384,5 +1386,12 @@
     "added": "已在询价清单中",
     "viewList": "查看清单",
     "full": "询价清单已满（20 种石材）。"
+  },
+  "cookies": {
+    "title": "本网站的 Cookie",
+    "text": "我们使用统计 Cookie（Google Analytics）了解买家浏览哪些页面和石材，以改进网站。仅在您同意后才会保存。",
+    "privacy": "隐私与 Cookie",
+    "decline": "拒绝",
+    "accept": "接受"
   }
 }

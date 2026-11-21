@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. All rights reserved.",
     "iso": "ISO 9001:2015 certified",
     "backToTop": "Back to top",
-    "follow": "Follow Wadi Degla"
+    "follow": "Follow Wadi Degla",
+    "privacy": "Privacy",
+    "cookieSettings": "Cookie settings"
   },
   "contact": {
     "title": "Contact Wadi Degla | Marble & Natural Stone Supplier",
@@ -1384,5 +1386,12 @@
     "added": "In your quote list",
     "viewList": "View quote list",
     "full": "Your quote list is full (20 stones)."
+  },
+  "cookies": {
+    "title": "Cookies on this website",
+    "text": "We use statistics cookies (Google Analytics) to see which pages and stones buyers look at, so we can improve the site. They are only stored if you accept.",
+    "privacy": "Privacy & cookies",
+    "decline": "Decline",
+    "accept": "Accept"
   }
 }

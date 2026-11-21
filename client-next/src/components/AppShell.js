@@ -14,6 +14,7 @@ import { startEnquiryTracking } from '../util/analytics';
 import { SHOW_TOASTS_EVENT } from '../util/toast';
 
 const ToastHost = dynamic(() => import('./ToastHost'), { ssr: false });
+const CookieBanner = dynamic(() => import('./CookieBanner/CookieBanner'), { ssr: false });
 
 export default function AppShell({ children, lang, messages }) {
   // Initialize i18n language from URL param
@@ -59,6 +60,7 @@ export default function AppShell({ children, lang, messages }) {
               <div className="route-wrapper">{children}</div>
             </div>
             <Footer />
+            <CookieBanner />
           </div>
         </GlobalStateProvider>
       </I18nextProvider>

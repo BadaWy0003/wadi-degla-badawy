@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. Të gjitha të drejtat e rezervuara.",
     "iso": "Certifikuar ISO 9001:2015",
     "backToTop": "Kthehu lart",
-    "follow": "Ndiqni Wadi Degla"
+    "follow": "Ndiqni Wadi Degla",
+    "privacy": "Privatësia",
+    "cookieSettings": "Cilësimet e cookies"
   },
   "contact": {
     "title": "Kontaktoni Wadi Degla | Furnizues mermeri dhe guri",
@@ -1384,5 +1386,12 @@
     "added": "Në listën tuaj të ofertës",
     "viewList": "Shiko listën",
     "full": "Lista juaj e ofertës është plot (20 gurë)."
+  },
+  "cookies": {
+    "title": "Cookies në këtë faqe",
+    "text": "Përdorim cookies statistikore (Google Analytics) për të parë cilat faqe dhe gurë shikojnë blerësit, që të përmirësojmë faqen. Ruhen vetëm nëse pranoni.",
+    "privacy": "Privatësia dhe cookies",
+    "decline": "Refuzo",
+    "accept": "Prano"
   }
 }
