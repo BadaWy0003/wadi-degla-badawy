@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. Toate drepturile rezervate.",
     "iso": "Certificat ISO 9001:2015",
     "backToTop": "Înapoi sus",
-    "follow": "Urmăriți Wadi Degla"
+    "follow": "Urmăriți Wadi Degla",
+    "privacy": "Confidențialitate",
+    "cookieSettings": "Setări cookie-uri"
   },
   "contact": {
     "title": "Contactați Wadi Degla | Marmură și piatră naturală",
@@ -1387,5 +1389,12 @@
     "added": "În lista ta de ofertă",
     "viewList": "Vezi lista",
     "full": "Lista ta de ofertă este plină (20 de pietre)."
+  },
+  "cookies": {
+    "title": "Cookie-uri pe acest site",
+    "text": "Folosim cookie-uri de statistică (Google Analytics) pentru a vedea ce pagini și pietre privesc cumpărătorii și a îmbunătăți site-ul. Sunt salvate doar dacă accepți.",
+    "privacy": "Confidențialitate și cookie-uri",
+    "decline": "Refuz",
+    "accept": "Accept"
   }
 }

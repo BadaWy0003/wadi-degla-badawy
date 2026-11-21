@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. Tutti i diritti riservati.",
     "iso": "Certificata ISO 9001:2015",
     "backToTop": "Torna su",
-    "follow": "Segui Wadi Degla"
+    "follow": "Segui Wadi Degla",
+    "privacy": "Privacy",
+    "cookieSettings": "Impostazioni cookie"
   },
   "contact": {
     "title": "Contatta Wadi Degla | Fornitore di marmo e pietra naturale",
@@ -1384,5 +1386,12 @@
     "added": "Nella tua lista preventivo",
     "viewList": "Vedi la lista",
     "full": "La tua lista preventivo è piena (20 pietre)."
+  },
+  "cookies": {
+    "title": "Cookie su questo sito",
+    "text": "Usiamo cookie statistici (Google Analytics) per vedere quali pagine e pietre guardano gli acquirenti e migliorare il sito. Vengono salvati solo se accetti.",
+    "privacy": "Privacy e cookie",
+    "decline": "Rifiuta",
+    "accept": "Accetta"
   }
 }

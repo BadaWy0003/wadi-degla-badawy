@@ -308,6 +308,31 @@ html[dir='rtl'] .wf-links a::after {
   color: var(--wf-muted);
 }
 
+.wf-legal {
+  display: inline-flex;
+  gap: 14px;
+  font-size: 13px;
+}
+
+.wf-legal a,
+.wf-legal button {
+  color: var(--wf-muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.wf-legal a:hover,
+.wf-legal button:hover {
+  opacity: 1;
+}
+
 .wf-iso {
   display: inline-flex;
   align-items: center;

@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. All rights reserved.",
     "iso": "ISO 9001:2015 認証取得",
     "backToTop": "ページの先頭へ",
-    "follow": "Wadi Degla をフォロー"
+    "follow": "Wadi Degla をフォロー",
+    "privacy": "プライバシー",
+    "cookieSettings": "Cookie設定"
   },
   "contact": {
     "title": "Wadi Deglaにお問い合わせください | 大理石および天然石の世界的なサプライヤー",
@@ -1384,5 +1386,12 @@
     "added": "見積りリストに追加済み",
     "viewList": "リストを見る",
     "full": "見積りリストがいっぱいです（石材20点）。"
+  },
+  "cookies": {
+    "title": "このサイトのCookie",
+    "text": "購入者がどのページや石材を見ているかを知り、サイトを改善するために統計用Cookie（Google Analytics）を使用します。同意された場合のみ保存されます。",
+    "privacy": "プライバシーとCookie",
+    "decline": "拒否",
+    "accept": "同意する"
   }
 }

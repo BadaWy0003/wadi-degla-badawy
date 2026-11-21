@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. Alle Rechte vorbehalten.",
     "iso": "Zertifiziert nach ISO 9001:2015",
     "backToTop": "Nach oben",
-    "follow": "Wadi Degla folgen"
+    "follow": "Wadi Degla folgen",
+    "privacy": "Datenschutz",
+    "cookieSettings": "Cookie-Einstellungen"
   },
   "contact": {
     "title": "Kontakt Wadi Degla | Marmor- und Natursteinlieferant",
@@ -1384,5 +1386,12 @@
     "added": "In Ihrer Angebotsliste",
     "viewList": "Liste ansehen",
     "full": "Ihre Angebotsliste ist voll (20 Steine)."
+  },
+  "cookies": {
+    "title": "Cookies auf dieser Website",
+    "text": "Wir verwenden Statistik-Cookies (Google Analytics), um zu sehen, welche Seiten und Steine Käufer ansehen, und so die Website zu verbessern. Sie werden nur gespeichert, wenn Sie zustimmen.",
+    "privacy": "Datenschutz & Cookies",
+    "decline": "Ablehnen",
+    "accept": "Akzeptieren"
   }
 }

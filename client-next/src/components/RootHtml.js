@@ -208,6 +208,13 @@ export default function RootHtml({ lang = 'en', children }) {
             <Script id="google-analytics" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          // Cookie consent (src/util/consent.js): statistics wait for consent in the EEA/UK/CH,
+          // are allowed elsewhere; no ads. A choice made on the banner is applied straight away.
+          var noAds = { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' };
+          gtag('consent', 'default', Object.assign({ analytics_storage: 'denied', wait_for_update: 500, region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'] }, noAds));
+          gtag('consent', 'default', Object.assign({ analytics_storage: 'granted' }, noAds));
+          try { var c = JSON.parse(localStorage.getItem('wd-consent') || 'null'); if (c && c.analytics) gtag('consent', 'update', { analytics_storage: c.analytics }); } catch (e) {}
           gtag('js', new Date());
           gtag('config', 'G-R2Y9CCM4YC');
           gtag('config', 'G-HK6F9VF9R5');

@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. Todos los derechos reservados.",
     "iso": "Certificación ISO 9001:2015",
     "backToTop": "Volver arriba",
-    "follow": "Siga a Wadi Degla"
+    "follow": "Siga a Wadi Degla",
+    "privacy": "Privacidad",
+    "cookieSettings": "Configuración de cookies"
   },
   "contact": {
     "title": "Contacte a Wadi Degla | Proveedor de mármol y piedra",
@@ -1384,5 +1386,12 @@
     "added": "En su lista de presupuesto",
     "viewList": "Ver la lista",
     "full": "Su lista de presupuesto está llena (20 piedras)."
+  },
+  "cookies": {
+    "title": "Cookies en este sitio",
+    "text": "Usamos cookies de estadísticas (Google Analytics) para ver qué páginas y piedras consultan los compradores y así mejorar el sitio. Solo se guardan si las acepta.",
+    "privacy": "Privacidad y cookies",
+    "decline": "Rechazar",
+    "accept": "Aceptar"
   }
 }

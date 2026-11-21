@@ -222,7 +222,9 @@
     "rights": "© {{year}} Wadi Degla Co. Tous droits réservés.",
     "iso": "Certifié ISO 9001:2015",
     "backToTop": "Retour en haut",
-    "follow": "Suivre Wadi Degla"
+    "follow": "Suivre Wadi Degla",
+    "privacy": "Confidentialité",
+    "cookieSettings": "Paramètres des cookies"
   },
   "contact": {
     "title": "Contactez Wadi Degla | Marbre et pierre naturelle",
@@ -1384,5 +1386,12 @@
     "added": "Dans votre liste de devis",
     "viewList": "Voir la liste",
     "full": "Votre liste de devis est pleine (20 pierres)."
+  },
+  "cookies": {
+    "title": "Cookies sur ce site",
+    "text": "Nous utilisons des cookies de statistiques (Google Analytics) pour voir quelles pages et quelles pierres intéressent les acheteurs, afin d'améliorer le site. Ils ne sont enregistrés que si vous acceptez.",
+    "privacy": "Confidentialité et cookies",
+    "decline": "Refuser",
+    "accept": "Accepter"
   }
 }

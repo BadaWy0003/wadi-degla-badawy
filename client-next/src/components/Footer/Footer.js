@@ -24,6 +24,7 @@ import {
 } from 'react-icons/fa';
 import LangLink from '../LangLink';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { OPEN_SETTINGS_EVENT } from '../../util/consent';
 import {
   WHATSAPP_URL,
   MAPS_URL,
@@ -208,6 +209,15 @@ export default function Footer() {
       <div className="wf-bottom">
         <div className="wf-wrap wf-bottom-in">
           <p className="wf-copy">{t('footer.rights', { year: new Date().getFullYear() })}</p>
+          <span className="wf-legal">
+            <LangLink href="/privacy">{t('footer.privacy')}</LangLink>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_SETTINGS_EVENT))}
+            >
+              {t('footer.cookieSettings')}
+            </button>
+          </span>
           <LangLink href="/certificates" className="wf-iso">
             <span aria-hidden="true">✓</span> {t('footer.iso')}
           </LangLink>
