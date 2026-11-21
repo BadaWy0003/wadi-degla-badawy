@@ -48,7 +48,8 @@ function autoDescription(lang, project) {
   return '';
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang, projectId } = params;
   const project = await getProject(projectId, lang);
   const langs = await getProjectIndexedLangs(projectId);
@@ -81,7 +82,8 @@ export async function generateMetadata({ params }) {
 }
 
 // "More projects": the other projects of the same country, or else 3 others.
-export default async function ProjectDetailsPage({ params }) {
+export default async function ProjectDetailsPage(props) {
+  const params = await props.params;
   const project = await getProject(params.projectId, params.lang);
   const others = project
     ? (await getProjects(params.lang)).filter((p) => p.id !== project.id)

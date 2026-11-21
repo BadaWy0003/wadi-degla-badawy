@@ -32,7 +32,8 @@ const slugToName = (slug) =>
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ');
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang, productName } = params;
   const product = await getProductBySlug(productName);
   const displayName = product ? productHeading(lang, product) : slugToName(productName);
@@ -90,7 +91,8 @@ const breadcrumbSchema = (lang, slug, heading) => ({
 // and links are in the static HTML (for Google). ProductDetails still refreshes the product
 // from the API in the browser, so photo/finish changes in the admin panel show up without
 // a redeploy.
-export default async function ProductDetailsPage({ params }) {
+export default async function ProductDetailsPage(props) {
+  const params = await props.params;
   const { lang, productName } = params;
   const product = await getProductBySlug(productName);
   let seo = null;

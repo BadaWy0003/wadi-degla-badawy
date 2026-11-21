@@ -90,7 +90,8 @@ const topicHeroes = Object.fromEntries(
   ]),
 );
 
-export async function GET(request, { params }) {
+export async function GET(request, props) {
+  const params = await props.params;
   // the topic pages' texts are edited as "topics.<path>"
   const texts = params.lang === 'ar' ? { ...ar, topics: topicsAr } : { ...en, topics: topicsEn };
   // the home page's featured stones are saved as product ids

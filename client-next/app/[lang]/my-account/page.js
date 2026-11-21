@@ -1,8 +1,8 @@
-import dynamic from 'next/dynamic';
 import { t, buildSocial } from '../../../src/components/../util/meta';
-const MyAccount = dynamic(() => import('../../../src/components/MyAccount/MyAccount'), { ssr: false });
+import { MyAccount } from '../../../src/components/Auth/ClientOnlyPages';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'myAccount.pageTitle', 'MyAccount | Wadi Degla');
   const description = t(lang, 'myAccount.metaDescription', '');
@@ -15,6 +15,6 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function MyAccountPage({ params }) {
+export default function MyAccountPage() {
   return <MyAccount />;
 }

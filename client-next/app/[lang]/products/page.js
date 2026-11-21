@@ -26,7 +26,8 @@ function buildItemListSchema(lang, products) {
   };
 }
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'products.pageTitle', 'Egyptian Marble & Granite | Wadi Degla');
   const description = t(lang, 'products.metaDescription', '');
@@ -40,7 +41,8 @@ export function generateMetadata({ params }) {
 
 // The product list is fetched at build time so the product cards (names, photos, links to
 // each product page) are in the static HTML. Products refreshes it in the browser.
-export default async function ProductsPage({ params }) {
+export default async function ProductsPage(props) {
+  const params = await props.params;
   const lang = params?.lang || 'en';
   const products = (await getProducts()) || [];
   const details = await getProductDetailsMap();

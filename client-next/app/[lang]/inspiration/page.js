@@ -3,7 +3,8 @@ import Inspiration from '../../../src/components/Inspiration/Inspiration';
 import { getProducts } from '../../../src/util/product-slugs';
 import { PRODUCT_CATEGORIES } from '../../../src/util/product-types';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'inspiration.pageTitle', 'Inspiration | Wadi Degla');
   const description = t(lang, 'inspiration.metaDescription', '');

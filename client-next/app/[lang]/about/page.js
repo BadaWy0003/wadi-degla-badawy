@@ -3,7 +3,8 @@ import About from '../../../src/components/About/About';
 import HeroPreload from '../../../src/components/HeroPreload';
 import { sitePhoto } from '../../../src/util/site-content';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'about.pageTitle', 'About | Wadi Degla');
   const description = t(lang, 'about.metaDescription', '');

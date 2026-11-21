@@ -4,11 +4,13 @@ import { topicMetadata, topicData, topicBreadcrumb } from '../../../src/util/top
 // Topic page: texts in content/topics/<lang>.json, layout in src/components/Topic/.
 const KEY = 'egyptianMarble';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   return topicMetadata(params.lang, KEY);
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params;
   const { lang } = params;
   const { products, alsoProducts, projects } = await topicData(lang, KEY);
   return (

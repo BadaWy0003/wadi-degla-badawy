@@ -2,7 +2,8 @@ import { t, buildAlternates } from '../../../src/util/meta';
 import Quote from '../../../src/components/Quote/Quote';
 
 // The visitor's own quote list (kept in their browser): not for Google, and not in the sitemap.
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   return {
     title: t(lang, 'quote.pageTitle', 'Your quote list | Wadi Degla'),

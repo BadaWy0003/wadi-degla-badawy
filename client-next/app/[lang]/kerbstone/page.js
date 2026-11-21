@@ -2,7 +2,8 @@ import { t, buildAlternates, buildSocial } from '../../../src/components/../util
 import Kerbstone from '../../../src/components/Kerbstone/Kerbstone';
 import RelatedPages from '../../../src/components/RelatedPages/RelatedPages';
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang } = params;
   const title = t(lang, 'kerbstone.pageTitle', 'Kerbstone | Wadi Degla');
   const description = t(lang, 'kerbstone.metaDescription', '');
@@ -14,7 +15,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function KerbstonePage({ params }) {
+export default async function KerbstonePage(props) {
+  const params = await props.params;
   return (
     <Kerbstone>
       <RelatedPages lang={params.lang} page="kerbstone" />
