@@ -12,6 +12,8 @@ const EnquiriesRouter = require('../routes/enquiries.route');
 const OverviewRouter = require('../routes/overview.route');
 
 module.exports = (app) => {
+  // email the tech team when the API keeps answering with errors (alerts.service.js)
+  app.use(require('../services/alerts.service').serverErrors);
   app.use('/api/index', IndexRouter);
   app.use('/api/auth', AuthRouter);
   app.use('/api/customer', CustomerRouter);

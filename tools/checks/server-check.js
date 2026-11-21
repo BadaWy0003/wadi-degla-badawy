@@ -76,6 +76,7 @@ global.fetch = async () => ({ ok: false, status: 503, json: async () => ({}) });
 // [method, address, role ('none' = logged out), expected status]
 const CHECKS = [
   // public
+  ['GET', '/api/index', 'none', 200], // health address for the uptime monitor (no database reads)
   ['GET', '/api/storage/all', 'none', 200],
   ['GET', '/api/storage/details', 'none', 200],
   ['GET', '/api/news', 'none', 200],
