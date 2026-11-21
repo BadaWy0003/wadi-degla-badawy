@@ -9,6 +9,7 @@ const ProductDetailsController = require('../controllers/product-details.control
 const { productDetailsReqSchema } = require('../validations/product-details.validation.schema');
 const UnusedPhotos = require('../services/unused-photos.service');
 const SpecSheet = require('../services/spec-sheet.service');
+const Catalogue = require('../services/catalogue.service');
 const { rateLimit } = require('../middlewares/rate-limit.middleware');
 
 const router = express.Router();
@@ -80,6 +81,23 @@ router.get('/spec-sheet/:id', specSheetLimit, async (req, res) => {
   } catch (error) {
     if (error.statusCode) return res.status(error.statusCode).json({ message: error.message });
     console.error('Spec sheet error:', error.message);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// The products page's "Download catalogue" (public): every stone in one PDF, kept until a stone changes.
+router.get('/catalogue', specSheetLimit, async (req, res) => {
+  try {
+    const { buffer, fileName } = await Catalogue.get(String(req.query.lang || 'en'));
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `attachment; filename="${fileName}"`,
+      'Cache-Control': 'public, max-age=3600',
+    });
+    return res.send(buffer);
+  } catch (error) {
+    if (error.statusCode) return res.status(error.statusCode).json({ message: error.message });
+    console.error('Catalogue error:', error.message);
     return res.status(500).json({ message: 'Internal server error' });
   }
 });

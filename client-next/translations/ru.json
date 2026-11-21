@@ -892,7 +892,8 @@
     "colour_brown": "Коричневый",
     "colour_red": "Красный и розовый",
     "colour_gold": "Золотой и жёлтый",
-    "colour_green": "Зелёный"
+    "colour_green": "Зелёный",
+    "catalogue": "Скачать каталог камня (PDF, англ.)"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "Египетский поставщик, слэбы и плитка",

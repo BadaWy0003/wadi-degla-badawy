@@ -2,7 +2,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './ProductsList.css';
 import { useTranslation } from 'react-i18next';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaFilePdf } from 'react-icons/fa';
+import { trackEvent } from '../../util/analytics';
+import { useLang } from '../../context/LangContext';
 
 import apiClient from '../../util/client.js';
 import LangLink from '../LangLink';
@@ -38,6 +40,11 @@ const DESCRIPTION_KEYS = {
 const QUARRIES = COMPANY.quarries;
 const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 
+// The stone catalogue PDF, made by the server from the admin panel's data (catalogue.service.js)
+const CATALOGUE_URL = `${
+  process.env.NEXT_PUBLIC_BASE_API_URL || 'https://server-withered-wildflower-1595.fly.dev'
+}/api/storage/catalogue`;
+
 const sectionId = (category) => `pl-${category.toLowerCase().replace(/\s+/g, '-')}`;
 const order = (a, b) => {
   const fa = FIRST.indexOf(a.name);
@@ -64,8 +71,10 @@ const finishCount = (item) =>
 // admin-panel changes show up without a redeploy.
 export default function Products({ initialProducts = [] }) {
   const { t, i18n } = useTranslation();
+  const lang = useLang();
   const [query, setQuery] = useState('');
   const [filters, setFilters] = useState({});
+  const [catalogueWait, setCatalogueWait] = useState(false);
   const [data, setData] = useState(initialProducts);
   const [active, setActive] = useState(PRODUCT_CATEGORIES[0]);
 
@@ -211,6 +220,25 @@ export default function Products({ initialProducts = [] }) {
               <dd>{EXPORT_COUNTRIES}</dd>
             </div>
           </dl>
+
+          <a
+            className="pl-catalogue"
+            href={`${CATALOGUE_URL}?lang=${lang === 'ar' ? 'ar' : 'en'}`}
+            rel="nofollow"
+            download
+            onClick={() => {
+              trackEvent('catalogue_download', {});
+              setCatalogueWait(true);
+              setTimeout(() => setCatalogueWait(false), 15000);
+            }}
+          >
+            <FaFilePdf aria-hidden="true" /> {t('products.catalogue')}
+          </a>
+          {catalogueWait && (
+            <p className="pl-catalogue-wait" role="status">
+              {t('productDetails.specSheetWait')}
+            </p>
+          )}
 
           <div className="pl-finder" role="group" aria-label={t('products.finderTitle')}>
             <h2 className="pl-finder-title">{t('products.finderTitle')}</h2>

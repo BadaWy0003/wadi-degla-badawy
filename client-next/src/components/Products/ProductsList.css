@@ -369,6 +369,32 @@ html[dir='rtl'] .pl-crumb span[aria-hidden] {
   font-size: 19px;
 }
 
+/* stone catalogue PDF link (2026-11-21) */
+.pl-catalogue {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 28px;
+  padding: 11px 20px;
+  border: 1px solid var(--pl-gold);
+  border-radius: 999px;
+  color: var(--pl-gold-hi);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.pl-catalogue:hover {
+  background: rgba(173, 149, 113, 0.14);
+}
+
+.pl .pl-catalogue-wait {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--pl-muted);
+}
+
 /* stone finder (2026-11-20): colour / use / origin, under the header numbers */
 .pl-finder {
   margin-top: 36px;
