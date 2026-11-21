@@ -924,6 +924,7 @@
     "heading": "{{kind}} {{name}}",
     "kindMarble": "Marmo",
     "kindGranite": "Granito",
+    "kindLimestone": "Calcare",
     "introEgyptian": "Il {{heading}} è una pietra naturale estratta in Egitto ({{type}}), fornita da Wadi Degla in lastre, piastrelle e blocchi. Finiture disponibili: {{finishes}}. Si utilizza per pavimenti, rivestimenti di pareti e facciate, scale, davanzali e paesaggistica.",
     "introImported": "Il {{heading}} è una pietra naturale importata ({{type}}), fornita dall'Egitto da Wadi Degla in lastre e piastrelle. Finiture disponibili: {{finishes}}. Si utilizza per pavimenti, rivestimenti di pareti, scale, davanzali e interior design.",
     "introCta": "Richiedi un campione o un preventivo per {{name}} a Wadi Degla, azienda del marmo dal 1980.",

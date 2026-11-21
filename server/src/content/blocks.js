@@ -1669,8 +1669,9 @@ const BLOCKS = [
         title: "Stone pages (built automatically)",
         help: "The Google description starts with the first sentence of the stone's own description (Products → Website details).",
         fields: [
-          { type: 'text', key: 'productDetails.kindMarble', label: "Word added after a marble or limestone name", max: 40, help: "E.g. \"Galala\" + this = \"Galala Marble\", used in the page title (H1) and the Google title." },
+          { type: 'text', key: 'productDetails.kindMarble', label: "Word added after a marble name", max: 40, help: "E.g. \"Galala\" + this = \"Galala Marble\", used in the page title (H1) and the Google title." },
           { type: 'text', key: 'productDetails.kindGranite', label: "Word added after a granite name", max: 40 },
+          { type: 'text', key: 'productDetails.kindLimestone', label: "Word added after a limestone name", max: 40, help: "E.g. \"Cleopatra\" + this = \"Cleopatra Limestone\"." },
           { type: 'text', key: 'productDetails.heading', label: "Order of name and word", max: 40, placeholders: ["kind", "name"], help: "Keep {{kind}}, {{name}}: the website puts \"marble\" or \"granite\" and the stone's name there." },
           { type: 'text', key: 'productDetails.titleSupplierSlabsTiles', label: "Google title: longest ending", max: 60, help: "The Google title is \"<stone> – <ending> | <brand>\". When it is too long, the shorter endings below are used, then the brand is dropped." },
           { type: 'text', key: 'productDetails.titleSupplierSlabs', label: "Google title: shorter ending", max: 40 },
