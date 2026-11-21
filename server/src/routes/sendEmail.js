@@ -6,6 +6,7 @@ const path = require('path');
 const { IS_STAGING } = require('../start/data-area');
 const { rateLimit } = require('../middlewares/rate-limit.middleware');
 const Alerts = require('../services/alerts.service');
+const FollowUp = require('../services/followup.service');
 const EnquiriesService = require('../services/enquiries.service');
 
 // Contact + sample-request forms: max 5 messages per visitor per 15 minutes.
@@ -121,6 +122,7 @@ router.post('/', emailRateLimit, handleUpload, async (req, res) => {
   try {
     await transporter.sendMail(mailOptions);
     await EnquiriesService.markEmail(enquiryId, true).catch(() => {});
+    if (enquiryId) FollowUp.autoReply({ to: email, name, lang: cleanText(body.lang, 5), kind: cleanText(body.kind, 20) });
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Email error:', error.message);
@@ -140,7 +142,10 @@ router.post('/', emailRateLimit, handleUpload, async (req, res) => {
           ],
     );
     // Saved in the inbox: the visitor's message reached us, so it's still a success for them.
-    if (enquiryId) return res.status(200).json({ success: true });
+    if (enquiryId) {
+      FollowUp.autoReply({ to: email, name, lang: cleanText(body.lang, 5), kind: cleanText(body.kind, 20) });
+      return res.status(200).json({ success: true });
+    }
     return res.status(500).json({ success: false, error: 'Could not send the message. Please try again later.' });
   }
 });
