@@ -349,9 +349,9 @@
     "bandCta": "Prenota un incontro su WhatsApp"
   },
   "exports": {
-    "pageTitle": "Export di marmo e calcare egiziani | Wadi Degla",
-    "metaDescription": "Export di marmo e calcare egiziani con imballaggio sicuro, logistica globale e documenti in regola. Verso Golfo, Europa, Africa e Americhe.",
-    "heroTitle": "Servizi di esportazione globale per marmo e calcare egiziano",
+    "pageTitle": "Esportatore di marmo e granito egiziani | Wadi Degla",
+    "metaDescription": "Esportatore di marmo dall'Egitto dal 1980: marmo, granito e calcare a container, FOB, CFR o CIF da Ain Sokhna, Alessandria o Damietta.",
+    "heroTitle": "Esportatore di marmo e granito egiziani",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Esportazioni",
     "departmentTitle": "Dipartimento di esportazione",
@@ -902,6 +902,9 @@
     "titleBrand": "Wadi Degla",
     "metaDescription": "Scopri {{name}} nella nostra collezione premium di {{type}}. Pietra naturale di alta qualità disponibile. Visualizza le specifiche e richiedi campioni da Wadi Degla, la tua fonte fidata per materiali lapidei di lusso.",
     "metaAlsoCalled": "(detto anche {{name}})",
+    "metaOffer": "{{forms}}, spessore {{thickness}} cm.",
+    "metaFormsSlabsTiles": "Lastre e piastrelle",
+    "metaFormsAll": "Lastre, piastrelle e blocchi",
     "metaTail": "Esportato in tutto il mondo dal 1980. Campioni gratuiti e preventivi su richiesta.",
     "breadcrumbHome": "Home",
     "breadcrumbExplore": "Esplora",

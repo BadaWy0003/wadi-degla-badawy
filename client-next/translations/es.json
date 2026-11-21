@@ -349,9 +349,9 @@
     "bandCta": "Reservar una reunión por WhatsApp"
   },
   "exports": {
-    "pageTitle": "Exportación de mármol y caliza egipcios | Wadi Degla",
-    "metaDescription": "Exportación de mármol y caliza egipcios con embalaje seguro, logística global y documentación conforme. Al Golfo, Europa, África y América.",
-    "heroTitle": "Servicios de Exportación Global para Mármol y Piedra Caliza Egipcia",
+    "pageTitle": "Exportación de mármol y granito de Egipto | Wadi Degla",
+    "metaDescription": "Elaboración y exportación de mármol desde 1980: mármol, granito y caliza de Egipto por contenedor, FOB, CFR o CIF desde Ain Sojna, Alejandría o Damieta.",
+    "heroTitle": "Elaboración y exportación de mármol y granito egipcios",
     "breadcrumbHome": "Inicio",
     "breadcrumbCurrent": "Exportaciones",
     "departmentTitle": "Departamento de Exportación",
@@ -902,6 +902,9 @@
     "titleBrand": "Wadi Degla",
     "metaDescription": "Descubre {{name}} en nuestra colección premium de {{type}}. Piedra natural de alta calidad disponible. Consulta especificaciones y solicita muestras de Wadi Degla, tu fuente confiable de materiales de lujo.",
     "metaAlsoCalled": "(también llamado {{name}})",
+    "metaOffer": "{{forms}}, espesor {{thickness}} cm.",
+    "metaFormsSlabsTiles": "Planchas y baldosas",
+    "metaFormsAll": "Planchas, baldosas y bloques",
     "metaTail": "Exportado a todo el mundo desde 1980. Muestras gratuitas y presupuestos a petición.",
     "breadcrumbHome": "Inicio",
     "breadcrumbExplore": "Explorar",
