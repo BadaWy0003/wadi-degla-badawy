@@ -41,6 +41,25 @@ export const STATUSES = [
 const STATUS = Object.fromEntries(STATUSES.map(s => [s.id, s]));
 const KIND = { contact: 'Contact form', sample: 'Sample request', quote: 'Quote request' };
 
+// Where the buyer found the website (sent by the website with each enquiry since 2026-11-21).
+const CHANNEL = {
+  search: 'Google / search',
+  ai: 'AI assistant',
+  social: 'Social media',
+  email: 'Email',
+  ads: 'Ads',
+  campaign: 'Campaign link',
+  website: 'Other website',
+  direct: 'Direct',
+};
+const sourceGroup = e => (e.source?.channel ? CHANNEL[e.source.channel] || e.source.channel : 'Not recorded');
+const sourceText = e => {
+  const s = e.source;
+  if (!s?.channel) return '';
+  if (s.channel === 'direct') return 'Direct (typed the address or a bookmark)';
+  return [s.detail || CHANNEL[s.channel], s.campaign && `campaign "${s.campaign}"`].filter(Boolean).join(' · ');
+};
+
 const fmtDate = ms =>
   ms ? new Date(ms).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '';
 const digits = s => String(s || '').replace(/[^\d]/g, '');
@@ -69,6 +88,8 @@ const toCsv = rows => {
     ['Note', e => e.note],
     ['Language', e => e.lang],
     ['Page', e => e.page],
+    ['Came from', e => sourceText(e)],
+    ['First page', e => e.source?.landing],
   ];
   const cell = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
   return '﻿' + [cols.map(c => cell(c[0])).join(','), ...rows.map(r => cols.map(c => cell(c[1](r))).join(','))].join('\r\n');
@@ -149,6 +170,8 @@ function EnquiryDialog({ enquiry, onClose, onSaved }) {
         <Detail label="Country" value={enquiry.country} />
         <Detail label="Port" value={enquiry.port} dir="auto" />
         <Detail label="Address" value={enquiry.address} dir="auto" />
+        <Detail label="Came from" value={sourceText(enquiry)} />
+        <Detail label="First page" value={enquiry.source?.landing} />
         {enquiry.items?.length ? (
           <Box sx={{ mt: 2 }}>
             <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
@@ -248,6 +271,7 @@ export default function Enquiries() {
   const [failed, setFailed] = useState(false);
   const [tab, setTab] = useState('new');
   const [kind, setKind] = useState('all');
+  const [from, setFrom] = useState('all');
   const [search, setSearch] = useState('');
   const [open, setOpen] = useState(null);
 
@@ -273,9 +297,17 @@ export default function Enquiries() {
       e =>
         (tab === 'all' ? e.status !== 'spam' : e.status === tab) &&
         (kind === 'all' || e.kind === kind) &&
+        (from === 'all' || sourceGroup(e) === from) &&
         (!q || [e.name, e.email, e.company, e.country, e.product, e.phone, e.message].join(' ').toLowerCase().includes(q)),
     );
-  }, [list, tab, kind, search]);
+  }, [list, tab, kind, from, search]);
+
+  // How many enquiries (not spam) came from each channel, most first
+  const fromCounts = useMemo(() => {
+    const c = {};
+    for (const e of list || []) if (e.status !== 'spam') c[sourceGroup(e)] = (c[sourceGroup(e)] || 0) + 1;
+    return Object.entries(c).sort((a, b) => b[1] - a[1]);
+  }, [list]);
 
   const saved = updated => {
     setList(l => l.map(e => (e.id === updated.id ? { ...e, ...updated } : e)));
@@ -308,6 +340,23 @@ export default function Enquiries() {
 
       {list && (
         <>
+          {fromCounts.some(([name]) => name !== 'Not recorded') && (
+            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1, mb: 2 }}>
+              <Typography variant="body2" color="text.secondary" sx={{ mr: 0.5 }}>
+                Where enquiries come from:
+              </Typography>
+              {fromCounts.map(([name, n]) => (
+                <Chip
+                  key={name}
+                  size="small"
+                  label={`${name} · ${n}`}
+                  variant={from === name ? 'filled' : 'outlined'}
+                  color={from === name ? 'primary' : 'default'}
+                  onClick={() => setFrom(from === name ? 'all' : name)}
+                />
+              ))}
+            </Box>
+          )}
           <Tabs value={tab} onChange={(e, v) => setTab(v)} variant="scrollable" allowScrollButtonsMobile sx={{ mb: 2 }}>
             {[...STATUSES, { id: 'all', label: 'All' }].map(s => (
               <Tab key={s.id} value={s.id} label={`${s.label} (${counts[s.id] || 0})`} />
@@ -326,6 +375,14 @@ export default function Enquiries() {
               <MenuItem value="contact">Contact form</MenuItem>
               <MenuItem value="sample">Sample request</MenuItem>
               <MenuItem value="quote">Quote request</MenuItem>
+            </TextField>
+            <TextField size="small" select label="Came from" value={from} onChange={e => setFrom(e.target.value)} sx={{ minWidth: 170 }}>
+              <MenuItem value="all">All sources</MenuItem>
+              {fromCounts.map(([name]) => (
+                <MenuItem key={name} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
             </TextField>
             <Button variant="outlined" startIcon={<Download />} onClick={exportCsv} disabled={!shown.length}>
               Export to Excel
@@ -346,6 +403,7 @@ export default function Enquiries() {
                     <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Type</TableCell>
                     <TableCell sx={{ display: { xs: 'none', md: 'table-cell' } }}>Country</TableCell>
                     <TableCell sx={{ display: { xs: 'none', md: 'table-cell' } }}>Stone</TableCell>
+                    <TableCell sx={{ display: { xs: 'none', lg: 'table-cell' } }}>Came from</TableCell>
                     <TableCell>Status</TableCell>
                   </TableRow>
                 </TableHead>
@@ -375,6 +433,7 @@ export default function Enquiries() {
                       <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{KIND[e.kind]}</TableCell>
                       <TableCell sx={{ display: { xs: 'none', md: 'table-cell' } }}>{e.country}</TableCell>
                       <TableCell sx={{ display: { xs: 'none', md: 'table-cell' } }}>{stone(e)}</TableCell>
+                      <TableCell sx={{ display: { xs: 'none', lg: 'table-cell' } }}>{e.source?.channel ? e.source.detail || sourceGroup(e) : '—'}</TableCell>
                       <TableCell>
                         <Chip size="small" label={STATUS[e.status]?.label || e.status} color={STATUS[e.status]?.color || 'default'} />
                       </TableCell>

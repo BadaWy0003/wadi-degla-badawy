@@ -74,6 +74,29 @@ const readItems = (raw) => {
     .filter((i) => i.name);
 };
 
+// Where the visitor came from (the website's src/util/visit-source.js), sent as a JSON
+// string: { channel, detail, campaign, landing, at }. Unknown or broken values are dropped.
+const CHANNELS = ['search', 'ai', 'social', 'email', 'ads', 'campaign', 'website', 'direct'];
+const readSource = (raw) => {
+  let v = raw;
+  if (typeof raw === 'string') {
+    try {
+      v = JSON.parse(raw);
+    } catch {
+      return null;
+    }
+  }
+  if (!v || typeof v !== 'object' || !CHANNELS.includes(v.channel)) return null;
+  const at = Number(v.at);
+  return {
+    channel: v.channel,
+    detail: clean(v.detail, 80),
+    campaign: clean(v.campaign, 80),
+    landing: clean(v.landing, 200),
+    at: Number.isFinite(at) && at > 0 ? at : null,
+  };
+};
+
 // The enquiry as stored, from the form's body (already checked by the email route).
 const fromForm = (body, { name, email, message, extraFields, subject }) => {
   const parsed = { ...readLabelled(extraFields), ...readLabelled(message) };
@@ -99,6 +122,7 @@ const fromForm = (body, { name, email, message, extraFields, subject }) => {
     message: kind === 'sample' ? '' : htmlToText(message).slice(0, 5000),
     page: clean(body.page, 300),
     lang: clean(body.lang, 5),
+    source: readSource(body.source),
     items,
     note: '',
     attachment: null,
