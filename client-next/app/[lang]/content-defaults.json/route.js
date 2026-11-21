@@ -29,6 +29,7 @@ import { STONE_CREATION_PHOTOS_DEFAULTS } from '../../../src/components/StoneCre
 import { PATTERNS_PHOTOS_DEFAULTS } from '../../../src/components/Patterns/patternsPhotos';
 import { getGalleryItems, getProducts } from '../../../src/util/product-slugs';
 import { galleryGroupsDefaults } from '../../../src/components/Gallery/galleryGroups';
+import { PAGE_COVERS, coverDefault } from '../../../src/util/page-covers';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -100,52 +101,51 @@ export async function GET(request, props) {
   const featured = FEATURED_DEFAULT_NAMES.map(
     (name) => products.find((p) => String(p.name).trim() === name)?.id,
   ).filter(Boolean);
-  return Response.json({
-    texts,
-    data: {
-      company: COMPANY_DEFAULTS,
-      quarries: Object.fromEntries(
-        Object.entries(QUARRY_PHOTOS_DEFAULTS).map(([k, list]) => [k, list.map(photoWithSize)]),
-      ),
-      about: {
-        ...heroOf(`${H}about-hero.webp`),
-        expertisePhoto: photoWithSize('/Assets/Media/about-expertise.webp'),
-      },
-      contactPage: heroOf(`${H}contact-hero.webp`),
-      cobbles: {
-        ...heroOf('/Assets/Media/Kerb-and-Cobbles/cobble/cobble-hero.webp'),
-        ...asPhotos(COBBLE_PHOTOS_DEFAULTS),
-      },
-      kerbstone: {
-        ...heroOf('/Assets/Media/Kerb-and-Cobbles/kerb/kerb-hero.webp'),
-        ...asPhotos(KERB_PHOTOS_DEFAULTS),
-      },
-      packing: asPhotos(PACKING_PHOTOS_DEFAULTS),
-      exports: asPhotos(EXPORTS_PHOTOS_DEFAULTS),
-      history: asPhotos(HISTORY_PHOTOS_DEFAULTS),
-      inspiration: asPhotos(INSPIRATION_PHOTOS_DEFAULTS),
-      stoneCreations: asPhotos(STONE_CREATION_PHOTOS_DEFAULTS),
-      ...topicHeroes,
-      machinery: {
-        ...countsForAdmin(),
-        ...Object.fromEntries(
-          Object.entries(MACHINERY_PHOTOS_DEFAULTS).map(([k, list]) => [
-            k,
-            list.map(photoWithSize),
-          ]),
-        ),
-      },
-      home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
-      certificates: CERTIFICATES_DEFAULTS,
-      fairs: { fairs: fairsForAdmin((id) => textOf(`fairs.items.${id}`)) },
-      patterns: { ...patterns, ...asPhotos(PATTERNS_PHOTOS_DEFAULTS) },
-      gallery: galleryGroupsDefaults(galleryItems),
-      partners: {
-        partners: partnersForAdmin(
-          (id) => textOf(`partners.stories.${id}`),
-          () => LOGO_SIZE,
-        ),
-      },
+  const data = {
+    company: COMPANY_DEFAULTS,
+    quarries: Object.fromEntries(
+      Object.entries(QUARRY_PHOTOS_DEFAULTS).map(([k, list]) => [k, list.map(photoWithSize)]),
+    ),
+    about: {
+      ...heroOf(`${H}about-hero.webp`),
+      expertisePhoto: photoWithSize('/Assets/Media/about-expertise.webp'),
     },
-  });
+    contactPage: heroOf(`${H}contact-hero.webp`),
+    cobbles: {
+      ...heroOf('/Assets/Media/Kerb-and-Cobbles/cobble/cobble-hero.webp'),
+      ...asPhotos(COBBLE_PHOTOS_DEFAULTS),
+    },
+    kerbstone: {
+      ...heroOf('/Assets/Media/Kerb-and-Cobbles/kerb/kerb-hero.webp'),
+      ...asPhotos(KERB_PHOTOS_DEFAULTS),
+    },
+    packing: asPhotos(PACKING_PHOTOS_DEFAULTS),
+    exports: asPhotos(EXPORTS_PHOTOS_DEFAULTS),
+    history: asPhotos(HISTORY_PHOTOS_DEFAULTS),
+    inspiration: asPhotos(INSPIRATION_PHOTOS_DEFAULTS),
+    stoneCreations: asPhotos(STONE_CREATION_PHOTOS_DEFAULTS),
+    ...topicHeroes,
+    machinery: {
+      ...countsForAdmin(),
+      ...Object.fromEntries(
+        Object.entries(MACHINERY_PHOTOS_DEFAULTS).map(([k, list]) => [k, list.map(photoWithSize)]),
+      ),
+    },
+    home: { ...HOME_PHOTOS_DEFAULTS, featured: featured.map(String) },
+    certificates: CERTIFICATES_DEFAULTS,
+    fairs: { fairs: fairsForAdmin((id) => textOf(`fairs.items.${id}`)) },
+    patterns: { ...patterns, ...asPhotos(PATTERNS_PHOTOS_DEFAULTS) },
+    gallery: galleryGroupsDefaults(galleryItems),
+    partners: {
+      partners: partnersForAdmin(
+        (id) => textOf(`partners.stories.${id}`),
+        () => LOGO_SIZE,
+      ),
+    },
+  };
+  // every page's header photo (src/util/page-covers.js), in its page's block
+  for (const [page, { block }] of Object.entries(PAGE_COVERS)) {
+    data[block] = { ...data[block], heroPhoto: coverDefault(page) };
+  }
+  return Response.json({ texts, data });
 }

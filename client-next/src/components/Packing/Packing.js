@@ -7,6 +7,9 @@ import LangLink from '../LangLink';
 import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { E, GALLERY, P, SHOWN, methodPhoto } from './packingPhotos';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Packing (redesigned 2026-11-12, design A "Slabs + tiles cards"): header with numbers, the two
 // slab methods and the two tile methods as cards (photo, label, the steps as a checklist),
@@ -48,7 +51,8 @@ export default function Packing({ children }) {
 
   return (
     <div className="pk">
-      <div className="pk-hero">
+      <div className="pk-hero wd-cover" style={coverStyle('packing')}>
+        <CoverPreload page="packing" />
         <div className="pk-wrap">
           <div className="pk-crumb">
             <LangLink href="/">{t('packing.breadcrumbHome')}</LangLink>

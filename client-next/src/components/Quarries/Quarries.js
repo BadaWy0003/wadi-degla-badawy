@@ -10,6 +10,9 @@ import { cardImageProps } from '../../util/responsive-img';
 import { productSlug } from '../../util/product-slugs';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { FACTS } from '../../util/company';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Quarries & Factories (redesigned 2026-11-12, design A "Quarries + factory cards"): header
 // with numbers, the 3 quarries (photo mosaic + text + checklist, alternating sides), the 3
@@ -72,7 +75,8 @@ export default function Quarries({ children }) {
 
   return (
     <div className="qr">
-      <div className="qr-hero">
+      <div className="qr-hero wd-cover" style={coverStyle('quarries')}>
+        <CoverPreload page="quarries" />
         <div className="qr-wrap">
           <div className="qr-crumb">
             <LangLink href="/">{t('quarries.breadcrumbHome')}</LangLink>

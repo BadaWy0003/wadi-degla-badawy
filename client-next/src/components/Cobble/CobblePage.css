@@ -133,7 +133,7 @@ html[dir='rtl'] .co-crumb span[aria-hidden] {
   position: relative;
   overflow: hidden;
   padding: calc(var(--co-header) + 56px) 0 64px;
-  min-height: 560px;
+  min-height: min(82vh, 760px);
   display: flex;
   align-items: flex-end;
   background: var(--co-bg);
@@ -158,21 +158,17 @@ html[dir='rtl'] .co-crumb span[aria-hidden] {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(12, 11, 10, 0.94),
-    rgba(12, 11, 10, 0.6) 55%,
-    rgba(12, 11, 10, 0.3)
-  );
+  /* same look as every page header (PhotoCover.css): darkened text side + fade at the bottom */
+  background:
+    linear-gradient(90deg, rgba(12, 11, 10, 0.92) 0%, rgba(12, 11, 10, 0.6) 48%, rgba(12, 11, 10, 0.12) 100%),
+    linear-gradient(0deg, #0c0b0a 0%, rgba(12, 11, 10, 0) 32%);
 }
 
 html[dir='rtl'] .co-hero::after {
-  background: linear-gradient(
-    270deg,
-    rgba(12, 11, 10, 0.94),
-    rgba(12, 11, 10, 0.6) 55%,
-    rgba(12, 11, 10, 0.3)
-  );
+  /* same look as every page header (PhotoCover.css): darkened text side + fade at the bottom */
+  background:
+    linear-gradient(270deg, rgba(12, 11, 10, 0.92) 0%, rgba(12, 11, 10, 0.6) 48%, rgba(12, 11, 10, 0.12) 100%),
+    linear-gradient(0deg, #0c0b0a 0%, rgba(12, 11, 10, 0) 32%);
 }
 
 .co-hero .co-wrap {
@@ -553,12 +549,7 @@ html[dir='rtl'] .co-hero::after {
 
   .co-hero::after,
   html[dir='rtl'] .co-hero::after {
-    background: linear-gradient(
-      0deg,
-      rgba(12, 11, 10, 0.96),
-      rgba(12, 11, 10, 0.75) 60%,
-      rgba(12, 11, 10, 0.45)
-    );
+    background: linear-gradient(0deg, #0c0b0a 6%, rgba(12, 11, 10, 0.6) 55%, rgba(12, 11, 10, 0.3));
   }
 
   .co-crumb {

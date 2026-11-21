@@ -10,6 +10,9 @@ import { WHATSAPP_URL } from '../Contact/contactData';
 import { INSPIRATION_PHOTOS } from './inspirationPhotos';
 // two fixed pictures in "Turn an idea into a project"
 import { interiorImageData } from './InspirationImageData';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Inspiration (redesigned 2026-11-12, design B "Lookbook"): header with numbers, then one
 // chapter per style (interior, exterior, classic & monumental: a big photo with the text and
@@ -120,7 +123,8 @@ export default function Inspiration({ stoneCount = 0 }) {
 
   return (
     <div className="ins" ref={pageRef}>
-      <div className="ins-hero">
+      <div className="ins-hero wd-cover" style={coverStyle('inspiration')}>
+        <CoverPreload page="inspiration" />
         <div className="ins-wrap">
           <div className="ins-crumb">
             <LangLink href="/">{t('inspiration.breadcrumbHome')}</LangLink>

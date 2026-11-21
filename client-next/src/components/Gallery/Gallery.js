@@ -10,6 +10,9 @@ import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { COMPANY, FACTS } from '../../util/company';
 import { GALLERY_GROUPS as GROUPS, chosenIds } from './galleryGroups';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Gallery (redesigned 2026-11-12, design B "Grouped by area"): header with numbers, a bar of
 // group buttons (they jump to their section; the one on screen is highlighted), one section per
@@ -120,7 +123,8 @@ export default function Gallery({ initialItems = [] }) {
 
   return (
     <div className="ga" ref={pageRef}>
-      <div className="ga-hero">
+      <div className="ga-hero wd-cover" style={coverStyle('gallery')}>
+        <CoverPreload page="gallery" />
         <div className="ga-wrap">
           <div className="ga-crumb">
             <LangLink href="/">{t('gallery.breadcrumbHome')}</LangLink>

@@ -7,6 +7,9 @@ import LangLink from '../LangLink';
 import NewsCard from './NewsCard';
 import useReveal from './useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // News list (redesigned 2026-11-12, design A "Featured + grid"): header with numbers, year
 // buttons + search, the pinned article as a big card, the others in a 3-column grid, and a
@@ -36,7 +39,8 @@ export default function News({ articles = [] }) {
 
   return (
     <div className="nw" ref={pageRef}>
-      <div className="nw-hero">
+      <div className="nw-hero wd-cover" style={coverStyle('news')}>
+        <CoverPreload page="news" />
         <div className="nw-wrap">
           <div className="nw-crumb">
             <LangLink href="/">{t('news.breadcrumbHome')}</LangLink>

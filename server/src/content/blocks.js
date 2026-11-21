@@ -416,6 +416,20 @@ const BLOCKS = [
     usedOn: ["History"],
     sections: [
       {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'photos',
         title: 'Photos',
         help: "Every photo on this page is shown whole, at its own shape.",
@@ -503,6 +517,20 @@ const BLOCKS = [
     description: "The quarries and factories (texts and photos) and the \"From quarry to port\" steps of the Quarries & Factories page.",
     usedOn: ["Quarries & factories"],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'photos',
         title: 'Photos',
@@ -598,6 +626,20 @@ const BLOCKS = [
     description: "The machines (how many, photos, name and text) and the texts of the Machinery page.",
     usedOn: ["Machinery"],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'header',
         title: "Header",
@@ -782,6 +824,20 @@ const BLOCKS = [
     usedOn: ["Packing"],
     sections: [
       {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'photos',
         title: 'Photos',
         help: "Use the arrows to change the order.",
@@ -875,6 +931,20 @@ const BLOCKS = [
     description: "The export terms, the export team and the texts of the Exports page.",
     usedOn: ["Exports", "Home (world map)"],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'photos',
         title: 'Photos',
@@ -1070,6 +1140,20 @@ const BLOCKS = [
     description: "The texts of the products page (all stones grouped by category).",
     usedOn: ["Products"],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'header',
         title: "Header",
@@ -1757,6 +1841,20 @@ const BLOCKS = [
     usedOn: ["Projects"],
     sections: [
       {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'top',
         title: "Top of the page",
         fields: [
@@ -1804,6 +1902,20 @@ const BLOCKS = [
     usedOn: ["News"],
     sections: [
       {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'top',
         title: "Top of the page",
         fields: [
@@ -1846,6 +1958,20 @@ const BLOCKS = [
     description: "The texts of the Gallery page and which photos go in each group (the photos themselves are uploaded in Gallery).",
     usedOn: ["Gallery"],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'groups',
         title: 'Photo groups',
@@ -1900,6 +2026,20 @@ const BLOCKS = [
     description: "The texts of the Inspiration page. Lines starting with \"- \" are shown as a list.",
     usedOn: ["Inspiration"],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'photos',
         title: 'Photos',
@@ -1972,6 +2112,20 @@ const BLOCKS = [
     description: "The names and texts of the architectural pieces and mosaics, and the page texts.",
     usedOn: ["Stone creations"],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'photos',
         title: 'Photos',
@@ -2496,6 +2650,20 @@ const BLOCKS = [
     usedOn: ['Certificates', 'Home (certificate logos)'],
     sections: [
       {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'docs',
         title: 'Certificate photos',
         help: "A clear photo or scan of each certificate (JPG, PNG or WebP). They open full size on the Certificates page and from the logos on the home page. Only facts that don't expire are written on the page, so no dates are needed.",
@@ -2578,6 +2746,20 @@ const BLOCKS = [
     description: 'The fairs the team visited (add, change, reorder or remove a fair, with its photos), and the page texts.',
     usedOn: ['Fairs'],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'list',
         title: 'Fairs',
@@ -2697,6 +2879,20 @@ const BLOCKS = [
     usedOn: ['Patterns / Pavers'],
     sections: [
       {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
+      {
         id: 'pavers',
         title: 'Paving stones (pool deck)',
         help: 'In the order of the small pictures on the page. Leave a name empty to show "Stone 1", "Stone 2"...',
@@ -2765,6 +2961,20 @@ const BLOCKS = [
       'The partners and clients (logo, name, the projects done for them and a short story), used on the Partners page and the home page.',
     usedOn: ['Partners', 'Home'],
     sections: [
+      {
+        id: 'cover',
+        title: 'Header photo',
+        fields: [
+          {
+            type: 'image',
+            name: 'heroPhoto',
+            label: 'Header photo',
+            help: 'The big photo at the top of the page, darkened on the text side and fading into the page at the bottom. Use a wide photo, at least 1600 px wide; phones show its middle part.',
+            ratio: [0.9, 3.6],
+            ratioHelp: 'use a wide (landscape) or square photo.',
+          },
+        ],
+      },
       {
         id: 'list',
         title: 'Partners',

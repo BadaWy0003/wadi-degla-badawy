@@ -7,6 +7,9 @@ import ProjectCard from './ProjectCard';
 import LangLink from '../LangLink';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Projects list (redesigned 2026-11-12, design A "Grid with country filter").
 // projects: cards from the admin panel (read at build time, projectCard() in
@@ -31,7 +34,8 @@ export default function Projects({ projects = [] }) {
 
   return (
     <div className="pj">
-      <div className="pj-hero">
+      <div className="pj-hero wd-cover" style={coverStyle('projects')}>
+        <CoverPreload page="projects" />
         <div className="pj-wrap">
           <div className="pj-crumb">
             <LangLink href="/">{t('projects.breadcrumbHome')}</LangLink>
