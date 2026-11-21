@@ -296,6 +296,7 @@ GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the 
 ## Open items (as of 2026-11-19)
 - **Client:** the names of the Patterns stones (Website > Patterns & pavers); confirm the Coverings and FutureScape fair editions; an iPhone test of the site.
 - **Ideas offered, not started:** a Google Cloud budget alert (owner sets it up).
+- **Stock page (Phase 4): on hold** (owner, 2026-11-21): the client already has a stock system (probably Odoo). Wait for the client's details; the stock page may read from that system instead of being typed in the admin panel.
 - Dropped by the owner (2026-11-18), do not bring up again: changing `SECRET_KEY`, making the repo private again, sharing the client guide, the certificate renewals, renewing `GITHUB_DEPLOY_TOKEN`.
 - Latest releases (2026-11-19): website v152 (expected after this deploy), server v285, admin v44.
 
