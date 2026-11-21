@@ -25,6 +25,7 @@ import { CATEGORY_TOPIC } from '../../util/topic-pages';
 import { finishLabel } from '../../util/finishes';
 import { productSlug } from '../../util/product-slugs';
 import Product from './Product';
+import NearImg from '../NearImg';
 import AddToQuote from '../Quote/AddToQuote';
 import { trackEvent } from '../../util/analytics';
 import { cardImageProps, smallestStonePhoto } from '../../util/responsive-img';
@@ -357,11 +358,10 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
             <div className="spd-rooms">
               {rooms.map((room) => (
                 <figure key={room.finish}>
-                  <img
-                    loading="lazy"
+                  <NearImg
                     src={room.link}
                     {...(room.thumb
-                      ? { srcSet: `${room.thumb} 640w, ${room.link} 1600w`, sizes: '(max-width: 768px) 100vw, 50vw' }
+                      ? { srcSet: `${room.thumb} 640w, ${room.link} 1920w`, sizes: '(max-width: 768px) 100vw, 50vw' }
                       : {})}
                     alt={`${heading} - ${room.label}`}
                   />
@@ -379,7 +379,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
               {seo.projects.map((p) => (
                 <li key={p.id}>
                   <LangLink href={`/projects/${p.id}/`}>
-                    <img loading="lazy" {...cardImageProps(p.thumbnail)} alt={p.name} />
+                    <NearImg {...cardImageProps(p.thumbnail)} sizes="84px" alt={p.name} />
                     <span>
                       <strong>{p.name}</strong>
                       {[p.city, p.country].filter(Boolean).join(' · ')}
