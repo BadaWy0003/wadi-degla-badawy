@@ -80,8 +80,7 @@ jobs:
           cache-dependency-path: admin-dashboard/package-lock.json
       - run: npm ci
       - name: Build
-        # CI=false: CRA would otherwise treat existing lint warnings as errors
-        run: npx react-scripts --openssl-legacy-provider build
+        # Vite since 2026-11-21 (was Create React App)
+        run: npm run build
         env:
-          CI: "false"
           REACT_APP_BASE_API_URL: https://server-withered-wildflower-1595.fly.dev
