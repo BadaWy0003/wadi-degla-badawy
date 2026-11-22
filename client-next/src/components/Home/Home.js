@@ -19,12 +19,16 @@ import '../Certificates/Certificates.css';
 import './HomePage.css';
 import { COMPANY, YEARS } from '../../util/company';
 import { HOME_PHOTOS, HOME_PHOTOS_DEFAULTS } from './homeData';
+import useReveal from '../News/useReveal';
 
 const ICONS = '/Assets/Icons';
 // Partner and certificate logos with a transparent background (tools/make-transparent-logos.js),
 // shown in one light colour and in colour on hover (HomePage.css).
 const clearLogo = (src) =>
-  `${ICONS}/logos-transparent/${src.split('/').pop().replace(/\.\w+$/, '')}.webp`;
+  `${ICONS}/logos-transparent/${src
+    .split('/')
+    .pop()
+    .replace(/\.\w+$/, '')}.webp`;
 // The numbers come from the admin panel (src/util/company.js); the years count themselves.
 // Photos and featured stones too (homeData.js); a replaced header photo is set as a CSS
 // variable read by HomePage.css.
@@ -117,9 +121,9 @@ function Showroom({ stones, t }) {
   };
 
   return (
-    <ul className="hp-showroom" ref={ref}>
+    <ul className="hp-showroom hp-reveal" ref={ref}>
       {stones.map((s, i) => (
-        <li key={s.slug} className={i === active ? 'is-active' : ''}>
+        <li key={s.slug} className={i === active ? 'is-active' : ''} style={{ '--hp-i': i }}>
           <LangLink
             href={`/products/${s.slug}`}
             className="hp-slab"
@@ -156,9 +160,14 @@ export default function Home({ featured = [] }) {
   const { t } = useTranslation();
   const counters = (key) => t(`about.counters.${key}`);
   const faqs = [1, 2, 3, 4, 5].map((n) => ({ q: t(`home.faqQ${n}`), a: t(`home.faqA${n}`) }));
+  // Sections fade up once when scrolled to (classes hp-reveal / hp-hidden, HomePage.css);
+  // --hp-i staggers the items of a row. Nothing is hidden in the HTML.
+  const page = useRef(null);
+  useReveal(page, [], 'hp');
+  const step = (i) => ({ '--hp-i': i });
 
   return (
-    <div className="hp">
+    <div className="hp" ref={page}>
       {/* 1. Hero: who we are, the main action (WhatsApp) and proof at a glance */}
       <section className="hp-hero" style={heroStyle}>
         <div className="hp-hero-inner">
@@ -208,13 +217,13 @@ export default function Home({ featured = [] }) {
 
       {/* 2. The four ranges, straight to their pages */}
       <section className="hp-section">
-        <div className="hp-head">
+        <div className="hp-head hp-reveal">
           <h2>{t('home.chooseStone')}</h2>
           <p>{t('home.chooseStoneDesc')}</p>
         </div>
         <ul className="hp-ranges">
-          {RANGES.map((r) => (
-            <li key={r.href}>
+          {RANGES.map((r, i) => (
+            <li key={r.href} className="hp-reveal" style={step(i)}>
               <LangLink href={r.href} className="hp-range">
                 <img
                   loading="lazy"
@@ -238,7 +247,7 @@ export default function Home({ featured = [] }) {
 
       {/* 3. Featured stones: the showroom */}
       <section className="hp-section hp-featured">
-        <div className="hp-head">
+        <div className="hp-head hp-reveal">
           <h2>{t('home.featuredProducts')}</h2>
           <p>{t('home.featuredProductsDesc')}</p>
           <p className="hp-hint">{t('home.featuredHint')}</p>
@@ -253,7 +262,7 @@ export default function Home({ featured = [] }) {
 
       {/* 4. Who we are: legacy, vision, mission */}
       <section className="hp-section hp-about">
-        <div className="hp-about-text">
+        <div className="hp-about-text hp-reveal">
           <h2>{t('home.legacy45Years')}</h2>
           <p>{t('home.legacyDescription')}</p>
           <LangLink href="/about" className="hp-btn hp-btn-ghost">
@@ -261,7 +270,7 @@ export default function Home({ featured = [] }) {
           </LangLink>
         </div>
         <div className="hp-about-cards">
-          <div className="hp-card">
+          <div className="hp-card hp-reveal" style={step(1)}>
             <img
               loading="lazy"
               src={`${ICONS}/paper-plane-gold.svg`}
@@ -270,7 +279,7 @@ export default function Home({ featured = [] }) {
             <h3>{t('about.visionTitle')}</h3>
             <p>{t('about.visionText')}</p>
           </div>
-          <div className="hp-card">
+          <div className="hp-card hp-reveal" style={step(2)}>
             <img
               loading="lazy"
               src={`${ICONS}/bullseye-gold.svg`}
@@ -285,28 +294,28 @@ export default function Home({ featured = [] }) {
       {/* 5. Numbers and why us, in one band */}
       <section className="hp-band">
         <div className="hp-section">
-          <h2 className="hp-band-title">{counters('sectionTitle')}</h2>
+          <h2 className="hp-band-title hp-reveal">{counters('sectionTitle')}</h2>
           <ul className="hp-stats">
             {[
               [YEARS, 'experienceTitle', ''],
               [COMPANY.workers, 'manpowerTitle', '+'],
               [COMPANY.dailyCapacity, 'productionTitle', '+'],
               [COMPANY.projects, 'projectsTitle', '+'],
-            ].map(([n, key, plus]) => (
-              <li key={key}>
+            ].map(([n, key, plus], i) => (
+              <li key={key} className="hp-reveal" style={step(i)}>
                 <StatCounter end={n} suffix={plus} className="hp-stat-value" />
                 <span>{counters(key)}</span>
               </li>
             ))}
           </ul>
-          <h2 className="hp-band-title">{counters('sectionTitle2')}</h2>
+          <h2 className="hp-band-title hp-reveal">{counters('sectionTitle2')}</h2>
           <ul className="hp-why">
             {[
               ['technology.svg', 'technology'],
               ['craftsmanship.png', 'craftsmanship'],
               ['global-supply-chain.svg', 'supplyChain'],
-            ].map(([icon, key]) => (
-              <li key={key}>
+            ].map(([icon, key], i) => (
+              <li key={key} className="hp-reveal" style={step(i)}>
                 <img loading="lazy" src={`${ICONS}/${icon}`} alt={counters(`${key}IconAlt`)} />
                 <h3>{counters(`${key}Title`)}</h3>
                 <p>{counters(`${key}Text`)}</p>
@@ -320,11 +329,11 @@ export default function Home({ featured = [] }) {
       <section className="hp-section hp-split">
         <img
           loading="lazy"
-          className="hp-split-img"
+          className="hp-split-img hp-reveal"
           src={HOME_PHOTOS.quarriesPhoto.src}
           alt={t('home.globalQuarriesAlt')}
         />
-        <div>
+        <div className="hp-reveal" style={step(1)}>
           <p className="hp-eyebrow">{t('home.globalQuarriesTitle')}</p>
           <h2>{t('home.globalQuarries')}</h2>
           <p>{t('home.globalQuarriesDesc')}</p>
@@ -365,8 +374,8 @@ export default function Home({ featured = [] }) {
               'bringVisionToLifeDesc',
               'tryNow',
             ],
-          ].map(([href, img, alt, title, eyebrow, desc, cta]) => (
-            <li key={href}>
+          ].map(([href, img, alt, title, eyebrow, desc, cta], i) => (
+            <li key={href} className="hp-reveal" style={step(i)}>
               <LangLink href={href} className="hp-explore-card">
                 <img loading="lazy" src={img} alt={t(`home.${alt}`)} />
                 <span className="hp-explore-body">
@@ -396,24 +405,24 @@ export default function Home({ featured = [] }) {
 
       {/* 9. Trusted by: partners and certificates, logos on light tiles */}
       <section className="hp-section hp-trusted">
-        <div className="hp-head">
+        <div className="hp-head hp-reveal">
           <h2>{t('home.partnersClients')}</h2>
           <p>{t('home.partnersDescription')}</p>
         </div>
         <ul className="hp-logos">
-          {HOME_PARTNERS.map(({ logo, name }) => (
-            <li key={logo}>
+          {HOME_PARTNERS.map(({ logo, name }, i) => (
+            <li key={logo} className="hp-reveal" style={step(i)}>
               <img loading="lazy" src={logo} alt={`${name} – ${t('home.partnersAlt')}`} />
             </li>
           ))}
         </ul>
-        <div className="hp-head hp-head-tight">
+        <div className="hp-head hp-head-tight hp-reveal">
           <h2>{t('home.certificates')}</h2>
           <p>{t('home.certificatesHintPc')}</p>
         </div>
         <ul className="hp-logos hp-certs">
-          {certificatesData.map((c) => (
-            <li key={c.thumbnail}>
+          {certificatesData.map((c, i) => (
+            <li key={c.thumbnail} className="hp-reveal" style={step(i)}>
               <CertificateLightBox
                 thumbnail={clearLogo(c.thumbnail)}
                 fullImage={c.image}
@@ -428,13 +437,13 @@ export default function Home({ featured = [] }) {
 
       {/* 10. FAQ: every answer is in the HTML (FAQPage JSON-LD) */}
       <section className="hp-section hp-faq">
-        <div>
+        <div className="hp-reveal">
           <h2>{t('home.faqTitle')}</h2>
           <WhatsAppButton label={t('home.ctaWhatsapp')} className="hp-btn hp-btn-ghost" />
         </div>
         <div className="hp-faq-list">
           {faqs.map((f, i) => (
-            <details key={i} open={i === 0}>
+            <details key={i} open={i === 0} className="hp-reveal" style={step(i)}>
               <summary>
                 <h3>{f.q}</h3>
               </summary>
@@ -446,9 +455,11 @@ export default function Home({ featured = [] }) {
 
       {/* 11. Last call to action */}
       <section className="hp-section hp-cta">
-        <h2>{t('home.ctaBandTitle')}</h2>
-        <p>{t('home.ctaBandText')}</p>
-        <div className="hp-actions hp-center">
+        <h2 className="hp-reveal">{t('home.ctaBandTitle')}</h2>
+        <p className="hp-reveal" style={step(1)}>
+          {t('home.ctaBandText')}
+        </p>
+        <div className="hp-actions hp-center hp-reveal" style={step(2)}>
           <WhatsAppButton label={t('home.ctaWhatsapp')} />
           <LangLink href="/contact" className="hp-btn hp-btn-ghost">
             {t('home.ctaQuote')}
