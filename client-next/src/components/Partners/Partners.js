@@ -9,6 +9,9 @@ import { WHATSAPP_URL } from '../Contact/contactData';
 import { PARTNERS } from './PartnersData';
 import { cardImageProps } from '../../util/responsive-img';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Partners & clients (redesigned 2026-11-12, design B "Partner stories"): header with numbers
 // and a slowly moving strip of every logo, one "story" per partner we did projects for (logo,
@@ -38,7 +41,8 @@ export default function Partners({ projects = {}, projectCount = 0, stories: sto
 
   return (
     <div className="pa" ref={pageRef}>
-      <div className="pa-hero">
+      <div className="pa-hero wd-cover" style={coverStyle('partners')}>
+        <CoverPreload page="partners" />
         <div className="pa-wrap">
           <div className="pa-crumb">
             <LangLink href="/">{t('partners.breadcrumbHome')}</LangLink>

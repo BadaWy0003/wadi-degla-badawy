@@ -16,6 +16,9 @@ import { WHATSAPP_URL } from '../Contact/contactData';
 import { COMPANY, EXPORT_COUNTRIES_LABEL } from '../../util/company';
 import { stoneImgProps } from '../../util/responsive-img';
 import { COLOURS, USES } from '../../util/stone-facets';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Products list (redesigned 2026-11-12, design A "Grouped by category"): every stone, in one
 // section per category, so all of them (and their links) are in the static HTML for Google.
@@ -192,7 +195,8 @@ export default function Products({ initialProducts = [] }) {
 
   return (
     <div className="pl">
-      <div className="pl-hero">
+      <div className="pl-hero wd-cover" style={coverStyle('products')}>
+        <CoverPreload page="products" />
         <div className="pl-wrap">
           <div className="pl-crumb">
             <LangLink href="/">{t('products.breadcrumbHome')}</LangLink>

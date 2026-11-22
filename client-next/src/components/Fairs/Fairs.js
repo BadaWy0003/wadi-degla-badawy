@@ -17,6 +17,9 @@ import useReveal from '../News/useReveal';
 import usePhotoZoom from '../usePhotoZoom';
 import { FAIRS, FAQ_KEYS } from './FairsData';
 import './FairsPage.css';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 const WHY = ['Buyers', 'Trends', 'Tech', 'Partners'];
 
@@ -86,7 +89,8 @@ export default function Fairs({ children, texts = {} }) {
 
   return (
     <div className="fa" ref={pageRef}>
-      <div className="fa-hero">
+      <div className="fa-hero wd-cover" style={coverStyle('fairs')}>
+        <CoverPreload page="fairs" />
         <div className="fa-wrap">
           <div className="fa-crumb">
             <LangLink href="/">{t('fairs.breadcrumbHome')}</LangLink>

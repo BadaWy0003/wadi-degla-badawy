@@ -10,6 +10,9 @@ import StatCounter from '../About/StatCounter';
 import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { YEARS } from '../../util/company';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // History (redesigned 2026-11-12, design A "Timeline"): header with numbers, the family story
 // as a dated timeline (1951 → today, with the three generations' photos), "A living legacy"
@@ -120,7 +123,8 @@ export default function History({ children }) {
 
   return (
     <div className="hi">
-      <div className="hi-hero">
+      <div className="hi-hero wd-cover" style={coverStyle('history')}>
+        <CoverPreload page="history" />
         <div className="hi-wrap">
           <div className="hi-crumb">
             <LangLink href="/">{t('history.breadcrumbHome')}</LangLink>

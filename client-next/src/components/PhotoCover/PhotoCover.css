@@ -1,0 +1,52 @@
+/* Photo header ("cover") of the content pages, the same look as the buying guide's header
+   (.tp-hero in TopicPage.css): the photo, darkened on the text side, fading into the page at
+   the bottom. Added next to each page's own header class (<div class="ga-hero wd-cover">),
+   which keeps its padding and text styles; the photo comes from --wd-cover / --wd-cover-phone
+   (src/util/page-covers.js). Doubled class: beats the pages' own ".xx-hero" rules. */
+.wd-cover.wd-cover {
+  min-height: min(82vh, 760px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 64px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 11, 10, 0.92) 0%,
+      rgba(12, 11, 10, 0.6) 48%,
+      rgba(12, 11, 10, 0.12) 100%
+    ),
+    linear-gradient(0deg, #0c0b0a 0%, rgba(12, 11, 10, 0) 32%),
+    var(--wd-cover) 60% 40% / cover no-repeat,
+    #0c0b0a;
+}
+
+html[dir='rtl'] .wd-cover.wd-cover {
+  background:
+    linear-gradient(
+      270deg,
+      rgba(12, 11, 10, 0.92) 0%,
+      rgba(12, 11, 10, 0.6) 48%,
+      rgba(12, 11, 10, 0.12) 100%
+    ),
+    linear-gradient(0deg, #0c0b0a 0%, rgba(12, 11, 10, 0) 32%),
+    var(--wd-cover) 40% 40% / cover no-repeat,
+    #0c0b0a;
+}
+
+/* the page's own inner column keeps its width inside the flex header */
+.wd-cover.wd-cover > * {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .wd-cover.wd-cover,
+  html[dir='rtl'] .wd-cover.wd-cover {
+    min-height: 0;
+    padding-bottom: 32px;
+    background:
+      linear-gradient(0deg, #0c0b0a 6%, rgba(12, 11, 10, 0.6) 55%, rgba(12, 11, 10, 0.3)),
+      var(--wd-cover-phone) center 30% / cover no-repeat,
+      #0c0b0a;
+  }
+}

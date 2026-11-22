@@ -14,6 +14,9 @@ import StatCounter from '../About/StatCounter';
 import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { COUNTS } from './machineryCounts';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Machinery (redesigned 2026-11-12, design A "Production line"): header with counting numbers,
 // "From block to tile" (4 stages joined by a line with a moving dot), then one section per
@@ -75,7 +78,8 @@ export default function Machinery({ children }) {
 
   return (
     <div className="mc" ref={pageRef}>
-      <div className="mc-hero">
+      <div className="mc-hero wd-cover" style={coverStyle('machinery')}>
+        <CoverPreload page="machinery" />
         <div className="mc-wrap">
           <div className="mc-crumb">
             <LangLink href="/">{t('machinery.breadcrumbHome')}</LangLink>

@@ -9,6 +9,9 @@ import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { siteData } from '../../util/site-content';
 import { PATTERN_PHOTOS, PAVER_PHOTOS, SPLIT_PHOTOS } from './patternsPhotos';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Patterns / pavers (redesigned 2026-11-12, design A "Pick a stone"): header with numbers, two
 // "try the stone" scenes (pool deck with 4 paving stones, house front with 10 split-face stones:
@@ -133,7 +136,8 @@ export default function Patterns({ children }) {
 
   return (
     <div className="pt" ref={pageRef}>
-      <div className="pt-hero">
+      <div className="pt-hero wd-cover" style={coverStyle('patterns')}>
+        <CoverPreload page="patterns" />
         <div className="pt-wrap">
           <div className="pt-crumb">
             <LangLink href="/">{t('patterns.breadcrumbHome')}</LangLink>

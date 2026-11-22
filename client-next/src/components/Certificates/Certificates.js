@@ -8,6 +8,9 @@ import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { CERTIFICATES } from './certificateDocs';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Certificates (redesigned 2026-11-12, design B "ISO spotlight"): header with numbers, ISO
 // 9001:2015 as the main section (facts + the certificate, which tilts toward the mouse), the two
@@ -94,7 +97,8 @@ export default function Certificates() {
 
   return (
     <div className="ce" ref={pageRef}>
-      <div className="ce-hero">
+      <div className="ce-hero wd-cover" style={coverStyle('certificates')}>
+        <CoverPreload page="certificates" />
         <div className="ce-wrap">
           <div className="ce-crumb">
             <LangLink href="/">{t('certificates.breadcrumbHome')}</LangLink>

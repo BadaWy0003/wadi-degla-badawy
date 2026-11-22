@@ -9,6 +9,9 @@ import usePhotoZoom from '../usePhotoZoom';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { EXPORT_COUNTRIES_LABEL } from '../../util/company';
 import { GALLERY, SHOWN, TEAM_PHOTO } from './exportsPhotos';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Exports (redesigned 2026-11-12, design A "Terms first"): header with numbers, the export
 // terms a buyer asks first (the client's confirmed answers, same as the buying guide), what
@@ -33,7 +36,8 @@ export default function Exports() {
 
   return (
     <div className="ex">
-      <div className="ex-hero">
+      <div className="ex-hero wd-cover" style={coverStyle('exports')}>
+        <CoverPreload page="exports" />
         <div className="ex-wrap">
           <div className="ex-crumb">
             <LangLink href="/">{t('exports.breadcrumbHome')}</LangLink>

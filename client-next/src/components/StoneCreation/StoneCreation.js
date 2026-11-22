@@ -8,6 +8,9 @@ import usePhotoZoom from '../usePhotoZoom';
 import useReveal from '../News/useReveal';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import { ARCHITECTURE as architectureData, MOSAICS as mosaicsData } from './stoneCreationPhotos';
+import { coverStyle } from '../../util/page-covers';
+import CoverPreload from '../PhotoCover/CoverPreload';
+import '../PhotoCover/PhotoCover.css';
 
 // Stone Creations (redesigned 2026-11-12, design B "Showroom viewer"): header with numbers, then
 // one viewer per range (architectural & landscaping elements, mosaics): a big stage with the
@@ -116,7 +119,8 @@ export default function StoneCreation() {
 
   return (
     <div className="sc" ref={pageRef}>
-      <div className="sc-hero">
+      <div className="sc-hero wd-cover" style={coverStyle('stoneCreations')}>
+        <CoverPreload page="stoneCreations" />
         <div className="sc-wrap">
           <div className="sc-crumb">
             <LangLink href="/">{t('stoneCreation.breadcrumbHome')}</LangLink>
