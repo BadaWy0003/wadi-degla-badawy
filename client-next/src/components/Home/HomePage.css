@@ -816,7 +816,8 @@ html[dir='rtl'] .hp-hero {
           var(--hp-bg) 82%
         )
         top / 100% calc(125vw + 4px) no-repeat,
-      var(--hp-hero-phone, url('/Assets/Media/Hero/home-hero-yard-window-m.webp')) top / 100% auto no-repeat,
+      var(--hp-hero-phone, url('/Assets/Media/Hero/home-hero-yard-window-m.webp')) top / 100% auto
+        no-repeat,
       var(--hp-bg);
   }
 
@@ -832,7 +833,8 @@ html[dir='rtl'] .hp-hero {
           var(--hp-bg) 82%
         )
         top / 100% calc(125vw + 4px) no-repeat,
-      var(--hp-hero-phone, url('/Assets/Media/Hero/home-hero-yard-window-m.webp')) top / 100% auto no-repeat,
+      var(--hp-hero-phone, url('/Assets/Media/Hero/home-hero-yard-window-m.webp')) top / 100% auto
+        no-repeat,
       var(--hp-bg);
   }
 
@@ -1069,4 +1071,108 @@ body[lang='ar'] .hp .hp-slab-type,
 body[lang='ar'] .hp .hp-slab-label,
 body[lang='ar'] .hp .hp-btn {
   letter-spacing: 0;
+}
+
+/* Scroll animations (2026-11-22, owner: "same content, cleaner"): every part fades up once
+   when it is scrolled to; the items of a row follow each other (--hp-i). useReveal adds
+   .hp-hidden only after the page loads and only to parts below the screen, so the HTML and
+   the first screen never wait; nothing moves with reduced motion (the hook does nothing). */
+.hp {
+  --hp-rise: 24px;
+  --hp-reveal: 0.75s;
+}
+
+.hp-reveal {
+  --hp-d: calc(var(--hp-i, 0) * 90ms);
+  transition:
+    opacity var(--hp-reveal) ease var(--hp-d),
+    transform var(--hp-reveal) cubic-bezier(0.2, 0.8, 0.2, 1) var(--hp-d);
+}
+
+.hp-reveal.hp-hidden {
+  opacity: 0;
+  transform: translateY(var(--hp-rise));
+}
+
+/* parts with their own hover transitions keep them */
+.hp-logos li.hp-reveal {
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    opacity var(--hp-reveal) ease var(--hp-d),
+    transform var(--hp-reveal) cubic-bezier(0.2, 0.8, 0.2, 1) var(--hp-d);
+}
+
+.hp-faq details.hp-reveal {
+  transition:
+    border-color 0.2s ease,
+    opacity var(--hp-reveal) ease var(--hp-d),
+    transform var(--hp-reveal) cubic-bezier(0.2, 0.8, 0.2, 1) var(--hp-d);
+}
+
+/* Showroom: the slabs slide in one after another from the reading side */
+.hp-showroom.hp-reveal,
+.hp-showroom.hp-reveal.hp-hidden {
+  opacity: 1;
+  transform: none;
+}
+
+.hp-showroom.hp-reveal li {
+  transition:
+    flex-grow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.8s ease calc(var(--hp-i, 0) * 70ms),
+    transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) calc(var(--hp-i, 0) * 70ms);
+}
+
+.hp-showroom.hp-hidden li {
+  opacity: 0;
+  transform: translateX(48px);
+}
+
+html[dir='rtl'] .hp-showroom.hp-hidden li {
+  transform: translateX(-48px);
+}
+
+/* Header photo: settles in slowly on load (computers; the phone photo is a fixed "window") */
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+  .hp-hero {
+    isolation: isolate;
+    overflow: clip;
+  }
+
+  .hp-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: inherit;
+    transform-origin: 50% 40%;
+    animation: hp-settle 7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    pointer-events: none;
+  }
+}
+
+@keyframes hp-settle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Phones: shorter, smaller movements */
+@media (max-width: 768px) {
+  .hp {
+    --hp-rise: 14px;
+    --hp-reveal: 0.55s;
+  }
+
+  .hp-showroom.hp-hidden li {
+    transform: translateX(24px);
+  }
+
+  html[dir='rtl'] .hp-showroom.hp-hidden li {
+    transform: translateX(-24px);
+  }
 }
