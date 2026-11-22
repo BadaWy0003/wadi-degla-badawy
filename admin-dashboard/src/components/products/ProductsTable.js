@@ -54,9 +54,10 @@ export default function ProductsTable({
             <TableCell padding="checkbox">
               <Checkbox
                 onChange={onSelectAll}
-                checked={selected.length === data.length}
+                checked={data.length > 0 && data.every((p) => selected.includes(p.id))}
                 indeterminate={
-                  selected.length > 0 && selected.length < data.length
+                  data.some((p) => selected.includes(p.id)) &&
+                  !data.every((p) => selected.includes(p.id))
                 }
               />
             </TableCell>

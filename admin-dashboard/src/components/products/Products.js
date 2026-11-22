@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Typography, Modal, Grid, Paper, Button } from '@mui/material';
+import { Box, Typography, Modal, Grid, Paper, Button, TablePagination } from '@mui/material';
 import ProductsSearchBar from './ProductsSearchBar';
 import ProductsTable from './ProductsTable';
 import AddIcon from '@mui/icons-material/Add';
@@ -28,7 +28,7 @@ export default function Products() {
   const [selected, setSelected] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [orderBy, setOrderBy] = useState('id');
+  const [orderBy, setOrderBy] = useState('name'); // A-Z by name (the ids are random)
   const [order, setOrder] = useState('asc');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchField, setSearchField] = useState('name');
@@ -41,6 +41,15 @@ export default function Products() {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
   const [totalCount, setTotalCount] = useState(0);
+  // pages of the table (the list is long): rows per page is remembered in this browser
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(() => {
+    try {
+      return Number(localStorage.getItem('wd-products-rows')) || 25;
+    } catch {
+      return 25;
+    }
+  });
 
   useEffect(() => {
     fetchProducts();
@@ -58,9 +67,10 @@ export default function Products() {
     }
   };
 
+  // ticks every product shown on the current page (never the Gallery photos)
   const handleSelectAll = event => {
     if (event.target.checked) {
-      const newSelected = data.map(product => product.id);
+      const newSelected = pageData.map(product => product.id);
       setSelected(newSelected);
       return;
     }
@@ -180,6 +190,14 @@ export default function Products() {
   };
 
   const sortedAndFilteredData = sortData(filterData(data));
+  const lastPage = Math.max(0, Math.ceil(sortedAndFilteredData.length / rowsPerPage) - 1);
+  const shownPage = Math.min(page, lastPage);
+  const pageData = sortedAndFilteredData.slice(shownPage * rowsPerPage, (shownPage + 1) * rowsPerPage);
+
+  // a new search or sort starts again at the first page
+  useEffect(() => {
+    setPage(0);
+  }, [searchQuery, searchField, orderBy, order]);
 
   const handleAddProduct = newProduct => {
     // Refresh the products list after adding
@@ -215,7 +233,7 @@ export default function Products() {
   </Typography>
 
       <ProductsTable
-        data={sortedAndFilteredData || []} // Add fallback empty array
+        data={pageData}
         orderBy={orderBy}
         order={order}
         selected={selected}
@@ -229,6 +247,26 @@ export default function Products() {
         onDelete={id => {
           setProductToDelete(id); // Use productToDelete instead of selectedProduct
           setOpenDeleteDialog(true);
+        }}
+      />
+      <TablePagination
+        component="div"
+        count={sortedAndFilteredData.length}
+        page={shownPage}
+        onPageChange={(event, newPage) => setPage(newPage)}
+        rowsPerPage={rowsPerPage}
+        rowsPerPageOptions={[10, 25, 50, 100]}
+        labelRowsPerPage="Per page:"
+        sx={{ '& .MuiTablePagination-toolbar': { flexWrap: 'wrap', justifyContent: 'flex-end', px: { xs: 0, sm: 2 } } }}
+        onRowsPerPageChange={event => {
+          const n = Number(event.target.value);
+          setRowsPerPage(n);
+          setPage(0);
+          try {
+            localStorage.setItem('wd-products-rows', String(n));
+          } catch {
+            /* private browsing: not remembered */
+          }
         }}
       />
 
