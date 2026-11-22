@@ -11,13 +11,15 @@ import LangLink from '../LangLink';
 import ContactForm from '../Contact/ContactForm';
 import { finishLabel } from '../../util/finishes';
 import { useQuoteList, writeQuote } from '../../util/quote-list';
+import { sitePhoto } from '../../util/site-content';
 
 // Quote list page (/quote): the stones the visitor added on the stone pages ("Add to quote
 // list", kept in this browser), with a finish and a quantity each, then the contact form in
 // "quote" mode, which sends everything as one request (server: kind "quote", saved in the
 // admin panel's Enquiries inbox and emailed). Looks like the Contact page (.cx-page) + QuotePage.css.
 // header photo: the loading yard (same as the buying guide), not the Contact page's telephones
-const HERO = '/Assets/Media/Hero/buy-guide-hero.webp';
+// the buying guide's header photo (Website → Buying guide → Header photo in the admin panel)
+const HERO = sitePhoto('topic_buyGuide', 'heroPhoto', '/Assets/Media/Hero/buy-guide-hero.webp');
 
 export default function Quote() {
   const { t } = useTranslation();
