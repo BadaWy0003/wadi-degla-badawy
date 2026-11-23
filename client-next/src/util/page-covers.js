@@ -28,18 +28,27 @@ export const PAGE_COVERS = {
   partners: { block: 'partners', file: 'partners-cover', size: [1080, 719] },
 };
 
-// { src, phone }: the client's photo when replaced in the admin panel, else the website's own
+// { src, phone, ratio }: the client's photo when replaced in the admin panel, else the website's
+// own (its phone copy is square). ratio = the phone photo's height / width, kept between 0.56
+// and 1.25: on phones the photo is shown full width at the top at that shape (PhotoCover.css).
 export function pageCover(page) {
   const cover = PAGE_COVERS[page];
-  const own = siteData(cover.block).heroPhoto?.src;
-  if (own) return { src: own, phone: own };
-  return { src: `${DIR}${cover.file}.webp`, phone: `${DIR}${cover.file}-m.webp` };
+  const photo = siteData(cover.block).heroPhoto;
+  if (photo?.src) {
+    const r = photo.width && photo.height ? photo.height / photo.width : 0.75;
+    return { src: photo.src, phone: photo.src, ratio: Math.min(1.25, Math.max(0.56, r)) };
+  }
+  return { src: `${DIR}${cover.file}.webp`, phone: `${DIR}${cover.file}-m.webp`, ratio: 1 };
 }
 
 // The style for the header element: <div className="xx-hero wd-cover" style={coverStyle('…')}>
 export function coverStyle(page) {
-  const { src, phone } = pageCover(page);
-  return { '--wd-cover': cssUrl(src), '--wd-cover-phone': cssUrl(phone) };
+  const { src, phone, ratio } = pageCover(page);
+  return {
+    '--wd-cover': cssUrl(src),
+    '--wd-cover-phone': cssUrl(phone),
+    '--wd-cover-r': ratio.toFixed(3),
+  };
 }
 
 // The website's own photo with its size, for the admin panel's "original" (content-defaults)
