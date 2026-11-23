@@ -389,12 +389,6 @@ html[dir='rtl'] .pl-crumb span[aria-hidden] {
   background: rgba(173, 149, 113, 0.14);
 }
 
-.pl .pl-catalogue-wait {
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--pl-muted);
-}
-
 /* stone finder (2026-11-20): colour / use / origin, under the header numbers */
 .pl-finder {
   margin-top: 36px;
