@@ -377,6 +377,95 @@ html[dir='rtl'] .spd-crumb span[aria-hidden] {
   line-height: 1.4;
 }
 
+/* "other sizes on request" and the technical data table (2026-11-23) */
+.spd-specs-note {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--spd-gold);
+}
+
+.spd-tech-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--spd-line);
+  border-radius: 14px;
+}
+
+.spd-tech {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.spd-tech th {
+  text-align: start;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--spd-gold);
+  background: var(--spd-surface);
+  padding: 14px 18px;
+}
+
+.spd-tech td {
+  padding: 13px 18px;
+  border-top: 1px solid var(--spd-line);
+}
+
+.spd-tech td:nth-child(2) {
+  color: var(--spd-muted, #a8a196);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.spd-tech td:last-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+html[dir='rtl'] .spd-tech td[dir='ltr'] {
+  text-align: right;
+}
+
+.spd-tech-m {
+  display: none;
+}
+
+/* phones: two columns, the method under the test's name and psi under MPa */
+@media (max-width: 768px) {
+  .spd-tech {
+    font-size: 14px;
+  }
+
+  .spd-tech th,
+  .spd-tech td {
+    padding: 11px 12px;
+  }
+
+  .spd-tech th:nth-child(2),
+  .spd-tech td:nth-child(2) {
+    display: none;
+  }
+
+  .spd-tech-m {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    color: var(--spd-muted);
+  }
+
+  html[dir='rtl'] .spd-tech-m {
+    text-align: right;
+  }
+
+  .spd-tech-x {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--spd-muted);
+  }
+}
+
 /* room photos */
 .spd-rooms {
   display: grid;

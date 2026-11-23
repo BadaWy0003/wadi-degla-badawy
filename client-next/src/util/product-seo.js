@@ -112,7 +112,9 @@ function shortIdentity(lang, product) {
 // The first other name that adds something (not just the stone's own name, e.g. "Galala
 // Marble" for Galala), for "(also called Halaib)".
 function alsoCalledName(product, details) {
-  const name = String(product?.name || '').trim().toLowerCase();
+  const name = String(product?.name || '')
+    .trim()
+    .toLowerCase();
   return (details?.otherNames || []).find((n) => n && !n.toLowerCase().includes(name)) || '';
 }
 
@@ -160,7 +162,11 @@ export function productMetaDescription(lang, product, details) {
   const parts = tail.split(stop).map((x) => x.trim());
   const shortTail = parts[0] + stop;
   // "Free samples and quotes on request.": the tail without its first sentence.
-  const restTail = parts.slice(1).filter(Boolean).join(stop + gap) + (parts.length > 1 ? stop : '');
+  const restTail =
+    parts
+      .slice(1)
+      .filter(Boolean)
+      .join(stop + gap) + (parts.length > 1 ? stop : '');
   const build = (withAlso, end, sentenceOf) => {
     const extra = withAlso && also ? `${/^[(]/.test(also) ? ' ' : ''}${also}` : '';
     const room = DESCRIPTION_MAX - end.length - gap.length - extra.length;
@@ -239,12 +245,22 @@ const USES = [
   'countertops',
   'landscaping',
 ];
+// Technical data, as a table with the test method (2026-11-23, owner; same as the spec sheet PDF,
+// server/src/services/spec-sheet.service.js): [field, label key, unit, method]
 const TECH = [
-  ['density', 'specDensity', 'kg/m³'],
-  ['waterAbsorption', 'specWaterAbsorption', '%'],
-  ['compressiveStrength', 'specCompressive', 'MPa'],
-  ['flexuralStrength', 'specFlexural', 'MPa'],
+  ['compressiveStrength', 'specCompressive', 'MPa', 'ASTM C170'],
+  ['flexuralStrength', 'specFlexural', 'MPa', 'ASTM C880'],
+  ['abrasionResistance', 'specAbrasion', 'Ha', 'ASTM C241 / C1353'],
+  ['density', 'specDensity', 'kg/m³', 'ASTM C97'],
+  ['waterAbsorption', 'specWaterAbsorption', '%', 'ASTM C97'],
+  ['modulusOfRupture', 'specRupture', 'MPa', 'ASTM C99'],
 ];
+const techNum = (v) => v.toLocaleString('en-US', { maximumFractionDigits: 2 });
+// strengths in MPa and psi (1 MPa = 145.038 psi): buyers use both
+const techValue = (v, unit) =>
+  unit === 'MPa'
+    ? `${techNum(v)} MPa (${Math.round(v * 145.038).toLocaleString('en-US')} psi)`
+    : `${techNum(v)} ${unit}`;
 // Application icons on the product page that match a form or a use.
 const ICON_FOR = {
   slabs: 'Slabs',
@@ -277,16 +293,22 @@ export function productDetailsView(lang, product, details) {
   );
   add(k('specThickness'), details.thicknesses ? `${details.thicknesses} cm` : '');
   add(k('specSizes'), details.sizes);
-  for (const [key, label, unit] of TECH) {
-    const v = details.tech?.[key];
-    if (typeof v === 'number') add(k(label), `${v.toLocaleString('en-US')} ${unit}`);
-  }
+  const tech = TECH.filter(([key]) => typeof details.tech?.[key] === 'number').map(
+    ([key, label, unit, method]) => ({
+      label: k(label),
+      method,
+      value: techValue(details.tech[key], unit),
+    }),
+  );
   const uses = USES.filter((u) => details.uses?.includes(u));
   const hasFormsOrUses = (details.forms || []).length > 0 || uses.length > 0;
   const view = {
     description,
     otherNames: details.otherNames || [],
     specs,
+    // "other sizes on request" under the specifications when thicknesses or sizes are given
+    sizesNote: details.thicknesses || details.sizes ? k('specOnRequest') : '',
+    tech,
     uses: uses.map((u) => k(`use_${u}`)),
     // Only the icons that really apply, once forms or uses were filled in; else all of them.
     icons: hasFormsOrUses

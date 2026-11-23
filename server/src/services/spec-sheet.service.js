@@ -258,11 +258,13 @@ async function buildHtml({ stone, details, contact }, lang) {
     [w.thickness, details.thicknesses ? `${details.thicknesses} cm` : ''],
     [w.sizes, details.sizes],
   ].filter(([, v]) => v);
-  const tech = TECH.filter(([k]) => typeof details.tech?.[k] === 'number').map(([k, unit, method]) => [
-    w[k],
-    method,
-    `${details.tech[k].toLocaleString('en-US')} ${unit}`,
-  ]);
+  // strengths in MPa and psi (1 MPa = 145.038 psi), as buyers use both (owner, 2026-11-23)
+  const num = (v) => v.toLocaleString('en-US', { maximumFractionDigits: 2 });
+  const tech = TECH.filter(([k]) => typeof details.tech?.[k] === 'number').map(([k, unit, method]) => {
+    const v = details.tech[k];
+    const value = unit === 'MPa' ? `${num(v)} MPa (${Math.round(v * 145.038).toLocaleString('en-US')} psi)` : `${num(v)} ${unit}`;
+    return [w[k], method, value];
+  });
   const uses = (details.uses || []).map((u) => w.useNames[u]).filter(Boolean);
   const description = (lang === 'ar' && details.description?.ar) || details.description?.en || '';
   const otherNames = (details.otherNames || []).filter((n) => n.toLowerCase() !== stone.name.toLowerCase());
