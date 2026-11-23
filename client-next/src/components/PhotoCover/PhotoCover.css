@@ -39,14 +39,40 @@ html[dir='rtl'] .wd-cover.wd-cover {
   width: 100%;
 }
 
+/* Phones (2026-11-23, owner): the photo is a "window" at the top, full width at its own shape
+   (--wd-cover-r = height / width, from page-covers.js), so it is never blown up; it fades into
+   the dark page where the text starts, like the home page on phones. Before, a wide photo was
+   stretched over the whole (tall) header and enlarged ~3x. */
 @media (max-width: 768px) {
   .wd-cover.wd-cover,
   html[dir='rtl'] .wd-cover.wd-cover {
+    --wd-ph: calc(100vw * var(--wd-cover-r, 1));
+    position: relative;
+    isolation: isolate;
     min-height: 0;
+    padding-top: max(150px, calc(var(--wd-ph) * 0.62));
     padding-bottom: 32px;
+    background: #0c0b0a;
+  }
+
+  .wd-cover.wd-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--wd-ph);
+    z-index: -1;
+    pointer-events: none;
     background:
-      linear-gradient(0deg, #0c0b0a 6%, rgba(12, 11, 10, 0.6) 55%, rgba(12, 11, 10, 0.3)),
-      var(--wd-cover-phone) center 30% / cover no-repeat,
-      #0c0b0a;
+      linear-gradient(
+        180deg,
+        rgba(12, 11, 10, 0.45) 0,
+        rgba(12, 11, 10, 0) 90px,
+        rgba(12, 11, 10, 0) 40%,
+        rgba(12, 11, 10, 0.72) 64%,
+        #0c0b0a 96%
+      ),
+      var(--wd-cover-phone) center 30% / cover no-repeat;
   }
 }
