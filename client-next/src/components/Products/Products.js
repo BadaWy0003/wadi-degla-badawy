@@ -4,7 +4,6 @@ import './ProductsList.css';
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp, FaFilePdf } from 'react-icons/fa';
 import { trackEvent } from '../../util/analytics';
-import { useLang } from '../../context/LangContext';
 
 import apiClient from '../../util/client.js';
 import LangLink from '../LangLink';
@@ -43,10 +42,10 @@ const DESCRIPTION_KEYS = {
 const QUARRIES = COMPANY.quarries;
 const EXPORT_COUNTRIES = EXPORT_COUNTRIES_LABEL;
 
-// The stone catalogue PDF, made by the server from the admin panel's data (catalogue.service.js)
-const CATALOGUE_URL = `${
-  process.env.NEXT_PUBLIC_BASE_API_URL || 'https://server-withered-wildflower-1595.fly.dev'
-}/api/storage/catalogue`;
+// The catalogue button opens the client's own designed catalogue, the same file as the Contact
+// page's "Special products catalogue" (COMPANY.catalogueUrl, editable in the admin panel's
+// company block; owner, 2026-11-23). It used to download the catalogue the server makes from
+// the stone data (/api/storage/catalogue, catalogue.service.js).
 
 const sectionId = (category) => `pl-${category.toLowerCase().replace(/\s+/g, '-')}`;
 const order = (a, b) => {
@@ -74,10 +73,8 @@ const finishCount = (item) =>
 // admin-panel changes show up without a redeploy.
 export default function Products({ initialProducts = [] }) {
   const { t, i18n } = useTranslation();
-  const lang = useLang();
   const [query, setQuery] = useState('');
   const [filters, setFilters] = useState({});
-  const [catalogueWait, setCatalogueWait] = useState(false);
   const [data, setData] = useState(initialProducts);
   const [active, setActive] = useState(PRODUCT_CATEGORIES[0]);
 
@@ -227,22 +224,13 @@ export default function Products({ initialProducts = [] }) {
 
           <a
             className="pl-catalogue"
-            href={`${CATALOGUE_URL}?lang=${lang === 'ar' ? 'ar' : 'en'}`}
-            rel="nofollow"
-            download
-            onClick={() => {
-              trackEvent('catalogue_download', {});
-              setCatalogueWait(true);
-              setTimeout(() => setCatalogueWait(false), 15000);
-            }}
+            href={COMPANY.catalogueUrl}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            onClick={() => trackEvent('catalogue_download', {})}
           >
             <FaFilePdf aria-hidden="true" /> {t('products.catalogue')}
           </a>
-          {catalogueWait && (
-            <p className="pl-catalogue-wait" role="status">
-              {t('productDetails.specSheetWait')}
-            </p>
-          )}
 
           <div className="pl-finder" role="group" aria-label={t('products.finderTitle')}>
             <h2 className="pl-finder-title">{t('products.finderTitle')}</h2>
