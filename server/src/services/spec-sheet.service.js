@@ -19,7 +19,7 @@ const { db, bucket } = require('../start/firebase');
 const { col, storagePath } = require('../start/data-area');
 
 // Change when the layout changes, so every saved sheet is made again.
-const LAYOUT_VERSION = 2;
+const LAYOUT_VERSION = 3;
 const LANGS = ['en', 'ar'];
 const ROOM_FINISHES = ['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'];
 const SITE = 'https://www.wadidegla-eg.com';
@@ -54,11 +54,19 @@ const L = {
     colour: 'Colour & pattern',
     forms: 'Available as',
     thickness: 'Thicknesses',
-    sizes: 'Typical sizes',
+    sizes: 'Sizes (cm)',
+    sizesTitle: 'Sizes & thickness',
+    onRequest: 'Other sizes and thicknesses available upon request.',
+    techTitle: 'Technical data',
+    test: 'Test',
+    method: 'Method',
+    result: 'Result',
     density: 'Density',
     waterAbsorption: 'Water absorption',
     compressiveStrength: 'Compressive strength',
     flexuralStrength: 'Flexural strength',
+    abrasionResistance: 'Abrasion resistance',
+    modulusOfRupture: 'Modulus of rupture',
     uses: 'Uses',
     inSpace: 'In a space',
     contact: 'Get a price or a free sample',
@@ -89,11 +97,19 @@ const L = {
     colour: 'اللون والنقشة',
     forms: 'متوفر على شكل',
     thickness: 'السُمك',
-    sizes: 'المقاسات المعتادة',
+    sizes: 'المقاسات (سم)',
+    sizesTitle: 'المقاسات والسُمك',
+    onRequest: 'تتوفر مقاسات وسماكات أخرى عند الطلب.',
+    techTitle: 'البيانات الفنية',
+    test: 'الاختبار',
+    method: 'الطريقة',
+    result: 'النتيجة',
     density: 'الكثافة',
     waterAbsorption: 'امتصاص الماء',
     compressiveStrength: 'مقاومة الضغط',
     flexuralStrength: 'مقاومة الانحناء',
+    abrasionResistance: 'مقاومة التآكل',
+    modulusOfRupture: 'معامل الكسر',
     uses: 'الاستخدامات',
     inSpace: 'في مساحة حقيقية',
     contact: 'اطلب سعرًا أو عينة مجانية',
@@ -134,11 +150,14 @@ const L = {
     },
   },
 };
+// Technical data: [field in product_details.tech, unit, test method]
 const TECH = [
-  ['density', 'kg/m³'],
-  ['waterAbsorption', '%'],
-  ['compressiveStrength', 'MPa'],
-  ['flexuralStrength', 'MPa'],
+  ['compressiveStrength', 'MPa', 'ASTM C170'],
+  ['flexuralStrength', 'MPa', 'ASTM C880'],
+  ['abrasionResistance', 'Ha', 'ASTM C241 / C1353'],
+  ['density', 'kg/m³', 'ASTM C97'],
+  ['waterAbsorption', '%', 'ASTM C97'],
+  ['modulusOfRupture', 'MPa', 'ASTM C99'],
 ];
 // Company contact details: the website's, with the client's admin-panel changes (block `company`).
 const CONTACT = { mainPhone: '+20 10 6726 0314', emailExport: 'export@wadidegla-eg.com' };
@@ -234,13 +253,16 @@ async function buildHtml({ stone, details, contact }, lang) {
         .filter(Boolean)
         .join(' · '),
     ],
+  ].filter(([, v]) => v);
+  const sizes = [
     [w.thickness, details.thicknesses ? `${details.thicknesses} cm` : ''],
     [w.sizes, details.sizes],
-    ...TECH.map(([k, unit]) => [
-      w[k],
-      typeof details.tech?.[k] === 'number' ? `${details.tech[k].toLocaleString('en-US')} ${unit}` : '',
-    ]),
   ].filter(([, v]) => v);
+  const tech = TECH.filter(([k]) => typeof details.tech?.[k] === 'number').map(([k, unit, method]) => [
+    w[k],
+    method,
+    `${details.tech[k].toLocaleString('en-US')} ${unit}`,
+  ]);
   const uses = (details.uses || []).map((u) => w.useNames[u]).filter(Boolean);
   const description = (lang === 'ar' && details.description?.ar) || details.description?.en || '';
   const otherNames = (details.otherNames || []).filter((n) => n.toLowerCase() !== stone.name.toLowerCase());
@@ -254,29 +276,37 @@ async function buildHtml({ stone, details, contact }, lang) {
 @page{size:A4;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Cairo,sans-serif;color:#1d1a16;font-size:10.5pt;line-height:1.45;width:210mm;height:297mm;display:flex;flex-direction:column}
-.top{background:#14110d;color:#f3eee6;padding:9mm 12mm 7mm;display:flex;justify-content:space-between;align-items:center}
-.top img{height:13mm;filter:brightness(0) invert(1)}
+.top{background:#14110d;color:#f3eee6;padding:6mm 12mm 5mm;display:flex;justify-content:space-between;align-items:center}
+.top img{height:11mm;filter:brightness(0) invert(1)}
 .top span{color:#cdb48b;font-size:9pt;letter-spacing:.12em;text-transform:uppercase}
-.head{padding:7mm 12mm 0}
+.head{padding:5mm 12mm 0}
 .cat{color:#8c7553;font-size:9pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 h1{font-size:25pt;line-height:1.1;margin-top:1mm}
 .aka{color:#6b645a;font-size:9.5pt;margin-top:1mm}
-.main{display:grid;grid-template-columns:1.15fr 1fr;gap:7mm;padding:5mm 12mm 0}
-.photo{width:100%;height:70mm;object-fit:cover;border-radius:3mm;background:#eee}
-h2{font-size:11pt;color:#8c7553;margin:4mm 0 1.5mm;text-transform:uppercase;letter-spacing:.06em}
+.main{display:grid;grid-template-columns:1.15fr 1fr;gap:7mm;padding:4mm 12mm 0}
+.photo{width:100%;height:56mm;object-fit:cover;border-radius:3mm;background:#eee}
+h2{font-size:10.5pt;color:#8c7553;margin:3mm 0 1.2mm;text-transform:uppercase;letter-spacing:.06em}
 .main>div>h2:first-child{margin-top:0}
-.fin{display:flex;flex-wrap:wrap;gap:2.5mm}
-.fin div{width:19mm;font-size:8pt;text-align:center;line-height:1.2}
-.fin img{width:19mm;height:19mm;object-fit:cover;border-radius:1.5mm;display:block;margin-bottom:1mm}
+.fin{display:flex;flex-wrap:wrap;gap:2mm}
+.fin div{width:14.5mm;font-size:7pt;text-align:center;line-height:1.2}
+.fin img{width:14.5mm;height:14.5mm;object-fit:cover;border-radius:1.5mm;display:block;margin-bottom:1mm}
 table{width:100%;border-collapse:collapse}
-td{padding:1.6mm 0;border-bottom:.3mm solid #e6dfd3;vertical-align:top}
+td{padding:1.2mm 0;border-bottom:.3mm solid #e6dfd3;vertical-align:top}
 td:first-child{color:#6b645a;width:40%;padding-inline-end:3mm}
-.desc{font-size:9.5pt;color:#3a352e;display:-webkit-box;-webkit-line-clamp:9;-webkit-box-orient:vertical;overflow:hidden}
+.desc{font-size:9pt;color:#3a352e;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
 .uses{display:flex;flex-wrap:wrap;gap:1.8mm}
 .uses span{border:.3mm solid #cdb48b;border-radius:5mm;padding:.6mm 3mm;font-size:8.5pt}
-.room{padding:5mm 12mm 0;flex:1;min-height:0;display:flex;flex-direction:column}
+.data{display:grid;grid-template-columns:1.6fr 1fr;gap:7mm;padding:3mm 12mm 0}
+.data.one{grid-template-columns:1fr}
+.tech th{background:#14110d;color:#f3eee6;font-size:8pt;text-align:start;padding:1.1mm 2.5mm;font-weight:700}
+.tech td{padding:1mm 2.5mm;font-size:9pt;border:.3mm solid #e6dfd3;width:auto;color:#1d1a16}
+.tech td:nth-child(2){color:#6b645a;font-size:8.5pt;white-space:nowrap}
+.tech td:last-child{font-weight:700;white-space:nowrap}
+.tech tr:nth-child(even) td{background:#f7f3ec}
+.req{margin-top:2mm;font-size:8.5pt;color:#8c7553}
+.room{padding:3mm 12mm 0;flex:1;min-height:0;display:flex;flex-direction:column}
 .room img{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:3mm}
-.foot{margin-top:5mm;background:#14110d;color:#d6d0c6;padding:6mm 12mm;font-size:9pt}
+.foot{margin-top:4mm;background:#14110d;color:#d6d0c6;padding:5mm 12mm;font-size:9pt}
 .foot b{color:#f3eee6;font-size:11pt;display:block;margin-bottom:2mm}
 .cols{display:grid;grid-template-columns:repeat(3,auto);gap:2mm 8mm;justify-content:start}
 .cols i{font-style:normal;color:#cdb48b;display:block;font-size:8pt}
@@ -301,6 +331,25 @@ ${specs.length ? `<h2>${esc(w.specs)}</h2><table>${specs.map(([k, v]) => `<tr><t
 ${uses.length ? `<h2>${esc(w.uses)}</h2><div class="uses">${uses.map((u) => `<span>${esc(u)}</span>`).join('')}</div>` : ''}
 ${description ? `<h2>${esc(w.about)}</h2><p class="desc" dir="auto">${esc(description)}</p>` : ''}
 </div></div>
+${
+  tech.length || sizes.length
+    ? `<div class="data${tech.length && sizes.length ? '' : ' one'}">${
+        tech.length
+          ? `<div><h2>${esc(w.techTitle)}</h2><table class="tech"><tr><th>${esc(w.test)}</th><th>${esc(w.method)}</th><th>${esc(
+              w.result,
+            )}</th></tr>${tech
+              .map(([k, m, v]) => `<tr><td>${esc(k)}</td><td class="ltr">${esc(m)}</td><td class="ltr">${esc(v)}</td></tr>`)
+              .join('')}</table></div>`
+          : ''
+      }${
+        sizes.length
+          ? `<div><h2>${esc(w.sizesTitle)}</h2><table>${sizes
+              .map(([k, v]) => `<tr><td>${esc(k)}</td><td dir="auto">${esc(v)}</td></tr>`)
+              .join('')}</table><p class="req">${esc(w.onRequest)}</p></div>`
+          : ''
+      }</div>`
+    : ''
+}
 ${roomPhoto ? `<div class="room"><h2>${esc(w.inSpace)}</h2><img src="${roomPhoto}" alt=""></div>` : '<div style="flex:1"></div>'}
 <div class="foot"><b>${esc(w.contact)}</b><div class="cols">
 <div><i>${esc(w.phone)}</i><span>${esc(contact.mainPhone)}</span></div>
