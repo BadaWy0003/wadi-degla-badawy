@@ -76,14 +76,6 @@ export const theme = createTheme({
         }
       }
     },
-    MuiTableCell: {
-      styleOverrides: {
-        head: {
-          backgroundColor: colors.lightGray,
-          fontWeight: 600,
-        }
-      }
-    },
     MuiTextField: {
       styleOverrides: {
         root: {
@@ -116,6 +108,12 @@ export const theme = createTheme({
     // Phones: tighter table cells and icon buttons, so the action icons fit next to the name
     MuiTableCell: {
       styleOverrides: {
+        // table headers: grey and bold (this was a second MuiTableCell entry until 2026-11-23,
+        // which the phone entry below silently replaced)
+        head: {
+          backgroundColor: colors.lightGray,
+          fontWeight: 600,
+        },
         root: {
           '@media (max-width: 599.95px)': {
             padding: '8px 4px',
