@@ -21,7 +21,9 @@ const LANGS = ['en', 'ar', 'fr', 'es', 'de', 'it', 'ro', 'ko', 'sq', 'ru', 'ja',
 const EDITED_LANGS = ['en', 'ar'];
 const FORMS = ['slabs', 'tiles', 'blocks'];
 const USES = ['flooring', 'wallCladding', 'exteriorCladding', 'staircases', 'windowSills', 'countertops', 'landscaping'];
-const TECH = ['density', 'waterAbsorption', 'compressiveStrength', 'flexuralStrength'];
+// abrasionResistance (Ha) and modulusOfRupture (MPa) added 2026-11-23 (owner: spec sheet like the
+// usual stone test reports)
+const TECH = ['density', 'waterAbsorption', 'compressiveStrength', 'flexuralStrength', 'abrasionResistance', 'modulusOfRupture'];
 
 const ProductDetailsService = { LANGS, FORMS, USES, TECH };
 

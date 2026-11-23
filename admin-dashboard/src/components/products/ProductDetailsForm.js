@@ -44,6 +44,8 @@ const TECH = [
   ['waterAbsorption', 'Water absorption', '%'],
   ['compressiveStrength', 'Compressive strength', 'MPa'],
   ['flexuralStrength', 'Flexural strength', 'MPa'],
+  ['abrasionResistance', 'Abrasion resistance', 'Ha'],
+  ['modulusOfRupture', 'Modulus of rupture', 'MPa'],
 ];
 const OTHER_LANGS = ['fr', 'es', 'de', 'it', 'ro', 'ko', 'sq', 'ru', 'ja', 'zh'];
 
@@ -56,7 +58,7 @@ const EMPTY = {
   thicknesses: '',
   sizes: '',
   uses: [],
-  tech: { density: '', waterAbsorption: '', compressiveStrength: '', flexuralStrength: '' },
+  tech: Object.fromEntries(TECH.map(([k]) => [k, ''])),
 };
 
 const fromServer = d => ({
@@ -271,11 +273,11 @@ export default function ProductDetailsForm({ product, onClose }) {
                 </FormGroup>
 
                 <Typography variant="subtitle2" sx={{ mb: 1 }}>
-                  Technical data (numbers only, from your test reports)
+                  Technical data (numbers only, from your test reports; strengths in MPa, the website adds psi)
                 </Typography>
                 <Grid container spacing={2}>
                   {TECH.map(([k, label, unit]) => (
-                    <Grid item xs={6} md={3} key={k}>
+                    <Grid item xs={6} md={4} key={k}>
                       <TextField
                         fullWidth
                         type="number"

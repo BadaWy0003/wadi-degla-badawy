@@ -152,16 +152,23 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
     })
     .filter(Boolean);
   const shown = roomPhoto || selectedFinish;
-  const typeLabel = PRODUCT_TYPE_KEYS[product.type] ? t(PRODUCT_TYPE_KEYS[product.type]) : product.type;
+  const typeLabel = PRODUCT_TYPE_KEYS[product.type]
+    ? t(PRODUCT_TYPE_KEYS[product.type])
+    : product.type;
   const specs = seo?.details?.specs || [];
+  const tech = seo?.details?.tech || [];
   // the four short facts next to the photo (origin, available as, thickness, sizes)
-  const quick = specs.filter((row) => QUICK_SPECS.some((key) => row.label === t(`productDetails.${key}`)));
+  const quick = specs.filter((row) =>
+    QUICK_SPECS.some((key) => row.label === t(`productDetails.${key}`)),
+  );
   // uses set in the admin panel, else the general application names
   const uses = seo?.details?.uses?.length
     ? seo.details.uses
     : applicationIcons
         .filter((app) => !seo?.details?.icons || seo.details.icons.includes(app.name))
-        .map((app) => t(`productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`));
+        .map((app) =>
+          t(`productDetails.applications_${app.name.replace(/\s+/g, '').toLowerCase()}`),
+        );
   const openSample = () => setIsFormOpen(true);
   const whatsapp = (label, className) => (
     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={className}>
@@ -218,7 +225,12 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                   onClick={() => setRoomPhoto(null)}
                   aria-label={finishLabel(t, selectedFinish?.finish)}
                 >
-                  <img loading="lazy" fetchPriority="low" src={smallestStonePhoto(selectedFinish)} alt="" />
+                  <img
+                    loading="lazy"
+                    fetchPriority="low"
+                    src={smallestStonePhoto(selectedFinish)}
+                    alt=""
+                  />
                 </button>
                 {rooms.map((room) => (
                   <button
@@ -349,6 +361,45 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                 </div>
               ))}
             </dl>
+            {seo.details.sizesNote && <p className="spd-specs-note">{seo.details.sizesNote}</p>}
+          </section>
+        )}
+
+        {tech.length > 0 && (
+          <section className="spd-section">
+            <h2>{t('productDetails.techTitle')}</h2>
+            <div className="spd-tech-wrap">
+              <table className="spd-tech">
+                <thead>
+                  <tr>
+                    <th scope="col">{t('productDetails.techTest')}</th>
+                    <th scope="col">{t('productDetails.techMethod')}</th>
+                    <th scope="col">{t('productDetails.techResult')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tech.map((row) => {
+                    // "92 MPa (13,343 psi)": the psi part goes on its own line on phones
+                    const [main, extra] = row.value.split(' (');
+                    return (
+                      <tr key={row.label}>
+                        <td>
+                          {row.label}
+                          <span className="spd-tech-m" dir="ltr">
+                            {row.method}
+                          </span>
+                        </td>
+                        <td dir="ltr">{row.method}</td>
+                        <td dir="ltr">
+                          {main}
+                          {extra && <span className="spd-tech-x"> ({extra}</span>}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </section>
         )}
 
@@ -361,7 +412,10 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                   <NearImg
                     src={room.link}
                     {...(room.thumb
-                      ? { srcSet: `${room.thumb} 640w, ${room.link} 1920w`, sizes: '(max-width: 768px) 100vw, 50vw' }
+                      ? {
+                          srcSet: `${room.thumb} 640w, ${room.link} 1920w`,
+                          sizes: '(max-width: 768px) 100vw, 50vw',
+                        }
                       : {})}
                     alt={`${heading} - ${room.label}`}
                   />
