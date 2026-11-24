@@ -87,7 +87,7 @@ export default function News() {
   if (loading) return <Box sx={{ p: 3 }}>Loading…</Box>;
 
   return (
-    <Box sx={{ width: '100%', p: 2 }}>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, gap: 2, flexWrap: 'wrap' }}>
         <Typography variant="h4">News</Typography>
         <Button

@@ -81,7 +81,7 @@ const handleSubmit = async () => {
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Add New Image</DialogTitle>
+      <DialogTitle>Add photos</DialogTitle>
       <DialogContent>
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField

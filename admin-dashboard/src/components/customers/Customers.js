@@ -211,7 +211,7 @@ export default function Customers() {
 
   const renderAddEditDialog = () => (
     <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-      <DialogTitle>{editingCustomer ? 'Edit Customer' : 'Add New Customer'}</DialogTitle>
+      <DialogTitle>{editingCustomer ? 'Edit Customer' : 'Add customer'}</DialogTitle>
       <DialogContent>
         <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
           {['fullName', 'companyName', 'rnc', 'email', 'phone', 'whatsapp', 'country', 'address', 'port', 'password'].map(field => (
@@ -262,8 +262,8 @@ export default function Customers() {
   );
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 2 }}>
+    <Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Customers</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
@@ -272,7 +272,7 @@ export default function Customers() {
             </Button>
           )}
           <Button variant="contained" color="primary" onClick={() => handleOpenDialog()}>
-            Add New Customer
+            Add customer
           </Button>
         </Box>
       </Box>

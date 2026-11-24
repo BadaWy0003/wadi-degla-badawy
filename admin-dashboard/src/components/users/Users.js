@@ -18,6 +18,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddUserModal from './AddUserModal';
 import DeleteConfirmDialog from './DeleteConfirmDialog';
+import { roleLabel } from '../../util/roles';
 import apiClient from '../../util/client';
 
 export default function Users() {
@@ -147,8 +148,8 @@ export default function Users() {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 2 }}>
+    <Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Users</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
@@ -157,7 +158,7 @@ export default function Users() {
             </Button>
           )}
           <Button variant="contained" color="primary" onClick={() => handleOpenDialog()}>
-            Add New User
+            Add user
           </Button>
         </Box>
       </Box>
@@ -207,11 +208,11 @@ export default function Users() {
                   >
                     {user.email}
                     <br />
-                    {user.role}
+                    {roleLabel(user.role)}
                   </Box>
                 </TableCell>
                 <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{user.email}</TableCell>
-                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{user.role}</TableCell>
+                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{roleLabel(user.role)}</TableCell>
                 <TableCell>
                   <Box sx={{ display: 'flex', gap: 1, flexWrap: { xs: 'wrap', sm: 'nowrap' } }}>
                     {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(user)}>
