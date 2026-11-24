@@ -11,9 +11,9 @@ import {
 
 // Must match the roles the server knows (server/src/validations/admin.validation.schema.js).
 const ROLES = [
-  { value: 'MODERATOR', label: 'Moderator (products, gallery, customers, documents)' },
-  { value: 'ADMIN', label: 'Admin' },
-  { value: 'SUPER_ADMIN', label: 'Super admin (also manages admin users)' },
+  { value: 'MODERATOR', label: 'Editor (stones, gallery, customers, documents)' },
+  { value: 'ADMIN', label: 'Admin (also website, news, projects, enquiries)' },
+  { value: 'SUPER_ADMIN', label: 'Owner (everything, also manages users)' },
 ];
 
 export default function AddUserModal({ 
@@ -26,7 +26,7 @@ export default function AddUserModal({
 }) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{editingUser ? "Edit User" : "Add New User"}</DialogTitle>
+      <DialogTitle>{editingUser ? "Edit User" : "Add user"}</DialogTitle>
       <DialogContent>
         <Box sx={{ pt: 2, display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField

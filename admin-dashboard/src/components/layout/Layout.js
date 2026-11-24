@@ -1,30 +1,66 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
-import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, ListItemIcon, Button, IconButton, useMediaQuery, Badge } from '@mui/material';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Chip,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  ListSubheader,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Menu as MenuIcon, Dashboard as DashboardIcon, Inventory, Collections, Group, People, DriveFolderUpload, Newspaper, Apartment, Web, MarkEmailUnread } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
-import { useGlobalState } from '../GlobalStateContext'; // Ensure this exists
+import {
+  Menu as MenuIcon,
+  SpaceDashboardOutlined,
+  Inventory2Outlined,
+  PhotoLibraryOutlined,
+  MarkEmailUnreadOutlined,
+  WebOutlined,
+  NewspaperOutlined,
+  ApartmentOutlined,
+  AdminPanelSettingsOutlined,
+  StorefrontOutlined,
+  DescriptionOutlined,
+  Logout,
+} from '@mui/icons-material';
+import { useGlobalState } from '../GlobalStateContext';
 import apiClient from '../../util/client';
 import { canManageNews } from '../../util/news';
+import { roleLabel } from '../../util/roles';
+import { colors } from '../../theme';
+import { PublishProvider, PublishButton } from '../publish/PublishStatus';
 
+// The frame of every page (redesign step 1, 2026-11-24): a slim top bar (logo, Publish button,
+// user menu) and the menu grouped by task. Phones and small tablets (< 900 px): the menu hides
+// behind ☰.
+const drawerWidth = 248;
 
-const drawerWidth = 280;
+const isActive = (path, pathname) => (path === '/' ? pathname === '/' : pathname === path || pathname.startsWith(`${path}/`));
 
 export default function Layout() {
   const navigate = useNavigate();
-  const { globalState,setGlobalState } = useGlobalState();
-  // Phones and small tablets: the menu hides behind a ☰ button and the page uses the full width.
-  // From 900 px (md) up, the layout is unchanged (menu always open on the left).
+  const { globalState, setGlobalState } = useGlobalState();
   const theme = useTheme();
   const small = useMediaQuery(theme.breakpoints.down('md'));
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userMenu, setUserMenu] = useState(null);
+  const location = useLocation();
+  const isAdmin = canManageNews(globalState.role);
 
   // How many enquiries are new (menu badge): checked on every page change, and when the
   // Enquiries page changes a status.
-  const location = useLocation();
   const [newEnquiries, setNewEnquiries] = useState(0);
-  const isAdmin = canManageNews(globalState.role);
   useEffect(() => {
     if (!isAdmin) return undefined;
     const load = () =>
@@ -37,33 +73,45 @@ export default function Layout() {
     return () => window.removeEventListener('wd:enquiries-changed', load);
   }, [isAdmin, location.pathname]);
 
-  const menuItems = [
-    { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
-    { text: 'Products', icon: <Inventory />, path: '/products' },
-    { text: 'Gallery', icon: <Collections />, path: '/gallery' },
-    // Enquiries, Website, News and Projects: Admins and Super Admins only (the server enforces the same rule)
-    ...(canManageNews(globalState.role)
-      ? [
-          {
-            text: 'Enquiries',
-            icon: (
-              <Badge badgeContent={newEnquiries} color="error" max={99}>
-                <MarkEmailUnread />
-              </Badge>
-            ),
-            path: '/enquiries',
-          },
-          { text: 'Website', icon: <Web />, path: '/website' },
-          { text: 'News', icon: <Newspaper />, path: '/news' },
-          { text: 'Projects', icon: <Apartment />, path: '/projects' },
-        ]
-      : []),
-    { text: 'Users', icon: <Group />, path: '/users' },
-    { text: 'Customers', icon: <People />, path: '/customers' },
-    { text: 'Documents', icon: <DriveFolderUpload />, path: '/documents' },
-  ];
+  // Enquiries, Website, News and Projects: Admins and Owners only (the server enforces the same rule)
+  const groups = [
+    { items: [{ text: 'Dashboard', icon: <SpaceDashboardOutlined />, path: '/' }] },
+    {
+      title: 'Catalogue',
+      items: [
+        { text: 'Stones', icon: <Inventory2Outlined />, path: '/products' },
+        { text: 'Gallery', icon: <PhotoLibraryOutlined />, path: '/gallery' },
+      ],
+    },
+    isAdmin && {
+      title: 'Website',
+      items: [
+        { text: 'Pages & texts', icon: <WebOutlined />, path: '/website' },
+        { text: 'News', icon: <NewspaperOutlined />, path: '/news' },
+        { text: 'Projects', icon: <ApartmentOutlined />, path: '/projects' },
+      ],
+    },
+    {
+      title: 'Sales',
+      items: [
+        isAdmin && { text: 'Enquiries', icon: <MarkEmailUnreadOutlined />, path: '/enquiries', count: newEnquiries },
+        { text: 'Customers', icon: <StorefrontOutlined />, path: '/customers' },
+        { text: 'Documents', icon: <DescriptionOutlined />, path: '/documents' },
+      ].filter(Boolean),
+    },
+    { title: 'Settings', items: [{ text: 'Users', icon: <AdminPanelSettingsOutlined />, path: '/users' }] },
+  ].filter(Boolean);
+
+  const go = path => {
+    // a Website page with unsaved changes (BlockEditor.js) asks first
+    if (window.wdUnsavedChanges && !window.confirm('You have unsaved changes. Leave without saving?')) return;
+    window.wdUnsavedChanges = false;
+    navigate(path);
+    setMenuOpen(false);
+  };
 
   const handleLogout = async () => {
+    setUserMenu(null);
     try {
       // Ends this admin's sessions on every device (server refuses older tokens).
       await apiClient.post(`/api/auth/admin/logout`);
@@ -71,140 +119,151 @@ export default function Layout() {
       // Already expired or offline: still log out here.
     } finally {
       localStorage.removeItem('auth_token');
-      setGlobalState({
-        isLoggedIn: false,
-        userName: '',
-        email: '',
-        role: '',
-      });
+      setGlobalState({ isLoggedIn: false, userName: '', email: '', role: '' });
       navigate('/login');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0 });
     }
   };
 
-  return (
-    <Box sx={{ display: 'flex', minHeight: '100vh' }}>
-      <AppBar
-        position="fixed"
-        elevation={0}
-        sx={{
-          zIndex: theme => theme.zIndex.drawer + 1,
-          backdropFilter: 'blur(6px)',
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        }}
-      >
-        <Toolbar sx={{ justifyContent: 'space-between', gap: 1 }}>
-          {small && (
-            <IconButton aria-label="Open menu" edge="start" onClick={() => setMenuOpen(true)} sx={{ color: '#6a7b83' }}>
-              <MenuIcon />
-            </IconButton>
-          )}
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 600,
-              fontSize: small ? '1.6rem' : '3rem',
-              flexGrow: small ? 1 : 0,
-              whiteSpace: 'nowrap',
-              background: 'linear-gradient(45deg, #ad9571 30%, #6a7b83 90%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Wadi Degla
-          </Typography>
-
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 500,
-              fontSize: '1rem',
-              color: '#6a7b83',
-              display: { xs: 'none', sm: 'block' },
-            }}
-          >
-            Welcome back <strong>{globalState.username}</strong>!
-          </Typography>
-
-          <Button variant="contained" color="secondary" size={small ? 'small' : 'medium'} onClick={() => handleLogout()}>
-            Logout
-          </Button>
-
-        </Toolbar>
-      </AppBar>
-
-      <Drawer
-        variant={small ? 'temporary' : 'permanent'}
-        open={small ? menuOpen : true}
-        onClose={() => setMenuOpen(false)}
-        ModalProps={{ keepMounted: true }}
-        sx={{
-          width: small ? 0 : drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: small ? 260 : drawerWidth,
-            boxSizing: 'border-box',
-            padding: '8px',
-            mt: small ? 0 : 8,
-          },
-        }}
-      >
-        {/* spacer: the menu starts below the top bar */}
-        <Toolbar />
-        <List>
-          {menuItems.map(item => (
-            <ListItem
-              button
-              key={item.text}
-              onClick={() => {
-                // a Website page with unsaved changes (BlockEditor.js) asks first
-                if (window.wdUnsavedChanges && !window.confirm('You have unsaved changes. Leave without saving?')) return;
-                window.wdUnsavedChanges = false;
-                navigate(item.path);
-                setMenuOpen(false);
-              }}
-              sx={{
-                mb: 1,
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                '&:hover': {
-                  transform: 'translateX(8px)',
-                },
-              }}
-            >
-              <ListItemIcon
+  const name = globalState.username || '';
+  const menu = (
+    <Box sx={{ py: 1 }}>
+      {groups.map((g, gi) => (
+        <List
+          key={g.title || gi}
+          dense
+          subheader={
+            g.title ? (
+              <ListSubheader
+                disableSticky
                 sx={{
-                  minWidth: 40,
-                  color: 'primary.main',
+                  bgcolor: 'transparent',
+                  lineHeight: '32px',
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'text.secondary',
+                  pl: 3,
                 }}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.text}
-                primaryTypographyProps={{
-                  fontWeight: 500,
-                  fontSize: '0.95rem',
+                {g.title}
+              </ListSubheader>
+            ) : null
+          }
+          sx={{ px: 1.5, py: 0.5 }}
+        >
+          {g.items.map(item => {
+            const active = isActive(item.path, location.pathname);
+            return (
+              <ListItemButton
+                key={item.path}
+                selected={active}
+                onClick={() => go(item.path)}
+                sx={{
+                  borderRadius: 2,
+                  mb: 0.25,
+                  py: 0.9,
+                  color: 'text.primary',
+                  '& .MuiListItemIcon-root': { color: active ? 'primary.main' : 'text.secondary', minWidth: 36 },
+                  '&.Mui-selected': { bgcolor: colors.goldSoft, color: colors.goldDark, '&:hover': { bgcolor: colors.goldSoft } },
+                  '&:hover': { bgcolor: colors.lightGray },
                 }}
-              />
-            </ListItem>
-          ))}
+              >
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} primaryTypographyProps={{ fontWeight: active ? 650 : 500, fontSize: '0.93rem' }} />
+                {item.count > 0 && (
+                  <Chip label={item.count > 99 ? '99+' : item.count} size="small" color="error" sx={{ height: 20, fontSize: '0.72rem' }} />
+                )}
+              </ListItemButton>
+            );
+          })}
         </List>
-      </Drawer>
-
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          minWidth: 0, // lets wide tables scroll inside their own box instead of widening the page
-          p: { xs: 2, md: 4 },
-          backgroundColor: 'background.default',
-          borderRadius: '24px 0 0 0',
-          mt: 8,
-        }}
-      >
-        <Outlet />
-      </Box>
+      ))}
     </Box>
+  );
+
+  return (
+    <PublishProvider enabled={isAdmin}>
+      <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+        <AppBar position="fixed" sx={{ zIndex: t => t.zIndex.drawer + 1 }}>
+          <Toolbar sx={{ gap: 1.5, minHeight: { xs: 60, md: 64 } }}>
+            {small && (
+              <IconButton aria-label="Open menu" edge="start" onClick={() => setMenuOpen(true)}>
+                <MenuIcon />
+              </IconButton>
+            )}
+            <Box
+              onClick={() => go('/')}
+              sx={{ display: 'flex', alignItems: 'center', gap: 1.25, cursor: 'pointer', width: small ? 'auto' : drawerWidth - 24, flexShrink: 0 }}
+            >
+              <Box component="img" src="/favicon.svg" alt="" sx={{ height: 26 }} />
+              <Box sx={{ lineHeight: 1.1 }}>
+                <Typography sx={{ fontWeight: 700, fontSize: '1rem', letterSpacing: '0.02em' }}>Wadi Degla</Typography>
+                <Typography sx={{ fontSize: '0.7rem', color: 'text.secondary', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                  Admin
+                </Typography>
+              </Box>
+            </Box>
+            <Box sx={{ flex: 1 }} />
+            {isAdmin && <PublishButton compact={small} />}
+            <IconButton aria-label="Account" onClick={e => setUserMenu(e.currentTarget)} sx={{ p: 0.5 }}>
+              <Avatar sx={{ width: 34, height: 34, bgcolor: colors.goldSoft, color: colors.goldDark, fontWeight: 700, fontSize: '0.95rem' }}>
+                {name.slice(0, 1).toUpperCase() || '?'}
+              </Avatar>
+            </IconButton>
+            <Menu
+              anchorEl={userMenu}
+              open={!!userMenu}
+              onClose={() => setUserMenu(null)}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+              slotProps={{ paper: { sx: { minWidth: 220, mt: 1 } } }}
+            >
+              <Box sx={{ px: 2, py: 1 }}>
+                <Typography sx={{ fontWeight: 650 }}>{name}</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {roleLabel(globalState.role)}
+                </Typography>
+              </Box>
+              <Divider />
+              <MenuItem onClick={handleLogout}>
+                <ListItemIcon>
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Log out
+              </MenuItem>
+            </Menu>
+          </Toolbar>
+        </AppBar>
+
+        <Drawer
+          variant={small ? 'temporary' : 'permanent'}
+          open={small ? menuOpen : true}
+          onClose={() => setMenuOpen(false)}
+          ModalProps={{ keepMounted: true }}
+          sx={{ width: small ? 0 : drawerWidth, flexShrink: 0, '& .MuiDrawer-paper': { width: drawerWidth, boxSizing: 'border-box' } }}
+        >
+          {/* spacer: on computers the menu starts below the top bar */}
+          {!small && <Toolbar sx={{ minHeight: { md: 64 } }} />}
+          {small && (
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25, px: 3, py: 2 }}>
+              <Box component="img" src="/favicon.svg" alt="" sx={{ height: 24 }} />
+              <Typography sx={{ fontWeight: 700 }}>Wadi Degla</Typography>
+            </Box>
+          )}
+          {menu}
+        </Drawer>
+
+        <Box
+          component="main"
+          sx={{ flexGrow: 1, minWidth: 0, px: { xs: 2, md: 4 }, pb: { xs: 4, md: 6 }, pt: { xs: 'calc(60px + 16px)', md: 'calc(64px + 32px)' } }}
+        >
+          <Box sx={{ maxWidth: 1400, mx: 'auto' }}>
+            <Outlet />
+          </Box>
+        </Box>
+      </Box>
+    </PublishProvider>
   );
 }

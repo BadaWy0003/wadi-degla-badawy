@@ -97,7 +97,7 @@ export default function Projects() {
   };
 
   return (
-    <Box sx={{ width: '100%', p: 2 }}>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, gap: 2, flexWrap: 'wrap' }}>
         <Typography variant="h4">Projects</Typography>
         <Box sx={{ ml: 'auto', display: 'flex', gap: 1 }}>

@@ -61,7 +61,8 @@ export default function Products() {
       // Admin list: includes products hidden from the website.
       const { data } = await apiClient.get('/api/storage/admin/all');
       setData(data.data);
-      setTotalCount(data.totalCount || 0); // Assuming the backend returns a `totalCount` field
+      // stones only (the list also holds the Gallery photos)
+      setTotalCount((data.data || []).filter(p => String(p.type || '').trim() !== 'Gallery').length);
     } finally {
       setLoading(false);
     }
@@ -209,11 +210,11 @@ export default function Products() {
   }
 
   return (
-    <Box sx={{ width: '100%', p: 2 }}>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, flexWrap: 'wrap', gap: 2 }}>
-        <Typography variant="h4">Products</Typography>
+        <Typography variant="h4">Stones</Typography>
         <Button variant="contained" color="primary" startIcon={<AddIcon />} onClick={() => setOpenAddModal(true)} sx={{ ml: 'auto' }}>
-          Add Product
+          Add stone
         </Button>
       </Box>
 
@@ -228,9 +229,9 @@ export default function Products() {
         onDeleteSelected={handleDeleteSelected}
         setOpenDeleteDialog={setOpenDeleteDialog} // Add this prop
       />
-      <Typography variant="subtitle1" sx={{ alignSelf: 'center', fontWeight: 500 }}>
-    Total number of products: {totalCount}
-  </Typography>
+      <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
+        {totalCount} stones
+      </Typography>
 
       <ProductsTable
         data={pageData}

@@ -1,18 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Alert, Box, Button, Chip, CircularProgress, Paper, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import {
-  Inventory,
-  Collections,
-  Group,
-  People,
-  DriveFolderUpload,
-  MarkEmailUnread,
-  Apartment,
-  CheckCircle,
-  WarningAmber,
-  ChevronRight,
-} from '@mui/icons-material';
+import { Inventory, Collections, MarkEmailUnread, Apartment, CheckCircle, WarningAmber, ChevronRight } from '@mui/icons-material';
 import { useGlobalState } from '../GlobalStateContext';
 import apiClient from '../../util/client';
 import PublishPanel from '../publish/PublishPanel';
@@ -55,14 +44,6 @@ function StatCard({ icon, value, label, sub, onClick, highlight }) {
   );
 }
 
-const QUICK_LINKS = [
-  { title: 'Products', icon: <Inventory />, path: '/products' },
-  { title: 'Gallery', icon: <Collections />, path: '/gallery' },
-  { title: 'Users', icon: <Group />, path: '/users' },
-  { title: 'Customers', icon: <People />, path: '/customers' },
-  { title: 'Documents', icon: <DriveFolderUpload />, path: '/documents' },
-];
-
 export default function Dashboard() {
   const navigate = useNavigate();
   const { globalState } = useGlobalState();
@@ -82,7 +63,7 @@ export default function Dashboard() {
 
   return (
     <Box>
-      <Typography variant="h4" sx={{ mb: 0.5, fontWeight: 600, fontSize: { xs: '1.6rem', md: '2.125rem' } }}>
+      <Typography variant="h4" sx={{ mb: 0.5 }}>
         Welcome back{globalState.username ? `, ${globalState.username}` : ''}
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 3 }}>
@@ -212,17 +193,6 @@ export default function Dashboard() {
           </Box>
         </>
       )}
-
-      <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 4, mb: 1 }}>
-        Quick links
-      </Typography>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-        {QUICK_LINKS.map(l => (
-          <Button key={l.path} variant="outlined" startIcon={l.icon} onClick={() => navigate(l.path)}>
-            {l.title}
-          </Button>
-        ))}
-      </Box>
     </Box>
   );
 }

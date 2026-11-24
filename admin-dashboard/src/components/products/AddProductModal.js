@@ -248,7 +248,7 @@ const handleFinishAdd = async () => {
     <Modal open={open} onClose={onClose}>
       <Box sx={style} component="form" onSubmit={handleSubmit}>
         <Typography variant="h6" sx={{ mb: 2 }}>
-          Add New Product
+          Add stone
         </Typography>
 
         <Grid container spacing={2}>
@@ -403,7 +403,7 @@ const handleFinishAdd = async () => {
                 Reset Form
               </Button>
               <Button type="submit" variant="contained" color="primary">
-                Add Product
+                Add stone
               </Button>
             </Box>
           </Grid>

@@ -264,8 +264,8 @@ function Gallery() {
   );
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 2 }}>
+    <Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Gallery</Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {selected.length > 0 && (
@@ -274,7 +274,7 @@ function Gallery() {
             </Button>
           )}
           <Button variant="contained" color="primary" onClick={() => setOpenAddModal(true)}>
-            Add New image to gallery
+            Add photos
           </Button>
         </Box>
       </Box>

@@ -19,11 +19,11 @@ export default function Website() {
 
   return (
     <Box>
-      <Typography variant="h4" sx={{ mb: 1, fontWeight: 600, fontSize: { xs: '1.6rem', md: '2.125rem' } }}>
-        Website content
+      <Typography variant="h4" sx={{ mb: 1 }}>
+        Pages & texts
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 3, maxWidth: 760 }}>
-        Change the website's texts, numbers and contact details here. Changes are saved here first; press <b>Publish to website</b> to put them on the
+        Change the website's texts, numbers and contact details here. Changes are saved here first; press <b>Publish</b> (top right) to put them on the
         live site (about 5 to 10 minutes). Every save can be undone from the page's History.
       </Typography>
 
