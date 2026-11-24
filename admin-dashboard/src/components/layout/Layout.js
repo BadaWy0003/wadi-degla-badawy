@@ -99,7 +99,8 @@ export default function Layout() {
         { text: 'Documents', icon: <DescriptionOutlined />, path: '/documents' },
       ].filter(Boolean),
     },
-    { title: 'Settings', items: [{ text: 'Users', icon: <AdminPanelSettingsOutlined />, path: '/users' }] },
+    // Users: Owner only (the server's rule; others see a short note on the page)
+    globalState.role === 'SUPER_ADMIN' && { title: 'Settings', items: [{ text: 'Users', icon: <AdminPanelSettingsOutlined />, path: '/users' }] },
   ].filter(Boolean);
 
   const go = path => {

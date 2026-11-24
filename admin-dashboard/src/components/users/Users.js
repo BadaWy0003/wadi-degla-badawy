@@ -1,260 +1,252 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
+  Alert,
+  Avatar,
   Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TableSortLabel,
-  Paper,
-  Typography,
   Button,
+  Chip,
+  CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   IconButton,
-  Checkbox,
+  Paper,
+  TextField,
+  Tooltip,
+  Typography,
 } from '@mui/material';
-// import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddUserModal from './AddUserModal';
-import DeleteConfirmDialog from './DeleteConfirmDialog';
-import { roleLabel } from '../../util/roles';
+import { Add, DeleteOutline, LockOutlined } from '@mui/icons-material';
+import { toast } from 'react-toastify';
 import apiClient from '../../util/client';
+import { useGlobalState } from '../GlobalStateContext';
+import { roleLabel } from '../../util/roles';
+import { colors } from '../../theme';
+
+// Users of the admin panel (redesign step 5, 2026-11-24). Owner (SUPER_ADMIN) only, like the
+// server's /api/admin routes. Roles must match server/src/validations/admin.validation.schema.js.
+const ROLES = [
+  { value: 'MODERATOR', title: 'Editor', text: 'Stones, gallery, customers and documents.' },
+  { value: 'ADMIN', title: 'Admin', text: 'Also website texts, news, projects, enquiries and Publish.' },
+  { value: 'SUPER_ADMIN', title: 'Owner', text: 'Everything, also adds and removes users.' },
+];
+const ROLE_COLOR = { SUPER_ADMIN: colors.goldDark, ADMIN: '#0277bd', MODERATOR: colors.muted };
+const EMPTY = { username: '', email: '', password: '', role: 'MODERATOR' };
 
 export default function Users() {
-  const [users, setUsers] = useState([]);
-  const [orderBy, setOrderBy] = useState('name');
-  const [order, setOrder] = useState('asc');
-  const [openDialog, setOpenDialog] = useState(false);
-  const [editingUser, setEditingUser] = useState(null);
-  const [formData, setFormData] = useState({
-    id: '',
-    username: '',
-    email: '',
-    password: '',
-    role: '',
-  });
+  const { globalState } = useGlobalState();
+  const isOwner = globalState.role === 'SUPER_ADMIN';
+  const [users, setUsers] = useState(null);
+  const [failed, setFailed] = useState(false);
+  const [adding, setAdding] = useState(false);
+  const [form, setForm] = useState(EMPTY);
+  const [saving, setSaving] = useState(false);
+  const [toDelete, setToDelete] = useState(null);
+
+  const load = () =>
+    apiClient
+      .get('/api/admin/all')
+      .then(({ data }) =>
+        setUsers((Array.isArray(data) ? data : data.data || []).sort((a, b) => String(a.username).localeCompare(String(b.username)))),
+      )
+      .catch(() => setFailed(true));
 
   useEffect(() => {
-    fetchUsers();
-  }, []);
+    if (isOwner) load();
+  }, [isOwner]);
 
-  const [selected, setSelected] = useState([]);
-  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-  const [userToDelete, setUserToDelete] = useState(null);
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+  const me = u => u.email === globalState.email || u.username === globalState.username;
 
-  const fetchUsers = async () => {
-    const { data } = await apiClient.get(`/api/admin/all`);
-    setUsers(
-      data.map(user => ({
-        id: user.id,
-        name: user.username,
-        email: user.email,
-        role: user.role,
-      })),
-    );
-  };
-
-  const handleSort = property => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-
-    const sortedUsers = [...users].sort((a, b) => {
-      if (a[property] < b[property]) return order === 'asc' ? -1 : 1;
-      if (a[property] > b[property]) return order === 'asc' ? 1 : -1;
-      return 0;
-    });
-
-    setUsers(sortedUsers);
-  };
-
-  const handleSelectAll = event => {
-    if (event.target.checked) {
-      setSelected(users.map(user => user.id));
-    } else {
-      setSelected([]);
-    }
-  };
-
-  const handleSelect = id => {
-    const selectedIndex = selected.indexOf(id);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = [...selected, id];
-    } else {
-      newSelected = selected.filter(item => item !== id);
-    }
-
-    setSelected(newSelected);
-  };
-
-  const handleDeleteConfirm = async () => {
-    if (userToDelete) {
-      await handleDelete(userToDelete);
-    } else {
-      await handleDeleteSelected();
-    }
-    setOpenDeleteDialog(false);
-    setUserToDelete(null);
-  };
-
-  const handleOpenDialog = (user = null) => {
-    if (user) {
-      setEditingUser(user);
-      setFormData(user);
-    } else {
-      setEditingUser(null);
-    }
-    setOpenDialog(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-    setEditingUser(null);
-    setFormData({ username: '', email: '', password: '', role: '' });
-  };
-
-  const handleSubmit = async () => {
-    const { username, email, password, role } = formData;
+  const add = async () => {
+    setSaving(true);
     try {
-      await apiClient.post(`/api/admin/create`, { username, email, password, role });
+      await apiClient.post('/api/admin/create', form);
+      toast.success(`${form.username} can now log in`);
+      setAdding(false);
+      setForm(EMPTY);
+      load();
     } catch {
-      return; // the error toast is shown by apiClient; keep the form open to fix it
+      // error toast shown by apiClient; the form stays open to fix it
+    } finally {
+      setSaving(false);
     }
-    fetchUsers();
-    handleCloseDialog();
   };
 
-  const handleDelete = async id => {
-    await apiClient.delete(`/api/admin/delete/${id}`);
-    fetchUsers();
-  };
-
-  const handleDeleteSelected = async () => {
+  const remove = async () => {
+    const u = toDelete;
+    setToDelete(null);
     try {
-      await Promise.all(selected.map(id => apiClient.delete(`/api/admin/delete/${id}`)));
-
-      fetchUsers(); // Now fetchUsers is in scope
-      setSelected([]);
-      setOpenDeleteDialog(false);
-    } catch (error) {
-      console.error('Error:', error);
+      await apiClient.delete(`/api/admin/delete/${u.id}`);
+      toast.success(`${u.username} removed`);
+      load();
+    } catch {
+      // error toast shown by apiClient
     }
   };
+
+  if (!isOwner) {
+    return (
+      <Box>
+        <Typography variant="h4" sx={{ mb: 2 }}>
+          Users
+        </Typography>
+        <Paper sx={{ p: 4, textAlign: 'center', maxWidth: 520 }}>
+          <LockOutlined sx={{ fontSize: 36, color: colors.gold, mb: 1 }} />
+          <Typography sx={{ fontWeight: 600 }}>Only the Owner manages users</Typography>
+          <Typography variant="body2" color="text.secondary">
+            You are logged in as {roleLabel(globalState.role)}. Ask the Owner to add someone or change a role.
+          </Typography>
+        </Paper>
+      </Box>
+    );
+  }
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3, flexWrap: 'wrap', gap: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Users</Typography>
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          {selected.length > 0 && (
-            <Button variant="contained" color="error" onClick={() => setOpenDeleteDialog(true)}>
-              Delete Selected ({selected.length})
-            </Button>
-          )}
-          <Button variant="contained" color="primary" onClick={() => handleOpenDialog()}>
-            Add user
-          </Button>
-        </Box>
+        <Button variant="contained" startIcon={<Add />} onClick={() => setAdding(true)} sx={{ ml: 'auto' }}>
+          Add user
+        </Button>
+      </Box>
+      <Typography color="text.secondary" sx={{ mb: 2.5, maxWidth: 820 }}>
+        The people who can log in to this panel, and what each of them can change.
+      </Typography>
+
+      {failed && <Alert severity="error">The users couldn't be loaded. Please refresh the page.</Alert>}
+      {!users && !failed && <CircularProgress />}
+
+      {users && (
+        <Paper sx={{ overflow: 'hidden', mb: 3 }}>
+          {users.map((u, i) => (
+            <Box
+              key={u.id}
+              sx={{ display: 'flex', alignItems: 'center', gap: 1.5, px: 2, py: 1.5, borderTop: i ? `1px solid ${colors.line}` : 'none' }}
+            >
+              <Avatar sx={{ bgcolor: colors.goldSoft, color: colors.goldDark, fontWeight: 700 }}>{String(u.username || '?')[0].toUpperCase()}</Avatar>
+              <Box sx={{ flex: 1, minWidth: 0 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <Typography sx={{ fontWeight: 600 }} noWrap>
+                    {u.username}
+                  </Typography>
+                  {me(u) && <Chip size="small" label="You" sx={{ height: 20, fontSize: '0.7rem' }} />}
+                </Box>
+                <Typography variant="body2" color="text.secondary" noWrap>
+                  {u.email}
+                </Typography>
+              </Box>
+              <Chip
+                size="small"
+                label={roleLabel(u.role)}
+                variant="outlined"
+                sx={{ fontWeight: 600, color: ROLE_COLOR[u.role], borderColor: ROLE_COLOR[u.role] }}
+              />
+              <Tooltip title={me(u) ? "You can't remove yourself" : `Remove ${u.username}`}>
+                <span>
+                  <IconButton
+                    aria-label={`Remove ${u.username}`}
+                    disabled={me(u)}
+                    onClick={() => setToDelete(u)}
+                    sx={{ '&:hover': { color: 'error.main' } }}
+                  >
+                    <DeleteOutline />
+                  </IconButton>
+                </span>
+              </Tooltip>
+            </Box>
+          ))}
+        </Paper>
+      )}
+
+      <Typography sx={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'text.secondary', mb: 1 }}>
+        What each role can do
+      </Typography>
+      <Box sx={{ display: 'grid', gap: 1.5, gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' } }}>
+        {ROLES.map(r => (
+          <Paper key={r.value} sx={{ p: 2 }}>
+            <Typography sx={{ fontWeight: 650, color: ROLE_COLOR[r.value] }}>{r.title}</Typography>
+            <Typography variant="body2" color="text.secondary">
+              {r.text}
+            </Typography>
+          </Paper>
+        ))}
       </Box>
 
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell padding="checkbox">
-                <Checkbox
-                  indeterminate={selected.length > 0 && selected.length < users.length}
-                  checked={selected.length === users.length}
-                  onChange={handleSelectAll}
-                />
-              </TableCell>
-
-              <TableCell>
-                <TableSortLabel active={orderBy === 'name'} direction={orderBy === 'name' ? order : 'asc'} onClick={() => handleSort('name')}>
-                  Name
-                </TableSortLabel>
-              </TableCell>
-              <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
-                <TableSortLabel active={orderBy === 'email'} direction={orderBy === 'email' ? order : 'asc'} onClick={() => handleSort('email')}>
-                  Email
-                </TableSortLabel>
-              </TableCell>
-              <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
-                <TableSortLabel active={orderBy === 'role'} direction={orderBy === 'role' ? order : 'asc'} onClick={() => handleSort('role')}>
-                  Role
-                </TableSortLabel>
-              </TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {users.map(user => (
-              <TableRow key={user.id} selected={selected.includes(user.id)}>
-                <TableCell padding="checkbox">
-                  <Checkbox checked={selected.includes(user.id)} onChange={() => handleSelect(user.id)} />
-                </TableCell>
-                <TableCell>
-                  {user.name}
-                  {/* Phones: email and role under the name (their columns are hidden) */}
+      <Dialog open={adding} onClose={() => !saving && setAdding(false)} fullWidth maxWidth="sm">
+        <DialogTitle>Add user</DialogTitle>
+        <DialogContent dividers sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <TextField size="small" label="Name" required value={form.username} onChange={e => setForm(f => ({ ...f, username: e.target.value }))} />
+          <TextField
+            size="small"
+            label="Email (used to log in)"
+            type="email"
+            required
+            value={form.email}
+            onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+          />
+          <TextField
+            size="small"
+            label="Password"
+            type="password"
+            required
+            value={form.password}
+            onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
+            helperText="8–16 characters with a capital letter, a small letter, a number and a symbol. Send it to them yourself."
+          />
+          <Box>
+            <Typography sx={{ fontWeight: 600, fontSize: '0.9rem', mb: 1 }}>Role</Typography>
+            <Box sx={{ display: 'grid', gap: 1 }}>
+              {ROLES.map(r => {
+                const on = form.role === r.value;
+                return (
                   <Box
-                    component="span"
-                    sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem', overflowWrap: 'anywhere' }}
+                    key={r.value}
+                    role="radio"
+                    aria-checked={on}
+                    tabIndex={0}
+                    onClick={() => setForm(f => ({ ...f, role: r.value }))}
+                    onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setForm(f => ({ ...f, role: r.value }))}
+                    sx={{
+                      p: 1.5,
+                      borderRadius: 2,
+                      cursor: 'pointer',
+                      border: `${on ? 2 : 1}px solid ${on ? colors.gold : colors.line}`,
+                      bgcolor: on ? colors.goldSoft : '#fff',
+                    }}
                   >
-                    {user.email}
-                    <br />
-                    {roleLabel(user.role)}
+                    <Typography sx={{ fontWeight: 650 }}>{r.title}</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {r.text}
+                    </Typography>
                   </Box>
-                </TableCell>
-                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{user.email}</TableCell>
-                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{roleLabel(user.role)}</TableCell>
-                <TableCell>
-                  <Box sx={{ display: 'flex', gap: 1, flexWrap: { xs: 'wrap', sm: 'nowrap' } }}>
-                    {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(user)}>
-                      <EditIcon />
-                    </IconButton> */}
-                    <IconButton
-                      size="small"
-                      color="error"
-                      onClick={() => {
-                        setUserToDelete(user.id);
-                        setOpenDeleteDialog(true);
-                      }}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                  </Box>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                );
+              })}
+            </Box>
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setAdding(false)} disabled={saving}>
+            Cancel
+          </Button>
+          <Button variant="contained" onClick={add} disabled={saving || !form.username || !form.email || !form.password}>
+            {saving ? 'Adding…' : 'Add user'}
+          </Button>
+        </DialogActions>
+      </Dialog>
 
-      <AddUserModal
-        open={openDialog}
-        onClose={() => setOpenDialog(false)}
-        onSubmit={handleSubmit}
-        editingUser={editingUser}
-        formData={formData}
-        setFormData={setFormData}
-      />
-
-      <DeleteConfirmDialog
-        open={openDeleteDialog}
-        onClose={() => {
-          setOpenDeleteDialog(false);
-          setUserToDelete(null);
-        }}
-        onConfirm={handleDeleteConfirm}
-        singleDelete={!!userToDelete}
-        count={selected.length}
-      />
+      <Dialog open={!!toDelete} onClose={() => setToDelete(null)}>
+        <DialogTitle>Remove {toDelete?.username}?</DialogTitle>
+        <DialogContent>
+          <DialogContentText>They can no longer log in to the admin panel. Their past changes stay. You can add them again later.</DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setToDelete(null)}>Cancel</Button>
+          <Button color="error" variant="contained" onClick={remove}>
+            Remove
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
