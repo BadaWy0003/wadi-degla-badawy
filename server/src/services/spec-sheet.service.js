@@ -486,8 +486,9 @@ SpecSheetService.warmUp = async () => {
     }
   }
   console.log(`[spec-sheets] ${ids.length} stones checked, ${made} sheets made, ${failed} failed`);
-  // then the stone catalogue (catalogue.service.js), EN + AR
-  await require('./catalogue.service').warmUp();
+  // The stone catalogue (catalogue.service.js) is no longer made here: since 2026-11-23 the
+  // website links to the client's own catalogue, so it would only cost server work (owner,
+  // 2026-11-24). Its endpoint still makes it on the first download.
 };
 
 SpecSheetService.buildHtml = buildHtml; // for local previews
