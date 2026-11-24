@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import {
   Alert,
   Box,
@@ -9,6 +9,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  Chip,
   List,
   ListItemButton,
   ListItemText,
@@ -20,6 +21,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import SaveIcon from '@mui/icons-material/Save';
 import { toast } from 'react-toastify';
 import Field from './Field';
+import { colors } from '../../theme';
 import PublishPanel from '../publish/PublishPanel';
 import {
   buildSaveBody,
@@ -127,6 +129,8 @@ const takenElsewhere = (block, f, values) =>
 
 export default function BlockEditor() {
   const { id } = useParams();
+  const [params] = useSearchParams();
+  const target = params.get('field'); // from the search on "Pages & texts"
   const [state, setState] = useState(null); // { block, saved, defaults }
   const [values, setValues] = useState({});
   const [savedValues, setSavedValues] = useState({});
@@ -157,6 +161,24 @@ export default function BlockEditor() {
   }, [load]);
 
   const dirty = JSON.stringify(values) !== JSON.stringify(savedValues);
+  // sections with unsaved changes (dot in the sections list)
+  const unsaved = useMemo(
+    () => new Set((state?.block.sections || []).filter(s => s.fields.some(f => JSON.stringify(values[fieldId(f)]) !== JSON.stringify(savedValues[fieldId(f)]))).map(s => s.id)),
+    [state, values, savedValues],
+  );
+
+  // opened from a search result: scroll to that field and mark it for a moment
+  useEffect(() => {
+    if (!state || !target) return undefined;
+    const t = setTimeout(() => {
+      const el = document.getElementById(`f-${target}`);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('wd-found');
+      setTimeout(() => el.classList.remove('wd-found'), 2600);
+    }, 300);
+    return () => clearTimeout(t);
+  }, [state, target]);
 
   // Warn before leaving with unsaved changes: closing the tab (beforeunload), the side menu
   // (Layout.js checks window.wdUnsavedChanges) and the back button below.
@@ -206,13 +228,11 @@ export default function BlockEditor() {
   return (
     <Box>
       <Button onClick={goBack} startIcon={<ArrowBackIcon />} sx={{ mb: 1 }}>
-        All website pages
+        All pages
       </Button>
       <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, flexWrap: 'wrap', mb: 2 }}>
         <Box sx={{ flexGrow: 1, minWidth: 260 }}>
-          <Typography variant="h4" sx={{ fontWeight: 600, fontSize: { xs: '1.6rem', md: '2.125rem' } }}>
-            {block.title}
-          </Typography>
+          <Typography variant="h4">{block.title}</Typography>
           <Typography color="text.secondary">{block.description}</Typography>
         </Box>
         <Button variant="outlined" startIcon={<HistoryIcon />} onClick={() => setHistoryOpen(true)}>
@@ -222,6 +242,36 @@ export default function BlockEditor() {
 
       <PublishPanel refreshKey={refreshKey} />
 
+      {/* sections as a row of buttons (phones and tablets) */}
+      {block.sections.length > 1 && (
+        <Box
+          sx={{
+            display: { xs: 'flex', lg: 'none' },
+            gap: 1,
+            overflowX: 'auto',
+            position: 'sticky',
+            top: { xs: 60, md: 64 },
+            zIndex: 5,
+            bgcolor: 'background.default',
+            py: 1,
+            mx: { xs: -2, md: 0 },
+            px: { xs: 2, md: 0 },
+          }}
+        >
+          {block.sections.map(s => (
+            <Chip
+              key={s.id}
+              component="a"
+              href={`#sec-${s.id}`}
+              clickable
+              label={unsaved.has(s.id) ? `${s.title} •` : s.title}
+              variant="outlined"
+              sx={{ flexShrink: 0, bgcolor: '#fff', ...(unsaved.has(s.id) && { borderColor: colors.gold, color: colors.goldDark }) }}
+            />
+          ))}
+        </Box>
+      )}
+
       <Box sx={{ display: 'flex', gap: 3, alignItems: 'flex-start', mt: 2 }}>
         {/* sections list (wide screens) */}
         <Paper variant="outlined" sx={{ position: 'sticky', top: 96, width: 220, flexShrink: 0, display: { xs: 'none', lg: 'block' } }}>
@@ -229,6 +279,9 @@ export default function BlockEditor() {
             {block.sections.map(s => (
               <ListItemButton key={s.id} component="a" href={`#sec-${s.id}`}>
                 <ListItemText primary={s.title} />
+                {unsaved.has(s.id) && (
+                  <Box component="span" title="Unsaved changes" sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: colors.gold, flexShrink: 0, ml: 1 }} />
+                )}
               </ListItemButton>
             ))}
           </List>
@@ -236,7 +289,7 @@ export default function BlockEditor() {
 
         <Box sx={{ flexGrow: 1, minWidth: 0, display: 'grid', gap: 2, pb: 12 }}>
           {block.sections.map(s => (
-            <Paper key={s.id} id={`sec-${s.id}`} variant="outlined" sx={{ p: { xs: 2, md: 3 }, scrollMarginTop: 96 }}>
+            <Paper key={s.id} id={`sec-${s.id}`} variant="outlined" sx={{ p: { xs: 2, md: 3 }, scrollMarginTop: { xs: 130, lg: 96 } }}>
               <Typography variant="h6" sx={{ fontWeight: 600 }}>
                 {s.title}
               </Typography>
@@ -246,8 +299,18 @@ export default function BlockEditor() {
                 </Typography>
               )}
               {s.fields.map(f => (
-                <Field
+                <Box
                   key={fieldId(f)}
+                  id={`f-${fieldId(f)}`}
+                  sx={{
+                    borderRadius: 2,
+                    mx: -1,
+                    px: 1,
+                    transition: 'box-shadow .4s, background-color .4s',
+                    '&.wd-found': { boxShadow: `0 0 0 3px ${colors.gold}`, bgcolor: colors.goldSoft },
+                  }}
+                >
+                <Field
                   field={f}
                   value={values[fieldId(f)]}
                   defaults={defaults}
@@ -256,6 +319,7 @@ export default function BlockEditor() {
                   extra={yearsNote(f, values[fieldId(f)])}
                   taken={takenElsewhere(block, f, values)}
                 />
+                </Box>
               ))}
             </Paper>
           ))}
@@ -268,8 +332,8 @@ export default function BlockEditor() {
         sx={{
           position: 'fixed',
           bottom: 16,
-          right: 16,
-          left: { xs: 16, md: 296 },
+          right: { xs: 16, md: 32 },
+          left: { xs: 16, md: 248 + 32 },
           p: 1.5,
           display: 'flex',
           alignItems: 'center',
