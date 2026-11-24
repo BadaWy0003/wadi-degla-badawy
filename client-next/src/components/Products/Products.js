@@ -222,15 +222,28 @@ export default function Products({ initialProducts = [] }) {
             </div>
           </dl>
 
-          <a
-            className="pl-catalogue"
-            href={COMPANY.catalogueUrl}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            onClick={() => trackEvent('catalogue_download', {})}
-          >
-            <FaFilePdf aria-hidden="true" /> {t('products.catalogue')}
-          </a>
+          {/* the catalogue and, next to it, the company profile: the same files as the Contact
+              page's downloads (COMPANY.catalogueUrl / profileUrl, editable in the company block) */}
+          <div className="pl-downloads">
+            <a
+              className="pl-catalogue"
+              href={COMPANY.catalogueUrl}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              onClick={() => trackEvent('catalogue_download', {})}
+            >
+              <FaFilePdf aria-hidden="true" /> {t('products.catalogue')}
+            </a>
+            <a
+              className="pl-catalogue"
+              href={COMPANY.profileUrl}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              onClick={() => trackEvent('profile_download', {})}
+            >
+              <FaFilePdf aria-hidden="true" /> {t('products.profile')}
+            </a>
+          </div>
 
           <div className="pl-finder" role="group" aria-label={t('products.finderTitle')}>
             <h2 className="pl-finder-title">{t('products.finderTitle')}</h2>
