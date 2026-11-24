@@ -35,6 +35,9 @@ const stoneChecks = (materials, details) => {
   const noCardPhoto = visible.filter((m) => !(m.finishes || []).some((f) => f?.link && ['Honed', 'Polished'].includes(f.finish)));
   const noDetails = visible.filter((m) => !text(byId.get(m.id)?.description, 'en'));
   const noArabic = visible.filter((m) => text(byId.get(m.id)?.description, 'en') && !text(byId.get(m.id)?.description, 'ar'));
+  // technical data from the client's lab reports (Products → Website details → Specifications &
+  // uses); without any value the stone page and spec sheet show no "Technical data" table
+  const noTech = visible.filter((m) => !Object.values(byId.get(m.id)?.tech || {}).some((v) => typeof v === 'number'));
   const noRoom = visible.filter((m) => !(m.finishes || []).some((f) => f?.link && ['indoorMockup', 'mockup'].includes(f.finish)));
   const missingCopies = materials.reduce(
     (n, m) => n + (m.finishes || []).filter((f) => f?.link && (!f.thumb || !f.mini)).length,
@@ -82,6 +85,14 @@ const stoneChecks = (materials, details) => {
         '/products',
       ),
       item('noArabic', 'tip', noArabic.length, 'Stones without an Arabic description', '/products', names(noArabic, stoneName)),
+      item(
+        'noTech',
+        'tip',
+        noTech.length,
+        'Stones without technical data (Products → Website details → Specifications & uses)',
+        '/products',
+        names(noTech, stoneName),
+      ),
       item(
         'noRoom',
         'tip',
