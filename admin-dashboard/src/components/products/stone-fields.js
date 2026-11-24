@@ -51,6 +51,12 @@ export const TECH = [
   ['abrasionResistance', 'Abrasion resistance', 'Ha'],
   ['modulusOfRupture', 'Modulus of rupture', 'MPa'],
 ];
+// Floor traffic the stone is rated for (server: product-details.service.js TRAFFIC)
+export const TRAFFIC = [
+  ['', 'Not set'],
+  ['heavy', 'Heavy traffic (busy public floors)'],
+  ['light', 'Light traffic (homes, offices, hotel rooms)'],
+];
 export const OTHER_LANGS = ['fr', 'es', 'de', 'it', 'ro', 'ko', 'sq', 'ru', 'ja', 'zh'];
 
 export const EMPTY_DETAILS = {
@@ -62,6 +68,7 @@ export const EMPTY_DETAILS = {
   thicknesses: '',
   sizes: '',
   uses: [],
+  traffic: '',
   tech: Object.fromEntries(TECH.map(([k]) => [k, ''])),
 };
 
@@ -74,6 +81,7 @@ export const detailsFromServer = d => ({
   thicknesses: d?.thicknesses || '',
   sizes: d?.sizes || '',
   uses: d?.uses || [],
+  traffic: d?.traffic || '',
   tech: Object.fromEntries(TECH.map(([k]) => [k, d?.tech?.[k] ?? ''])),
 });
 

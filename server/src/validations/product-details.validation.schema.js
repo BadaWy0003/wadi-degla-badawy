@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { LANGS, FORMS, USES, TECH } = require('../services/product-details.service');
+const { LANGS, FORMS, USES, TECH, TRAFFIC } = require('../services/product-details.service');
 
 // Stone details (all optional). Texts are plain; the service trims them and keeps only the
 // known forms/uses. Technical values are numbers without units.
@@ -20,6 +20,7 @@ const productDetailsReqSchema = {
     uses: Joi.array()
       .items(Joi.string().valid(...USES))
       .max(USES.length),
+    traffic: Joi.string().valid('', ...TRAFFIC),
     tech: Joi.object(Object.fromEntries(TECH.map((k) => [k, Joi.number().min(0).max(100000).allow(null, '')]))),
   }).required(),
 };
