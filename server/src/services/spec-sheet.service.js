@@ -1,6 +1,6 @@
 // Spec sheet PDF (Phase 2, 2026-11-20): "Download spec sheet" on every stone page of the
 // website opens GET /api/storage/spec-sheet/:id?lang=en|ar (public). One A4 page with the
-// stone's photo, finishes, description, specifications, uses, a room photo and the contact
+// stone's photo, finishes, description, specifications, uses and the contact
 // details, from the admin panel's data (materials + product_details). English or Arabic
 // (the languages written in the admin panel); every other website language gets English.
 //
@@ -19,7 +19,7 @@ const { db, bucket } = require('../start/firebase');
 const { col, storagePath } = require('../start/data-area');
 
 // Change when the layout changes, so every saved sheet is made again.
-const LAYOUT_VERSION = 4;
+const LAYOUT_VERSION = 5;
 const LANGS = ['en', 'ar'];
 const ROOM_FINISHES = ['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'];
 const SITE = 'https://www.wadidegla-eg.com';
@@ -70,7 +70,6 @@ const L = {
     abrasionResistance: 'Abrasion resistance',
     modulusOfRupture: 'Modulus of rupture',
     uses: 'Uses',
-    inSpace: 'In a space',
     contact: 'Get a price or a free sample',
     phone: 'Phone / WhatsApp',
     email: 'Email',
@@ -115,7 +114,6 @@ const L = {
     abrasionResistance: 'مقاومة التآكل',
     modulusOfRupture: 'معامل الكسر',
     uses: 'الاستخدامات',
-    inSpace: 'في مساحة حقيقية',
     contact: 'اطلب سعرًا أو عينة مجانية',
     phone: 'الهاتف / واتساب',
     email: 'البريد الإلكتروني',
@@ -235,15 +233,15 @@ async function buildHtml({ stone, details, contact }, lang) {
   const pickLang = (v) => (typeof v === 'object' && v ? (lang === 'ar' && v.ar) || v.en || '' : '');
   const finishes = stone.finishes.filter((f) => f?.link && !ROOM_FINISHES.includes(f.finish));
   const main = finishes.find((f) => f.finish === 'Polished') || finishes.find((f) => f.finish === 'Honed') || finishes[0];
-  const room = stone.finishes.find((f) => f?.link && ['indoorMockup', 'mockup'].includes(f.finish));
   const finishName = (n) => (lang === 'ar' && w.finishNames[String(n).toLowerCase()]) || n;
   const category = (lang === 'ar' && w.categories[stone.type]) || stone.type || '';
 
-  const [mainPhoto, roomPhoto, ...finishPhotos] = await Promise.all([
+  // no room photo since 2026-11-24 (owner): with the technical data the page had no space
+  // left, and the wide two-scene photo was squeezed to a thin strip
+  const [mainPhoto, ...finishPhotos] = await Promise.all([
     // the 640 px copies are enough for print at this size and far lighter for the small
     // server than the originals (up to 10 MB)
     embed(main?.thumb || main?.link, 1000, 700),
-    embed(room?.thumb || room?.link, 1400),
     ...finishes.slice(0, 6).map((f) => embed(f.thumb || f.link, 260, 260)),
   ]);
 
@@ -311,8 +309,6 @@ td:first-child{color:#6b645a;width:40%;padding-inline-end:3mm}
 .tech td:last-child{font-weight:700;white-space:nowrap}
 .tech tr:nth-child(even) td{background:#f7f3ec}
 .req{margin-top:2mm;font-size:8.5pt;color:#8c7553}
-.room{padding:3mm 12mm 0;flex:1;min-height:0;display:flex;flex-direction:column}
-.room img{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:3mm}
 .foot{margin-top:4mm;background:#14110d;color:#d6d0c6;padding:5mm 12mm;font-size:9pt}
 .foot b{color:#f3eee6;font-size:11pt;display:block;margin-bottom:2mm}
 .cols{display:grid;grid-template-columns:repeat(3,auto);gap:2mm 8mm;justify-content:start}
@@ -357,7 +353,7 @@ ${
       }</div>`
     : ''
 }
-${roomPhoto ? `<div class="room"><h2>${esc(w.inSpace)}</h2><img src="${roomPhoto}" alt=""></div>` : '<div style="flex:1"></div>'}
+<div style="flex:1"></div>
 <div class="foot"><b>${esc(w.contact)}</b><div class="cols">
 <div><i>${esc(w.phone)}</i><span>${esc(contact.mainPhone)}</span></div>
 <div><i>${esc(w.email)}</i><span>${esc(contact.emailExport)}</span></div>
