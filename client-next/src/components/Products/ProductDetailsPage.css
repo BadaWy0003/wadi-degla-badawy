@@ -243,7 +243,7 @@ html[dir='rtl'] .spd-crumb span[aria-hidden] {
 .spd-quick dd {
   font-weight: 500;
   font-size: 13.5px;
-  line-height: 1.4;
+  line-height: 1.4;  unicode-bidi: plaintext; /* see .spd-specs dd */
 }
 
 /* buttons */
@@ -375,10 +375,20 @@ html[dir='rtl'] .spd-crumb span[aria-hidden] {
   font-weight: 500;
   font-size: 15px;
   line-height: 1.4;
+  /* each value reads in its own direction: on Arabic pages "2, 3 cm" was shown "cm 3 ,2" */
+  unicode-bidi: plaintext;
 }
 
-/* "other sizes on request" and the technical data table (2026-11-23) */
-.spd-specs-note {
+/* plaintext would also move left-to-right values to the left: keep them on the right in Arabic */
+html[dir='rtl'] .spd-specs dd,
+html[dir='rtl'] .spd-quick dd {
+  text-align: right;
+}
+
+/* "other sizes on request" and the technical data table (2026-11-23). ".spd" in front: the
+   page's reset ".spd p { margin: 0 }" is more specific than a single class and removed the
+   space, so the note touched the cards above it (fixed 2026-11-24) */
+.spd .spd-specs-note {
   margin-top: 16px;
   font-size: 14px;
   color: var(--spd-gold);
