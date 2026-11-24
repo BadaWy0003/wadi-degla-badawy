@@ -19,7 +19,7 @@ const { db, bucket } = require('../start/firebase');
 const { col, storagePath } = require('../start/data-area');
 
 // Change when the layout changes, so every saved sheet is made again.
-const LAYOUT_VERSION = 3;
+const LAYOUT_VERSION = 4;
 const LANGS = ['en', 'ar'];
 const ROOM_FINISHES = ['indoorMockup', 'mockup', 'outdoorMockup', 'mockupOutdoor'];
 const SITE = 'https://www.wadidegla-eg.com';
@@ -53,6 +53,8 @@ const L = {
     origin: 'Origin',
     colour: 'Colour & pattern',
     forms: 'Available as',
+    traffic: 'Floor traffic',
+    trafficNames: { heavy: 'Heavy traffic (busy public floors)', light: 'Light traffic (homes, offices, hotel rooms)' },
     thickness: 'Thicknesses',
     sizes: 'Sizes (cm)',
     sizesTitle: 'Sizes & thickness',
@@ -96,6 +98,8 @@ const L = {
     origin: 'المنشأ',
     colour: 'اللون والنقشة',
     forms: 'متوفر على شكل',
+    traffic: 'الاستخدام في الأرضيات',
+    trafficNames: { heavy: 'حركة كثيفة (الأرضيات العامة المزدحمة)', light: 'حركة خفيفة (المنازل والمكاتب وغرف الفنادق)' },
     thickness: 'السُمك',
     sizes: 'المقاسات (سم)',
     sizesTitle: 'المقاسات والسُمك',
@@ -253,6 +257,7 @@ async function buildHtml({ stone, details, contact }, lang) {
         .filter(Boolean)
         .join(' · '),
     ],
+    [w.traffic, w.trafficNames[details.traffic] || ''],
   ].filter(([, v]) => v);
   const sizes = [
     [w.thickness, details.thicknesses ? `${details.thicknesses} cm` : ''],

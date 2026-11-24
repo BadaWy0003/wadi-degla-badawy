@@ -25,7 +25,11 @@ const USES = ['flooring', 'wallCladding', 'exteriorCladding', 'staircases', 'win
 // usual stone test reports)
 const TECH = ['density', 'waterAbsorption', 'compressiveStrength', 'flexuralStrength', 'abrasionResistance', 'modulusOfRupture'];
 
-const ProductDetailsService = { LANGS, FORMS, USES, TECH };
+// Floor traffic the stone is rated for (the Export Council test sheet, 2026-11-24): heavy =
+// busy public floors (granites), light = homes, offices, hotel rooms (marbles, limestones).
+const TRAFFIC = ['heavy', 'light'];
+
+const ProductDetailsService = { LANGS, FORMS, USES, TECH, TRAFFIC };
 
 const text = (v) => String(v ?? '').trim();
 const pick = (obj, keys) => Object.fromEntries(keys.map((k) => [k, text(obj?.[k])]));
@@ -59,6 +63,7 @@ const clean = (body, before = {}) => {
     thicknesses: text(body.thicknesses),
     sizes: text(body.sizes),
     uses: USES.filter((u) => (body.uses || []).includes(u)),
+    traffic: TRAFFIC.includes(body.traffic) ? body.traffic : '',
     tech,
   };
 };
@@ -131,6 +136,38 @@ ProductDetailsService.importExisting = async (by) => {
     await SiteMeta.markChanged(by);
   }
   return result;
+};
+
+// One-time job (run at server start until it has run once, site_meta/news.techSheetImportAt):
+// the technical data of the client's test sheet (Export Council / Marble and Granite Testing
+// Lab, 2026-11-24; server/src/data/stone-tech-import.json, names matched with the owner).
+// Fills only the technical values that are still empty and the floor traffic when not set,
+// and adds the sheet's other names to "Also known as" (max 10, no duplicates). Never changes
+// anything else, so edits made in the admin panel stay.
+ProductDetailsService.importTechSheet = async () => {
+  const meta = await SiteMeta.get();
+  if (meta.techSheetImportAt) return;
+  const entries = require('../data/stone-tech-import.json');
+  const batch = db.batch();
+  let updated = 0;
+  for (const entry of entries) {
+    const ref = detailsCol().doc(entry.id);
+    const [doc, product] = await Promise.all([ref.get(), materialsCol().doc(entry.id).get()]);
+    if (!product.exists) continue;
+    const before = doc.exists ? doc.data() : {};
+    const tech = { ...Object.fromEntries(TECH.map((k) => [k, null])), ...(before.tech || {}) };
+    for (const [k, v] of Object.entries(entry.tech)) if (TECH.includes(k) && (tech[k] === null || tech[k] === undefined)) tech[k] = v;
+    const names = [...(before.otherNames || [])];
+    for (const n of entry.otherNames || []) {
+      if (names.length < 10 && !names.some((m) => m.toLowerCase() === n.toLowerCase()) && n.toLowerCase() !== String(product.data().name).trim().toLowerCase()) names.push(n);
+    }
+    batch.set(ref, { tech, otherNames: names, traffic: before.traffic || entry.traffic, updatedAt: Date.now(), updatedBy: 'test sheet import' }, { merge: true });
+    updated += 1;
+  }
+  await batch.commit();
+  await SiteMeta.set({ techSheetImportAt: Date.now() });
+  await SiteMeta.markChanged('test sheet import');
+  console.log(`[stone-details] test sheet imported into ${updated} stones`);
 };
 
 // Called when a product is deleted for good.

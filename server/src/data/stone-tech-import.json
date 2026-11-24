@@ -1,0 +1,348 @@
+[
+ {
+  "id": "SSbJ6Dv3oa48ISAif1JQ",
+  "name": "Halayeb",
+  "sheetName": "Bianco Halayieb",
+  "tech": {
+   "compressiveStrength": 180,
+   "flexuralStrength": 13.7,
+   "abrasionResistance": 48.6,
+   "density": 2659,
+   "modulusOfRupture": 17.2,
+   "waterAbsorption": 0.28
+  },
+  "otherNames": [
+   "Bianca Halayeb"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "dPlZDe17jAwCtn4uDp61",
+  "name": "Gandolla",
+  "sheetName": "Ghiandone Aswan",
+  "tech": {
+   "compressiveStrength": 148,
+   "flexuralStrength": 12.8,
+   "abrasionResistance": 45.5,
+   "density": 2634,
+   "modulusOfRupture": 16,
+   "waterAbsorption": 0.09
+  },
+  "otherNames": [
+   "Ghiandone Aswan",
+   "Gandonna"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "AQA2SYi4c0A7LtBb0Pdc",
+  "name": "Verdi Green",
+  "sheetName": "Verdi",
+  "tech": {
+   "compressiveStrength": 174,
+   "flexuralStrength": 11.6,
+   "abrasionResistance": 18.42,
+   "density": 2640,
+   "modulusOfRupture": 13.9,
+   "waterAbsorption": 0.17
+  },
+  "otherNames": [
+   "Verdi"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "saPWzMyqRbtcqcGOqmYh",
+  "name": "Royal Red",
+  "sheetName": "Royal Red / Red Royal",
+  "tech": {
+   "compressiveStrength": 140,
+   "flexuralStrength": 11.3,
+   "abrasionResistance": 43.8,
+   "density": 2621,
+   "modulusOfRupture": 13.7,
+   "waterAbsorption": 0.13
+  },
+  "otherNames": [
+   "Red Royal",
+   "Red Hurghada",
+   "Imperial Red"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "VnUAluu35MowmAyfBmiP",
+  "name": "Red Fersan",
+  "sheetName": "Red Fersan",
+  "tech": {
+   "compressiveStrength": 150,
+   "flexuralStrength": 12.8,
+   "abrasionResistance": 43.5,
+   "density": 2634,
+   "modulusOfRupture": 16,
+   "waterAbsorption": 0.08
+  },
+  "otherNames": [],
+  "traffic": "heavy"
+ },
+ {
+  "id": "sQPsPuF0vUWqbeokm14d",
+  "name": "Karnak Grey",
+  "sheetName": "Karnak grey / Grey Stone (Sherka)",
+  "tech": {
+   "compressiveStrength": 147,
+   "flexuralStrength": 16.5,
+   "abrasionResistance": 38.1,
+   "density": 2627,
+   "modulusOfRupture": 17.9,
+   "waterAbsorption": 0.12
+  },
+  "otherNames": [
+   "Grey Stone",
+   "Sherka"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "Mfpf5MmfEcXjtftgxTn6",
+  "name": "Red Aswan",
+  "sheetName": "Red Aswan (M) / Red Aswan Light",
+  "tech": {
+   "compressiveStrength": 183,
+   "flexuralStrength": 13.5,
+   "abrasionResistance": 51.7,
+   "density": 2673,
+   "modulusOfRupture": 16.5,
+   "waterAbsorption": 0.06
+  },
+  "otherNames": [],
+  "traffic": "heavy"
+ },
+ {
+  "id": "nSGqB70tRJzhzxfY3ArF",
+  "name": "Rosa El Nasr",
+  "sheetName": "Rosa Al Nasr",
+  "tech": {
+   "compressiveStrength": 157,
+   "flexuralStrength": 12.5,
+   "abrasionResistance": 40.6,
+   "density": 2639,
+   "modulusOfRupture": 15.2,
+   "waterAbsorption": 0.15
+  },
+  "otherNames": [
+   "Rosa Al Nasr"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "QCNDYT5QF1GvIup3b6f1",
+  "name": "Black Aswan",
+  "sheetName": "Nero Aswan",
+  "tech": {
+   "compressiveStrength": 204,
+   "flexuralStrength": 32.4,
+   "abrasionResistance": 51.9,
+   "density": 2854,
+   "modulusOfRupture": 34.9,
+   "waterAbsorption": 0.03
+  },
+  "otherNames": [
+   "Nero Aswan"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "ENrtLqgjGcch3w277yBt",
+  "name": "Hoody Dark",
+  "sheetName": "Rosa Hodi Dark / Houdy Dark",
+  "tech": {
+   "compressiveStrength": 150,
+   "flexuralStrength": 13.5,
+   "abrasionResistance": 39.6,
+   "density": 2638,
+   "modulusOfRupture": 16.5,
+   "waterAbsorption": 0.09
+  },
+  "otherNames": [
+   "Rosa Hodi Dark",
+   "Houdy Dark"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "wUfRaSE1DxzhIBpZtVnB",
+  "name": "Rosa Hoody",
+  "sheetName": "Rosa Hodi Light / Houdy Light",
+  "tech": {
+   "compressiveStrength": 156,
+   "flexuralStrength": 12.6,
+   "abrasionResistance": 39.1,
+   "density": 2635,
+   "modulusOfRupture": 15.2,
+   "waterAbsorption": 0.19
+  },
+  "otherNames": [
+   "Rosa Hodi Light",
+   "Houdy Light"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "79G2dgzYPka7UXR940jl",
+  "name": "Brown Qusair",
+  "sheetName": "Quseir Brown",
+  "tech": {
+   "compressiveStrength": 162,
+   "flexuralStrength": 13.6,
+   "abrasionResistance": 43.1,
+   "density": 2674,
+   "modulusOfRupture": 16.5,
+   "waterAbsorption": 0.04
+  },
+  "otherNames": [
+   "Quseir Brown"
+  ],
+  "traffic": "heavy"
+ },
+ {
+  "id": "udebzfORbldW9VdMn0BH",
+  "name": "Galala",
+  "sheetName": "Galala",
+  "tech": {
+   "compressiveStrength": 121.348,
+   "flexuralStrength": 8.618,
+   "abrasionResistance": 31.6,
+   "density": 2675,
+   "modulusOfRupture": 12.411,
+   "waterAbsorption": 0.17
+  },
+  "otherNames": [],
+  "traffic": "light"
+ },
+ {
+  "id": "SYpeLb5o5EOaO0Gd86gN",
+  "name": "Galala Extra",
+  "sheetName": "Galala Extra",
+  "tech": {
+   "compressiveStrength": 116.521,
+   "flexuralStrength": 9.653,
+   "abrasionResistance": 29.8,
+   "density": 2581,
+   "modulusOfRupture": 12.411,
+   "waterAbsorption": 0.12
+  },
+  "otherNames": [],
+  "traffic": "light"
+ },
+ {
+  "id": "H2k1pG0iXqRgm9SRE5Cs",
+  "name": "Sunny Dark",
+  "sheetName": "Sunny Dark",
+  "tech": {
+   "compressiveStrength": 91.7,
+   "flexuralStrength": 11.032,
+   "abrasionResistance": 26.4,
+   "density": 2618,
+   "modulusOfRupture": 13.79,
+   "waterAbsorption": 0.29
+  },
+  "otherNames": [],
+  "traffic": "light"
+ },
+ {
+  "id": "t9yOcRidgp4tnqMTmmdQ",
+  "name": "Sunny Light",
+  "sheetName": "Sunny Light",
+  "tech": {
+   "compressiveStrength": 91.7,
+   "flexuralStrength": 11.032,
+   "abrasionResistance": 26.4,
+   "density": 2618,
+   "modulusOfRupture": 13.79,
+   "waterAbsorption": 0.29
+  },
+  "otherNames": [],
+  "traffic": "light"
+ },
+ {
+  "id": "cxKsObktUvIYuzAJtwOu",
+  "name": "Triesta Beige",
+  "sheetName": "Sinai Pearl (Triesta) Light",
+  "tech": {
+   "compressiveStrength": 107.558,
+   "flexuralStrength": 9.653,
+   "abrasionResistance": 26.5,
+   "density": 2567,
+   "modulusOfRupture": 11.032,
+   "waterAbsorption": 1.31
+  },
+  "otherNames": [
+   "Sinai Pearl Light"
+  ],
+  "traffic": "light"
+ },
+ {
+  "id": "UIHNycflBskdOWyCT5rX",
+  "name": "Triesta Grey",
+  "sheetName": "Sinai Pearl Dark",
+  "tech": {
+   "compressiveStrength": 136.516,
+   "flexuralStrength": 13.1,
+   "abrasionResistance": 38.8,
+   "density": 2628,
+   "modulusOfRupture": 13.1,
+   "waterAbsorption": 0.89
+  },
+  "otherNames": [
+   "Sinai Pearl Dark"
+  ],
+  "traffic": "light"
+ },
+ {
+  "id": "w465XVawSjgTvlmoH9LG",
+  "name": "Fantazia Sylvia",
+  "sheetName": "Silvia",
+  "tech": {
+   "compressiveStrength": 71.706,
+   "flexuralStrength": 6.895,
+   "abrasionResistance": 26.7,
+   "density": 2478,
+   "modulusOfRupture": 9.653,
+   "waterAbsorption": 1.62
+  },
+  "otherNames": [],
+  "traffic": "light"
+ },
+ {
+  "id": "avMxajJ9SXparkFvX3RP",
+  "name": "Imperial",
+  "sheetName": "Imperial Brown",
+  "tech": {
+   "compressiveStrength": 136.516,
+   "flexuralStrength": 15.168,
+   "abrasionResistance": 35.2,
+   "density": 2156,
+   "modulusOfRupture": 15.168,
+   "waterAbsorption": 0.06
+  },
+  "otherNames": [
+   "Imperial Brown"
+  ],
+  "traffic": "light"
+ },
+ {
+  "id": "xQktFbHkD3Yc4l4qGomN",
+  "name": "Egyptian Alabaster",
+  "sheetName": "Alabaster",
+  "tech": {
+   "compressiveStrength": 71.706,
+   "flexuralStrength": 12.411,
+   "density": 2730,
+   "modulusOfRupture": 14.479,
+   "waterAbsorption": 0.12
+  },
+  "otherNames": [],
+  "traffic": "light"
+ }
+]

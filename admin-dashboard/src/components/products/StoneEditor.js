@@ -28,7 +28,7 @@ import apiClient from '../../util/client';
 import { SITE_URL } from '../../util/news';
 import { colors } from '../../theme';
 import StonePhotos from './StonePhotos';
-import { CATEGORIES, FORMS, USES, TECH, OTHER_LANGS, EMPTY_DETAILS, detailsFromServer, stoneSlug } from './stone-fields';
+import { CATEGORIES, FORMS, USES, TECH, TRAFFIC, OTHER_LANGS, EMPTY_DETAILS, detailsFromServer, stoneSlug } from './stone-fields';
 
 // One page for everything about a stone (redesign step 2, 2026-11-24): Photos, Description
 // (English + Arabic) and Specifications & uses, with one Save. Replaces the old Add, Edit,
@@ -417,6 +417,21 @@ export default function StoneEditor({ open, stone, onClose, onSaved, allStones }
                 />
               ))}
             </FormGroup>
+
+            <TextField
+              select
+              label="Floor traffic"
+              value={details.traffic}
+              onChange={e => setDetails(d => ({ ...d, traffic: e.target.value }))}
+              helperText="Shown in the stone's Specifications. From the stone's test sheet: granites are usually heavy, marbles and limestones light."
+              sx={{ mb: 3, width: { xs: '100%', md: 420 } }}
+            >
+              {TRAFFIC.map(([v, label]) => (
+                <MenuItem key={v || 'none'} value={v}>
+                  {label}
+                </MenuItem>
+              ))}
+            </TextField>
 
             <Typography sx={{ fontWeight: 650 }}>Technical data</Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>

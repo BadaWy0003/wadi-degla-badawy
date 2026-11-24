@@ -291,6 +291,8 @@ export function productDetailsView(lang, product, details) {
       .map((f) => k(`form_${f}`))
       .join(', '),
   );
+  // floor traffic the stone is rated for (heavy / light, from the client's test sheet)
+  add(k('specTraffic'), details.traffic ? k(`traffic_${details.traffic}`) : '');
   add(k('specThickness'), details.thicknesses ? `${details.thicknesses} cm` : '');
   add(k('specSizes'), details.sizes);
   const tech = TECH.filter(([key]) => typeof details.tech?.[key] === 'number').map(
