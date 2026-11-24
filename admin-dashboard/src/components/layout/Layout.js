@@ -201,7 +201,7 @@ export default function Layout() {
               <Box component="img" src="/favicon.svg" alt="" sx={{ height: 26 }} />
               <Box sx={{ lineHeight: 1.1 }}>
                 <Typography sx={{ fontWeight: 700, fontSize: '1rem', letterSpacing: '0.02em' }}>Wadi Degla</Typography>
-                <Typography sx={{ fontSize: '0.7rem', color: 'text.secondary', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                   Admin
                 </Typography>
               </Box>

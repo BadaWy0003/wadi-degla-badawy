@@ -130,7 +130,7 @@ export default function Users() {
                   <Typography sx={{ fontWeight: 600 }} noWrap>
                     {u.username}
                   </Typography>
-                  {me(u) && <Chip size="small" label="You" sx={{ height: 20, fontSize: '0.7rem' }} />}
+                  {me(u) && <Chip size="small" label="You" sx={{ height: 22, fontSize: '0.75rem' }} />}
                 </Box>
                 <Typography variant="body2" color="text.secondary" noWrap>
                   {u.email}
