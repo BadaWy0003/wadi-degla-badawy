@@ -308,6 +308,13 @@ export function productDetailsView(lang, product, details) {
     specs,
     // "other sizes on request" under the specifications when thicknesses or sizes are given
     sizesNote: details.thicknesses || details.sizes ? k('specOnRequest') : '',
+    // the sizes one by one (cm), offered as choices in the quote list; slabs when sold as slabs
+    sizeChoices: String(details.sizes || '')
+      .split(/[,;\n]/)
+      .map((x) => x.trim())
+      .filter(Boolean)
+      .slice(0, 12),
+    slabs: (details.forms || []).includes('slabs'),
     tech,
     uses: uses.map((u) => k(`use_${u}`)),
     // Only the icons that really apply, once forms or uses were filled in; else all of them.

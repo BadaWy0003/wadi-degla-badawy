@@ -43,6 +43,9 @@ export function addToQuote(item) {
       finish: clean(item.finish, 80),
       finishes: (item.finishes || []).map((f) => clean(f, 80)).filter(Boolean).slice(0, 20),
       photo: clean(item.photo, 500),
+      sizes: (item.sizes || []).map((x) => clean(x, 40)).filter(Boolean).slice(0, 12),
+      slabs: !!item.slabs,
+      size: '',
       quantity: '',
     },
   ]);

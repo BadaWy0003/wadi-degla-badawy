@@ -157,7 +157,7 @@ export default function ContactForm({ quote = null }) {
       ${
         quote
           ? `<p><strong>Stones:</strong></p><ul>${items
-              .map((i) => `<li>${[i.name, i.finish, i.quantity].filter(Boolean).join(' – ')}</li>`)
+              .map((i) => `<li>${[i.name, i.finish, i.size, i.quantity].filter(Boolean).join(' – ')}</li>`)
               .join('')}</ul>`
           : ''
       }
@@ -180,7 +180,7 @@ export default function ContactForm({ quote = null }) {
     if (quote) {
       payload.append(
         'items',
-        JSON.stringify(items.map(({ name, finish, quantity }) => ({ name, finish, quantity }))),
+        JSON.stringify(items.map(({ name, finish, size, quantity }) => ({ name, finish, size, quantity }))),
       );
     }
     if (formData.attachment) payload.append('attachment', formData.attachment);

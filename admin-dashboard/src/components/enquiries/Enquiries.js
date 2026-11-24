@@ -76,7 +76,7 @@ const shortDate = ms => {
 const digits = s => String(s || '').replace(/[^\d]/g, '');
 const stone = e =>
   e.items?.length ? `${e.items.length} stone${e.items.length === 1 ? '' : 's'}` : [e.product, e.finish].filter(Boolean).join(' · ');
-const itemLines = e => (e.items || []).map(i => [i.name, i.finish, i.quantity].filter(Boolean).join(' – ')).join('\n');
+const itemLines = e => (e.items || []).map(i => [i.name, i.finish, i.size, i.quantity].filter(Boolean).join(' – ')).join('\n');
 const initials = name =>
   String(name || '?')
     .trim()
@@ -256,6 +256,7 @@ function EnquiryView({ enquiry, onSaved, onClose }) {
               <TableRow>
                 <TableCell>Stone</TableCell>
                 <TableCell>Finish</TableCell>
+                <TableCell>Size</TableCell>
                 <TableCell>Quantity</TableCell>
               </TableRow>
             </TableHead>
@@ -264,6 +265,7 @@ function EnquiryView({ enquiry, onSaved, onClose }) {
                 <TableRow key={n}>
                   <TableCell>{i.name}</TableCell>
                   <TableCell>{i.finish}</TableCell>
+                  <TableCell dir="auto">{i.size || '—'}</TableCell>
                   <TableCell dir="auto">{i.quantity || '—'}</TableCell>
                 </TableRow>
               ))}

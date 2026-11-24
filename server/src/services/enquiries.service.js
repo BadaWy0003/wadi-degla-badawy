@@ -56,7 +56,7 @@ const readLabelled = (html) => {
   return out;
 };
 
-// A quote request's stones (the website's quote list): [{ name, finish, quantity }], sent as a
+// A quote request's stones (the website's quote list): [{ name, finish, size, quantity }], sent as a
 // JSON string (multipart form) or an array. Anything else is dropped; at most 20 stones.
 const readItems = (raw) => {
   let list = raw;
@@ -70,7 +70,7 @@ const readItems = (raw) => {
   if (!Array.isArray(list)) return [];
   return list
     .slice(0, MAX_ITEMS)
-    .map((i) => ({ name: clean(i?.name, 100), finish: clean(i?.finish, 80), quantity: clean(i?.quantity, 60) }))
+    .map((i) => ({ name: clean(i?.name, 100), finish: clean(i?.finish, 80), size: clean(i?.size, 60), quantity: clean(i?.quantity, 60) }))
     .filter((i) => i.name);
 };
 

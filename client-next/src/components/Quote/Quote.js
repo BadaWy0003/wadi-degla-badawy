@@ -21,6 +21,58 @@ import { sitePhoto } from '../../util/site-content';
 // the buying guide's header photo (Website → Buying guide → Header photo in the admin panel)
 const HERO = sitePhoto('topic_buyGuide', 'heroPhoto', '/Assets/Media/Hero/buy-guide-hero.webp');
 
+// The size of one stone: a choice of the stone's own sizes (from its details in the admin panel,
+// in cm), "Slabs" when it is sold as slabs, and "Other size" to type one. Stones added before
+// the sizes were known (or with none written) get a text box. The chosen size is sent as
+// English text (`size`); `sizeOther` keeps the text box open.
+const SLABS = 'Slabs';
+function SizeField({ item, t, onChange }) {
+  const choices = (item.sizes || []).map((s) => `${s} cm`);
+  const hasChoices = choices.length > 0 || item.slabs;
+  const typed = !hasChoices || item.sizeOther;
+  const value = item.sizeOther ? '__other' : item.size || '';
+  return (
+    <div className="qt-field qt-size">
+      <label htmlFor={`qt-size-${item.slug}-${item.finish}`}>{t('quote.size')}</label>
+      <div className="qt-size-row">
+        {hasChoices && (
+          <select
+            id={typed ? undefined : `qt-size-${item.slug}-${item.finish}`}
+            aria-label={typed ? t('quote.size') : undefined}
+            value={value}
+            onChange={(e) => {
+              const v = e.target.value;
+              if (v === '__other') onChange({ size: '', sizeOther: true });
+              else onChange({ size: v, sizeOther: false });
+            }}
+          >
+            <option value="">{t('quote.sizeChoose')}</option>
+            {choices.map((c) => (
+              <option key={c} value={c}>
+                {/* kept left to right on the Arabic page ("60×60 cm", not "cm 60×60") */}
+                {`\u2066${c}\u2069`}
+              </option>
+            ))}
+            {item.slabs && <option value={SLABS}>{t('productDetails.form_slabs')}</option>}
+            <option value="__other">{t('quote.sizeOther')}</option>
+          </select>
+        )}
+        {typed && (
+          <input
+            id={`qt-size-${item.slug}-${item.finish}`}
+            type="text"
+            value={item.size || ''}
+            maxLength={60}
+            dir="auto"
+            placeholder={t('quote.sizePlaceholder')}
+            onChange={(e) => onChange({ size: e.target.value })}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Quote() {
   const { t } = useTranslation();
   const [list, ready] = useQuoteList();
@@ -90,6 +142,7 @@ export default function Quote() {
                           </p>
                         )
                       )}
+                      <SizeField item={item} t={t} onChange={(change) => update(i, change)} />
                       <label className="qt-field qt-qty">
                         <span>{t('quote.quantity')}</span>
                         <input
