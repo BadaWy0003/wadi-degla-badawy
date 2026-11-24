@@ -893,7 +893,8 @@
     "colour_red": "레드 & 핑크",
     "colour_gold": "골드 & 옐로",
     "colour_green": "그린",
-    "catalogue": "석재 카탈로그 다운로드 (PDF, 영어)"
+    "catalogue": "석재 카탈로그 다운로드 (PDF, 영어)",
+    "profile": "회사 소개서 다운로드 (PDF, 영어)"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "이집트 공급업체, 슬래브 및 타일",

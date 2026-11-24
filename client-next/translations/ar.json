@@ -893,7 +893,8 @@
     "colour_red": "أحمر ووردي",
     "colour_gold": "ذهبي وأصفر",
     "colour_green": "أخضر",
-    "catalogue": "تحميل كتالوج الأحجار (PDF)"
+    "catalogue": "تحميل كتالوج الأحجار (PDF)",
+    "profile": "تحميل ملف الشركة (PDF)"
   },
   "productDetails": {
     "titleSupplierSlabsTiles": "مورد مصري، ألواح وبلاطات",

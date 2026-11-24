@@ -370,11 +370,17 @@ html[dir='rtl'] .pl-crumb span[aria-hidden] {
 }
 
 /* stone catalogue PDF link (2026-11-21) */
+.pl-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
 .pl-catalogue {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  margin-top: 28px;
   padding: 11px 20px;
   border: 1px solid var(--pl-gold);
   border-radius: 999px;
