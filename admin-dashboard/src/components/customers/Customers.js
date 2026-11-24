@@ -1,349 +1,372 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
+  Alert,
+  Avatar,
   Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TableSortLabel,
-  Paper,
-  Typography,
   Button,
-  IconButton,
-  Checkbox,
+  Chip,
+  CircularProgress,
   Dialog,
-  DialogTitle,
-  DialogContent,
   DialogActions,
+  DialogContent,
   DialogContentText,
-  TextField,
-  MenuItem,
+  DialogTitle,
+  Grid,
+  IconButton,
   InputAdornment,
+  Paper,
+  TextField,
+  Typography,
 } from '@mui/material';
-// import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SearchIcon from '@mui/icons-material/Search';
+import { Add, Search, Close, Email, WhatsApp, Phone, DeleteOutline, ChevronRight, StorefrontOutlined } from '@mui/icons-material';
+import { toast } from 'react-toastify';
 import apiClient from '../../util/client';
+import { useGlobalState } from '../GlobalStateContext';
+import { colors } from '../../theme';
 
-export default function Customers() {
-  const [customers, setCustomers] = useState([]);
-  const [orderBy, setOrderBy] = useState('fullName');
-  const [order, setOrder] = useState('asc');
-  const [selected, setSelected] = useState([]);
-  const [openDialog, setOpenDialog] = useState(false);
-  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-  const [customerToDelete, setCustomerToDelete] = useState(null);
-  const [editingCustomer, setEditingCustomer] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchField, setSearchField] = useState('fullName');
-  const [formData, setFormData] = useState({
-    fullName: '',
-    companyName: '',
-    rnc: '',
-    email: '',
-    phone: '',
-    whatsapp: '',
-    country: '',
-    address: '',
-    port: '',
-  });
+// Customers (redesign step 5, 2026-11-24): the buyers' accounts (made on the website's signup
+// page, or added here by the Owner). A list with search; a click opens the customer with
+// contact buttons, details and the stones they saved. Adding and deleting: Owner only
+// (the server's rule).
 
-  useEffect(() => {
-    fetchCustomers();
-  }, []);
+const digits = s => String(s || '').replace(/[^\d]/g, '');
+const initials = name =>
+  String(name || '?')
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map(w => w[0])
+    .join('')
+    .toUpperCase();
+const fmtDate = ts => {
+  const ms = ts?._seconds ? ts._seconds * 1000 : typeof ts === 'number' ? ts : null;
+  return ms ? new Date(ms).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+};
 
-  const fetchCustomers = async () => {
-    const { data } = await apiClient.get(`/api/customer/all`);
-    setCustomers(data);
-  };
+const EMPTY = { fullName: '', companyName: '', email: '', phone: '', whatsapp: '', country: '', address: '', port: '', rnc: '', password: '' };
+const FIELDS = [
+  ['fullName', 'Full name', true, 6],
+  ['companyName', 'Company', true, 6],
+  ['email', 'Email', true, 6],
+  ['country', 'Country', true, 6],
+  ['phone', 'Phone (numbers only, with country code)', true, 6],
+  ['whatsapp', 'WhatsApp (optional)', false, 6],
+  ['address', 'Address (optional)', false, 12],
+  ['port', 'Port (optional)', false, 6],
+  ['rnc', 'Tax ID / RNC (optional)', false, 6],
+];
 
-  const handleSort = property => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-  };
-
-  const handleSelectAll = event => {
-    if (event.target.checked) {
-      setSelected(filteredCustomers.map(customer => customer.id));
-    } else {
-      setSelected([]);
-    }
-  };
-
-  const handleSelect = id => {
-    const selectedIndex = selected.indexOf(id);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = [...selected, id];
-    } else {
-      newSelected = selected.filter(item => item !== id);
-    }
-
-    setSelected(newSelected);
-  };
-
-  const handleOpenDialog = (customer = null) => {
-    if (customer) {
-      setEditingCustomer(customer);
-      setFormData(customer);
-    } else {
-      setEditingCustomer(null);
-      setFormData({
-        fullName: '',
-        companyName: '',
-        rnc: '',
-        email: '',
-        password: '',
-        phone: '',
-        whatsapp: '',
-        country: '',
-        address: '',
-        port: '',
-      });
-    }
-    setOpenDialog(true);
-  };
-
-  const handleSubmit = async () => {
-    try {
-      // Structure the customer data properly
-      const customerData = {
-        ...formData,
-        username: formData.email, // Add username field using email
-        role: 'customer', // Add role field
-        active: true, // Add active status
-      };
-
-      console.log('Submitting customer data:', customerData);
-
-      await apiClient.post(`/api/customer/create`, customerData);
-
-      fetchCustomers(); // Refresh the list
-      setOpenDialog(false);
-    } catch (error) {
-      console.error('Error creating customer:', error);
-      alert(error.message || 'Failed to create customer. Please try again.');
-    }
-  };
-  //_______________________________________________________________ from users.js
-  const handleDeleteConfirm = async () => {
-    if (customerToDelete) {
-      await handleDelete(customerToDelete);
-    } else {
-      await handleDeleteSelected();
-    }
-    setOpenDeleteDialog(false);
-    setCustomerToDelete(null);
-  };
-
-  const handleDelete = async id => {
-    await apiClient.delete(`/api/customer/delete/${id}`);
-    fetchCustomers();
-  };
-
-  const handleDeleteSelected = async () => {
-    try {
-      await Promise.all(selected.map(id => apiClient.delete(`/api/customer/delete/${id}`)));
-      console.log('Customers deleted successfully');
-      fetchCustomers(); // Now fetchUsers is in scope
-      setSelected([]);
-      setOpenDeleteDialog(false);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-  //_______________________________________________________________
-
-  // const handleDeleteConfirm = async () => {
-
-  //   try {
-  //     const response = await fetch(
-  //       `${process.env.REACT_APP_BASE_API_URL}/api/customer/delete/${customerToDelete}`,
-  //       { method: "DELETE", credentials: "include" }
-  //     );
-  //     if (!response.ok) throw new Error("Failed to delete customer");
-  //     fetchCustomers(); // Refresh the list
-  //     setOpenDeleteDialog(false);
-  //     console.log("Customer deleted successfully");
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // };
-
-  const filteredCustomers = customers.filter(customer => {
-    const searchValue = customer[searchField].toLowerCase();
-    return searchValue.includes(searchQuery.toLowerCase());
-  });
-
-  const sortedCustomers = filteredCustomers.sort((a, b) => {
-    const isAsc = order === 'asc';
-    if (a[orderBy] < b[orderBy]) return isAsc ? -1 : 1;
-    if (a[orderBy] > b[orderBy]) return isAsc ? 1 : -1;
-    return 0;
-  });
-
-  const renderSearchBar = () => (
-    <Box sx={{ display: 'flex', gap: 2, mb: 3, flexWrap: 'wrap' }}>
-      <TextField select value={searchField} onChange={e => setSearchField(e.target.value)} sx={{ width: 150 }}>
-        <MenuItem value="fullName">Name</MenuItem>
-        <MenuItem value="email">Email</MenuItem>
-        <MenuItem value="companyName">Company</MenuItem>
-      </TextField>
-      <TextField
-        fullWidth
-        placeholder={`Search by ${searchField}...`}
-        value={searchQuery}
-        onChange={e => setSearchQuery(e.target.value)}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
+function Line({ label, value, href }) {
+  if (!value) return null;
+  return (
+    <Box sx={{ display: 'flex', gap: 1.5, py: 0.75, borderBottom: `1px solid ${colors.line}` }}>
+      <Typography variant="body2" color="text.secondary" sx={{ width: 110, flexShrink: 0 }}>
+        {label}
+      </Typography>
+      <Typography
+        variant="body2"
+        component={href ? 'a' : 'p'}
+        href={href}
+        dir="auto"
+        sx={{ wordBreak: 'break-word', color: href ? colors.goldDark : undefined }}
+      >
+        {value}
+      </Typography>
     </Box>
   );
+}
 
-  const renderAddEditDialog = () => (
-    <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-      <DialogTitle>{editingCustomer ? 'Edit Customer' : 'Add customer'}</DialogTitle>
-      <DialogContent>
-        <Box sx={{ pt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {['fullName', 'companyName', 'rnc', 'email', 'phone', 'whatsapp', 'country', 'address', 'port', 'password'].map(field => (
-            <TextField
-              key={field}
-              fullWidth
-              label={field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')}
-              value={formData[field]}
-              onChange={e => setFormData({ ...formData, [field]: e.target.value })}
-              required
-            />
-          ))}
-        </Box>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setOpenDialog(false)}>Cancel</Button>
-        <Button onClick={handleSubmit} variant="contained" color="primary">
-          {editingCustomer ? 'Save Changes' : 'Add Customer'}
-        </Button>
-      </DialogActions>
-    </Dialog>
-  );
+export default function Customers() {
+  const { globalState } = useGlobalState();
+  const isOwner = globalState.role === 'SUPER_ADMIN';
+  const [list, setList] = useState(null);
+  const [failed, setFailed] = useState(false);
+  const [stones, setStones] = useState({}); // id -> name (for the saved stones)
+  const [query, setQuery] = useState('');
+  const [open, setOpen] = useState(null);
+  const [adding, setAdding] = useState(false);
+  const [form, setForm] = useState(EMPTY);
+  const [saving, setSaving] = useState(false);
+  const [toDelete, setToDelete] = useState(null);
 
-  const renderDeleteDialog = () => (
-    <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)}>
-      <DialogTitle>Confirm Delete</DialogTitle>
-      <DialogContent>
-        <DialogContentText>
-          {customerToDelete
-            ? 'Are you sure you want to delete this customer?'
-            : `Are you sure you want to delete ${selected.length} selected customers?`}
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button
-          onClick={() => {
-            setOpenDeleteDialog(false);
-            setCustomerToDelete(null);
-          }}
-        >
-          Cancel
-        </Button>
-        <Button onClick={handleDeleteConfirm} color="error" variant="contained">
-          Delete
-        </Button>
-      </DialogActions>
-    </Dialog>
-  );
+  const load = () =>
+    apiClient
+      .get('/api/customer/all')
+      .then(({ data }) => setList(Array.isArray(data) ? data : data.data || []))
+      .catch(() => setFailed(true));
+
+  useEffect(() => {
+    load();
+    apiClient
+      .get('/api/storage/admin/all')
+      .then(({ data }) => setStones(Object.fromEntries((data.data || []).map(s => [s.id, s.name]))))
+      .catch(() => {});
+  }, []);
+
+  const shown = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return (list || [])
+      .filter(c => !q || [c.fullName, c.companyName, c.email, c.country, c.phone, c.port].join(' ').toLowerCase().includes(q))
+      .sort((a, b) => String(a.companyName || a.fullName).localeCompare(String(b.companyName || b.fullName)));
+  }, [list, query]);
+
+  const add = async () => {
+    const missing = FIELDS.filter(([k, , req]) => req && !String(form[k]).trim()).map(([, label]) => label.split(' (')[0]);
+    if (missing.length || !form.password) {
+      toast.error(`Please fill in: ${[...missing, !form.password && 'Password'].filter(Boolean).join(', ')}`);
+      return;
+    }
+    setSaving(true);
+    try {
+      await apiClient.post('/api/customer/create', { ...form, phone: digits(form.phone), whatsapp: digits(form.whatsapp) });
+      toast.success('Customer added');
+      setAdding(false);
+      setForm(EMPTY);
+      load();
+    } catch {
+      // error toast shown by apiClient
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const remove = async () => {
+    const id = toDelete.id;
+    setToDelete(null);
+    try {
+      await apiClient.delete(`/api/customer/delete/${id}`);
+      toast.success('Customer deleted');
+      setOpen(null);
+      load();
+    } catch {
+      // error toast shown by apiClient
+    }
+  };
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3, flexWrap: 'wrap', gap: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, flexWrap: 'wrap', gap: 2 }}>
         <Typography variant="h4">Customers</Typography>
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          {selected.length > 0 && (
-            <Button variant="contained" color="error" onClick={() => setOpenDeleteDialog(true)}>
-              Delete Selected ({selected.length})
-            </Button>
-          )}
-          <Button variant="contained" color="primary" onClick={() => handleOpenDialog()}>
+        {isOwner && (
+          <Button variant="contained" startIcon={<Add />} onClick={() => setAdding(true)} sx={{ ml: 'auto' }}>
             Add customer
           </Button>
-        </Box>
+        )}
       </Box>
+      <Typography color="text.secondary" sx={{ mb: 2.5, maxWidth: 820 }}>
+        {list ? `${list.length} customer accounts, made on the website's sign-up page${isOwner ? ' or added here' : ''}.` : ' '}
+      </Typography>
 
-      {renderSearchBar()}
+      {failed && <Alert severity="error">The customers couldn't be loaded. Please refresh the page.</Alert>}
+      {!list && !failed && <CircularProgress />}
 
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell padding="checkbox">
-                <Checkbox
-                  indeterminate={selected.length > 0 && selected.length < filteredCustomers.length}
-                  checked={selected.length === filteredCustomers.length}
-                  onChange={handleSelectAll}
-                />
-              </TableCell>
-              {['name', 'email', 'company'].map(field => (
-                <TableCell key={field} sx={field === 'name' ? undefined : { display: { xs: 'none', sm: 'table-cell' } }}>
-                  <TableSortLabel active={orderBy === field} direction={orderBy === field ? order : 'asc'} onClick={() => handleSort(field)}>
-                    {field.charAt(0).toUpperCase() + field.slice(1)}
-                  </TableSortLabel>
-                </TableCell>
-              ))}
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {sortedCustomers.map(customer => (
-              <TableRow key={customer.id} selected={selected.includes(customer.id)}>
-                <TableCell padding="checkbox">
-                  <Checkbox checked={selected.includes(customer.id)} onChange={() => handleSelect(customer.id)} />
-                </TableCell>
-                <TableCell>
-                  {customer.fullName}
-                  {/* Phones: email and company under the name (their columns are hidden) */}
-                  <Box
-                    component="span"
-                    sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem', overflowWrap: 'anywhere' }}
-                  >
-                    {customer.email}
-                    {customer.companyName ? ` · ${customer.companyName}` : ''}
-                  </Box>
-                </TableCell>
-                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{customer.email}</TableCell>
-                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{customer.companyName}</TableCell>
-                <TableCell>
-                  <Box sx={{ display: 'flex', gap: 1, flexWrap: { xs: 'wrap', sm: 'nowrap' } }}>
-                    {/* <IconButton size="small" color="primary" onClick={() => handleOpenDialog(customer)}>
-                      <EditIcon />
-                    </IconButton> */}
-                    <IconButton
-                      size="small"
-                      color="error"
-                      onClick={() => {
-                        setCustomerToDelete(customer.id);
-                        setOpenDeleteDialog(true);
-                      }}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                  </Box>
-                </TableCell>
-              </TableRow>
+      {list && (
+        <>
+          <TextField
+            fullWidth
+            size="small"
+            placeholder="Search name, company, email, country…"
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Search fontSize="small" />
+                </InputAdornment>
+              ),
+            }}
+            sx={{ mb: 2, maxWidth: { md: 480 }, '& .MuiOutlinedInput-root': { bgcolor: '#fff' } }}
+          />
+          <Paper sx={{ overflow: 'hidden' }}>
+            {shown.length === 0 && (
+              <Box sx={{ p: 5, textAlign: 'center', color: 'text.secondary' }}>
+                <StorefrontOutlined sx={{ fontSize: 40, mb: 1, color: colors.line }} />
+                <Typography>{list.length ? 'No customer matches.' : 'No customers yet.'}</Typography>
+              </Box>
+            )}
+            {shown.map((c, i) => (
+              <Box
+                key={c.id}
+                role="button"
+                tabIndex={0}
+                onClick={() => setOpen(c)}
+                onKeyDown={e => e.key === 'Enter' && setOpen(c)}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  px: 2,
+                  py: 1.5,
+                  cursor: 'pointer',
+                  borderTop: i ? `1px solid ${colors.line}` : 'none',
+                  '&:hover': { bgcolor: '#faf8f4' },
+                }}
+              >
+                <Avatar sx={{ bgcolor: colors.goldSoft, color: colors.goldDark, fontWeight: 700, fontSize: '0.9rem' }}>
+                  {initials(c.companyName || c.fullName)}
+                </Avatar>
+                <Box sx={{ flex: 1, minWidth: 0 }}>
+                  <Typography sx={{ fontWeight: 600 }} noWrap dir="auto">
+                    {c.companyName || c.fullName}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" noWrap>
+                    {[c.companyName && c.fullName, c.country, c.email].filter(Boolean).join(' · ')}
+                  </Typography>
+                </Box>
+                {c.savedStones?.length > 0 && (
+                  <Chip
+                    size="small"
+                    label={`${c.savedStones.length} saved stone${c.savedStones.length === 1 ? '' : 's'}`}
+                    sx={{ display: { xs: 'none', sm: 'flex' } }}
+                  />
+                )}
+                <ChevronRight sx={{ color: 'text.secondary' }} />
+              </Box>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+          </Paper>
+        </>
+      )}
 
-      {renderAddEditDialog()}
-      {renderDeleteDialog()}
+      {/* one customer */}
+      <Dialog
+        open={!!open}
+        onClose={() => setOpen(null)}
+        fullWidth
+        maxWidth="sm"
+        PaperProps={{ sx: { '@media (max-width: 599.95px)': { m: 0, maxHeight: '100%', height: '100%', borderRadius: 0, width: '100%' } } }}
+      >
+        {open && (
+          <>
+            <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5, p: 3, pb: 2 }}>
+              <Avatar sx={{ bgcolor: colors.goldSoft, color: colors.goldDark, fontWeight: 700 }}>
+                {initials(open.companyName || open.fullName)}
+              </Avatar>
+              <Box sx={{ flex: 1, minWidth: 0 }}>
+                <Typography sx={{ fontWeight: 700, fontSize: '1.2rem' }} dir="auto">
+                  {open.companyName || open.fullName}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {[open.companyName && open.fullName, open.country].filter(Boolean).join(' · ')}
+                </Typography>
+                {fmtDate(open.createdAt) && (
+                  <Typography variant="caption" color="text.secondary">
+                    Customer since {fmtDate(open.createdAt)}
+                  </Typography>
+                )}
+              </Box>
+              <IconButton aria-label="Close" onClick={() => setOpen(null)}>
+                <Close />
+              </IconButton>
+            </Box>
+            <DialogContent sx={{ pt: 0 }}>
+              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2.5 }}>
+                <Button variant="contained" startIcon={<Email />} href={`mailto:${open.email}`}>
+                  Email
+                </Button>
+                {digits(open.whatsapp || open.phone).length >= 7 && (
+                  <Button
+                    variant="outlined"
+                    startIcon={<WhatsApp />}
+                    href={`https://wa.me/${digits(open.whatsapp || open.phone)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    sx={{ color: '#1a7f45', borderColor: '#bfe3cc', '&:hover': { borderColor: '#1a7f45', bgcolor: '#eef8f2' } }}
+                  >
+                    WhatsApp
+                  </Button>
+                )}
+                {digits(open.phone).length >= 7 && (
+                  <Button variant="outlined" startIcon={<Phone />} href={`tel:+${digits(open.phone)}`}>
+                    Call
+                  </Button>
+                )}
+              </Box>
+              <Line label="Name" value={open.fullName} />
+              <Line label="Email" value={open.email} href={`mailto:${open.email}`} />
+              <Line label="Phone" value={open.phone} />
+              <Line label="WhatsApp" value={open.whatsapp} />
+              <Line label="Country" value={open.country} />
+              <Line label="Address" value={open.address} />
+              <Line label="Port" value={open.port} />
+              <Line label="Tax ID / RNC" value={open.rnc} />
+              {open.savedStones?.length > 0 && (
+                <Box sx={{ mt: 2.5 }}>
+                  <Typography sx={{ fontWeight: 650, fontSize: '0.9rem', mb: 1 }}>Stones they saved</Typography>
+                  <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap' }}>
+                    {open.savedStones.map(id => (
+                      <Chip key={id} label={stones[id] || 'A removed stone'} size="small" variant="outlined" />
+                    ))}
+                  </Box>
+                </Box>
+              )}
+            </DialogContent>
+            {isOwner && (
+              <DialogActions sx={{ px: 3, py: 1.5, borderTop: `1px solid ${colors.line}` }}>
+                <Button color="error" startIcon={<DeleteOutline />} onClick={() => setToDelete(open)} sx={{ mr: 'auto' }}>
+                  Delete customer
+                </Button>
+              </DialogActions>
+            )}
+          </>
+        )}
+      </Dialog>
+
+      {/* add */}
+      <Dialog open={adding} onClose={() => !saving && setAdding(false)} fullWidth maxWidth="sm">
+        <DialogTitle>Add customer</DialogTitle>
+        <DialogContent dividers>
+          <Grid container spacing={2}>
+            {FIELDS.map(([k, label, req, md]) => (
+              <Grid item xs={12} sm={md} key={k}>
+                <TextField
+                  fullWidth
+                  size="small"
+                  label={label}
+                  required={req}
+                  value={form[k]}
+                  onChange={e => setForm(f => ({ ...f, [k]: e.target.value }))}
+                />
+              </Grid>
+            ))}
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                size="small"
+                type="password"
+                label="Password for their website account"
+                required
+                value={form.password}
+                onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
+                helperText="8–16 characters with a capital letter, a small letter, a number and a symbol. Send it to the customer yourself."
+              />
+            </Grid>
+          </Grid>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setAdding(false)} disabled={saving}>
+            Cancel
+          </Button>
+          <Button variant="contained" onClick={add} disabled={saving}>
+            {saving ? 'Adding…' : 'Add customer'}
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={!!toDelete} onClose={() => setToDelete(null)}>
+        <DialogTitle>Delete this customer?</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            {toDelete &&
+              `${toDelete.companyName || toDelete.fullName} and their website account are deleted for good. They can't log in any more. This cannot be undone.`}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setToDelete(null)}>Cancel</Button>
+          <Button color="error" variant="contained" onClick={remove}>
+            Delete customer
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
