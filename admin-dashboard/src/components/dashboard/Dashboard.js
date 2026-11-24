@@ -128,7 +128,23 @@ export default function Dashboard() {
               {items.map(i => (
                 <Box
                   key={i.id}
-                  sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5, py: 1.25, borderTop: '1px solid', borderColor: 'divider' }}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => navigate(i.path)}
+                  onKeyDown={e => e.key === 'Enter' && navigate(i.path)}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: 1.5,
+                    py: 1.25,
+                    px: 1,
+                    mx: -1,
+                    borderTop: '1px solid',
+                    borderColor: 'divider',
+                    cursor: 'pointer',
+                    borderRadius: 1,
+                    '&:hover': { bgcolor: 'action.hover' },
+                  }}
                 >
                   <Chip
                     size="small"
@@ -141,15 +157,22 @@ export default function Dashboard() {
                       {i.label}
                     </Typography>
                     {i.names?.length > 0 && (
-                      <Typography variant="caption" color="text.secondary" sx={{ display: 'block' }}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                      >
                         {i.names.join(', ')}
                         {i.count > i.names.length ? ` and ${i.count - i.names.length} more` : ''}
                       </Typography>
                     )}
                   </Box>
-                  <Button size="small" endIcon={<ChevronRight />} onClick={() => navigate(i.path)} sx={{ flexShrink: 0 }}>
-                    Open
-                  </Button>
+                  <Box sx={{ display: 'flex', alignItems: 'center', color: 'primary.main', flexShrink: 0, fontWeight: 600, fontSize: '0.85rem', pt: 0.25 }}>
+                    <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
+                      Open
+                    </Box>
+                    <ChevronRight fontSize="small" />
+                  </Box>
                 </Box>
               ))}
             </Paper>

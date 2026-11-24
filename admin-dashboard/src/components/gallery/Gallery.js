@@ -140,7 +140,7 @@ function Tile({ item, big, onMenu, draggable, onDragStart, onDropBefore }) {
           size="small"
           aria-label={`Photo ${item.name}: options`}
           onClick={e => onMenu(e.currentTarget)}
-          sx={{ bgcolor: 'rgba(255,255,255,0.9)', '&:hover': { bgcolor: '#fff' }, p: 0.5 }}
+          sx={{ bgcolor: 'rgba(255,255,255,0.9)', '&:hover': { bgcolor: '#fff' }, p: { xs: 0.9, md: 0.5 } }}
         >
           <MoreVert fontSize="small" />
         </IconButton>

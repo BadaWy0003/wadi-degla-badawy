@@ -10,16 +10,13 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
+  ListItemIcon,
+  Menu,
+  MenuItem,
   Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Tooltip,
   Typography,
 } from '@mui/material';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -33,6 +30,7 @@ import { useGlobalState } from '../GlobalStateContext';
 import { articleUrl, canManageNews, formatDate, photoUrl } from '../../util/news';
 import NewsForm from './NewsForm';
 import PublishPanel from '../publish/PublishPanel';
+import { colors } from '../../theme';
 
 export default function News() {
   const { globalState } = useGlobalState();
@@ -43,6 +41,7 @@ export default function News() {
   const [editing, setEditing] = useState(null);
   const [toDelete, setToDelete] = useState(null);
   const [importing, setImporting] = useState(false);
+  const [menu, setMenu] = useState(null); // {anchor, a}
   const allowed = canManageNews(globalState.role);
 
   const load = useCallback(async () => {
@@ -76,6 +75,11 @@ export default function News() {
       return; // error toast shown by apiClient
     }
     load();
+  };
+
+  const run = request => {
+    setMenu(null);
+    return act(request);
   };
 
   const importExisting = async () => {
@@ -116,87 +120,125 @@ export default function News() {
           </Button>
         </Paper>
       ) : (
-        <TableContainer component={Paper}>
-          {/* Phones: cover, date and Arabic columns hidden (date shown under the title), tighter cells */}
-          <Table sx={{ '& td, & th': { px: { xs: 1, sm: 2 } } }}>
-            <TableHead>
-              <TableRow>
-                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Cover</TableCell>
-                <TableCell>Title</TableCell>
-                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Date</TableCell>
-                <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Arabic</TableCell>
-                <TableCell align="right">Actions</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {articles.map(a => (
-                <TableRow key={a.id} sx={a.hidden ? { opacity: 0.6 } : undefined}>
-                  <TableCell sx={{ width: 96, display: { xs: 'none', sm: 'table-cell' } }}>
-                    <img src={photoUrl(a.thumbnail)} alt="" style={{ width: 80, height: 56, objectFit: 'cover', borderRadius: 4 }} />
-                  </TableCell>
-                  <TableCell>
-                    {a.title.en}
-                    {a.pinned && <Chip size="small" color="primary" label="Pinned" sx={{ ml: 1 }} />}
-                    {a.hidden && <Chip size="small" label="Hidden from website" sx={{ ml: 1 }} />}
-                    <Box component="span" sx={{ display: { xs: 'block', sm: 'none' }, color: 'text.secondary', fontSize: '0.8rem' }}>
-                      {formatDate(a.year, a.month)}
-                      {a.title.ar ? ' · Arabic ✓' : ''}
+        <Paper sx={{ overflow: 'hidden' }}>
+          {articles.map((a, i) => (
+            <Box
+              key={a.id}
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                setEditing(a);
+                setFormOpen(true);
+              }}
+              onKeyDown={e => {
+                if (e.key === 'Enter') {
+                  setEditing(a);
+                  setFormOpen(true);
+                }
+              }}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: { xs: 1.5, sm: 2 },
+                px: { xs: 1.5, sm: 2 },
+                py: 1.25,
+                cursor: 'pointer',
+                borderTop: i ? `1px solid ${colors.line}` : 'none',
+                '&:hover': { bgcolor: '#faf8f4' },
+              }}
+            >
+              <Box
+                component="img"
+                src={photoUrl(a.thumbnail)}
+                alt=""
+                sx={{ width: { xs: 64, sm: 88 }, height: { xs: 48, sm: 60 }, objectFit: 'cover', borderRadius: 1.5, flexShrink: 0, opacity: a.hidden ? 0.5 : 1, bgcolor: colors.lightGray }}
+              />
+              <Box sx={{ flex: 1, minWidth: 0 }}>
+                <Typography sx={{ fontWeight: 600, lineHeight: 1.35 }}>{a.title.en}</Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, flexWrap: 'wrap', mt: 0.25 }}>
+                  <Typography variant="body2" color="text.secondary">
+                    {formatDate(a.year, a.month)}
+                  </Typography>
+                  {a.pinned && <Chip size="small" color="primary" icon={<PushPinIcon />} label="Pinned" sx={{ height: 22 }} />}
+                  {a.hidden && <Chip size="small" icon={<VisibilityOffIcon />} label="Hidden" sx={{ height: 22 }} />}
+                  {!a.title.ar && (
+                    <Box component="span" sx={{ fontSize: '0.75rem', fontWeight: 600, color: '#8a5a00', bgcolor: '#fff4e0', borderRadius: 1, px: 0.75 }}>
+                      No Arabic
                     </Box>
-                  </TableCell>
-                  <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{formatDate(a.year, a.month)}</TableCell>
-                  <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>
-                    {a.title.ar ? (
-                      'Yes'
-                    ) : (
-                      <Typography variant="body2" color="text.secondary">
-                        English shown
-                      </Typography>
-                    )}
-                  </TableCell>
-                  <TableCell align="right" sx={{ whiteSpace: { xs: 'normal', sm: 'nowrap' } }}>
-                    <Tooltip title="Edit">
-                      <IconButton
-                        color="primary"
-                        onClick={() => {
-                          setEditing(a);
-                          setFormOpen(true);
-                        }}
-                      >
-                        <EditIcon />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title={a.pinned ? 'Unpin' : 'Pin to the top'}>
-                      <IconButton color="primary" onClick={() => act(() => apiClient.put(`/api/news/admin/${a.id}/pin`, { pinned: !a.pinned }))}>
-                        {a.pinned ? <PushPinIcon /> : <PushPinOutlinedIcon />}
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title={a.hidden ? 'Show on website' : 'Hide from website'}>
-                      <IconButton
-                        color="primary"
-                        onClick={() => act(() => apiClient.put(`/api/news/admin/${a.id}/visibility`, { hidden: !a.hidden }))}
-                      >
-                        {a.hidden ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Open on the website (after publishing)">
-                      <IconButton component="a" href={articleUrl(a.slug)} target="_blank" rel="noreferrer">
-                        <OpenInNewIcon />
-                      </IconButton>
-                    </Tooltip>
-                    {a.hidden && (
-                      <Tooltip title="Delete permanently">
-                        <IconButton color="error" onClick={() => setToDelete(a)}>
-                          <DeleteIcon />
-                        </IconButton>
-                      </Tooltip>
-                    )}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+                  )}
+                </Box>
+              </Box>
+              <IconButton
+                aria-label={`More actions for ${a.title.en}`}
+                onClick={e => {
+                  e.stopPropagation();
+                  setMenu({ anchor: e.currentTarget, a });
+                }}
+                onKeyDown={e => e.stopPropagation()}
+              >
+                <MoreVertIcon />
+              </IconButton>
+            </Box>
+          ))}
+        </Paper>
       )}
+
+      <Menu
+        anchorEl={menu?.anchor}
+        open={!!menu}
+        onClose={() => setMenu(null)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        {menu && [
+          <MenuItem
+            key="edit"
+            onClick={() => {
+              setEditing(menu.a);
+              setFormOpen(true);
+              setMenu(null);
+            }}
+          >
+            <ListItemIcon>
+              <EditIcon fontSize="small" />
+            </ListItemIcon>
+            Edit
+          </MenuItem>,
+          <MenuItem key="pin" onClick={() => run(() => apiClient.put(`/api/news/admin/${menu.a.id}/pin`, { pinned: !menu.a.pinned }))}>
+            <ListItemIcon>{menu.a.pinned ? <PushPinIcon fontSize="small" /> : <PushPinOutlinedIcon fontSize="small" />}</ListItemIcon>
+            {menu.a.pinned ? 'Unpin' : 'Pin to the top'}
+          </MenuItem>,
+          <MenuItem key="hide" onClick={() => run(() => apiClient.put(`/api/news/admin/${menu.a.id}/visibility`, { hidden: !menu.a.hidden }))}>
+            <ListItemIcon>{menu.a.hidden ? <VisibilityIcon fontSize="small" /> : <VisibilityOffIcon fontSize="small" />}</ListItemIcon>
+            {menu.a.hidden ? 'Show on website' : 'Hide from website'}
+          </MenuItem>,
+          <MenuItem key="open" component="a" href={articleUrl(menu.a.slug)} target="_blank" rel="noreferrer" onClick={() => setMenu(null)}>
+            <ListItemIcon>
+              <OpenInNewIcon fontSize="small" />
+            </ListItemIcon>
+            View on website
+          </MenuItem>,
+          menu.a.hidden ? (
+            <MenuItem
+              key="delete"
+              sx={{ color: 'error.main' }}
+              onClick={() => {
+                setToDelete(menu.a);
+                setMenu(null);
+              }}
+            >
+              <ListItemIcon>
+                <DeleteIcon fontSize="small" color="error" />
+              </ListItemIcon>
+              Delete permanently
+            </MenuItem>
+          ) : (
+            <MenuItem key="delete-info" disabled sx={{ whiteSpace: 'normal', maxWidth: 260, fontSize: '0.8rem' }}>
+              To delete an article, hide it first.
+            </MenuItem>
+          ),
+        ]}
+      </Menu>
 
       <NewsForm
         open={formOpen}
