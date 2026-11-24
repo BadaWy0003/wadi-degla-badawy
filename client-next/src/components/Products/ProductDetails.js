@@ -303,6 +303,8 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
               finish={selectedFinish?.finish}
               finishes={finishes.map((f) => f.finish)}
               photo={smallestStonePhoto(selectedFinish)}
+              sizes={seo?.details?.sizeChoices}
+              slabs={seo?.details?.slabs}
             />
             <a
               className="spd-spec"
