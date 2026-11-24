@@ -1,5 +1,10 @@
 const StorageController = {};
 const StorageService = require('../services/storage.service');
+const SiteMeta = require('../services/site-meta.service');
+
+// Stones and Gallery photos reach the website's pages at the next Publish: mark the site as
+// changed so the admin panel's Publish button says so (2026-11-24). Never blocks the answer.
+const markChanged = (req) => SiteMeta.markChanged(req.user?.email || req.user?.id || null).catch(() => {});
 
 StorageController.uploadMaterial = async (req, res) => {
   try {
@@ -29,6 +34,7 @@ StorageController.uploadMaterial = async (req, res) => {
       finishes: finishesArray,
       files,
     });
+    await markChanged(req);
 
     res.status(200).json(response);
   } catch (error) {
@@ -85,6 +91,7 @@ StorageController.setProductHidden = async (req, res) => {
   }
   try {
     const data = await StorageService.setProductHidden(req.params.id, hidden);
+    await markChanged(req);
     res.status(200).json({ message: hidden ? 'Product hidden' : 'Product visible', data });
   } catch (error) {
     console.error('Error changing product visibility:', error.message);
@@ -98,6 +105,7 @@ StorageController.deleteProduct = async (req, res) => {
   try {
     // Call service to delete product
     await StorageService.deleteProduct(id);
+    await markChanged(req);
 
     res.status(200).json({
       message: 'Product deleted successfully',
