@@ -90,7 +90,7 @@ export default function ContactInfo() {
             {SOCIALS.map((s) => (
               <li key={s.name}>
                 <a href={s.href} {...external} aria-label={s.name} title={s.name}>
-                  <img loading="lazy" alt="" src={s.icon} />
+                  <img loading="lazy" alt={s.name} src={s.icon} />
                 </a>
               </li>
             ))}

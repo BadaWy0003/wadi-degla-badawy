@@ -59,6 +59,43 @@ const uploadPhotos = async files => {
   return out;
 };
 
+// "Upload PDF" for a link field marked pdf (company profile, catalogue; 2026-11-25): the server
+// stores it and answers with its address on our own domain, which becomes the field's value.
+export function PdfUploadButton({ onUploaded }) {
+  const ref = useRef(null);
+  const [busy, setBusy] = useState(false);
+  const pick = async e => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    if (file.size > 50 * 1024 * 1024) {
+      toast.error('The PDF must be 50 MB or smaller.');
+      return;
+    }
+    setBusy(true);
+    try {
+      const body = new FormData();
+      body.append('file', file);
+      const { data } = await apiClient.post('/api/content/admin/files', body);
+      if (data?.data?.url) {
+        onUploaded(data.data.url);
+        toast.success('PDF uploaded. Save the page to use it.');
+      }
+    } catch {
+      // error toast shown by apiClient
+    }
+    setBusy(false);
+  };
+  return (
+    <>
+      <input ref={ref} type="file" accept="application/pdf,.pdf" hidden onChange={pick} />
+      <Button size="small" variant="outlined" onClick={() => ref.current?.click()} disabled={busy} sx={{ flexShrink: 0 }}>
+        {busy ? 'Uploading…' : 'Upload PDF'}
+      </Button>
+    </>
+  );
+}
+
 function UploadButton({ multiple, label, onUploaded }) {
   const ref = useRef(null);
   const [busy, setBusy] = useState(false);

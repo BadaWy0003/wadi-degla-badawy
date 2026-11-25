@@ -3,7 +3,18 @@
 // per visitor can be up to 2x the configured value. That is acceptable for spam control.
 
 // Fly's edge proxy sets Fly-Client-IP to the real visitor IP.
-const getClientIp = (req) => req.get('fly-client-ip') || req.ip || 'unknown';
+// Requests the website's nginx passes on over Fly's private network (spec sheets served on
+// www.wadidegla-eg.com, 2026-11-25) have no Fly-Client-IP, come from a private fdaa: address
+// and name the visitor in X-WD-Visitor-IP. That header is only trusted on such requests: every
+// request from the internet goes through Fly's edge, which always sets Fly-Client-IP.
+const getClientIp = (req) => {
+  const fly = req.get('fly-client-ip');
+  if (fly) return fly;
+  const from = String(req.socket?.remoteAddress || '');
+  const visitor = req.get('x-wd-visitor-ip');
+  if (from.startsWith('fdaa:') && visitor) return `site:${visitor.slice(0, 60)}`;
+  return req.ip || 'unknown';
+};
 
 const rateLimit = ({ windowMs, max }) => {
   const hits = new Map(); // ip -> { count, resetAt }

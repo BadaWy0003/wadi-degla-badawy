@@ -6,7 +6,7 @@
 // with "Publish to website".
 
 const { db } = require('../start/firebase');
-const { col } = require('../start/data-area');
+const { col, IS_STAGING } = require('../start/data-area');
 const SiteMeta = require('./site-meta.service');
 const StorageService = require('./storage.service');
 const { BLOCKS, WEEKDAYS, getBlock, fieldsOf } = require('../content/blocks');
@@ -372,5 +372,16 @@ SiteContentService.restoreVersion = async (id, versionId, by) => {
 };
 
 SiteContentService.uploadPhotos = async (files) => Promise.all((files || []).map((f) => StorageService.uploadPhoto(f, 'Site')));
+
+// A PDF for a link field (company profile, catalogue; 2026-11-25): stored publicly at
+// uploads/Site/files/ and returned as an address on our own domain (the website's nginx
+// passes /uploads/Site/files/ on to Storage). The address keeps the Storage path, so the
+// "Find unused photos" scan still sees the file as used. Staging gets the Storage address.
+SiteContentService.uploadFile = async (file) => {
+  const url = await StorageService.uploadPhoto(file, 'Site/files');
+  const path = url.split('/uploads/Site/files/')[1];
+  if (IS_STAGING || !path) return { url };
+  return { url: `https://www.wadidegla-eg.com/uploads/Site/files/${path}` };
+};
 
 module.exports = SiteContentService;

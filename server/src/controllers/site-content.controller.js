@@ -27,6 +27,10 @@ const SiteContentController = {
     if (!req.files?.length) throw Object.assign(new Error('No photos received.'), { statusCode: 400 });
     return { data: await SiteContentService.uploadPhotos(req.files) };
   }),
+  uploadFile: handle(async (req) => {
+    if (!req.file) throw Object.assign(new Error('No PDF received.'), { statusCode: 400 });
+    return { data: await SiteContentService.uploadFile(req.file) };
+  }),
 };
 
 module.exports = SiteContentController;

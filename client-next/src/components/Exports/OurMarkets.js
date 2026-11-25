@@ -10,13 +10,20 @@ import GlobeChart from "./LazyGlobeChart"; // amCharts globe, loaded when scroll
 
 export default function OurMarkets(){
         const { t } = useTranslation();
-        const [selectedContinent, setSelectedContinent] = useState("Africa");
+        // opens on the core markets (owner, 2026-11-25: USA, UK, Dominican Republic)
+        const [selectedContinent, setSelectedContinent] = useState("Core markets");
         const [selectedCountry, setSelectedCountry] = useState(null);
       
     
     
       // 🌍 Data: Continents, Countries & Flags
       const continentData = {
+        // Core markets first (owner, 2026-11-25); they are also listed in their own continent
+        "Core markets": [
+          { name: "USA", code: "US", flag: "/Assets/Icons/flags/us.svg", translationKey: "countries.usa" },
+          { name: "United Kingdom", code: "GB", flag: "/Assets/Icons/flags/gb.svg", translationKey: "countries.unitedKingdom" },
+          { name: "Dominican Republic", code: "DO", flag: "/Assets/Icons/flags/do.svg", translationKey: "countries.dominicanRepublic" }
+        ],
         "North & South America": [
           { name: "USA", code: "US", flag: "/Assets/Icons/flags/us.svg", translationKey: "countries.usa" },
           { name: "Brazil", code: "BR", flag: "/Assets/Icons/flags/br.svg", translationKey: "countries.brazil" },

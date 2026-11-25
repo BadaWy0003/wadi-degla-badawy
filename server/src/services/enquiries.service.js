@@ -56,7 +56,12 @@ const readLabelled = (html) => {
   return out;
 };
 
-// A quote request's stones (the website's quote list): [{ name, finish, size, quantity }], sent as a
+// Quantity units and shipping terms the quote list offers (2026-11-25); anything else is dropped.
+const UNITS = ['m²', 'sq ft', 'containers'];
+const INCOTERMS = ['FOB', 'CFR', 'CIF', 'EXW'];
+
+// A quote request's stones (the website's quote list): [{ name, finish, size, thickness, quantity,
+// unit }], sent as a
 // JSON string (multipart form) or an array. Anything else is dropped; at most 20 stones.
 const readItems = (raw) => {
   let list = raw;
@@ -70,7 +75,14 @@ const readItems = (raw) => {
   if (!Array.isArray(list)) return [];
   return list
     .slice(0, MAX_ITEMS)
-    .map((i) => ({ name: clean(i?.name, 100), finish: clean(i?.finish, 80), size: clean(i?.size, 60), quantity: clean(i?.quantity, 60) }))
+    .map((i) => ({
+      name: clean(i?.name, 100),
+      finish: clean(i?.finish, 80),
+      size: clean(i?.size, 60),
+      thickness: clean(i?.thickness, 20),
+      quantity: clean(i?.quantity, 60),
+      unit: UNITS.includes(i?.unit) ? i.unit : '',
+    }))
     .filter((i) => i.name);
 };
 
@@ -124,6 +136,8 @@ const fromForm = (body, { name, email, message, extraFields, subject }) => {
     lang: clean(body.lang, 5),
     source: readSource(body.source),
     items,
+    // shipping terms asked once for the whole quote request ('' = not sure yet)
+    incoterm: kind === 'quote' && INCOTERMS.includes(body.incoterm) ? body.incoterm : '',
     note: '',
     attachment: null,
     emailSent: null,

@@ -76,7 +76,9 @@ const shortDate = ms => {
 const digits = s => String(s || '').replace(/[^\d]/g, '');
 const stone = e =>
   e.items?.length ? `${e.items.length} stone${e.items.length === 1 ? '' : 's'}` : [e.product, e.finish].filter(Boolean).join(' · ');
-const itemLines = e => (e.items || []).map(i => [i.name, i.finish, i.size, i.quantity].filter(Boolean).join(' – ')).join('\n');
+// "500 m²": the quantity with its unit (quote list, 2026-11-25)
+const qtyText = i => [i.quantity, i.quantity && i.unit].filter(Boolean).join(' ');
+const itemLines = e => (e.items || []).map(i => [i.name, i.finish, i.size, i.thickness, qtyText(i)].filter(Boolean).join(' – ')).join('\n');
 const initials = name =>
   String(name || '?')
     .trim()
@@ -102,6 +104,7 @@ const toCsv = rows => {
     ['Address', e => e.address],
     ['Stone', e => (e.items?.length ? itemLines(e) : e.product)],
     ['Finish', e => e.finish],
+    ['Shipping terms', e => (e.kind === 'quote' ? e.incoterm || 'Not sure' : '')],
     ['Message', e => e.message],
     ['Note', e => e.note],
     ['Language', e => e.lang],
@@ -251,26 +254,33 @@ function EnquiryView({ enquiry, onSaved, onClose }) {
       {enquiry.items?.length > 0 && (
         <Box sx={{ mb: 2.5 }}>
           <Typography sx={{ fontWeight: 650, mb: 0.5, fontSize: '0.9rem' }}>Stones ({enquiry.items.length})</Typography>
-          <Table size="small">
-            <TableHead>
-              <TableRow>
-                <TableCell>Stone</TableCell>
-                <TableCell>Finish</TableCell>
-                <TableCell>Size</TableCell>
-                <TableCell>Quantity</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {enquiry.items.map((i, n) => (
-                <TableRow key={n}>
-                  <TableCell>{i.name}</TableCell>
-                  <TableCell>{i.finish}</TableCell>
-                  <TableCell dir="auto">{i.size || '—'}</TableCell>
-                  <TableCell dir="auto">{i.quantity || '—'}</TableCell>
+          <Box sx={{ overflowX: 'auto' }}>
+            <Table size="small">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Stone</TableCell>
+                  <TableCell>Finish</TableCell>
+                  <TableCell>Size</TableCell>
+                  <TableCell>Thickness</TableCell>
+                  <TableCell>Quantity</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHead>
+              <TableBody>
+                {enquiry.items.map((i, n) => (
+                  <TableRow key={n}>
+                    <TableCell>{i.name}</TableCell>
+                    <TableCell>{i.finish}</TableCell>
+                    <TableCell dir="auto">{i.size || '—'}</TableCell>
+                    <TableCell dir="auto">{i.thickness || '—'}</TableCell>
+                    <TableCell dir="auto">{qtyText(i) || '—'}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Box>
+          <Typography variant="body2" sx={{ mt: 1 }}>
+            Shipping terms: <b>{enquiry.incoterm || 'Not sure yet'}</b>
+          </Typography>
         </Box>
       )}
 

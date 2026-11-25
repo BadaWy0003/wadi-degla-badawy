@@ -5,6 +5,7 @@ const { adminAuth } = require('../middlewares/authenticate.middleware');
 const authorize = require('../middlewares/authorize.middleware');
 const validate = require('../middlewares/request-validator.middleware');
 const { uploadPhotos } = require('../middlewares/upload-photos.middleware');
+const { uploadPdf } = require('../middlewares/upload-pdf.middleware');
 
 const router = express.Router();
 
@@ -37,6 +38,7 @@ router.get('/', SiteContentController.listPublic);
 // Admin panel
 router.get('/admin/blocks', ...admin, SiteContentController.listBlocks);
 router.post('/admin/photos', ...admin, uploadPhotos, SiteContentController.uploadPhotos);
+router.post('/admin/files', ...admin, uploadPdf, SiteContentController.uploadFile);
 router.get('/admin/blocks/:id', ...admin, validate({ params: idParams }), SiteContentController.getBlock);
 router.put('/admin/blocks/:id', ...admin, validate({ params: idParams, ...saveReqSchema }), SiteContentController.saveBlock);
 router.get('/admin/blocks/:id/versions', ...admin, validate({ params: idParams }), SiteContentController.listVersions);

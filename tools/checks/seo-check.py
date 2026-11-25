@@ -84,6 +84,9 @@ def exists(path):
     if not p.startswith('/') or p.startswith('//'):
         return True
     p = unquote(html.unescape(p))
+    # served by nginx from the API / Storage, not files of the build (client-next/nginx.conf, 2026-11-25)
+    if p.startswith('/files/spec-sheets/') or p.startswith('/uploads/Site/files/'):
+        return True
     f = OUT + p
     if p.endswith('/'):
         return os.path.exists(f + 'index.html')

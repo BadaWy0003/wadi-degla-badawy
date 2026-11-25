@@ -73,10 +73,51 @@ function SizeField({ item, t, onChange }) {
   );
 }
 
+// The thickness of one stone: the stone's own thicknesses (cm) from its details; a text box when
+// none are known (stones added to the list before 2026-11-25). Sent as "2 cm".
+function ThicknessField({ item, t, onChange }) {
+  const id = `qt-thick-${item.slug}-${item.finish}`;
+  const choices = item.thicknesses || [];
+  return (
+    <div className="qt-field qt-thick">
+      <label htmlFor={id}>{t('quote.thickness')}</label>
+      {choices.length ? (
+        <select id={id} value={item.thickness || ''} onChange={(e) => onChange({ thickness: e.target.value })}>
+          <option value="">{t('quote.thicknessChoose')}</option>
+          {choices.map((c) => (
+            <option key={c} value={`${c} cm`}>
+              {`\u2066${c} cm\u2069`}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <input
+          id={id}
+          type="text"
+          value={item.thickness || ''}
+          maxLength={20}
+          dir="auto"
+          placeholder={t('quote.thicknessPlaceholder')}
+          onChange={(e) => onChange({ thickness: e.target.value })}
+        />
+      )}
+    </div>
+  );
+}
+
+// Quantity units (sent in English) and the shipping terms asked once for the whole request
+const UNITS = [
+  ['m²', 'quote.unitM2'],
+  ['sq ft', 'quote.unitSqft'],
+  ['containers', 'quote.unitContainers'],
+];
+const INCOTERMS = ['FOB', 'CFR', 'CIF', 'EXW'];
+
 export default function Quote() {
   const { t } = useTranslation();
   const [list, ready] = useQuoteList();
   const [sent, setSent] = useState(false);
+  const [incoterm, setIncoterm] = useState('');
 
   const update = (index, change) => writeQuote(list.map((item, i) => (i === index ? { ...item, ...change } : item)));
   const remove = (index) => writeQuote(list.filter((_, i) => i !== index));
@@ -143,17 +184,33 @@ export default function Quote() {
                         )
                       )}
                       <SizeField item={item} t={t} onChange={(change) => update(i, change)} />
-                      <label className="qt-field qt-qty">
-                        <span>{t('quote.quantity')}</span>
-                        <input
-                          type="text"
-                          value={item.quantity || ''}
-                          maxLength={60}
-                          dir="auto"
-                          placeholder={t('quote.quantityPlaceholder')}
-                          onChange={(e) => update(i, { quantity: e.target.value })}
-                        />
-                      </label>
+                      <ThicknessField item={item} t={t} onChange={(change) => update(i, change)} />
+                      <div className="qt-field qt-qty">
+                        <label htmlFor={`qt-qty-${i}`}>{t('quote.quantity')}</label>
+                        <div className="qt-size-row">
+                          <input
+                            id={`qt-qty-${i}`}
+                            type="text"
+                            value={item.quantity || ''}
+                            maxLength={60}
+                            dir="auto"
+                            placeholder={t('quote.quantityPlaceholder')}
+                            onChange={(e) => update(i, { quantity: e.target.value })}
+                          />
+                          <select
+                            className="qt-unit"
+                            aria-label={t('quote.unit')}
+                            value={item.unit || 'm²'}
+                            onChange={(e) => update(i, { unit: e.target.value })}
+                          >
+                            {UNITS.map(([v, key]) => (
+                              <option key={v} value={v}>
+                                {t(key)}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <button type="button" className="qt-remove" onClick={() => remove(i)} aria-label={`${t('quote.remove')}: ${item.name}`}>
@@ -162,6 +219,20 @@ export default function Quote() {
                 </li>
               ))}
             </ul>
+            <div className="qt-terms">
+              <label className="qt-field" htmlFor="qt-incoterm">
+                <span>{t('quote.incoterm')}</span>
+              </label>
+              <select id="qt-incoterm" value={incoterm} onChange={(e) => setIncoterm(e.target.value)}>
+                <option value="">{t('quote.incotermNotSure')}</option>
+                {INCOTERMS.map((v) => (
+                  <option key={v} value={v}>
+                    {v}
+                  </option>
+                ))}
+              </select>
+              <p className="qt-terms-hint">{t('quote.incotermHint')}</p>
+            </div>
             <LangLink href="/products" className="qt-more">
               <FaPlus aria-hidden="true" /> {t('quote.addMore')}
             </LangLink>
@@ -172,6 +243,7 @@ export default function Quote() {
           <ContactForm
             quote={{
               items: list,
+              incoterm,
               onSent: () => {
                 setSent(true);
                 writeQuote([]);

@@ -136,6 +136,8 @@ export default function ContactForm({ quote = null }) {
     payload.append('name', formData.fname.trim());
     payload.append('email', formData.email.trim());
     const items = quote?.items || [];
+    // "500 m²": the quantity with its unit (no unit when nothing was typed)
+    const qty = (i) => (String(i.quantity || '').trim() ? `${String(i.quantity).trim()} ${i.unit || ''}`.trim() : '');
     payload.append(
       'subject',
       quote
@@ -157,8 +159,8 @@ export default function ContactForm({ quote = null }) {
       ${
         quote
           ? `<p><strong>Stones:</strong></p><ul>${items
-              .map((i) => `<li>${[i.name, i.finish, i.size, i.quantity].filter(Boolean).join(' – ')}</li>`)
-              .join('')}</ul>`
+              .map((i) => `<li>${[i.name, i.finish, i.size, i.thickness, qty(i)].filter(Boolean).join(' – ')}</li>`)
+              .join('')}</ul><p><strong>Shipping terms:</strong> ${quote.incoterm || 'Not sure'}</p>`
           : ''
       }
     `,
@@ -180,8 +182,11 @@ export default function ContactForm({ quote = null }) {
     if (quote) {
       payload.append(
         'items',
-        JSON.stringify(items.map(({ name, finish, size, quantity }) => ({ name, finish, size, quantity }))),
+        JSON.stringify(
+          items.map(({ name, finish, size, thickness, quantity, unit }) => ({ name, finish, size, thickness, quantity, unit })),
+        ),
       );
+      payload.append('incoterm', quote.incoterm || '');
     }
     if (formData.attachment) payload.append('attachment', formData.attachment);
 

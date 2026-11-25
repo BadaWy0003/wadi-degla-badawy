@@ -14,7 +14,7 @@ import {
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { DAY_NAMES, FACT_LABELS, WEEKDAYS, checkAny, factsIn, isChanged, originalOf } from '../../util/website';
-import { CountryInput, GalleryPhotosInput, I18nInput, ImageInput, ImagesInput, ListInput, ProductsInput, ProjectsInput, SelectInput } from './Inputs';
+import { CountryInput, GalleryPhotosInput, I18nInput, ImageInput, ImagesInput, ListInput, PdfUploadButton, ProductsInput, ProjectsInput, SelectInput } from './Inputs';
 
 const hourLabel = h => `${String(h).padStart(2, '0')}:00`;
 
@@ -166,6 +166,14 @@ export default function Field({ field: f, value, onChange, defaults, showErrors,
         sx={{ maxWidth: f.type === 'number' ? 260 : 'none' }}
       />
     );
+    if (f.pdf) {
+      input = (
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', flexWrap: { xs: 'wrap', sm: 'nowrap' } }}>
+          {input}
+          <PdfUploadButton onUploaded={onChange} />
+        </Box>
+      );
+    }
   }
 
   return (

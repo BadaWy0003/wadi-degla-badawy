@@ -106,6 +106,9 @@ const CHECKS = [
   ['GET', '/api/content/admin/blocks', 'ADMIN', 200],
   ['GET', '/api/content/admin/blocks/stonePage', 'ADMIN', 200],
   ['GET', '/api/content/admin/blocks/nope!', 'ADMIN', 400],
+  // PDF upload for the company profile / catalogue (2026-11-25): admins only; no file -> 400
+  ['POST', '/api/content/admin/files', 'MODERATOR', 403],
+  ['POST', '/api/content/admin/files', 'ADMIN', 400],
   ['GET', '/api/publish', 'ADMIN', 200],
   ['PUT', '/api/enquiries/admin/abc', 'ADMIN', 400, { status: 'deleted' }],
   ['PUT', '/api/enquiries/admin/abc', 'ADMIN', 404, { status: 'won' }],
@@ -114,6 +117,7 @@ const CHECKS = [
   ['POST', '/api/send-email', 'none', 400, { name: 'A', email: 'not-an-email', message: 'x' }],
   // a quote request from the website's quote list (2026-11-20)
   ['POST', '/api/send-email', 'none', 200, { name: 'Q', email: 'q@test.co', message: '', kind: 'quote', items: [{ name: 'Galala', finish: 'Polished', quantity: '1 container' }] }],
+  ['POST', '/api/send-email', 'none', 200, { name: 'Q2', email: 'q2@test.co', message: '', kind: 'quote', incoterm: 'CIF', items: [{ name: 'Galala', finish: 'Honed', size: '60×60 cm', thickness: '3 cm', quantity: '500', unit: 'm²' }] }],
 ];
 
 const express = require(path.join(NM, 'express'));
