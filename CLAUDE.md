@@ -308,6 +308,7 @@ GA4 `G-R2Y9CCM4YC` (old account, holds the history) **and** `G-HK6F9VF9R5` (the 
 - Latest releases (2026-11-19): website v152 (expected after this deploy), server v285, admin v44.
 
 ## Decisions log
+- 2026-11-25: Search Console "Why pages aren't indexed" export reviewed: the redirect error and the 8 duplicates were old non-www/no-slash addresses (already redirecting), the Silvia and Default.aspx 404s already redirect; the 11 semi-precious/exotic stones removed from the admin panel (green-onyx, ocean-jasper, tiger-eye, petrified-wood-retro, azul-macauba, brown-agate, coffee-wood, indian-onyx, lady-grey, yellow-quartz, beige-onyx) now 301 to `/<lang>/imported-marble/` (`nginx.conf`, owner). "Crawled – currently not indexed" (78) is mostly other-language stone pages last crawled before the November improvements: no technical fault.
 - 2026-11-22: home page scroll animations (owner approved after a video): Lighthouse phone 76–84 before, 84–85 after, CLS 0. No gold title lines added (the page has none; it would change the design).
 - 2026-11-21: phone taps opening the wrong page (owner report): the closed phone menu was still tappable (see The header). Checked all 31 page types × EN/AR on a phone after using the menu: no invisible tap targets left.
 - 2026-11-21: limestone stones renamed "… Limestone" on their pages (owner chose all 15, Galala included); their admin-panel descriptions may still say "Egyptian marble" (client content).
