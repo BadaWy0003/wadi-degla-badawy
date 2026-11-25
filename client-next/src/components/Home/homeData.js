@@ -35,7 +35,7 @@ export const FEATURED_DEFAULT_NAMES = [
   'Sunny Light',
   'Calacatta Italy',
   'Arabescato',
-  'Triesta Beige',
+  'Beige Sinai Pearl', // was Triesta Beige (renamed in the admin panel, 2026-11-24)
   'New Halayeb',
   'Red Aswan',
 ];

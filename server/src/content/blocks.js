@@ -121,8 +121,9 @@ const BLOCKS = [
         title: 'Downloads',
         help: 'Links to the files offered on the Contact page.',
         fields: [
-          { type: 'url', name: 'profileUrl', label: 'Company profile (PDF link)' },
-          { type: 'url', name: 'catalogueUrl', label: 'Special products catalogue (PDF link)' },
+          // pdf: the admin panel offers "Upload PDF", stored on our own domain (2026-11-25)
+          { type: 'url', name: 'profileUrl', label: 'Company profile (PDF)', pdf: true, help: 'Upload the PDF (best: it is then served from wadidegla-eg.com), or paste a link.' },
+          { type: 'url', name: 'catalogueUrl', label: 'Special products catalogue (PDF)', pdf: true, help: 'Upload the PDF (best: it is then served from wadidegla-eg.com), or paste a link.' },
         ],
       },
     ],

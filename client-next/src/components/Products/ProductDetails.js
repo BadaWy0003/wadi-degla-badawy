@@ -55,6 +55,13 @@ const defaultFinish = (product) =>
 // the spec sheet PDF is made by the server (server/src/services/spec-sheet.service.js)
 const API_BASE =
   process.env.NEXT_PUBLIC_BASE_API_URL || 'https://server-withered-wildflower-1595.fly.dev';
+// Since 2026-11-25 (website audit) it downloads from our own domain: nginx.conf passes
+// /files/spec-sheets/<id>.pdf to the API (and falls back to the API's own address). The
+// staging site keeps the API address (its nginx would reach the live API).
+const specSheetUrl = (id, lang) =>
+  process.env.NEXT_PUBLIC_SITE_ENV === 'staging'
+    ? `${API_BASE}/api/storage/spec-sheet/${id}?lang=${lang}`
+    : `/files/spec-sheets/${id}.pdf?lang=${lang}`;
 
 export default function ProductDetails({ initialProduct = null, seo = null }) {
   const { t } = useTranslation();
@@ -229,7 +236,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                     loading="lazy"
                     fetchPriority="low"
                     src={smallestStonePhoto(selectedFinish)}
-                    alt=""
+                    alt={`${heading} – ${finishLabel(t, selectedFinish?.finish)}`}
                   />
                 </button>
                 {rooms.map((room) => (
@@ -240,7 +247,7 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                     onClick={() => setRoomPhoto(room)}
                     aria-label={room.label}
                   >
-                    <img loading="lazy" fetchPriority="low" src={smallestStonePhoto(room)} alt="" />
+                    <img loading="lazy" fetchPriority="low" src={smallestStonePhoto(room)} alt={`${heading} – ${room.label}`} />
                   </button>
                 ))}
               </div>
@@ -273,8 +280,15 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
                         setRoomPhoto(null);
                       }}
                       aria-pressed={selectedFinish?.finish === f.finish}
+                      aria-label={finishLabel(t, f.finish)}
                     >
-                      <img loading="lazy" fetchPriority="low" src={smallestStonePhoto(f)} alt="" />
+                      {/* alt for image search (audit 2026-11-25); the button is named by its aria-label */}
+                      <img
+                        loading="lazy"
+                        fetchPriority="low"
+                        src={smallestStonePhoto(f)}
+                        alt={`${heading} – ${finishLabel(t, f.finish)}`}
+                      />
                       <span>{finishLabel(t, f.finish)}</span>
                     </button>
                   ))}
@@ -305,10 +319,11 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
               photo={smallestStonePhoto(selectedFinish)}
               sizes={seo?.details?.sizeChoices}
               slabs={seo?.details?.slabs}
+              thicknesses={seo?.details?.thicknessChoices}
             />
             <a
               className="spd-spec"
-              href={`${API_BASE}/api/storage/spec-sheet/${product.id}?lang=${lang === 'ar' ? 'ar' : 'en'}`}
+              href={specSheetUrl(product.id, lang === 'ar' ? 'ar' : 'en')}
               rel="nofollow"
               download
               onClick={() => {

@@ -277,6 +277,18 @@ const enAr = (lang, field) =>
   (lang === 'ar' && field?.ar?.trim() ? field.ar : field?.en || '').trim();
 
 // What the product page shows from the details, in the page's language. null if nothing.
+// "1–8" (en dash or hyphen) -> ['1', ..., '8']; "2, 3" -> ['2', '3']; at most 12 values
+function thicknessList(text) {
+  const out = [];
+  for (const part of String(text || '').split(/[,;/]+/)) {
+    const range = part.trim().match(/^(\d+)\s*[–-]\s*(\d+)$/);
+    if (range) {
+      for (let n = Number(range[1]); n <= Number(range[2]) && out.length < 12; n += 1) out.push(String(n));
+    } else if (part.trim()) out.push(part.trim());
+  }
+  return [...new Set(out)].slice(0, 12);
+}
+
 export function productDetailsView(lang, product, details) {
   if (!details) return null;
   const k = (key) => t(lang, `productDetails.${key}`);
@@ -317,6 +329,8 @@ export function productDetailsView(lang, product, details) {
       .filter(Boolean)
       .slice(0, 12),
     slabs: (details.forms || []).includes('slabs'),
+    // the thicknesses one by one (cm) for the quote list: "1–8" gives 1 to 8, "2, 3" gives 2 and 3
+    thicknessChoices: thicknessList(details.thicknesses),
     tech,
     uses: uses.map((u) => k(`use_${u}`)),
     // Only the icons that really apply, once forms or uses were filled in; else all of them.

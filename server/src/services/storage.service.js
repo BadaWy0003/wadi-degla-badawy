@@ -25,9 +25,14 @@ const deleteStorageFiles = async (links) => {
 };
 
 const uploadFileToStorage = async (file, type) => {
-  const sanitizedType = type.replace(/[^a-zA-Z0-9_-]/g, '');
+  // a sub-folder is allowed ("Site/files" for the uploaded PDFs, 2026-11-25)
+  const sanitizedType = type
+    .split('/')
+    .map((part) => part.replace(/[^a-zA-Z0-9_-]/g, ''))
+    .filter(Boolean)
+    .join('/');
   // The original file name comes from the uploader's computer: keep only safe characters.
-  const safeName = String(file.originalname || 'image')
+  const safeName = String(file.originalname || 'file')
     .replace(/[^a-zA-Z0-9._-]/g, '_')
     .slice(-80);
 

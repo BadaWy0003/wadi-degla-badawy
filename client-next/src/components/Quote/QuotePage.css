@@ -131,7 +131,45 @@
 }
 
 .qt .qt-qty input {
+  min-width: 140px;
+  width: 140px;
+}
+
+/* 2026-11-25: thickness per stone, quantity unit, shipping terms for the whole request */
+.qt .qt-field .qt-unit,
+.qt .qt-thick select,
+.qt .qt-thick input {
+  min-width: 120px;
+}
+
+.qt .qt-terms {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--cx-line-strong);
+}
+
+.qt .qt-terms select {
+  height: 42px;
   min-width: 220px;
+  margin-top: 6px;
+  padding: 0 12px;
+  border: 1px solid var(--cx-input-border);
+  border-radius: 10px;
+  background: var(--cx-input);
+  color: var(--cx-text);
+  font: inherit;
+  font-size: 15px;
+}
+
+.qt .qt-terms select:focus {
+  outline: 2px solid var(--cx-gold);
+  outline-offset: 1px;
+}
+
+.qt .qt-terms-hint {
+  margin: 8px 0 14px;
+  font-size: 13px;
+  color: var(--cx-muted);
 }
 
 .qt .qt-field select:focus,
@@ -189,6 +227,7 @@
     height: 56px;
   }
 
+  .qt .qt-terms select,
   .qt .qt-fields,
   .qt .qt-field,
   .qt .qt-size-row,
@@ -196,5 +235,20 @@
   .qt .qt-field input {
     width: 100%;
     min-width: 0;
+  }
+
+  /* quantity and its unit stay on one line */
+  .qt .qt-qty .qt-size-row {
+    flex-wrap: nowrap;
+  }
+
+  .qt .qt-qty .qt-size-row input {
+    flex: 1 1 auto;
+    width: auto;
+  }
+
+  .qt .qt-field .qt-unit {
+    flex: 0 0 116px;
+    width: 116px;
   }
 }

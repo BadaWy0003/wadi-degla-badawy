@@ -1,0 +1,309 @@
+{
+ "_about": "One-time fixes from the website audit (owner, 2026-11-25), applied once at server start by server/src/services/audit-fixes.service.js",
+ "thicknesses": "1–8",
+ "descriptions": [
+  {
+   "id": "cxKsObktUvIYuzAJtwOu",
+   "name": "Beige Sinai Pearl",
+   "oldEn": "Triesta Beige is an Egyptian marble in light beige tones with a natural, lightly patterned surface. It is a popular, versatile stone for floors, wall cladding, staircases and window sills. It can be polished or honed.",
+   "description": {
+    "en": "Beige Sinai Pearl is an Egyptian limestone in light beige tones with a natural, lightly patterned surface. It is a popular, versatile stone for floors, wall cladding, staircases and window sills. It can be polished or honed.",
+    "ar": "بيج سيناء بيرل حجر جيري مصري بدرجات بيج فاتحة وسطح طبيعي خفيف النقشة. وهو حجر شائع متعدد الاستخدامات للأرضيات وتكسيات الحوائط والسلالم وأعتاب الشبابيك. ويمكن توريده مصقولًا أو مطفيًا.",
+    "fr": "Le Beige Sinai Pearl est un calcaire égyptien aux tons beige clair, à la surface naturelle légèrement dessinée. C'est une pierre populaire et polyvalente pour les sols, revêtements muraux, escaliers et appuis de fenêtre. Il peut être poli ou adouci.",
+    "es": "El Beige Sinai Pearl es una caliza egipcia en tonos beige claro con una superficie natural de dibujo suave. Es una piedra popular y versátil para suelos, revestimientos de paredes, escaleras y alféizares. Puede pulirse o apomazarse.",
+    "de": "Beige Sinai Pearl ist ein ägyptischer Kalkstein in hellen Beigetönen mit natürlicher, leicht gezeichneter Oberfläche. Er ist ein beliebter, vielseitiger Stein für Böden, Wandverkleidungen, Treppen und Fensterbänke. Er kann poliert oder geschliffen werden.",
+    "it": "Il Beige Sinai Pearl è un calcare egiziano dai toni beige chiaro con una superficie naturale leggermente disegnata. È una pietra diffusa e versatile per pavimenti, rivestimenti di pareti, scale e davanzali. Può essere lucidato o levigato.",
+    "ro": "Beige Sinai Pearl este un calcar egiptean în tonuri de bej deschis, cu o suprafață naturală ușor desenată. Este o piatră populară și versatilă pentru pardoseli, placări de pereți, scări și glafuri. Poate fi lustruit sau șlefuit.",
+    "ko": "Beige Sinai Pearl은 밝은 베이지 톤에 자연스럽고 은은한 무늬가 있는 이집트 석회암입니다. 바닥, 벽체, 계단, 창턱에 널리 쓰이는 다용도 석재입니다. 폴리싱 또는 혼드 마감이 가능합니다.",
+    "sq": "Beige Sinai Pearl është një gur gëlqeror egjiptian në tone të çelëta bezhë, me sipërfaqe natyrore me motiv të lehtë. Është një gur i njohur dhe i gjithanshëm për dysheme, veshje muresh, shkallë dhe parvazë dritaresh. Mund të lustrohet ose të lëmohet.",
+    "ru": "Beige Sinai Pearl — египетский известняк светло-бежевых оттенков с естественной, слегка узорчатой поверхностью. Это популярный универсальный камень для полов, облицовки стен, лестниц и подоконников. Может быть полированным или лощёным.",
+    "ja": "Beige Sinai Pearlは、明るいベージュの色調で、自然で軽い模様の表面を持つエジプト石灰岩です。床、壁、階段、窓台に広く使われる万能な石材です。本磨きまたは水磨きに対応します。",
+    "zh": "Beige Sinai Pearl是一种呈浅米黄色调的埃及石灰石，表面带有自然的淡淡纹理。它是地面、墙面、楼梯和窗台常用的多用途石材。可做抛光或哑光处理。"
+   }
+  },
+  {
+   "id": "BJZxbHlwYbSBi3fdrTPz",
+   "name": "Cleopatra",
+   "oldEn": "Cleopatra is an Egyptian marble in warm cream and beige tones. Like most Egyptian marbles it is a dense natural stone that takes a good polish and can also be honed for a softer, matt finish. It is a popular choice for floors, wall cladding and staircases in homes, hotels and offices.",
+   "description": {
+    "en": "Cleopatra is an Egyptian limestone in warm cream and beige tones. Like most Egyptian limestones it is a dense natural stone that takes a good polish and can also be honed for a softer, matt finish. It is a popular choice for floors, wall cladding and staircases in homes, hotels and offices.",
+    "ar": "كليوباترا حجر جيري مصري بدرجات دافئة من الكريمي والبيج. وكمعظم أنواع الحجر الجيري المصري فهو حجر طبيعي كثيف يقبل التلميع جيدًا، ويمكن تشطيبه مطفيًا لمظهر أنعم. ويُعد خيارًا شائعًا للأرضيات وتكسيات الحوائط والسلالم في المنازل والفنادق والمكاتب.",
+    "fr": "Le Cleopatra est un calcaire égyptien aux tons chauds crème et beige. Comme la plupart des calcaires égyptiens, c'est une pierre naturelle dense qui prend bien le poli et peut aussi être adoucie pour une finition mate plus douce. C'est un choix apprécié pour les sols, les revêtements muraux et les escaliers dans les maisons, les hôtels et les bureaux.",
+    "es": "El Cleopatra es una caliza egipcia en cálidos tonos crema y beige. Como la mayoría de las calizas egipcias, es una piedra natural densa que admite un buen pulido y también puede apomazarse para un acabado mate más suave. Es una opción popular para suelos, revestimientos de paredes y escaleras en viviendas, hoteles y oficinas.",
+    "de": "Cleopatra ist ein ägyptischer Kalkstein in warmen Creme- und Beigetönen. Wie die meisten ägyptischen Kalksteine ist er ein dichter Naturstein, der sich gut polieren lässt und für eine weichere, matte Oberfläche auch geschliffen werden kann. Er ist eine beliebte Wahl für Böden, Wandverkleidungen und Treppen in Häusern, Hotels und Büros.",
+    "it": "Il Cleopatra è un calcare egiziano dai caldi toni crema e beige. Come la maggior parte dei calcari egiziani è una pietra naturale compatta che si lucida bene e può anche essere levigata per una finitura opaca più morbida. È una scelta molto diffusa per pavimenti, rivestimenti di pareti e scale in abitazioni, hotel e uffici.",
+    "ro": "Cleopatra este un calcar egiptean în tonuri calde de crem și bej. Ca majoritatea calcarelor egiptene, este o piatră naturală densă care se lustruiește bine și poate fi și șlefuită pentru un finisaj mat mai fin. Este o alegere populară pentru pardoseli, placări de pereți și scări în locuințe, hoteluri și birouri.",
+    "ko": "클레오파트라는 따뜻한 크림과 베이지 톤의 이집트 석회암입니다. 대부분의 이집트 석회암처럼 치밀한 천연석으로 광택이 잘 나며, 혼드 마감으로 부드러운 무광 표면을 만들 수도 있습니다. 주택, 호텔, 사무실의 바닥, 벽체, 계단에 인기 있는 석재입니다.",
+    "sq": "Cleopatra është një gur gëlqeror egjiptian në tone të ngrohta kremi dhe bezhë. Si shumica e gurëve gëlqerorë egjiptianë, është një gur natyror i dendur që lustrohet mirë dhe mund të lëmohet edhe për një sipërfaqe më të butë mat. Është një zgjedhje e njohur për dysheme, veshje muresh dhe shkallë në shtëpi, hotele dhe zyra.",
+    "ru": "Клеопатра — египетский известняк тёплых кремовых и бежевых оттенков. Как и большинство египетских известняков, это плотный натуральный камень, который хорошо полируется, а также может быть лощёным для более мягкой матовой поверхности. Это популярный выбор для полов, облицовки стен и лестниц в домах, отелях и офисах.",
+    "ja": "クレオパトラは、温かみのあるクリームとベージュの色調のエジプト石灰岩です。多くのエジプト石灰岩と同様に緻密な天然石で、磨くとよく艶が出るほか、水磨きで柔らかなマット仕上げにもできます。住宅、ホテル、オフィスの床、壁、階段に人気の石材です。",
+    "zh": "克娄巴特拉是一种埃及石灰石，呈温暖的奶油色和米黄色调。与大多数埃及石灰石一样，它是一种致密的天然石材，抛光效果好，也可做哑光处理以获得更柔和的质感。它是住宅、酒店和写字楼地面、墙面和楼梯的热门选择。"
+   }
+  },
+  {
+   "id": "YsgTviQBk6V4lIn45375",
+   "name": "Creamy White Pearl",
+   "oldEn": "Creamy White Pearl is a light Egyptian marble with a soft creamy-white tone. Its pale colour brightens interiors and pairs easily with both modern and classic designs. It is used for flooring, wall cladding, stairs and window sills.",
+   "description": {
+    "en": "Creamy White Pearl is a light Egyptian limestone with a soft creamy-white tone. Its pale colour brightens interiors and pairs easily with both modern and classic designs. It is used for flooring, wall cladding, stairs and window sills.",
+    "ar": "كريمي وايت بيرل حجر جيري مصري فاتح بدرجة أبيض كريمي ناعمة. ولونه الفاتح يضيء المساحات الداخلية ويتناسب بسهولة مع التصميمات الحديثة والكلاسيكية. ويُستخدم في الأرضيات وتكسيات الحوائط والسلالم وأعتاب الشبابيك.",
+    "fr": "Le Creamy White Pearl est un calcaire égyptien clair au ton blanc crème doux. Sa couleur pâle éclaire les intérieurs et s'accorde facilement aux styles modernes comme classiques. Il est utilisé pour les sols, les revêtements muraux, les escaliers et les appuis de fenêtre.",
+    "es": "El Creamy White Pearl es una caliza egipcia clara de suave tono blanco crema. Su color pálido ilumina los interiores y combina fácilmente con diseños modernos y clásicos. Se utiliza en suelos, revestimientos de paredes, escaleras y alféizares.",
+    "de": "Creamy White Pearl ist ein heller ägyptischer Kalkstein in einem sanften cremeweißen Ton. Seine helle Farbe lässt Innenräume strahlen und passt leicht zu modernen wie klassischen Entwürfen. Er wird für Böden, Wandverkleidungen, Treppen und Fensterbänke verwendet.",
+    "it": "Il Creamy White Pearl è un calcare egiziano chiaro dal morbido tono bianco crema. Il suo colore tenue illumina gli interni e si abbina facilmente sia al design moderno sia a quello classico. Si usa per pavimenti, rivestimenti di pareti, scale e davanzali.",
+    "ro": "Creamy White Pearl este un calcar egiptean deschis, într-un ton alb-crem delicat. Culoarea lui deschisă luminează interioarele și se potrivește ușor atât cu designul modern, cât și cu cel clasic. Se folosește pentru pardoseli, placări de pereți, scări și glafuri.",
+    "ko": "크리미 화이트 펄은 부드러운 크림 화이트 톤의 밝은 이집트 석회암입니다. 밝은 색이 실내를 환하게 하고 모던과 클래식 디자인 모두와 쉽게 어울립니다. 바닥재, 벽체 마감, 계단, 창턱에 사용됩니다.",
+    "sq": "Creamy White Pearl është një gur gëlqeror egjiptian i çelët me një ton të butë të bardhë-krem. Ngjyra e tij e zbehtë ndriçon ambientet e brendshme dhe përshtatet lehtësisht me dizajne moderne dhe klasike. Përdoret për dysheme, veshje muresh, shkallë dhe parvazë dritaresh.",
+    "ru": "Крими Вайт Перл — светлый египетский известняк мягкого кремово-белого оттенка. Его светлый цвет делает интерьеры ярче и легко сочетается как с современным, так и с классическим дизайном. Применяется для полов, облицовки стен, лестниц и подоконников.",
+    "ja": "クリーミー ホワイト パールは、柔らかなクリームホワイトの淡いエジプト石灰岩です。明るい色が室内を明るくし、モダンにもクラシックにも合わせやすい石材です。床材、壁装、階段、窓台に使われます。",
+    "zh": "奶油白珍珠是一种浅色埃及石灰石，呈柔和的奶油白色。浅淡的颜色能提亮室内空间，并能轻松搭配现代和古典设计。用于地面、墙面、楼梯和窗台。"
+   }
+  },
+  {
+   "id": "UIHNycflBskdOWyCT5rX",
+   "name": "Dark Sinai Pearl",
+   "oldEn": "Triesta Grey is the grey selection of the Egyptian Triesta marble. Its grey-beige tone gives a modern feel to floors, walls and staircases. It can be polished or honed.",
+   "description": {
+    "en": "Dark Sinai Pearl is the grey selection of the Egyptian Sinai Pearl limestone. Its grey-beige tone gives a modern feel to floors, walls and staircases. It can be polished or honed.",
+    "ar": "دارك سيناء بيرل هو الفرز الرمادي من حجر سيناء بيرل الجيري المصري. ودرجته الرمادية المائلة إلى البيج تمنح لمسة عصرية للأرضيات والحوائط والسلالم. ويمكن توريده مصقولًا أو مطفيًا.",
+    "fr": "Le Dark Sinai Pearl est la sélection grise du calcaire égyptien Sinai Pearl. Son ton gris-beige apporte une touche moderne aux sols, murs et escaliers. Il peut être poli ou adouci.",
+    "es": "El Dark Sinai Pearl es la selección gris de la caliza egipcia Sinai Pearl. Su tono gris beige aporta un toque moderno a suelos, paredes y escaleras. Puede pulirse o apomazarse.",
+    "de": "Dark Sinai Pearl ist die graue Auswahl des ägyptischen Sinai-Pearl-Kalksteins. Sein grau-beiger Ton verleiht Böden, Wänden und Treppen eine moderne Note. Er kann poliert oder geschliffen werden.",
+    "it": "Il Dark Sinai Pearl è la selezione grigia del calcare egiziano Sinai Pearl. Il suo tono grigio-beige dà un tocco moderno a pavimenti, pareti e scale. Può essere lucidato o levigato.",
+    "ro": "Dark Sinai Pearl este selecția gri a calcarului egiptean Sinai Pearl. Tonul său gri-bej aduce o notă modernă pardoselilor, pereților și scărilor. Poate fi lustruit sau șlefuit.",
+    "ko": "Dark Sinai Pearl은 이집트 Sinai Pearl 석회암의 회색 셀렉션입니다. 그레이 베이지 톤이 바닥, 벽, 계단에 모던한 느낌을 줍니다. 폴리싱 또는 혼드 마감이 가능합니다.",
+    "sq": "Dark Sinai Pearl është përzgjedhja gri e gurit gëlqeror egjiptian Sinai Pearl. Toni i tij gri-bezhë u jep një ndjesi moderne dyshemeve, mureve dhe shkallëve. Mund të lustrohet ose të lëmohet.",
+    "ru": "Dark Sinai Pearl — серая селекция египетского известняка Sinai Pearl. Его серо-бежевый тон придаёт современный характер полам, стенам и лестницам. Может быть полированным или лощёным.",
+    "ja": "Dark Sinai Pearlは、エジプト産Sinai Pearl石灰岩のグレーのセレクションです。グレーベージュの色調が床、壁、階段にモダンな雰囲気を与えます。本磨きまたは水磨きに対応します。",
+    "zh": "Dark Sinai Pearl是埃及Sinai Pearl石灰石的灰色品级。其灰米色调为地面、墙面和楼梯带来现代感。可做抛光或哑光处理。"
+   }
+  },
+  {
+   "id": "Dc5KJZ21fyjFXzKbP7XN",
+   "name": "Fantazia Sunny",
+   "oldEn": "Fantazia Sunny is an Egyptian marble from the Sunny family, with a warm beige background and a lively, varied pattern. It suits floors, walls and staircases where a natural, characterful look is wanted. It can be supplied polished or honed.",
+   "description": {
+    "en": "Fantazia Sunny is an Egyptian limestone from the Sunny family, with a warm beige background and a lively, varied pattern. It suits floors, walls and staircases where a natural, characterful look is wanted. It can be supplied polished or honed.",
+    "ar": "فانتازيا صني حجر جيري مصري من عائلة صني، بخلفية بيج دافئة ونقشة حيوية متنوعة. ويناسب الأرضيات والحوائط والسلالم حيث يُطلب مظهر طبيعي مميز. ويمكن توريده مصقولًا أو مطفيًا.",
+    "fr": "Le Fantazia Sunny est un calcaire égyptien de la famille Sunny, au fond beige chaud et au dessin vivant et varié. Il convient aux sols, murs et escaliers où l'on recherche un aspect naturel et plein de caractère. Il peut être fourni poli ou adouci.",
+    "es": "El Fantazia Sunny es una caliza egipcia de la familia Sunny, con fondo beige cálido y un dibujo vivo y variado. Es adecuado para suelos, paredes y escaleras donde se busca un aspecto natural y con carácter. Se puede suministrar pulido o apomazado.",
+    "de": "Fantazia Sunny ist ein ägyptischer Kalkstein aus der Sunny-Familie mit warmem Beigegrund und lebhafter, abwechslungsreicher Zeichnung. Er eignet sich für Böden, Wände und Treppen, wo ein natürlicher, charaktervoller Look gewünscht ist. Er kann poliert oder geschliffen geliefert werden.",
+    "it": "Il Fantazia Sunny è un calcare egiziano della famiglia Sunny, con fondo beige caldo e un disegno vivace e vario. È adatto a pavimenti, pareti e scale dove si desidera un aspetto naturale e di carattere. Può essere fornito lucidato o levigato.",
+    "ro": "Fantazia Sunny este un calcar egiptean din familia Sunny, cu fond bej cald și un model viu și variat. Se potrivește pardoselilor, pereților și scărilor unde se dorește un aspect natural, cu personalitate. Poate fi livrat lustruit sau șlefuit.",
+    "ko": "판타지아 써니는 써니 계열의 이집트 석회암으로, 따뜻한 베이지 바탕에 생동감 있고 다양한 무늬가 있습니다. 자연스럽고 개성 있는 느낌을 원하는 바닥, 벽, 계단에 어울립니다. 폴리싱 또는 혼드 마감으로 공급됩니다.",
+    "sq": "Fantazia Sunny është një gur gëlqeror egjiptian nga familja Sunny, me sfond të ngrohtë bezhë dhe motiv të gjallë e të larmishëm. Përshtatet për dysheme, mure dhe shkallë ku kërkohet një pamje natyrore me karakter. Mund të furnizohet i lustruar ose i lëmuar.",
+    "ru": "Фантазия Санни — египетский известняк семейства Санни с тёплым бежевым фоном и живым, разнообразным рисунком. Подходит для полов, стен и лестниц, где нужен естественный, выразительный вид. Может поставляться полированным или лощёным.",
+    "ja": "ファンタジア サニーは、サニー系のエジプト石灰岩で、温かみのあるベージュの地に生き生きとした多彩な模様があります。自然で個性的な雰囲気を求める床、壁、階段に向いています。本磨きまたは水磨きで供給できます。",
+    "zh": "梦幻阳光是阳光系列的埃及石灰石，底色为温暖的米黄色，纹理生动多变。适合追求自然、富有个性效果的地面、墙面和楼梯。可提供抛光面或哑光面。"
+   }
+  },
+  {
+   "id": "w465XVawSjgTvlmoH9LG",
+   "name": "Fantazia Sylvia",
+   "oldEn": "Fantazia Sylvia is an Egyptian marble from the Silvia family, with a beige background and a varied, natural pattern. It is a versatile stone for floors, wall cladding, stairs and window sills in residential and commercial projects. It can be supplied polished or honed.",
+   "description": {
+    "en": "Fantazia Sylvia is an Egyptian limestone from the Silvia family, with a beige background and a varied, natural pattern. It is a versatile stone for floors, wall cladding, stairs and window sills in residential and commercial projects. It can be supplied polished or honed.",
+    "ar": "فانتازيا سيلفيا حجر جيري مصري من عائلة سيلفيا، بخلفية بيج ونقشة طبيعية متنوعة. وهو حجر متعدد الاستخدامات للأرضيات وتكسيات الحوائط والسلالم وأعتاب الشبابيك في المشاريع السكنية والتجارية. ويمكن توريده مصقولًا أو مطفيًا.",
+    "fr": "Le Fantazia Sylvia est un calcaire égyptien de la famille Silvia, au fond beige et au dessin naturel varié. C'est une pierre polyvalente pour les sols, revêtements muraux, escaliers et appuis de fenêtre dans les projets résidentiels et commerciaux. Il peut être fourni poli ou adouci.",
+    "es": "El Fantazia Sylvia es una caliza egipcia de la familia Silvia, con fondo beige y un dibujo natural variado. Es una piedra versátil para suelos, revestimientos de paredes, escaleras y alféizares en proyectos residenciales y comerciales. Se puede suministrar pulido o apomazado.",
+    "de": "Fantazia Sylvia ist ein ägyptischer Kalkstein aus der Silvia-Familie mit beigem Grund und abwechslungsreicher, natürlicher Zeichnung. Er ist ein vielseitiger Stein für Böden, Wandverkleidungen, Treppen und Fensterbänke in Wohn- und Gewerbeprojekten. Er kann poliert oder geschliffen geliefert werden.",
+    "it": "Il Fantazia Sylvia è un calcare egiziano della famiglia Silvia, con fondo beige e un disegno naturale vario. È una pietra versatile per pavimenti, rivestimenti di pareti, scale e davanzali in progetti residenziali e commerciali. Può essere fornito lucidato o levigato.",
+    "ro": "Fantazia Sylvia este un calcar egiptean din familia Silvia, cu fond bej și un model natural variat. Este o piatră versatilă pentru pardoseli, placări de pereți, scări și glafuri în proiecte rezidențiale și comerciale. Poate fi livrat lustruit sau șlefuit.",
+    "ko": "판타지아 실비아는 실비아 계열의 이집트 석회암으로, 베이지 바탕에 다양한 자연 무늬가 있습니다. 주거 및 상업 프로젝트의 바닥, 벽체, 계단, 창턱에 두루 쓰이는 석재입니다. 폴리싱 또는 혼드 마감으로 공급됩니다.",
+    "sq": "Fantazia Sylvia është një gur gëlqeror egjiptian nga familja Silvia, me sfond bezhë dhe motiv natyror të larmishëm. Është një gur i gjithanshëm për dysheme, veshje muresh, shkallë dhe parvazë dritaresh në projekte banimi dhe tregtare. Mund të furnizohet i lustruar ose i lëmuar.",
+    "ru": "Фантазия Сильвия — египетский известняк семейства Сильвия с бежевым фоном и разнообразным природным рисунком. Это универсальный камень для полов, облицовки стен, лестниц и подоконников в жилых и коммерческих проектах. Может поставляться полированным или лощёным.",
+    "ja": "ファンタジア シルビアは、シルビア系のエジプト石灰岩で、ベージュの地に多彩な自然の模様があります。住宅や商業プロジェクトの床、壁、階段、窓台に使える万能な石材です。本磨きまたは水磨きで供給できます。",
+    "zh": "梦幻西尔维娅是西尔维娅系列的埃及石灰石，底色米黄，纹理自然多变。它是住宅和商业项目中地面、墙面、楼梯和窗台的多用途石材。可提供抛光面或哑光面。"
+   }
+  },
+  {
+   "id": "udebzfORbldW9VdMn0BH",
+   "name": "Galala",
+   "oldEn": "Galala is the best-known Egyptian marble: a cream-beige stone with a fine, even texture and few veins, quarried in the Galala Mountains near the Gulf of Suez. Its calm, consistent colour makes it a favourite for large floors, wall cladding, facades and staircases in hotels, malls and homes. Geologically it is a compact limestone, sold in the stone trade as marble. It is exported widely to the Gulf, Europe and Asia.",
+   "description": {
+    "en": "Galala is the best-known Egyptian limestone: a cream-beige stone with a fine, even texture and few veins, quarried in the Galala Mountains near the Gulf of Suez. Its calm, consistent colour makes it a favourite for large floors, wall cladding, facades and staircases in hotels, malls and homes. Geologically it is a compact, dense limestone. It is exported widely to the Gulf, Europe and Asia.",
+    "ar": "الجلالة أشهر حجر جيري مصري: حجر بيج كريمي بملمس ناعم متجانس وعروق قليلة، يُستخرج من جبال الجلالة قرب خليج السويس. ولونه الهادئ الثابت يجعله مفضّلًا للأرضيات الكبيرة وتكسيات الحوائط والواجهات والسلالم في الفنادق والمولات والمنازل. وهو من الناحية الجيولوجية حجر جيري متماسك وكثيف. ويُصدَّر على نطاق واسع إلى الخليج وأوروبا وآسيا.",
+    "fr": "Le Galala est le calcaire égyptien le plus connu : une pierre beige crème à la texture fine et homogène, avec peu de veines, extraite dans les monts Galala près du golfe de Suez. Sa couleur calme et constante en fait un favori pour les grands sols, les revêtements muraux, les façades et les escaliers des hôtels, centres commerciaux et maisons. Géologiquement, c'est un calcaire compact et dense. Il est largement exporté vers les pays du Golfe, l'Europe et l'Asie.",
+    "es": "El Galala es la caliza egipcia más conocida: una piedra beige crema de textura fina y uniforme y pocas vetas, extraída en las montañas de Galala, cerca del golfo de Suez. Su color sereno y constante lo convierte en favorito para grandes suelos, revestimientos de paredes, fachadas y escaleras en hoteles, centros comerciales y viviendas. Geológicamente es una caliza compacta y densa. Se exporta ampliamente al Golfo, Europa y Asia.",
+    "de": "Galala ist der bekannteste ägyptische Kalkstein: ein creme-beiger Stein mit feiner, gleichmäßiger Struktur und wenigen Adern, abgebaut im Galala-Gebirge nahe dem Golf von Suez. Seine ruhige, gleichbleibende Farbe macht ihn zum Favoriten für große Böden, Wandverkleidungen, Fassaden und Treppen in Hotels, Einkaufszentren und Wohnhäusern. Geologisch ist er ein dichter, kompakter Kalkstein. Er wird in großem Umfang in die Golfstaaten, nach Europa und Asien exportiert.",
+    "it": "Il Galala è il calcare egiziano più conosciuto: una pietra beige crema dalla grana fine e uniforme e con poche venature, estratta sui monti Galala vicino al golfo di Suez. Il suo colore calmo e costante lo rende il preferito per grandi pavimenti, rivestimenti di pareti, facciate e scale di hotel, centri commerciali e abitazioni. Dal punto di vista geologico è un calcare compatto e denso. È ampiamente esportato nei paesi del Golfo, in Europa e in Asia.",
+    "ro": "Galala este cel mai cunoscut calcar egiptean: o piatră bej-crem cu textură fină și uniformă și puține vene, extrasă în Munții Galala, lângă Golful Suez. Culoarea ei calmă și constantă o face favorita pardoselilor mari, placărilor de pereți, fațadelor și scărilor din hoteluri, mall-uri și locuințe. Din punct de vedere geologic este un calcar compact și dens. Se exportă pe scară largă în țările Golfului, Europa și Asia.",
+    "ko": "갈랄라는 가장 유명한 이집트 석회암입니다. 수에즈만 인근 갈랄라 산지에서 채석되는 크림 베이지색 석재로, 결이 적고 질감이 곱고 균일합니다. 차분하고 일정한 색상 덕분에 호텔, 쇼핑몰, 주택의 넓은 바닥, 벽체, 외벽, 계단에 많이 사용됩니다. 지질학적으로 치밀하고 단단한 석회암입니다. 걸프 지역, 유럽, 아시아로 널리 수출됩니다.",
+    "sq": "Galala është guri gëlqeror egjiptian më i njohur: një gur krem-bezhë me teksturë të imët e të njëtrajtshme dhe pak damarë, që nxirret në malet Galala pranë Gjirit të Suezit. Ngjyra e tij e qetë dhe e qëndrueshme e bën të preferuar për dysheme të mëdha, veshje muresh, fasada dhe shkallë në hotele, qendra tregtare dhe shtëpi. Gjeologjikisht është një gur gëlqeror kompakt dhe i dendur. Eksportohet gjerësisht në vendet e Gjirit, Evropë dhe Azi.",
+    "ru": "Галала — самый известный египетский известняк: кремово-бежевый камень с тонкой равномерной текстурой и небольшим количеством прожилок, который добывают в горах Галала у Суэцкого залива. Спокойный ровный цвет делает его любимцем для больших полов, облицовки стен, фасадов и лестниц в отелях, торговых центрах и домах. Геологически это плотный, компактный известняк. Его широко экспортируют в страны Персидского залива, Европу и Азию.",
+    "ja": "ガララは最も有名なエジプト石灰岩です。きめ細かく均一な質感で模様の少ないクリームベージュの石で、スエズ湾近くのガララ山地で採掘されます。落ち着いた安定した色調から、ホテル、ショッピングモール、住宅の広い床、壁、外壁、階段で好まれています。地質学的には緻密で硬い石灰岩です。湾岸諸国、ヨーロッパ、アジアへ広く輸出されています。",
+    "zh": "加拉拉是最著名的埃及石灰石：一种奶油米黄色石材，质地细腻均匀、纹理少，开采自苏伊士湾附近的加拉拉山。其沉稳一致的颜色使其成为酒店、商场和住宅大面积地面、墙面、外立面和楼梯的首选。从地质学上讲，它是一种致密坚实的石灰石。它大量出口到海湾地区、欧洲和亚洲。"
+   }
+  },
+  {
+   "id": "SYpeLb5o5EOaO0Gd86gN",
+   "name": "Galala Extra",
+   "oldEn": "Galala Extra is the top selection of Galala marble, chosen for the most uniform cream-beige colour and the cleanest surface with very few veins or spots. It is used where a consistent, high-end look matters, such as hotel lobbies, villas and large floor areas. It is quarried in the Galala Mountains near the Gulf of Suez.",
+   "description": {
+    "en": "Galala Extra is the top selection of Galala limestone, chosen for the most uniform cream-beige colour and the cleanest surface with very few veins or spots. It is used where a consistent, high-end look matters, such as hotel lobbies, villas and large floor areas. It is quarried in the Galala Mountains near the Gulf of Suez.",
+    "ar": "جلالة إكسترا هو أعلى فرز من حجر الجلالة الجيري، يُختار لأكثر الألوان البيج الكريمية تجانسًا ولأنظف سطح بأقل عروق أو بقع. ويُستخدم حيث يهم المظهر الثابت الراقي، مثل لوبيات الفنادق والفيلات والأرضيات الواسعة. ويُستخرج من جبال الجلالة قرب خليج السويس.",
+    "fr": "Le Galala Extra est le premier choix du calcaire Galala, sélectionné pour la couleur beige crème la plus uniforme et la surface la plus nette, avec très peu de veines ou de taches. Il est utilisé là où un aspect homogène et haut de gamme compte, comme dans les halls d'hôtel, les villas et les grandes surfaces de sol. Il est extrait dans les monts Galala près du golfe de Suez.",
+    "es": "El Galala Extra es la selección superior de la caliza Galala, elegida por su color beige crema más uniforme y la superficie más limpia, con muy pocas vetas o manchas. Se utiliza donde importa un aspecto uniforme y de alta gama, como vestíbulos de hotel, villas y grandes superficies de suelo. Se extrae en las montañas de Galala, cerca del golfo de Suez.",
+    "de": "Galala Extra ist die beste Auswahl des Galala-Kalksteins, ausgewählt nach der gleichmäßigsten creme-beigen Farbe und der saubersten Oberfläche mit sehr wenigen Adern oder Flecken. Er wird eingesetzt, wo ein einheitlicher, hochwertiger Look zählt, etwa in Hotellobbys, Villen und großen Bodenflächen. Er wird im Galala-Gebirge nahe dem Golf von Suez abgebaut.",
+    "it": "Il Galala Extra è la scelta migliore del calcare Galala, selezionato per il colore beige crema più uniforme e la superficie più pulita, con pochissime venature o macchie. Si usa dove conta un aspetto omogeneo e di alto livello, come hall di hotel, ville e grandi superfici di pavimento. È estratto sui monti Galala vicino al golfo di Suez.",
+    "ro": "Galala Extra este cea mai bună selecție a calcarului Galala, aleasă pentru culoarea bej-crem cea mai uniformă și suprafața cea mai curată, cu foarte puține vene sau pete. Se folosește acolo unde contează un aspect uniform și de lux, cum ar fi holurile de hotel, vilele și suprafețele mari de pardoseală. Se extrage în Munții Galala, lângă Golful Suez.",
+    "ko": "갈랄라 엑스트라는 갈랄라 석회암의 최상급 셀렉션으로, 가장 균일한 크림 베이지 색상과 결이나 반점이 거의 없는 가장 깨끗한 표면을 기준으로 선별합니다. 호텔 로비, 빌라, 넓은 바닥처럼 균일하고 고급스러운 마감이 중요한 곳에 사용됩니다. 수에즈만 인근 갈랄라 산지에서 채석됩니다.",
+    "sq": "Galala Extra është përzgjedhja më e lartë e gurit gëlqeror Galala, e zgjedhur për ngjyrën krem-bezhë më të njëtrajtshme dhe sipërfaqen më të pastër me shumë pak damarë ose njolla. Përdoret aty ku ka rëndësi një pamje e njëtrajtshme e nivelit të lartë, si hollet e hoteleve, vilat dhe sipërfaqet e mëdha të dyshemeve. Nxirret në malet Galala pranë Gjirit të Suezit.",
+    "ru": "Галала Экстра — высший сорт известняка Галала, отобранный по самому равномерному кремово-бежевому цвету и самой чистой поверхности почти без прожилок и пятен. Применяется там, где важен однородный премиальный вид: в лобби отелей, виллах и на больших площадях полов. Добывается в горах Галала у Суэцкого залива.",
+    "ja": "ガララ エクストラはガララ石灰岩の最上級品で、最も均一なクリームベージュの色と、模様や斑点がごく少ない最もきれいな表面で選別されています。ホテルロビー、ヴィラ、広い床面など、統一感のある高級な仕上がりが求められる場所に使われます。スエズ湾近くのガララ山地で採掘されます。",
+    "zh": "加拉拉特级是加拉拉石灰石的最优品级，挑选颜色最均匀的奶油米黄、表面最干净、纹理和斑点极少的石材。用于对统一、高端效果要求高的场所，如酒店大堂、别墅和大面积地面。开采自苏伊士湾附近的加拉拉山。"
+   }
+  },
+  {
+   "id": "avMxajJ9SXparkFvX3RP",
+   "name": "Imperial",
+   "oldEn": "Imperial is an Egyptian marble in warm beige tones. It is a durable, versatile stone for floors, wall cladding, staircases and window sills. It can be polished to a high shine or honed for a softer finish.",
+   "description": {
+    "en": "Imperial is an Egyptian limestone in warm beige tones. It is a durable, versatile stone for floors, wall cladding, staircases and window sills. It can be polished to a high shine or honed for a softer finish.",
+    "ar": "إمبريال حجر جيري مصري بدرجات بيج دافئة. وهو حجر متين متعدد الاستخدامات للأرضيات وتكسيات الحوائط والسلالم وأعتاب الشبابيك. ويمكن تلميعه لبريق عالٍ أو تشطيبه مطفيًا لملمس أنعم.",
+    "fr": "L'Imperial est un calcaire égyptien aux tons beige chaud. C'est une pierre durable et polyvalente pour les sols, revêtements muraux, escaliers et appuis de fenêtre. Il peut être poli brillant ou adouci pour une finition plus douce.",
+    "es": "El Imperial es una caliza egipcia en cálidos tonos beige. Es una piedra duradera y versátil para suelos, revestimientos de paredes, escaleras y alféizares. Puede pulirse a alto brillo o apomazarse para un acabado más suave.",
+    "de": "Imperial ist ein ägyptischer Kalkstein in warmen Beigetönen. Er ist ein langlebiger, vielseitiger Stein für Böden, Wandverkleidungen, Treppen und Fensterbänke. Er kann hochglänzend poliert oder für eine weichere Oberfläche geschliffen werden.",
+    "it": "L'Imperial è un calcare egiziano dai caldi toni beige. È una pietra resistente e versatile per pavimenti, rivestimenti di pareti, scale e davanzali. Può essere lucidato a specchio o levigato per una finitura più morbida.",
+    "ro": "Imperial este un calcar egiptean în tonuri calde de bej. Este o piatră durabilă și versatilă pentru pardoseli, placări de pereți, scări și glafuri. Poate fi lustruit până la luciu înalt sau șlefuit pentru un finisaj mai fin.",
+    "ko": "임페리얼은 따뜻한 베이지 톤의 이집트 석회암입니다. 바닥, 벽체, 계단, 창턱에 쓰이는 내구성 좋은 다용도 석재입니다. 고광택으로 연마하거나 혼드 마감으로 부드럽게 마감할 수 있습니다.",
+    "sq": "Imperial është një gur gëlqeror egjiptian në tone të ngrohta bezhë. Është një gur i qëndrueshëm dhe i gjithanshëm për dysheme, veshje muresh, shkallë dhe parvazë dritaresh. Mund të lustrohet në shkëlqim të lartë ose të lëmohet për një sipërfaqe më të butë.",
+    "ru": "Империал — египетский известняк тёплых бежевых оттенков. Это прочный и универсальный камень для полов, облицовки стен, лестниц и подоконников. Его можно отполировать до блеска или сделать лощёным для более мягкой поверхности.",
+    "ja": "インペリアルは、温かみのあるベージュ色調のエジプト石灰岩です。床、壁、階段、窓台に使える耐久性のある万能な石材です。高光沢に磨くことも、水磨きで柔らかな仕上げにすることもできます。",
+    "zh": "帝王是一种呈温暖米黄色调的埃及石灰石。它是一种耐用、多用途的石材，适用于地面、墙面、楼梯和窗台。可抛光至高光泽，也可做哑光处理以获得更柔和的效果。"
+   }
+  },
+  {
+   "id": "NMI3QptLxwxSxdcUwDbX",
+   "name": "Katrina",
+   "oldEn": "Katrina is an Egyptian marble in warm beige-yellow tones with a natural, lightly patterned surface. It is a versatile stone for floors, wall cladding, staircases and window sills. It can be polished or honed.",
+   "description": {
+    "en": "Katrina is an Egyptian limestone in warm beige-yellow tones with a natural, lightly patterned surface. It is a versatile stone for floors, wall cladding, staircases and window sills. It can be polished or honed.",
+    "ar": "كاترينا حجر جيري مصري بدرجات بيج مصفرّة دافئة وسطح طبيعي خفيف النقشة. وهو حجر متعدد الاستخدامات للأرضيات وتكسيات الحوائط والسلالم وأعتاب الشبابيك. ويمكن توريده مصقولًا أو مطفيًا.",
+    "fr": "Le Katrina est un calcaire égyptien aux tons beige-jaune chauds, à la surface naturelle légèrement dessinée. C'est une pierre polyvalente pour les sols, revêtements muraux, escaliers et appuis de fenêtre. Il peut être poli ou adouci.",
+    "es": "El Katrina es una caliza egipcia en cálidos tonos beige amarillento con una superficie natural de dibujo suave. Es una piedra versátil para suelos, revestimientos de paredes, escaleras y alféizares. Puede pulirse o apomazarse.",
+    "de": "Katrina ist ein ägyptischer Kalkstein in warmen beige-gelben Tönen mit natürlicher, leicht gezeichneter Oberfläche. Er ist ein vielseitiger Stein für Böden, Wandverkleidungen, Treppen und Fensterbänke. Er kann poliert oder geschliffen werden.",
+    "it": "Il Katrina è un calcare egiziano dai caldi toni beige-giallo con una superficie naturale leggermente disegnata. È una pietra versatile per pavimenti, rivestimenti di pareti, scale e davanzali. Può essere lucidato o levigato.",
+    "ro": "Katrina este un calcar egiptean în tonuri calde bej-gălbui, cu o suprafață naturală ușor desenată. Este o piatră versatilă pentru pardoseli, placări de pereți, scări și glafuri. Poate fi lustruit sau șlefuit.",
+    "ko": "카트리나는 따뜻한 베이지 옐로 톤에 자연스럽고 은은한 무늬가 있는 이집트 석회암입니다. 바닥, 벽체, 계단, 창턱에 쓰이는 다용도 석재입니다. 폴리싱 또는 혼드 마감이 가능합니다.",
+    "sq": "Katrina është një gur gëlqeror egjiptian në tone të ngrohta bezhë-të verdha, me sipërfaqe natyrore me motiv të lehtë. Është një gur i gjithanshëm për dysheme, veshje muresh, shkallë dhe parvazë dritaresh. Mund të lustrohet ose të lëmohet.",
+    "ru": "Катрина — египетский известняк тёплых бежево-жёлтых оттенков с естественной, слегка узорчатой поверхностью. Это универсальный камень для полов, облицовки стен, лестниц и подоконников. Может быть полированным или лощёным.",
+    "ja": "カトリーナは、温かみのあるベージュイエローの色調で、自然で軽い模様の表面を持つエジプト石灰岩です。床、壁、階段、窓台に使える万能な石材です。本磨きまたは水磨きに対応します。",
+    "zh": "卡特里娜是一种埃及石灰石，呈温暖的米黄偏黄色调，表面带有自然的淡淡纹理。它是地面、墙面、楼梯和窗台的多用途石材。可做抛光或哑光处理。"
+   }
+  },
+  {
+   "id": "g0416JqQmKxgkqESno8I",
+   "name": "Melly Grey",
+   "oldEn": "Melly Grey is one of the few grey marbles quarried in Egypt, with a cool grey tone and natural markings. It offers a modern alternative to the classic Egyptian beiges for floors, wall cladding and staircases. It is available in different shade selections, from light to dark.",
+   "description": {
+    "en": "Melly Grey is one of the few grey limestones quarried in Egypt, with a cool grey tone and natural markings. It offers a modern alternative to the classic Egyptian beiges for floors, wall cladding and staircases. It is available in different shade selections, from light to dark.",
+    "ar": "ميلي جراي من أنواع الحجر الجيري الرمادي القليلة التي تُستخرج في مصر، بدرجة رمادية باردة وعلامات طبيعية. ويقدّم بديلًا عصريًا للبيج المصري الكلاسيكي في الأرضيات وتكسيات الحوائط والسلالم. ويتوفر بدرجات مختلفة من الفاتح إلى الداكن.",
+    "fr": "Le Melly Grey est l'un des rares calcaires gris extraits en Égypte, au ton gris froid avec des marques naturelles. Il offre une alternative moderne aux beiges égyptiens classiques pour les sols, revêtements muraux et escaliers. Il est disponible en plusieurs nuances, du clair au foncé.",
+    "es": "El Melly Grey es una de las pocas calizas grises que se extraen en Egipto, de tono gris frío con marcas naturales. Ofrece una alternativa moderna a los clásicos beiges egipcios para suelos, revestimientos de paredes y escaleras. Está disponible en distintas tonalidades, de claro a oscuro.",
+    "de": "Melly Grey ist einer der wenigen grauen Kalksteine, die in Ägypten abgebaut werden, mit kühlem Grauton und natürlichen Zeichnungen. Er bietet eine moderne Alternative zu den klassischen ägyptischen Beigetönen für Böden, Wandverkleidungen und Treppen. Er ist in verschiedenen Farbauswahlen von hell bis dunkel erhältlich.",
+    "it": "Il Melly Grey è uno dei pochi calcari grigi estratti in Egitto, dal tono grigio freddo con segni naturali. Offre un'alternativa moderna ai classici beige egiziani per pavimenti, rivestimenti di pareti e scale. È disponibile in diverse selezioni di tonalità, dal chiaro allo scuro.",
+    "ro": "Melly Grey este unul dintre puținele calcare gri extrase în Egipt, cu un ton gri rece și desene naturale. Oferă o alternativă modernă la bejurile egiptene clasice pentru pardoseli, placări de pereți și scări. Este disponibil în diferite selecții de nuanță, de la deschis la închis.",
+    "ko": "멜리 그레이는 이집트에서 채석되는 몇 안 되는 회색 석회암 중 하나로, 차가운 회색 톤에 자연스러운 무늬가 있습니다. 바닥, 벽체, 계단에 클래식한 이집트 베이지를 대신할 모던한 선택지입니다. 밝은 톤부터 어두운 톤까지 다양한 셀렉션이 있습니다.",
+    "sq": "Melly Grey është një nga gurët e pakët gëlqerorë gri që nxirren në Egjipt, me ton të ftohtë gri dhe shenja natyrore. Ofron një alternativë moderne ndaj bezhëve klasike egjiptiane për dysheme, veshje muresh dhe shkallë. Ofrohet në përzgjedhje të ndryshme nuancash, nga e çelëta tek e errëta.",
+    "ru": "Мелли Грей — один из немногих серых известняков, добываемых в Египте, холодного серого тона с природными узорами. Он предлагает современную альтернативу классическим египетским бежевым для полов, облицовки стен и лестниц. Доступен в разных селекциях оттенка — от светлого до тёмного.",
+    "ja": "メリー グレーはエジプトで採れる数少ないグレーの石灰岩の一つで、クールなグレーに自然な模様があります。床、壁、階段に、定番のエジプト産ベージュに代わるモダンな選択肢となります。明るいものから暗いものまで、さまざまな色合いのセレクションがあります。",
+    "zh": "梅莉灰是埃及少有的灰色石灰石之一，呈冷灰色调并带有自然纹路。它为地面、墙面和楼梯提供了经典埃及米黄之外的现代选择。有从浅到深的不同色级可选。"
+   }
+  },
+  {
+   "id": "RGJ5hbVl33bSEKKPZKzB",
+   "name": "Melly Grey Dark",
+   "oldEn": "Melly Grey Dark is the darker selection of Melly Grey, an Egyptian grey marble. Its deeper grey tone works well for contemporary floors, wall cladding, stairs and contrast borders. It can be polished or honed.",
+   "description": {
+    "en": "Melly Grey Dark is the darker selection of Melly Grey, an Egyptian grey limestone. Its deeper grey tone works well for contemporary floors, wall cladding, stairs and contrast borders. It can be polished or honed.",
+    "ar": "ميلي جراي دارك هو الفرز الأغمق من ميلي جراي، الحجر الجيري المصري الرمادي. ودرجته الرمادية العميقة تناسب الأرضيات العصرية وتكسيات الحوائط والسلالم والإطارات المتباينة. ويمكن توريده مصقولًا أو مطفيًا.",
+    "fr": "Le Melly Grey Dark est la sélection foncée du Melly Grey, un calcaire gris égyptien. Son gris profond convient aux sols contemporains, aux revêtements muraux, aux escaliers et aux bordures contrastées. Il peut être poli ou adouci.",
+    "es": "El Melly Grey Dark es la selección más oscura del Melly Grey, una caliza gris egipcia. Su gris profundo funciona bien en suelos contemporáneos, revestimientos de paredes, escaleras y cenefas de contraste. Puede pulirse o apomazarse.",
+    "de": "Melly Grey Dark ist die dunklere Auswahl des Melly Grey, eines grauen ägyptischen Kalksteins. Sein tieferes Grau passt gut zu modernen Böden, Wandverkleidungen, Treppen und Kontrastbordüren. Er kann poliert oder geschliffen werden.",
+    "it": "Il Melly Grey Dark è la selezione più scura del Melly Grey, un calcare grigio egiziano. Il suo grigio profondo si presta a pavimenti contemporanei, rivestimenti di pareti, scale e bordure a contrasto. Può essere lucidato o levigato.",
+    "ro": "Melly Grey Dark este selecția mai închisă a calcarului Melly Grey, un calcar egiptean gri. Griul său mai profund se potrivește pardoselilor contemporane, placărilor de pereți, scărilor și bordurilor de contrast. Poate fi lustruit sau șlefuit.",
+    "ko": "멜리 그레이 다크는 이집트 회색 석회암인 멜리 그레이의 어두운 셀렉션입니다. 깊은 회색 톤이 현대적인 바닥, 벽체, 계단, 대비 보더에 잘 어울립니다. 폴리싱 또는 혼드 마감이 가능합니다.",
+    "sq": "Melly Grey Dark është përzgjedhja më e errët e Melly Grey, një gur gëlqeror gri egjiptian. Toni i tij më i thellë gri përshtatet mirë për dysheme bashkëkohore, veshje muresh, shkallë dhe bordura kontrasti. Mund të lustrohet ose të lëmohet.",
+    "ru": "Мелли Грей Дарк — более тёмная селекция Мелли Грей, египетского серого известняка. Его глубокий серый тон хорошо подходит для современных полов, облицовки стен, лестниц и контрастных бордюров. Может быть полированным или лощёным.",
+    "ja": "メリー グレー ダークは、エジプトのグレー石灰岩メリー グレーの濃い色のセレクションです。深いグレーは、現代的な床、壁、階段、コントラストのボーダーによく合います。本磨きまたは水磨きに対応します。",
+    "zh": "梅莉灰深色款是梅莉灰中颜色较深的品级，是一种埃及灰色石灰石。其深灰色调适合现代风格的地面、墙面、楼梯和对比色边线。可做抛光或哑光处理。"
+   }
+  },
+  {
+   "id": "5xUg2Mw1gNcoZiQfbfG3",
+   "name": "Melly Grey Light",
+   "oldEn": "Melly Grey Light is the lighter selection of Melly Grey, an Egyptian grey marble. Its soft grey tone gives a calm, modern look to floors, walls and staircases. It can be polished or honed.",
+   "description": {
+    "en": "Melly Grey Light is the lighter selection of Melly Grey, an Egyptian grey limestone. Its soft grey tone gives a calm, modern look to floors, walls and staircases. It can be polished or honed.",
+    "ar": "ميلي جراي لايت هو الفرز الأفتح من ميلي جراي، الحجر الجيري المصري الرمادي. ودرجته الرمادية الناعمة تمنح مظهرًا هادئًا عصريًا للأرضيات والحوائط والسلالم. ويمكن توريده مصقولًا أو مطفيًا.",
+    "fr": "Le Melly Grey Light est la sélection claire du Melly Grey, un calcaire gris égyptien. Son gris doux donne un aspect calme et moderne aux sols, murs et escaliers. Il peut être poli ou adouci.",
+    "es": "El Melly Grey Light es la selección más clara del Melly Grey, una caliza gris egipcia. Su gris suave aporta un aspecto sereno y moderno a suelos, paredes y escaleras. Puede pulirse o apomazarse.",
+    "de": "Melly Grey Light ist die hellere Auswahl des Melly Grey, eines grauen ägyptischen Kalksteins. Sein sanftes Grau verleiht Böden, Wänden und Treppen einen ruhigen, modernen Look. Er kann poliert oder geschliffen werden.",
+    "it": "Il Melly Grey Light è la selezione più chiara del Melly Grey, un calcare grigio egiziano. Il suo grigio tenue dona un aspetto calmo e moderno a pavimenti, pareti e scale. Può essere lucidato o levigato.",
+    "ro": "Melly Grey Light este selecția mai deschisă a calcarului Melly Grey, un calcar egiptean gri. Griul său delicat dă un aspect calm și modern pardoselilor, pereților și scărilor. Poate fi lustruit sau șlefuit.",
+    "ko": "멜리 그레이 라이트는 이집트 회색 석회암인 멜리 그레이의 밝은 셀렉션입니다. 부드러운 회색 톤이 바닥, 벽, 계단에 차분하고 모던한 느낌을 줍니다. 폴리싱 또는 혼드 마감이 가능합니다.",
+    "sq": "Melly Grey Light është përzgjedhja më e çelët e Melly Grey, një gur gëlqeror gri egjiptian. Toni i tij i butë gri u jep një pamje të qetë e moderne dyshemeve, mureve dhe shkallëve. Mund të lustrohet ose të lëmohet.",
+    "ru": "Мелли Грей Лайт — более светлая селекция Мелли Грей, египетского серого известняка. Его мягкий серый тон придаёт полам, стенам и лестницам спокойный современный вид. Может быть полированным или лощёным.",
+    "ja": "メリー グレー ライトは、エジプトのグレー石灰岩メリー グレーの明るい色のセレクションです。柔らかなグレーが床、壁、階段に落ち着いたモダンな印象を与えます。本磨きまたは水磨きに対応します。",
+    "zh": "梅莉灰浅色款是梅莉灰中颜色较浅的品级，是一种埃及灰色石灰石。其柔和的灰色调为地面、墙面和楼梯带来宁静、现代的效果。可做抛光或哑光处理。"
+   }
+  },
+  {
+   "id": "H2k1pG0iXqRgm9SRE5Cs",
+   "name": "Sunny Dark",
+   "oldEn": "Sunny Dark is the darker selection of Sunny marble, one of the most widely used Egyptian marbles. It has a warm, deeper beige tone with natural markings. It is a cost-effective, hard-wearing choice for floors, wall cladding, stairs and window sills.",
+   "description": {
+    "en": "Sunny Dark is the darker selection of Sunny limestone, one of the most widely used Egyptian limestones. It has a warm, deeper beige tone with natural markings. It is a cost-effective, hard-wearing choice for floors, wall cladding, stairs and window sills.",
+    "ar": "صني دارك هو الفرز الأغمق من حجر صني الجيري، أحد أكثر أنواع الحجر الجيري المصري استخدامًا. ويتميز بدرجة بيج دافئة أعمق مع علامات طبيعية. وهو خيار اقتصادي متين للأرضيات وتكسيات الحوائط والسلالم وأعتاب الشبابيك.",
+    "fr": "Le Sunny Dark est la sélection foncée du calcaire Sunny, l'un des calcaires égyptiens les plus utilisés. Il présente un beige chaud plus soutenu avec des marques naturelles. C'est un choix économique et résistant pour les sols, revêtements muraux, escaliers et appuis de fenêtre.",
+    "es": "El Sunny Dark es la selección más oscura de la caliza Sunny, una de las calizas egipcias más utilizadas. Tiene un beige cálido más intenso con marcas naturales. Es una opción económica y resistente para suelos, revestimientos de paredes, escaleras y alféizares.",
+    "de": "Sunny Dark ist die dunklere Auswahl des Sunny-Kalksteins, eines der meistverwendeten ägyptischen Kalksteine. Er hat einen warmen, tieferen Beigeton mit natürlichen Zeichnungen. Er ist eine kostengünstige, strapazierfähige Wahl für Böden, Wandverkleidungen, Treppen und Fensterbänke.",
+    "it": "Il Sunny Dark è la selezione più scura del calcare Sunny, uno dei calcari egiziani più usati. Ha un beige caldo e più intenso con segni naturali. È una scelta economica e resistente per pavimenti, rivestimenti di pareti, scale e davanzali.",
+    "ro": "Sunny Dark este selecția mai închisă a calcarului Sunny, unul dintre cele mai folosite calcare egiptene. Are un bej cald, mai profund, cu desene naturale. Este o alegere economică și rezistentă pentru pardoseli, placări de pereți, scări și glafuri.",
+    "ko": "써니 다크는 가장 널리 쓰이는 이집트 석회암 중 하나인 써니 석회암의 어두운 셀렉션입니다. 따뜻하고 깊은 베이지 톤에 자연스러운 무늬가 있습니다. 바닥, 벽체, 계단, 창턱에 경제적이고 내구성 좋은 선택입니다.",
+    "sq": "Sunny Dark është përzgjedhja më e errët e gurit gëlqeror Sunny, një nga gurët gëlqerorë egjiptianë më të përdorur. Ka një ton të ngrohtë bezhë më të thellë me shenja natyrore. Është një zgjedhje ekonomike dhe rezistente për dysheme, veshje muresh, shkallë dhe parvazë dritaresh.",
+    "ru": "Санни Дарк — более тёмная селекция известняка Санни, одного из самых распространённых египетских известняков. У него тёплый, более насыщенный бежевый тон с природными узорами. Это экономичный и износостойкий выбор для полов, облицовки стен, лестниц и подоконников.",
+    "ja": "サニー ダークは、最も広く使われているエジプト石灰岩の一つであるサニー石灰岩の濃い色のセレクションです。温かみのある濃いベージュに自然な模様があります。床、壁、階段、窓台に向いた、コストパフォーマンスが高く丈夫な石材です。",
+    "zh": "阳光深色是阳光石灰石中颜色较深的品级，阳光石灰石是应用最广泛的埃及石灰石之一。它呈温暖、较深的米黄色并带有自然纹路。是地面、墙面、楼梯和窗台经济耐用的选择。"
+   }
+  },
+  {
+   "id": "t9yOcRidgp4tnqMTmmdQ",
+   "name": "Sunny Light",
+   "oldEn": "Sunny Light is the lighter selection of Sunny marble, one of the most widely used Egyptian marbles. It has a soft light-beige tone with natural markings. It is a cost-effective, hard-wearing choice for floors, wall cladding, stairs and window sills.",
+   "description": {
+    "en": "Sunny Light is the lighter selection of Sunny limestone, one of the most widely used Egyptian limestones. It has a soft light-beige tone with natural markings. It is a cost-effective, hard-wearing choice for floors, wall cladding, stairs and window sills.",
+    "ar": "صني لايت هو الفرز الأفتح من حجر صني الجيري، أحد أكثر أنواع الحجر الجيري المصري استخدامًا. ويتميز بدرجة بيج فاتحة ناعمة مع علامات طبيعية. وهو خيار اقتصادي متين للأرضيات وتكسيات الحوائط والسلالم وأعتاب الشبابيك.",
+    "fr": "Le Sunny Light est la sélection claire du calcaire Sunny, l'un des calcaires égyptiens les plus utilisés. Il présente un beige clair doux avec des marques naturelles. C'est un choix économique et résistant pour les sols, revêtements muraux, escaliers et appuis de fenêtre.",
+    "es": "El Sunny Light es la selección más clara de la caliza Sunny, una de las calizas egipcias más utilizadas. Tiene un beige claro suave con marcas naturales. Es una opción económica y resistente para suelos, revestimientos de paredes, escaleras y alféizares.",
+    "de": "Sunny Light ist die hellere Auswahl des Sunny-Kalksteins, eines der meistverwendeten ägyptischen Kalksteine. Er hat einen sanften hellbeigen Ton mit natürlichen Zeichnungen. Er ist eine kostengünstige, strapazierfähige Wahl für Böden, Wandverkleidungen, Treppen und Fensterbänke.",
+    "it": "Il Sunny Light è la selezione più chiara del calcare Sunny, uno dei calcari egiziani più usati. Ha un beige chiaro e morbido con segni naturali. È una scelta economica e resistente per pavimenti, rivestimenti di pareti, scale e davanzali.",
+    "ro": "Sunny Light este selecția mai deschisă a calcarului Sunny, unul dintre cele mai folosite calcare egiptene. Are un bej deschis delicat, cu desene naturale. Este o alegere economică și rezistentă pentru pardoseli, placări de pereți, scări și glafuri.",
+    "ko": "써니 라이트는 가장 널리 쓰이는 이집트 석회암 중 하나인 써니 석회암의 밝은 셀렉션입니다. 부드러운 라이트 베이지 톤에 자연스러운 무늬가 있습니다. 바닥, 벽체, 계단, 창턱에 경제적이고 내구성 좋은 선택입니다.",
+    "sq": "Sunny Light është përzgjedhja më e çelët e gurit gëlqeror Sunny, një nga gurët gëlqerorë egjiptianë më të përdorur. Ka një ton të butë bezhë të çelët me shenja natyrore. Është një zgjedhje ekonomike dhe rezistente për dysheme, veshje muresh, shkallë dhe parvazë dritaresh.",
+    "ru": "Санни Лайт — более светлая селекция известняка Санни, одного из самых распространённых египетских известняков. У него мягкий светло-бежевый тон с природными узорами. Это экономичный и износостойкий выбор для полов, облицовки стен, лестниц и подоконников.",
+    "ja": "サニー ライトは、最も広く使われているエジプト石灰岩の一つであるサニー石灰岩の明るい色のセレクションです。柔らかなライトベージュに自然な模様があります。床、壁、階段、窓台に向いた、コストパフォーマンスが高く丈夫な石材です。",
+    "zh": "阳光浅色是阳光石灰石中颜色较浅的品级，阳光石灰石是应用最广泛的埃及石灰石之一。它呈柔和的浅米黄色并带有自然纹路。是地面、墙面、楼梯和窗台经济耐用的选择。"
+   }
+  }
+ ],
+ "projects": [
+  {
+   "id": "4",
+   "old": "J&M Appartments",
+   "new": "J&M Apartments"
+  },
+  {
+   "id": "2",
+   "old": "Dominiqus Palace By Wyndham (Full Remodelation)",
+   "new": "Viva Dominicus Palace by Wyndham (Full Renovation)"
+  }
+ ],
+ "removeTexts": [
+  {
+   "block": "exports",
+   "key": "exports.termPaymentValue"
+  }
+ ]
+}

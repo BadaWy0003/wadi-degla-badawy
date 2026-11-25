@@ -8,7 +8,7 @@ import LangLink from '../LangLink';
 import { addToQuote, useQuoteList } from '../../util/quote-list';
 import { trackEvent } from '../../util/analytics';
 
-export default function AddToQuote({ name, slug, finish, finishes, photo, sizes, slabs }) {
+export default function AddToQuote({ name, slug, finish, finishes, photo, sizes, slabs, thicknesses }) {
   const { t } = useTranslation();
   const [list, ready] = useQuoteList();
   const [full, setFull] = useState(false);
@@ -32,7 +32,7 @@ export default function AddToQuote({ name, slug, finish, finishes, photo, sizes,
         type="button"
         className="spd-btn spd-btn-line qt-add"
         onClick={() => {
-          const ok = addToQuote({ name, slug, finish: finish || '', finishes, photo, sizes, slabs });
+          const ok = addToQuote({ name, slug, finish: finish || '', finishes, photo, sizes, slabs, thicknesses });
           setFull(!ok);
           if (ok) trackEvent('quote_list_add', { product_name: name, finish: finish || '' });
         }}
