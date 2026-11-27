@@ -19,10 +19,12 @@ async function featuredStones() {
   return chosen
     .filter(Boolean)
     .map((p) => {
+      // the Honed photo (owner, 2026-11-27), else Polished, else any stone photo (not a room)
+      const is = (name) => (x) => String(x?.finish || '').trim().toLowerCase() === name;
       const f =
-        p.finishes?.find((x) => x.finish === 'Polished') ||
-        p.finishes?.find((x) => x.finish === 'Honed') ||
-        p.finishes?.[0];
+        p.finishes?.find(is('honed')) ||
+        p.finishes?.find(is('polished')) ||
+        p.finishes?.find((x) => x?.link && !/mockup/i.test(x.finish || ''));
       return f?.link
         ? { name: p.name.trim(), type: p.type, slug: productSlug(p.name), img: f.thumb || f.link }
         : null;
