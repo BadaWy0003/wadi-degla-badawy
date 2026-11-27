@@ -15,14 +15,14 @@ const SpecSheet = require('./spec-sheet.service');
 
 const { STONE_CATEGORIES, ROOM_FINISHES, cleanType, slugOf, SITE } = SpecSheet.shared;
 const CACHE_MS = 10 * 60 * 1000;
-const USE_CODES = {
-  flooring: 'F',
-  wallCladding: 'W',
-  exteriorCladding: 'X',
-  staircases: 'S',
-  windowSills: 'N',
-  countertops: 'C',
-  landscaping: 'L',
+const USE_WORDS = {
+  flooring: 'floors',
+  wallCladding: 'walls',
+  exteriorCladding: 'facades',
+  staircases: 'stairs',
+  windowSills: 'sills',
+  countertops: 'countertops',
+  landscaping: 'paving',
 };
 const USE_NAMES = {
   flooring: 'flooring',
@@ -152,21 +152,25 @@ function build({ stones, site, projects }) {
     .filter(Boolean)
     .join('\n\n');
 
-  // One short line per stone under its category: name | colour | use codes.
+  // Per category, the stones grouped by their uses: "uses: floors walls …" then
+  // "Name (colour); Name (colour)". Most stones of a category share the same uses, so this is short.
   const index = STONE_CATEGORIES.map((cat) => {
-    const lines = stones
+    const groups = new Map(); // uses -> ["Name (colour)"]
+    stones
       .filter((s) => s.type === cat)
-      .map((s) => {
+      .forEach((s) => {
+        const uses = (s.details.uses || []).map((u) => USE_WORDS[u]).filter(Boolean).join(' ') || 'not listed';
         const colour = clean(en(s.details.colour).split(/,|;| with /i)[0], 28);
-        const uses = (s.details.uses || []).map((u) => USE_CODES[u]).filter(Boolean).join('');
-        return `${s.name}${colour ? ` | ${colour}` : ''}${uses ? ` | ${uses}` : ''}`;
+        if (!groups.has(uses)) groups.set(uses, []);
+        groups.get(uses).push(colour ? `${s.name} (${colour})` : s.name);
       });
-    return lines.length ? `[${cat}]\n${lines.join('\n')}` : '';
+    if (!groups.size) return '';
+    const lines = [...groups.entries()].map(([uses, names]) => `uses: ${uses} -> ${names.join('; ')}`);
+    return `[${cat}]\n${lines.join('\n')}`;
   })
     .filter(Boolean)
     .join('\n');
-  const indexLegend =
-    'Use codes: F flooring, W wall cladding, X exterior/facade, S stairs, N window sills, C countertops, L landscaping/paving.';
+  const indexLegend = 'Each line gives the ONLY uses the stones after the arrow are recommended for.';
 
   const detailsText = (s, lang) => {
     const d = s.details;
