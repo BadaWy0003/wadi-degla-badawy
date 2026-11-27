@@ -2,7 +2,7 @@
 // languages show the English text (and those copies are noindex). Kept out of the translation
 // files so it is never sent to the browser on other pages. {email} = PRIVACY_EMAIL.
 // Only state what the website really does (see CLAUDE.md: enquiries, alerts, consent).
-export const PRIVACY_UPDATED = '2026-11-21';
+export const PRIVACY_UPDATED = '2026-11-27';
 // Privacy requests go to the tech team (owner, 2026-11-21).
 export const PRIVACY_EMAIL = 'tech@wadidegla-eg.com';
 
@@ -38,7 +38,7 @@ export const PRIVACY = {
         h: 'Statistics cookies (Google Analytics)',
         p: [
           'We use Google Analytics to understand how the website is used: which pages are visited, from which country and device, and which buttons are pressed (for example WhatsApp or "Request a free sample"). It never receives your name, email or phone number.',
-          'Visitors in Europe and the UK are asked first: Google Analytics stores its cookies only if you press "Accept". You can change your choice at any time with "Cookie settings" at the bottom of every page.',
+          'Visitors in Europe and the UK are asked first: Google Analytics stores its cookies only if you press "Accept". Visitors elsewhere see a short notice and can turn them off with "Decline". You can change your choice at any time with the round cookie button in the bottom corner of every page, or "Cookie settings" at the bottom of every page.',
         ],
       },
       {
@@ -86,7 +86,7 @@ export const PRIVACY = {
         h: 'ملفات الإحصائيات (Google Analytics)',
         p: [
           'نستخدم Google Analytics لنفهم كيف يُستخدم الموقع: الصفحات التي تُزار، ومن أي دولة وجهاز، والأزرار التي يُضغط عليها (مثل واتساب أو "اطلب عينة مجانية"). لا يستلم أبدًا اسمك أو بريدك الإلكتروني أو رقم هاتفك.',
-          'نسأل الزوار في أوروبا والمملكة المتحدة أولًا: لا يحفظ Google Analytics ملفاته إلا إذا ضغطت "موافق". ويمكنك تغيير اختيارك في أي وقت من "إعدادات الكوكيز" أسفل كل صفحة.',
+          'نسأل الزوار في أوروبا والمملكة المتحدة أولًا: لا يحفظ Google Analytics ملفاته إلا إذا ضغطت "موافق". ويرى الزوار في البلدان الأخرى تنبيهًا قصيرًا ويمكنهم إيقافها بالضغط على "رفض". ويمكنك تغيير اختيارك في أي وقت من زر ملفات تعريف الارتباط الدائري في أسفل كل صفحة، أو من "إعدادات الكوكيز" أسفل كل صفحة.',
         ],
       },
       {

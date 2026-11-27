@@ -1195,7 +1195,7 @@
     "featuredHint": "Kaloni miun ose prekni një pllakë për ta parë nga afër.",
     "ctaBandTitle": "Na tregoni për projektin tuaj",
     "ctaBandText": "Na dërgoni gurin, përfundimin, përmasat dhe destinacionin, dhe ekipi ynë i shitjeve do t'ju përgjigjet me një ofertë. Mostra falas sipas kërkesës.",
-    "heroWelcome": "Eksportojmë pllaka të mëdha, pllaka dhe blloqe nga guroret egjiptiane për projekte në SHBA, Mbretërinë e Bashkuar, Meksikë, Evropë, vendet e Gjirit, Afrikë dhe në mbarë botën.",
+    "heroWelcome": "Eksportojmë pllaka të mëdha, pllaka dhe blloqe nga guroret egjiptiane për projekte në Amerikë, Evropë, Lindjen e Mesme, Azi, Afrikë dhe Australi.",
     "ourHistory": "HISTORIA JONË",
     "ourProducts": "PRODUKTET TONA",
     "legacy45Years": "{{facts.years}} Vjet që formësojnë të ardhmen e gurit",
@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "Cookies në këtë faqe",
     "text": "Përdorim cookies statistikore (Google Analytics) për të parë cilat faqe dhe gurë shikojnë blerësit, që të përmirësojmë faqen. Ruhen vetëm nëse pranoni.",
+    "textWorld": "Përdorim cookie statistikore (Google Analytics) për të parë cilat faqe dhe gurë shikojnë blerësit, që ta përmirësojmë faqen. Mund t'i çaktivizoni në çdo kohë.",
     "privacy": "Privatësia dhe cookies",
     "decline": "Refuzo",
-    "accept": "Prano"
+    "accept": "Prano",
+    "ok": "Në rregull"
   }
 }

@@ -1195,7 +1195,7 @@
     "featuredHint": "Passa il mouse o tocca una lastra per vederla da vicino.",
     "ctaBandTitle": "Raccontaci il tuo progetto",
     "ctaBandText": "Indicaci pietra, finitura, misure e destinazione: il nostro team commerciale ti invierà un preventivo. Campioni gratuiti su richiesta.",
-    "heroWelcome": "Esportiamo lastre, piastrelle e blocchi dalle cave egiziane verso progetti negli Stati Uniti, nel Regno Unito, in Messico, in Europa, nel Golfo, in Africa e in tutto il mondo.",
+    "heroWelcome": "Esportiamo lastre, piastrelle e blocchi dalle cave egiziane verso progetti nelle Americhe, in Europa, in Medio Oriente, in Asia, in Africa e in Australia.",
     "ourHistory": "LA NOSTRA STORIA",
     "ourProducts": "I NOSTRI PRODOTTI",
     "legacy45Years": "{{facts.years}} Anni che plasmano il futuro della pietra",
@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "Cookie su questo sito",
     "text": "Usiamo cookie statistici (Google Analytics) per vedere quali pagine e pietre guardano gli acquirenti e migliorare il sito. Vengono salvati solo se accetti.",
+    "textWorld": "Usiamo cookie statistici (Google Analytics) per capire quali pagine e quali pietre guardano gli acquirenti, così da migliorare il sito. Puoi disattivarli in qualsiasi momento.",
     "privacy": "Privacy e cookie",
     "decline": "Rifiuta",
-    "accept": "Accetta"
+    "accept": "Accetta",
+    "ok": "OK"
   }
 }

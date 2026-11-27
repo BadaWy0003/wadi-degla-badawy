@@ -4,8 +4,9 @@
 // - RootHtml.js sets Google's Consent Mode defaults before the tag loads: statistics denied
 //   for EEA/UK/CH visitors (Google decides the country), allowed elsewhere; ads always denied
 //   (the site runs no ads). A choice saved here is applied there too, on every page.
-// - The banner (CookieBanner.js) shows to visitors whose clock is set to a European time
-//   zone and who haven't chosen yet; the footer's "Cookie settings" opens it for anyone.
+// - The banner (CookieBanner.js) shows to every visitor who hasn't chosen yet (since
+//   2026-11-27): Europe (by the clock) gets Accept/Decline, everyone else a short notice with
+//   OK/Decline. A round cookie button (bottom-left) and the footer's "Cookie settings" reopen it.
 // The quote list and login are needed for the site to work and are not covered by this.
 export const CONSENT_KEY = 'wd-consent';
 export const OPEN_SETTINGS_EVENT = 'wd:cookie-settings';

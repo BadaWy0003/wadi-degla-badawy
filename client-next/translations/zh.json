@@ -1195,7 +1195,7 @@
     "featuredHint": "将鼠标悬停或点按石板即可近距离查看。",
     "ctaBandTitle": "告诉我们您的项目",
     "ctaBandText": "请告诉我们石材、饰面、尺寸和目的地，我们的销售团队将回复报价。可免费提供样品。",
-    "heroWelcome": "我们将埃及采石场的大板、瓷砖和荒料出口到美国、英国、墨西哥、欧洲、海湾地区、非洲及全球各地的项目。",
+    "heroWelcome": "我们将埃及采石场的大板、瓷砖和荒料出口到美洲、欧洲、中东、亚洲、非洲和澳大利亚的项目。",
     "ourHistory": "我们的历史",
     "ourProducts": "探索产品",
     "legacy45Years": "{{facts.years}}年塑造石材的未来",
@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "本网站的 Cookie",
     "text": "我们使用统计 Cookie（Google Analytics）了解买家浏览哪些页面和石材，以改进网站。仅在您同意后才会保存。",
+    "textWorld": "我们使用统计类 Cookie（Google Analytics）了解买家浏览了哪些页面和石材，以便改进网站。您可以随时关闭。",
     "privacy": "隐私与 Cookie",
     "decline": "拒绝",
-    "accept": "接受"
+    "accept": "接受",
+    "ok": "好的"
   }
 }

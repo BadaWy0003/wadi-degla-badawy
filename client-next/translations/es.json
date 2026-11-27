@@ -1195,7 +1195,7 @@
     "featuredHint": "Pase el cursor o toque una plancha para verla de cerca.",
     "ctaBandTitle": "Cuéntenos su proyecto",
     "ctaBandText": "Envíenos la piedra, el acabado, las medidas y el destino, y nuestro equipo comercial le responderá con un presupuesto. Muestras gratuitas a petición.",
-    "heroWelcome": "Exportamos tablas, baldosas y bloques desde canteras egipcias a proyectos en Estados Unidos, el Reino Unido, México, Europa, el Golfo, África y todo el mundo.",
+    "heroWelcome": "Exportamos tablas, baldosas y bloques desde canteras egipcias a proyectos en América, Europa, Oriente Medio, Asia, África y Australia.",
     "ourHistory": "NUESTRA HISTORIA",
     "ourProducts": "NUESTROS PRODUCTOS",
     "legacy45Years": "{{facts.years}} años moldeando el futuro de la piedra",
@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "Cookies en este sitio",
     "text": "Usamos cookies de estadísticas (Google Analytics) para ver qué páginas y piedras consultan los compradores y así mejorar el sitio. Solo se guardan si las acepta.",
+    "textWorld": "Usamos cookies de estadísticas (Google Analytics) para saber qué páginas y piedras consultan los compradores y así mejorar el sitio. Puede desactivarlas en cualquier momento.",
     "privacy": "Privacidad y cookies",
     "decline": "Rechazar",
-    "accept": "Aceptar"
+    "accept": "Aceptar",
+    "ok": "De acuerdo"
   }
 }
