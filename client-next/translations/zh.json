@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "本网站的 Cookie",
     "text": "我们使用统计 Cookie（Google Analytics）了解买家浏览哪些页面和石材，以改进网站。仅在您同意后才会保存。",
+    "textWorld": "我们使用统计类 Cookie（Google Analytics）了解买家浏览了哪些页面和石材，以便改进网站。您可以随时关闭。",
     "privacy": "隐私与 Cookie",
     "decline": "拒绝",
-    "accept": "接受"
+    "accept": "接受",
+    "ok": "好的"
   }
 }

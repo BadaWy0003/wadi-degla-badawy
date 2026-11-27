@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "Cookies on this website",
     "text": "We use statistics cookies (Google Analytics) to see which pages and stones buyers look at, so we can improve the site. They are only stored if you accept.",
+    "textWorld": "We use statistics cookies (Google Analytics) to see which pages and stones buyers look at, so we can improve the site. You can turn them off at any time.",
     "privacy": "Privacy & cookies",
     "decline": "Decline",
-    "accept": "Accept"
+    "accept": "Accept",
+    "ok": "OK"
   }
 }

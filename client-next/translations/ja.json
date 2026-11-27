@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "このサイトのCookie",
     "text": "購入者がどのページや石材を見ているかを知り、サイトを改善するために統計用Cookie（Google Analytics）を使用します。同意された場合のみ保存されます。",
+    "textWorld": "購入者がどのページや石材を見ているかを把握してサイトを改善するため、統計用クッキー（Google Analytics）を使用しています。いつでもオフにできます。",
     "privacy": "プライバシーとCookie",
     "decline": "拒否",
-    "accept": "同意する"
+    "accept": "同意する",
+    "ok": "OK"
   }
 }

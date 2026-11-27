@@ -1426,8 +1426,10 @@
   "cookies": {
     "title": "Cookie-uri pe acest site",
     "text": "Folosim cookie-uri de statistică (Google Analytics) pentru a vedea ce pagini și pietre privesc cumpărătorii și a îmbunătăți site-ul. Sunt salvate doar dacă accepți.",
+    "textWorld": "Folosim cookie-uri de statistică (Google Analytics) ca să vedem ce pagini și ce pietre privesc cumpărătorii, pentru a îmbunătăți site-ul. Le puteți dezactiva oricând.",
     "privacy": "Confidențialitate și cookie-uri",
     "decline": "Refuz",
-    "accept": "Accept"
+    "accept": "Accept",
+    "ok": "OK"
   }
 }

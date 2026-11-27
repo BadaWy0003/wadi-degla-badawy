@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "Cookies në këtë faqe",
     "text": "Përdorim cookies statistikore (Google Analytics) për të parë cilat faqe dhe gurë shikojnë blerësit, që të përmirësojmë faqen. Ruhen vetëm nëse pranoni.",
+    "textWorld": "Përdorim cookie statistikore (Google Analytics) për të parë cilat faqe dhe gurë shikojnë blerësit, që ta përmirësojmë faqen. Mund t'i çaktivizoni në çdo kohë.",
     "privacy": "Privatësia dhe cookies",
     "decline": "Refuzo",
-    "accept": "Prano"
+    "accept": "Prano",
+    "ok": "Në rregull"
   }
 }

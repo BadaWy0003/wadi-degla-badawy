@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "Cookies sur ce site",
     "text": "Nous utilisons des cookies de statistiques (Google Analytics) pour voir quelles pages et quelles pierres intéressent les acheteurs, afin d'améliorer le site. Ils ne sont enregistrés que si vous acceptez.",
+    "textWorld": "Nous utilisons des cookies de statistiques (Google Analytics) pour savoir quelles pages et quelles pierres les acheteurs consultent, afin d'améliorer le site. Vous pouvez les désactiver à tout moment.",
     "privacy": "Confidentialité et cookies",
     "decline": "Refuser",
-    "accept": "Accepter"
+    "accept": "Accepter",
+    "ok": "OK"
   }
 }

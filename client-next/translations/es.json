@@ -1423,8 +1423,10 @@
   "cookies": {
     "title": "Cookies en este sitio",
     "text": "Usamos cookies de estadísticas (Google Analytics) para ver qué páginas y piedras consultan los compradores y así mejorar el sitio. Solo se guardan si las acepta.",
+    "textWorld": "Usamos cookies de estadísticas (Google Analytics) para saber qué páginas y piedras consultan los compradores y así mejorar el sitio. Puede desactivarlas en cualquier momento.",
     "privacy": "Privacidad y cookies",
     "decline": "Rechazar",
-    "accept": "Aceptar"
+    "accept": "Aceptar",
+    "ok": "De acuerdo"
   }
 }
