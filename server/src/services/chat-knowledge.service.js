@@ -39,24 +39,24 @@ const PARTNERS = 'Wyndham, Emaar, Mountain View, Consulate General of Egypt in K
 const CORE_MARKETS = 'USA, United Kingdom, Romania, Turkey, Albania, Mexico';
 // Pages the assistant may point to (path after /<lang>).
 const PAGES = {
-  'All stones': '/products/',
-  'Quote list (request a quote for several stones)': '/quote/',
-  'Buying guide (how to buy from Egypt)': '/buy-marble-from-egypt/',
-  'Export terms': '/exports/',
-  Packing: '/packing/',
-  'Quarries & factories': '/quarries/',
-  Certificates: '/certificates/',
-  Projects: '/projects/',
-  'Material visualizer (see a stone in a room)': '/visualizer/',
+  'all stones': '/products/',
+  'quote list': '/quote/',
+  'buying guide': '/buy-marble-from-egypt/',
+  'export terms': '/exports/',
+  packing: '/packing/',
+  'quarries & factories': '/quarries/',
+  certificates: '/certificates/',
+  projects: '/projects/',
+  'visualizer (stone in a room)': '/visualizer/',
   'Egyptian marble': '/egyptian-marble/',
   'Egyptian limestone': '/egyptian-limestone/',
   'Egyptian granite': '/egyptian-granite/',
-  'Imported marble': '/imported-marble/',
-  'Imported granite': '/imported-granite/',
-  'Cobbles & paving': '/cobbles/',
-  Kerbstones: '/kerbstone/',
-  'Stone creations (custom pieces, mosaics)': '/stone-creations/',
-  Contact: '/contact/',
+  'imported marble': '/imported-marble/',
+  'imported granite': '/imported-granite/',
+  cobbles: '/cobbles/',
+  kerbstones: '/kerbstone/',
+  'custom pieces & mosaics': '/stone-creations/',
+  contact: '/contact/',
 };
 
 const clean = (v, max = 400) =>
@@ -130,10 +130,10 @@ function build({ stones, site, projects }) {
   const projectLines = projects.slice(0, 20).map((p) => {
     const stonesUsed = (p.materials || [])
       .map((m) => m.name)
-      .slice(0, 5)
+      .slice(0, 3)
       .join(', ');
     const place = [clean(en(p.city), 40), clean(en(p.country?.name), 40)].filter(Boolean).join(', ');
-    return `- ${clean(en(p.name), 80)}, ${place}${stonesUsed ? ` (stones: ${stonesUsed})` : ''}`;
+    return `- ${clean(en(p.name), 60)}, ${place}${stonesUsed ? `: ${stonesUsed}` : ''}`;
   });
 
   const facts = [
@@ -143,11 +143,11 @@ function build({ stones, site, projects }) {
     // the export terms are in the buying guide's FAQ below (same answers as the Exports page)
     `FORMS: slabs, cut-to-size tiles, blocks. Thickness 1 to 8 cm. Custom sizes cut to drawings. Finishes on the website: polished, honed, brushed, flamed, tumbled, bush-hammered, sandblasted and custom.`,
     `PACKING: ${clean(t('packing.woodenBundleText'), 220)} ${clean(t('packing.woodenCratesText'), 160)}`,
-    `FAQ:\n${faq.map((x) => `Q: ${clean(x.q, 200)}\nA: ${clean(x.a, 400)}`).join('\n')}`,
-    projectLines.length ? `PROJECTS ON THE WEBSITE:\n${projectLines.join('\n')}` : '',
-    `PAGES (path after /<language>): ${Object.entries(PAGES)
+    `FAQ:\n${faq.map((x) => `Q: ${clean(x.q, 120)} A: ${clean(x.a, 260)}`).join('\n')}`,
+    projectLines.length ? `PROJECTS (name, place, stones):\n${projectLines.join('\n')}` : '',
+    `PAGES: ${Object.entries(PAGES)
       .map(([k, v]) => `${k} ${v}`)
-      .join('; ')}. Every stone has its own page /products/<stone-name-with-dashes>/.`,
+      .join('; ')}`,
   ]
     .filter(Boolean)
     .join('\n\n');
@@ -157,7 +157,7 @@ function build({ stones, site, projects }) {
     const lines = stones
       .filter((s) => s.type === cat)
       .map((s) => {
-        const colour = clean(en(s.details.colour), 50);
+        const colour = clean(en(s.details.colour).split(/,|;| with /i)[0], 28);
         const uses = (s.details.uses || []).map((u) => USE_CODES[u]).filter(Boolean).join('');
         return `${s.name}${colour ? ` | ${colour}` : ''}${uses ? ` | ${uses}` : ''}`;
       });
@@ -170,7 +170,7 @@ function build({ stones, site, projects }) {
 
   const detailsText = (s, lang) => {
     const d = s.details;
-    const desc = clean((d.description && (d.description[lang] || d.description.en)) || '', 600);
+    const desc = clean((d.description && (d.description[lang] || d.description.en)) || '', 450);
     const tech = d.tech || {};
     const techLine = [
       tech.density != null && `density ${tech.density} kg/m³`,
