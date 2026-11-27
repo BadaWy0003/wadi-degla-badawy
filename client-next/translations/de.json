@@ -431,7 +431,9 @@
       "greece": "Griechenland",
       "greeceFlag": "Flagge Griechenlands",
       "unitedKingdom": "Vereinigtes Königreich",
-      "unitedKingdomFlag": "Flagge des Vereinigten Königreichs"
+      "unitedKingdomFlag": "Flagge des Vereinigten Königreichs",
+      "turkey": "Türkei",
+      "turkeyFlag": "Flagge der Türkei"
     },
     "heroAlt": "Gestapelte Exportcontainer mit ägyptischem Marmor beladen – Wadi Degla Global Exports",
     "departmentIntro": "Unsere spezialisierte Exportabteilung übersieht alle Aspekte internationaler Marmor- und Kalksteinlieferungen und gewährleistet Qualität, Compliance und pünktliche Lieferung weltweit.",
@@ -1193,7 +1195,7 @@
     "featuredHint": "Fahren Sie über eine Platte oder tippen Sie darauf, um sie aus der Nähe zu sehen.",
     "ctaBandTitle": "Erzählen Sie uns von Ihrem Projekt",
     "ctaBandText": "Nennen Sie uns Stein, Oberfläche, Maße und Zielort, und unser Vertriebsteam sendet Ihnen ein Angebot. Kostenlose Muster auf Anfrage.",
-    "heroWelcome": "Wir exportieren Rohplatten, Fliesen und Blöcke aus ägyptischen Steinbrüchen für Projekte in den USA, im Vereinigten Königreich, in der Dominikanischen Republik, in Europa, am Golf, in Afrika und weltweit.",
+    "heroWelcome": "Wir exportieren Rohplatten, Fliesen und Blöcke aus ägyptischen Steinbrüchen für Projekte in den USA, im Vereinigten Königreich, in Mexiko, in Europa, am Golf, in Afrika und weltweit.",
     "ourHistory": "UNSERE GESCHICHTE",
     "ourProducts": "UNSERE PRODUKTE",
     "legacy45Years": "{{facts.years}} Jahre, die die Zukunft des Steins prägen",

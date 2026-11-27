@@ -431,7 +431,9 @@
       "greece": "Greqia",
       "greeceFlag": "Flamuri i Greqisë",
       "unitedKingdom": "Mbretëria e Bashkuar",
-      "unitedKingdomFlag": "Flamuri i Mbretërisë së Bashkuar"
+      "unitedKingdomFlag": "Flamuri i Mbretërisë së Bashkuar",
+      "turkey": "Turqia",
+      "turkeyFlag": "Flamuri i Turqisë"
     },
     "heroAlt": "Kontejnerë eksporti të grumbulluar të ngarkueshëm me marmor egjiptian – Wadi Degla Eksporte Globale",
     "departmentIntro": "Departamenti ynë i dedikuar i eksportit mbikëqyr çdo aspekt të dërgimit ndërkombëtar të marmorit dhe gurit gëlqeri, duke garantuar cilësinë, përputhshmërinë dhe dorëzimin në kohë në të gjithë botën.",
@@ -1193,7 +1195,7 @@
     "featuredHint": "Kaloni miun ose prekni një pllakë për ta parë nga afër.",
     "ctaBandTitle": "Na tregoni për projektin tuaj",
     "ctaBandText": "Na dërgoni gurin, përfundimin, përmasat dhe destinacionin, dhe ekipi ynë i shitjeve do t'ju përgjigjet me një ofertë. Mostra falas sipas kërkesës.",
-    "heroWelcome": "Eksportojmë pllaka të mëdha, pllaka dhe blloqe nga guroret egjiptiane për projekte në SHBA, Mbretërinë e Bashkuar, Republikën Domenikane, Evropë, vendet e Gjirit, Afrikë dhe në mbarë botën.",
+    "heroWelcome": "Eksportojmë pllaka të mëdha, pllaka dhe blloqe nga guroret egjiptiane për projekte në SHBA, Mbretërinë e Bashkuar, Meksikë, Evropë, vendet e Gjirit, Afrikë dhe në mbarë botën.",
     "ourHistory": "HISTORIA JONË",
     "ourProducts": "PRODUKTET TONA",
     "legacy45Years": "{{facts.years}} Vjet që formësojnë të ardhmen e gurit",

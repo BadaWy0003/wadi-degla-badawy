@@ -431,7 +431,9 @@
       "greece": "希腊",
       "greeceFlag": "希腊国旗",
       "unitedKingdom": "英国",
-      "unitedKingdomFlag": "英国国旗"
+      "unitedKingdomFlag": "英国国旗",
+      "turkey": "土耳其",
+      "turkeyFlag": "土耳其国旗"
     },
     "heroAlt": "装载埃及大理石的堆叠出口集装箱 - 瓦迪·德格拉全球出口",
     "departmentIntro": "我们专注的出口部门监督国际大理石和石灰石货运的每个方面，确保全球范围内的质量、合规和准时交付。",
@@ -1193,7 +1195,7 @@
     "featuredHint": "将鼠标悬停或点按石板即可近距离查看。",
     "ctaBandTitle": "告诉我们您的项目",
     "ctaBandText": "请告诉我们石材、饰面、尺寸和目的地，我们的销售团队将回复报价。可免费提供样品。",
-    "heroWelcome": "我们将埃及采石场的大板、瓷砖和荒料出口到美国、英国、多米尼加共和国、欧洲、海湾地区、非洲及全球各地的项目。",
+    "heroWelcome": "我们将埃及采石场的大板、瓷砖和荒料出口到美国、英国、墨西哥、欧洲、海湾地区、非洲及全球各地的项目。",
     "ourHistory": "我们的历史",
     "ourProducts": "探索产品",
     "legacy45Years": "{{facts.years}}年塑造石材的未来",
