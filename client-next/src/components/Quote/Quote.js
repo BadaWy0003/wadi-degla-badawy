@@ -26,18 +26,18 @@ const HERO = sitePhoto('topic_buyGuide', 'heroPhoto', '/Assets/Media/Hero/buy-gu
 // the sizes were known (or with none written) get a text box. The chosen size is sent as
 // English text (`size`); `sizeOther` keeps the text box open.
 const SLABS = 'Slabs';
-function SizeField({ item, t, onChange }) {
+function SizeField({ item, index: i, t, onChange }) {
   const choices = (item.sizes || []).map((s) => `${s} cm`);
   const hasChoices = choices.length > 0 || item.slabs;
   const typed = !hasChoices || item.sizeOther;
   const value = item.sizeOther ? '__other' : item.size || '';
   return (
     <div className="qt-field qt-size">
-      <label htmlFor={`qt-size-${item.slug}-${item.finish}`}>{t('quote.size')}</label>
+      <label htmlFor={`qt-size-${i}`}>{t('quote.size')}</label>
       <div className="qt-size-row">
         {hasChoices && (
           <select
-            id={typed ? undefined : `qt-size-${item.slug}-${item.finish}`}
+            id={typed ? undefined : `qt-size-${i}`}
             aria-label={typed ? t('quote.size') : undefined}
             value={value}
             onChange={(e) => {
@@ -59,7 +59,7 @@ function SizeField({ item, t, onChange }) {
         )}
         {typed && (
           <input
-            id={`qt-size-${item.slug}-${item.finish}`}
+            id={`qt-size-${i}`}
             type="text"
             value={item.size || ''}
             maxLength={60}
@@ -73,34 +73,74 @@ function SizeField({ item, t, onChange }) {
   );
 }
 
-// The thickness of one stone: the stone's own thicknesses (cm) from its details; a text box when
-// none are known (stones added to the list before 2026-11-25). Sent as "2 cm".
-function ThicknessField({ item, t, onChange }) {
-  const id = `qt-thick-${item.slug}-${item.finish}`;
-  const choices = item.thicknesses || [];
+// The thickness of one stone (2026-11-27, owner): typed freely in cm, so any thickness can be
+// asked for (e.g. 4.3); "cm" is shown beside the box and added when sent (`thicknessText()`).
+function ThicknessField({ item, index, t, onChange }) {
+  const id = `qt-thick-${index}`;
   return (
     <div className="qt-field qt-thick">
       <label htmlFor={id}>{t('quote.thickness')}</label>
-      {choices.length ? (
-        <select id={id} value={item.thickness || ''} onChange={(e) => onChange({ thickness: e.target.value })}>
-          <option value="">{t('quote.thicknessChoose')}</option>
-          {choices.map((c) => (
-            <option key={c} value={`${c} cm`}>
-              {`\u2066${c} cm\u2069`}
-            </option>
-          ))}
-        </select>
-      ) : (
+      <div className="qt-size-row qt-cm">
         <input
           id={id}
           type="text"
-          value={item.thickness || ''}
-          maxLength={20}
-          dir="auto"
+          inputMode="decimal"
+          value={(item.thickness || '').replace(/\s*cm$/i, '')}
+          maxLength={16}
+          dir="ltr"
           placeholder={t('quote.thicknessPlaceholder')}
           onChange={(e) => onChange({ thickness: e.target.value })}
         />
-      )}
+        <span className="qt-suffix" aria-hidden="true">
+          cm
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// The finish of one stone: the stone's own finishes, or "Other finish" to type one
+// (2026-11-27, owner). `finishOther` keeps the text box open; the typed text is sent as `finish`.
+const OTHER = '__other';
+function FinishField({ item, index, t, onChange }) {
+  const id = `qt-finish-${index}`;
+  const choices = item.finishes?.length ? item.finishes : item.finish ? [item.finish] : [];
+  const typed = !choices.length || item.finishOther;
+  return (
+    <div className="qt-field qt-finish">
+      <label htmlFor={id}>{t('quote.finish')}</label>
+      <div className="qt-size-row">
+        {choices.length > 0 && (
+          <select
+            id={typed ? undefined : id}
+            aria-label={typed ? t('quote.finish') : undefined}
+            value={item.finishOther ? OTHER : item.finish || ''}
+            onChange={(e) => {
+              const v = e.target.value;
+              if (v === OTHER) onChange({ finish: '', finishOther: true });
+              else onChange({ finish: v, finishOther: false });
+            }}
+          >
+            {choices.map((f) => (
+              <option key={f} value={f}>
+                {finishLabel(t, f)}
+              </option>
+            ))}
+            <option value={OTHER}>{t('quote.finishOther')}</option>
+          </select>
+        )}
+        {typed && (
+          <input
+            id={id}
+            type="text"
+            value={item.finish || ''}
+            maxLength={60}
+            dir="auto"
+            placeholder={t('quote.finishPlaceholder')}
+            onChange={(e) => onChange({ finish: e.target.value })}
+          />
+        )}
+      </div>
     </div>
   );
 }
@@ -155,7 +195,7 @@ export default function Quote() {
             </h2>
             <ul>
               {list.map((item, i) => (
-                <li key={`${item.slug}-${item.finish}`} className="qt-item">
+                <li key={`${item.slug}-${i}`} className="qt-item">
                   <LangLink href={`/products/${item.slug}`} className="qt-photo" tabIndex={-1} aria-hidden="true">
                     {item.photo ? <img src={item.photo} alt="" loading="lazy" width="72" height="72" /> : null}
                   </LangLink>
@@ -164,27 +204,9 @@ export default function Quote() {
                       {item.name}
                     </LangLink>
                     <div className="qt-fields">
-                      {item.finishes?.length > 1 ? (
-                        <label className="qt-field">
-                          <span>{t('quote.finish')}</span>
-                          <select value={item.finish} onChange={(e) => update(i, { finish: e.target.value })}>
-                            {item.finishes.map((f) => (
-                              <option key={f} value={f}>
-                                {finishLabel(t, f)}
-                              </option>
-                            ))}
-                          </select>
-                        </label>
-                      ) : (
-                        item.finish && (
-                          <p className="qt-field">
-                            <span>{t('quote.finish')}</span>
-                            <b>{finishLabel(t, item.finish)}</b>
-                          </p>
-                        )
-                      )}
-                      <SizeField item={item} t={t} onChange={(change) => update(i, change)} />
-                      <ThicknessField item={item} t={t} onChange={(change) => update(i, change)} />
+                      <FinishField item={item} index={i} t={t} onChange={(change) => update(i, change)} />
+                      <SizeField item={item} index={i} t={t} onChange={(change) => update(i, change)} />
+                      <ThicknessField item={item} index={i} t={t} onChange={(change) => update(i, change)} />
                       <div className="qt-field qt-qty">
                         <label htmlFor={`qt-qty-${i}`}>{t('quote.quantity')}</label>
                         <div className="qt-size-row">
@@ -193,7 +215,6 @@ export default function Quote() {
                             type="text"
                             value={item.quantity || ''}
                             maxLength={60}
-                            dir="auto"
                             placeholder={t('quote.quantityPlaceholder')}
                             onChange={(e) => update(i, { quantity: e.target.value })}
                           />

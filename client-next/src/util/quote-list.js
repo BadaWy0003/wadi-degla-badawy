@@ -7,6 +7,12 @@ import { useEffect, useState } from 'react';
 
 const KEY = 'wd-quote-list';
 export const QUOTE_MAX = 20;
+
+// A typed thickness as sent: a plain number ("4.3", "4,3") gets "cm"; anything else is kept.
+export function thicknessText(value) {
+  const v = String(value || '').trim();
+  return /^\d+([.,]\d+)?$/.test(v) ? `${v} cm` : v;
+}
 const EVENT = 'wd:quote-changed';
 
 const clean = (s, max) => (typeof s === 'string' ? s.trim().slice(0, max) : '');
