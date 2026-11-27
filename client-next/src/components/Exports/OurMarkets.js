@@ -10,7 +10,7 @@ import GlobeChart from "./LazyGlobeChart"; // amCharts globe, loaded when scroll
 
 export default function OurMarkets(){
         const { t } = useTranslation();
-        // opens on the core markets (owner, 2026-11-25: USA, UK, Dominican Republic)
+        // opens on the core markets (owner, 2026-11-27: USA, UK, Romania, Turkey, Albania, Mexico; Dominican Republic removed)
         const [selectedContinent, setSelectedContinent] = useState("Core markets");
         const [selectedCountry, setSelectedCountry] = useState(null);
       
@@ -22,7 +22,10 @@ export default function OurMarkets(){
         "Core markets": [
           { name: "USA", code: "US", flag: "/Assets/Icons/flags/us.svg", translationKey: "countries.usa" },
           { name: "United Kingdom", code: "GB", flag: "/Assets/Icons/flags/gb.svg", translationKey: "countries.unitedKingdom" },
-          { name: "Dominican Republic", code: "DO", flag: "/Assets/Icons/flags/do.svg", translationKey: "countries.dominicanRepublic" }
+          { name: "Romania", code: "RO", flag: "/Assets/Icons/flags/ro.svg", translationKey: "countries.romania" },
+          { name: "Turkey", code: "TR", flag: "/Assets/Icons/flags/tr.svg", translationKey: "countries.turkey" },
+          { name: "Albania", code: "AL", flag: "/Assets/Icons/flags/al.svg", translationKey: "countries.albania" },
+          { name: "Mexico", code: "MX", flag: "/Assets/Icons/flags/mx.svg", translationKey: "countries.mexico" }
         ],
         "North & South America": [
           { name: "USA", code: "US", flag: "/Assets/Icons/flags/us.svg", translationKey: "countries.usa" },
@@ -30,7 +33,6 @@ export default function OurMarkets(){
           { name: "Panama", code: "PA", flag: "/Assets/Icons/flags/pa.svg", translationKey: "countries.panama" },
           { name: "Venezuela", code: "VE", flag: "/Assets/Icons/flags/ve.svg", translationKey: "countries.venezuela" },
           { name: "Mexico", code: "MX", flag: "/Assets/Icons/flags/mx.svg", translationKey: "countries.mexico" },
-          { name: "Dominican Republic", code: "DO", flag: "/Assets/Icons/flags/do.svg", translationKey: "countries.dominicanRepublic" },
           { name: "Bahamas", code: "BS", flag: "/Assets/Icons/flags/bs.svg", translationKey: "countries.bahamas" }
         ],
         Europe: [
@@ -42,6 +44,7 @@ export default function OurMarkets(){
           { name: "Slovenia", code: "SI", flag: "/Assets/Icons/flags/si.svg", translationKey: "countries.slovenia" },
           { name: "Germany", code: "DE", flag: "/Assets/Icons/flags/de.svg", translationKey: "countries.germany" },
           { name: "Malta", code: "MT", flag: "/Assets/Icons/flags/mt.svg", translationKey: "countries.malta" },
+          { name: "Turkey", code: "TR", flag: "/Assets/Icons/flags/tr.svg", translationKey: "countries.turkey" },
           { name: "Greece", code: "GR", flag: "/Assets/Icons/flags/gr.svg", translationKey: "countries.greece" },
           { name: "United Kingdom", code: "GB", flag: "/Assets/Icons/flags/gb.svg", translationKey: "countries.unitedKingdom" }
         ],

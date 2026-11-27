@@ -431,7 +431,9 @@
       "greece": "Grecia",
       "greeceFlag": "Steagul Greciei",
       "unitedKingdom": "Regatul Unit",
-      "unitedKingdomFlag": "Steagul Regatului Unit"
+      "unitedKingdomFlag": "Steagul Regatului Unit",
+      "turkey": "Turcia",
+      "turkeyFlag": "Steagul Turciei"
     },
     "heroAlt": "Containere de export stivuite încărcate cu marmură egipteană – Wadi Degla Exporturi Globale",
     "departmentIntro": "Departamentul nostru dedicat de export supraveghează fiecare aspect al expedierilor internaționale de marmură și var, asigurând calitate, conformitate și livrare la timp în întreaga lume.",
@@ -1196,7 +1198,7 @@
     "featuredHint": "Treci cu mouse-ul sau atinge o placă pentru a o vedea de aproape.",
     "ctaBandTitle": "Spune-ne despre proiectul tău",
     "ctaBandText": "Trimite-ne piatra, finisajul, dimensiunile și destinația, iar echipa de vânzări îți va răspunde cu o ofertă. Mostre gratuite la cerere.",
-    "heroWelcome": "Exportăm plăci, dale și blocuri din carierele egiptene pentru proiecte din SUA, Regatul Unit, Republica Dominicană, Europa, țările din Golf, Africa și din întreaga lume.",
+    "heroWelcome": "Exportăm plăci, dale și blocuri din carierele egiptene pentru proiecte din SUA, Regatul Unit, Mexic, Europa, țările din Golf, Africa și din întreaga lume.",
     "ourHistory": "ISTORIA NOASTRĂ",
     "ourProducts": "PRODUSELE NOASTRE",
     "legacy45Years": "{{facts.years}} de Ani Modelând Viitorul Pietrei",

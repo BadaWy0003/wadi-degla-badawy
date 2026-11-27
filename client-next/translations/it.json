@@ -431,7 +431,9 @@
       "greece": "Grecia",
       "greeceFlag": "Bandiera della Grecia",
       "unitedKingdom": "Regno Unito",
-      "unitedKingdomFlag": "Bandiera del Regno Unito"
+      "unitedKingdomFlag": "Bandiera del Regno Unito",
+      "turkey": "Turchia",
+      "turkeyFlag": "Bandiera della Turchia"
     },
     "heroAlt": "Contenitori di esportazione impilati caricati con marmo egiziano – Wadi Degla Esportazioni Globali",
     "departmentIntro": "Il nostro Dipartimento di esportazione dedicato supervisiona ogni aspetto delle spedizioni internazionali di marmo e calcare, garantendo qualità, conformità e consegna puntuale in tutto il mondo.",
@@ -1193,7 +1195,7 @@
     "featuredHint": "Passa il mouse o tocca una lastra per vederla da vicino.",
     "ctaBandTitle": "Raccontaci il tuo progetto",
     "ctaBandText": "Indicaci pietra, finitura, misure e destinazione: il nostro team commerciale ti invierà un preventivo. Campioni gratuiti su richiesta.",
-    "heroWelcome": "Esportiamo lastre, piastrelle e blocchi dalle cave egiziane verso progetti negli Stati Uniti, nel Regno Unito, nella Repubblica Dominicana, in Europa, nel Golfo, in Africa e in tutto il mondo.",
+    "heroWelcome": "Esportiamo lastre, piastrelle e blocchi dalle cave egiziane verso progetti negli Stati Uniti, nel Regno Unito, in Messico, in Europa, nel Golfo, in Africa e in tutto il mondo.",
     "ourHistory": "LA NOSTRA STORIA",
     "ourProducts": "I NOSTRI PRODOTTI",
     "legacy45Years": "{{facts.years}} Anni che plasmano il futuro della pietra",

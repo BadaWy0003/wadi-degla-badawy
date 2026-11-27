@@ -431,7 +431,9 @@
       "greece": "Grecia",
       "greeceFlag": "Bandera de Grecia",
       "unitedKingdom": "Reino Unido",
-      "unitedKingdomFlag": "Bandera del Reino Unido"
+      "unitedKingdomFlag": "Bandera del Reino Unido",
+      "turkey": "Turquía",
+      "turkeyFlag": "Bandera de Turquía"
     },
     "heroAlt": "Contenedores de exportación apilados cargados con mármol egipcio – Exportaciones Globales Wadi Degla",
     "departmentIntro": "Nuestro Departamento de Exportación dedicado supervisa todos los aspectos de los envíos internacionales de mármol y piedra caliza, garantizando calidad, cumplimiento normativo y entrega puntual en todo el mundo.",
@@ -1193,7 +1195,7 @@
     "featuredHint": "Pase el cursor o toque una plancha para verla de cerca.",
     "ctaBandTitle": "Cuéntenos su proyecto",
     "ctaBandText": "Envíenos la piedra, el acabado, las medidas y el destino, y nuestro equipo comercial le responderá con un presupuesto. Muestras gratuitas a petición.",
-    "heroWelcome": "Exportamos tablas, baldosas y bloques desde canteras egipcias a proyectos en Estados Unidos, el Reino Unido, República Dominicana, Europa, el Golfo, África y todo el mundo.",
+    "heroWelcome": "Exportamos tablas, baldosas y bloques desde canteras egipcias a proyectos en Estados Unidos, el Reino Unido, México, Europa, el Golfo, África y todo el mundo.",
     "ourHistory": "NUESTRA HISTORIA",
     "ourProducts": "NUESTROS PRODUCTOS",
     "legacy45Years": "{{facts.years}} años moldeando el futuro de la piedra",
