@@ -1,19 +1,21 @@
 /* Cookie banner (CookieBanner.js): dark + gold like the header and footer. */
 .ck {
+  /* a full-width bar along the bottom of the screen (owner, 2026-11-27) */
   position: fixed;
-  z-index: 1200; /* above the stone page's fixed buttons and the contact bubble */
-  inset-inline: 24px auto;
-  bottom: 24px;
-  max-width: 560px;
+  z-index: 10000; /* above the stone page's fixed buttons and the contact bubble */
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 18px 20px;
+  justify-content: space-between;
+  gap: 28px;
+  /* the text and buttons line up with the page's content width on wide screens */
+  padding: 18px max(24px, calc((100vw - 1240px) / 2)) calc(18px + env(safe-area-inset-bottom));
   background: rgba(20, 18, 15, 0.97);
   color: #d6d0c6;
-  border: 1px solid rgba(232, 214, 186, 0.22);
-  border-radius: 16px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  border-top: 1px solid rgba(232, 214, 186, 0.22);
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -72,13 +74,10 @@
 
 @media (max-width: 768px) {
   .ck {
-    inset-inline: 12px;
-    bottom: 12px;
-    max-width: none;
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
-    padding: 14px 16px;
+    padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
     font-size: 13px;
   }
 
