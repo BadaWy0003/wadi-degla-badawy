@@ -33,14 +33,14 @@
   },
   "egyptianMarble": {
     "pageTitle": "Mármol egipcio – Canteras y exportación | Wadi Degla",
-    "metaDescription": "Mármol egipcio de nuestras canteras: Galala, Sunny, Triesta, Emperador y más. Elaboración y exportación de planchas, baldosas y bloques desde 1980.",
+    "metaDescription": "Mármol egipcio de nuestras canteras: Galala, Sunny, Sinai Pearl, Emperador y más. Elaboración y exportación de planchas, baldosas y bloques desde 1980.",
     "heading": "Mármol egipcio",
     "intro": "El mármol egipcio es una piedra natural extraída en Egipto, conocida por sus cálidos tonos beige, crema, gris y marrón y por su calidad constante. Se utiliza en viviendas, hoteles, resorts y edificios comerciales de todo el mundo.\n\nWadi Degla trabaja canteras egipcias desde 1980, cuando nuestro fundador abrió la primera cantera en la montaña de Galala. Hoy cortamos y acabamos el mármol egipcio en nuestras propias fábricas en Egipto, con más de {{facts.factoryArea}} metros cuadrados, y lo enviamos en planchas, baldosas y bloques a proyectos de todo el mundo. A continuación encontrará todos los mármoles egipcios que suministramos y las respuestas a las preguntas más frecuentes.",
     "alsoTitle": "Caliza egipcia, también vendida como mármol egipcio ({{count}})",
     "sections": [
       {
         "title": "Tipos populares de mármol egipcio",
-        "text": "Nuestra gama egipcia incluye Galala y Galala Extra, Sunny Light y Sunny Dark, Triesta Beige y Triesta Grey, Fantazia Sylvia y Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl y alabastro egipcio.\n\nCada piedra tiene su propia página con fotos, acabados disponibles y los proyectos donde se ha utilizado."
+        "text": "Nuestra gama egipcia incluye Galala y Galala Extra, Sunny Light y Sunny Dark, Beige Sinai Pearl y Dark Sinai Pearl (antes Triesta Beige y Triesta Grey), Fantazia Sylvia y Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl y alabastro egipcio.\n\nCada piedra tiene su propia página con fotos, acabados disponibles y los proyectos donde se ha utilizado."
       },
       {
         "title": "Dónde se utiliza el mármol egipcio",
@@ -58,7 +58,7 @@
     "faq": [
       {
         "q": "¿Es bueno el mármol egipcio para suelos?",
-        "a": "Sí. Mármoles egipcios como Galala, Sunny y Triesta se usan mucho en suelos interiores de viviendas, hoteles y edificios comerciales. Para exteriores o zonas húmedas, un acabado apomazado, cepillado o arenado ofrece mejor agarre que el pulido."
+        "a": "Sí. Mármoles egipcios como Galala, Sunny y Sinai Pearl se usan mucho en suelos interiores de viviendas, hoteles y edificios comerciales. Para exteriores o zonas húmedas, un acabado apomazado, cepillado o arenado ofrece mejor agarre que el pulido."
       },
       {
         "q": "¿Qué diferencia hay entre el mármol egipcio y el importado?",
@@ -79,14 +79,14 @@
     ]
   },
   "egyptianLimestone": {
-    "pageTitle": "Caliza egipcia – Galala, Sunny y Triesta | Wadi Degla",
-    "metaDescription": "Caliza egipcia de Wadi Degla: Galala, Sunny, Triesta, Cleopatra, Melly Grey y más. Tablas, baldosas y bloques desde Egipto a todo el mundo.",
+    "pageTitle": "Caliza egipcia – Galala, Sunny y Sinai Pearl | Wadi Degla",
+    "metaDescription": "Caliza egipcia de Wadi Degla: Galala, Sunny, Sinai Pearl (Triesta), Cleopatra, Melly Grey y más. Tablas, baldosas y bloques desde Egipto a todo el mundo.",
     "heading": "Piedra caliza egipcia",
     "intro": "La piedra caliza egipcia es una piedra natural extraída en Egipto, en tonos beige, crema, marfil y gris cálidos, de aspecto sereno y uniforme. En el comercio de la piedra muchas de ellas se conocen como mármol egipcio y están entre las exportaciones más conocidas de Egipto.\n\nWadi Degla extrae y elabora piedra egipcia desde 1980, empezando por la primera cantera en el monte Galala. La cortamos y acabamos en nuestras fábricas en Egipto y la enviamos en tablas, baldosas y bloques a proyectos de todo el mundo.",
     "sections": [
       {
         "title": "Nuestras calizas egipcias",
-        "text": "Galala y Galala Extra, Sunny Light, Sunny Dark y Fantazia Sunny, Triesta Beige y Triesta Grey, Melly Grey (clara y oscura), Cleopatra, Creamy White Pearl, Imperial y Katrina.\n\nCada piedra tiene su página con fotos, acabados disponibles y los proyectos donde se ha usado."
+        "text": "Galala y Galala Extra, Sunny Light, Sunny Dark y Fantazia Sunny, Beige Sinai Pearl y Dark Sinai Pearl (antes Triesta Beige y Triesta Grey), Melly Grey (clara y oscura), Cleopatra, Creamy White Pearl, Imperial y Katrina.\n\nCada piedra tiene su página con fotos, acabados disponibles y los proyectos donde se ha usado."
       },
       {
         "title": "Dónde se usa la caliza egipcia",
@@ -234,7 +234,7 @@
     "sections": [
       {
         "title": "La historia del Galala",
-        "text": "En 1980, el fundador de Wadi Degla, Alhag Saed Alghanam, exploró el potencial entonces desconocido de la montaña de Galala y abrió allí la primera cantera. El Galala pronto se convirtió en una de las piedras egipcias más buscadas y atrajo a importadores de todo el mundo. Bajo su dirección, Wadi Degla llegó a tener siete grandes canteras en Galala, y la segunda generación desarrolló otras siete."
+        "text": "En 1980, el fundador de Wadi Degla, Alhag Saed Alghanam, exploró el potencial entonces desconocido de la montaña de Galala y abrió allí la primera cantera. El Galala pronto se convirtió en una de las piedras egipcias más buscadas y atrajo a importadores de todo el mundo. A lo largo de las décadas, la familia ha trabajado muchas canteras en la montaña de Galala y en todo Egipto; hoy Wadi Degla posee {{facts.quarries}} canteras."
       },
       {
         "title": "Por qué los arquitectos eligen el Galala",

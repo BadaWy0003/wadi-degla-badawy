@@ -55,6 +55,7 @@ export const TECH = [
 export const TRAFFIC = [
   ['', 'Not set'],
   ['heavy', 'Heavy traffic (busy public floors)'],
+  ['medium', 'Medium traffic (hotel lobbies, shops, restaurants)'],
   ['light', 'Light traffic (homes, offices, hotel rooms)'],
 ];
 export const OTHER_LANGS = ['fr', 'es', 'de', 'it', 'ro', 'ko', 'sq', 'ru', 'ja', 'zh'];

@@ -40,7 +40,7 @@
     "sections": [
       {
         "title": "I tipi più diffusi di marmo egiziano",
-        "text": "La nostra gamma egiziana comprende Galala e Galala Extra, Sunny Light e Sunny Dark, Triesta Beige e Triesta Grey, Fantazia Sylvia e Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl e alabastro egiziano.\n\nOgni pietra ha la sua pagina con foto, finiture disponibili e i progetti in cui è stata usata."
+        "text": "La nostra gamma egiziana comprende Galala e Galala Extra, Sunny Light e Sunny Dark, Beige Sinai Pearl e Dark Sinai Pearl (già Triesta Beige e Triesta Grey), Fantazia Sylvia e Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl e alabastro egiziano.\n\nOgni pietra ha la sua pagina con foto, finiture disponibili e i progetti in cui è stata usata."
       },
       {
         "title": "Dove si usa il marmo egiziano",
@@ -58,7 +58,7 @@
     "faq": [
       {
         "q": "Il marmo egiziano è adatto ai pavimenti?",
-        "a": "Sì. Marmi egiziani come Galala, Sunny e Triesta sono molto usati per pavimenti interni di case, hotel ed edifici commerciali. Per esterni o zone umide, una finitura levigata, spazzolata o sabbiata offre più aderenza di quella lucidata."
+        "a": "Sì. Marmi egiziani come Galala, Sunny e Sinai Pearl sono molto usati per pavimenti interni di case, hotel ed edifici commerciali. Per esterni o zone umide, una finitura levigata, spazzolata o sabbiata offre più aderenza di quella lucidata."
       },
       {
         "q": "Che differenza c'è tra marmo egiziano e marmo importato?",
@@ -79,14 +79,14 @@
     ]
   },
   "egyptianLimestone": {
-    "pageTitle": "Calcare egiziano – Galala, Sunny e Triesta | Wadi Degla",
-    "metaDescription": "Calcare egiziano di Wadi Degla: Galala, Sunny, Triesta, Cleopatra, Melly Grey e altri. Lastre, piastrelle e blocchi dall'Egitto nel mondo.",
+    "pageTitle": "Calcare egiziano – Galala, Sunny e Sinai Pearl | Wadi Degla",
+    "metaDescription": "Calcare egiziano di Wadi Degla: Galala, Sunny, Sinai Pearl (Triesta), Cleopatra, Melly Grey e altri. Lastre, piastrelle e blocchi dall'Egitto nel mondo.",
     "heading": "Calcare egiziano",
     "intro": "Il calcare egiziano è una pietra naturale estratta in Egitto, in caldi toni beige, crema, avorio e grigio, dall'aspetto calmo e uniforme. Nel commercio della pietra molte di queste pietre sono note come marmo egiziano e sono tra le esportazioni più conosciute dell'Egitto.\n\nWadi Degla estrae e lavora la pietra egiziana dal 1980, a partire dalla prima cava sul monte Galala. La tagliamo e la rifiniamo nei nostri stabilimenti in Egitto e la spediamo in lastre, piastrelle e blocchi a progetti in tutto il mondo.",
     "sections": [
       {
         "title": "I nostri calcari egiziani",
-        "text": "Galala e Galala Extra, Sunny Light, Sunny Dark e Fantazia Sunny, Triesta Beige e Triesta Grey, Melly Grey (chiaro e scuro), Cleopatra, Creamy White Pearl, Imperial e Katrina.\n\nOgni pietra ha la sua pagina con foto, finiture disponibili e i progetti in cui è stata usata."
+        "text": "Galala e Galala Extra, Sunny Light, Sunny Dark e Fantazia Sunny, Beige Sinai Pearl e Dark Sinai Pearl (già Triesta Beige e Triesta Grey), Melly Grey (chiaro e scuro), Cleopatra, Creamy White Pearl, Imperial e Katrina.\n\nOgni pietra ha la sua pagina con foto, finiture disponibili e i progetti in cui è stata usata."
       },
       {
         "title": "Dove si usa il calcare egiziano",
@@ -234,7 +234,7 @@
     "sections": [
       {
         "title": "La storia del Galala",
-        "text": "Nel 1980 il fondatore di Wadi Degla, Alhag Saed Alghanam, esplorò il potenziale allora sconosciuto del monte Galala e vi aprì la prima cava. Il Galala divenne presto una delle pietre egiziane più ricercate, attirando importatori da tutto il mondo. Sotto la sua guida Wadi Degla arrivò a possedere sette grandi cave a Galala, e la seconda generazione ne sviluppò altre sette."
+        "text": "Nel 1980 il fondatore di Wadi Degla, Alhag Saed Alghanam, esplorò il potenziale allora sconosciuto del monte Galala e vi aprì la prima cava. Il Galala divenne presto una delle pietre egiziane più ricercate, attirando importatori da tutto il mondo. Nel corso dei decenni la famiglia ha lavorato molte cave sul monte Galala e in tutto l'Egitto; oggi Wadi Degla possiede {{facts.quarries}} cave."
       },
       {
         "title": "Perché gli architetti scelgono il Galala",

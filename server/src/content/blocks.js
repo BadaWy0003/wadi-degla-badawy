@@ -1088,6 +1088,7 @@ const BLOCKS = [
           { type: 'text', key: 'productDetails.specForms', label: "Available as", max: 40 },
           { type: 'text', key: 'productDetails.specTraffic', label: "Floor traffic", max: 40 },
           { type: 'text', key: 'productDetails.traffic_heavy', label: "Floor traffic: heavy", max: 80 },
+          { type: 'text', key: 'productDetails.traffic_medium', label: "Floor traffic: medium", max: 80 },
           { type: 'text', key: 'productDetails.traffic_light', label: "Floor traffic: light", max: 80 },
           { type: 'text', key: 'productDetails.specThickness', label: "Thickness", max: 40 },
           { type: 'text', key: 'productDetails.specSizes', label: "Sizes", max: 40 },

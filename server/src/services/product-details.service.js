@@ -27,7 +27,9 @@ const TECH = ['density', 'waterAbsorption', 'compressiveStrength', 'flexuralStre
 
 // Floor traffic the stone is rated for (the Export Council test sheet, 2026-11-24): heavy =
 // busy public floors (granites), light = homes, offices, hotel rooms (marbles, limestones).
-const TRAFFIC = ['heavy', 'light'];
+// medium (owner, 2026-11-27): between the two, e.g. Galala and Sunny Light ("light compared to
+// granite but not that light"): hotel lobbies, shops, restaurants.
+const TRAFFIC = ['heavy', 'medium', 'light'];
 
 const ProductDetailsService = { LANGS, FORMS, USES, TECH, TRAFFIC };
 
@@ -144,6 +146,25 @@ ProductDetailsService.importExisting = async (by) => {
 // Fills only the technical values that are still empty and the floor traffic when not set,
 // and adds the sheet's other names to "Also known as" (max 10, no duplicates). Never changes
 // anything else, so edits made in the admin panel stay.
+// One-time job (owner, 2026-11-27, flag site_meta/news.mediumTrafficAt): Galala and Sunny Light
+// go from "light" to the new "medium" floor traffic (only while they are still "light").
+const MEDIUM_TRAFFIC_IDS = ['udebzfORbldW9VdMn0BH', 't9yOcRidgp4tnqMTmmdQ'];
+ProductDetailsService.setMediumTraffic = async () => {
+  const meta = await SiteMeta.get();
+  if (meta.mediumTrafficAt) return;
+  let updated = 0;
+  for (const id of MEDIUM_TRAFFIC_IDS) {
+    const ref = detailsCol().doc(id);
+    const doc = await ref.get();
+    if (!doc.exists || doc.data().traffic !== 'light') continue;
+    await ref.set({ traffic: 'medium', updatedAt: Date.now(), updatedBy: 'medium traffic' }, { merge: true });
+    updated += 1;
+  }
+  await SiteMeta.set({ mediumTrafficAt: Date.now() });
+  if (updated) await SiteMeta.markChanged('medium traffic');
+  console.log(`[stone-details] medium traffic set on ${updated} stones`);
+};
+
 ProductDetailsService.importTechSheet = async () => {
   const meta = await SiteMeta.get();
   if (meta.techSheetImportAt) return;

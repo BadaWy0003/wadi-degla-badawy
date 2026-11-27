@@ -41,7 +41,9 @@ const server = app.listen(port, async () => {
   // One-time: the technical data of the client's test sheet (product-details.service.js).
   require('./services/product-details.service')
     .importTechSheet()
-    .catch((error) => console.error('[stone-details] test sheet import failed:', error.message));
+    .catch((error) => console.error('[stone-details] test sheet import failed:', error.message))
+    .then(() => require('./services/product-details.service').setMediumTraffic())
+    .catch((error) => console.error('[stone-details] medium traffic failed:', error.message));
   // One-time: the website audit fixes of 2026-11-25 (audit-fixes.service.js).
   require('./services/audit-fixes.service')
     .apply()
