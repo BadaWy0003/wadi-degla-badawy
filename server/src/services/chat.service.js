@@ -150,7 +150,7 @@ function cleanLead(raw) {
     items: (Array.isArray(raw.items) ? raw.items : [])
       .slice(0, 20)
       .map((i) => ({
-        stone: s(i?.stone, 80),
+        stone: s(Knowledge.plain(i?.stone).replace(/\s*\((egyptian|imported)[^)]*\)\s*$/i, ''), 80),
         finish: s(i?.finish, 60),
         form: s(i?.form, 30),
         size: s(i?.size, 60),
@@ -186,7 +186,7 @@ const stripLinks = (text) =>
   );
 
 const cleanReply = (text, lang) => {
-  let out = String(text || '')
+  let out = Knowledge.plain(text)
     .replace(/\*\*|__|^#+\s*/gm, '')
     .trim();
   if (PRICE.test(out)) out = PRICE_REPLY[lang] || PRICE_REPLY.en;

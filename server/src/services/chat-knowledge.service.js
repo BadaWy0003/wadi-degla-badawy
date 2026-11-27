@@ -64,6 +64,11 @@ const clean = (v, max = 400) =>
     .replace(/\s+/g, ' ')
     .trim()
     .slice(0, max);
+// Plain spaces and hyphens instead of the non-breaking / special ones models like to write.
+const plain = (v) =>
+  String(v || '')
+    .replace(/[\u00a0\u2000-\u200b\u202f\u205f\u3000]/g, ' ')
+    .replace(/[\u2010-\u2015]/g, '-');
 const en = (v) => (v && typeof v === 'object' ? v.en || '' : v || '');
 
 let cache = { at: 0, value: null };
@@ -207,7 +212,8 @@ function build({ stones, site, projects }) {
   // The stones a text mentions (by name or other name), longest names first so "Sunny Light"
   // wins over "Sunny".
   const mentioned = (text) => {
-    const hay = ` ${String(text || '').toLowerCase()} `;
+    // models write non-breaking spaces and hyphens ("Red\u00a0Aswan"): make them plain first
+    const hay = ` ${plain(text).toLowerCase()} `;
     const hits = new Map(); // stone -> first position
     byName
       .flatMap(({ s, names }) => names.map((n) => ({ s, n })))
@@ -223,4 +229,4 @@ function build({ stones, site, projects }) {
   return { facts, index, indexLegend, stones, detailsText, mentioned, site: SITE };
 }
 
-module.exports = { get, USE_NAMES };
+module.exports = { get, USE_NAMES, plain };
