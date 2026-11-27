@@ -798,11 +798,6 @@
     "pageTitle": "Mi Cuenta | Wadidegla",
     "metaDescription": "Gestiona los datos de tu cuenta, cambia la contraseña y cierra sesión."
   },
-  "contactBubble": {
-    "message": "Tienes alguna pregunta? ¡Contáctanos!",
-    "button": "Enviar mensaje",
-    "altText": "Icono de burbuja de contacto"
-  },
   "partners": {
     "pageTitle": "Socios | Wadidegla",
     "metaDescription": "Nuestros socios y clientes",

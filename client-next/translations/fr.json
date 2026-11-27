@@ -798,11 +798,6 @@
     "pageTitle": "Mon Compte | Wadidegla",
     "metaDescription": "Gérez les détails de votre compte, changez de mot de passe et déconnectez-vous."
   },
-  "contactBubble": {
-    "message": "Nous sommes impatients de travailler avec vous !",
-    "button": "PRENDRE CONTACT",
-    "altText": "Icône bulle de contact"
-  },
   "partners": {
     "pageTitle": "Partenaires | Wadidegla",
     "metaDescription": "Nos partenaires et clients",

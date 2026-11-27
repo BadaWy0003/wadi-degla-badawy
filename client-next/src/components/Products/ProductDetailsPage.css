@@ -734,11 +734,6 @@ html[dir='rtl'] .spd-tech td[dir='ltr'] {
     padding: 0 12px;
     margin: 0;
   }
-
-  /* the sticky buttons replace the floating contact bubble on phones */
-  .spd .contact-bubble-container {
-    display: none;
-  }
 }
 
 /* ---------- spec sheet PDF link (under "Add to quote list") ---------- */

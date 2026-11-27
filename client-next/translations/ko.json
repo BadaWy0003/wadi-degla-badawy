@@ -798,11 +798,6 @@
     "pageTitle": "내 계정 | 와디 데글라",
     "metaDescription": "계정 세부 정보를 관리하고 비밀번호를 변경하며 로그아웃하십시오."
   },
-  "contactBubble": {
-    "message": "함께 일하기를 기대합니다!",
-    "button": "문의하기",
-    "altText": "문의 풍선 아이콘"
-  },
   "partners": {
     "pageTitle": "파트너 | 와디 데글라",
     "metaDescription": "우리의 파트너 및 고객",

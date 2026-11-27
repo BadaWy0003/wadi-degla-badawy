@@ -798,11 +798,6 @@
     "pageTitle": "我的账户 | Wadidegla",
     "metaDescription": "管理您的账户详情、修改密码和退出登录。"
   },
-  "contactBubble": {
-    "message": "我们期待与您合作！",
-    "button": "联系我们",
-    "altText": "联系气泡图标"
-  },
   "partners": {
     "pageTitle": "合作伙伴 | Wadidegla",
     "metaDescription": "我们的合作伙伴和客户",

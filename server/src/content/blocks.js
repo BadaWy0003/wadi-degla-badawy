@@ -2642,14 +2642,6 @@ const BLOCKS = [
         ],
       },
       {
-        id: 'bubble',
-        title: "Contact bubble",
-        fields: [
-          { type: 'text', key: 'contactBubble.message', label: "Contact bubble: Message", max: 80 },
-          { type: 'text', key: 'contactBubble.button', label: "Contact bubble: Button", max: 40 },
-        ],
-      },
-      {
         id: 'common',
         title: "Other",
         fields: [
