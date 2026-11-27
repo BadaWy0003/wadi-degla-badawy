@@ -125,6 +125,16 @@ const CHECKS = [
   ['POST', '/api/chat', 'none', 400, { messages: [{ role: 'user', content: 'Hi' }], lang: 'xx' }],
   ['POST', '/api/chat', 'none', 200, { messages: [{ role: 'user', content: 'Hi' }], website: 'http://spam' }],
   ['POST', '/api/chat', 'none', 503, { messages: [{ role: 'user', content: 'Do you have white marble?' }], lang: 'en', page: '/en/' }],
+  // a request confirmed in the chat: saved + emailed; refused without a name and email/WhatsApp
+  ['POST', '/api/chat/lead', 'none', 400, { lead: { type: 'quote', name: 'Omar', items: [{ stone: 'Galala' }] } }],
+  ['POST', '/api/chat/lead', 'none', 200, { lead: { type: 'quote', name: 'Omar', email: 'omar@test.co', items: [{ stone: 'Galala', finish: 'Honed' }] }, transcript: [{ role: 'user', content: 'Galala please' }], lang: 'en', page: '/en/' }],
+  ['POST', '/api/chat/lead', 'none', 200, { lead: { type: 'sample', name: 'Bot', whatsapp: '+201234567890' }, website: 'http://spam' }],
+  // the chat's on/off switch in the admin panel (ADMIN only)
+  ['GET', '/api/chat/admin', 'none', 401],
+  ['GET', '/api/chat/admin', 'MODERATOR', 403],
+  ['GET', '/api/chat/admin', 'ADMIN', 200],
+  ['PUT', '/api/chat/admin', 'ADMIN', 400, { enabled: 'maybe' }],
+  ['PUT', '/api/chat/admin', 'ADMIN', 200, { enabled: true }],
 ];
 
 const express = require(path.join(NM, 'express'));
