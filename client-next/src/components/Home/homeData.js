@@ -29,14 +29,15 @@ export const HERO_CHANGED = !!(saved.heroDesktop?.src || saved.heroPhone?.src);
 
 // The stones of the "showroom", by name (the website's own list); the admin panel saves
 // product ids instead (they don't change when a stone is renamed).
+// Owner, 2026-11-27: own-quarry Egyptian stones with full data first, one imported stone last.
 export const FEATURED_DEFAULT_NAMES = [
+  'Galala',
   'Creamy White Pearl',
-  'Pietra Grey',
+  'Beige Sinai Pearl',
   'Sunny Light',
-  'Calacatta Italy',
-  'Arabescato',
-  'Beige Sinai Pearl', // was Triesta Beige (renamed in the admin panel, 2026-11-24)
-  'New Halayeb',
+  'Emperador',
   'Red Aswan',
+  'Halayeb',
+  'Calacatta Italy',
 ];
 export const FEATURED_IDS = Array.isArray(saved.featured) ? saved.featured : null;
