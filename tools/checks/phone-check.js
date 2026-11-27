@@ -131,6 +131,9 @@ function inspect() {
   let views = 0;
   for (const [phone, device] of phones) {
     const context = await browser.newContext(device);
+    // a cookie choice is already made, so the floating cookie banner doesn't cover the page
+    // (the small round cookie button has no text)
+    await context.addInitScript(() => { try { localStorage.setItem('wd-consent', JSON.stringify({ analytics: 'denied', at: 1 })); } catch (e) {} });
     // no outside requests: analytics, maps, the API (the build already holds the data)
     await context.route(/^https?:\/\/(?!localhost)/, (r) => r.abort());
     for (const lang of ['en', 'ar']) {
