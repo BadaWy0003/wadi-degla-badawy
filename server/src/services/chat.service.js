@@ -249,8 +249,19 @@ async function reply(input) {
   return { reply: text, lead, stones };
 }
 
-async function status() {
-  return { available: Groq.configured() && (await enabled()), groq: await Groq.status() };
+// Admin panel: switch the assistant on or off (takes effect within a minute on every machine).
+async function setEnabled(on, by) {
+  await db
+    .collection(col('site_meta'))
+    .doc('chat')
+    .set({ enabled: Boolean(on), updatedAt: Date.now(), updatedBy: by || null }, { merge: true });
+  switchCache = { at: Date.now(), enabled: Boolean(on) };
+  return status();
 }
 
-module.exports = { reply, status, LANGS, cleanLead, cleanReply };
+async function status() {
+  const on = await enabled();
+  return { available: Groq.configured() && on, enabled: on, configured: Groq.configured(), answeredToday: day.date === new Date().toISOString().slice(0, 10) ? day.count : 0, groq: await Groq.status() };
+}
+
+module.exports = { reply, status, setEnabled, LANGS, cleanLead, cleanReply };

@@ -5,7 +5,6 @@
 // timeline, sections, the stones of this topic live from the admin panel, projects that used
 // them, questions & answers), a WhatsApp band and related pages. Scoped under .tp.
 import LangLink from '../LangLink';
-import ContactBubble from '../Contact/ContactBubble';
 import { t } from '../../util/meta';
 import { topicText, fillText } from '../../util/topic-content';
 import { TOPIC_PAGES } from '../../util/topic-pages';
@@ -267,7 +266,6 @@ export default function TopicPage({
         </section>
       )}
       <TopicEnhance />
-      <ContactBubble />
     </div>
   );
 }

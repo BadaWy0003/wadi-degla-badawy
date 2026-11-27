@@ -1,6 +1,9 @@
 const express = require('express');
 const Joi = require('joi');
 const ChatService = require('../services/chat.service');
+const ChatLead = require('../services/chat-lead.service');
+const { adminAuth } = require('../middlewares/authenticate.middleware');
+const authorize = require('../middlewares/authorize.middleware');
 const { rateLimit } = require('../middlewares/rate-limit.middleware');
 const validate = require('../middlewares/request-validator.middleware');
 
@@ -54,5 +57,53 @@ router.post('/', perMinute, perDay, validate(chatSchema), async (req, res) => {
     return res.status(503).json({ message: 'Chat unavailable', fallback: 'whatsapp' });
   }
 });
+
+// A request the visitor confirmed in the chat (summary card → Confirm): saved in Enquiries and
+// emailed (chat-lead.service.js). 5 per visitor per 15 minutes, like the website forms.
+const leadLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 5 });
+const leadSchema = {
+  body: Joi.object({
+    lead: Joi.object().unknown(true).required(),
+    transcript: Joi.array().items(message).max(40).default([]),
+    lang: Joi.string().valid(...ChatService.LANGS).default('en'),
+    page: Joi.string().max(200).allow(''),
+    source: Joi.alternatives(Joi.string().max(1000).allow(''), Joi.object().unknown(true)),
+    website: Joi.string().allow('').max(200),
+  }).required(),
+};
+router.post('/lead', leadLimit, validate(leadSchema), async (req, res) => {
+  if (req.body.website) return res.status(200).json({ data: { ok: true } });
+  const lead = ChatService.cleanLead(req.body.lead);
+  if (!lead) return res.status(400).json({ message: 'A name and an email or WhatsApp number are needed.' });
+  try {
+    await ChatLead.send({ ...req.body, lead });
+    return res.status(200).json({ data: { ok: true } });
+  } catch (e) {
+    console.error('[chat] lead not saved:', e.message);
+    return res.status(500).json({ message: 'Could not send the request', fallback: 'whatsapp' });
+  }
+});
+
+// Admin panel (ADMIN/SUPER_ADMIN): the on/off switch and how the free Groq allowance is doing.
+router.get('/admin', adminAuth, authorize('ADMIN'), async (req, res) => {
+  try {
+    res.status(200).json({ data: await ChatService.status() });
+  } catch (e) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+router.put(
+  '/admin',
+  adminAuth,
+  authorize('ADMIN'),
+  validate({ body: Joi.object({ enabled: Joi.boolean().required() }).required() }),
+  async (req, res) => {
+    try {
+      res.status(200).json({ data: await ChatService.setEnabled(req.body.enabled, req.user?.email || req.user?.id) });
+    } catch (e) {
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  },
+);
 
 module.exports = router;

@@ -1,0 +1,102 @@
+/* Chat assistant button (ChatLauncher.js): bottom-right on every page, gold like the site's
+   main buttons. The cookie button is bottom-left; the cookie bar (z-index 10000) covers it. */
+.wc-launch-wrap {
+  position: fixed;
+  z-index: 9990;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.wc-launch {
+  width: 58px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #ad9571;
+  color: #16130f;
+  cursor: pointer;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    0 0 0 4px rgba(173, 149, 113, 0.18);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.wc-launch:hover,
+.wc-launch:focus-visible {
+  transform: scale(1.06);
+  background: #cdb48b;
+}
+
+.wc-launch:focus-visible {
+  outline: 2px solid #f3eee6;
+  outline-offset: 3px;
+}
+
+/* the greeting shown once per visit (computers) */
+.wc-greet {
+  position: relative;
+  max-width: 230px;
+  margin-bottom: 8px;
+  padding: 12px 30px 12px 14px;
+  border: 1px solid rgba(232, 214, 186, 0.22);
+  border-radius: 14px 14px 4px 14px;
+  background: rgba(20, 18, 15, 0.96);
+  color: #f3eee6;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: start;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  animation: wc-greet-in 0.35s ease both;
+}
+
+.wc-greet-x {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  color: #a39a8c;
+  font-size: 18px;
+  line-height: 1;
+}
+
+@keyframes wc-greet-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .wc-launch-wrap {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .wc-launch {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* stone pages: above the fixed "Get a price / Free sample" bar */
+  body:has(.spd-sticky) .wc-launch-wrap {
+    bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc-launch,
+  .wc-greet {
+    transition: none;
+    animation: none;
+  }
+}

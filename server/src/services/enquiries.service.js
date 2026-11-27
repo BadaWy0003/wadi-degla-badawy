@@ -163,6 +163,53 @@ EnquiriesService.save = async (body, fields, file) => {
   return ref.id;
 };
 
+// A request the website's chat assistant collected and the visitor confirmed (chat.route.js,
+// 2026-11-27): a quote or sample request marked `via: 'chat'`, with the conversation as its
+// message so sales sees the context. `lead` is already cleaned (ChatService.cleanLead).
+EnquiriesService.saveChat = async ({ lead, transcript, lang, page, source }) => {
+  const ref = enquiriesCol().doc();
+  const items = lead.items.map((i) => ({
+    name: clean(i.stone, 100),
+    finish: clean(i.finish, 80),
+    size: clean([i.form, i.size].filter(Boolean).join(' '), 60),
+    thickness: clean(i.thickness, 20),
+    quantity: clean(i.quantity, 60),
+    unit: '',
+  }));
+  const conversation = (transcript || [])
+    .map((m) => `${m.role === 'user' ? 'Visitor' : 'Assistant'}: ${clean(m.content, 1500)}`)
+    .join('\n\n')
+    .slice(-6000);
+  const doc = {
+    kind: lead.type === 'sample' ? 'sample' : 'quote',
+    via: 'chat',
+    status: 'new',
+    name: lead.name,
+    email: lead.email || '',
+    phone: '',
+    whatsapp: lead.whatsapp || '',
+    company: lead.company || '',
+    country: '',
+    address: lead.address || '',
+    port: lead.destination || '',
+    product: items.map((i) => i.name).join(', ').slice(0, 200),
+    finish: items[0]?.finish || '',
+    projectType: lead.projectType || '',
+    message: [lead.notes ? `Notes: ${lead.notes}` : '', conversation].filter(Boolean).join('\n\n'),
+    page: clean(page, 300),
+    lang: clean(lang, 5),
+    source: readSource(source),
+    items,
+    incoterm: '',
+    note: '',
+    attachment: null,
+    emailSent: null,
+    createdAt: Date.now(),
+  };
+  await ref.set(doc);
+  return { id: ref.id, doc };
+};
+
 EnquiriesService.markEmail = async (id, sent) => {
   if (id) await enquiriesCol().doc(id).set({ emailSent: sent }, { merge: true });
 };

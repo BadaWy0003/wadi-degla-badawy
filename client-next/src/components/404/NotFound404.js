@@ -1,7 +1,6 @@
 'use client';
 import React from "react";
 import './NotFound404.css';
-import ContactBubble from "../Contact/ContactBubble";
 const logo_color_stroke = '/Assets/Media/logo-color-stroke-notext.svg'
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
@@ -33,7 +32,6 @@ export default function NotFound404() {
                     }}>{t('notFound.buttonText')}</button>  
             </div>
         </div>                   
-            <ContactBubble />
         </div>
         </>
     );

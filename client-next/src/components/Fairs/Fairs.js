@@ -11,7 +11,6 @@
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import LangLink from '../LangLink';
-import ContactBubble from '../Contact/ContactBubble';
 import { WHATSAPP_URL } from '../Contact/contactData';
 import useReveal from '../News/useReveal';
 import usePhotoZoom from '../usePhotoZoom';
@@ -212,7 +211,6 @@ export default function Fairs({ children, texts = {} }) {
         </section>
       </div>
       {zoom(slides)}
-      <ContactBubble />
     </div>
   );
 }
