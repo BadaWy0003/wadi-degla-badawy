@@ -15,6 +15,7 @@ import { trackEvent } from '../../util/analytics';
 import { useLang } from '../../context/LangContext';
 import Icon from './ContactIcons';
 import { WHATSAPP_URL } from './contactData';
+import { thicknessText } from '../../util/quote-list';
 
 const MAX_FILE_BYTES = 10 * 1024 * 1024; // same limit as the server (routes/sendEmail.js)
 const PHONE_RE = /^\d{8,15}$/;
@@ -135,7 +136,8 @@ export default function ContactForm({ quote = null }) {
     const payload = new FormData();
     payload.append('name', formData.fname.trim());
     payload.append('email', formData.email.trim());
-    const items = quote?.items || [];
+    // the quote list's stones, with the typed thickness in cm
+    const items = (quote?.items || []).map((i) => ({ ...i, thickness: thicknessText(i.thickness) }));
     // "500 m²": the quantity with its unit (no unit when nothing was typed)
     const qty = (i) => (String(i.quantity || '').trim() ? `${String(i.quantity).trim()} ${i.unit || ''}`.trim() : '');
     payload.append(

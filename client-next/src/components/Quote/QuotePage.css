@@ -135,10 +135,47 @@
   width: 140px;
 }
 
-/* 2026-11-25: thickness per stone, quantity unit, shipping terms for the whole request */
-.qt .qt-field .qt-unit,
-.qt .qt-thick select,
+/* The dropdown arrow (2026-11-27, owner): the browser's own arrow sat against the right edge,
+   so the arrow is drawn here, with room before the edge; on the left side in Arabic. */
+.qt .qt-field select,
+.qt .qt-terms select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-inline-end: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23cdb48b' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
+  cursor: pointer;
+}
+
+html[dir='rtl'] .qt .qt-field select,
+html[dir='rtl'] .qt .qt-terms select {
+  background-position: left 16px center;
+}
+
+/* thickness: a number box with "cm" beside it */
+.qt .qt-cm {
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
 .qt .qt-thick input {
+  min-width: 0;
+  width: 110px;
+}
+
+.qt .qt-suffix {
+  color: var(--cx-muted);
+  font-size: 15px;
+}
+
+.qt .qt-finish input {
+  min-width: 180px;
+}
+
+/* 2026-11-25: thickness per stone, quantity unit, shipping terms for the whole request */
+.qt .qt-field .qt-unit {
   min-width: 120px;
 }
 
@@ -152,10 +189,10 @@
   height: 42px;
   min-width: 220px;
   margin-top: 6px;
-  padding: 0 12px;
+  padding-inline-start: 12px;
   border: 1px solid var(--cx-input-border);
   border-radius: 10px;
-  background: var(--cx-input);
+  background-color: var(--cx-input);
   color: var(--cx-text);
   font: inherit;
   font-size: 15px;
@@ -237,6 +274,11 @@
     min-width: 0;
   }
 
+  .qt .qt-thick .qt-cm input {
+    flex: 1 1 auto;
+    width: auto;
+  }
+
   /* quantity and its unit stay on one line */
   .qt .qt-qty .qt-size-row {
     flex-wrap: nowrap;
@@ -248,7 +290,14 @@
   }
 
   .qt .qt-field .qt-unit {
-    flex: 0 0 116px;
-    width: 116px;
+    flex: 0 0 96px;
+    width: 96px;
+    min-width: 0;
+    padding-inline-end: 32px;
+    background-position: right 12px center;
+  }
+
+  html[dir='rtl'] .qt .qt-field .qt-unit {
+    background-position: left 12px center;
   }
 }
