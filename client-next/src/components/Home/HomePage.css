@@ -213,9 +213,11 @@ html[dir='rtl'] .hp-hero {
 }
 
 .hp-hero-headline {
-  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
-  line-height: 1.05;
-  font-weight: 600;
+  /* thin & elegant (client chose option D, 2026-11-27; was 4.4rem / 600) */
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  font-weight: 300;
+  text-wrap: balance; /* even lines, never "1980" alone on the last one */
   color: var(--hp-text);
   letter-spacing: -0.02em;
 }
@@ -845,7 +847,7 @@ html[dir='rtl'] .hp-hero {
   }
 
   .hp-hero-headline {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
   }
 
   .hp-hero-text {
