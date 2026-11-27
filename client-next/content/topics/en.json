@@ -33,14 +33,14 @@
   },
   "egyptianMarble": {
     "pageTitle": "Egyptian Marble – Slabs, Tiles & Blocks | Wadi Degla",
-    "metaDescription": "Egyptian marble from Wadi Degla: Galala, Sunny, Triesta, Emperador, Cleopatra and more. Slabs, tiles and blocks from our own quarries, exported since 1980.",
+    "metaDescription": "Egyptian marble from Wadi Degla: Galala, Sunny, Sinai Pearl, Emperador and more. Slabs, tiles and blocks from our own quarries, exported since 1980.",
     "heading": "Egyptian Marble",
     "intro": "Egyptian marble is natural stone quarried in Egypt, known for its warm beige, cream, grey and brown tones and its consistent quality. It is used in homes, hotels, resorts and commercial buildings around the world.\n\nWadi Degla has worked Egyptian quarries since 1980, when our founder opened the first quarry on Galala Mountain. Today we cut and finish Egyptian marble in our own factories in Egypt, covering more than {{facts.factoryArea}} square meters, and ship it as slabs, tiles and blocks to projects worldwide. Below you will find every Egyptian marble we supply, followed by answers to the questions buyers ask most.",
     "alsoTitle": "Egyptian limestone, also sold as Egyptian marble ({{count}})",
     "sections": [
       {
         "title": "Popular types of Egyptian marble",
-        "text": "Our Egyptian range includes Galala and Galala Extra, Sunny Light and Sunny Dark, Triesta Beige and Triesta Grey, Fantazia Sylvia and Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl and Egyptian alabaster.\n\nEach stone has its own page with its photos, available finishes and the projects where it was used."
+        "text": "Our Egyptian range includes Galala and Galala Extra, Sunny Light and Sunny Dark, Beige Sinai Pearl and Dark Sinai Pearl (formerly Triesta Beige and Triesta Grey), Fantazia Sylvia and Fantazia Sunny, Melly Grey, Emperador, Cleopatra, Imperial, Katrina, Creamy White Pearl and Egyptian alabaster.\n\nEach stone has its own page with its photos, available finishes and the projects where it was used."
       },
       {
         "title": "Where Egyptian marble is used",
@@ -58,7 +58,7 @@
     "faq": [
       {
         "q": "Is Egyptian marble good for flooring?",
-        "a": "Yes. Egyptian marbles such as Galala, Sunny and Triesta are widely used for indoor flooring in homes, hotels and commercial buildings. For outdoor or wet areas, a honed, brushed or sandblasted finish gives better grip than a polished one."
+        "a": "Yes. Egyptian marbles such as Galala, Sunny and Sinai Pearl are widely used for indoor flooring in homes, hotels and commercial buildings. For outdoor or wet areas, a honed, brushed or sandblasted finish gives better grip than a polished one."
       },
       {
         "q": "What is the difference between Egyptian and imported marble?",
@@ -79,14 +79,14 @@
     ]
   },
   "egyptianLimestone": {
-    "pageTitle": "Egyptian Limestone – Galala, Sunny & Triesta | Wadi Degla",
-    "metaDescription": "Egyptian limestone from Wadi Degla: Galala, Sunny, Triesta, Cleopatra, Melly Grey and more. Slabs, tiles and blocks from Egypt, shipped worldwide.",
+    "pageTitle": "Egyptian Limestone – Galala, Sunny, Sinai Pearl | Wadi Degla",
+    "metaDescription": "Egyptian limestone from Wadi Degla: Galala, Sunny, Sinai Pearl, Cleopatra, Melly Grey and more. Slabs, tiles and blocks from Egypt, shipped worldwide.",
     "heading": "Egyptian Limestone",
     "intro": "Egyptian limestone is natural stone quarried in Egypt, in warm beige, cream, ivory and grey tones with a calm, even look. In the stone trade many of these stones are known as Egyptian marble, and they are among Egypt's best-known exports.\n\nWadi Degla has quarried and processed Egyptian stone since 1980, starting with the first quarry on Galala Mountain. We cut and finish it in our own factories in Egypt and ship it as slabs, tiles and blocks to projects worldwide.",
     "sections": [
       {
         "title": "Our Egyptian limestones",
-        "text": "Galala and Galala Extra, Sunny Light, Sunny Dark and Fantazia Sunny, Triesta Beige and Triesta Grey, Melly Grey (light and dark), Cleopatra, Creamy White Pearl, Imperial and Katrina.\n\nEach stone has its own page with its photos, available finishes and the projects where it was used."
+        "text": "Galala and Galala Extra, Sunny Light, Sunny Dark and Fantazia Sunny, Beige Sinai Pearl and Dark Sinai Pearl (formerly Triesta Beige and Triesta Grey), Melly Grey (light and dark), Cleopatra, Creamy White Pearl, Imperial and Katrina.\n\nEach stone has its own page with its photos, available finishes and the projects where it was used."
       },
       {
         "title": "Where Egyptian limestone is used",
@@ -234,7 +234,7 @@
     "sections": [
       {
         "title": "The story of Galala",
-        "text": "In 1980, Wadi Degla's founder, Alhag Saed Alghanam, explored the then-unknown potential of the Galala Mountain and opened its first quarry. Galala soon became one of Egypt's most sought-after stones, attracting importers from around the world. Under his leadership, Wadi Degla went on to own seven major quarries in Galala, and the second generation developed seven more."
+        "text": "In 1980, Wadi Degla's founder, Alhag Saed Alghanam, explored the then-unknown potential of the Galala Mountain and opened its first quarry. Galala soon became one of Egypt's most sought-after stones, attracting importers from around the world. Over the decades, the family has worked many quarries on Galala Mountain and across Egypt; today Wadi Degla owns {{facts.quarries}} quarries."
       },
       {
         "title": "Why architects choose Galala",
