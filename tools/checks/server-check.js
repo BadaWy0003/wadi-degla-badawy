@@ -118,6 +118,13 @@ const CHECKS = [
   // a quote request from the website's quote list (2026-11-20)
   ['POST', '/api/send-email', 'none', 200, { name: 'Q', email: 'q@test.co', message: '', kind: 'quote', items: [{ name: 'Galala', finish: 'Polished', quantity: '1 container' }] }],
   ['POST', '/api/send-email', 'none', 200, { name: 'Q2', email: 'q2@test.co', message: '', kind: 'quote', incoterm: 'CIF', items: [{ name: 'Galala', finish: 'Honed', size: '60×60 cm', thickness: '3 cm', quantity: '500', unit: 'm²' }] }],
+  // website chat assistant (2026-11-27): no GROQ_API_KEY here, so a valid question gets 503 (WhatsApp)
+  ['GET', '/api/chat/status', 'none', 200],
+  ['POST', '/api/chat', 'none', 400, { messages: [{ role: 'assistant', content: 'Hello' }] }],
+  ['POST', '/api/chat', 'none', 400, { messages: [{ role: 'user', content: 'x'.repeat(1001) }] }],
+  ['POST', '/api/chat', 'none', 400, { messages: [{ role: 'user', content: 'Hi' }], lang: 'xx' }],
+  ['POST', '/api/chat', 'none', 200, { messages: [{ role: 'user', content: 'Hi' }], website: 'http://spam' }],
+  ['POST', '/api/chat', 'none', 503, { messages: [{ role: 'user', content: 'Do you have white marble?' }], lang: 'en', page: '/en/' }],
 ];
 
 const express = require(path.join(NM, 'express'));

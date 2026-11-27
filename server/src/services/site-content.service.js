@@ -384,4 +384,21 @@ SiteContentService.uploadFile = async (file) => {
   return { url: `https://www.wadidegla-eg.com/uploads/Site/files/${path}` };
 };
 
+// The website's texts and data as visitors see them (the build's originals + the client's saved
+// changes), for the chat assistant (chat-knowledge.service.js). English texts; `data(block)` gives
+// a block's values (e.g. the company facts). Uses the same 10-minute cache of the originals.
+SiteContentService.liveSite = async () => {
+  const [defaults, saved] = await Promise.all([loadDefaults(), SiteContentService.listPublic()]);
+  const overrides = {};
+  Object.values(saved).forEach((b) => Object.assign(overrides, b.texts || {}));
+  const text = (key) => {
+    const own = overrides[key]?.en;
+    if (typeof own === 'string' && own.trim()) return own;
+    const v = getPath(defaults.en.texts, key);
+    return typeof v === 'string' ? v : v ?? '';
+  };
+  const data = (block) => ({ ...(defaults.en.data?.[block] || {}), ...(saved[block]?.data || {}) });
+  return { text, data };
+};
+
 module.exports = SiteContentService;

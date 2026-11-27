@@ -27,4 +27,5 @@ module.exports = (app) => {
   app.use('/api/enquiries', EnquiriesRouter);
   app.use('/api/overview', OverviewRouter);
   app.use('/api/send-email', require('../routes/sendEmail'));
+  app.use('/api/chat', require('../routes/chat.route'));
 };
