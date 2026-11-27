@@ -42,6 +42,8 @@ export const STATUSES = [
 const STATUS = Object.fromEntries(STATUSES.map(s => [s.id, s]));
 const DOT = { new: '#ed6c02', replied: '#0288d1', won: '#2e7d32', lost: '#9e9e9e', spam: '#9e9e9e' };
 const KIND = { contact: 'Contact form', sample: 'Sample request', quote: 'Quote request' };
+// requests the website's chat assistant collected (2026-11-27) say so
+const kindLabel = e => `${KIND[e.kind] || e.kind}${e.via === 'chat' ? ' (chat)' : ''}`;
 
 // Where the buyer found the website (sent by the website with each enquiry since 2026-11-21).
 const CHANNEL = {
@@ -92,7 +94,7 @@ const initials = name =>
 const toCsv = rows => {
   const cols = [
     ['Date', e => fmtDate(e.createdAt)],
-    ['Type', e => KIND[e.kind] || e.kind],
+    ['Type', e => kindLabel(e)],
     ['Status', e => STATUS[e.status]?.label || e.status],
     ['Name', e => e.name],
     ['Email', e => e.email],
@@ -186,7 +188,7 @@ function EnquiryView({ enquiry, onSaved, onClose }) {
             {enquiry.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {[KIND[enquiry.kind], enquiry.company, enquiry.country].filter(Boolean).join(' · ')}
+            {[kindLabel(enquiry), enquiry.company, enquiry.country].filter(Boolean).join(' · ')}
           </Typography>
           <Typography variant="caption" color="text.secondary">
             {fmtDate(enquiry.createdAt)}
@@ -459,7 +461,7 @@ export default function Enquiries() {
                   </Typography>
                 </Box>
                 <Typography variant="body2" color="text.secondary" noWrap>
-                  {[KIND[e.kind], stone(e), e.country].filter(Boolean).join(' · ')}
+                  {[kindLabel(e), stone(e), e.country].filter(Boolean).join(' · ')}
                 </Typography>
                 {(e.message || e.note) && (
                   <Typography variant="body2" color="text.secondary" noWrap dir="auto" sx={{ opacity: 0.8 }}>

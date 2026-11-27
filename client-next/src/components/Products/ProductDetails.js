@@ -13,7 +13,6 @@ const staircase = '/Assets/Icons/product-icons/staircase.svg';
 const wall_cladding = '/Assets/Icons/product-icons/wall-cladding.svg';
 const windowsills = '/Assets/Icons/product-icons/windowsills.svg';
 import apiClient from '../../util/client.js';
-import ContactBubble from '../Contact/ContactBubble.js';
 import SampleRequestForm from './SampleRequestForm';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 import { useTranslation } from 'react-i18next';
@@ -499,7 +498,6 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
         productFinish={selectedFinish?.finish}
         productFinishLabel={finishLabel(t, selectedFinish?.finish)}
       />
-      <ContactBubble />
     </div>
   );
 }

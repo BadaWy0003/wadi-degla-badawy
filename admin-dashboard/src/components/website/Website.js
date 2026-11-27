@@ -7,6 +7,7 @@ import { fieldId, initialValues, loadBlock, loadBlocks, timeAgo } from '../../ut
 import { colors } from '../../theme';
 import PublishPanel from '../publish/PublishPanel';
 import UnusedPhotos from './UnusedPhotos';
+import ChatSwitch from './ChatSwitch';
 
 // "Pages & texts" (redesign step 4, 2026-11-24): the website's editable parts grouped by area,
 // and a search that finds a page by name or ANY text on the website (it loads every page's
@@ -303,6 +304,7 @@ export default function Website() {
           >
             Tools
           </Typography>
+          <ChatSwitch />
           <UnusedPhotos />
         </Box>
       )}

@@ -35,6 +35,13 @@ export const PRIVACY = {
         ],
       },
       {
+        h: 'Chat assistant',
+        p: [
+          'The chat assistant on this website is an AI. To write its answers, the messages you type are sent to Groq (an AI service in the USA). They are not stored by us, and the assistant never sees your details unless you type them.',
+          'Only when you confirm a quote or sample request in the chat do we save it with the conversation, like a form, so our sales team can answer you. Please don\'t type information you don\'t want to share.',
+        ],
+      },
+      {
         h: 'Statistics cookies (Google Analytics)',
         p: [
           'We use Google Analytics to understand how the website is used: which pages are visited, from which country and device, and which buttons are pressed (for example WhatsApp or "Request a free sample"). It never receives your name, email or phone number.',
@@ -80,6 +87,13 @@ export const PRIVACY = {
         p: [
           'تُحفظ الاستفسارات والحسابات في Google Firebase (Google Cloud)، وتُرسل الرسائل عبر Zoho Mail، ويعمل الموقع على Fly.io. تعالج هذه الشركات البيانات نيابةً عنا فقط.',
           'نحتفظ بالاستفسارات طالما احتجنا إليها للرد عليها ولسجلات أعمالنا.',
+        ],
+      },
+      {
+        h: 'المساعد في المحادثة',
+        p: [
+          'المساعد في المحادثة على هذا الموقع يعمل بالذكاء الاصطناعي. لكتابة إجاباته تُرسل الرسائل التي تكتبها إلى Groq (خدمة ذكاء اصطناعي في الولايات المتحدة). لا نحتفظ بها، ولا يرى المساعد بياناتك إلا إذا كتبتها.',
+          'فقط عندما تؤكد طلب عرض سعر أو عينات في المحادثة نحفظه مع المحادثة، مثل النموذج، ليتمكن فريق المبيعات من الرد عليك. يُرجى عدم كتابة معلومات لا تريد مشاركتها.',
         ],
       },
       {

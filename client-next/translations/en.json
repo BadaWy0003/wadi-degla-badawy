@@ -798,11 +798,6 @@
     "pageTitle": "My Account | Wadidegla",
     "metaDescription": "Manage your account details, change password and logout."
   },
-  "contactBubble": {
-    "message": "We are looking forward to working with you!",
-    "button": "GET IN TOUCH",
-    "altText": "Contact bubble icon"
-  },
   "partners": {
     "pageTitle": "Global Partners & Clients | Wadi Degla Natural Stone",
     "metaDescription": "Developers, architects, contractors and stone importers who work with Wadi Degla across the Gulf, Europe, Africa and the Americas.",
@@ -1429,5 +1424,45 @@
     "decline": "Decline",
     "accept": "Accept",
     "ok": "OK"
+  },
+  "chat": {
+    "open": "Chat with us",
+    "tip": "Questions? Ask our assistant",
+    "greeting": "Looking for a quote or samples? Ask me.",
+    "title": "Wadi Degla assistant",
+    "subtitle": "AI assistant · our sales team follows up",
+    "close": "Close chat",
+    "restart": "Start a new chat",
+    "welcome": "Welcome to Wadi Degla. We've quarried and exported Egyptian marble, limestone and granite since 1980. How can I help?",
+    "qQuote": "Request a quote",
+    "qChoose": "Find the right stone",
+    "qSamples": "Free samples",
+    "qShipping": "Shipping and export",
+    "qStone": "Quote for {{name}}",
+    "placeholder": "Type your message…",
+    "send": "Send",
+    "thinking": "Typing…",
+    "whatsapp": "Talk to sales on WhatsApp",
+    "privacy": "Answers are written by AI and can contain mistakes. Your details are only sent when you confirm a request.",
+    "privacyLink": "Privacy",
+    "unavailable": "The assistant can't answer right now. Our sales team is ready on WhatsApp.",
+    "busy": "Too many messages at once. Please wait a minute, or message us on WhatsApp.",
+    "summaryQuote": "Your quote request",
+    "summarySample": "Your sample request",
+    "checkPrompt": "Please check your details, then confirm:",
+    "confirm": "Confirm and send",
+    "edit": "Change something",
+    "sending": "Sending…",
+    "sent": "Thank you! Your request is with our sales team. They'll reply by email or WhatsApp.",
+    "sendFailed": "Sorry, it couldn't be sent. Please try again or message us on WhatsApp.",
+    "editAsk": "Of course. What would you like to change?",
+    "viewStone": "View stone",
+    "fName": "Name",
+    "fCompany": "Company",
+    "fEmail": "Email",
+    "fWhatsapp": "WhatsApp",
+    "fDestination": "Destination",
+    "fAddress": "Shipping address",
+    "fProject": "Project"
   }
 }

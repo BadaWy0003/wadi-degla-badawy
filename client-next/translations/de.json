@@ -798,11 +798,6 @@
     "pageTitle": "Mein Konto | Wadidegla",
     "metaDescription": "Verwalten Sie Ihre Kontodaten, ändern Sie das Passwort und melden Sie sich ab."
   },
-  "contactBubble": {
-    "message": "Wir freuen uns darauf, mit Ihnen zusammenzuarbeiten!",
-    "button": "KONTAKT AUFNEHMEN",
-    "altText": "Kontaktblasen-Icon"
-  },
   "partners": {
     "pageTitle": "Partner | Wadidegla",
     "metaDescription": "Unsere Partner und Kunden",
@@ -1429,5 +1424,45 @@
     "decline": "Ablehnen",
     "accept": "Akzeptieren",
     "ok": "OK"
+  },
+  "chat": {
+    "open": "Chatten Sie mit uns",
+    "tip": "Fragen? Fragen Sie unseren Assistenten",
+    "greeting": "Sie suchen ein Angebot oder Muster? Fragen Sie mich.",
+    "title": "Wadi-Degla-Assistent",
+    "subtitle": "KI-Assistent · unser Vertrieb meldet sich",
+    "close": "Chat schließen",
+    "restart": "Neuen Chat beginnen",
+    "welcome": "Willkommen bei Wadi Degla. Seit 1980 gewinnen und exportieren wir ägyptischen Marmor, Kalkstein und Granit. Wie kann ich helfen?",
+    "qQuote": "Angebot anfordern",
+    "qChoose": "Den richtigen Stein finden",
+    "qSamples": "Kostenlose Muster",
+    "qShipping": "Versand und Export",
+    "qStone": "Angebot für {{name}}",
+    "placeholder": "Ihre Nachricht…",
+    "send": "Senden",
+    "thinking": "Schreibt…",
+    "whatsapp": "Mit dem Vertrieb auf WhatsApp sprechen",
+    "privacy": "Die Antworten schreibt eine KI; sie können Fehler enthalten. Ihre Daten werden erst gesendet, wenn Sie eine Anfrage bestätigen.",
+    "privacyLink": "Datenschutz",
+    "unavailable": "Der Assistent kann gerade nicht antworten. Unser Vertrieb ist auf WhatsApp für Sie da.",
+    "busy": "Zu viele Nachrichten auf einmal. Bitte warten Sie eine Minute oder schreiben Sie uns auf WhatsApp.",
+    "summaryQuote": "Ihre Angebotsanfrage",
+    "summarySample": "Ihre Musteranfrage",
+    "checkPrompt": "Bitte prüfen Sie Ihre Angaben und bestätigen Sie:",
+    "confirm": "Bestätigen und senden",
+    "edit": "Etwas ändern",
+    "sending": "Wird gesendet…",
+    "sent": "Vielen Dank! Ihre Anfrage liegt bei unserem Vertrieb, der Ihnen per E-Mail oder WhatsApp antwortet.",
+    "sendFailed": "Leider konnte die Anfrage nicht gesendet werden. Versuchen Sie es erneut oder schreiben Sie uns auf WhatsApp.",
+    "editAsk": "Gern. Was möchten Sie ändern?",
+    "viewStone": "Stein ansehen",
+    "fName": "Name",
+    "fCompany": "Firma",
+    "fEmail": "E-Mail",
+    "fWhatsapp": "WhatsApp",
+    "fDestination": "Ziel",
+    "fAddress": "Lieferadresse",
+    "fProject": "Projekt"
   }
 }

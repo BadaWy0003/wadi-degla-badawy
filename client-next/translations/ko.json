@@ -798,11 +798,6 @@
     "pageTitle": "내 계정 | 와디 데글라",
     "metaDescription": "계정 세부 정보를 관리하고 비밀번호를 변경하며 로그아웃하십시오."
   },
-  "contactBubble": {
-    "message": "함께 일하기를 기대합니다!",
-    "button": "문의하기",
-    "altText": "문의 풍선 아이콘"
-  },
   "partners": {
     "pageTitle": "파트너 | 와디 데글라",
     "metaDescription": "우리의 파트너 및 고객",
@@ -1429,5 +1424,45 @@
     "decline": "거부",
     "accept": "동의",
     "ok": "확인"
+  },
+  "chat": {
+    "open": "채팅 상담",
+    "tip": "궁금한 점이 있나요? 어시스턴트에게 물어보세요",
+    "greeting": "견적이나 샘플이 필요하신가요? 물어보세요.",
+    "title": "와디 데글라 어시스턴트",
+    "subtitle": "AI 어시스턴트 · 영업팀이 이어서 응대합니다",
+    "close": "채팅 닫기",
+    "restart": "새 채팅 시작",
+    "welcome": "와디 데글라에 오신 것을 환영합니다. 1980년부터 이집트산 대리석, 석회암, 화강암을 채석하고 수출해 왔습니다. 무엇을 도와드릴까요?",
+    "qQuote": "견적 요청",
+    "qChoose": "알맞은 석재 찾기",
+    "qSamples": "무료 샘플",
+    "qShipping": "배송 및 수출",
+    "qStone": "{{name}} 견적",
+    "placeholder": "메시지를 입력하세요…",
+    "send": "보내기",
+    "thinking": "입력 중…",
+    "whatsapp": "WhatsApp으로 영업팀과 상담",
+    "privacy": "답변은 AI가 작성하며 오류가 있을 수 있습니다. 요청을 확인하실 때만 정보가 전송됩니다.",
+    "privacyLink": "개인정보 보호",
+    "unavailable": "지금은 어시스턴트가 답변할 수 없습니다. 영업팀이 WhatsApp에서 도와드립니다.",
+    "busy": "메시지가 너무 많습니다. 1분 후 다시 시도하거나 WhatsApp으로 연락해 주세요.",
+    "summaryQuote": "견적 요청 내용",
+    "summarySample": "샘플 요청 내용",
+    "checkPrompt": "정보를 확인한 후 확정해 주세요:",
+    "confirm": "확정 후 보내기",
+    "edit": "수정하기",
+    "sending": "보내는 중…",
+    "sent": "감사합니다! 요청이 영업팀에 전달되었으며 이메일이나 WhatsApp으로 답변드리겠습니다.",
+    "sendFailed": "죄송합니다. 전송하지 못했습니다. 다시 시도하거나 WhatsApp으로 연락해 주세요.",
+    "editAsk": "물론입니다. 무엇을 바꾸시겠어요?",
+    "viewStone": "석재 보기",
+    "fName": "이름",
+    "fCompany": "회사",
+    "fEmail": "이메일",
+    "fWhatsapp": "WhatsApp",
+    "fDestination": "목적지",
+    "fAddress": "배송 주소",
+    "fProject": "프로젝트"
   }
 }

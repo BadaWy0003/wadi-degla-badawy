@@ -798,11 +798,6 @@
     "pageTitle": "Llogaria Ime | Wadidegla",
     "metaDescription": "Menaxhoni detajet e llogarisë tuaj, ndryshoni fjalëkalimin dhe dilni."
   },
-  "contactBubble": {
-    "message": "Mezi presim të punojmë me ju!",
-    "button": "NA KONTAKTONI",
-    "altText": "Ikona e flluskës së kontaktit"
-  },
   "partners": {
     "pageTitle": "Partnerët | Wadidegla",
     "metaDescription": "Partnerët dhe klientët tanë",
@@ -1429,5 +1424,45 @@
     "decline": "Refuzo",
     "accept": "Prano",
     "ok": "Në rregull"
+  },
+  "chat": {
+    "open": "Bisedo me ne",
+    "tip": "Pyetje? Pyet asistentin tonë",
+    "greeting": "Kërkoni ofertë apo mostra? Më pyesni.",
+    "title": "Asistenti i Wadi Degla",
+    "subtitle": "Asistent me IA · ekipi ynë i shitjeve vazhdon më tej",
+    "close": "Mbyll bisedën",
+    "restart": "Bisedë e re",
+    "welcome": "Mirë se vini në Wadi Degla. Që nga viti 1980 nxjerrim dhe eksportojmë mermer, gur gëlqeror dhe granit egjiptian. Si mund t'ju ndihmoj?",
+    "qQuote": "Kërko ofertë",
+    "qChoose": "Gjej gurin e duhur",
+    "qSamples": "Mostra falas",
+    "qShipping": "Transporti dhe eksporti",
+    "qStone": "Ofertë për {{name}}",
+    "placeholder": "Shkruani mesazhin…",
+    "send": "Dërgo",
+    "thinking": "Po shkruan…",
+    "whatsapp": "Bisedo me shitjet në WhatsApp",
+    "privacy": "Përgjigjet i shkruan IA dhe mund të kenë gabime. Të dhënat tuaja dërgohen vetëm kur konfirmoni një kërkesë.",
+    "privacyLink": "Privatësia",
+    "unavailable": "Asistenti nuk mund të përgjigjet tani. Ekipi i shitjeve ju pret në WhatsApp.",
+    "busy": "Shumë mesazhe njëherësh. Prisni një minutë ose na shkruani në WhatsApp.",
+    "summaryQuote": "Kërkesa juaj për ofertë",
+    "summarySample": "Kërkesa juaj për mostra",
+    "checkPrompt": "Kontrolloni të dhënat dhe konfirmoni:",
+    "confirm": "Konfirmo dhe dërgo",
+    "edit": "Ndrysho diçka",
+    "sending": "Po dërgohet…",
+    "sent": "Faleminderit! Kërkesa juaj është te ekipi i shitjeve, që do t'ju përgjigjet me email ose WhatsApp.",
+    "sendFailed": "Na vjen keq, nuk u dërgua. Provoni përsëri ose na shkruani në WhatsApp.",
+    "editAsk": "Sigurisht. Çfarë dëshironi të ndryshoni?",
+    "viewStone": "Shiko gurin",
+    "fName": "Emri",
+    "fCompany": "Kompania",
+    "fEmail": "Email",
+    "fWhatsapp": "WhatsApp",
+    "fDestination": "Destinacioni",
+    "fAddress": "Adresa e dërgesës",
+    "fProject": "Projekti"
   }
 }

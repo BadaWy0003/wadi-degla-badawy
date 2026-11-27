@@ -16,6 +16,8 @@ import { SHOW_TOASTS_EVENT } from '../util/toast';
 
 const ToastHost = dynamic(() => import('./ToastHost'), { ssr: false });
 const CookieBanner = dynamic(() => import('./CookieBanner/CookieBanner'), { ssr: false });
+// the chat assistant's button (its window is downloaded on the first tap)
+const ChatLauncher = dynamic(() => import('./Chat/ChatLauncher'), { ssr: false });
 
 export default function AppShell({ children, lang, messages }) {
   // Initialize i18n language from URL param
@@ -65,6 +67,7 @@ export default function AppShell({ children, lang, messages }) {
             </div>
             <Footer />
             <CookieBanner />
+            <ChatLauncher />
           </div>
         </GlobalStateProvider>
       </I18nextProvider>

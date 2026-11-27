@@ -7,7 +7,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp } from 'react-icons/fa';
 import LangLink from '../LangLink';
-import ContactBubble from '../Contact/ContactBubble.js';
 import OurMarkets from '../Exports/OurMarkets.js';
 import StatCounter from '../About/StatCounter';
 import CertificateLightBox from '../Certificates/CertificateLightBox';
@@ -467,7 +466,6 @@ export default function Home({ featured = [] }) {
         </div>
       </section>
 
-      <ContactBubble />
     </div>
   );
 }

@@ -798,11 +798,6 @@
     "pageTitle": "Mi Cuenta | Wadidegla",
     "metaDescription": "Gestiona los datos de tu cuenta, cambia la contraseña y cierra sesión."
   },
-  "contactBubble": {
-    "message": "Tienes alguna pregunta? ¡Contáctanos!",
-    "button": "Enviar mensaje",
-    "altText": "Icono de burbuja de contacto"
-  },
   "partners": {
     "pageTitle": "Socios | Wadidegla",
     "metaDescription": "Nuestros socios y clientes",
@@ -1429,5 +1424,45 @@
     "decline": "Rechazar",
     "accept": "Aceptar",
     "ok": "De acuerdo"
+  },
+  "chat": {
+    "open": "Chatea con nosotros",
+    "tip": "¿Preguntas? Consulta a nuestro asistente",
+    "greeting": "¿Buscas un presupuesto o muestras? Pregúntame.",
+    "title": "Asistente de Wadi Degla",
+    "subtitle": "Asistente con IA · nuestro equipo de ventas da seguimiento",
+    "close": "Cerrar el chat",
+    "restart": "Nuevo chat",
+    "welcome": "Bienvenido a Wadi Degla. Extraemos y exportamos mármol, piedra caliza y granito egipcios desde 1980. ¿En qué puedo ayudarle?",
+    "qQuote": "Solicitar presupuesto",
+    "qChoose": "Encontrar la piedra adecuada",
+    "qSamples": "Muestras gratuitas",
+    "qShipping": "Envío y exportación",
+    "qStone": "Presupuesto de {{name}}",
+    "placeholder": "Escribe tu mensaje…",
+    "send": "Enviar",
+    "thinking": "Escribiendo…",
+    "whatsapp": "Hablar con ventas por WhatsApp",
+    "privacy": "Las respuestas las escribe una IA y pueden contener errores. Sus datos solo se envían cuando confirma una solicitud.",
+    "privacyLink": "Privacidad",
+    "unavailable": "El asistente no puede responder ahora. Nuestro equipo de ventas le atiende por WhatsApp.",
+    "busy": "Demasiados mensajes a la vez. Espere un minuto o escríbanos por WhatsApp.",
+    "summaryQuote": "Su solicitud de presupuesto",
+    "summarySample": "Su solicitud de muestras",
+    "checkPrompt": "Revise sus datos y confirme:",
+    "confirm": "Confirmar y enviar",
+    "edit": "Cambiar algo",
+    "sending": "Enviando…",
+    "sent": "¡Gracias! Su solicitud ya está con nuestro equipo de ventas, que le responderá por correo electrónico o WhatsApp.",
+    "sendFailed": "Lo sentimos, no se pudo enviar. Inténtelo de nuevo o escríbanos por WhatsApp.",
+    "editAsk": "Por supuesto. ¿Qué desea cambiar?",
+    "viewStone": "Ver la piedra",
+    "fName": "Nombre",
+    "fCompany": "Empresa",
+    "fEmail": "Correo electrónico",
+    "fWhatsapp": "WhatsApp",
+    "fDestination": "Destino",
+    "fAddress": "Dirección de envío",
+    "fProject": "Proyecto"
   }
 }
