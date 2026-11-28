@@ -31,6 +31,18 @@ const SearchBar = () => {
     };
   }, [isSearchOpen, products.length]);
 
+  // Esc closes the search
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key === 'Escape') {
+        setShowResults(false);
+        setIsSearchOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
+
   // Handle click outside to close results and search bar
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -201,6 +213,13 @@ const SearchBar = () => {
       }
     });
 
+    // stones first (the name starting with the words typed, then containing them), then pages
+    const rank = (r) => {
+      if (!r.isProduct) return 3;
+      const name = r.title.toLowerCase();
+      return name.startsWith(searchTerm) ? 0 : name.includes(searchTerm) ? 1 : 2;
+    };
+    filteredResults.sort((a, b) => rank(a) - rank(b));
     setResults(filteredResults);
     setShowResults(filteredResults.length > 0);
   };

@@ -68,4 +68,54 @@ AuditFixes.apply = async () => {
   console.log('[audit-fixes] applied', JSON.stringify(done));
 };
 
+// Second set of one-time fixes (owner, 2026-11-28, after the client's design/text audit), run at
+// server start until they have run once (flag site_meta/news.auditFixes2At). Each fix only
+// applies while the old text is still there, so anything edited since is kept:
+//  1. "Sunny Menia …" is removed from every stone's "Also known as" (the company keeps that
+//     name off the site; it came in with the test sheet import)
+//  2. stone names with a space before/after them are trimmed (Border Beige, Breccia Daino,
+//     Oriental White; the web address doesn't change)
+//  3. the Viva Miches news post: "and and" → "and"
+//  4. project 15: "viva tangerine by wyndham (full remodelation)" → proper capitals, "Full Renovation"
+const PROJECT_15 = { old: 'viva tangerine by wyndham (full remodelation)', new: 'Viva Tangerine by Wyndham (Full Renovation)' };
+AuditFixes.applySecond = async () => {
+  const meta = await SiteMeta.get();
+  if (meta.auditFixes2At) return;
+  const BY2 = 'website audit fixes 2';
+  const now = Date.now();
+  const done = { otherNames: 0, names: 0, news: 0, projects: 0 };
+  const batch = db.batch();
+  const details = await db.collection(col('product_details')).get();
+  for (const d of details.docs) {
+    const names = d.data().otherNames || [];
+    const kept = names.filter((n) => !/menia/i.test(String(n)));
+    if (kept.length === names.length) continue;
+    batch.set(d.ref, { otherNames: kept, updatedAt: now, updatedBy: BY2 }, { merge: true });
+    done.otherNames += 1;
+  }
+  const materials = await db.collection(col('materials')).get();
+  for (const m of materials.docs) {
+    const name = m.data().name;
+    if (typeof name !== 'string' || name === name.trim()) continue;
+    batch.set(m.ref, { name: name.trim() }, { merge: true });
+    done.names += 1;
+  }
+  const news = await db.collection(col('news')).get();
+  for (const n of news.docs) {
+    const en = n.data().content?.en;
+    if (typeof en !== 'string' || !/\band and\b/.test(en)) continue;
+    batch.set(n.ref, { content: { ...n.data().content, en: en.replace(/\band and\b/g, 'and') } }, { merge: true });
+    done.news += 1;
+  }
+  const project = await db.collection(col('projects')).doc('15').get();
+  if (project.exists && String(project.data().name?.en || '').trim() === PROJECT_15.old) {
+    batch.set(project.ref, { name: { ...project.data().name, en: PROJECT_15.new } }, { merge: true });
+    done.projects += 1;
+  }
+  await batch.commit();
+  await SiteMeta.set({ auditFixes2At: now });
+  await SiteMeta.markChanged(BY2);
+  console.log('[audit-fixes-2] applied', JSON.stringify(done));
+};
+
 module.exports = AuditFixes;

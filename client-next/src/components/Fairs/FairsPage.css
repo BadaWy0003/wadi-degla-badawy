@@ -74,6 +74,7 @@
 
 /* ---------- header ---------- */
 .fa-hero {
+  overflow-x: clip; /* the stamps press in from larger than their size: no sideways scroll on phones */
   padding: calc(var(--fa-header) + 56px) 0 24px;
   background: radial-gradient(1000px 420px at 85% 0, rgba(173, 149, 113, 0.17), transparent);
 }

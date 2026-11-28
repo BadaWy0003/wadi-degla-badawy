@@ -29,6 +29,25 @@ export function saveConsent(analytics) {
   if (typeof window.gtag === 'function') {
     window.gtag('consent', 'update', { analytics_storage: analytics });
   }
+  if (analytics === 'denied') removeAnalyticsCookies();
+}
+
+// Google Analytics' cookies (_ga, _ga_<id>) set before the visitor declined: delete them, on
+// this host and the site's parent domain (Google writes them on .wadidegla-eg.com).
+function removeAnalyticsCookies() {
+  try {
+    const host = location.hostname;
+    const domains = ['', host, '.' + host, '.' + host.replace(/^www\./, '')];
+    for (const c of document.cookie.split(';')) {
+      const name = c.split('=')[0].trim();
+      if (name !== '_ga' && !name.startsWith('_ga_') && name !== '_gid') continue;
+      for (const d of domains) {
+        document.cookie = `${name}=; Max-Age=0; path=/${d ? `; domain=${d}` : ''}`;
+      }
+    }
+  } catch {
+    // cookies blocked: nothing to delete
+  }
 }
 
 // Europe by the visitor's clock (no outside lookup needed). Google uses the visitor's real

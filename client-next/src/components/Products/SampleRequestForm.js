@@ -6,6 +6,7 @@ import { useGlobalState } from '../GlobalStateContext.js';
 import { trackEvent } from '../../util/analytics';
 import { useTranslation } from 'react-i18next';
 import { sourceForForm } from '../../util/visit-source';
+import LangLink from '../LangLink';
 
 // productFinish (English) goes into the email to the company; productFinishLabel is the
 // visitor's translated label shown in the form.
@@ -135,6 +136,10 @@ export default function SampleRequestForm({
           <button type="submit" className="btn1">
             {t('sampleRequestForm.submit')}
           </button>
+          <p className="srf-privacy">
+            {t('contactForm.privacyNote')}{' '}
+            <LangLink href="/privacy">{t('footer.privacy')}</LangLink>
+          </p>
         </form>
       </div>
     </div>

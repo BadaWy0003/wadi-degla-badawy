@@ -93,7 +93,7 @@ export default function Kerbstone({ children }) {
   return (
     <div className="kb" ref={pageRef}>
       <div className="kb-hero">
-        <img className="kb-hero-photo" src={HERO} alt="" fetchPriority="high" />
+        <img className="kb-hero-photo" src={HERO} alt={t('kerbstone.introTitle')} fetchPriority="high" />
         <div className="kb-wrap">
           <div className="kb-crumb">
             <LangLink href="/">{t('kerbstone.breadcrumbHome')}</LangLink>
