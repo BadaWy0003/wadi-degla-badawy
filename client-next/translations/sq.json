@@ -1465,5 +1465,9 @@
     "fDestination": "Destinacioni",
     "fAddress": "Adresa e dërgesës",
     "fProject": "Projekti"
+  },
+  "whatsapp": {
+    "msgQuote": "Përshëndetje Wadi Degla, dëshiroj një çmim për {{what}}.",
+    "msgPage": "Përshëndetje Wadi Degla, kam një pyetje për \"{{page}}\"."
   }
 }

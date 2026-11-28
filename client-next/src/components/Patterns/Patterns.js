@@ -115,7 +115,13 @@ function Scene({ scene, t }) {
             </li>
           ))}
         </ul>
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="pt-btn">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pt-btn"
+          data-wa={scene.samples[current].name || undefined}
+        >
           <FaWhatsapp aria-hidden="true" /> {t('patterns.ask')}
         </a>
       </div>

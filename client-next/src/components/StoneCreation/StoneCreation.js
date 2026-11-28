@@ -72,7 +72,13 @@ function Viewer({ id, items, t, showSize = false }) {
               <h3>{name(item)}</h3>
               <p className="sc-text">{t(item.textKey)}</p>
               <div className="sc-actions">
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="sc-btn">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sc-btn"
+                  data-wa={name(item)}
+                >
                   <FaWhatsapp aria-hidden="true" /> {t('stoneCreation.quote')}
                 </a>
                 {item.link && (

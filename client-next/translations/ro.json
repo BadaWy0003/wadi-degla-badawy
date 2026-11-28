@@ -1468,5 +1468,9 @@
     "fDestination": "Destinație",
     "fAddress": "Adresa de livrare",
     "fProject": "Proiect"
+  },
+  "whatsapp": {
+    "msgQuote": "Bună ziua, Wadi Degla, aș dori un preț pentru {{what}}.",
+    "msgPage": "Bună ziua, Wadi Degla, am o întrebare despre „{{page}}”."
   }
 }

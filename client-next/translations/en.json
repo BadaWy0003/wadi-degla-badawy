@@ -1465,5 +1465,9 @@
     "fDestination": "Destination",
     "fAddress": "Shipping address",
     "fProject": "Project"
+  },
+  "whatsapp": {
+    "msgQuote": "Hello Wadi Degla, I'd like a price for {{what}}.",
+    "msgPage": "Hello Wadi Degla, I have a question about \"{{page}}\"."
   }
 }
