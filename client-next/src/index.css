@@ -162,6 +162,23 @@ body[lang="ru"] {
   font-family: "Manrope", "inter", sans-serif;
 }
 
+/* Page titles (owner, 2026-11-28): every page's H1 looks like the home page headline (thin &
+   elegant, client's option D): Clash Display 300, same size, line height and spacing. The home
+   page's own H1 (.hp-hero-title) keeps its two-part layout. Phones: mobile.css (1.55rem). The
+   :not(#t) only raises the weight of the rule above the pages' own h1 rules. */
+html body h1:not(.hp-hero-title):not(.sr-only):not(#t) {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+body[lang='ar'] h1:not(.hp-hero-title):not(.sr-only):not(#t) {
+  letter-spacing: 0;
+}
+
 /* buttons and fields take the page's font (browsers give them Arial otherwise) */
 button,
 input,

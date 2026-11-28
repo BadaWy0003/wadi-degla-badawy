@@ -15,8 +15,9 @@
 
 @media screen and (max-width: 768px) {
   /* ---------- Headings ---------- */
+  /* the home page headline's phone size (all page titles match it, 2026-11-28) */
   html body h1:not(.sr-only):not(.hero-heading):not(#m) {
-    font-size: 26px;
+    font-size: 1.55rem;
   }
 
   html body h2:not(#m) {

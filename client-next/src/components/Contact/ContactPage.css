@@ -1177,7 +1177,7 @@ body[lang='ar'] .cx-page .cx-card-title {
   }
 
   html body .cx-page .cx-hero h1:not(#m) {
-    font-size: 28px;
+    font-size: 1.55rem; /* same as every page title (the home headline's phone size) */
   }
 
   .cx-page .cx-crumbs {
