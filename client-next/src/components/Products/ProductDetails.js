@@ -177,7 +177,13 @@ export default function ProductDetails({ initialProduct = null, seo = null }) {
         );
   const openSample = () => setIsFormOpen(true);
   const whatsapp = (label, className) => (
-    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={className}>
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      data-wa={`${heading} (${finishLabel(t, selectedFinish?.finish)})`}
+    >
       <FaWhatsapp aria-hidden="true" /> {label}
     </a>
   );

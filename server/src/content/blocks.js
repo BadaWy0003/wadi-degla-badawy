@@ -105,9 +105,10 @@ const BLOCKS = [
       {
         id: 'links',
         title: 'WhatsApp & social pages',
-        help: 'Full links starting with https://. The WhatsApp link is used by every "WhatsApp" button on the site.',
+        help: 'Full links starting with https://. The WhatsApp link is used by every "WhatsApp" button on the site. When a WhatsApp number is set, a tap on a WhatsApp button opens a chat with that number and a ready message (the stone or page and its web address).',
         fields: [
           { type: 'url', name: 'whatsappUrl', label: 'WhatsApp chat link' },
+          { type: 'phone', name: 'whatsappNumber', label: 'WhatsApp number (for the ready messages)' },
           { type: 'url', name: 'googleProfileUrl', label: 'Google Business Profile link' },
           { type: 'url', name: 'facebook', label: 'Facebook' },
           { type: 'url', name: 'instagram', label: 'Instagram' },

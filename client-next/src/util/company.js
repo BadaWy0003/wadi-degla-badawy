@@ -26,6 +26,9 @@ export const COMPANY_DEFAULTS = {
   openHour: 9,
   closeHour: 17,
   whatsappUrl: 'https://wa.me/message/LAQ57AMNJ5ZON1?src=qr',
+  // the number behind it (owner, 2026-11-28): WhatsApp buttons open a chat with a ready message
+  // (src/util/whatsapp.js); the business link above can't carry a text
+  whatsappNumber: '+20 10 6726 0314',
   // the Google Business Profile's own "Share" link (2026-11-09)
   googleProfileUrl: 'https://share.google/Rd6wSY83M15CWZ6OR',
   facebook: 'https://www.facebook.com/wadideglaco',

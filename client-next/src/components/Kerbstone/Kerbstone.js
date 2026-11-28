@@ -57,7 +57,13 @@ function ProfileCard({ profile, index, t, onZoom }) {
         </p>
         <h3>{title}</h3>
         <p className="kb-desc">{t(`kerbstone.${profile.key}.text`)}</p>
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="kb-quote">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="kb-quote"
+          data-wa={title}
+        >
           {t('kerbstone.quote')}{' '}
           <span className="kb-arrow" aria-hidden="true">
             →

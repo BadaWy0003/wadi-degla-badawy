@@ -1469,5 +1469,9 @@
     "fDestination": "Назначение",
     "fAddress": "Адрес доставки",
     "fProject": "Проект"
+  },
+  "whatsapp": {
+    "msgQuote": "Здравствуйте, Wadi Degla! Хочу узнать цену на {{what}}.",
+    "msgPage": "Здравствуйте, Wadi Degla! У меня вопрос по теме «{{page}}»."
   }
 }

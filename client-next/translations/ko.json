@@ -1465,5 +1465,9 @@
     "fDestination": "목적지",
     "fAddress": "배송 주소",
     "fProject": "프로젝트"
+  },
+  "whatsapp": {
+    "msgQuote": "안녕하세요 Wadi Degla, {{what}}의 가격을 알고 싶습니다.",
+    "msgPage": "안녕하세요 Wadi Degla, \"{{page}}\"에 대해 문의드립니다."
   }
 }

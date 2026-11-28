@@ -11,6 +11,7 @@ import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 import ScrollToTop from './ScrollToTop';
 import { startEnquiryTracking } from '../util/analytics';
+import { startWhatsAppMessages } from '../util/whatsapp';
 import { captureSource } from '../util/visit-source';
 import { SHOW_TOASTS_EVENT } from '../util/toast';
 
@@ -39,6 +40,9 @@ export default function AppShell({ children, lang, messages }) {
 
   // Count WhatsApp / call / email / directions taps in Google Analytics
   useEffect(() => startEnquiryTracking(), []);
+
+  // WhatsApp buttons open a chat with a ready message (the stone, or the page, + its address)
+  useEffect(() => startWhatsAppMessages((key, vars) => i18n.t(key, vars)), []);
 
   // Where this visitor came from (Google, LinkedIn, a campaign link...), sent with enquiries
   useEffect(() => captureSource(), []);

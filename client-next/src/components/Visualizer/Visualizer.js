@@ -527,7 +527,13 @@ export default function Visualizer({ initialStones = [] }) {
   const actions = (s) =>
     s && (
       <>
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="vz-btn">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="vz-btn"
+          data-wa={s.name}
+        >
           <FaWhatsapp aria-hidden="true" /> {t('productDetails.ctaPriceShort')}
         </a>
         {s.finish && (

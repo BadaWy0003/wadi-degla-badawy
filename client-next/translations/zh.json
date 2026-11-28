@@ -1465,5 +1465,9 @@
     "fDestination": "目的地",
     "fAddress": "收货地址",
     "fProject": "项目"
+  },
+  "whatsapp": {
+    "msgQuote": "您好，Wadi Degla，我想了解{{what}}的价格。",
+    "msgPage": "您好，Wadi Degla，我想咨询关于“{{page}}”的问题。"
   }
 }
