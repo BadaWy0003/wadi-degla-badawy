@@ -171,7 +171,7 @@ export default function Home({ featured = [] }) {
       <section className="hp-hero" style={heroStyle}>
         <div className="hp-hero-inner">
           <h1 className="hero-heading hp-hero-title">
-            <span className="hp-eyebrow">{t('home.companyName')}</span>
+            <span className="hp-eyebrow">{t('home.companyName')}</span>{' '}
             <span className="hp-hero-headline">{t('home.heroHeadline')}</span>
           </h1>
           <p className="hp-hero-text">{t('home.heroWelcome')}</p>

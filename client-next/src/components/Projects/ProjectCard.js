@@ -30,7 +30,7 @@ export default function ProjectCard({ card }) {
         <span className="pj-card-stones">
           <span className="pj-swatches" aria-hidden="true">
             {card.stones.map((s) =>
-              s.thumb ? <img key={s.id} src={s.thumb} alt="" loading="lazy" /> : null,
+              s.thumb ? <img key={s.id} src={s.thumb} alt={s.name || ''} loading="lazy" /> : null,
             )}
           </span>
           {count('projects.stonesOne', 'projects.stonesMany', card.stoneCount)}

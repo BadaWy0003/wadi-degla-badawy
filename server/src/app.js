@@ -47,7 +47,9 @@ const server = app.listen(port, async () => {
   // One-time: the website audit fixes of 2026-11-25 (audit-fixes.service.js).
   require('./services/audit-fixes.service')
     .apply()
-    .catch((error) => console.error('[audit-fixes] failed:', error.message));
+    .catch((error) => console.error('[audit-fixes] failed:', error.message))
+    .then(() => require('./services/audit-fixes.service').applySecond())
+    .catch((error) => console.error('[audit-fixes-2] failed:', error.message));
   // Daily reminder of enquiries still "New" after 2 days (followup.service.js).
   require('./services/followup.service').startDailyReminder();
   // Spec sheet PDFs: make the missing/out-of-date ones in the background, 2 minutes after start.

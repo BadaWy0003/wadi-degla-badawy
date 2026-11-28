@@ -7,6 +7,7 @@ import 'react-phone-input-2/lib/style.css';
 import countryList from 'react-select-country-list';
 import PhoneInput from 'react-phone-input-2';
 import { sourceForForm } from '../../util/visit-source';
+import LangLink from '../LangLink';
 import Select from 'react-select';
 import { useTranslation } from 'react-i18next';
 
@@ -503,7 +504,10 @@ export default function ContactForm({ quote = null }) {
               </>
             )}
           </button>
-          <p className="cx-privacy">{t('contactForm.privacyNote')}</p>
+          <p className="cx-privacy">
+            {t('contactForm.privacyNote')}{' '}
+            <LangLink href="/privacy">{t('footer.privacy')}</LangLink>
+          </p>
         </div>
       </form>
     </section>
